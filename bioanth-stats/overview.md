@@ -1,0 +1,128 @@
+AN597: Project Design and Statistics</br> in Biological Anthopology
+================
+Christopher A Schmitt</br>Boston University
+March 28, 2017
+
+------------------------------------------------------------------------
+
+<center>
+<p>
+<img src="https://qph.ec.quoracdn.net/main-qimg-527cbeca6d5ab2127118ace7d469b087">
+</p>
+</center>
+
+------------------------------------------------------------------------
+
+<center>
+<b>Fall 2017, Seminar is held on Tuesdays, 3:30 - 6:15pm in BSC B07</b>
+</center>
+
+------------------------------------------------------------------------
+
+### Faculty Instructor:
+
+**Christopher A. Schmitt**, Assistant Professor of Anthropology and Biology
+Office: 232 Bay State Road, Room 104B
+Office Hours: TBA
+Web: <http://www.evopropinquitous.net>
+Email: caschmit\[at\]bu\[dot\]edu
+Twitter: <http://www.twitter.com/fuzzyatelin>
+
+### Course Outline
+
+### Modules
+
+### Resources
+
+### Policies
+
+### Course Description
+
+------------------------------------------------------------------------
+
+Statistical methods are the backbone of scientific research, but are often given short shrift when designing research in biological anthropology. The purpose of this seminar is two-fold: 1) to familiarize students with the use of relevant statistical programming packages (primarily R), and 2) to discuss select advances in statistical techniques from related disciplines that may help students while designing and implementing their own research projects.
+
+Potential foci of discussion may include statistical methods for accounting for small sample sizes or non-normal data, using power analyses and preliminary statistics to justify data collection design, and the use of mixed models and information theoretic approaches to analyze a number of different data types. Although there will be a discussion element to the seminar, students should see this course as a guided workshop or practicum in which we learn by working with both our own and previously published datasets.
+
+### Prerequisites
+
+------------------------------------------------------------------------
+
+CAS AN 102, and consent of instructor. At least one semester of introductory statistics is recommended, but not required. Prior experience programming is helpful, but also not required.
+
+### Course Format
+
+------------------------------------------------------------------------
+
+This is a 4 credit seminar course. Seminar will be held once a week for a total of 3 hours. Please bring laptops or tablets to class loaded with appropriate software for course exercises (these can be found in Resources, above). Within CAS, these credits count as NS divisional credits towards the BA.
+
+### Assessment
+
+------------------------------------------------------------------------
+
+Performance in the class will be assessed as follows:
+1. 50 points: Regular attendance and class participation.
+2. 50 points (10 x 5): Class coding quizzes.
+3. 100 points (10 x Programming homework sets, 10 x 10 points)
+4. 100 points: One individual <b>data analysis replication assignment</b> based on a published paper with a publicly available dataset, chosen in consultation with the instructor.
+5. 100 points: One <b>group presentation and written R vignette</b> demonstrating the use of a particular statistical method chosen in consultation with the instructor.
+
+### Required Texts
+
+------------------------------------------------------------------------
+
+<li>
+Kabacoff R. 2015. <i>R in Action, 2nd Edition</i>. New York: Manning Publications.
+</li>
+<center>
+<p>
+<img src="https://www.safaribooksonline.com/library/cover/9781617291388/360h/" height="168" width="140">
+</p>
+</center>
+<li>
+Tillman D. 2016. <i>The Book of R: A First Course in Programming and Statistics</i>. San Francisco: No Starch Press.
+</li>
+<center>
+<p>
+<img src="https://www.nostarch.com/sites/default/files/styles/uc_product_full/public/bookofR_cover-front.png?itok=CiV_iMFZ" height="168" width="140">
+</p>
+</center>
+<br> *Tillman* available in print or electronic format from [No Starch Press](https://www.nostarch.com/) and [O'Reilly Media](https://www.oreilly.com/); *Kabacoff* availble in print or electronic format from [Manning Publications](https://www.manning.com/books/r-in-action-second-edition); both texts are available at [Amazon.com](https://www.amazon.com/).
+
+### Optional Texts
+
+------------------------------------------------------------------------
+
+<li>
+Dalgaard P. 2008. <i>Introductory Statistics with R, 2nd Edition</i>. New York: Springer.
+</li>
+<li>
+Crawley MJ. 2014. <i>Statistics: An Introduction Using R, 2nd Edition</i>. Chichester, UK: John Wiley & Sons, Inc.
+</li>
+### Learning Objectives
+
+------------------------------------------------------------------------
+
+By the end of this course, you should:
+
+<li>
+be familiar with key concepts and methods in applied data science for acquiring and managing data, conducting exploratory data analyses, testing statistical hypotheses, building models to classify and make predictions about data, and evaluating model performance;
+
+<li>
+have a facility with modern tools for data analysis, (e.g., the Unix command line, version control systems, the R programming environment, web APIs) and be able to apply "best practices" in data science;
+
+<li>
+know how to interact with both local and remote data sources to store, query, process, and analyze data presented a variety of common formats (e.g., delimited text files, structured text files, various database systems);
+
+<li>
+be comfortable writing simple computer programs for data management, statistical analysis, visualization, and more specialized applications;
+
+<li>
+know how to design and implement reproducible data science workflows that take a project from data acquisition to analysis to presentation and be able to organize your work using a version control system;
+
+<li>
+be able to accurately assess, critique, and reproduce existing published works utilizing public and open source data repositories and analytical techniques;
+
+<li>
+and be able to apply all of these tools to questions of interest in the natural and social sciences.
+</li>
