@@ -1,4 +1,2 @@
 name: "bioanth-stats"
 output_dir: "."
-output:
-  css: css/rmarkdown.css
