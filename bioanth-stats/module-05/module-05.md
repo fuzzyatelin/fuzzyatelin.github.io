@@ -12,17 +12,17 @@ Objectives
 Preliminaries
 -------------
 
--   GO TO: <https://github.com/difiore/ADA2016>, select the `.txt` version of *Country-Data-2016*, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally. Do the same for the `.csv` version.
+-   GO TO: <https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN597_Fall17/>, select the `.txt` version of *Country-Data-2016*, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally. Do the same for the `.csv` version.
 
 This data set consists of basic statistics (area, current population size, birth rate, death rate, life expectancy, and form of government) for 249 countries taken from [WorldData.info](https://www.worlddata.info) that I have combined with data from the International Union for the Conservation of Nature (IUCN)'s [Red List Summary Statistics](http://www.iucnredlist.org/about/summary-statistics) about the number of threatened animal species by country.
 
 -   From the same page, select the `.xlsx` version of **CPDS-1960-2014-reduced**, then press `DOWNLOAD` and save it locally. Also download these data in `.txt` and `.csv` formats using the procedure described above.
 
-This is a version of the *Comparative Political Data Set (CPDS)*, which is "a collection of political and institutional country-level data provided by Prof. Dr. Klaus Armingeon and collaborators at the University of Berne. It consists of annual data for 36 democratic countries for the period of 1960 to 2014 or since their transition to democracy" (Armingeon et al. 2016). The full dataset consists of 300 variables, which I have pared down to a smaller set of economical and population size variables.
+This is a version of the [*Comparative Political Data Set (CPDS)*](http://www.cpds-data.org/), which is "a collection of political and institutional country-level data provided by Prof. Dr. Klaus Armingeon and collaborators at the University of Berne. It consists of annual data for 36 democratic countries for the period of 1960 to 2014 or since their transition to democracy" (Armingeon et al. 2016). The full dataset consists of 300 variables, which I have pared down to a smaller set of economical and population size variables.
 
 > **CITATION:** Armingeon K, Isler C, Knöpfel L, Weisstanner D, and Engler S. 2016. Comparative Political Data Set 1960-2014. Bern: Institute of Political Science, University of Berne.
 
--   Install these packages in ***R***: {readr}, {curl}, {readxl}, {XLConnect}, {rdrop2}, {repmis}
+-   Install these packages in ***R***: [{readr}](https://cran.r-project.org/web/packages/readr/readr.pdf), [{curl}](https://cran.r-project.org/web/packages/curl/curl.pdf), [{readxl}](https://cran.r-project.org/web/packages/readxl/readxl.pdf), [{XLConnect}](https://cran.r-project.org/web/packages/XLConnect/XLConnect.pdf), [{rdrop2}](https://cran.r-project.org/web/packages/rdrop2/rdrop2.pdf), [{repmis}](https://cran.r-project.org/web/packages/repmis/repmis.pdf), [{googlesheets}](https://cran.r-project.org/web/packages/googlesheets/googlesheets.pdf)
 
 The Backstory
 -------------
@@ -250,7 +250,7 @@ d <- read_tsv(f, col_names = TRUE)  # for tab-separated files
 head(d)
 ```
 
-    ## # A tibble: 6 × 20
+    ## # A tibble: 6 x 20
     ##    year   country gov_right1 gov_cent1 gov_left1 gov_party      elect
     ##   <int>     <chr>      <dbl>     <dbl>     <dbl>     <int>      <chr>
     ## 1  1960 Australia        100         0         0         1       <NA>
@@ -295,7 +295,7 @@ d <- read_delim(f, delim = "\t", col_names = TRUE)
 head(d)
 ```
 
-    ## # A tibble: 6 × 20
+    ## # A tibble: 6 x 20
     ##    year   country gov_right1 gov_cent1 gov_left1 gov_party      elect
     ##   <int>     <chr>      <dbl>     <dbl>     <dbl>     <int>      <chr>
     ## 1  1960 Australia        100         0         0         1       <NA>
@@ -330,7 +330,7 @@ d <- read_csv(f, col_names = TRUE)  # for comma-separated files
 head(d)
 ```
 
-    ## # A tibble: 6 × 20
+    ## # A tibble: 6 x 20
     ##    year   country gov_right1 gov_cent1 gov_left1 gov_party      elect
     ##   <int>     <chr>      <dbl>     <dbl>     <dbl>     <int>      <chr>
     ## 1  1960 Australia        100         0         0         1       <NA>
@@ -365,7 +365,7 @@ d <- read_delim(f, delim = ",", col_names = TRUE)
 head(d)
 ```
 
-    ## # A tibble: 6 × 20
+    ## # A tibble: 6 x 20
     ##    year   country gov_right1 gov_cent1 gov_left1 gov_party      elect
     ##   <int>     <chr>      <dbl>     <dbl>     <dbl>     <int>      <chr>
     ## 1  1960 Australia        100         0         0         1       <NA>
@@ -400,23 +400,15 @@ d <- read_excel(f, sheet = 1, col_names = TRUE)
 head(d)
 ```
 
-    ## # A tibble: 6 × 20
-    ##    year   country gov_right1 gov_cent1 gov_left1 gov_party      elect
-    ##   <dbl>     <chr>      <dbl>     <dbl>     <dbl>     <dbl>     <dttm>
-    ## 1  1960 Australia        100         0         0         1       <NA>
-    ## 2  1961 Australia        100         0         0         1 1961-12-09
-    ## 3  1962 Australia        100         0         0         1       <NA>
-    ## 4  1963 Australia        100         0         0         1 1963-11-30
-    ## 5  1964 Australia        100         0         0         1       <NA>
-    ## 6  1965 Australia        100         0         0         1       <NA>
-    ##   vturn
-    ##   <dbl>
-    ## 1  95.5
-    ## 2  95.3
-    ## 3  95.3
-    ## 4  95.7
-    ## 5  95.7
-    ## 6  95.7
+    ## # A tibble: 6 x 20
+    ##    year   country gov_right1 gov_cent1 gov_left1 gov_party      elect vturn
+    ##   <dbl>     <chr>      <dbl>     <dbl>     <dbl>     <dbl>     <dttm> <dbl>
+    ## 1  1960 Australia        100         0         0         1         NA  95.5
+    ## 2  1961 Australia        100         0         0         1 1961-12-09  95.3
+    ## 3  1962 Australia        100         0         0         1         NA  95.3
+    ## 4  1963 Australia        100         0         0         1 1963-11-30  95.7
+    ## 5  1964 Australia        100         0         0         1         NA  95.7
+    ## 6  1965 Australia        100         0         0         1         NA  95.7
     ## # ... with 12 more variables: womenpar <dbl>, realgdpgr <dbl>,
     ## #   inflation <dbl>, debt_hist <dbl>, deficit <dbl>, ttl_labf <dbl>,
     ## #   labfopar <dbl>, unemp <dbl>, pop <dbl>, pop15_64 <dbl>, pop65 <dbl>,
@@ -458,11 +450,9 @@ require(XLConnect)
 
     ## Loading required package: XLConnectJars
 
-    ## XLConnect 0.2-12 by Mirai Solutions GmbH [aut],
+    ## XLConnect 0.2-13 by Mirai Solutions GmbH [aut],
     ##   Martin Studer [cre],
-    ##   The Apache Software Foundation [ctb, cph] (Apache POI, Apache Commons
-    ##     Codec),
-    ##   Stephen Colebourne [ctb, cph] (Joda-Time Java library),
+    ##   The Apache Software Foundation [ctb, cph] (Apache POI),
     ##   Graph Builder [ctb, cph] (Curvesapi Java library)
 
     ## http://www.mirai-solutions.com ,
@@ -546,7 +536,7 @@ We can also load files stored on a server elsewhere on the web, e.g., ***Dropbox
 
 To read `.csv` or `.txt` files directly from ***GitHub***, use the {curl} or {readr} packages.
 
-GO TO: <https://github.com/difiore/ADA2016>, select the `.csv` version of the **CPDS-1960-2014-reduced** file, then press `RAW` and copy the URL from the address box of your browser window... this is what you need to use as an argument for the functions below (you will repeat this for the `.txt` version later on)
+GO TO: <https://github.com/fuzzyatelin/AN597_Fall17/>, select the `.csv` version of the **CPDS-1960-2014-reduced** file, then press `RAW` and copy the URL from the address box of your browser window... this is what you need to use as an argument for the functions below (you will repeat this for the `.txt` version later on)
 
 ### Importing data from a file on a remote server using {curl}
 
@@ -564,7 +554,7 @@ library(curl)
     ##     parse_date
 
 ``` r
-f <- curl("https://raw.githubusercontent.com/difiore/ADA2016/master/CPDS-1960-2014-reduced.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/CPDS-1960-2014-reduced.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 head(d)
 ```
@@ -598,7 +588,7 @@ head(d)
 For a tab-delimited (`.tsv` or `txt`) text file...
 
 ``` r
-f <- curl("https://raw.githubusercontent.com/difiore/ADA2016/master/CPDS-1960-2014-reduced.txt")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/CPDS-1960-2014-reduced.txt")
 d <- read.table(f, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
 head(d)
 ```
@@ -633,7 +623,7 @@ head(d)
 
 ``` r
 library(readr)
-f <- "https://raw.githubusercontent.com/difiore/ADA2016/master/CPDS-1960-2014-reduced.csv"
+f <- "https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/CPDS-1960-2014-reduced.csv"
 d <- read_csv(f, col_names = TRUE)
 ```
 
@@ -652,7 +642,7 @@ d <- read_csv(f, col_names = TRUE)
 head(d)
 ```
 
-    ## # A tibble: 6 × 20
+    ## # A tibble: 6 x 20
     ##    year   country gov_right1 gov_cent1 gov_left1 gov_party      elect
     ##   <int>     <chr>      <dbl>     <dbl>     <dbl>     <int>      <chr>
     ## 1  1960 Australia        100         0         0         1       <NA>
@@ -671,7 +661,7 @@ head(d)
 ```
 
 ``` r
-f <- "https://raw.githubusercontent.com/difiore/ADA2016/master/CPDS-1960-2014-reduced.txt"
+f <- "https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/CPDS-1960-2014-reduced.txt"
 d <- read_tsv(f, col_names = TRUE)
 ```
 
@@ -690,7 +680,7 @@ d <- read_tsv(f, col_names = TRUE)
 head(d)
 ```
 
-    ## # A tibble: 6 × 20
+    ## # A tibble: 6 x 20
     ##    year   country gov_right1 gov_cent1 gov_left1 gov_party      elect
     ##   <int>     <chr>      <dbl>     <dbl>     <dbl>     <int>      <chr>
     ## 1  1960 Australia        100         0         0         1       <NA>
@@ -731,7 +721,7 @@ This same process can be done to load data from other types of delimited files i
 You can also read text files from someone else's ***Dropbox*** account using a link that they have shared with you.
 
 ``` r
-link <- "https://www.dropbox.com/s/5x2go0xxgkf0ig1/CPDS-1960-2014-reduced.csv?dl=0"
+link <- "https://www.dropbox.com/s/hft09jnpjepy1a1/CPDS-1960-2014-reduced.csv?dl=0"
 ```
 
 **NOTE:** Shared ***Dropbox*** links like this one will take you to a webpage that has the data embedded... to get the raw data you need to change the end of the link from **dl=0** to **dl=1** or **raw=1**. That's what the next line of code does:
@@ -790,7 +780,7 @@ str(d)
     ##  $ pop65     : num  875 895 914 933 948 ...
     ##  $ elderly   : num  8.51 8.51 8.54 8.55 8.52 8.52 8.5 8.47 8.44 8.37 ...
 
-You can also use the `source_data()` function from the {repmis} package ("Miscellaneous Tools for Reproducible Research") to load data from a file on ***Dropbox***. This function detects column types and gives a few more warnings than others if it encounters somthing odd.
+You can also use the `source_data()` function from the {repmis} package ("Miscellaneous Tools for Reproducible Research") to load data from a file on ***Dropbox***. This function detects column types and gives a few more warnings than others if it encounters something odd.
 
 ``` r
 require(repmis)
@@ -802,7 +792,7 @@ require(repmis)
 d <- source_data(link, header = TRUE, sep = ",")  # use the same updated link to the raw data as above
 ```
 
-    ## Downloading data from: https://www.dropbox.com/s/5x2go0xxgkf0ig1/CPDS-1960-2014-reduced.csv?dl=1
+    ## Downloading data from: https://www.dropbox.com/s/hft09jnpjepy1a1/CPDS-1960-2014-reduced.csv?dl=1
 
     ## SHA-1 hash of the downloaded data file is:
     ## cb733faba9bdc71bbf10b71996043365a5755240
@@ -859,127 +849,18 @@ str(d)
     ##  $ pop65     : num  875 895 914 933 948 ...
     ##  $ elderly   : num  8.51 8.51 8.54 8.55 8.52 8.52 8.5 8.47 8.44 8.37 ...
 
-### Importing data from files in ***UT Box***
+Finally, you can also load data directly from ***google sheets*** into ***R*** using the {googlesheets} package. Try saving the ***CPDS-1960-2014-reduced*** file as a google sheet and extracting it into ***R*** using the code below.
 
-Finally, you can also load tabular data from ***UT Box*** using a *direct link* that someone has shared with you (these links are those that come from the *Advanced Settings* menu).
+**NOTE:** The following code block cannot be "knit" to show you the output because it requires an interactive ***R*** environment for `gs_ls()`, `get_title()`, etc. If the package does not take you to a webpage login for ***google sheets*** upon the `gs_ls()` command, you may need to install the package [{httpuv}](https://cran.r-project.org/web/packages/httpuv/httpuv.pdf) separately.
 
 ``` r
-link <- "https://utexas.box.com/shared/static/h83gdk6wpy5r8cifftaci3cexc52t4fr.csv"
-d <- read.csv(link, sep = ",", header = TRUE, stringsAsFactors = FALSE)
+require(googlesheets)
+gs_ls()  # gives you the option to log in to a google sheets account and see options for download
+get_title("CPDS-1960-2014-reduced")  # shows you worksheets from the file to which you have access
+d <- gs_read("CPDS-1960-2014-reduced")
 head(d)
-```
-
-    ##   year   country gov_right1 gov_cent1 gov_left1 gov_party      elect vturn
-    ## 1 1960 Australia        100         0         0         1             95.5
-    ## 2 1961 Australia        100         0         0         1 09/12/1961  95.3
-    ## 3 1962 Australia        100         0         0         1             95.3
-    ## 4 1963 Australia        100         0         0         1 30/11/1963  95.7
-    ## 5 1964 Australia        100         0         0         1             95.7
-    ## 6 1965 Australia        100         0         0         1             95.7
-    ##   womenpar realgdpgr inflation debt_hist deficit ttl_labf labfopar unemp
-    ## 1        0        NA      3.73     40.15    0.46  4215.00       NA  1.25
-    ## 2        0     -0.64      2.29     38.62   -0.36  4286.00       NA  2.46
-    ## 3        0      5.77     -0.32     38.75   -0.79  4382.00       NA  2.32
-    ## 4        0      6.01      0.64     37.34   -0.51  4484.00       NA  1.87
-    ## 5        0      6.26      2.87     35.31   -0.08  4610.80    67.24  1.45
-    ## 6        0      4.99      3.41     53.99   -0.73  4745.95    67.66  1.36
-    ##       pop pop15_64 pop65 elderly
-    ## 1 10275.0   6296.5 874.9    8.51
-    ## 2 10508.2   6428.6 894.6    8.51
-    ## 3 10700.5   6571.5 913.6    8.54
-    ## 4 10906.9   6710.9 933.0    8.55
-    ## 5 11121.6   6857.3 948.1    8.52
-    ## 6 11340.9   7014.6 966.3    8.52
-
-``` r
 str(d)
 ```
-
-    ## 'data.frame':    1578 obs. of  20 variables:
-    ##  $ year      : int  1960 1961 1962 1963 1964 1965 1966 1967 1968 1969 ...
-    ##  $ country   : chr  "Australia" "Australia" "Australia" "Australia" ...
-    ##  $ gov_right1: num  100 100 100 100 100 100 100 100 100 100 ...
-    ##  $ gov_cent1 : num  0 0 0 0 0 0 0 0 0 0 ...
-    ##  $ gov_left1 : num  0 0 0 0 0 0 0 0 0 0 ...
-    ##  $ gov_party : int  1 1 1 1 1 1 1 1 1 1 ...
-    ##  $ elect     : chr  "" "09/12/1961" "" "30/11/1963" ...
-    ##  $ vturn     : num  95.5 95.3 95.3 95.7 95.7 95.7 95.1 95.1 95.1 95 ...
-    ##  $ womenpar  : num  0 0 0 0 0 0 0.8 0.8 0.8 0 ...
-    ##  $ realgdpgr : num  NA -0.64 5.77 6.01 6.26 4.99 2.93 7.19 5.3 6.25 ...
-    ##  $ inflation : num  3.73 2.29 -0.32 0.64 2.87 3.41 3.29 3.48 2.52 3.28 ...
-    ##  $ debt_hist : num  40.1 38.6 38.8 37.3 35.3 ...
-    ##  $ deficit   : num  0.46 -0.36 -0.79 -0.51 -0.08 -0.73 -1.81 -1.81 -1.35 -0.15 ...
-    ##  $ ttl_labf  : num  4215 4286 4382 4484 4611 ...
-    ##  $ labfopar  : num  NA NA NA NA 67.2 ...
-    ##  $ unemp     : num  1.25 2.46 2.32 1.87 1.45 1.36 1.69 1.82 1.65 1.57 ...
-    ##  $ pop       : num  10275 10508 10700 10907 11122 ...
-    ##  $ pop15_64  : num  6296 6429 6572 6711 6857 ...
-    ##  $ pop65     : num  875 895 914 933 948 ...
-    ##  $ elderly   : num  8.51 8.51 8.54 8.55 8.52 8.52 8.5 8.47 8.44 8.37 ...
-
-Or, alternatively, using {repmis}...
-
-``` r
-require(repmis)
-d <- source_data(link, header = TRUE, sep = ",")
-```
-
-    ## Downloading data from: https://utexas.box.com/shared/static/h83gdk6wpy5r8cifftaci3cexc52t4fr.csv
-
-    ## SHA-1 hash of the downloaded data file is:
-    ## cb733faba9bdc71bbf10b71996043365a5755240
-
-``` r
-head(d)
-```
-
-    ##   year   country gov_right1 gov_cent1 gov_left1 gov_party      elect vturn
-    ## 1 1960 Australia        100         0         0         1             95.5
-    ## 2 1961 Australia        100         0         0         1 09/12/1961  95.3
-    ## 3 1962 Australia        100         0         0         1             95.3
-    ## 4 1963 Australia        100         0         0         1 30/11/1963  95.7
-    ## 5 1964 Australia        100         0         0         1             95.7
-    ## 6 1965 Australia        100         0         0         1             95.7
-    ##   womenpar realgdpgr inflation debt_hist deficit ttl_labf labfopar unemp
-    ## 1        0        NA      3.73     40.15    0.46  4215.00       NA  1.25
-    ## 2        0     -0.64      2.29     38.62   -0.36  4286.00       NA  2.46
-    ## 3        0      5.77     -0.32     38.75   -0.79  4382.00       NA  2.32
-    ## 4        0      6.01      0.64     37.34   -0.51  4484.00       NA  1.87
-    ## 5        0      6.26      2.87     35.31   -0.08  4610.80    67.24  1.45
-    ## 6        0      4.99      3.41     53.99   -0.73  4745.95    67.66  1.36
-    ##       pop pop15_64 pop65 elderly
-    ## 1 10275.0   6296.5 874.9    8.51
-    ## 2 10508.2   6428.6 894.6    8.51
-    ## 3 10700.5   6571.5 913.6    8.54
-    ## 4 10906.9   6710.9 933.0    8.55
-    ## 5 11121.6   6857.3 948.1    8.52
-    ## 6 11340.9   7014.6 966.3    8.52
-
-``` r
-str(d)
-```
-
-    ## 'data.frame':    1578 obs. of  20 variables:
-    ##  $ year      : int  1960 1961 1962 1963 1964 1965 1966 1967 1968 1969 ...
-    ##  $ country   : chr  "Australia" "Australia" "Australia" "Australia" ...
-    ##  $ gov_right1: num  100 100 100 100 100 100 100 100 100 100 ...
-    ##  $ gov_cent1 : num  0 0 0 0 0 0 0 0 0 0 ...
-    ##  $ gov_left1 : num  0 0 0 0 0 0 0 0 0 0 ...
-    ##  $ gov_party : int  1 1 1 1 1 1 1 1 1 1 ...
-    ##  $ elect     : chr  "" "09/12/1961" "" "30/11/1963" ...
-    ##  $ vturn     : num  95.5 95.3 95.3 95.7 95.7 95.7 95.1 95.1 95.1 95 ...
-    ##  $ womenpar  : num  0 0 0 0 0 0 0.8 0.8 0.8 0 ...
-    ##  $ realgdpgr : num  NA -0.64 5.77 6.01 6.26 4.99 2.93 7.19 5.3 6.25 ...
-    ##  $ inflation : num  3.73 2.29 -0.32 0.64 2.87 3.41 3.29 3.48 2.52 3.28 ...
-    ##  $ debt_hist : num  40.1 38.6 38.8 37.3 35.3 ...
-    ##  $ deficit   : num  0.46 -0.36 -0.79 -0.51 -0.08 -0.73 -1.81 -1.81 -1.35 -0.15 ...
-    ##  $ ttl_labf  : num  4215 4286 4382 4484 4611 ...
-    ##  $ labfopar  : num  NA NA NA NA 67.2 ...
-    ##  $ unemp     : num  1.25 2.46 2.32 1.87 1.45 1.36 1.69 1.82 1.65 1.57 ...
-    ##  $ pop       : num  10275 10508 10700 10907 11122 ...
-    ##  $ pop15_64  : num  6296 6429 6572 6711 6857 ...
-    ##  $ pop65     : num  875 895 914 933 948 ...
-    ##  $ elderly   : num  8.51 8.51 8.54 8.55 8.52 8.52 8.5 8.47 8.44 8.37 ...
 
 Downloading Files from a Remote Server
 --------------------------------------
@@ -1007,3 +888,20 @@ f <- f$path  # $path is the location of the results returned above
 drop_get(f, local_file = paste0("~/Desktop/", filename), overwrite = TRUE, progress = TRUE)
 # again, saves to the desktop
 ```
+
+You can also download files directly to your computer from google sheets using the {googlesheets} package.
+
+``` r
+gs_title("CPDS-1960-2014-reduced")  #identifies the sheet you wish to download
+gs_download("CPDS-1960-2014-reduced", to = "CPDS-1960-2014-reduced.xlsx")
+# in this case, should save to your working directory
+```
+
+More on the basics of using {googlesheets} for more refined data downloading and formatting can be found [here](https://cran.r-project.org/web/packages/googlesheets/vignettes/basic-usage.html#download-sheets-as-csv-pdf-or-xlsx-file).
+
+Downloading Files from Other Statistical Programs
+-------------------------------------------------
+
+***R*** is pretty great, but you may have analyses and datasets already formatted for other statistical programs. For more advice and tips on how to download other forms of data into R, including datasets and outputs from other statistical packages such as ***SAS***, ***Stata***, and ***SPSS***, check out [this webpage](https://www.r-bloggers.com/this-r-data-import-tutorial-is-everything-you-need/).
+
+For folks more intimately familiar with the statistical program ***MATLAB***, there are a number of resources like [this handy guide](http://mathesaurus.sourceforge.net/octave-r.html), and an entire package, [{R.matlab}](https://cran.r-project.org/web/packages/R.matlab/R.matlab.pdf), that allows ***MATLAB*** users to interface with ***R***.

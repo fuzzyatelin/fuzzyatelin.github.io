@@ -1,8 +1,8 @@
 ---
 title: "Module 05"
-by: Anthony Di Fiore, with modifications by Christopher A. Schmitt
+by: Anthony Di Fiore & Christopher A. Schmitt
 output:
-    github_document
+    html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 
 ## Preliminaries
 
-- GO TO: https://github.com/fuzzyatelin/AN597_Fall17/, select the `.txt` version of *Country-Data-2016*, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally. Do the same for the `.csv` version.
+- GO TO: https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN597_Fall17/, select the `.txt` version of *Country-Data-2016*, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally. Do the same for the `.csv` version.
 
 This data set consists of basic statistics (area, current population size, birth rate, death rate, life expectancy, and form of government) for 249 countries taken from [WorldData.info](https://www.worlddata.info) that I have combined with data from the International Union for the Conservation of Nature (IUCN)'s [Red List Summary Statistics](http://www.iucnredlist.org/about/summary-statistics) about the number of threatened animal species by country.
 
@@ -186,14 +186,14 @@ GO TO: https://github.com/fuzzyatelin/AN597_Fall17/, select the `.csv` version o
 For a comma-separated value (`.csv`) text file...
 ``` {r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/AN597_Fall17/master/CPDS-1960-2014-reduced.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/CPDS-1960-2014-reduced.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 head(d)
 # returns a data frame
 ```
 For a tab-delimited (`.tsv` or `txt`) text file...
 ``` {r}
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/AN597_Fall17/master/CPDS-1960-2014-reduced.txt")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/CPDS-1960-2014-reduced.txt")
 d <- read.table(f, header = TRUE, sep="\t", stringsAsFactors = FALSE)
 head(d)
 # returns a data frame
@@ -202,13 +202,13 @@ head(d)
 ### Importing data from a file on a remote server using {readr}
 ``` {r}
 library(readr)
-f <- "https://raw.githubusercontent.com/fuzzyatelin/AN597_Fall17/master/CPDS-1960-2014-reduced.csv"
+f <- "https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/CPDS-1960-2014-reduced.csv"
 d <- read_csv(f, col_names = TRUE)
 head(d)
 # returns a "tibble", a new version of a data frame
 ```
 ``` {r}
-f <- "https://raw.githubusercontent.com/fuzzyatelin/AN597_Fall17/master/CPDS-1960-2014-reduced.txt"
+f <- "https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/CPDS-1960-2014-reduced.txt"
 d <- read_tsv(f, col_names = TRUE)
 head(d)
 # returns a "tibble", a new version of a data frame
@@ -236,7 +236,7 @@ This same process can be done to load data from other types of delimited files i
 
 You can also read text files from someone else's ***Dropbox*** account using a link that they have shared with you.
 ``` {r}
-link <- "https://www.dropbox.com/s/5x2go0xxgkf0ig1/CPDS-1960-2014-reduced.csv?dl=0"
+link <- "https://www.dropbox.com/s/hft09jnpjepy1a1/CPDS-1960-2014-reduced.csv?dl=0"
 ```
 
 **NOTE:** Shared ***Dropbox*** links like this one will take you to a webpage that has the data embedded... to get the raw data you need to change the end of the link from **dl=0** to **dl=1** or **raw=1**. That's what the next line of code does:
@@ -301,3 +301,8 @@ gs_download("CPDS-1960-2014-reduced",to="CPDS-1960-2014-reduced.xlsx")
 ```
 
 More on the basics of using {googlesheets} for more refined data downloading and formatting can be found [here](https://cran.r-project.org/web/packages/googlesheets/vignettes/basic-usage.html#download-sheets-as-csv-pdf-or-xlsx-file).
+
+## Downloading Files from Other Statistical Programs
+***R*** is pretty great, but you may have analyses and datasets already formatted for other statistical programs. For more advice and tips on how to download other forms of data into R, including datasets and outputs from other statistical packages such as ***SAS***, ***Stata***, and ***SPSS***, check out [this webpage](https://www.r-bloggers.com/this-r-data-import-tutorial-is-everything-you-need/).
+
+For folks more intimately familiar with the statistical program ***MATLAB***, there are a number of resources like [this handy guide](http://mathesaurus.sourceforge.net/octave-r.html), and an entire package, [{R.matlab}](https://cran.r-project.org/web/packages/R.matlab/R.matlab.pdf), that allows ***MATLAB*** users to interface with ***R***.
