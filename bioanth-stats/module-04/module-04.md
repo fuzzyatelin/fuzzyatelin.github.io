@@ -1,5 +1,6 @@
 Module 04
 ================
+by Anthony Di Fiore, with modifications by Christopher A. Schmitt
 
 Working with Other Data Structures
 ==================================
@@ -12,9 +13,9 @@ Objectives
 Preliminaries
 -------------
 
--   GO TO: <https://github.com/difiore/ADA2016>, select the **random-people.csv** file, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally.
+-   GO TO: <https://github.com/fuzzyatelin/AN597_Fall17/>, select the **random-people.csv** file, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally.
 
--   Install this package in ***R***: {stringr}
+-   Install this package in ***R***: [{stringr}](https://cran.r-project.org/web/packages/stringr/stringr.pdf)
 
 The Backstory
 -------------
@@ -79,7 +80,7 @@ m2
     ## [3,]  3  8
     ## [4,]  4  9
 
-Metadata about a matrix can be extracted using the `class()`, `dim()`, `names()`, `rownames()`, `colnames()` and other commands. The `dim()` command returns an vector containing the number of rows at index position 1 and the number of columns at index position 2.
+Metadata about a matrix can be extracted using the `class()`, `dim()`, `names()`, `rownames()`, `colnames()` and other commands. The `dim()` command returns a vector containing the number of rows at index position 1 and the number of columns at index position 2.
 
 ``` r
 class(m1)
@@ -212,7 +213,7 @@ v[seq(from = 1, to = 100, by = 2)]
 
 #### CHALLENGE:
 
--   First, create a vector of 1 word character strings comprising the first line of the Gettysburg address: "Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal."
+-   First, create a vector of 1 word character strings comprising the first line of the *Ulysses*, by James Joyce: "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
 
 -   Then, extract every third element of this vector.
 
@@ -508,7 +509,7 @@ df[, 3]
 str(df[, 3])
 ```
 
-    ##  chr [1:20] "ted" "quentin" "laura" "ismael" "susana" ...
+    ##  chr [1:20] "ted" "quentin" "laura" "ismael" "susana" "mason" "lutz" ...
 
 ``` r
 # returns a vector of data in column 3
@@ -527,7 +528,7 @@ df$name.last
 str(df$name.last)
 ```
 
-    ##  chr [1:20] "wright" "schmitt" "johansen" "herrero" "blanco" ...
+    ##  chr [1:20] "wright" "schmitt" "johansen" "herrero" "blanco" "wilson" ...
 
 ``` r
 # returns a vector of data for column *name.last*
@@ -612,9 +613,9 @@ You can add rows (additional cases) or columns (additional variables) to a data 
 ``` r
 df <- cbind(df, id = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 
     17, 18, 19, 20))
-df <- cbind(df, school = c("UT", "UT", "A&M", "A&M", "UT", "Rice", "Texas Tech", 
-    "UT", "UT", "Texas State", "A&M", "UT", "Rice", "UT", "A&M", "Texas Tech", 
-    "A&M", "UT", "Texas State", "A&M"))
+df <- cbind(df, school = c("BU", "BU", "Harvard", "Harvard", "BU", "Boston College", 
+    "MIT", "BU", "BU", "UMASS Boston", "Harvard", "BU", "Boston College", "BU", 
+    "Harvard", "MIT", "Harvard", "BU", "UMASS Boston", "Harvard"))
 df
 ```
 
@@ -702,34 +703,34 @@ df
     ## 18  7/18/91 14:30    3/17/14 7:13     02-351-279  043-436-42-30
     ## 19   6/18/89 5:06  12/24/12 12:08   618-983-5566   088-025-2948
     ## 20  8/12/61 12:13    7/19/03 1:08   0503-3338884   0175-7158431
-    ##                                       picture.large nat id      school
-    ## 1    https://randomuser.me/api/portraits/men/48.jpg  AU  1          UT
-    ## 2    https://randomuser.me/api/portraits/men/53.jpg  FR  2          UT
-    ## 3  https://randomuser.me/api/portraits/women/70.jpg  DK  3         A&M
-    ## 4    https://randomuser.me/api/portraits/men/79.jpg  ES  4         A&M
-    ## 5  https://randomuser.me/api/portraits/women/18.jpg  ES  5          UT
-    ## 6    https://randomuser.me/api/portraits/men/60.jpg  NZ  6        Rice
-    ## 7    https://randomuser.me/api/portraits/men/31.jpg  DE  7  Texas Tech
-    ## 8  https://randomuser.me/api/portraits/women/65.jpg  US  8          UT
-    ## 9    https://randomuser.me/api/portraits/men/94.jpg  TR  9          UT
-    ## 10   https://randomuser.me/api/portraits/men/82.jpg  FR 10 Texas State
-    ## 11   https://randomuser.me/api/portraits/men/84.jpg  CH 11         A&M
-    ## 12   https://randomuser.me/api/portraits/men/80.jpg  FI 12          UT
-    ## 13 https://randomuser.me/api/portraits/women/15.jpg  IE 13        Rice
-    ## 14 https://randomuser.me/api/portraits/women/49.jpg  GB 14          UT
-    ## 15 https://randomuser.me/api/portraits/women/50.jpg  DE 15         A&M
-    ## 16 https://randomuser.me/api/portraits/women/67.jpg  GB 16  Texas Tech
-    ## 17    https://randomuser.me/api/portraits/men/9.jpg  CH 17         A&M
-    ## 18 https://randomuser.me/api/portraits/women/68.jpg  FI 18          UT
-    ## 19   https://randomuser.me/api/portraits/men/61.jpg  CA 19 Texas State
-    ## 20   https://randomuser.me/api/portraits/men/49.jpg  DE 20         A&M
+    ##                                       picture.large nat id         school
+    ## 1    https://randomuser.me/api/portraits/men/48.jpg  AU  1             BU
+    ## 2    https://randomuser.me/api/portraits/men/53.jpg  FR  2             BU
+    ## 3  https://randomuser.me/api/portraits/women/70.jpg  DK  3        Harvard
+    ## 4    https://randomuser.me/api/portraits/men/79.jpg  ES  4        Harvard
+    ## 5  https://randomuser.me/api/portraits/women/18.jpg  ES  5             BU
+    ## 6    https://randomuser.me/api/portraits/men/60.jpg  NZ  6 Boston College
+    ## 7    https://randomuser.me/api/portraits/men/31.jpg  DE  7            MIT
+    ## 8  https://randomuser.me/api/portraits/women/65.jpg  US  8             BU
+    ## 9    https://randomuser.me/api/portraits/men/94.jpg  TR  9             BU
+    ## 10   https://randomuser.me/api/portraits/men/82.jpg  FR 10   UMASS Boston
+    ## 11   https://randomuser.me/api/portraits/men/84.jpg  CH 11        Harvard
+    ## 12   https://randomuser.me/api/portraits/men/80.jpg  FI 12             BU
+    ## 13 https://randomuser.me/api/portraits/women/15.jpg  IE 13 Boston College
+    ## 14 https://randomuser.me/api/portraits/women/49.jpg  GB 14             BU
+    ## 15 https://randomuser.me/api/portraits/women/50.jpg  DE 15        Harvard
+    ## 16 https://randomuser.me/api/portraits/women/67.jpg  GB 16            MIT
+    ## 17    https://randomuser.me/api/portraits/men/9.jpg  CH 17        Harvard
+    ## 18 https://randomuser.me/api/portraits/women/68.jpg  FI 18             BU
+    ## 19   https://randomuser.me/api/portraits/men/61.jpg  CA 19   UMASS Boston
+    ## 20   https://randomuser.me/api/portraits/men/49.jpg  DE 20        Harvard
 
 Alternatively, you can extend a data frame by adding a new variable directly using the **$** operator, like this:
 
 ``` r
-df$school <- c("UT", "UT", "A&M", "A&M", "UT", "Rice", "Texas Tech", "UT", "UT", 
-    "Texas State", "A&M", "UT", "Rice", "UT", "A&M", "Texas Tech", "A&M", "UT", 
-    "Texas State", "A&M")
+df$school <- c("BU", "BU", "Harvard", "Harvard", "BU", "Boston College", "MIT", 
+    "BU", "BU", "UMASS Boston", "Harvard", "BU", "Boston College", "BU", "Harvard", 
+    "MIT", "Harvard", "BU", "UMASS Boston", "Harvard")
 ```
 
 NOTE: `cbind()` results in **school** being added as a *factor* while using the **$** operator results in **school** being added as a *character* vector. You can see this by using the `str()` command.
@@ -739,10 +740,10 @@ A *factor* is another atomic data class for ***R*** for dealing efficiently with
 Filtering
 ---------
 
-Logical vectors also be used to subset data frames. Here, we subset the data frame for only those rows where the variable **school** is "COLA".
+Logical vectors may also be used to subset data frames. Here, we subset the data frame for only those rows where the variable **school** is "BU".
 
 ``` r
-new_df <- df[df$school == "UT", ]
+new_df <- df[df$school == "BU", ]
 new_df
 ```
 
@@ -783,33 +784,33 @@ new_df
     ## 14    1/9/86 8:54    12/3/11 0:41   017684 80873   0799-553-944
     ## 18  7/18/91 14:30    3/17/14 7:13     02-351-279  043-436-42-30
     ##                                       picture.large nat id school
-    ## 1    https://randomuser.me/api/portraits/men/48.jpg  AU  1     UT
-    ## 2    https://randomuser.me/api/portraits/men/53.jpg  FR  2     UT
-    ## 5  https://randomuser.me/api/portraits/women/18.jpg  ES  5     UT
-    ## 8  https://randomuser.me/api/portraits/women/65.jpg  US  8     UT
-    ## 9    https://randomuser.me/api/portraits/men/94.jpg  TR  9     UT
-    ## 12   https://randomuser.me/api/portraits/men/80.jpg  FI 12     UT
-    ## 14 https://randomuser.me/api/portraits/women/49.jpg  GB 14     UT
-    ## 18 https://randomuser.me/api/portraits/women/68.jpg  FI 18     UT
+    ## 1    https://randomuser.me/api/portraits/men/48.jpg  AU  1     BU
+    ## 2    https://randomuser.me/api/portraits/men/53.jpg  FR  2     BU
+    ## 5  https://randomuser.me/api/portraits/women/18.jpg  ES  5     BU
+    ## 8  https://randomuser.me/api/portraits/women/65.jpg  US  8     BU
+    ## 9    https://randomuser.me/api/portraits/men/94.jpg  TR  9     BU
+    ## 12   https://randomuser.me/api/portraits/men/80.jpg  FI 12     BU
+    ## 14 https://randomuser.me/api/portraits/women/49.jpg  GB 14     BU
+    ## 18 https://randomuser.me/api/portraits/women/68.jpg  FI 18     BU
 
-In this case, ***R*** evaluates the expression \`df$school == "UT" and returns a logical vector equal in length to the number of rows in **df**. It then subsets **df** based on that vector, returning only rows that evaluate to **TRUE**.
+In this case, ***R*** evaluates the expression \`df$school == "BU" and returns a logical vector equal in length to the number of rows in **df**. It then subsets **df** based on that vector, returning only rows that evaluate to **TRUE**.
 
 We can also choose to only return particular columns when we subset.
 
 ``` r
-new_df <- df[df$school == "UT", c("name.last", "name.first", "school")]
+new_df <- df[df$school == "BU", c("name.last", "name.first", "school")]
 new_df
 ```
 
     ##     name.last name.first school
-    ## 1      wright        ted     UT
-    ## 2     schmitt    quentin     UT
-    ## 5      blanco     susana     UT
-    ## 8      gordon     kaylee     UT
-    ## 9  limoncuocu     baraek     UT
-    ## 12   waisanen   valtteri     UT
-    ## 14      brown   kimberly     UT
-    ## 18       neva       ella     UT
+    ## 1      wright        ted     BU
+    ## 2     schmitt    quentin     BU
+    ## 5      blanco     susana     BU
+    ## 8      gordon     kaylee     BU
+    ## 9  limoncuocu     baraek     BU
+    ## 12   waisanen   valtteri     BU
+    ## 14      brown   kimberly     BU
+    ## 18       neva       ella     BU
 
 Factors, Conversion and Coercion, and Special Data Values
 ---------------------------------------------------------
