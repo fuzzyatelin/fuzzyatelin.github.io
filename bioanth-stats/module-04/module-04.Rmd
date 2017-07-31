@@ -2,7 +2,7 @@
 title: "Module 04"
 author: by Anthony Di Fiore, with modifications by Christopher A. Schmitt
 output:
-    github_document
+    html_document
 ---
 
 ```{r setup, include=FALSE}

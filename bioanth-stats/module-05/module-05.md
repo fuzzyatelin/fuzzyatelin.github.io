@@ -1,5 +1,6 @@
 Module 05
 ================
+by Anthony Di Fiore & Christopher A. Schmitt
 
 Getting Data into ***R***
 =========================

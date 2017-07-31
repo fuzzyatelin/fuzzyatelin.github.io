@@ -1,8 +1,8 @@
 ---
 title: "Module 05"
-by: Anthony Di Fiore & Christopher A. Schmitt
+author: by Anthony Di Fiore & Christopher A. Schmitt
 output:
-    html_document
+    github_document
 ---
 
 ```{r setup, include=FALSE}
