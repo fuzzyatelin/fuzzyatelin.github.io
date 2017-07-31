@@ -1,0 +1,303 @@
+---
+title: "Module 05"
+by: Anthony Di Fiore, with modifications by Christopher A. Schmitt
+output:
+    github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	warning = FALSE,
+	comment = "##",
+	prompt = FALSE,
+	tidy = TRUE,
+	tidy.opts = list(width.cutoff = 75),
+	fig.path = "img/"
+)
+```
+# Getting Data into ***R***
+
+## Objectives
+> The objective of this module to learn how to download data sets from various local and online sources.
+
+## Preliminaries
+
+- GO TO: https://github.com/fuzzyatelin/AN597_Fall17/, select the `.txt` version of *Country-Data-2016*, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally. Do the same for the `.csv` version.
+
+This data set consists of basic statistics (area, current population size, birth rate, death rate, life expectancy, and form of government) for 249 countries taken from [WorldData.info](https://www.worlddata.info) that I have combined with data from the International Union for the Conservation of Nature (IUCN)'s [Red List Summary Statistics](http://www.iucnredlist.org/about/summary-statistics) about the number of threatened animal species by country.
+
+- From the same page, select the `.xlsx` version of **CPDS-1960-2014-reduced**, then press `DOWNLOAD` and save it locally. Also download these data in `.txt` and `.csv` formats using the procedure described above.
+
+This is a version of the [*Comparative Political Data Set (CPDS)*](http://www.cpds-data.org/), which is "a collection of political and institutional country-level data provided by Prof. Dr. Klaus Armingeon and collaborators at the University of Berne. It consists of annual data for 36 democratic countries for the period of 1960 to 2014 or since their transition to democracy" (Armingeon et al. 2016). The full dataset consists of 300 variables, which I have pared down to a smaller set of economical and population size variables.
+
+> **CITATION:** Armingeon K, Isler C, Knöpfel L, Weisstanner D, and Engler S. 2016. Comparative Political Data Set 1960-2014. Bern: Institute of Political Science, University of Berne.
+
+- Install these packages in ***R***: [{readr}](https://cran.r-project.org/web/packages/readr/readr.pdf), [{curl}](https://cran.r-project.org/web/packages/curl/curl.pdf), [{readxl}](https://cran.r-project.org/web/packages/readxl/readxl.pdf), [{XLConnect}](https://cran.r-project.org/web/packages/XLConnect/XLConnect.pdf), [{rdrop2}](https://cran.r-project.org/web/packages/rdrop2/rdrop2.pdf), [{repmis}](https://cran.r-project.org/web/packages/repmis/repmis.pdf), [{googlesheets}](https://cran.r-project.org/web/packages/googlesheets/googlesheets.pdf)
+
+## The Backstory
+So far, we have seen how to create a variety of data structures by hand (e.g., using the `c()` function), but for larger data sets we will need mechanisms to import data into ***R***. There are many methods for importing tabular data, stored in various formats (like text files, spreadsheets, and databases).
+
+## The Tao of Text
+Plain text files are, arguably, the best way to store data (and scripts and other documents) as they are a standard format that has been around longer than most operating systems and are unlikely to change anytime soon.
+
+- Plain text does not have a version and does not age
+- Plain text files are platform and software agnostic
+- Plain text files can be opened by a wide variety of programs
+- Plain text can easily be copied and pasted into a wide range of software
+- Plain text files tend to be smaller and quicker to open then proprietary formats
+- Plain text files are easy to transmit over the web
+- Many mature and efficient software tools exist for indexing, parsing, searching, and modifying text
+- The content of plain text files looks the same on any system
+- Various flavors of **Markdown** can be used for styling plain text files, if needed
+- Plain text remains itself outside of the digital context
+
+## Loading Different Types of Plain Text Files
+
+In ***R***, we can load a data set from a plain text file using the `read.table()` function from the {base} package, with the path to the file as the first (`file=`) argument for the function. An additional argument (`header=`) can be used to specify whether the first row of the data file consists of column/field names.
+
+The generic `read.table()` function can be used to read data files where columns are separated by tabs, commas, white space, or some other delimeter. The `sep=` argument tells ***R*** what character is used as a delimiter. The `skip=` argument can be used to start reading a file after a set number of rows.
+
+There are format-specific variants of `read.table()` (e.g., `read.csv()`) that have different defaults and may be quicker for certain file types. Note that when using this function from the {base} package, the argument `stringsAsFactors` is set to be TRUE by default, and we need to set it as FALSE if we want character strings to be loaded as actual strings.
+
+Let's read in one of the data sets that you have copied and stored locally: **CPDS-1960-2014-reduced.txt**.
+
+### Reading from a local file
+
+The `file.choose()` command is useful and gives you a familiar dialog box to select a file. You can use this to specify the path to a locally-stored file.
+
+``` {r eval=FALSE}
+f <- file.choose()
+```
+
+The file paths below refer to where I have saved the downloaded data, on my **Desktop**. You will need to change this if you have saved your downloaded data to a different location.
+
+#### Loading tab-separated (`.tsv`, `.txt`) text with {base} ***R*** functions
+
+**NOTE:** In the following snippet, you can change the `sep=` argument as needed to use other delimiters
+
+``` {r}
+f <- "~/Desktop/CPDS-1960-2014-reduced.txt"
+d <- read.table(f, header = TRUE, sep ="\t", stringsAsFactors = FALSE)
+head(d) # lists the first 6 lines of data
+```
+**NOTE:** With bracket notation, you can modify how many lines the `head()` function will return: e.g., `head(d)[1:10])`
+
+``` {r}
+tail(d) # shows the last 6 lines of data
+class(d) # shows that tables are typically loaded as data frames
+```
+Or, alternatively...
+``` {r}
+d <- read.delim(f, header = TRUE, stringsAsFactors = FALSE)
+head(d)
+```
+
+#### Loading comma-separated (`.csv`) text with {base} ***R*** functions
+
+``` {r}
+f <- "~/Desktop/CPDS-1960-2014-reduced.csv"
+d <- read.table(f, header = TRUE, sep =",", stringsAsFactors = FALSE)
+head(d)
+```
+
+Or, alternatively...
+
+``` {r}
+d <- read.csv(f, header = TRUE, stringsAsFactors = FALSE)
+head(d)
+```
+
+#### Using the {readr} package
+
+The {readr} package provides alternative functions to read in delimited text files. It runs faster than the {base} package functions. It reads in an initial set of 1000 rows of the from the table to try to impute the data class for of each column. You can also specify the data class of each column with the `col_types()` function.
+
+``` {r}
+require(readr)
+f <- "~/Desktop/CPDS-1960-2014-reduced.txt"
+d <- read_tsv(f, col_names = TRUE) # for tab-separated files
+
+head(d)
+class(d)
+# returns d as a data frame, but also as other table-based data structures
+```
+
+Or, alternatively...
+``` {r}
+d <- read_delim(f, delim="\t", col_names = TRUE)
+head(d)
+```
+
+``` {r}
+require(readr)
+f <- "~/Desktop/CPDS-1960-2014-reduced.csv"
+d <- read_csv(f, col_names = TRUE) # for comma-separated files
+head(d)
+```
+
+Or, alternatively...
+``` {r}
+d <- read_delim(f, delim = ",", col_names = TRUE)
+head(d)
+```
+
+## Loading ***Excel*** Files
+While you should never need to use ***Excel***, sometimes you will no doubt be given a spreadsheet file with some data in it that you want to read in ***R***. There are several packages available that provide functions for loading data into ***R*** from ***Excel*** spreadsheet files: {readxl}, {XLConnect}, {gdata}, and {xlsx}. The first two of these are fast, easy to use, and work well. {gdata} is a bit slower and requires that you have PERL installed someone on your computer (which it is likely to be by default). {xlsx} is much slower.
+
+**NOTE:** always use `str()` to check if your variables come in as the correct data class.
+
+#### Using the {readxl} package
+``` {r}
+require(readxl)
+f <- "~/Desktop/CPDS-1960-2014-reduced.xlsx"
+d <- read_excel(f, sheet = 1, col_names = TRUE)
+head(d)
+str(d)
+```
+
+#### Using the {XLConnect} package
+``` {r}
+require(XLConnect)
+f <- "~/Desktop/CPDS-1960-2014-reduced.xlsx"
+d <- readWorksheetFromFile(f, sheet = 1, header = TRUE)
+head(d)
+str(d)
+```
+
+The {XLConnect} package can also write data frames back out to ***Excel*** worksheets. If the file does not exist, it is created. If it does exist, data is cleared and overwritten. The second process is MUCH slower. I have included a conditional statement (`if(){}`) which will implement the `file.remove()` command here, if needed.
+
+``` {r}
+f <- "~/Desktop/output.xlsx"
+if (file.exists(f)) {file.remove(f)}
+writeWorksheetToFile(f, d, sheet = "myData", clearSheets = TRUE)
+```
+
+For futher information on using {XLConnect} check out [this blog post](http://altons.github.io/r/2015/02/13/quick-intro-to-xlconnect/#worksheet).
+
+## Loading Files Stored on a Remote Server
+We can also load files stored on a server elsewhere on the web, e.g., ***Dropbox*** or ***GitHub***.
+
+To read `.csv` or `.txt` files directly from ***GitHub***, use the {curl} or {readr} packages.
+
+GO TO: https://github.com/fuzzyatelin/AN597_Fall17/, select the `.csv` version of the **CPDS-1960-2014-reduced** file, then press `RAW` and copy the URL from the address box of your browser window... this is what you need to use as an argument for the functions below (you will repeat this for the `.txt` version later on)
+
+### Importing data from a file on a remote server using {curl}
+
+For a comma-separated value (`.csv`) text file...
+``` {r}
+library(curl)
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/AN597_Fall17/master/CPDS-1960-2014-reduced.csv")
+d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
+head(d)
+# returns a data frame
+```
+For a tab-delimited (`.tsv` or `txt`) text file...
+``` {r}
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/AN597_Fall17/master/CPDS-1960-2014-reduced.txt")
+d <- read.table(f, header = TRUE, sep="\t", stringsAsFactors = FALSE)
+head(d)
+# returns a data frame
+```
+
+### Importing data from a file on a remote server using {readr}
+``` {r}
+library(readr)
+f <- "https://raw.githubusercontent.com/fuzzyatelin/AN597_Fall17/master/CPDS-1960-2014-reduced.csv"
+d <- read_csv(f, col_names = TRUE)
+head(d)
+# returns a "tibble", a new version of a data frame
+```
+``` {r}
+f <- "https://raw.githubusercontent.com/fuzzyatelin/AN597_Fall17/master/CPDS-1960-2014-reduced.txt"
+d <- read_tsv(f, col_names = TRUE)
+head(d)
+# returns a "tibble", a new version of a data frame
+```
+
+### Importing data from a file hosted on ***Dropbox***
+
+To load data from a `.csv` located file in a *personal* ***Dropbox*** account you can use the {rdrop2} package.
+
+**NOTE:** The following code block cannot be "knit" to show you the output because it requires an interactive ***R*** environment for `drop_auth()`, `drop_search()`, etc.
+
+``` {r eval=FALSE}
+require(rdrop2)
+drop_auth() # opens a browser dialog box to ask for authorization...
+drop_dir() # lists the contents of your dropbox folder
+f <- "CPDS-1960-2014-reduced.csv" # name of the file to read from
+f <- drop_search(f) # searches your dropbox directory for file or directory names; this can be slow
+f <- f$path # $path is the location of the results returned above
+d <- drop_read_csv(f, header = TRUE, sep =",", stringsAsFactors = FALSE)
+head(d)
+str(d)
+```
+
+This same process can be done to load data from other types of delimited files in ***Dropbox*** by setting the appropriate `sep=` argument.
+
+You can also read text files from someone else's ***Dropbox*** account using a link that they have shared with you.
+``` {r}
+link <- "https://www.dropbox.com/s/5x2go0xxgkf0ig1/CPDS-1960-2014-reduced.csv?dl=0"
+```
+
+**NOTE:** Shared ***Dropbox*** links like this one will take you to a webpage that has the data embedded... to get the raw data you need to change the end of the link from **dl=0** to **dl=1** or **raw=1**. That's what the next line of code does:
+
+``` {r}
+link <- gsub(pattern = "dl=0", replacement = "dl=1", x = link)
+d <-read.csv(link, header = TRUE, sep =",", stringsAsFactors = FALSE)
+head(d)
+str(d)
+```
+
+You can also use the `source_data()` function from the {repmis} package ("Miscellaneous Tools for Reproducible Research") to load data from a file on ***Dropbox***. This function detects column types and gives a few more warnings than others if it encounters something odd.
+
+``` {r}
+require(repmis)
+d <- source_data(link, header = TRUE, sep =",") # use the same updated link to the raw data as above
+head(d)
+str(d)
+```
+
+Finally, you can also load data directly from ***google sheets*** into ***R*** using the {googlesheets} package. Try saving the ***CPDS-1960-2014-reduced*** file as a google sheet and extracting it into ***R*** using the code below.
+
+**NOTE:** The following code block cannot be "knit" to show you the output because it requires an interactive ***R*** environment for `gs_ls()`, `get_title()`, etc. If the package does not take you to a webpage login for ***google sheets*** upon the `gs_ls()` command, you may need to install the package [{httpuv}](https://cran.r-project.org/web/packages/httpuv/httpuv.pdf) separately.
+``` {r eval=FALSE}
+require(googlesheets)
+gs_ls() # gives you the option to log in to a google sheets account and see options for download
+get_title("CPDS-1960-2014-reduced") # shows you worksheets from the file to which you have access
+d <- gs_read("CPDS-1960-2014-reduced")
+head(d)
+str(d)
+```
+
+## Downloading Files from a Remote Server
+The {rdrop2} package can be used to **download** a file from a personal ***Dropbox*** account to your local computer, rather than just connecting to a ***Dropbox*** file to read the data stored there. This should work with any file type.
+
+**NOTE:** The following code block cannot be "knit" to show you the output because it requires an interactive ***R*** environment for `drop_search()`, etc.
+
+``` {r eval=FALSE}
+filename <- "CPDS-1960-2014-reduced.csv" # name of file to download
+f <- drop_search(filename) # searches your dropbox directory for that file or directory name
+f <- f$path # $path is the location of the results returned above
+drop_get(f, local_file = paste0("~/Desktop/",filename), overwrite = TRUE, progress = TRUE)
+# this will save the file to the desktop
+```
+The `progress=TRUE` argument gives you a reassuring progress bar. By default, this argument is set to FALSE.
+
+**NOTE:** The process also works for other file types, e.g., ***Excel*** files:
+``` {r eval=FALSE}
+filename <- "CPDS-1960-2014-reduced.xlsx"
+f <- drop_search(filename) # searches your dropbox directory for file or directory names
+f <- f$path # $path is the location of the results returned above
+drop_get(f, local_file = paste0("~/Desktop/",filename), overwrite = TRUE, progress = TRUE)
+# again, saves to the desktop
+```
+
+You can also download files directly to your computer from google sheets using the {googlesheets} package.
+
+``` {r eval=FALSE}
+gs_title("CPDS-1960-2014-reduced") #identifies the sheet you wish to download
+gs_download("CPDS-1960-2014-reduced",to="CPDS-1960-2014-reduced.xlsx")
+# in this case, should save to your working directory
+```
+
+More on the basics of using {googlesheets} for more refined data downloading and formatting can be found [here](https://cran.r-project.org/web/packages/googlesheets/vignettes/basic-usage.html#download-sheets-as-csv-pdf-or-xlsx-file).

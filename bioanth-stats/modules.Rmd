@@ -39,7 +39,7 @@ Eventually, each module listed will be linked to another page containing instruc
 
 ###[Module 04 - **Working with Other Data Structures**](http://fuzzyatelin.github.io/bioanth-stats/module-04/module-04.html)
 
-###Module 05 - **Getting Data into <i>R</i>**
+###{Module 05 - **Getting Data into <i>R</i>**](http://fuzzyatelin.github.io/bioanth-stats/module-05/module-05.html)
 ***
 
 ###**Week 03 (2017-09-19)**
