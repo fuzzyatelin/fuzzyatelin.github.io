@@ -45,7 +45,7 @@ Each module listed is linked to another page containing instructions and helpful
 ###**Week 03 (2017-09-19)**
 ***
 
-###Module 06 - **Exploratory Data Analysis**
+###[Module 06 - **Exploratory Data Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-06/module-06.html)
 
 ###Module 07 - **Central Tendency and Variance**
 ***
