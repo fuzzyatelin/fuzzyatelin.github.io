@@ -13,13 +13,13 @@ output: html_document
 
 <center>
 
-<font size="+2"><b>Oops... this content isn't completely ready yet!</b></font></center><br>
+<font size="+2"><b>Welcome to your interactive Modules!</b></font></center><br>
 
-<center><p><img src="http://i.imgur.com/pZt6Bv6.gif"></p>
+<center><p><img src="https://s-media-cache-ak0.pinimg.com/originals/b0/48/2b/b0482b244526b510af81ebb6382c76f7.jpg" style="border:5px solid black"></p>
 </center><br>  
 
 <center>
-Eventually, each module listed will be linked to another page containing instructions and helpful code. There will be two to three modules to perform each week, at your own pace, to be completed by class on the following Tuesday so we can troubleshoot any problems during seminar. Homework assignments will be real-world applications of procedures you'll have been guided through in your modules.
+Each module listed is linked to another page containing instructions and helpful code. There are two to three modules to perform each week, at your own pace, to be completed by class on the following Tuesday so we can troubleshoot any problems during seminar. Homework assignments are real-world applications of procedures you'll have been guided through in your modules.
 
 </center>
 ***
