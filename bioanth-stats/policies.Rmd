@@ -10,6 +10,7 @@ output: html_document
 ###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
 
 ***
+
 <b>The community at Boston University has adopted the following Academic Conduct Code</b>:  
 “All students entering Boston University are expected to maintain high standards of academic honesty and integrity.”  Obviously, the full text is more detailed. The expectation is that you will adhere to this code, as your instructor pledges to do as well.  For more information, please visit [this website](http://www.bu.edu/academics/policies/academic-conduct-code/). In keeping with this code, cheating, plagiarism, or any other form of academic dishonesty will not be tolerated (ACC III).<br>
 
@@ -48,3 +49,7 @@ All cell phones need to be silenced during class. We all understand that there m
 
 <b>Policy on students with disabilities</b>:  
 In order to adequately accommodate students with disabilities that require additional services, I need to know who you are and what your needs are by <b>September 15th</b>. If you delay processing your paperwork, I will not be able to accommodate you until your letter is in my hands. The Office of Disability Services (ODS) requires a significant amount of lead-time. Do not delay in finalizing and confirming your accommodations. For more information, visit the [ODS website](http://www.bu.edu/disability/).<br><br>
+
+***
+<center><p><img src="https://media.giphy.com/media/5WqhJc7LD4NRS/giphy.gif" style="border:5px solid black"></p>
+</center><br>  
