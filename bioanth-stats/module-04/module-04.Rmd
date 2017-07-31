@@ -1,0 +1,392 @@
+---
+title: "Module 04"
+output:
+    github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	warning = TRUE,
+	comment = "##",
+	prompt = FALSE,
+	tidy = TRUE,
+	tidy.opts = list(width.cutoff = 75),
+	fig.path = "img/"
+)
+```
+# Working with Other Data Structures
+
+## Objectives
+> The objective of this module is to introduce additional data structures in ***R*** (arrays, matrices, lists, and data frames) and to learn how to extract, filter, and subset data from them.
+
+## Preliminaries
+
+- GO TO: https://github.com/difiore/ADA2016, select the **random-people.csv** file, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally.
+
+- Install this package in ***R***: {stringr}
+
+## The Backstory
+So far, we have seen how to create **vectors**, which is the most fundamental data structure in ***R***. Today, we will explore and learn how to manipulate other data structures, including matrices, arrays, lists, and data frames.
+
+## Matrices and Arrays
+
+A **matrix** is like a collection of vectors stored together, and like vectors, matrices can only store data of one class (e.g., *numerical* or *character*). Matrices are created using the `matrix()` function,
+
+``` {r}
+m <- matrix(data=c(1,2,3,4),nrow=2,ncol=2)
+m
+```
+
+Matrices are typically filled column-wise, with the argument, `byrow`, set to FALSE by default, but this can be changed by specifying this argument as TRUE.
+
+``` {r}
+m <- matrix(data=c(1,2,3,4,5,6),nrow=2,ncol=3,byrow=FALSE)
+m
+```
+
+``` {r}
+m <- matrix(data=c(1,2,3,4,5,6),nrow=2,ncol=3,byrow=TRUE)
+m
+```
+
+You can also create matrices in ***R*** by **binding** vectors of the same length together either row-wise (with the function `rbind()`) or column-wise (with the function `cbind()`).
+
+``` {r}
+v1 <- c(1,2,3,4)
+v2 <- c(6,7,8,9)
+m1 <- rbind(v1,v2)
+m1
+```
+
+``` {r}
+m2 <- cbind(v1,v2)
+m2
+```
+
+Metadata about a matrix can be extracted using the `class()`, `dim()`, `names()`, `rownames()`, `colnames()` and other commands. The `dim()` command returns an vector containing the number of rows at index position 1 and the number of columns at index position 2.
+
+``` {r}
+class(m1)
+```
+
+``` {r}
+dim(m1)
+```
+
+``` {r}
+class(m2)
+```
+
+``` {r}
+dim(m2)
+```
+
+```{r}
+colnames(m2)
+```
+
+```{r}
+rownames(m2)
+```
+NOTE: in this example, **rownames** are not defined, since `cbind()` was used to create the matrix
+
+The *structure* (`str()`) command can be applied to any data structure to provide details about that object. This is an incredibly useful function that you will find yourself using over and over again.
+
+``` {r}
+str(m2)
+
+```
+
+An **array** is a more general data structure, of which a vector (with 1 implicit dimension) and a matrix (with 2 defined dimensions) are but examples. Arrays can include additional dimensions, but (like vectors and matrices) they can only include elements that are all of the same atomic data class (e.g., `numeric`, `character`). The example below shows the construction of a 3 dimensional array with 5 rows, 6 columns, and 3 "levels"). Visualizing higher and higher dimension arrays, obviously, becomes challenging!
+
+``` {r}
+a <- array(data=1:90, dim=c(5,6,3))
+a
+```
+
+## Subsetting
+
+You can select elements from vectors, matrices, and arrays by *subsetting* them using their index position(s) in **bracket notation**. For vectors, you would specify an index value in one dimension. For matrices, you would give the index values in two dimensions. For arrays generally, you would give index values for each dimension in the array.
+
+For example, suppose you have the following vector:
+
+``` {r}
+v <- 1:100
+v
+```
+
+You can select the first 15 elements as follows:
+
+``` {r}
+v[1:15]
+```
+
+You can also give a vector of index values to use to subset:
+
+``` {r}
+v[c(2,4,6,8,10)]
+```
+
+You can also use a function or a calculation to subset a vector. What does the following return?
+
+``` {r}
+v <- 101:200
+v[seq(from = 1, to = 100, by = 2)]
+```
+
+#### CHALLENGE:
+
+- First, create a vector of 1 word character strings comprising the first line of the Gettysburg address: "Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal."
+
+- Then, extract every third element of this vector.
+
+	- **HINT 1:** Take a look at the {stringr} package and the function `str_split()` to see if you can easily divide a single string into a vector of substrings.
+
+	- **HINT 2:** If you're ambitious, the following function, `gsub("[[:punct:]]","",*string*)`, applied to `*string*`, will remove punction and special characters from that string.
+
+As an example for a matrix, suppose you have the following:
+
+``` {r}
+m <- matrix(data=1:80,nrow=8,ncol=10,byrow=FALSE)
+m
+```
+
+You can extract the element in row 4, column 5 and assign it to a new variable, **x**, as follows:
+
+``` {r}
+x <- m[4,5]
+x
+```
+
+You can also extract an entire row or an entire column (or set of rows or set of columns) from a matrix by specifying the desired row or column number(s) and leaving the other value blank.
+
+#### CHALLENGE:
+
+- Given the matrix, **m**, above, extract the 2nd, 3rd, and 6th columns and assign them to the variable **x**
+
+- Given the matrix, **m**, above, extract the 6th to 8th row and assign them to the variable **x**
+
+- Given the matrix, **m**, above, extract the elements from row 2, column 2 to row 6, column 9 and assign them to the variable **x**
+
+#### CHALLENGE:
+
+- Construct a 4-dimensional, 400 element array (5 x 5 x 4 x 4) named **a** consisting of the numbers 400 to 1 (i.e., a descending series)
+
+- Given this matrix, what would the following return?
+
+	- a[1, 1, 1, 2]
+
+	- a[2, 3, 2, ]
+
+	- a[1:5, 1:5, 3, 3]
+
+## Overwriting
+
+You can replace elements in a vector or matrix, or even entire rows or columns, by identifying the elements to be replaced and then assigning them new values.
+
+Starting with the matrix, **m**, defined above, what will be the effects of operations below? Pay careful attention to row and column index values, vector recycling, and automated conversion/recasting among data classes.
+
+``` {r}
+m[7,1] <- 564
+m[,8] <- 2
+m[2:5,4:8] <- 1
+m[2:5,4:8] <- c(20,19,18,17)
+m[2:5,4:8] <- matrix(data = c(20:1), nrow=4,ncol=5,byrow=TRUE)
+m[,8] <- c("a","b")
+```
+
+## Lists and Data Frames
+
+Lists and data frames, unlike vectors, matrices, and arrays, can be used to group together a mix of ***R*** structures and objects. A single list could contain a matrix, vector of character strings, vector of factors, an array, even another list.
+
+Lists are created using the `list()` function where the elements to add to the list are given as arguments to the function, separated by commas. Type in the following example:
+
+``` {r}
+s <- c("this","is","a","vector","of","strings")
+m <- matrix(data=1:40, nrow=5, ncol=8) # this is a matrix
+b <- FALSE
+l <- list(s, m, b)
+l
+```
+
+You can extract elements from a list similarly to how you would from other data structure, except that you use **double brackets** to reference a single element in the list.
+
+``` {r}
+l[[2]]
+```
+
+An extension of this notation can be used to access elements contained within an element in the list. For example:
+
+``` {r}
+l[[2]][2,6]
+```
+
+To reference/extract multiple elements from a list, you would use **single bracket** notation, which would itself return a list. This is called "list slicing".
+
+``` {r}
+l[1:2]
+```
+
+``` {r}
+l[c(1,3)]
+```
+
+Using `str()` provides details about the three elements in our list:
+
+``` {r}
+str(l)
+```
+
+You can **name** the elements in a list using the `names()` function, which adds a name attribute to each list item.
+
+``` {r}
+names(l) <- c("string", "matrix", "logical")
+names(l)
+```
+
+Now, you can use the name of an item in the list to refer to it:
+
+``` {r}
+l$string
+```
+
+``` {r}
+l$matrix[3,5]
+```
+
+#### CHALLENGE:
+
+- Create a **list** representing this (simplified) primate taxonomy. **HINT:** you can use **lists** as elements in a list.
+
+- Primates
+	- Haplorhini
+		- Anthropoidea
+			- Platyrrhini
+				- Cebidae
+				- Atelidae
+				- Pitheciidae
+			- Catarrhini
+				- Cercopithecidae
+				- Hylobatidae
+				- Hominidae
+		- Tarsioidea
+			- Tarsiidae
+	- Strepsirhini
+		- Lorisoidea
+			- Lorisidae
+			- Galagidae
+		- Lemuroidea
+			- Cheirogaleidae
+			- Lepilemuridae
+			- Indriidae
+			- Lemuridae
+			- Daubentoniidae
+
+A **data frame** is the perhaps the most useful (and most familiar) data structure that we can operate with in ***R*** as it most closely aligns with how we tend to represent tabular data, with rows as *cases* or *observations* and columns as *variables* describing those observations (e.g., a measurement of a particular type). Variables tend to be measured using the same units and thus fall into the same data class and can be thought of as analogous to vectors.
+
+The `data.frame()` command can be used to create dataframes from scratch.
+
+``` {r}
+df <- data.frame(firstName=c("Nitin","Silvy","Ingrid","Claire"), program=c("iSchool","Anthro","Anthro","EEB"), sex=c("M","F","F","F"), yearInProgram=c(1,2,2,3))
+df
+```
+
+More commonly we read tabular data into ***R***, which typically results in the table being represented as a data frame. This will read from the file "random-people.csv" stored on a user's desktop.
+
+``` {r}
+df <- read.csv("~/Desktop/random-people.csv", sep =",", header = TRUE, stringsAsFactors = FALSE)
+# only print select columns
+df[,c(1,3,4,11,12)]
+```
+
+``` {r}
+str(df)
+```
+
+As for other data structures, you can select and subset data frames using **bracket notation**. You can also select named columns from a data frame the **$** operator.
+
+``` {r}
+df[,3]
+str(df[,3])
+# returns a vector of data in column 3
+```
+
+``` {r}
+df$name.last
+str(df$name.last)
+# returns a vector of data for column *name.last*
+```
+
+``` {r}
+df[3]
+str(df[3])
+# returns a data frame of data from column 3
+```
+
+``` {r}
+df["name.last"]
+str(df["name.last"])
+# returns a data frame of data for column *name.last*
+```
+
+You can add rows (additional cases) or columns (additional variables) to a data frame using `rbind()` and `cbind()`.
+
+``` {r}
+df <- cbind(df, id=c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20))
+df <- cbind(df, school=c("UT","UT","A&M","A&M","UT","Rice","Texas Tech","UT","UT","Texas State","A&M","UT","Rice","UT","A&M","Texas Tech","A&M","UT", "Texas State", "A&M"))
+df
+```
+
+Alternatively, you can extend a data frame by adding a new variable directly using the **$** operator, like this:
+
+``` {r}
+df$school <- c("UT","UT","A&M","A&M","UT","Rice","Texas Tech","UT","UT","Texas State","A&M","UT","Rice","UT","A&M","Texas Tech","A&M","UT", "Texas State", "A&M")
+```
+
+NOTE: `cbind()` results in **school** being added as a *factor* while using the **$** operator results in **school** being added as a *character* vector. You can see this by using the `str()` command.
+
+A *factor* is another atomic data class for ***R*** for dealing efficiently with nominal variables, usually character strings. Internally, ***R*** assigns integer values to each unique string (e.g., 1 for "female", 2 for "male", etc.).
+
+## Filtering
+
+Logical vectors also be used to subset data frames. Here, we subset the data frame for only those rows where the variable **school** is "COLA".
+
+``` {r}
+new_df <- df[df$school == "UT",]
+new_df
+```
+
+In this case, ***R*** evaluates the expression `df$school == "UT" and returns a logical vector equal in length to the number of rows in **df**. It then subsets **df** based on that vector, returning only rows that evaluate to **TRUE**.
+
+We can also choose to only return particular columns when we subset.
+
+``` {r}
+new_df <- df[df$school == "UT", c("name.last", "name.first", "school")]
+new_df
+```
+
+## Factors, Conversion and Coercion, and Special Data Values
+We were introduced to the **factor** data class above. Again, factors are numeric codes that ***R*** can use internally that correspond to character value "levels".
+
+When we load in data from an external source (as we will do in our next module), ***R*** tends to import character string data as factors, assigning to each unique string to an integer numeric code and assigning the string as a "label" for that code. Using factors can make some code run much more quickly (e.g., ANOVA, ANCOVA, and other forms of regression using categorical variables).
+
+You can convert *factor* to *character* data (and vice versa) using the `as.character()` or `as.factor()` commands. You can also convert/coerce any vector to a different class using similar constructs (e.g., `as.numeric()`), although not all such conversions are really meaningful. Converting *factor* data to *numeric* results in the the converted data having the value of ***R***'s internal numeric code for the factor level, while converting *character* data to *numeric* results in the data being coerced into the special data value of `NA` (see below) for missing data.
+
+Finally, ***R*** has three special data values that it uses in a variety of situations.
+
+- `NA` (for *not available*) is used for missing data. Many statistical functions offer the possibility to include as an argument `na.rm=TRUE` ("remove NAs") so that `NA`s are excluded from a calculation.
+- `Inf` (and `-Inf`) is used when the result of a numerical calculation is too extreme for ***R*** to express
+- `NaN` (for *not a number*) is used when ***R*** cannot express the results of a calculation , e.g., when you try to take the square root of a negative number
+
+#### CHALLENGE:
+
+- Store the following numbers as a 5 x 3 matrix: 3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2. Be sure to fill the matrix ROWWISE.
+
+- Then, do the following:
+
+	- Coerce the matrix to a data frame.
+	- As a data frame, coerce the second column to be *logical-valued*
+	- As a data frame, coerce the third column to be *factor-valued*
+
+When you are done, use the `str()` command to show the data type for each variable in your dataframe.
