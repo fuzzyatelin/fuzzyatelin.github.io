@@ -1,0 +1,142 @@
+---
+title: 'AN597: Course Modules'
+output: html_document
+---
+***
+
+###[Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
+###[Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
+###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
+###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
+
+***
+
+<center>
+
+<font size="+2"><b>Oops... this content isn't completely ready yet!</b></font></center><br>
+
+<center><p><img src="http://i.imgur.com/pZt6Bv6.gif"></p>
+</center><br>  
+
+<center>
+Eventually, each module listed will be linked to another page containing instructions and helpful code. There will be two to three modules to perform each week, at your own pace, to be completed by class on the following Tuesday so we can troubleshoot any problems during seminar. Homework assignments will be real-world applications of procedures you'll have been guided through in your modules.
+
+</center>
+***
+
+###**Week 01 (2017-09-05)**
+***
+
+###[Module 01 - **First Steps with <i>R</i>**](http://fuzzyatelin.github.io/bioanth-stats/module-01/module-01.html)
+
+###[Module 02 - **Basics of Version Control**](http://fuzzyatelin.github.io/bioanth-stats/module-02/module-02.html)
+***
+
+###**Week 02 (2017-09-12)**
+***
+
+###Module 03 - **Reproducible Research using RMarkdown**
+
+###Module 04 - **Working with Other Data Structures**
+
+###Module 05 - **Getting Data into <i>R</i>**
+***
+
+###**Week 03 (2017-09-19)**
+***
+
+###Module 06 - **Exploratory Data Analysis**
+
+###Module 07 - **Central Tendency and Variance**
+***
+
+###**Week 04 (2017-09-26)**
+***
+
+###Module 08 - **Probabilities and Distributions**
+***
+
+###**Week 05 (2017-10-03)**
+***
+
+###Module 09 - **Introduction to Statistical Inference**
+
+###Module 10 - **Classical Hypothesis Testing**
+***
+
+###**Week 06 (2017-10-10)**
+***
+
+###No class meeting
+***
+
+###**Week 07 (2017-10-17)**
+***
+
+###Module 11 - **Type I and Type II Error and Power**
+
+###Module 12 - **Introduction to Linear Regression**
+***
+
+###**Week 08 (2017-10-24)**
+***
+
+###Module 13 - **Elements of Regression Analysis**
+***
+
+###**Week 09 (2017-10-31)**
+***
+
+###Module 14 - **Basic Categorical Data Analysis and ANOVA**
+***
+
+###**Week 10 (2017-11-07)**
+***
+
+###Module 15 - **Multiple Regression and ANCOVA**
+***
+
+###**Week 11 (2017-11-14)**
+***
+
+###Module 16 - **Model Selection in General Linear Regression**
+
+###Module 17 - **Generalized Linear Modeling**
+
+###Module 18 - **Mixed Effects Modeling**
+***
+
+###**Week 12 (2017-11-21)**
+***
+
+###Module 19 - **An Introduction to Bayesian Methods & Models**
+
+###Module 20 - **Incorporating Phylogenies into Mixed Models**
+***
+
+###**Week 13 (2017-11-28)**
+***
+
+###Module 19 - **Accessing Web APIs**
+
+###Module 20 - **Basic Text Mining**
+
+###Module 21 - **Analyzing Web Data via {spocc}**
+***
+
+###Week 14 (2017-12-05)
+***
+
+###Optional Module - **Introduction to Spatial Data Analysis**
+***
+
+###**Student Module Presentations**
+***
+
+###Module 22 - **TBA**
+
+###Module 23 - **TBA**
+
+###Module 24 - **TBA**
+
+###Module 25 - **TBA**

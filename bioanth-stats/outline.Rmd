@@ -1,0 +1,536 @@
+---
+title: "AN597: Course Outline"
+output: html_document
+---
+***
+
+###[Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
+###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
+###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
+###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
+
+***
+
+###Week 01 (2017-09-05)
+***
+
+###An Introduction to R
+
+#####Topics
+<ul>
+<li>History of <b><i>R</b></i></li>
+  <ul>
+  <li>Relation to other languages and statistics software</li></ul>
+<li>Installing <b><i>R</b></i> and <b><i>RStudio</b></i></li>
+<li>Setting up your workspace</li>
+  <ul>
+  <li>Panels: <i>Source</i>, <i>Console</i>, <i>Environment/History</i>, Other Views</li>
+  <li>Setting the working directory</li>
+  <li>Setting up <b><i>R</b></i> projects</li>
+  <li>Saving workspaces</li></ul>
+<li><b><i>R</b></i> Basics</li>
+  <ul>
+  <li>Using <b><i>R</b></i> interactively</li>
+  <li>Variables and assignment</li>
+  <li>Packages</li>
+  <li><b><i>R</b></i> objects</li>
+  <ul>
+  <li>Object types - Vectors and functions</li>
+  <li>Classes and attributes of objects</li>
+  <li>Scripting</li>
+  </ul></ul>
+<li>Setting up <i><b>GitHub</i></b></li>
+  <ul>
+  <li>Interfacing between <b><i>R</b></i> and <i><b>GitHub</i></b></li></ul>
+</ul>
+
+#####{swirl} Tutorials
+<ul>
+<li>R Programming</li>
+</ul>
+
+#####Required Readings
+*The Book of R*
+<ul>
+<li>Chapter 1 - Getting Started</li>
+<li>Chapter 2 - Numerics, Arithmetic, Assignment, and Vectors</li>
+</ul>
+*R in Action*
+<ul>
+<li>Chapter 1 - Getting Started</li>
+<li>Chapter 2 - Creating a Dataset</li>
+</ul>
+*Statistics: An Introduction Using R*
+<ul>
+<li>Chapter 1 - Fundamentals</li>
+</ul>
+
+#####Useful But Optional Readings
+*R Programming for Data Science*
+<ul>
+<li>Chapter 3 - History and Overview of R</li>
+<li>Chapter 5 - R Nuts and Bolts</li>
+</ul>
+*Statistics: An Introduction Using R*
+<ul>
+<li>Appendix: Essentials of the R Language</li>
+</ul>
+
+***
+
+###Week 02 (2017-09-12)
+***
+
+[Homework 1 assigned - DUE 2pm 2016-09-15](http://fuzzyatelin.github.io/bioanth-stats/homework_default.html)
+
+###Data Science Preliminaries
+
+####Topics
+<ul>
+<li>Good programming practices</li>
+<ul>
+<li>Version control</li>
+<li>The Tao of text</li>
+<li>Reproducible research using Rmarkdown and {knitr}</li></ul>
+<li>Working with data</li>
+<ul>
+<li>More object types - arrays, matrices, lists, and data frames</li>
+<li>Subsetting and filtering data structures</li>
+<li>Factors</li>
+<li>Class coercion and conversion</li>
+<li>Special data values - NA, NaN, Inf</li></ul>
+<li>Getting data in and out of R</li>
+<ul>
+<li>From csv files - {readr}</li>
+<li>From Excel - {readxl}, {XLConnect} and others</li>
+<li>From Dropbox - {rdrop2}</li>
+<li>From other repositories - {curl}</li>
+<li>From databases - {RMySQL}, {RSQLite}, {RPostgreSQL} and others</li></ul>
+<li>Summarizing data and exploratory data analysis</li>
+<ul>
+<li>Basic descriptive statistics</li>
+<li>Simple plotting (boxplots, histograms, scatterplots) - {ggplot2} and others</li></ul>
+</ul>
+
+####{swirl} Tutorials
+<ul>
+<li>Getting and Cleaning Data:
+<ol>
+<li>Manipulating Data with {dplyr}</li>
+<li>Grouping and Chaining with {dplyr}</li>
+<li>Tidying Data with {tidyr}</li></li>
+</ol></ul>
+
+####Required Readings
+
+*The Book of R*
+<ul>
+<li>Chapter 3 - Matrices and Arrays</li>
+<li>Chapter 5 - Lists and Data Frames</li>
+</ul>
+*R in Action*
+<ul>
+<li>Chapter 3 - Getting Started with Graphs</li>
+<li>Chapter 4 - Basic Data Management</li>
+</ul>
+*R Programming for Data Science*
+<ul>
+<li>Chapter 6 - Getting Data In and Out of R</li>
+<li>Chapter 7 - Using the {readr} Package</li>
+</ul>
+
+####Useful But Optional Readings
+
+*The Book of R*
+<ul>
+<li>Chapter 4 - Non-Numeric Values</li>
+<li>Chapter 6 - Special Values, Classes, and Coercion</li>
+<li>Chapter 8 - Reading and Writing Files</li>
+</ul>
+*R Programming for Data Science*
+<ul>
+<li>Chapter 9 - Interfaces to the Outside World</li>
+</ul>
+***
+
+###Week 03 (2017-09-19)
+***
+
+[Homework 2 assigned - DUE 2pm 2016-09-22](http://fuzzyatelin.github.io/bioanth-stats/homework_default.html)
+
+###Statistics Fundamentals - Exploratory Data Analysis, Central Tendency, and Variance
+
+####Topics
+<ul>
+<li>Populations and samples</li>
+<li>More on summarizing data</li>
+<ul>
+<li>Percentiles, quantiles, confidence intervals</li>
+<li>Basic visualization techniques for exploratory data analysis</li>
+<ul>
+<li>Box plots</li>
+<li>Histograms</li></ul></ul>
+<li>Beginning <b><i>R</i></b> programming</li>
+<ul>
+<li>Functions</li>
+<li>Loops</li>
+<li>Conditional statements and flow control</li></ul>
+
+####{swirl} Tutorials
+<ul>
+<li>Getting and Cleaning Data (all exercises)</li></ul>
+
+####Required Readings
+
+*The Book of R*
+<ul>
+<li>Chapter 9 - Calling Functions</li>
+<li>Chapter 10 - Conditions and Loops</li>
+<li>Chapter 11 - Writing Functions</li>
+</ul>
+*R in Action*
+<ul>
+<li>Chapter 5 - Advanced Data Management</li>
+<li>Chapter 6 - Basic Graphs</li>
+<li>Chapter 7 - Basic Statistics
+<ul>
+<li>7.1 Descriptive Statistics</li>
+<li>7.2 Frequency and Contingency Tables</li></ul></ul>
+*Statistics: An Introduction Using R*
+<ul>
+<li>Chapter 3 - Central Tendency</li>
+<li>Chapter 4 - Variance</li></ul>
+
+####Useful but Optional Readings
+*The Book of R*
+<ul>
+<li>Chapter 13 - Elementary Statistics</li>
+<li>Chapter 14 - Basic Data Visualization</li></ul>
+***
+
+###Week 04 (2017-09-26)
+***
+
+[Homework 3 assigned - DUE 2pm 2016-10-06](http://fuzzyatelin.github.io/bioanth-stats/homework_default.html)
+
+###Statistics Fundamentals - Probability and Distributions
+
+####Topics
+<ul>
+<li>Probability and conditional probability</li>
+<li>Random variables - dicrete and continuous</li>
+<li>Probability mass functions, probability density functions</li>
+<li>Cumulative probability function</li>
+<li>Useful distributions and their properties</li>
+<ul>
+<li>density (d), cumulative probability (p), quantile (q), and random (r) functions</li>
+<li>Discrete</li>
+<ul>
+<li>Bernoulli</li>
+<li>Poisson</li>
+<li>Binomial</li></ul>
+<li>Continuous</li>
+<ul>
+<li>Beta</li>
+<li>Uniform</li>
+<li>Normal</li></ul></ul>
+<li>Q-Q Plots</li>
+<li>Standard errors and confidence intervals</li></ul>
+
+####Required Readings
+*The Book of R*
+<ul>
+<li>Chapter 15 - Probability</li>
+<li>Chapter 16 - Common Probability Distributions</li></ul>
+
+###Useful but Optional Readings
+*R Programming for Data Science*
+<ul>
+<li>Chapter 22 - Simulation</li></ul>
+
+***
+
+###Week 05 (2017-10-03)
+***
+
+**IMPORTANT! Today is the deadline for choosing a paper from the primary literature to replicate analyses.**
+
+###Statistical Inference and Basic Hypothesis Testing
+
+####Topics
+<ul>
+<li>Significance and p values</li>
+<li>Classic hypothesis testing</li>
+<ul>
+<li>One- and two-sample T and Z tests</li></ul>
+<li>Type I and Type II error</li>
+<li>Statistical power, effect sizes</li></ul>
+
+####Required Readings
+*The Book of R*
+<ul>
+<li>Chapter 17 - Sampling Distributions and Confidence</li>
+<li>Chapter 18 - Hypothesis Testing (through section 18.3)</li></ul>
+[*Statistics Done Wrong*](https://www.statisticsdonewrong.com/)
+<ul>
+<li>Chapter 1 - An Introduction to Statistical Significance</li></ul>
+
+####Useful but Optional Readings
+*Statistics: An Introduction Using R*
+<ul>
+<li>Chapter 5 - Single Samples</li>
+<li>Chapter 6 - Two Samples</li>
+
+***
+
+###Week 06 (2017-10-10)
+***
+
+Class cancelled for Indigenous Peoples' Day!
+
+***
+
+###Week 07 (2017-10-17)
+***
+
+[Homework 4 assigned - DUE 2pm 2016-10-23](http://fuzzyatelin.github.io/bioanth-stats/homework_default.html)
+
+###Introduction to Linear Regression
+
+####Topics
+
+- Correlation and covariation
+- Introduction to linear modeling
+	- Continuous random predictor and reponse variables
+	- Simple linear regression (1 predictor and 1 reponse variable)
+	- Estimating and interpreting regression coefficients
+	- Model I and Model II regression
+	- The `lm()` function
+	- Interference in regression
+		- Confidence intervals and prediction intervals
+	- Residuals
+
+####{swirl} Tutorials
+<ul>
+<li>Regression Models (all exercises)</li></ul>
+
+#### Required Readings
+
+*The Book of R*
+
+- Chapter 20 - Simple Linear Regression
+
+*R in Action*
+
+- Chapter 8 - Regression (through section 8.2)
+
+#### Useful but Optional Readings
+
+*Statistics: An Introduction Using R*
+
+- Chapter 7 - Regression
+
+[//]: # (Gotelli & Ellison Chapter 9, 10)
+[//]: # (Dalgaard Chapter 6 and 7)
+
+***
+
+###Week 08 (2017-10-24)
+***
+
+### Elements of Regression Analysis
+
+#### Topics
+- Inference in regression
+	- Estimating standard errors for regression cofficients
+- Model checking
+- Partitioning of variance in linear models
+- Data transformations
+
+#### Required Readings
+
+*The Book of R*
+
+- Chapter 20 - Simple Linear Regression
+- Chapter 18 - Hypothesis Testing (section 18.4)
+
+*R in Action*
+
+- Chapter 8 - Regression (sections 8.3 through 8.8)
+
+***
+
+###Week 09 (2017-10-31)
+***
+
+### Basic Categorical Data Analysis and ANOVA
+
+#### Topics
+- Regression with categorical predictors
+- One- and multiple-factor ANOVA
+- Type I, Type II, Type III sums of squares
+- Simple categorical data analysis
+	- Kruskal-Wallis tests
+	- Chi-Square tests of goodness-of-fit and independence
+- Interaction plots to visualize changes across groups
+
+####{swirl} Tutorials
+<ul>
+<li>ANOVA</li></ul>
+
+#### Required Readings
+
+*The Book of R*
+
+- Chapter 18 - Hypothesis Testing (section 18.4)
+- Chapter 19 - Analysis of Variance
+
+*R in Action*
+
+- Chapter 9 - Analysis of Variance
+
+#### Useful but Optional Readings
+
+*Statistics: An Introduction Using R*
+
+- Chapter 8 - Analysis of Variance
+
+***
+
+###Week 10 (2017-11-07)
+***
+
+### Multiple Regression and ANCOVA
+
+#### Topics
+
+- Generating mock data with a defined correlation structure
+- Regression with multiple predictors
+  - More than one continuous predictor
+  - Combinations of continuous and categorical predictors
+- Visualizing linear models with more than one predictor
+- Confidence intervals and prediction in multiple regression
+- Interactions between predictors
+
+#### Required Readings
+*The Book of R*
+
+- Chapter 21 - Multiple Linear Regression
+
+#### Useful but Optional Readings
+
+*Statistics: An Introduction Using R*
+
+- Chapter 9 - Analysis of Covariance
+
+***
+
+###Week 11 (2017-11-14)
+***
+
+**IMPORTANT! Deadline for choosing topic for group statistical methods presentation and vignette**
+
+[Homework 5 assigned - DUE 2pm 2016-11-20](http://fuzzyatelin.github.io/bioanth-stats/homework_default.html)
+
+### Model Selection, Generalized Linear Modeling, and Mixed Effects Modeling
+
+#### Topics
+- Model simplification and selection
+    - The Akaike Information Criterion (AIC) and others
+        - {stats} `step()`
+        - {MASS} `stepwise()`
+        - {AICcmodavg}
+- Generalized Linear Modeling
+    - Dealing with other response variables types - counts, binary responses
+- Introduction to mixed effects modeling and nonlinear models
+    - Assessing model fit for GLMs and mixed models using {MuMIn}
+
+#### Required Readings
+
+*R in Action*
+
+- Chapter 8 - Regression (section 8.6)
+- Chapter 13 - Generalized Linear Models
+
+*Statistics: An Introduction Using R*
+
+- Chapter 12 - Other Response Variables
+
+#### Useful but Optional Readings
+
+- [Bolker, B.M. (2008). Chapter 9. Standard statistics revisited. In: *Ecological Models and Data in R.* Princeton, NJ: Princeton University Press.](https://ms.mcmaster.ca/~bolker/emdbook/book.pdf)
+- [Bolker, B.M., Brooks, M.E., Clark, C.J., Geange, S.W., Poulsen, J.R., Stevens, M.H.H., White, J-S.S. (2008) Generalized linear mixed models: a practical guide for ecology and evolution. *Trends in Ecology and Evolution* 24(3):127-135.](http://avesbiodiv.mncn.csic.es/estadistica/curso2011/regm26.pdf)
+- [Quinn, G. P., & Keough, M. J. (2002). Chapter 13. Generalized linear models and logistic regression. *Experimental Design and Data Analysis for Biologists.* Cambridge, UK: Cambridge University Press.](http://www2.ib.unicamp.br/profs/fsantos/apostilas/Quinn%20&%20Keough.pdf)
+- Package descriptions for [{AICcmodavg}](https://cran.r-project.org/web/packages/AICcmodavg/AICcmodavg.pdf) and [{MuMIn}](https://cran.r-project.org/web/packages/MuMIn/MuMIn.pdf)
+
+***
+
+###Week 12 (2017-11-21)
+***
+
+###A Very Brief Introduction to Bayesian Methods
+
+####Topics
+- Bayesian vs. frequentist statistics
+    - Basics and Bayes' Theorem
+    - Priors (when they matter and when they don't)
+- Implementing Bayesian (regression) models in ***R***
+    - Using {MCMCglmm}
+    - Burn-in, iterations, and intervals
+    - Model assessment
+- Implementing Bayesian models in the {rethinking} package framework
+
+More details coming soon!
+
+#### Required Readings
+
+- [Ellison, A.M. (1996). An introduction to Bayesian inference for ecological research and environmental decision-making. *Ecological Applications* 6(4):1036-1046.](http://byrneslab.net/classes/biol607/readings/Ellison_1996_ecol_app.pdf)
+
+#### Useful but Optional Readings
+
+- [Hadfield, J. (2016) *MCMCglmm* Course Notes](https://cran.r-project.org/web/packages/MCMCglmm/vignettes/CourseNotes.pdf)
+- Package descriptions for [{MCMCglmm}](https://cran.r-project.org/web/packages/MCMCglmm/MCMCglmm.pdf) and [{rethinking}](http://xcelab.net/R/rethinking_package.pdf)
+
+***
+
+###Week 13 (2017-11-28)
+***
+
+### Using APIs and Basics of Text Mining
+
+#### Topics
+
+- Using APIs ("application programing interfaces")
+	- Accessing data from Twitter and Facebook
+	- Tweeting and posting from R
+- Text mining basics
+	- Building a corpus
+	- Introduction to regular expressions
+	- Building a document-term matrix
+	- Term frequency analysis
+	- Visualizing text data
+
+#### Required Readings
+
+- NONE
+
+#### Useful but Optional Readings
+
+- [Williams, G. (2016). Hands-on data science with R - Text Mining.](http://onepager.togaware.com/TextMiningO.pdf)
+- [Gentry, J. (2014). Twitter client for R.](http://geoffjentry.hexdump.org/twitteR.pdf)
+- [Kumar, S., Morstatter, F., and Huan, L. 2014. *Twitter Data Analytics.* New York: Springer.](http://tweettracker.fulton.asu.edu/tda/TwitterDataAnalytics.pdf)
+- Package descriptions for [{rtweet}](https://cran.r-project.org/web/packages/rtweet/rtweet.pdf), [{RFacebook}](https://cran.r-project.org/web/packages/Rfacebook/Rfacebook.pdf), [{SocialMediaLab}](https://cran.r-project.org/web/packages/SocialMediaLab/SocialMediaLab.pdf)
+
+***
+
+###Week 14 (2017-12-05)
+***
+
+Group Presentations and Vignettes
+
+***
+
+###Week 15 (2017-12-12)
+***
+
+Group Presentations and Vignettes
