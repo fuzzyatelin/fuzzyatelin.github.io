@@ -35,7 +35,7 @@ Eventually, each module listed will be linked to another page containing instruc
 ###**Week 02 (2017-09-12)**
 ***
 
-###Module 03 - **Reproducible Research using RMarkdown**
+###[Module 03 - **Reproducible Research using RMarkdown**](http://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html)
 
 ###Module 04 - **Working with Other Data Structures**
 
