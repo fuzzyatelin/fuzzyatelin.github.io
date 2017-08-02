@@ -53,7 +53,7 @@ Each module listed is linked to another page containing instructions and helpful
 ###**Week 04 (2017-09-26)**
 ***
 
-###Module 08 - **Probabilities and Distributions**
+###[Module 08 - **Probabilities and Distributions**](http://fuzzyatelin.github.io/bioanth-stats/module-08/module-08.html)
 ***
 
 ###**Week 05 (2017-10-03)**
