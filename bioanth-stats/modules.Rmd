@@ -59,7 +59,7 @@ Each module listed is linked to another page containing instructions and helpful
 ###**Week 05 (2017-10-03)**
 ***
 
-###Module 09 - **Introduction to Statistical Inference**
+###[Module 09 - **Introduction to Statistical Inference**](http://fuzzyatelin.github.io/bioanth-stats/module-09/module-09.html)
 
 ###Module 10 - **Classical Hypothesis Testing**
 ***
