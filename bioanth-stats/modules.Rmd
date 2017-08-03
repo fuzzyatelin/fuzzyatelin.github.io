@@ -75,7 +75,7 @@ Each module listed is linked to another page containing instructions and helpful
 
 ###[Module 11 - **Type I and Type II Error and Power**](http://fuzzyatelin.github.io/bioanth-stats/module-11/module-11.html)
 
-###Module 12 - **Introduction to Linear Regression**
+###[Module 12 - **Introduction to Linear Regression**](http://fuzzyatelin.github.io/bioanth-stats/module-12/module-12.html)
 ***
 
 ###**Week 08 (2017-10-24)**

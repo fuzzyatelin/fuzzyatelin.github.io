@@ -1,0 +1,420 @@
+---
+title: "Module 12"
+author: Anthony Di Fiore and Christopher A. Schmitt
+output:
+    html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo=TRUE,
+	warning=FALSE,
+	comment="##",
+	prompt=FALSE,
+	tidy=TRUE,
+	tidy.opts=list(width.cutoff=75),
+	fig.path="img/"
+)
+```
+# Introduction to Linear Regression
+
+## Preliminaries
+- Install these packages in ***R***: {curl}, {ggplot2}, [{gridExtra}](https://cran.r-project.org/web/packages/gridExtra/gridExtra.pdf), {manipulate}, [{lmodel2}](https://cran.r-project.org/web/packages/lmodel2/lmodel2.pdf)
+
+## Objectives
+> The objective of this module is to discuss the use of simple linear regression to explore the relationship among two continuous variables: a single predictor variable and a single response variable.
+
+## Covariance and Correlation
+
+So far, we have looked principally at single variables, but one of the main things we are often interested in is the relationships among two or more variables. Regression modeling is one of the most powerful and important set of tools for looking at relationships among more than one variable. With our zombies dataset, we started to do this using simple bivariate scatterplots... let's look at those data again and do a simple bivariate plot of height by weight.
+
+``` {r}
+library(curl)
+library(ggplot2)
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/zombies.csv")
+d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
+head(d)
+plot(data=d,height~weight)
+```
+
+These variables clearly seem to be related to one another, in that as weight increases, height increases. There are a couple of different ways we can quantify the relationship between these variables. One is the **covariance**, which expresses how much two numeric variables “change together” and whether that change is positive or negative.
+
+Recall that the variance in a variable is simply the sum of the squared deviaiations of each observation from the mean divided by sample size (**n** for population variance or **n-1** for sample variance). Thus, sample variance is:
+
+<img src="img/samplevar.svg" width="225px">
+
+Similarly, the **covariance** is simply the product of the deviations of each of two variables from their respective means divided by sample size. So, for two vectors, $x$ and $y$, each of length $n$ representing two variables describing a sample...
+
+<img src="img/samplecov.svg" width="300px"/>
+
+#### CHALLENGE:
+
+What is the **covariance** between zombie weight and zombie height? What does it mean if the covariance is positive versus negative? Does it matter if you switch the order of the two variables?
+
+``` {r}
+w <- d$weight
+h <- d$height
+n <- length(w) # or length(h)
+cov_wh <- sum((w-mean(w))*(h-mean(h)))/(n-1)
+cov_wh
+```
+The built-in ***R*** function `cov()` yields the same.
+
+``` {r}
+cov(w,h)
+```
+
+We often describe the relationship between two variables using the **correlation** coefficient, which is a standardized form of the covariance, which summarizes on a standard scale, -1 to +1, both the strength and direction of a relationship. The correlation is simply the covariance divided by the product of the standard deviation of both variables.
+
+<img src="img/samplecor.svg" width="225px"/>
+
+#### CHALLENGE:
+
+Calculate the **correlation** between zombie height and weight.
+
+``` {r}
+sd_w <- sd(w)
+sd_h <- sd(h)
+cor_wh <- cov_wh/(sd_w*sd_h) 
+cor_wh
+```
+
+Again, there is a built-in ***R*** function `cor()` which yields the same.
+
+``` {r}
+cor(w, h)
+cor(w, h, method="pearson")
+```
+This formulation of the correlation coefficient is referred to as **Pearson’s product-moment correlation coefficient** and is often abbreviated as **$\rho$**.
+
+There are other, nonparametric forms of the correlation coefficient we might also calculate:
+
+``` {r}
+cor(w, h, method="kendall")
+cor(w, h, method="spearman")
+```
+
+## Regression
+
+Regression is the set of tools that lets us explore the relationships between variables further. In regression analysis, we are typically identifying and exploring linear **models**, or functions, that describe the relationship between variables. There are a couple of main purposes for undertaking regression analyses:
+
+- To use one or more variables to **predict** the value of another
+- To develop and choose among different **models** of the relationship between variables
+- To do **analyses of covariation** among sets of variables to identify their relative explanatory power
+
+The general purpose of linear regression is to come up with a model or function that estimates the mean value of one variable, i.e., the **response** or **outcome** variable, given the particular value(s) of another variable or set of variables, i.e., the **predictor** variable(s).
+
+We're going to start off with simple **bivariate regression**, where we have a single predictor and a single response variable. In our case, we may be interested in coming up with a **linear model** that estimates the mean value for zombie height (as the response variable) given zombie weight (as the predictor variable). That is, we want to explore functions that link these two variables and choose the best one.
+
+In general, the model for linear regression represents a **dependent** (or response) variable, $Y$ as a linear function of the **independent** (or predictor) variable, $X$. 
+
+$Y = \beta_0 + \beta_1 X_i + \epsilon_i$
+
+The function has two coefficients. The first $\beta_0$ is the **intercept**, the value of $Y$ when $X$ = 0. The second $\beta_1$ is the **slope of the line**.  The **error term**, $\epsilon_i$ is a normal random variable, $\epsilon_i \sim N(0,\sigma^2)$ with the standard deviation assumed to be constant across all values of $X$.
+
+A regression analysis calls for **estimating the values of all three parameters** ($\beta_0$, $\beta_1$, and the residuals or error term). How this is accomplished will depend on what **assumptions** are employed in the analysis. The regression model posits that $X$ is the cause of $Y$.
+
+Looking at our scatterplot above, it seems pretty clear that there is indeed some linear relationship among these variables, and so a reasonable function to connect height to weight should simply be some kind of line of best fit. Recall that the general formula for a line is:
+
+<img src="img/line.svg" width="300px"/>
+
+where <img src="img/yhat.svg" width="12px"/> = our predicted y given a value of x
+
+In regression parlance...
+
+<img src="img/reg.svg" width="150px"/>
+
+[see equation 20.2 in ***The Book of R***]
+
+Here, $\beta_1$ and $\beta_0$ are referred to as the **regression coefficients**, and it is those that our regression analysis is trying to estimate, while minimizing, according to some criterion, the error term. This process of estimation is called **"fitting the model."**
+
+A typical linear regression analysis further assumes that $X$, our "independent" variable, is controlled and thus measured with much greater precision than $Y$, our "dependent" variable. **Thus the error, $\epsilon_i$ is assumed to be restricted to the $Y$ dimension**, with little or no error in measuring $X$, and we employ "ordinary least squares" as our criterion for best fit.
+
+What does this mean? Well, we can imagine a family of lines of different $\beta_1$ and $\beta_0$ going through this cloud of points, and the best fit criterion we use is to find the line whose coefficients minimize the sum of the squared deviations of each observation in the $Y$ direction from that predicted by the line. This is the basis of **ordinary least squares** or **OLS** regression.  We want to wind up with an equation that tells us how $Y$ varies in response to changes in $X$.
+
+So, we want to find $\beta_1$ and $\beta_0$ that minimizes...
+
+<img src="img/leastsq1.svg" width="125px"/>
+
+or, equivalently,
+
+<img src="img/leastsq2.svg" width="225px"/>
+
+In our variables, this is...
+
+<img src="img/zombiesreg.svg" width="310px"/>
+
+Let's fit the model by hand... The first thing to do is estimate the slope, which we can do if we first "center" each of our variables by subtracting the mean from each value (this shifts the distribution to eliminate the intercept term).
+
+``` {r}
+y <- h - mean(h)
+x <- w - mean(w)
+z <- data.frame(cbind(x,y))
+g <- ggplot(data=z, aes(x = x, y = y)) + geom_point()
+g
+```
+
+Now, we just need to minimize...
+
+<img src="img/centeredreg.svg" width="310px"/>
+
+We can explore finding the best slope ($\beta_1$) for this line using an interactive approach...
+
+``` {r}
+slope.test <- function(beta1){
+  g <- ggplot(data=z, aes(x = x, y = y))
+  g <- g + geom_point()
+  g <- g + geom_abline(intercept = 0, slope = beta1, size = 1, colour="blue", alpha=1/2)
+  ols <- sum((y - beta1 * x) ^2)
+  g <- g + ggtitle(paste("Slope = ", beta1, "\nSum of Squared Deviations = ", round(ols, 3)))
+  g
+}
+```
+``` {r eval=FALSE}
+manipulate(slope.test(beta1), beta1 = slider(-1, 1, initial = 0, step = 0.005))
+```
+
+Similarly, analytically...
+
+<img src="img/beta1.svg" width="475px"/>
+
+[see equation 20.3 in ***The Book of R***]
+
+``` {r}
+beta1 <- cor(w,h) * (sd(h)/sd(w))
+beta1
+beta1 <- cov(w,h) / var(w)
+beta1
+beta1 <- sum((h-mean(h))*(w-mean(w)))/sum((w-mean(w))^2)
+beta1
+```
+
+To find $\beta_0$, we can simply plug back into our original regression model. The line of best fit has to run through the centroid of our data points, which is the point determined by the mean of the x values and the mean of the y values, so we can use the following:
+
+<img src="img/ybar.svg" width="175px"/>
+
+which, rearranged to solve for $\beta_0$ gives...
+
+<img src="img/beta0.svg" width="175px"/>
+
+``` {r}
+beta0 <- mean(h) - beta1*mean(w)
+beta0
+```
+
+Note that in the example above, we have taken our least squares criterion to mean minimizing the deviation of each of our $Y$ variables from a line of best fit in a dimension perpendicular to the $Y$ axis. In general, this kind of regression, where deviation is measured perpendicular to one of the axes, is known as **Model I** regression, and is used when the levels of the predictor variable are either measured without error (or, practically speaking, are measured with much less uncertainty than those of the response variable) or are set by the researcher (e.g., for defined treatment variables in an ecological experiment).
+
+### The `lm()` Function
+
+The function `lm()` in ***R*** makes all of the calculations we did above for **Model I** regression very easy! Below, we pass the zombies dataframe and variables directly to `lm()` and assign the result to an ***R*** object called **m**. We can then look at the various elements that ***R*** calculates about this model.
+
+``` {r}
+m <- lm(height~weight, data=d)
+m
+names(m)
+m$coefficients
+head(m$model)
+```
+
+In {ggplot}, we can easily create a plot that adds the linear model along with confidence intervals around the estimated value of **y**, or <img src="img/yhat.svg" width="12px"/> at each **x**. Those intervals are important for when we move on to talking about inference in the regression context.
+
+``` {r}
+g <- ggplot(data=d, aes(x = weight, y = height))
+g <- g + geom_point()
+g <- g + geom_smooth(method="lm", formula=y~x)
+g
+```
+
+The assumption of greater uncertainty in our response variable than in our predictor variable may be reasonable in controlled experiments, but for natural observations, measurement of the $X$ variable also typically involves some error and, in fact, in many cases we may not be concered about PREDICTING $Y$ from $X$ but rather want to treat both $X$ and $Y$ as independent variables and explore the relationship between them or consider that both are dependent on some additional parameter, which may be unknown. That is, both are measured rather than "controlled" and both include uncertainty. We thus are not seeking an equation of how $Y$ varies with changes in $X$, but rather we are look for how they both co-vary in response to some other variable or process. Under these conditions **Model II** regression analysis may be more appropriate. In **Model II** approaches, a line of best fit is chosen that minimizes in some way the direct distance of each point to the best fit line. There are several different types of **Model II** regression, and which to use depends upon the specifics of the case. Common approaches are know as *major axis*, *ranged major axis*, and *reduced major axis* (a.k.a. *standard major axis*) regression. 
+
+The {lmodel2} package allows us to do **Model II** regression easily (as well as **Model I**). In this package, the signficance of the regression coefficients is determined based on permutation.
+
+``` {r}
+library(lmodel2) # load the lmodel2 package
+# Run the regression
+mII <- lmodel2(height~weight, data=d, range.y = "relative", range.x="relative", nperm=1000)
+mII
+plot(mII, "OLS")
+plot(mII, "RMA")
+plot(mII, "SMA")
+plot(mII, "MA")
+```
+
+Note that, here, running `lmodel2()` and using OLS to detemine the best coefficients yields equivalent results to our Model I regression done above using `lm()`.
+
+``` {r}
+mI <- lm(height~weight, data=d)
+summary(mI)
+par(mfrow=c(1,2))
+plot(mII, main="lmodel2() OLS")
+plot(data=d, height~weight, main="lm()")
+abline(mI)
+```
+
+#### CHALLENGE:
+Using the zombies dataset, work with a partner to...
+
+- Plot zombie height as a function of age
+- Derive by hand the ordinary least squares regression coefficients $\beta_1$ and $\beta_0$ for these data.
+- Confirm that you get the same results using the `lm()` function
+- Repeat the analysis above for males and females separately. Do your regression coefficients differ? How might you determine this?
+
+``` {r}
+plot(data=d, height~age)
+head(d)
+beta1 <- cor(d$height,d$age)*sd(d$height)/sd(d$age)
+beta1
+beta0 <- mean(d$height) - beta1*mean(d$age)
+beta0
+m <- lm(height~age, data=d)
+m
+```
+
+### Statistical Inference in Regression
+
+Once we have our linear model and associated regression coefficients, we want to know a bit more about it. First, we want to be able to evaluate whether there is **statistical evidence** that there is indeed a relationship between these variables. If so, then our regression coefficients can indeed allow us to estimate or predict the value of one variable given another. Additionally, we also would like to be able to extend our estimates from our sample out to the population they are drawn from. These next steps involve the process of statistical inference.
+
+The output of the `lm()` function provides a lot of information useful for inference. Run the command `summary()` on the output of `lm(data=d,height~weight)`
+
+``` {r}
+m <- lm(data=d,height~weight)
+summary(m)
+```
+
+One of the outputs for the model, seen in the 2nd to last line in the output above, is the "R-squared" value, or the **coefficient of determination**, which is a summary of the total amount of variation in the **y** variable that is explained by the **x** variable. In our regression, ~69% of the variation in zombie height is explained by zombie weight.
+
+Another output is the **standard error** of the estimate of each regression coefficient, along with a corresponding **t value** and **p value**. Recall that t statistics are calculated as the difference between an observed and expected value divided by a standard error. The p value comes from evaluating the magnitude of the t statistic against a t distribution with **n-2** degrees of freedom. We can confirm this by hand calculating t and p based on the estimate and the standard error of the estimate.
+
+``` {r}
+t <- coef(summary(m))
+t <- data.frame(unlist(t))
+colnames(t) <- c("Est", "SE", "t","p") 
+t
+t$calct <- (t$Est-0)/t$SE
+t$calcp <- 2 * pt(t$calct, df=998, lower.tail = FALSE) # x2 because is 2-tailed test
+t
+```
+
+We can get confidence intervals for our estimates easily, too, using either the approach we've used before by hand or by using a built in function.
+
+``` {r}
+t$lower <- t$Est - qt(0.975, df=998)*t$SE
+t$upper <- t$Est + qt(0.975, df=998)*t$SE
+ci <- c(t$lower, t$upper) # by hand
+ci
+ci <- confint(m,level=0.95) # using the results of lm()
+ci
+```
+
+### Interpreting Regression Coefficients and Prediction
+  
+Estimating our regression coefficients is pretty straightforward... but what do they mean?
+
+- The **intercept**, $\beta_0$, is the PREDICTED value of **y** when the value of **x** is zero.
+- The **slope**, $\beta_1$ is EXPECTED CHANGE in units of **y** for every 1 unit of change in **x**.
+- The overall equation allows us to calculate PREDICTED values of **y** for new observations of **x**. We can also calculate CONFIDENCE INTERVALS (CIs) around the predicted mean value of **y** for each value of **x** (which addresses our uncertainly in the estimate of the mean), and we can also get PREDICTION INTERVALS (PIs) around our prediction (which gives the range of actual values of **y** we might expect to see at a given value of **x**).
+
+#### CHALLENGE:
+
+- If zombie weight is measured in *pounds* and zombie height is measured in *inches*, what is the expected height of a zombie weighing 150 pounds?
+- What is the predicted difference in height between a zombie weighing 180 and 220 pounds?
+
+``` {r}
+beta0 <-t$Est[1]
+beta1 <-t$Est[2]
+h_hat <- beta1 * 150 + beta0
+h_hat
+h_hat_difference <- (beta1 * 220 + beta0) - (beta1 * 180 + beta0)
+h_hat_difference
+```
+
+The `predict()` function allows us to generate predicted (i.e.,  <img src="img/yhat.svg" width="12px"/>) values for a vector of values of x. Note the structure of the 2nd argument in the function... it includes the x variable name, and we pass it a vector of values. Here, I pass it a vector of actual x values.
+
+``` {r}
+m <- lm(data=d,height~weight)
+h_hat <- predict(m, newdata=data.frame(weight=d$weight))
+df <- data.frame(cbind(d$weight,d$height,h_hat))
+names(df) <- c("x","y","yhat")
+head(df)
+g <- ggplot(data=df,aes(x=x,y=yhat))
+g <- g + geom_point()
+g <- g + geom_point(aes(x=x,y=y),colour="red")
+g <- g + geom_segment(aes(x=x, y=yhat, xend=x, yend=y))
+g
+```
+
+Each vertical line in the figure above represents a **residual**, the difference between the observed and the fitted or predicted value of y at the given x values.
+
+The `predict()` function also allows us to easily generate confidence intervals around our predicted mean value for **y** values easily.
+
+``` {r}
+ci <- predict(m,newdata=data.frame(weight=150), interval="confidence",level=0.95) # for a single value
+ci
+ci <- predict(m,newdata=data.frame(weight=d$weight), interval="confidence",level=0.95) # for a vector of values
+head(ci)
+df <- cbind(df,ci)
+names(df) <- c("x","y","yhat","CIfit","CIlwr","CIupr")
+head(df)
+g <- ggplot(data=df,aes(x=x,y=y))
+g <- g + geom_point(alpha=1/2)
+g <- g + geom_line(aes(x=x, y=CIfit), colour = "black")
+g <- g + geom_line(aes(x=x, y=CIlwr), colour = "blue")
+g <- g + geom_line(aes(x=x, y=CIupr), colour = "blue")
+g
+```
+
+The same `predict()` function also allows us to easily generate *prediction intervals* for values of **y** at each **x**.
+
+``` {r}
+pi <- predict(m,newdata=data.frame(weight=150), interval="prediction",level=0.95) # for a single value
+pi
+pi <- predict(m,newdata=data.frame(weight=d$weight), interval="prediction",level=0.95) # for a vector of values
+head(pi)
+df <- cbind(df,pi)
+names(df) <- c("x","y","yhat","CIfit","CIlwr","CIupr","PIfit","PIlwr","PIupr")
+head(df)
+g <- g + geom_line(data=df,aes(x=x, y=PIlwr), colour = "red")
+g <- g + geom_line(data=df,aes(x=x, y=PIupr), colour = "red")
+g
+```
+
+#### CHALLENGE:
+Construct a linear model for the regression of zombie height on age and predict the mean height, the 95% confidence interval (CI) around the predicted mean height, and the 95% prediction interval (PI) around that mean for a vector of zombie ages, `v <- seq(from=10, to=30, by=1)`. Then, plot your points, your regression line, and lines for the lower and upper limits of the CI and of the PI.
+
+``` {r}
+v <- seq(from=10, to=30, by=1)
+m <- lm(data=d,height~age)
+ci <- predict(m,newdata=data.frame(age=v), interval="confidence",level=0.95)
+pi <- predict(m,newdata=data.frame(age=v), interval="prediction",level=0.95)
+plot(data=d, height~age)
+lines(x=v,y=ci[,1], col="black")
+lines(x=v,y=ci[,2], col="blue")
+lines(x=v,y=ci[,3], col="blue")
+lines(x=v,y=pi[,2], col="red")
+lines(x=v,y=pi[,3], col="red")
+#or
+require(gridExtra)
+require(ggplot2)
+df <- data.frame(cbind(v,ci,pi))
+names(df) <- c("age","CIfit","CIlwr","CIupr","PIfit","PIlwr","PIupr")
+head(df)
+g1 <- ggplot(data=d, aes(x = age, y = height))
+g1 <- g1 + geom_point(alpha=1/2)
+g1 <- g1 + geom_line(data=df,aes(x=v,y=CIfit),colour="black",lwd=1)
+g1 <- g1 + geom_line(data=df,aes(x=v,y=CIlwr),colour="blue")
+g1 <- g1 + geom_line(data=df,aes(x=v,y=CIupr),colour="blue")
+g1 <- g1 + geom_line(data=df,aes(x=v,y=PIlwr),colour="red")
+g1 <- g1 + geom_line(data=df,aes(x=v,y=PIupr),colour="red")
+g2 <- ggplot(data=d, aes(x = age, y = height))
+g2 <- g2 + geom_point(alpha=1/2)
+g2 <- g2 + geom_smooth(method="lm", formula=y~x)
+grid.arrange(g1, g2, ncol=2)
+```
+
+Again, here the CI band shows where the mean height is expected to fall in 95% of samples and the PI band shows where the individual points are expected to fall 95% of the time.
+
+### Residuals
+
+From our various plots above, it's clear that our model is not explaining all of the variation we see in our dataset... our **y** points do not all fall on the **yhat** line but rather are distributed around it. The distance of each of these points from the predicted value for **y** at that value of **x** is known as the "residual". We can think about the residuals as "what is left over"" after accounting for the predicted relationship between **x** and **y**. Residuals are often thought of as estimates of the "error" term in a regression model, and most regression analyses assume that residuals are random normal variables with uniform variance across the range of **x** values (more on this below). In ordinary least squares regression, the line of best fit minimizes the sum of the squared residuals, and the expected value for a residual is 0. 
+
+Residuals are also used to create "covariate adjusted" variables, as they can be thought of as the response variable, **y**, with the linear effect of the predictor variable(s) removed. We'll return to this idea when we move on to multivariate regression.
