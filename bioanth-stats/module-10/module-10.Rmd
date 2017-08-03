@@ -1,6 +1,6 @@
 ---
 title: "Module 10"
-author: by Anthony Di Fiore and Christopher A. Schmitt
+author: Anthony Di Fiore and Christopher A. Schmitt
 output:
     html_document
 ---
