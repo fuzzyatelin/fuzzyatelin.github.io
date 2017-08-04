@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 # Elements of Regression Analysis
 
 ## Preliminaries
-- Install this package in ***R***: {curl}
+- Install this package in ***R***: {curl} [{car}](https://cran.r-project.org/web/packages/car/car.pdf)
 
 ## Objectives
 > The objective of this module is to continue our discussion of simple linear regression analysis to understand how the object of regression is to partition variance in the response variable among different sources, i.e., into that explanined **by the regression model** itself (and, we'll see later on in our discussion of multivariate regression, among different factors in that model) versus the left-over **error or residual variance**. We also go through how to calculate the **standard errors** for our various regression coefficients and for the predicted values of our response variable based on our regression model, which, as we have seen are returned by the `lm()` function. Finally, we also briefly discuss ways to transform non-normally distributed data to make them more appropriate for analysis using linear regression.
@@ -202,13 +202,50 @@ plot(m)
 ```
 The first plot of fitted values (<img src="img/yhat.svg" width="12px"/>) versus residuals should, like the plot of **x** versus residuals, not show any structure. We hope to see equally spread residuals around a horizontal line without distinct patterns. The second plot is a Q-Q plot of theoretical quantiles versus standardized quantiles for the residual values. These should fall on roughly a straight line, if the residuals are normally distributed. The third plot graphs the square root of the standardized residuals versus **x** and shows whether or not residuals are spread equally along the ranges of **x**s. It is good if you see a horizontal line with equally spread points rather than a decrease or increase in spread with **x**, which would indicate that the error variance increases or decreases with **x**. The fourth plot highlights whether there are particular observations that influence the results. In particular, we look to see if there are cases that fall in the upper or lower right portion of the plot.
 
-We can also do a QQ plot of our residuals and run a Shapiro-Wilk Normality Test, where a low p value would indicate deviation from normality.
+We can also do a QQ plot of our residuals:
 
 ``` {r}
 qqnorm(m$residuals)
+```
+
+Perhaps a more helpful QQ plot can be found in the {car} package. The function `qqPlot()` provides a trend line and confidence intervals that allow us to see exactly which points make the sample fall outside of normality (if any). Let's take a look:
+
+``` {r}
+library(car)
+qqPlot(m$residuals)
+```
+
+Finally, there are a number of tests for normality that we can run within the ***R*** framework and using other packages. A Shapiro-Wilk Normality Test is perhaps the most widely used, where a low p value would indicate deviation from normality (technically, a measure of how far the trend line of the residuals deviates from the qqplot line).
+
+``` {r}
 s <- shapiro.test(m$residuals)
 s
 ```
+
+As you can see, although there are some points at the higher quantiles that suggest non-normality, the Shapiro-Wilks test suggests that it's not quite non-normal, so our use of parametric statistics should be ok.
+
+Some other popular tests for normality, and the cases in which they're best used, are listed below:
+
+- Anderson-Darling test
+    - Very popular, not quite as powerful as Shapiro-Wilk.
+    - Best used when n ≥ 8.
+    - {nortest}: `ad.test()` 
+- Martinez-Iglewicz test
+    - Test for dispersion from the median. 
+    - Very powerful for heavy-tailed distributions.
+    - Best with small sample sizes (n ≥ 3).
+    - {PoweR}: `stat0032.MartinezIglewicz()`
+- Kolmogorov-Smirnov (with Lilliefors adjustment) test
+    - Not as good as Anderson-Darling, but historically popular.
+    - Requires that n ≥ 4.
+    - {nortest}: `lillie.test()`
+- D-Agostino Omnibus test (based on assessment of skew and kurtosis)
+    - Robust against identical values in distribution.
+    - Skewness test requires n ≥ 8; Kurtosis test requires n ≥ 20.
+    - {fBasics}: `dagoTest()`
+
+For a good discussion/demonstration of the relative power of each of these tests (meaning the probability that the test will correctly reject the null hypothesis) at different sample sizes, [check this out](https://ncss-wpengine.netdna-ssl.com/wp-content/themes/ncss/pdf/Procedures/PASS/Normality_Tests-Simulation.pdf), especially the tables on 670-8 and 670-9, and plots on 670-10. This can help you better understand which test is best for a given sample size, and how much faith to put in these tests given your sample!
+
 #### CHALLENGE:
 
 Load in the "KamilarAndCooper.csv" dataset and develop a linear model to look at the relationship between "weaning age" and "female body mass". You will probably need to look at the data and variable names again to find the appropriate variables to examine.
@@ -226,7 +263,7 @@ plot(data=d,WeaningAge_d~Body_mass_female_mean)
 model<-lm(data=d,WeaningAge_d~Body_mass_female_mean)
 summary(model)
 plot(model)
-qqnorm(model$residuals)
+qqPlot(model$residuals)
 s <- shapiro.test(model$residuals)
 s
 ```
@@ -250,6 +287,9 @@ plot(data=d,logWeaningAge~logFemaleBodyMass)
 model<-lm(data=d,logWeaningAge~logFemaleBodyMass)
 summary(model)
 plot(model)
+qqPlot(model$residuals)
+s <- shapiro.test(model$residuals)
+s
 ```
 
 The following chart and graphs shows some other common numerical transformations that are often useful for changing a variable's distribution to more closely approximate the normal.
@@ -298,3 +338,8 @@ x <- seq(from=1,to=10,length.out=100)
 y <- a * exp(b*x)
 plot(x,y, type="l",main="untransformed")
 plot(x,log(y), type="l",main="log(y)")
+```
+
+Uniformly transforming a dataset is the most common way of attempting to squeeze your data into matching the normal distribution so that you can use parametric statistics.  This is a very common practice, and there is much written on the topic, including its drawbacks. 
+
+For a good discussion on common transformations, see ***R in Action*** Chapter 8.5 (Corrective measures), and please do note **A caution concerning transformations** (p. 200). When trying out transformations, keep your normalization tests handy so that you can retest the transformed data and see if the transformation achieved it’s intended purpose.

@@ -1,5 +1,6 @@
 Module 13
 ================
+Anthony Di Fiore and Christopher A. Schmitt
 
 Elements of Regression Analysis
 ===============================
@@ -7,7 +8,7 @@ Elements of Regression Analysis
 Preliminaries
 -------------
 
--   Install this package in ***R***: {curl}
+-   Install this package in ***R***: {curl} [{car}](https://cran.r-project.org/web/packages/car/car.pdf)
 
 Objectives
 ----------
@@ -27,7 +28,7 @@ Let's make sure we have our zombie data loaded...
 
 ``` r
 library(curl)
-f <- curl("https://raw.githubusercontent.com/difiore/ADA2016/master/zombies.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/zombies.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 ```
 
@@ -127,7 +128,7 @@ Alternatively, we can use the following formulation to directly estimate a p val
 
 ... and we see that the p value associated with this high of an F ratio is infintessimally small.
 
-As usual, ***R*** can handle all of the calculations above for easily. The `aov()` function, like the `lm()` function, returns a model object that we can use `summary()` on to look at the results we want. Alternatively, we can run the function `summary.aov()` using the model object resulting from `lm()` as an argument. In either case, the results returned are the same as we calculated by hand above.
+As usual, ***R*** can handle all of the calculations above easily with a built-in function. The `aov()` function, like the `lm()` function, returns a model object that we can use `summary()` on to look at the results we want. Alternatively, we can run the function `summary.aov()` using the model object resulting from `lm()` as an argument. In either case, the results returned are the same as we calculated by hand above.
 
 ``` r
 a <- aov(data = d, height ~ weight)
@@ -150,7 +151,7 @@ summary.aov(m)
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Recall that the results returned by `summary()` of our regression model also shows the coefficient of determination, or the "R-squared value", which we defined above as the fraction of the total variation explained by the mode. We can calculate this value directly from our ANOVA table as simply SSR/SSY. The correlation coefficient, *ρ*, between our response and predictor variable is simply the square root of this value.
+Recall that the results returned by `summary()` of our regression model also shows the coefficient of determination, or the "R-squared value", which we defined above as the fraction of the total variation explained by the model. We can calculate this value directly from our ANOVA table as simply SSR/SSY. The correlation coefficient, *ρ*, between our response and predictor variable is simply the square root of this value.
 
 ``` r
 rsquared <- SSR/SSY
@@ -288,13 +289,24 @@ plot(m)
 
 ![](img/unnamed-chunk-15-2.png) The first plot of fitted values (<img src="img/yhat.svg" width="12px"/>) versus residuals should, like the plot of **x** versus residuals, not show any structure. We hope to see equally spread residuals around a horizontal line without distinct patterns. The second plot is a Q-Q plot of theoretical quantiles versus standardized quantiles for the residual values. These should fall on roughly a straight line, if the residuals are normally distributed. The third plot graphs the square root of the standardized residuals versus **x** and shows whether or not residuals are spread equally along the ranges of **x**s. It is good if you see a horizontal line with equally spread points rather than a decrease or increase in spread with **x**, which would indicate that the error variance increases or decreases with **x**. The fourth plot highlights whether there are particular observations that influence the results. In particular, we look to see if there are cases that fall in the upper or lower right portion of the plot.
 
-We can also do a QQ plot of our residuals and run a Shapiro-Wilk Normality Test, where a low p value would indicate deviation from normality.
+We can also do a QQ plot of our residuals:
 
 ``` r
 qqnorm(m$residuals)
 ```
 
 ![](img/unnamed-chunk-16-1.png)
+
+Perhaps a more helpful QQ plot can be found in the {car} package. The function `qqPlot()` provides a trend line and confidence intervals that allow us to see exactly which points make the sample fall outside of normality (if any). Let's take a look:
+
+``` r
+library(car)
+qqPlot(m$residuals)
+```
+
+![](img/unnamed-chunk-17-1.png)
+
+Finally, there are a number of tests for normality that we can run within the ***R*** framework and using other packages. A Shapiro-Wilk Normality Test is perhaps the most widely used, where a low p value would indicate deviation from normality (technically, a measure of how far the trend line of the residuals deviates from the qqplot line).
 
 ``` r
 s <- shapiro.test(m$residuals)
@@ -307,6 +319,30 @@ s
     ## data:  m$residuals
     ## W = 0.99713, p-value = 0.07041
 
+As you can see, although there are some points at the higher quantiles that suggest non-normality, the Shapiro-Wilks test suggests that it's not quite non-normal, so our use of parametric statistics should be ok.
+
+Some other popular tests for normality, and the cases in which they're best used, are listed below:
+
+-   Anderson-Darling test
+    -   Very popular, not quite as powerful as Shapiro-Wilk.
+    -   Best used when n ≥ 8.
+    -   {nortest}: `ad.test()`
+-   Martinez-Iglewicz test
+    -   Test for dispersion from the median.
+    -   Very powerful for heavy-tailed distributions.
+    -   Best with small sample sizes (n ≥ 3).
+    -   {PoweR}: `stat0032.MartinezIglewicz()`
+-   Kolmogorov-Smirnov (with Lilliefors adjustment) test
+    -   Not as good as Anderson-Darling, but historically popular.
+    -   Requires that n ≥ 4.
+    -   {nortest}: `lillie.test()`
+-   D-Agostino Omnibus test (based on assessment of skew and kurtosis)
+    -   Robust against identical values in distribution.
+    -   Skewness test requires n ≥ 8; Kurtosis test requires n ≥ 20.
+    -   {fBasics}: `dagoTest()`
+
+For a good discussion/demonstration of the relative power of each of these tests (meaning the probability that the test will correctly reject the null hypothesis) at different sample sizes, [check this out](https://ncss-wpengine.netdna-ssl.com/wp-content/themes/ncss/pdf/Procedures/PASS/Normality_Tests-Simulation.pdf), especially the tables on 670-8 and 670-9, and plots on 670-10. This can help you better understand which test is best for a given sample size, and how much faith to put in these tests given your sample!
+
 #### CHALLENGE:
 
 Load in the "KamilarAndCooper.csv" dataset and develop a linear model to look at the relationship between "weaning age" and "female body mass". You will probably need to look at the data and variable names again to find the appropriate variables to examine.
@@ -317,7 +353,7 @@ Load in the "KamilarAndCooper.csv" dataset and develop a linear model to look at
 -   Run the `plot()` command on the result of `lm()` and examine the 4 plots produced. Again, based on examination of the residuals and the results of Shapiro-Wilks test, does it look like your model has good fit?
 
 ``` r
-f <- curl("https://raw.githubusercontent.com/difiore/ADA2016/master/KamilarAndCooperData.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/KamilarAndCooperData.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 head(d)
 ```
@@ -411,7 +447,7 @@ head(d)
 plot(data = d, WeaningAge_d ~ Body_mass_female_mean)
 ```
 
-![](img/unnamed-chunk-17-1.png)
+![](img/unnamed-chunk-19-1.png)
 
 ``` r
 model <- lm(data = d, WeaningAge_d ~ Body_mass_female_mean)
@@ -442,13 +478,13 @@ summary(model)
 plot(model)
 ```
 
-![](img/unnamed-chunk-17-2.png)![](img/unnamed-chunk-17-3.png)![](img/unnamed-chunk-17-4.png)![](img/unnamed-chunk-17-5.png)
+![](img/unnamed-chunk-19-2.png)![](img/unnamed-chunk-19-3.png)![](img/unnamed-chunk-19-4.png)![](img/unnamed-chunk-19-5.png)
 
 ``` r
-qqnorm(model$residuals)
+qqPlot(model$residuals)
 ```
 
-![](img/unnamed-chunk-17-6.png)
+![](img/unnamed-chunk-19-6.png)
 
 ``` r
 s <- shapiro.test(model$residuals)
@@ -480,7 +516,7 @@ d$logFemaleBodyMass <- log(d$Body_mass_female_mean)
 plot(data = d, logWeaningAge ~ logFemaleBodyMass)
 ```
 
-![](img/unnamed-chunk-18-1.png)
+![](img/unnamed-chunk-20-1.png)
 
 ``` r
 model <- lm(data = d, logWeaningAge ~ logFemaleBodyMass)
@@ -511,7 +547,24 @@ summary(model)
 plot(model)
 ```
 
-![](img/unnamed-chunk-18-2.png)![](img/unnamed-chunk-18-3.png)![](img/unnamed-chunk-18-4.png)![](img/unnamed-chunk-18-5.png)
+![](img/unnamed-chunk-20-2.png)![](img/unnamed-chunk-20-3.png)![](img/unnamed-chunk-20-4.png)![](img/unnamed-chunk-20-5.png)
+
+``` r
+qqPlot(model$residuals)
+```
+
+![](img/unnamed-chunk-20-6.png)
+
+``` r
+s <- shapiro.test(model$residuals)
+s
+```
+
+    ## 
+    ##  Shapiro-Wilk normality test
+    ## 
+    ## data:  model$residuals
+    ## W = 0.99367, p-value = 0.8793
 
 The following chart and graphs shows some other common numerical transformations that are often useful for changing a variable's distribution to more closely approximate the normal.
 
@@ -530,7 +583,7 @@ plot(x, y, type = "l", main = "untransformed")
 plot(log(x), y, type = "l", main = "log(x)")
 ```
 
-![](img/unnamed-chunk-19-1.png)
+![](img/unnamed-chunk-21-1.png)
 
 ``` r
 # log y
@@ -540,7 +593,7 @@ plot(x, y, type = "l", main = "untransformed")
 plot(x, log(y), type = "l", main = "log(y)")
 ```
 
-![](img/unnamed-chunk-19-2.png)
+![](img/unnamed-chunk-21-2.png)
 
 ``` r
 # assymptotic
@@ -550,7 +603,7 @@ plot(x, y, type = "l", main = "untransformed")
 plot(1/x, y, type = "l", main = "1/x")
 ```
 
-![](img/unnamed-chunk-19-3.png)
+![](img/unnamed-chunk-21-3.png)
 
 ``` r
 # reciprocal
@@ -560,7 +613,7 @@ plot(x, y, type = "l", main = "untransformed")
 plot(1/x, y, type = "l", main = "1/x")
 ```
 
-![](img/unnamed-chunk-19-4.png)
+![](img/unnamed-chunk-21-4.png)
 
 ``` r
 # power
@@ -570,7 +623,7 @@ plot(x, y, type = "l", main = "untransformed")
 plot(x^b, y, type = "l", main = "x^b")
 ```
 
-![](img/unnamed-chunk-19-5.png)
+![](img/unnamed-chunk-21-5.png)
 
 ``` r
 # exp
@@ -580,4 +633,8 @@ plot(x, y, type = "l", main = "untransformed")
 plot(x, log(y), type = "l", main = "log(y)")
 ```
 
-![](img/unnamed-chunk-19-6.png)
+![](img/unnamed-chunk-21-6.png)
+
+Uniformly transforming a dataset is the most common way of attempting to squeeze your data into matching the normal distribution so that you can use parametric statistics. This is a very common practice, and there is much written on the topic, including its drawbacks.
+
+For a good discussion on common transformations, see ***R in Action*** Chapter 8.5 (Corrective measures), and please do note **A caution concerning transformations** (p. 200). When trying out transformations, keep your normalization tests handy so that you can retest the transformed data and see if the transformation achieved it’s intended purpose.
