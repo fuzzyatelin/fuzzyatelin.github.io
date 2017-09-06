@@ -81,7 +81,7 @@ output: html_document
 ###Week 02 (2017-09-12)
 ***
 
-[Homework 1 assigned - DUE 2pm 2016-09-15](http://fuzzyatelin.github.io/bioanth-stats/homework_default.html)
+[Homework 1 assigned - DUE 2pm 2016-09-15](http://fuzzyatelin.github.io/bioanth-stats/homework_01.html)
 
 ###Data Science Preliminaries
 

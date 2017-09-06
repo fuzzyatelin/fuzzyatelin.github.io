@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-## DUE 2017-09-11 at 5pm
+## DUE 2017-09-15 at 2pm
 
 Create a repository in your ***GitHub*** account called "AN597-Week-2", and upload an **RMarkdown** (Rmd) file - you can create one using the 'new file' button on the editor in ***RStudio*** - with your notes and code for all of the CHALLENGES from Module 04, which you'll be trying on your own this week.
 
