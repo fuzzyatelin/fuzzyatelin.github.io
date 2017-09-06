@@ -1,7 +1,7 @@
 ---
 title: "AN597: Project Design and Statistics</br> in Biological Anthopology"
 author: "Christopher A Schmitt</br>Boston University"
-date: "August 1, 2017"
+date: "September 6, 2017"
 output: html_document
 ---
 ***
@@ -15,7 +15,7 @@ output: html_document
 ###Faculty Instructor:
   **Christopher A. Schmitt**, Assistant Professor of Anthropology and Biology  
   Office: 232 Bay State Road, Room 104B  
-  Office Hours: TBA  
+  Office Hours: Wednesday 2:00 - 4:00pm; Thursday by appointment.  
   Web: http://www.evopropinquitous.net  
   Email: caschmit[at]bu[dot]edu  
   Twitter: http://www.twitter.com/fuzzyatelin  

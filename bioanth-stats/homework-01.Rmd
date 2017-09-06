@@ -1,0 +1,25 @@
+---
+title: "Homework 01"
+output:
+    html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	warning = FALSE,
+	comment = "##",
+	prompt = TRUE,
+	tidy = TRUE,
+	tidy.opts = list(width.cutoff = 75),
+	fig.path = "img/"
+)
+```
+
+## DUE 2017-09-11 at 5pm
+
+Create a repository in your ***GitHub*** account called "AN597-Week-2", and upload an **RMarkdown** (Rmd) file - you can create one using the 'new file' button on the editor in ***RStudio*** - with your notes and code for all of the CHALLENGES from Module 04, which we covered in class last week.
+
+ALSO, please make sure that you've been able to PUSH that file up to ***GitHub*** from ***R*** (it should be accessible in your GitHub account Notes in Module 03 should help you accomplish this - and, of course, feel free to come see me for additional help if you're having problems).
+
+Some of you will no doubt realize that you will be able to see your colleagues' **Rmd** documents on ***GitHub*** each time they push them up, if you check out their accounts... I encourage you to troubleshoot code together, but please refrain from copying each others' work - in person or from repositories - and **make your work your own**!
