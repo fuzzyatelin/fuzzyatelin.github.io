@@ -1,5 +1,5 @@
 ---
-title: "Homework 01"
+title: "AN597: Homework 01"
 output:
     html_document
 ---
@@ -16,7 +16,24 @@ knitr::opts_chunk$set(
 )
 ```
 
+***
+
+###[Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
+###[Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
+###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
+###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
+###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
+
+***
+<center>
 ## DUE 2017-09-15 at 2pm
+
+<br>
+<center><p><img src="http://25.media.tumblr.com/tumblr_m7zp53WTvk1qlvwnco1_400.gif" style="border:5px solid black"></p>
+**['She' being Github]**
+</center>
+
+<br>
 
 Create a repository in your ***GitHub*** account called "AN597-Week-2", and upload an **RMarkdown** (Rmd) file - you can create one using the 'new file' button on the editor in ***RStudio*** - with your notes and code for all of the CHALLENGES from Module 04, which you'll be trying on your own this week.
 
