@@ -1,0 +1,83 @@
+---
+title: "Student Coding Problems"
+author: "Christopher A Schmitt"
+date: "9/13/2017"
+output: html_document
+---
+***
+
+###[Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
+###[Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
+###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
+###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
+###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
+
+***
+
+<center>
+
+<font size="+2"><b>Having a coding issue you just can't solve? Let's work it out...</b></font></center><br>
+
+<center><p><img src="http://68.media.tumblr.com/01b4d1a00391065bf8d902f2cd41c39e/tumblr_inline_ot293ujaT01rjrbqu_250.gif" style="border:5px solid black"></p>
+</center><br>  
+
+<center>
+We won't have time to work together on every problem that crops up in class, but we can help each other out!  If you ever run into a road block in a Module or Challenge, the first thing you should do is CONSULT THE TEXTBOOKS! Nine times out of ten they've got the solution, or can help you get to it. The next step is to google the problem (I suggest starting by throwing quotation marks around the error message and googling that way). If, after a few unproductive hours, you feel like tearing your hair out, then create an ***R Markdown*** file and completely describe the problem, complete with reproducible R code blocks, knitting it together as an html file, and uploading it to the **AN597_StudentProblems** repository on my ***GitHub*** account, **fuzzatelin**. See the instructions below to find out how!
+
+</center>
+***
+
+So you want to contribute to the **AN597_StudentProblems** repository?  Here we go...
+
+###I will add you as a collaborator to the *AN597_StudentProblems* repository.
+
+That actually should be sufficient. You'll receive an email from me inviting you to collaborate. Accept it, and you should be able to work with the repository as you like.
+
+***
+
+***IF*** that doesn't work, you'll have to do the following steps:
+
+* Go to the repository on ***GitHub***, you'll find it [here](https://github.com/fuzzyatelin/AN597_StudentProblems) (make sure you're signed in to your account!).
+* Click the "Fork" button at the top right.
+* You should now have your own copy of that repository in your own ***GitHub*** account.
+* Open a terminal/shell.
+* Type:
+```{bash,eval=FALSE}
+git clone git@github.com:username/AN597_StudentProblems
+```
+(In this case, the 'username' is *your* ***GitHub*** username)
+* You'll now have a local copy of *your version* of that repository.
+* Change into that project directory (AN597_StudentProblems):
+```{bash,eval=FALSE}
+cd AN597_StudentProblems
+```
+* Add a connection to the original owner's (my) repository:
+```{bash,eval=FALSE}
+git remote add fuzzyatelin git://github.com/fuzzyatelin/AN597_StudentProblems
+```
+* Note the distinction between `git@github.com:` in the first case and `git://github.com/` in the second case. I’m not sure why these need to be the way they are, but that’s what works for me.
+* Also note the first myfriend does not need to be the same as the username of myfriend. You could very well choose:
+```{bash,eval=FALSE}
+git remote add REPO_nickname git://github.com/fuzzyatelin/AN597_StudentProblems
+```
+* To check this remote add set up:
+```{bash,eval=FALSE}
+git remote -v
+```
+* Make changes to files
+* `git add` and `git commit` those changes
+git push them back to ***GitHub***. These will go to *your version* of the repository.
+
+###Handling pull requests
+Say I've made some changes to your code. When I do, you'll get an email about it at the email address to which your ***GitHub*** account is registered.
+**Using the *GitHub* website**
+
+* Go to your version of the repository.
+* Click on “Pull Requests” at the top.
+* Click on the particular request.
+* You’ll see their comments on the pull request, and can click to see the exact changes.
+* If you want them to make further changes before you merge the changes into your repository, add a comment.
+* If you hate the whole idea, just click the “Close” button.
+* If you want to merge the changes into your repository, click the “Merge pull request” button.
+* Your repository will now be fixed, but you’ll want to get them into your local repository, too, so either pull the changes from ***GitHub*** using whatever means you use to interface with your desktop files (***RStudio*** or ***GitHub Desktop***)
+
