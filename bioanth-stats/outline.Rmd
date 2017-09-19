@@ -157,7 +157,7 @@ output: html_document
 ###Week 03 (2017-09-19)
 ***
 
-[Homework 2 assigned - DUE 2pm 2017-09-22](http://fuzzyatelin.github.io/bioanth-stats/homework-02.html)
+[Homework 2 assigned - DUE 2pm 2017-09-30](http://fuzzyatelin.github.io/bioanth-stats/homework-02.html)
 
 ###Statistics Fundamentals - Exploratory Data Analysis, Central Tendency, and Variance
 
