@@ -730,7 +730,7 @@ Despite their similarities, the standard error of the mean calculated for a give
 
 <h3 style="color:blue";> HOMEWORK PROBLEM:</h3>
 >
->Using a new `.Rmd` file than you used for Problem 1, and pushing both the Markdown and knitted `.html` files to the same "homework-week-4" repository, do the following:
+>Using a new `.Rmd` file than you used for Homework 01, and pushing both the Markdown and knitted `.html` files to the same "AN597-Week-4" repository, do the following:
 >
 >Load in the dataset "zombies.csv" from my ***GitHub*** repo at https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN597_Fall17/. This data includes the first and last name and gender of the entire population of 1000 people who have survived the zombie apocalypse and are now ekeing out an existence somewhere on the East Coast, along with several other variables (height, weight, age, number of years of education, number of zombies they have killed, and college major [see here for info on important post-zombie apocalypse majors](http://www.thebestschools.org/magazine/best-majors-surviving-zombie-apocalypse/)
 >
