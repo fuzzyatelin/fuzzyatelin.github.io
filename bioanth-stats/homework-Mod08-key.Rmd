@@ -1,0 +1,358 @@
+---
+title: "Module 08: Homework Solution"
+author: "Christopher A Schmitt"
+date: "October 4, 2017"
+output: html_document
+---
+
+Ok!  Here's the solutions I had in mind for the homework problem associated with [Module 08](https://fuzzyatelin.github.io/bioanth-stats/module-08/module-08.html). Note that this is ALSO Homework 03.
+
+<h3 style="color:blue";> HOMEWORK PROBLEM:</h3>
+
+>Using a new `.Rmd` file than you used for Homework 01, and pushing both the Markdown and knitted `.html` files to the same "AN597-Week-4" repository, do the following:
+
+>Load in the dataset "zombies.csv" from my ***GitHub*** repo at https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN597_Fall17/. This data includes the first and last name and gender of the entire population of 1000 people who have survived the zombie apocalypse and are now ekeing out an existence somewhere on the East Coast, along with several other variables (height, weight, age, number of years of education, number of zombies they have killed, and college major [see here for info on important post-zombie apocalypse majors](http://www.thebestschools.org/magazine/best-majors-surviving-zombie-apocalypse/)
+>
+``` {r}
+library(curl)
+f<-curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/zombies.csv")
+d<-read.csv(f,header=TRUE,sep=",",stringsAsFactors=FALSE)
+head(d)
+```
+
+>[1] Calculate the *population* mean and standard deviation for each quantitative random variable (height, weight, age, number of zombies killed, and years of education). NOTE: You will not want to use the built in `var()` and `sd()` commands as these are for *samples*.
+
+Now, if you remember from earlier in [Module 08](https://fuzzyatelin.github.io/bioanth-stats/module-08/module-08.html), we got at the *population* mean by randomly sampling subsets from the population, averaging them, and then taking the average of the sample means. Let's do that for height now. Here we'll establish our random samples of height from the dataset:
+
+```{r}
+k<-length(d$height) #this is 1000
+n<-5 #we'll randomly choose samples of 5, like in the module
+m_height <- NULL #this is our dummy variable to hold each sample
+for (i in 1:k){
+	m_height[[i]]<-sample(d$height,size=n,replace=FALSE)
+}
+head(m_height)
+```
+
+Now we'll calculate a mean height, which is a statistic describing each sample. As [Module 08](https://fuzzyatelin.github.io/bioanth-stats/module-08/module-08.html) asserts: 
+
+>That statistic itself is a random variable with a mean and distribution. This is the *sampling distribution*. How does the sampling distribution compare to the population distribution? The mean of the two is pretty close to the same! The sample mean - which is an average of the set of sample averages - is an unbiased estimator for the *population* mean.
+
+```{r}
+mu_height <- NULL
+for (i in 1:k){
+	mu_height[i] <- mean(m_height[[i]])
+}
+mean(mu_height) # almost equal to mu for the population
+```
+
+Here we can copy and paste that code, then change 1) the variable name and 2) assigned names to get estimates of the *population* mean for each other variable. `Find/replace` (use the magnifying glass icon, above this console) makes this really fast!
+
+```{r}
+k<-length(d$weight) #this is 1000
+n<-5 #we'll randomly choose samples of 5, like in the module
+m_weight <- NULL #this is our dummy variable to hold each sample
+for (i in 1:k){
+	m_weight[[i]]<-sample(d$weight,size=n,replace=FALSE)
+}
+
+mu_weight <- NULL
+for (i in 1:k){
+	mu_weight[i] <- mean(m_weight[[i]])
+}
+mean(mu_weight) # almost equal to mu for the population
+```
+
+```{r}
+k<-length(d$age) #this is 1000
+n<-5 #we'll randomly choose samples of 5, like in the module
+m_age <- NULL #this is our dummy variable to hold each sample
+for (i in 1:k){
+	m_age[[i]]<-sample(d$age,size=n,replace=FALSE)
+}
+
+mu_age <- NULL
+for (i in 1:k){
+	mu_age[i] <- mean(m_age[[i]])
+}
+mean(mu_age) # almost equal to mu for the population
+```
+
+```{r}
+k<-length(d$zombies_killed) #this is 1000
+n<-5 #we'll randomly choose samples of 5, like in the module
+m_kill <- NULL #this is our dummy variable to hold each sample
+for (i in 1:k){
+	m_kill[[i]]<-sample(d$zombies_killed,size=n,replace=FALSE)
+}
+
+mu_kill <- NULL
+for (i in 1:k){
+	mu_kill[i] <- mean(m_kill[[i]])
+}
+mean(mu_kill) # almost equal to mu for the population
+```
+
+```{r}
+k<-length(d$years_of_education) #this is 1000
+n<-5 #we'll randomly choose samples of 5, like in the module
+m_edu <- NULL #this is our dummy variable to hold each sample
+for (i in 1:k){
+	m_edu[[i]]<-sample(d$years_of_education,size=n,replace=FALSE)
+}
+
+mu_edu <- NULL
+for (i in 1:k){
+	mu_edu[i] <- mean(m_edu[[i]])
+}
+mean(mu_edu) # almost equal to mu for the population
+```
+
+>[2] Use {ggplot} and make boxplots of each of these variables by gender.
+
+To draw these plots, we can go back to code used in [Module 06](https://fuzzyatelin.github.io/bioanth-stats/module-06/module-06.html)
+
+```{r}
+library(ggplot2)
+p <- ggplot(data = d, aes(x = gender, y = height))
+p <- p + geom_boxplot()
+p
+```
+```{r}
+library(ggplot2)
+p <- ggplot(data = d, aes(x = gender, y = weight))
+p <- p + geom_boxplot()
+p
+```
+```{r}
+library(ggplot2)
+p <- ggplot(data = d, aes(x = gender, y = age))
+p <- p + geom_boxplot()
+p
+```
+```{r}
+library(ggplot2)
+p <- ggplot(data = d, aes(x = gender, y = zombies_killed))
+p <- p + geom_boxplot()
+p
+```
+```{r}
+library(ggplot2)
+p <- ggplot(data = d, aes(x = gender, y = years_of_education))
+p <- p + geom_boxplot()
+p
+```
+
+>[3] Use {ggplot} and make scatterplots of height and weight in relation to age. Do these variables seem to be related? In what way?
+
+```{r}
+p <- ggplot(data = d, aes(x = age, y = height))
+p <- p + geom_point()
+age_height <- p + geom_smooth(method = "lm")
+age_height
+```
+```{r}
+p <- ggplot(data = d, aes(x = age, y = weight))
+p <- p + geom_point()
+age_weight <- p + geom_smooth(method = "lm")
+age_weight
+```
+
+Both variables appear to be positively related, with both height and, to a lesser extent, weight increasing as age increases. The addition of the regression lines really highlights these relationships, no?
+
+>[4] Using histograms and Q-Q plots, check whether the quantitative variables seem to be drawn from a normal distribution. Which seem to be and which do not (hint: not all are drawn from the normal distribution)? For those that are not, can you determine what common distribution they are drawn from?
+
+Let's look at these all together using the `par()` command:
+```{r}
+par(mfrow = c(2, 3))  # gives us three panels in two rows
+attach(d)
+hist(height, freq = FALSE, main = "height", xlab = "height", 
+    ylab = "density", ylim = c(0, 0.3))
+hist(weight, freq = FALSE, main = "weight", xlab = "weight", 
+    ylab = "density", ylim = c(0, 0.3))
+hist(age, freq = FALSE, main = "age", xlab = "age", 
+    ylab = "density", ylim = c(0, 0.3))
+hist(zombies_killed, freq = FALSE, main = "zombies killed", xlab = "zombies killed", 
+    ylab = "density", ylim = c(0, 0.3))
+hist(years_of_education, freq = FALSE, main = "years of education", xlab = "years of education", 
+    ylab = "density", ylim = c(0, 0.3))
+```
+
+Just eye-balling it, I'd say that height and age look normal, and maybe weight (which looks a bit skewed), but zombies killed and years of education both look very non-normal (maybe more Poisson-ish or Bernoulli-ish). 
+
+Let's look at the QQ plots. We'll use the method from earlier in Module 08:
+
+```{r}
+par(mfrow = c(2, 3))  # gives us three panels in two rows
+
+qqnorm(d$height, main = "Normal QQ plot height")
+qqline(d$height, col = "gray")
+
+qqnorm(d$weight, main = "Normal QQ plot weight")
+qqline(d$weight, col = "gray")
+
+qqnorm(d$age, main = "Normal QQ plot age")
+qqline(d$age, col = "gray")
+
+qqnorm(d$zombies_killed, main = "Normal QQ plot zombies killed")
+qqline(d$zombies_killed, col = "gray")
+
+qqnorm(d$years_of_education, main = "Normal QQ plot education")
+qqline(d$years_of_education, col = "gray")
+```
+
+Well, weight looks ok, but sure enough it looks like zombies killed and years of education don't easily fit a normal distribution!
+
+Now, to assess whether these two are more Bernoulli-ish, we can do what we did in [Homework-02](https://fuzzyatelin.github.io/bioanth-stats/homework-02.html) and compare these distributions to the hypothetical Bernoulli distribution of the data and see if they match. Let's experiment... our x should be no greater than the maximum number of kills (in this case, 11), size is 1000 (that's how many outcomes we've got), and from there we can experiment with the probability of a kill. Let's also use `par()` again to make this visually easier:
+
+```{r}
+par(mfrow = c(1, 2)) # gives us two panels in one row
+
+hist(zombies_killed, freq = FALSE, main = "zombies killed", xlab = "zombies killed", 
+    ylab = "density", ylim = c(0,0.3),xlim=c(0,11))
+
+probset2<-dbinom(x=0:11,size=1000,prob=1/550)
+barplot(probset2,names.arg=0:11,space=0,xlab="kills",ylab="Pr(X=outcome)",ylim=c(0,0.3),xlim=c(0,11))
+```
+
+Ok... these look similar, actually. This is our old friend the Bernoulli distribution.
+
+>[5] Now use the `sample()` function to sample ONE subset of 30 zombie survivors (without replacement) from this population and calculate the mean and sample standard deviation for each variable. Also estimate the standard error for each variable and construct the 95% confidence interval for each mean. Note that for the variables that are not drawn from the normal distribution, you will need to base your estimate of the CIs on some different distribution.
+
+Code for `sample()` we can get from [Module 08](https://fuzzyatelin.github.io/bioanth-stats/module-08/module-08.htm), while code for confidence intervals we can get from [Module 07](https://fuzzyatelin.github.io/bioanth-stats/module-07/module-07.htm). Don't forget to define `se()`, which isn't in the native ***R*** environment (you can either write your own function, or load the `sciplot` package as I've done here)!
+
+```{r}
+library(sciplot)
+
+#For height:
+s_height<-sample(d$height,size=30,replace=FALSE)
+mean(s_height)
+sd(s_height)
+upper_h<-mean(s_height)+qnorm(0.975,mean=0,sd=1)*se(s_height)
+lower_h<-mean(s_height)+qnorm(0.025,mean=0,sd=1)*se(s_height)
+ci_h<-c(lower_h,upper_h)
+ci_h
+```
+```{r}
+#For weight:
+s_weight<-sample(d$weight,size=30,replace=FALSE)
+mean(s_weight)
+sd(s_weight)
+upper_w<-mean(s_weight)+qnorm(0.975,mean=0,sd=1)*se(s_weight)
+lower_w<-mean(s_weight)+qnorm(0.025,mean=0,sd=1)*se(s_weight)
+ci_w<-c(lower_w,upper_w)
+ci_w
+```
+```{r}
+#For age:
+s_age<-sample(d$age,size=30,replace=FALSE)
+mean(s_age)
+sd(s_age)
+upper_a<-mean(s_age)+qnorm(0.975,mean=0,sd=1)*se(s_age)
+lower_a<-mean(s_age)+qnorm(0.025,mean=0,sd=1)*se(s_age)
+ci_a<-c(lower_a,upper_a)
+ci_a
+```
+
+Now, for the non-normal samples, we can't rely on the above code because it assumes normality and we already know these aren't normally distributed!  Here, we'll have to use bootstrapping, as also done in [Module 07](https://fuzzyatelin.github.io/bioanth-stats/module-07/module-07.html):
+```{r}
+#For zombies_killed:
+s_zombies_killed<-sample(d$zombies_killed,size=30,replace=FALSE)
+mean(s_zombies_killed)
+sd(s_zombies_killed)
+
+set<-NULL  # sets up a dummy variable to hold our simulations
+n<-15
+for (i in 1:10000) {
+    set[i]<-mean(sample(s_zombies_killed,n,replace=TRUE))
+}
+quantile(set,c(0.025,0.975))
+```
+```{r}
+#For years_of_education:
+s_years_of_education<-sample(d$years_of_education,size=30,replace=FALSE)
+mean(s_years_of_education)
+sd(s_years_of_education)
+
+set<-NULL  # sets up a dummy variable to hold our simulations
+n<-15
+for (i in 1:10000) {
+    set[i]<-mean(sample(s_years_of_education,n,replace=TRUE))
+}
+quantile(set,c(0.025,0.975))
+
+```
+
+>[6] Now draw 99 more random samples of 30 zombie survivors out and calculate the mean for each of the these samples. Together with the first sample you drew out, you now have a set of 100 means for each variable (each based on 30 observations), which constitutes a sampling distribution for each variable. What are the means and standard deviations of this distribution for each variable? How do the standard deviations compare to the standard errors estimated in [5]? What do these sampling distributions look like? Are they normally distributed? What about for those variables that you concluded were not originally drawn from a normal distribution?
+
+```{r}
+x_m_height<-NULL
+for (i in 1:100) {
+    x_m_height[i] <- mean(sample(d$height,30))
+}
+
+hist(x_m_height,probability = TRUE)
+```
+
+```{r}
+mean(x_m_height)
+sd(x_m_height)
+```
+
+```{r}
+x_m_weight<-NULL
+for (i in 1:100) {
+    x_m_weight[i] <- mean(sample(d$weight,30))
+}
+
+hist(x_m_weight,probability = TRUE)
+```
+
+```{r}
+mean(x_m_weight)
+sd(x_m_weight)
+```
+
+```{r}
+x_m_age<-NULL
+for (i in 1:100) {
+    x_m_age[i] <- mean(sample(d$age,30))
+}
+
+hist(x_m_age,probability = TRUE)
+```
+
+```{r}
+mean(x_m_age)
+sd(x_m_age)
+```
+
+```{r}
+x_m_kill<-NULL
+for (i in 1:100) {
+    x_m_kill[i] <- mean(sample(d$zombies_killed,30))
+}
+
+hist(x_m_kill,probability = TRUE)
+```
+
+```{r}
+mean(x_m_kill)
+sd(x_m_kill)
+```
+
+```{r}
+x_m_edu<-NULL
+for (i in 1:100) {
+    x_m_edu[i] <- mean(sample(d$years_of_education,30))
+}
+
+hist(x_m_edu,probability = TRUE)
+```
+
+```{r}
+mean(x_m_edu)
+sd(x_m_edu)
+```
+
+Well, I have to say that the histograms here all look normally distributed, including those derived from data with non-normal distributions (ok, so they may randomly look a bit wonkier than normal)... of course, that's *exactly* what we'd expect in accordance with the CLT (yes, this was a lead-in to the next module)! Also in accordance with the CLT, it looks like the SE's estimated in [5] and the SDs are not quite the same, but are closer to each other than the SD of each as estimated in [5].
