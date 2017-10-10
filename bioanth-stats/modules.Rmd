@@ -88,7 +88,7 @@ Each module listed is linked to another page containing instructions and helpful
 ###**Week 09 (2017-10-31)**
 ***
 
-###Module 14 - **Basic Categorical Data Analysis and ANOVA**
+###[Module 14 - **Basic Categorical Data Analysis and ANOVA**](http://fuzzyatelin.github.io/bioanth-stats/module-14/module-14.html)
 ***
 
 ###**Week 10 (2017-11-07)**
