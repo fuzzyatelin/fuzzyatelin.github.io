@@ -256,6 +256,8 @@ output: html_document
 
 **IMPORTANT! Today is the deadline for choosing a paper from the primary literature to replicate analyses.**
 
+[UPDATE: You an find instructions for the data re-analysis assignment here!](http://fuzzyatelin.github.io/bioanth-stats/data-reanalysis-assignment.html)
+
 ###Statistical Inference and Basic Hypothesis Testing
 
 ####Topics
@@ -294,7 +296,7 @@ Class cancelled for Indigenous Peoples' Day!
 ###Week 07 (2017-10-17)
 ***
 
-[Homework 4 assigned - DUE 2pm 2017-10-23](http://fuzzyatelin.github.io/bioanth-stats/homework_default.html)
+[Homework 4 assigned - DUE 2pm 2017-10-23](http://fuzzyatelin.github.io/bioanth-stats/homework-04.html)
 
 ###Introduction to Linear Regression
 

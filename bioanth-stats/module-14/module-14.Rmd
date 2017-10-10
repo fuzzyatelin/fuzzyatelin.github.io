@@ -1,0 +1,418 @@
+---
+title: "Module 14"
+output:
+    github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo=TRUE,
+	warning=FALSE,
+	comment="##",
+	prompt=FALSE,
+	tidy=TRUE,
+	tidy.opts=list(width.cutoff=75),
+	fig.path="img/"
+)
+```
+# Basic Categorical Data Analysis and ANOVA
+
+## Preliminaries
+- Install these packages in ***R***: {curl}, {ggplot2}, {dplyr}, {car}
+
+## Objectives
+
+> In this module, we examine how simple linear regression can be applied to datasets where our predictor variable is discrete or categorical rather than continuous. Indeed, we will see that one-way (and two-way) analysis of variance (ANOVA) are specific applications of simple (and multiple) linear regression. We also look at other methods for basic statistical analysis of categorical data.
+
+## Categorical Predictors in Regression
+
+Thus far we have used simple linear regression models involving continuous explanatory variables, but we can also use a discrete or categorical explanatory variable, made up of 2 or more groups that are coded as "factors" (i.e., we use integer values from 1 to $k$ discrete groups as dummy values for our categorical variables). Let's load in our zombie data again, but this time we specify `stringsAsFactors = TRUE` and then look at the class of the variable "gender".
+
+``` {r}
+library(curl)
+f <- curl("https://raw.githubusercontent.com/difiore/ADA2016/master/zombies.csv")
+z <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = TRUE)
+class(z$gender)
+summary(z$gender)
+```
+
+As with our prior simple regression analysis, we want to evalute the effect of a predictor variable on a response variable (e.g., "height"), but this time we want our predictor to be a discrete variable (e.g., "gender") rather than a continuous one. We can start off by plotting "height" by "gender" using the same formula notation we have been using.
+
+``` {r}
+plot(z$height~z$gender)
+```
+
+This immediately gives us a nice barplot. Note that if we'd try to use this command after loading in "gender" as character rather than factor data, ***R*** would have thrown an error.
+
+Based on our plot, there indeed seems to be a difference in height between males and females. We can test this directly using linear regression (and, recall, we already know another way to test this, using z or t tests to compare means).
+
+``` {r}
+m <- lm(data=z, height~gender)
+summary(m)
+```
+
+If we take a look at the `summary()` of our model, **m**, we see the same kind of table of results we have seen before, but because the predictor variable in this case is a factor vector instead of a numeric vector, the coefficients are reported and interpreted a bit differently. The coefficient for the intercept, i.e., $\beta_0$, reflects the estimate of the mean height for the first of our level variables.
+
+``` {r}
+levels(z$gender)
+```
+
+The estimate for $\beta_1$ is reported as "genderMale" and the value for that coefficient, 4.0154, is the estimated difference in mean height associated with being a male. The regression equation is basically:
+
+**height = 65.5983 + 4.0154 x gender**, with males assigned a gender value of 1 and females of 0.
+
+In this case, the **p** value associated with the **t** statistic for $\beta_1$ is extremely low, so we conclude that "gender" has a significant effect on height.
+
+We can easily `relevel()` what is the baseline group. The result is very similar, but the sign of $\beta_1$ is changed.
+
+``` {r}
+z$gender <- relevel(z$gender,ref="Male")
+m <- lm(data=z, height~gender)
+summary(m)
+```
+The last line of the `summary()` output shows the results of the global test of significance of the regression model based on an F statistic compared to an F distribution with, in this case, 1 and 998 degrees of freedom.
+
+``` {r}
+p <- 1-pf(276.9, df1=1, df2=998)
+p
+```
+We can extend this approach to the case where we have more than two categories for a variable... in this case we need to dummy code our factor variable into multiple binary variables. ***R*** takes care of this for us automatically, but it is good to recognize the procedure.
+
+Let's explore this by recoding the variable "major" into four levels. We first create a new variable name.
+
+``` {r}
+z$occupation <- "temp"
+```
+
+We can use the `unique()` or `levels()` function to list all of the different majors in our dataset. The latter does this alphabetically. The `row()` command returns an index of row numbers, which we can then use to recode "major" into our new variable. 
+
+``` {r}
+unique(z$major)
+levels(z$major)
+row(data.frame(levels(z$major)))
+z$occupation[row(data.frame(levels(z$major))) %in% c(1,2,3,5,6,14,15,16,18,21,23)] <- "natural science"
+z$occupation[row(data.frame(levels(z$major))) %in% c(7,8,12,17,19,22)] <- "logistics"
+z$occupation[row(data.frame(levels(z$major))) %in% c(4,18,20)] <- "engineering"
+z$occupation[row(data.frame(levels(z$major))) %in% c(9,10,11,13,24,25,26)] <- "other"
+z$occupation <- as.factor(z$occupation)
+levels(z$occupation)
+z$occupation <- relevel(z$occupation,ref="natural science")
+levels(z$occupation)
+```
+
+Again, we can plot our variable by group and run a multilevel linear regression. Each $\beta$ estimate reflects the difference from the estimated mean for the reference level. The `lm()` function also returns the results of the global significance test of our model.
+
+``` {r}
+plot(data=z,zombies_killed~occupation)
+m <- lm(data=z, zombies_killed~occupation)
+summary(m)
+p <- 1-pf(0.526, df1=3, df2=996) # F test
+p
+```
+In this case, we see no significant effect of major on zombie killing proficiency.
+
+## One-Way ANOVA
+
+Regression with a single categorical predictor run as we have just done above is exactly equivalent to a "one-way" or "one-factor" analysis of variance, or ANOVA. That is, ANOVA is just one type of special case of least squares regression.
+
+We can thus run an ANOVA with one line in ***R***. Compare the results presented in the `summary()` output table from an ANOVA with that from the global test reported in `summary()` from `lm()`
+
+``` {r}
+m <- aov(data=z, zombies_killed~occupation)
+summary(m)
+par(mfrow = c(2,2))
+plot(m)
+```
+
+The summary of the `lm()` model produces a different table for the same analysis. It shows the effect sizes for each coefficient and their standard errors, whereas the F statistic and omnibus p value given in the ANOVA table indicates that there are differences between at least some treatments, but we do not know where those differences occur. The summary from `lm()` shows the effects arranged as sequential contrasts (the default in R). The first row gives the mean of the first level of the first factor specified in the model. The following rows give differences from this mean for each subsequent factor level. Likewise the standard error in the first row is a standard error of a mean, while the entries in subsequent rows are standard errors of the differences between two means.
+
+In general, in ANOVA and simple regression using a single categorical variable, we aim to test the $H_0$ that the means of a variable of interest do not differ among groups, i.e., that $\mu_1$ = $\mu_2$... $\mu_k$ are all equal. This is an extension of our comparison of two means that we did with z and t tests.
+
+The basic linear model formulation for ANOVA is:
+
+<img src="img/anova.svg" width="300px"/>
+
+where:
+
+- $\mu$ is the grand population mean
+
+- $\beta_i$ is the deviation of the mean of treatment level $i$ from the grand mean
+
+- $\epsilon_{i,j}$ is error variance of individual points from the grand mean
+
+The assumptions of ANOVA, similar to those of simple regression, are:
+
+- that samples are independent and identically distributed
+
+- that the residuals $\epsilon_{i,j}$ are normally distributed
+
+- that within-group variances are similar across all groups (‘homoscedastic”)
+
+The following assumption makes the interpretation of results from ANOVA more straightforward, but it is not strictly required.
+
+- Our experiment/observations have a balanced design (i.e., an equal number of cases in all groups). If this is violated, it ceases to be true that the total SS of our dataset = within SS + between SS, and then the calculations of MSE and F and our associated p values would be off.
+
+#### CHALLENGE:
+Load in the "gibbon-femurs.csv" dataset, which contains the lengths, in centimeters, of the femurs of 400 juvenile, subadult, and adult individuals gibbons. Use both ANOVA and simple linear regession to examine the relationship between age and femur length. Before beginning, make sure that you check for normality of observations within each group. 
+
+Is the omnibus test of the relationship between age category and femur length significant? Are femur lengths significantly different for juveniles versus subadults? Subadults versus adults? Juveniles versus adults? HINT: to test these bivariate options, you will need to `relevel()` your factors for simple linear regression.
+
+``` {r}
+library(curl)
+library(dplyr)
+f <- curl("https://raw.githubusercontent.com/difiore/ADA2016/master/gibbon-femurs.csv")
+d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = TRUE)
+head(d)
+hist(d$femur.length)
+qqnorm(d$femur.length)
+plot(data=d, femur.length~age) # boxplot with medians
+means <- summarise(group_by(d,age),mean(femur.length)) # calculate average by group
+points(1:4,means$`mean(femur.length)`,pch=4,cex=1.5) # add means to plot
+sds <- summarise(group_by(d,age),sd(femur.length))
+max(sds$`sd(femur.length)`)/min(sds$`sd(femur.length)`) # check that variances are roughly equal (ratio of max/min is <2)
+means.centered <- d$femur.length - means[as.numeric(d$age),2] # subtract relevant group mean from each data point
+qqnorm(means.centered$`mean(femur.length)`) # graphical tests for normality
+par(mfrow=c(2,2))
+hist(d$femur.length[d$age=="inf"], main="inf")
+qqnorm(d$femur.length[d$age=="inf"])
+hist(d$femur.length[d$age=="juv"], main="juv")
+qqnorm(d$femur.length[d$age=="juv"])
+hist(d$femur.length[d$age=="subadult"], main="subadult")
+qqnorm(d$femur.length[d$age=="subadult"])
+hist(d$femur.length[d$age=="adult"], main="adult")
+qqnorm(d$femur.length[d$age=="adult"])
+```
+All this checking done, we can plot our data by group and run our ANOVA model...
+
+``` {r}
+par(mfrow=c(1,1))
+plot(data=d,femur.length~age)
+m <- aov(data=d,femur.length~age) # femur length related to age
+summary(m)
+m <- lm(data=d,femur.length~age)
+summary(m)
+```
+
+
+## Post-Hoc Tests and the Non-Parametric Kruskal-Wallis Test
+
+After finding a significant omnibus F statistic in an ANOVA, we can test, post-hoc, what group means are different from one another using pairwise t tests with appropriate p value correction.
+
+``` {r}
+pairwise.t.test(d$femur.length,d$age, p.adj="bonferroni")
+```
+
+After an anova, we can also use a "Tukey Honest Significant Differences" test to evaluate this.
+
+``` {r}
+m <- aov(d$femur.length~d$age)
+posthoc <- TukeyHSD(m, "d$age", conf.level=0.95)
+posthoc # all age-sex classes differ
+```
+
+The Kruskal-Wallis test is a nonparametric alternative to one-way ANOVA that relaxes the need for normality in the distribution of data in each group (the different groups should still have roughly equal variances). Essentially, rather than testing the null hypothesis that the means for each group do not differ we are instead testing the null hypothesis that the **medians** do not differ. The test converts the continuous response variable to a set of RANKS (i.e., it does a uniform transformation) and then works with those ranks. The **p** value associated with the K-W test statistic is evaluated against a Chi-Square distribution.
+
+``` {r}
+m <- kruskal.test(data=d,femur.length~age)
+m
+d <- arrange(d,femur.length) # use {dplyr} to sort by femur.length
+d <- mutate(d,femur.rank = row(data.frame(d$femur.length))) # use {dplyr} to add new variable of rank femur.length
+m <- kruskal.test(data=d,femur.rank~age)
+m
+```
+
+## Multiple Factor ANOVA
+
+Sometimes the data we are interested in is characterized by multiple grouping variables (e.g., age and sex). In the case of the gibbon femur length data, we are interested in the **main effect** of each factor on the variable of interest (e.g., do femur lengths vary by age or sex) while accounting for the effects of the other factor. We may also be interested in any **interactive effects** among factors. Thus, in multiple factor ANOVA we are interested in testing several null hypotheses simultaneously: [1] that each factor has no effect on the mean of our continuous reponse variable and [2] that there are no interactive effects of sets of factors on the mean of our continuous reponse variable.
+
+Model description and testing for multiple ANOVA is a simple extension of the formula notation which we've used for single factors. First, though, let's quickly check that our groups have similar variance.
+
+``` {r}
+library(ggplot2)
+means <- summarise(group_by(d,age,sex),mean(femur.length)) # first we calculate averages by combination of factors
+means
+sds <- summarise(group_by(d,age,sex),sd(femur.length)) # first we calculate averages by combination of factors
+sds
+max(sds$`sd(femur.length)`)/min(sds$`sd(femur.length)`) # check that variances in each group are roughly equal (ratio of max/min is <2)
+p <- ggplot(data=d, aes(y = femur.length, x = sex)) + geom_boxplot() + facet_wrap(~age, ncol=4) # and let's plot what the data look like
+#p <- p + geom_point() # uncommenting this shows all points
+p <- p + stat_summary(fun.y=mean, colour="darkgreen", geom="point", shape=8, size=6)
+p
+```
+
+If we look at each variable separately using ANOVA, we see there is an effect of age but not of sex.
+
+``` {r}
+summary(aov(data=d,femur.length~age))
+summary(aov(data=d,femur.length~sex))
+```
+
+However, if we do a two-way ANOVA and consider the factors together, we see that there is still a main effect of age when taking sex into account **and** there is a main effect of sex when we take age into account.
+
+``` {r}
+m <- summary(aov(data=d,femur.length~age+sex))
+m
+```
+
+To examine whether there is an interaction effect, we would modify our model formula a bit...
+
+``` {r}
+m <- aov(data=d,femur.length~age+sex+age:sex) # : operator includes specific interaction terms
+summary(m)
+```
+We could also use...
+``` {r}
+m <- aov(data=d,femur.length~age*sex) # * operator includes all interaction terms
+summary(m)
+m <- lm(data=d,femur.length~age*sex) # or using the lm() function...
+summary(m)
+interaction.plot(x.factor=d$age, xlab="Age",trace.factor=d$sex,trace.label="Sex", response=d$femur.length,fun=mean,ylab="Mean Femuur Length")
+```
+
+Here, it looks like there is indeed a significant main effect of each term as well as an interaction between our two categorical variables. We will return to comparing models to one another (e.g., our model with and without interaction) and to post-hoc tests of what group mean differences are significant when we get into model selection in another few lectures.
+
+When we do `summary()` of the results of the `lm()` function, we are estimating eight $\beta$ coefficients (equivalent to the number of groups we have). $\beta_0$, the intercept, which is the mean femur length for the base level (in this case, "adult females"). Then we have coefficients showing how the different factor combination groups would differ from that base level (e.g., adult males have mean femur lengths 1.716 greater than adult females, etc).
+
+Note that the ORDER in which our factors are entered into our linear model results in different values for the entries in our ANOVA table, while the estimation of our regression coefficients is identical regardless:
+
+``` {r}
+m1 <- aov(data=d,femur.length~age*sex)
+summary(m1)
+m2 <- aov(data=d,femur.length~sex*age)
+summary(m2)
+m1 <- lm(data=d,femur.length~age*sex)
+summary(m1)
+m2 <- lm(data=d,femur.length~sex*age)
+summary(m2)
+```
+
+Why is this? In the first case, we are looking at the variance within each age group that is explained by gender while in the second case we are looking at the variance within each gender that is explained by age... but we have different numbers of observations in our different groups. This is known as an unbalanced design.
+
+We can see the unbalanced design by tabulating the cases for each combination of factors.
+
+```{r}
+table(d$sex, d$age)
+```
+
+Recall that ANOVA is based on splitting up the sums of squares, so that for a model like:
+
+<img src="img/multifactoranova.svg" width="450px"/>
+
+The sums of squares add up such that:
+
+<img src="img/SS.svg" width="425px"/>
+
+By default, the `aov()` function uses something called **Type I Sums of Squares** (also called "sequential sum of squares"), which gives greater emphasis to the first factor in the model, leaving only residual variation to the remaining factors. It should be used when you want to first control for one factor, leaving the others to explain only any remaining differences. In a **Type I** ANOVA, the sums of squares for the first term are calculated around the grand mean of our observations, but the next terms are calculated as residuals around the average of the grand mean and the first group mean. This sequential procedure means our results depend on which term shows up first. This can have a large effect on the sums of squares calculated, and hence on p values, when using an unbalanced design.
+
+By contrast, **Type II** and **Type III Sums of Squares** calculate individual observations' within each group as deviations from the grand mean.
+
+By contrast, **Type II Sum of Squares** compares the main effects of each group, assuming that the interaction between them is minimal. Generally it is a much more appropriate test for comparing main effects and is more appropriate for us to use when there is an unbalanced design.
+
+**Type III Sum of Squares** (or "marginal sum of squares") is most appropriate when there is a significant interaction effect. Since both **Type II** and **Type III** ANOVA calculate sums of squares around the grand mean, these are unaffected by sample sizes and do not arbitrarily give preference to one effect over another.
+
+To summarize:
+
+- When our data are balanced, our factors are orthogonal, and all three types of sums of squares give the same results.
+
+- If our data are unbalanced, we should generally be using Type II or Type III Sums of Squares, since we are generally interested in exploring the significance of one factor while controlling for the level of the other factors.
+
+- In general, if there is no significant interaction effect, then Type II is more powerful.
+
+- If interaction is present, then Type II is inappropriate while Type III can still be used, but results need to be interpreted with caution (in the presence of interactions, main effects difficult to interpret).
+
+[See this post](http://goanna.cs.rmit.edu.au/~fscholer/anova.php) for further treatment of this issue.
+
+We can use the `Anova()` function in the {car} package to run ANOVA with Type II and Type III Sums of Squares. In the examples below, both linear models, where the order of factors are reversed, give the same results.
+
+``` {r}
+library(car)
+m1 <- aov(data=d,femur.length~age+sex)
+m1 <- Anova(m1, type = "II")
+m1
+m1 <- aov(data=d,femur.length~sex+age)
+m2 <- Anova(m2, type = "II")
+m2
+m1 <- aov(data=d,femur.length~age*sex)
+m1 <- Anova(m1, type = "III")
+m1
+m2 <- aov(data=d,femur.length~sex*age)
+m2 <- Anova(m2, type = "III")
+m2
+```
+## Chi-Square Tests of Goodness of Fit and Independence
+
+One additional type of categorical data we will often encounter are counts of observations that fall into two or more categories (when we were dealing with Z tests for proportion data, we were interested in something similar, though with two categories only). We can use Chi-Square tests to evaluate statistically the distribution of observations across levels of one or more categorical variables. To use the Chi-Square test we first derive a Chi-Square statistic, which is calculated as...
+
+<img src="img/chisquare.svg" width="200px"/>
+
+where:
+
+- $O_i$ = number of observations in the $i$th category
+- $E_i$ = number of observations in the $i$th category
+
+We then compare the value of the $\chi^2$ statistic to the Chi-Square distribution with $k-1$ degrees of freedom.
+
+#### CHALLENGE:
+Let's return to the zombies dataset, where we defined an occupation based on major for survivors of the zombie apocalypse. We want to test the hypothesis that survivors of the zombie apocalypse are more likely than expected by chance to be natural science majors. We will assume that our null hypothesis is that the proportions of different post-apocalypse occupations are equivalent, i.e., that $\pi_{natural science}$ = $\pi_{engineering}$= $\pi_{logistics}$ = $\pi_{other}$ = 0.25.
+
+``` {r}
+obs.table <- table(z$occupation) # returns the same as summary()
+obs.table
+exp.table <- rep(0.25*length(z$occupation),4)
+exp.table
+occupation.matrix <- data.frame(cbind(obs.table,exp.table,(obs.table-exp.table)^2/exp.table))
+names(occupation.matrix) <- c("Oi","Ei","(Oi-Ei)^2/Ei")
+occupation.matrix
+X2 <- sum(occupation.matrix[,3])
+X2
+p <- 1-pchisq(X2,length(obs.table)-1)
+p
+```
+
+Here, we reject the null hypothesis that the proportions of different occupations among the survivors of the zombie apocalypse is equivalent.
+
+We can do all this with a 1-liner in ***R***, too.
+
+``` {r}
+chisq.test(x=obs.table,p=c(0.25,0.25,0.25,0.25)) # here p is a vector of expected proportions... default is uniform
+chisq.test(x=obs.table)
+chisq.test(x=obs.table,p=c(0.38,0.12,0.23,0.27)) # with a different set of expected proportions... fail to reject H0
+```
+
+The above was a Chi-Square goodness of fit test for one categorical variable... what about if we have two categorical variables and we are curious if there is an association among them? Then we do a Chi-Square test of independence. In this case, our Chi-Square statistic is the sum of (O-E)^2/E across all cells in our table, and our degrees of freedom is = (number of rows - 1) * (number of columns -1). Let's suppose we want to see if there is a relationship among zombie apocalypse survivors between gender and occupation.
+
+First, we determine our table of observed proportions:
+
+``` {r}
+obs.table = table(z$gender, z$occupation)
+obs.table
+```
+We can view our data graphically using the `mosaic plot()` function.
+
+``` {r}
+mosaicplot(t(obs.table), main="Contingency Table",col = c("darkseagreen", "gray")) # t function transposes the table
+```
+
+Then, we determine our table of expected proportions:
+
+``` {r}
+r <- rowSums(obs.table) # row margins
+r
+c <- colSums(obs.table) # column margins
+c
+nr <- nrow(obs.table) # row dimensions
+nr
+nc <- ncol(obs.table) # column dimensions
+nc
+exp.table <- matrix(rep(c,each=nr)*r/sum(obs.table),nrow=nr,ncol=nc,dimnames=dimnames(obs.table)) # calculates the product of c*r and divides by total
+exp.table
+X2 <- sum((obs.table-exp.table)^2/exp.table)
+X2
+p <- 1-pchisq(X2,df=(nr-1)*(nc-1))
+p
+```
+Again, we can do a one-liner for a test of independence...
+
+``` {r}
+chisq.test(x=obs.table)
+```
