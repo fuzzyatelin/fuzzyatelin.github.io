@@ -1,7 +1,8 @@
 ---
 title: "Module 14"
+author: Anthony Di Fiore and Christopher A. Schmitt
 output:
-    github_document
+    html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -30,7 +31,7 @@ Thus far we have used simple linear regression models involving continuous expla
 
 ``` {r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/difiore/ADA2016/master/zombies.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/zombies.csv")
 z <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = TRUE)
 class(z$gender)
 summary(z$gender)
@@ -42,7 +43,7 @@ As with our prior simple regression analysis, we want to evalute the effect of a
 plot(z$height~z$gender)
 ```
 
-This immediately gives us a nice barplot. Note that if we'd try to use this command after loading in "gender" as character rather than factor data, ***R*** would have thrown an error.
+This immediately gives us a nice barplot. Note that if we'd try to use this command after loading in "gender" as character rather than factor data, ***R*** would have thrown an error. Always make sure your variables are in the right format!
 
 Based on our plot, there indeed seems to be a difference in height between males and females. We can test this directly using linear regression (and, recall, we already know another way to test this, using z or t tests to compare means).
 
@@ -63,7 +64,7 @@ The estimate for $\beta_1$ is reported as "genderMale" and the value for that co
 
 In this case, the **p** value associated with the **t** statistic for $\beta_1$ is extremely low, so we conclude that "gender" has a significant effect on height.
 
-We can easily `relevel()` what is the baseline group. The result is very similar, but the sign of $\beta_1$ is changed.
+We can easily `relevel()` what is the baseline group (this becomes much more useful as we get more categorical variables in our regressions). The result is very similar, but the sign of $\beta_1$ is changed.
 
 ``` {r}
 z$gender <- relevel(z$gender,ref="Male")
@@ -160,8 +161,9 @@ Is the omnibus test of the relationship between age category and femur length si
 ``` {r}
 library(curl)
 library(dplyr)
-f <- curl("https://raw.githubusercontent.com/difiore/ADA2016/master/gibbon-femurs.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/gibbon-femurs.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = TRUE)
+d$age <- factor(d$age, levels = c("inf", "juv", "subadult", "adult")) #this reorders the age levels so that they're in order
 head(d)
 hist(d$femur.length)
 qqnorm(d$femur.length)
@@ -202,7 +204,7 @@ After finding a significant omnibus F statistic in an ANOVA, we can test, post-h
 pairwise.t.test(d$femur.length,d$age, p.adj="bonferroni")
 ```
 
-After an anova, we can also use a "Tukey Honest Significant Differences" test to evaluate this.
+After an ANOVA, we can also use a "Tukey Honest Significant Differences" test to evaluate this.
 
 ``` {r}
 m <- aov(d$femur.length~d$age)
@@ -210,7 +212,7 @@ posthoc <- TukeyHSD(m, "d$age", conf.level=0.95)
 posthoc # all age-sex classes differ
 ```
 
-The Kruskal-Wallis test is a nonparametric alternative to one-way ANOVA that relaxes the need for normality in the distribution of data in each group (the different groups should still have roughly equal variances). Essentially, rather than testing the null hypothesis that the means for each group do not differ we are instead testing the null hypothesis that the **medians** do not differ. The test converts the continuous response variable to a set of RANKS (i.e., it does a uniform transformation) and then works with those ranks. The **p** value associated with the K-W test statistic is evaluated against a Chi-Square distribution.
+The Kruskal-Wallis test is a nonparametric alternative to one-way ANOVA that relaxes the need for normality in the distribution of data in each group (the different groups should still have roughly equal variances, though). Essentially, rather than testing the null hypothesis that the means for each group do not differ we are instead testing the null hypothesis that the **medians** do not differ. The test converts the continuous response variable to a set of RANKS (i.e., it does a uniform transformation) and then works with those ranks. The **p** value associated with the K-W test statistic is evaluated against a Chi-Square distribution.
 
 ``` {r}
 m <- kruskal.test(data=d,femur.length~age)
