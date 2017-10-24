@@ -531,9 +531,23 @@ More details coming soon!
 
 Group Presentations and Vignettes
 
+###[Module 22 - **Phylogenetic Tree Constuction**]() 
+(Brandon Guell, Isabella Muratore, Danielle Antos)
+
+###[Module 23 - **Cluster Analysis**]() 
+(Aarti Arora, Andrew Mark, Natalie Robinson, Audrey Thahjadi)
+
 ***
 
 ###Week 15 (2017-12-12)
 ***
 
 Group Presentations and Vignettes
+
+###[Module 24 - **3D Visualization and Analysis**]() 
+(Zach Coto, Maria Codlin, Julie Jung)
+
+###[Module 25 - **Factor Analysis (and MAYBE Principal Components Analysis)**]() 
+(Graham Albert, Becca DeCamp, Faye Harwell, Zeynep Senveli)
+
+***
