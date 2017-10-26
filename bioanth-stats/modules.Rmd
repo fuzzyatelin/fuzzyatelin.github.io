@@ -132,7 +132,7 @@ Each module listed is linked to another page containing instructions and helpful
 (Brandon Guell, Isabella Muratore, Danielle Antos)
 
 ###[Module 23 - **Cluster Analysis**]() 
-(Aarti Arora, Andrew Mark, Natalie Robinson, Audrey Thahjadi)
+(Aarti Arora, Andrew Mark, Natalie Robinson, Audrey Tahjadi)
 
 ***
 
@@ -147,7 +147,7 @@ Each module listed is linked to another page containing instructions and helpful
 
 ***
 
-###Optional Module - **Introduction to Spatial Data Analysis**
+###Optional Module - [**Introduction to Spatial Data Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-22/module-22.html)
 
 
 
