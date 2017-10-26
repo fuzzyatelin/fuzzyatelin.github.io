@@ -16,7 +16,7 @@ output: html_document
 
 <font size="+2"><b>Welcome to your interactive Modules!</b></font></center><br>
 
-<center><p><img src="https://s-media-cache-ak0.pinimg.com/originals/b0/48/2b/b0482b244526b510af81ebb6382c76f7.jpg" style="border:5px solid black"></p>
+<center><p><img src="http://alwaysemilyh.com/wp-content/uploads/2015/07/And-Girl-you-better-work-GIF.gif" style="border:5px solid black"></p>
 </center><br>  
 
 <center>
@@ -94,7 +94,7 @@ Each module listed is linked to another page containing instructions and helpful
 ###**Week 10 (2017-11-07)**
 ***
 
-###Module 15 - **Multiple Regression and ANCOVA**
+###Module 15 - [**Multiple Regression and ANCOVA**](http://fuzzyatelin.github.io/bioanth-stats/module-15/module-15.html)
 ***
 
 ###**Week 11 (2017-11-14)**

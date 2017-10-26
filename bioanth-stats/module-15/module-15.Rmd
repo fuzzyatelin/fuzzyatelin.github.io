@@ -1,0 +1,339 @@
+---
+title: "Module 15"
+author: Anthony Di Fiore and Christopher A. Schmitt
+output:
+    html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo=TRUE,
+	warning=FALSE,
+	comment="##",
+	prompt=FALSE,
+	tidy=TRUE,
+	tidy.opts=list(width.cutoff=75),
+	fig.path="img/"
+)
+```
+# Multiple Regression and ANCOVA
+
+## Preliminaries
+- Install these packages in ***R***: {curl}, {ggplot2}, {gridExtra}, {dplyr}, {car}
+
+## Objectives
+> In this module, we extend our simple linear regression and ANOVA models to cases where we have more than one predictor variable. The same approach can be used with combinations of continuous and categorical variables. If all of our predictors variables are continuous, we typically describe this as "multiple regression". If our predictors are combinations of continuous and categorical variables, we typically describe this as "analysis of covariance", or ANCOVA.
+
+## Overview
+
+Multiple linear regression and ANCOVA are pretty straightforward generalizations of the simple linear regression and ANOVA approach that we have considered previously (i.e., Model I regressions with our parameters estimated using the criterion of OLS). In multiple linear regression and ANCOVA, we are looking to model a response variable in terms of more than one predictor variable so we can evaluate the effects of several different explanatory variables. When we do multiple linear regression, we are, essentially, looking at the relationship between each of two or more continuous predictor variables and a continuous response variable **while holding the effect of all other predictor variables constant**. When we do ANCOVA, we are effectively looking at the relationship between one or more continuous predictor variables and a continuous response variable within each of one or more categorical groups.
+
+To characterize this using formulas analogous to those we have used before...
+
+Simple Bivariate Linear Model:
+
+<img src="img/simplereg.svg" width="250px"/>
+
+Multivariate Linear Model:
+
+<img src="img/multreg.svg" width="475px"/>
+
+We thus now need to estimate **multiple** $\beta$ coefficients, one for the intercept plus one for each predictor variable in our model, and, instead of a "line"" of best fit, we are determining a multidimensional surface of best fit. The criteria we typically use for estimating best fit is analogous to that we've used before, i.e., **ordinary least squares**, where we want to minimize the multidimensional squared deviation of our observed and predicted values:
+
+<img src="img/multregleastsq.svg" width="525px"/>
+
+Estimating our set of coefficients for multiple regression is then done using matrix algebra, which we don't need to explore thoroughly (but see the "digression" below). The `lm()` function will implement this process for us directly.
+
+> NOTE: Besides the least squares approach to parameter estimation, we might also use other approaches, including maximum likelihood and Bayesian approaches (which we will explore superficially later). These are beyond the scope of what we will discuss in this class, but the objective is the same... to use a particular criterion to estimate parameter values describing a relationship between our predictor and response variables as well as measures of uncertainty in those parameter values. It is worth noting that for many common population parameters (such as the mean) as well as for regression slopes and/or factor effects in certain linear models, the OLS and ML estimators turn out to be the same when the assumptions behind OLS are met (i.e., normally distributed variables and normally distributed error terms). When response variables or residuals are not normally distributed (e.g., where we have binary or categorical response variables), we use ML or Bayesian approaches rather than OLS for parameter estimation.
+
+Let's work some examples!
+
+## Multiple Regression - Continuous Response Variable and More than One Continuous Predictor Variables
+
+We will start by constructing a dataset ourselves of some correlated random normal continuous variables. The following bit of code will let us do that. [See also this post](http://statistical-research.com/simulating-random-multivariate-correlated-data-continuous-variables/). First, we define a matrix of correlations among our variables (you can play with the values in this matrix, but it must be symmetric):
+
+``` {r}
+R = matrix(cbind(1,0.80,-0.5,0.00,
+								 0.80,1,-0.3,0.3,
+								 -0.5,-0.3,1, 0.6,
+								 0.00,0.3,0.6,1),nrow=4)
+```
+
+Second, let's generate a dataset of random normal variables where each has a defined mean and standard deviation and then bundle these into a matrix ("M") and a dataframe ("orig"):
+
+``` {r}
+n <- 1000
+k <- 4
+M <- NULL
+V <- NULL
+mu <- c(15,40,5,23) # vector of variable means
+s <- c(5,20,4,15) # vector of variable SDs
+for (i in 1:k){
+  V <- rnorm(n,mu[i],s[i])
+  M <- cbind(M,V)
+}
+M <- matrix(M, nrow=n, ncol=k)
+orig <- as.data.frame(M)
+names(orig) = c("Y","X1","X2","X3")
+head(orig)
+cor(orig) # variables are uncorrelated
+plot(orig) # does quick bivariate plots for each pair of variables; using `pairs(orig)` would do the same
+```
+
+Now, let's normalize and standardize our variables by subtracting the relevant means and dividing by the standard deviation. This converts them to Z scores from a standard normal distribution.
+
+> NOTE how we use the `apply()` and `sweep()` functions here. Cool, eh?
+
+``` {r}
+ms <- apply(orig,2,FUN = "mean") # returns a vector of means, where we are taking this across dimension 2 of the array "orig"
+ms
+sds <- apply(orig,2,FUN = "sd")
+sds
+normalized <- sweep(orig,2,STATS=ms,FUN="-") # 2nd dimension is columns, removing array of means, function = subtract
+normalized <- sweep(normalized,2,STATS=sds,FUN="/") # 2nd dimension is columns, scaling by array of sds, function = divide
+head(normalized) # now a dataframe of Z scores
+M <- as.matrix(normalized) # redefine M as our matrix of normalized variables
+```
+
+With `apply()` we apply a function to the specified margin of an array or matrix, and with `sweep()` we then perform whatever function is specified on all of the elements in an array specified by the given margin.
+
+Next, we take the Cholesky decomposition of our correlation matrix and then multiply our normalized data matrix by the decomposition matrix to yield a transformed dataset with the specified correlation among variables. The Cholesky decomposition breaks certain symmetric matrices into two such that:
+
+<img src="img/chol.svg" width="150px"/>
+
+``` {r}
+U = chol(R)
+newM = M %*% U
+new = as.data.frame(newM)
+names(new) = c("Y","X1","X2","X3")
+cor(new) # note that is correlation matrix is what we are aiming for!
+plot(orig)
+plot(new) # note the axis scales; using `pairs(new)` would plot the same
+```
+
+Finally, we can scale these back out to the mean and distribution of our original random variables.
+
+``` {r}
+df <- sweep(new,2,STATS=sds, FUN="*") # scale back out to original mean...
+df <- sweep(df,2,STATS=ms, FUN="+") # and standard deviation
+head(df)
+cor(df)
+plot(df) # note the change to the axis scales; using `pairs(d)` would produce the same plot
+```
+
+Now, we have a dataframe, **df**, comprising correlated random variables in original units!
+
+Let's explore this dataset first with single and then with multivariate regression.
+
+#### CHALLENGE:
+
+Start off by making some bivariate scatterplots in {ggplot2}. Then, using simple linear regression as implemented with `lm()`, how does the response variable ($Y$) vary with each predictor variable ($X1$, $X2$, $X3$)? Are the $\beta_1$ coefficients significant? How much of the variation in $Y$ does each predictor explain in a simple bivariate linear model?
+
+``` {r}
+library(ggplot2)
+require(gridExtra)
+g1 <- ggplot(data=df, aes(x = X1, y = Y)) + geom_point() + geom_smooth(method="lm", formula=y~x)
+g2 <- ggplot(data=df, aes(x = X2, y = Y)) + geom_point() + geom_smooth(method="lm", formula=y~x)
+g3 <- ggplot(data=df, aes(x = X3, y = Y)) + geom_point() + geom_smooth(method="lm", formula=y~x)
+grid.arrange(g1, g2, g3, ncol=3)
+m1 <- lm(data=df, formula=Y~X1)
+summary(m1)
+m2 <- lm(data=df, formula=Y~X2)
+summary(m2)
+m3 <- lm(data=df, formula=Y~X3)
+summary(m3)
+```
+
+In simple linear regression, $Y$ has a significant, positive relationship with $X1$, a signficant negative relationship with $X2$, and no significant bivariate relationship with $X3$.
+
+Now let's move on to doing actual multiple regression. To review, with multiple regression, we are looking to model a response variable in terms of two or more predictor variables so we can evaluate the effect of several explanatory variables.
+
+Using `lm()` and formula notation, we can fit a model with all three predictor variables. The `+` sign is used to add additional predictors to our model.
+
+``` {r}
+m <- lm(data=df, formula=Y~X1+X2+X3)
+coef(m)
+summary(m)
+# let's check if our residuals are random normal...
+plot(fitted(m),residuals(m))
+hist(residuals(m))
+qqnorm(residuals(m))
+```
+
+What does this output tell us? First off, the results of the omnibus F test tells us that the overall model is significant; using these three variables, we explain signficantly more of the variation in the response variable, **Y**, than we would using a model with just an intercept, i.e., just that $Y$ = mean($Y$).
+
+For a multiple regression model, we calculate the F statistic as follows:
+
+<img src="img/multregF.svg" width="250px"/>
+
+Where:
+
+- $R^2$ = multiple R squared value
+
+- $n$ = number of data points
+
+- $p$ = number of parameters estimated from the data (i.e., the number of $\beta$ coefficients, not including the intercept)
+
+``` {r}
+f <- (summary(m)$r.squared * (nrow(df)-(ncol(df)-1)-1)) / ((1-summary(m)$r.squared)*(ncol(df)-1))
+f
+```
+
+Second, looking at `summary()` we see that the $\beta$ coefficient for each of our predictor variables (including $X3$) is significant. That is, each predictor is significant even when the effects of the other predictor variables are held constant. Recall that in the simple linear regression, the $\beta$ coefficient for $X3$ was not significant.
+
+Third, we can interpret our $\beta$ coefficients as we did in simple linear regression... for each change of one unit in a particular predictor variable (holding the other predictors constant), our predicted value of the response variable changes $\beta$ units.
+
+#### CHALLENGE:
+
+Load up the "zombies.csv" dataset again and run a linear model of height as a function of both weight and age. Is the overall model significant? Are both predictor variables significant when the other is controlled for?
+
+``` {r}
+library(curl)
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/zombies.csv")
+z <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = TRUE)
+head(z)
+m <- lm(data=z, height~weight+age)
+summary(m)
+```
+
+## ANCOVA - Continuous Response Variable and Both Continuous and Categorical Predictor Variables
+
+We can use the same linear modeling approach to do analysis of covariance, where we have a continuous response variable and a combination of continuous and categorical predictor variables. Let's return to our "zombies.csv" dataset and now include one continuous and one categorical variable in our model... we want to predict height as a function of age and gender, and we want to use Type II regression. What is our model formula?
+
+``` {r}
+library(car)
+m <- lm(data=z, formula=height~gender+age)
+summary(m)
+m.aov <- Anova(m, type = "II")
+m.aov
+plot(fitted(m),residuals(m))
+hist(residuals(m))
+qqnorm(residuals(m))
+```
+
+How do we interpret these results?
+
+- The omnibus F test is significant
+
+- Both predictors are significant
+
+- Controlling for age, being **male** adds 4 inches to predicted height when compared to being female.
+
+#### Visualizing the Model
+
+We can write two equations for the relationship between height on the one hand and age and gender on the other:
+
+For females, height = 46.7251 + 0.94091 x age
+
+> In this case, females are the first level of our "gender" factor and thus do not have additional regression coefficients associated with them.
+
+For males, height = 46.7251 + 4.00224 + 0.94091 x age
+
+> Here, the additional 4.00224 added to the intercept term is the coefficient associated with genderMale
+
+``` {r}
+library(ggplot2)
+p <- ggplot(data=z,aes(x=age, y=height)) + geom_point(aes(color=factor(gender))) + scale_color_manual(values=c("goldenrod","blue"))
+p <- p + geom_abline(slope=m$coefficients[3],intercept=m$coefficients[1], color="goldenrod4")
+p <- p + geom_abline(slope=m$coefficients[3], intercept=m$coefficients[1] + m$coefficients[2], color="darkblue")
+p
+```
+
+Note that this model is based on all of data collectively... we are not doing separate linear models for males and females, which could result in different slopes and intercepts for each sex. Below, we will explore a model where we posit an interaction between age and sex, which would require estimation of four separate parameters (i.e., both a slope and an intercept for males and females rather than, as above, different intercepts more males and females but the same slope for each sex).
+
+### Confidence Intervals and Prediction
+
+Using the `confint()` function on our ANCOVA model results reveals the confidence intervals for each of the coefficients in our multiple regression, just as it did for simple regression.
+
+``` {r}
+m <- lm(data=z, formula=height~age+gender)
+summary(m)
+confint(m, level=0.95)
+```
+
+Similarly, using `predict()` allows us to determine confidence intervals for the predicted mean response and prediction intervals for individual responses for a given combination of predictor variables.
+
+#### CHALLENGE:
+- What is the estimated mean height, in inches, for a 29 year old male who has survived the zombie apocalypse?
+
+- What is the 95% confidence interval around this mean height?
+
+- What is the 95% prediction interval for the individual heights of 29 year old male survivors?
+
+
+``` {r}
+ci <- predict(m,newdata=data.frame(age=29,gender="Male"), interval="confidence",level=0.95)
+ci
+pi <- predict(m,newdata=data.frame(age=29,gender="Male"), interval="prediction",level=0.95)
+pi
+```
+
+### Interactions Between Predictors
+
+So far, we have only considered the joint **main effects** of multiple predictors on a response variable, but often there are **interactive effects** between our predictors. An interactive effect is an additional change in the response that occurs because of particular combinations of predictors or because the relationship of one continuous variable to a response is contingent on a particular level of a categorical variable. We explored the former case a bit when we looked at ANOVAs involving two discrete predictors. Now, we'll consider the latter case... is there an interactive effect of sex **AND** age on height in our population of zombie apocalypse survivors?
+
+Using formula notation, it is easy for us to consider interactions between predictors. The colon (:) operator allows us to specify particular interactions we want to consider; we can use the asterisk (*) operator to specify a full model, i.e., all single terms factors and their interactions. 
+
+``` {r}
+m <- lm(data=z, height~age+gender+age:gender) # or
+summary(m)
+m <- lm(data=z, height~age*gender)
+summary(m)
+coefficients(m)
+```
+
+Here, when we allow an interaction, there is no main effect of gender, but there is an interaction effect of gender and age.
+
+If we want to visualize this...
+
+female height = 48.1817041 + 0.8891281 * age
+
+male height = 0.481704 + 1.1597481 + 0.8891281 * age + 0.1417928 * age
+
+``` {r}
+library(ggplot2)
+library(gridExtra)
+p1 <- ggplot(data=z,aes(x=age, y=height)) + geom_point(aes(color=factor(gender))) + scale_color_manual(values=c("goldenrod","blue"))
+p1 <- p1 + geom_abline(slope=m$coefficients[2], intercept=m$coefficients[1], color="goldenrod4")
+p1 <- p1 + geom_abline(slope=m$coefficients[2] + m$coefficients[4],intercept=m$coefficients[1]+m$coefficients[3], color="darkblue")
+p1
+p2 <- ggplot(data=z,aes(x=age, y=height)) + geom_point(aes(color=factor(gender))) + scale_color_manual(values=c("goldenrod","blue"))+ geom_smooth(method="lm",aes(color=factor(gender),fullrange=TRUE))
+grid.arrange(p1,p2,ncol=2)
+```
+
+#### CHALLENGE:
+
+- Load in the "KamilarAndCooper.csv"" dataset we have used previously
+
+- Reduce the dataset to the following variables: *Family*, *Brain_Size_Female_Mean*, *Body_mass_female_mean*, *MeanGroupSize*, *DayLength_km*, *HomeRange_km2*, and *Move*
+
+- Fit a **Model I** least squares multiple linear regression model using log(*HomeRange_km2*) as the response variable and log(*Body_mass_female_mean*), log(*Brain_Size_Female_Mean*), *MeanGroupSize*, and *Move* as predictor variables, and view a model summary.
+
+``` {r}
+library(dplyr)
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/KamilarAndCooperData.csv")
+d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = TRUE)
+head(d)
+d <- select(d, Brain_Size_Female_Mean,Family,Body_mass_female_mean,MeanGroupSize,DayLength_km,HomeRange_km2,Move)
+```
+
+- Look at and interpret the estimated regression coefficients for the fitted model and interpret. Are any of them statistically significant? What can you infer about the relationship between the response and predictors?
+
+- Report and interpret the coefficient of determination and the outcome of the omnibus F test.
+
+- Examine the residuals... are they normally distributed?
+
+- What happens if you remove the "Move" term?
+
+``` {r}
+m <- lm(data=d, log(HomeRange_km2)~log(Body_mass_female_mean)+log(Brain_Size_Female_Mean)+MeanGroupSize+Move)
+summary(m)
+plot(m$residuals)
+qqnorm(m$residuals)
+shapiro.test(m$residuals)
+m <- lm(data=d, log(HomeRange_km2)~log(Body_mass_female_mean)+log(Brain_Size_Female_Mean)+MeanGroupSize)
+summary(m)
+plot(m$residuals)
+qqnorm(m$residuals)
+shapiro.test(m$residuals) # no significant deviation from normal
+```
