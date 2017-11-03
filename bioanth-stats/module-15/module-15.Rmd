@@ -50,7 +50,7 @@ Let's work some examples!
 
 ## Multiple Regression - Continuous Response Variable and More than One Continuous Predictor Variables
 
-We will start by constructing a dataset ourselves of some correlated random normal continuous variables. The following bit of code will let us do that. [See also this post](http://statistical-research.com/simulating-random-multivariate-correlated-data-continuous-variables/). First, we define a matrix of correlations among our variables (you can play with the values in this matrix, but it must be symmetric):
+We will start by constructing a dataset ourselves of some correlated random normal continuous variables. The following bit of code will let us do that. [See also this post](https://www.r-bloggers.com/simulating-random-multivariate-correlated-data-categorical-variables/). First, we define a matrix of correlations among our variables (you can play with the values in this matrix, but it must be symmetric):
 
 ``` {r}
 R = matrix(cbind(1,0.80,-0.5,0.00,
