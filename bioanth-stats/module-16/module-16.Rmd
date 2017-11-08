@@ -1,0 +1,156 @@
+---
+title: "Module 16"
+output:
+    html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo=TRUE,
+	warning=FALSE,
+	comment="##",
+	prompt=FALSE,
+	tidy=TRUE,
+	tidy.opts=list(width.cutoff=75),
+	fig.path="img/"
+)
+```
+# Model Selection in General Linear Regression
+
+## Overview
+
+The purpose of a model selection process in a regression analysis is to sort through our explanatory variables in a systematic fashion in order to establish which are best able to describe the response. There are different possible algorithms to use for model selection, e.g., forward and backward selection, which may result in different parameters being included in the final model.
+
+#### Nested Comparisons
+
+One way we can compare different models is to use F ratios and what are called partial F tests. This approach looks at two or more *nested* models: a larger model that contains explanatory variables that we are interested in and smaller, less complex models that exclude one or more of those variables. Basically, we aim to compare the variance in the response variable explained by the more complex model to that explained by a "reduced" model. If the more complex model explains a significantly greater proportion of the variation, then we conclude that predictor terms absent from the less complex model are important.
+
+For example, if including an additional term with its associated $\beta$ coefficient results in significantly better fit to the observed data than we find for a model that lacks that particular terms, then this is evidence against the null hypothesis that the $\beta$ coefficient (slope) for that term equals zero.
+
+#### EXAMPLE:
+
+Let's go back to our zombie data and compare a few models. We need to calculate the following partial F statistic for the full versus reduced model.
+
+<img src="img/ftest.svg" width="400px"/>
+
+where:
+
+- The $R^2$ values are the coefficients of determination of the full model and the nested "reduced"" model
+
+- $n$ is the number of observations in the data set
+
+- $p$ is the number of predictor terms in the nested (reduced) model
+
+- $q$ is the number of predictor terms in the full model
+
+After we calculate this F statistic, we compare it to an F distribution with df1 = q-p and df2 = n-q to derive a p value. The `lm()` function will do this for us automatically, but we can also do it by hand.
+
+```{r}
+library(curl)
+f <- curl("https://raw.githubusercontent.com/difiore/ADA2016/master/zombies.csv")
+z <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = TRUE)
+m1 <- lm(data=z, height~age*gender) # full model
+m2 <- lm(data=z, height~age+gender) # model without interactions
+m3 <- lm(data=z, height~age) # model with one predictor
+m4 <- lm(data=z, height~1) # intercept only model
+```
+
+Once we have fitted these nested models, we can carry out partial F tests to compare particular models using the `anova()` function, with the nested (reduced) and full model as arguments. The reduced model is included as the 1st argument and the full model is included as the second argument.
+
+```{r}
+anova(m2,m1,test="F") # compares the reduced model without interactions (m2) to the full model with interactions (m1)
+```
+We can also calculate the F statistic by hand and compare it to the F distribution.
+
+```{r}
+f <- ((summary(m1)$r.squared-summary(m2)$r.squared)*(nrow(z)-3-1))/((1-summary(m1)$r.squared)*(3-2))
+f
+p <- 1-pf(f,df1=3-2, df2=nrow(z)-3, lower.tail=TRUE) # df1 = q-p, df2 = n-q
+p
+anova(m3,m2,test="F") # compares the age only model (m3) to the age + gender model (m2)
+f <- ((summary(m2)$r.squared-summary(m3)$r.squared)*(nrow(z)-2-1))/((1-summary(m2)$r.squared)*(2-1))
+f
+p <- 1-pf(f,df1=2-1, df2=nrow(z)-2, lower.tail=TRUE) # df1 = q-p, df2 = n-q
+p
+```
+
+In these cases, each comparison shows that the more complex model indeed results in signficantly more explantory power than the reduced model.
+
+#### Forward Selection
+
+Forward selection starts with an intercept-only model and then tests which of the predictor variables best improves the goodness-of-fit. Then the model is updated by adding that term and tests which of the remaining predictors would further and best improve the fit. The process continues until there are not any other terms that could be added to improve the fit more. The R functions `add1()` and `update()`, respectively, perform the series of tests and update your fitted regression model. Setting the `test=` argument to "F" includes the partial F statistic value and its significance. The ".~." part of the `scope=` argument means, basically, "what is already there", while the remainder of the scope argument is the list of additional variables you might add for the fullest possible model.
+
+```{r}
+m0 <- lm(data=z, height~1)
+summary(m0)
+add1(m0,scope=.~.+age+weight+zombies_killed+years_of_education,test="F")
+m1 <- update(m0,formula=.~.+weight)
+summary(m1)
+add1(m1,scope=.~.+age+weight+zombies_killed+years_of_education,test="F")
+m2 <- update(m1,formula=.~.+age)
+summary(m2)
+add1(m2,scope=.~.+age+weight+zombies_killed+years_of_education,test="F")
+```
+
+After we add weight and age, no other variable improves the fit of the model significantly, so the final, best model in this case is **m2**.
+
+```{r}
+summary(m2)
+```
+
+#### Backward Selection
+
+Opposite to forward selection, backward selection starts with the fullest model you want to consider and systematically drops terms that do not contribute to the explanatory value of the model. The ***R*** functions for this process are `drop1()` to inspect the partial F test results and `update()` to update the model.
+
+```{r}
+m0 <- lm(data=z, height~age+weight+zombies_killed+years_of_education)
+summary(m0)
+drop1(m0,test="F")
+m1 <- update(m0,.~.-years_of_education)
+summary(m1)
+drop1(m1,test="F")
+m2 <- update(m1,.~.-zombies_killed)
+summary(m2)
+drop1(m2,test="F")
+```
+
+At this point, all of the explanatory variables are still significant, so the final, best model in this case is also
+**m2**.
+```{r}
+summary(m2)
+```
+
+####Model Selection Using *AIC*
+
+Now, there are two R functions that can act as further shortcuts for this process that use the [Akaike Information Criterion (AIC)](http://www.statisticshowto.com/akaikes-information-criterion/) rather than the partial F-test to determine relative model fit.
+
+The AIC is typically calculated as the -2(log-likelihood) + 2K, where K is the number of model parameters (variables in the model plus the intercept), and the Log-likelihood is a measure of model fit (the higher, the better). Keep in mind, though, that log-likelihood is a function of sample size, and so larger samples will tend to have lower log-likelihoods regardless of fit! We won't derive log-likelihood by hand in class, but if you want to know more about how log-likelihood is derived, you can check out [this helpful resource](https://onlinecourses.science.psu.edu/stat504/node/27).
+
+As you might guess from how we derive AIC, the model with the *lowest* AIC is typically designated as the best fit for the data. Like log-likelihood, although AIC can be used to assess the relative fit of a model to a certain data set, it can't say anything about the absolute fit of the model (e.g., like the $R^2$ value). Keep in mind that the best fit according to AIC (among the models you test against each other) may actually explain very little of the variation.
+
+There are many functions within ***R*** that will perform stepwise model reduction automatically. One of the most popular is called [`stepAIC()`](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/stepAIC.html), which is a convenient wrapper for the `stepwise()` function in the {MASS} package. To use it, you must simply specify the most complex version of the model and choose whether you would like to assess the model using backwards or forwards (or both) methods of stepwise comparison. 
+
+Let's try `stepAIC()` with our `m0` from above. In the call for the function, we can ask it to run forward, backward, or both directions.
+
+```{r}
+library(MASS)
+stepAIC(m0,direction="both")
+```
+
+Note that the function has converged (using AIC, in this case), on the same best model -- with just age and weight as predictor variables -- as our methods above.
+
+Finally, there's a very helpful model selection package called [`AICcmodavg`](https://cran.r-project.org/web/packages/AICcmodavg/AICcmodavg.pdf). You may have noticed the extra 'c' in AICc; this is a corrected version of AIC that can account for small sample sizes (helpful for most of us in Anthropology). It's derived from AIC using the following equation:
+
+<img src="img/aicc.svg" width="400px"/>
+
+where *n* is sample size, and *k* is the number of parameters in the model. This is, essentially, a version of AIC with greater penalties for models with more parameters. Since the values for AICc and AIC converge as sample size increases, it has been argued that AICc should be the default model testing criterion rather than AIC.
+
+What makes this wrapper especially useful is that the output very clearly compares AIC in a way often asked for in publications.  Let's take a look using our already-defined models.
+
+```{r}
+library(AICcmodavg)
+print(aictab(list(m0,m1,m2),
+             c("m0","m1","m2")),LL=FALSE)
+```
+
+Note the handy output! We get a few types of output that allow us to directly compare the relative fit of each model: the number of parameters, the AICc, and a number of other helpful outputs. Delta_AICc is simply a comparison showing how different each least-best model is from the best model in AICc score. AICcWt shows us the weight of the model at each level (see [here](https://www.rdocumentation.org/packages/qpcR/versions/1.4-0/topics/akaike.weights) for a clear explanation of what this means). In this case, the best model is the first on the list and is, like in all our other model selection methods, `m2`.
