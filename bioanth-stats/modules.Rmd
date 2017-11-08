@@ -102,9 +102,9 @@ Each module listed is linked to another page containing instructions and helpful
 
 ###[Module 16 - **Model Selection in General Linear Regression**](http://fuzzyatelin.github.io/bioanth-stats/module-16/module-16.html)
 
-###[Module 17 - **Generalized Linear Modeling**](http://fuzzyatelin.github.io/bioanth-stats/module-16/module-16.html)
+###[Module 17 - **Generalized Linear Modeling**](http://fuzzyatelin.github.io/bioanth-stats/module-17/module-17.html)
 
-###Module 18 - **Mixed Effects Modeling**
+###[Module 18 - **Mixed Effects Modeling**](http://fuzzyatelin.github.io/bioanth-stats/module-18/module-18.html)
 ***
 
 ###**Week 12 (2017-11-21)**
