@@ -47,7 +47,7 @@ After we calculate this F statistic, we compare it to an F distribution with df1
 
 ```{r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/difiore/ADA2016/master/zombies.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/zombies.csv")
 z <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = TRUE)
 m1 <- lm(data=z, height~age*gender) # full model
 m2 <- lm(data=z, height~age+gender) # model without interactions

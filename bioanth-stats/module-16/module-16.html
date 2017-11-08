@@ -143,7 +143,7 @@ $(document).ready(function () {
 </ul>
 <p>After we calculate this F statistic, we compare it to an F distribution with df1 = q-p and df2 = n-q to derive a p value. The <code>lm()</code> function will do this for us automatically, but we can also do it by hand.</p>
 <pre class="r"><code>library(curl)
-f &lt;- curl(&quot;https://raw.githubusercontent.com/difiore/ADA2016/master/zombies.csv&quot;)
+f &lt;- curl(&quot;https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/zombies.csv&quot;)
 z &lt;- read.csv(f, header = TRUE, sep = &quot;,&quot;, stringsAsFactors = TRUE)
 m1 &lt;- lm(data = z, height ~ age * gender)  # full model
 m2 &lt;- lm(data = z, height ~ age + gender)  # model without interactions
