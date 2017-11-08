@@ -94,13 +94,13 @@ Each module listed is linked to another page containing instructions and helpful
 ###**Week 10 (2017-11-07)**
 ***
 
-###Module 15 - [**Multiple Regression and ANCOVA**](http://fuzzyatelin.github.io/bioanth-stats/module-15/module-15.html)
+###[Module 15 - **Multiple Regression and ANCOVA**](http://fuzzyatelin.github.io/bioanth-stats/module-15/module-15.html)
 ***
 
 ###**Week 11 (2017-11-14)**
 ***
 
-###Module 16 - **Model Selection in General Linear Regression**
+###[Module 16 - **Model Selection in General Linear Regression**](http://fuzzyatelin.github.io/bioanth-stats/module-16/module-16.html)
 
 ###Module 17 - **Generalized Linear Modeling**
 
