@@ -1,0 +1,61 @@
+---
+title: "AN597: Homework 05"
+output:
+    html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	warning = FALSE,
+	comment = "##",
+	prompt = FALSE,
+	tidy = TRUE,
+	tidy.opts = list(width.cutoff = 75),
+	fig.path = "img/"
+)
+```
+
+***
+
+###[Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
+###[Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
+###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
+###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
+###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
+###[Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+
+***
+<center>
+
+## DUE 2016-11-20 at 2pm
+
+<br>
+<center><p><img src="https://d12edgf4lwbh8j.cloudfront.net/photo/image/Charlie_Boot.gif" style="border:5px solid black"></p>
+</center>
+
+<br>
+
+Using a new `.Rmd` file and pushing both the markdown and knitted `.html` file to a new repository named "homework-number-5" on your *GitHub* page, answer the questions below. You are welcome to work with ONE OTHER PERSON on this homework assignment or on your own. If you work with someone else, please include BOTH of your names somewhere in the header information for your `.Rmd` file and also email me to LET ME KNOW who you worked with and from whom I should download the GitHub repo.
+
+### Bootstrapping Standard Errors and CIs for Linear Models.
+
+When we initially discussed the central limit theorem and confidence intervals, we showed how we could use bootstrapping to estimate standard errors and confidence intervals around certain parameter values, like the mean. Using bootstrapping, we could also do the same for estimating standard errors and CIs around regression parameters, such as $\beta$ coefficients.
+
+[1] Using the "KamilarAndCooperData.csv" dataset, run a linear regression looking at log(HomeRange_km2) in relation to log(Body_mass_female_mean) and report your $\beta$ coeffiecients (slope and intercept).
+
+[2] Then, use bootstrapping to sample from your data 1000 times with replacement, each time fitting the same model and calculating the same coefficients. This generates a sampling distribution for each $\beta$ coefficient.
+
+- Estimate the standard error for each of your $\beta$ coefficients as the standard deviation of the sampling distribution from your bootstrap and determine the 95% CI for each of your $\beta$ coefficients based on the appropriate quantiles from your sampling distribution.
+
+- How does the former compare to the SE estimated from your entire dataset using the formula for standard error implemented in `lm()`?
+
+- How does the latter compare to the 95% CI estimated from your entire dataset?
+
+**EXTRA CREDIT: + 2**
+
+Write a FUNCTION that takes as its arguments a dataframe, "d", a linear model, "m" (as a character string, e.g., "logHR~logBM"), a user-defined confidence interval level, "conf.level" (with default = 0.95), and a number of bootstrap replicates, "n" (with default = 1000). Your function should return a dataframe that includes: beta coefficient names; beta coefficients, standard errors, and upper and lower CI limits for the linear model based on your entire dataset; and mean beta coefficient estimates, SEs, and CI limits for those coefficients based on your bootstrap.
+
+**EXTRA EXTRA CREDIT: + 1**
+
+Graph each beta value from the linear model and its corresponding mean value, lower CI and upper CI from a bootstrap as a function of number of bootstraps from 10 to 200 by 10s. HINT: the beta value from the linear model will be the same for all bootstraps and the mean beta value may not differ that much!
