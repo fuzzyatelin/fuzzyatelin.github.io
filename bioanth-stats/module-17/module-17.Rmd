@@ -1,0 +1,463 @@
+---
+title: "Module 17"
+output:
+    html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	fig.path = "img/",
+	warning = FALSE,
+	comment = "##",
+	prompt = FALSE,
+	tidy = TRUE,
+	tidy.opts = list(width.cutoff = 75)
+)
+```
+# Generalized Linear Models
+
+## Preliminaries
+- Install these packages in ***R***: {curl}, {ggplot2}, {broom}, {lmtest}
+
+## Objectives
+> In this module, we extend our discussion of regression modeling to include generalized linear models.
+
+## Generalized Linear Models
+
+So far, our discussion of regression centered on standard or "general" linear models that assume normally distributed response variables, normally distributed error terms (residuals) from our fitted models, and constant variance in our response variable across the range of our predictor variables. If these assumptions of general linear regression are not met, we can sometimes transform our variables to meet them, but other times we cannot (e.g., when we have binary or count data for a response variable).
+
+In these cases, however, we can use a different regression technique called **generalized linear modeling** instead of general linear modeling. Generalized linear models, then, extend traditional regression models to allow the expected value of our response variable to depend on our predictor variable(s) through what is called a **link function**. It allows the response variable to belong to any of a set of distributions belonging to the "exponential" family (e.g., normal, Poisson, binomial), and it does not require errors (residuals) to be normally distributed. It also does not require homogeneity of variance across the range of predictor variable values, and overdispersion (when the observed variance is larger than what the model assumes) may be present.
+
+One of the most important differences is that in generalized linear modeling we no longer use ordinary least squares to estimate parameter values, but rather use maximum likelihood or Bayesian approaches.
+
+A generalized linear model consists of three components:
+
+- The **systematic or linear component**, which reflects the linear combination of predictor variables in our model. As in general linear regression, these can be be continuous and/or categorical. Interactions between predictors and polynomial functions of predictors can also be included, as in general linear modeling. [Recall that "linear" simply means the regression model is based on linear combinations of regression coefficients, not of variables.]
+
+- The **error structure** or **random component**, which refers to the probability distribution of the response variable and of the residuals in the response variable after the linear component has been removed. The probability distribution in a GLM must be from the exponential family of probability distributions, which includes the *normal* (Gaussian), *binomial* (e.g., if our response variable is binary, like "yes/no", "presence/absence"), *Poisson* (e.g., if our reponse variable consists of count data), *gamma*, *negative binomial*, etc.
+
+- A **link function**, which links the expected value of the response variable to the predictors. You can think of this as a transformation function. In GLM, our linear component yields a predicted value, but this value is not necessarily the predicted value of our response variable, $Y$, *per se*. Rather, the predicted value is some needs to be transformed back into a predicted $Y$ by applying the inverse of the link function.
+
+Common link functions include:
+
+- The **identity link**, which is used to model **$\mu$**, the mean value of $Y$ and is what we use implicitly in standard linear models.
+
+- The **log link**, which is typically used to model **log($\lambda$)**, the log of the mean value of $Y$.
+
+- The **logit link**, which is **log($\pi$/(1-$\pi$))**, and is typically used for binary data and logistic regression.
+
+<img src="img/links.png" width="300px"/>
+
+General linear regression can be viewed as a special case of GLM, where the random component of our model has a *normal distribution* and the link function is the *identity link* so that we are modeling an expected value for $Y$.
+
+### Model Fitting in Generalized Linear Models
+
+Model fitting and parameter estimation in GLM is commonly done using a maximum likelhood approach, which is an iterative process. To determine the fit of a given model, a GLM evaluates the linear predictor for each value of the response variable, then back-transforms the predicted value into the scale of the $Y$ variable using the inverse of the link function. These predicted values are compared with the observed values of $Y$. The parameters are then adjusted, and the model is refitted on the transformed scale in an iterative procedure until the fit stops improving. In ML approaches, then, the data are taken as a given, and we are trying to find the most likely model to fit those data. We judge the fit of the model of the basis of **how likely the data would be if the model were correct.**
+
+The measure of discrepancy used in a GLM to assess the goodness of fit of the model to the data is called the **deviance**, which we can think of as analogous to the variance in a general linear model. Deviance is defined as **2 times (the log-likelihood of a fully saturated model minus the log-likelihood of the proposed model)**. The former is a model that fits the data perfectly. Its likelihood is 1 and its log-likelihood is thus 0, so deviance functionally can be calculated at **-2*log-likelihood of the proposed model**. Because the saturated model does not depend on any estimated parameters and has a likelihood of 1, minimizing the deviance for a particular model is the same as maximizing the likelihood. [For the ML process of parameter estimation, it is actually mathematically easier to maximize the log-likelihood, **ln(L)**, than is is to maximize the likelihood, **L**, so computationally that is what is usually done.] In logistic regression, the sum of squared "deviance residuals" of all the data points is analogous to the sum of squares of the residuals in a standard linear regression.
+
+The `glm()` function in ***R*** can be used for many types of generalized linear modeling, using similar formula notation to that we've used before, with an additional argument, `family=`, to specify the kind of error structure we expect in the response variable ("gaussian", "binomial", "poisson", etc.): `glm(y ~ x, family = "gaussian")`
+
+As with previous models, our explanatory variable, $X$, can be continuous (leading to a regression analysis) or categorical (leading to an ANOVA-like procedure called an *analysis of deviance*) or both.
+
+We will explore two types of GLMs here... **logistic regression** (used when our response variable is binary) and **log-linear or Poisson regression** (used when our response variable is count data).
+
+### Logistic Regression
+
+As alluded to above, when we have a binary response variable (i.e., a categorical variable with two levels, 0 or 1), we actually are interested in modeling $\pi_i$, which is the probability that $Y$ equals 1 for a given value of $X$ ($x_i$), rather than $\mu_i$, the mean value of $Y$ for a given $X$, which is what we typically model with general linear regression. The usual model we fit to such data is the logistic regression model, which is a nonlinear model with a sigmoidal shape. The error from such a model is not normally distributed but rather has a binomial distribution.
+
+When we do our regression, we actually use as our response variable the natural log of the **odds ratio** between our two possible outcomes, i.e., the ratio of the probabilities of $y_i$ = 1 versus $y_i$ = 0 for a given $x_i$, which we call the *logit*:
+
+<img src="img/logit.svg" width="675px"/>
+
+where:
+
+- $\pi_i$ = the probability that $y_i$ equals 1 for a given value of $x_i$ and $(1-\pi)$ = the probability that $y_i$ equals 0.
+
+The *logit* transformation, then, is the link function connecting $Y$ to our predictors. The logit is useful as it converts probabilities, which lie in the range 0 to 1, into the scale of the whole real number line.
+
+We can convert back from a log(odds ratio) to an odds ratio using the inverse of the *logit*, which is called the *expit*:
+
+<img src="img/expit.svg" width="525px"/>
+
+#### EXAMPLE:
+
+Suppose we are interested in how a students' GRE scores, grade point averages (GPA), and ranking of their undergraduate institution (into quartiles, 1 to 4, from high to low), affect admission into graduate school. The response variable, "admitted/not admitted", is a binary variable, scored as 1/0.
+
+Load in the "graddata.csv" dataset, which comes from `http://www.ats.ucla.edu/`, and then explore it using `head()`, `summary()`, `pairs()`, and `table()`. 
+
+```{r}
+library(curl)
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/graddata.csv")
+d <- read.csv(f, header = TRUE, sep = ",")
+head(d)
+summary(d)
+# first, some exploratory visualization
+par(mfrow=c(1,2))
+plot(as.factor(d$admit),d$gpa,xlab="Admit",ylab="GPA", col="lightgreen")
+plot(as.factor(d$admit),d$gre,xlab="Admit",ylab="GRE", col="lightblue")
+pairs(d)
+table(d$admit,d$rank)
+``` 
+
+To use logistic regression to look at how the odds of admission are influenced by GRE scores, we can call the `glm()` function with a model where *admit* is our response variable and *gre* is our predictor variable.
+
+```{r}
+# glm of admit~gre
+glm <- glm(data=d, admit~gre, family="binomial")
+summary(glm)
+```
+
+Here is the equation representing the results of our model: logit($\pi_i$) = -2.901344 + 0.003582 * ${gre}$
+
+#### Interpretation and Hypothesis Testing in Logistic Regression
+
+When we get a $\beta_1$ estimate from a logistic regression, it represents the *change in the log(odds ratio) of the outcome* for an increase in one unit of $X$.
+
+Looking at the coefficient for *gre*, we see it is positive and, while low, is significantly different from 0. Thus, increasing GRE score results in an increase in the log(odds ratio) of admission (i.e., students with higher scores are more likely to be admitted). Here, for every one unit change in *gre*, the log odds of admission (versus non-admission) increases by 0.003582.
+
+Using the `predict()` function, we can plot our data and fit the change in the admitted/not admitted ratio across the range of GRE scores.
+
+```{r}
+x <- seq(from=min(d$gre),to=max(d$gre),length.out=1000)
+logOR <- predict(glm, newdata=data.frame(gre=x)) # this function will predict the log(odds ratio)... but if we add the argument type="response", the predict() function will return the expected response on the scale of the Y variable, i.e., Pr(Y)=1, rather than the odds ratio!
+y <- predict(glm, newdata=data.frame(gre=x),type="response")
+plot(d$admit~d$gre, pch=21, type="p", xlab="GRE Score", ylab="Pr(Y)", main="Pr(Y) versus GRE")
+lines(y~x,type="l")
+``` 
+
+By exponentiating $\beta_1$, we can get the actual odds ratio change (as opposed to the log(odds ratio) change) associated with a 1 unit change in GRE scores.
+
+```{r}
+ORchange <- exp(glm$coefficients[2])
+ORchange # a 1 unit increase in gre results in a 0.36% increase in likelihood of admission
+```
+
+As in simple linear regression, the key $H_0$ of relevance when fitting a simple logistic regression model is that our regression coefficient, $\beta$s, is zero, i.e. that there is no relationship between the binary response variable and the predictor variable.
+
+There are two common ways to test this $H_0$. The first is to calculate the **Wald statistic** for the predictor variable and compare this to the standard normal or $z$ distribution. This is like a ML-based version of a t test. The Wald statistic is, like the t statistic, our $\beta$ parameter estimate divided by the standard error of that estimate: $\beta_1$/(SE of $\beta_1$). This is most appropriate when sample sizes are large. The "z value" in the summary table for the model shows us this statistic.
+
+If we wanted to calculate the Wald statistic by hand, we can do so easily. Below, I use the convenient `tidy()` function from the {broom} package to pull out a table of results from our GLM very easily.
+
+```{r}
+library(broom)
+glmresults <- tidy(glm)
+wald <- glmresults$estimate[2]/glmresults$std.error[2]
+p <- 2 * (1-pnorm(wald)) # calculation of 2 tailed p value associated with the Wald statistic
+p
+```
+
+We can get the confidence intervals around our estimates using `confint()` with the model results as an argument. There are two common approaches used to derive these confidence intervals, once based on ML and one based on the standard error associated with the parameter estimates.
+
+```{r}
+CI <- confint(glm, level=0.95) # this function returns a CI based on log-likelihood, an iterative ML process
+CI
+CI <- confint.default(glm, level=0.95) # this function returns CIs based on standard errors, the way we have calculated them by hand previously... note the slight difference
+CI
+CI <- glmresults$estimate[2] + c(-1,1) * qnorm(0.975) * glmresults$std.error[2] # and this is how we have calculated CIs by hand previously
+CI
+```
+
+#### CHALLENGE:
+
+Repeat the logistic regression above, but using *gpa* rather than *gre* as the predictor variable.
+
+- Is *gpa* a significant predictor of the odds of admission?
+
+- What is the estimate of $\beta_1$ and the 95% CI around that estimate?
+
+- How much does an increase of 1 unit in *gpa* increase the actual odds ratio (as opposed to the log(odds ratio) for admission?
+
+- What is the 95% CI around this odds ratio?
+
+> HINT: for both of the latter questions, you will need to apply the `exp()` function and convert the log(odds ratio) to an odds ratio.
+
+- Graph the probability of admission, *Pr(admit)*, or $\pi_i$, for students with GPAs between 2.0 and 4.0 GPAs? HINT: Use the `predict()` function with `type="response"` to yield $\pi_i$ directly.
+
+```{r}
+glm <- glm(data=d, admit~gpa, family="binomial")
+summary(glm)
+coeffs <- glm$coefficients
+coeffs
+CI <- confint(glm, level=0.95)
+CI
+ORchange <- exp(coeffs[2])
+ORchange
+ORchangeCI <- exp(CI[2,])
+ORchangeCI
+``` 
+
+Now for some visualization...
+
+```{r}
+library(ggplot2)
+x <- data.frame(gpa=seq(from=2,to=4,length.out = 100))
+prediction <- cbind(gpa=x, response=predict(glm,newdata=x, type="response"))
+# IMPORTANT: Using type="response" returns predictions on the scale of our Y variable, in this case Pr(admit); using the default for type would return a prediction on the logit scale, i.e., the log(odds ratio), or log(Pr(admit)/(1-Pr(admit)))
+head(prediction)
+p <- ggplot(prediction, aes(x=gpa, y=response)) + geom_line() + xlab("GPA") + ylab("Pr(admit)")
+p
+```
+
+The `predict()` function can also be used to get confidence intervals around our estimate of the log(odds of admission) (if "type" is unspecified or set to "link"), or of the probability of admission (if "type" is set to "response"), by using the argument `se.fit=TRUE`.
+
+```{r}
+prediction <- cbind(gpa=x, predict(glm, newdata = x, type="response", se=TRUE))
+prediction$LL <- prediction$fit - 1.96*prediction$se.fit
+prediction$UL <- prediction$fit + 1.96*prediction$se.fit
+head(prediction)
+p <- ggplot(prediction, aes(x=gpa, y=fit))
+p <- p + geom_ribbon(aes(ymin = LL, ymax = UL), alpha = 0.2) + geom_line() + xlab("GPA") + ylab("Pr(admit)")
+p <- p + geom_point(data=d, aes(x=gpa,y=admit))
+p
+```
+
+#### Likelihood Ratio Tests
+
+To evaluate the significance of an **overall model** in a logistic regression, we can compare the fit of a more complex model to that of a nested, reduced model, just as when we discussed model selection approaches for simple linear regression and used partial F tests.
+
+For example, to test the null hypothesis of $\beta_1$ = 0 for a simple logistic regression model with a single predictor, we would compare the log-likelihood of the full model to that of the reduced, intercept only model. This is called a **likelihood ratio test**. Likelihood ratio tests are similar to partial F-tests in that they compare the full model with a nested, reduced model where the explanatory variables of interest are omitted.  Now, however, instead of using a test statistic based on a ratio of variances explained by the two models and interpreting that by comparison to an F distribution, we create a test statistic that is a ratio of the log-likelihoods of the two models. The p values of the tests are calculated using the $\chi^2$ distribution with 1 df, but the underlying idea is conceptually the same.
+
+A likelihood ratio test comparing the full and reduced models can be performed using the `anova()` function with the additional argument `test="Chisq"`.
+
+```{r}
+glm1 <- glm(data=d, admit~1, family="binomial")
+glm2 <- glm(data=d, admit~gpa, family="binomial")
+anova(glm1,glm2, test="Chisq")
+```
+
+Note that the df for the $\chi^2$ test is the **# of parameters in the proposed model minus # parameters in the nested model (here, 2-1 = 1)**
+
+With this low p value, we would reject the null hypothesis that removing the variable of interest (*gpa*) from our model does not result in a loss of fit.
+
+Alternatively, we can use the function `lrtest()` from the {lmtest} package.
+
+```{r}
+library(lmtest)
+lrtest (glm1, glm2)
+```
+
+We can also perform a likelihood ratio test by hand by taking the difference between the *deviances* of the two models. The deviance for a generalized linear model is analogous to the the residual sum of squares for a general linear model (low deviance, low RSS = better model). It is calculated as a kind of "distance" of given model from a fully "saturated" model, i.e., a model where each data point has its own parameters. The likelihood of the saturated model = 1 so its log-likelihood is log(1) = 0.
+
+*Deviance* = 2 $\times$ (log-likelihood of the saturated model - log-likelihood of the proposed model)
+
+*Deviance* = 2 $\times$ (0 - log-likelihood of the proposed model)
+
+*Deviance* = -2 $\times$ (log-likelihood of the proposed model)
+
+We can get the deviance associated with a given model object by accessing its `$deviance` slot or by using the `deviance()` function with the model object as an argument.
+
+```{r}
+Dglm1 <- glm1$deviance # intercept only model
+Dglm1
+Dglm1 <- deviance(glm1)
+Dglm1
+Dglm2 <- glm2$deviance # model with intercept and one predictor
+Dglm2
+Dglm2 <- deviance(glm2)
+Dglm2
+chisq <- Dglm1 - Dglm2 # this is a measure of how much the fit improves by adding in the predictor
+chisq
+p <- 1-pchisq(chisq, df=1) # df = difference in number of parameters in the full verus reduced model
+p
+```
+
+The `$null.deviance` slot of a model object returns, for any model, the deviance associated with an intercept only null model.
+
+```{r}
+x2 <-glm1$null.deviance - glm1$deviance
+x2 # why is this 0? because glm1 *is* the intercept only model!
+p <- 1-pchisq(x2, df=1)
+p
+x2 <-glm2$null.deviance - glm2$deviance
+x2
+p <- 1-pchisq(x2, df=1) # df = difference in number of parameters in the full verus reduced model
+p
+```
+
+Here's some additional useful information about intepreting the results of `summary()` from running a logistic regression based on [this post from *StackExchange*](http://stats.stackexchange.com/questions/108995/interpreting-residual-and-null-deviance-in-glm-r) and [this post from *The Analysis Factor*](http://www.theanalysisfactor.com/r-glm-model-fit/)
+
+> Let n = the number of observations in the data set and k = the number of predictor terms in a proposed model.
+>
+>  - The *Saturated Model* is a model that assumes each data point has its own parameter, which means we have n parameters to describe the data
+>  - The *Null Model* is a model that assumes the exact "opposite", i.e., one parameter describes all of the data points, which means only one parameter, the intercept, is estimated from the data
+>
+>  - The *Proposed Model* is the model we are fitting by GLM, which has k predictor terms (1 for the intercept + 1 for each predictor variable/interaction term)
+>
+>  - *Null Deviance* = deviance of null model, calculated as 2(log-likelihood of the saturated model - log-likelihood of a null model), where df = n - 1
+>
+>  - *Residual Deviance* = 2(log-likelihood of the saturated model - log-likelihood of the proposed model), where df = n - k
+>
+>  If the null deviance is really small, it means that the *Null Model* explains the data pretty well. Likewise, if the residual deviance is really small, then the *Residual Deviance* explains the data pretty well.
+>
+>  If you want to compare a *Proposed Model* against a *Null*, intercept only model, then you can look at (Null Deviance - Residual Deviance) for that model, which yields a difference that can be examined against Chi Square distribution with k degrees of freedom.
+> 
+> If you want to compare one Proposed model against a nested (reduced) model, then you can look at (Residual Deviance for the reduced model - Residual Deviance for the Proposed model), which again yields a difference that can be examined against Chi Square distribution with df = k proposed model - k nested model.
+> 
+> This deviance-based, Chi Square like statistic is also referred to as a **G Square** or **G** statistic. If the p value associated with this statistic is less than the alpha level, it means that the the fuller model is associated with significantly reduced deviance relative to the nested (reduced) model and thus has a better fit. We would thus reject the null hypothesis that the fuller model is not better than the reduced one.
+
+### Multiple Logistic Regression
+
+Logistic regression can be easily extended to situations with multiple predictor variables, including both continuous and categorical variables, as in our discussion of multiple regression under the general linear model.
+
+#### CHALLENGE:
+
+Using the same "graddata.csv" dataset, run a multiple logistic regression analysis using *gpa*, *gre*, and *rank* to look at student admissions to graduate school. Do not, at first, include interaction terms.
+
+- What variables are significant predictors of the log(odds ratio) of admission?
+
+- What is the value of the log(odds ratio) coefficient and the 95% CIs around that value for the two continuous variable (*gpa* and *gre*), when taking the effects of the other and of rank into account? What do these translate into on the actual odds ratio scale?
+
+- Is the model including all three predictors better than models that include just two predictors?
+
+- Compare a model that includes the three predictors with no interactions versus one that includes the three predictors and all possible interactions.
+
+```{r}
+d$rank <- as.factor(d$rank) # make sure rank is a categorical variable
+glmGGR <- glm(data=d, formula = admit~gpa+gre+rank, family=binomial) # 3 predictor model
+summary(glmGGR)
+coeff <- glmGGR$coefficients # extract coefficients... all significantly different from 0
+coeffCI <- cbind(coeff,confint(glmGGR)) # and 95% CIs around them... none include 0
+coeffCI
+ORcoeff <- exp(coeff)
+ORcoeff
+ORcoeffCI <- exp(coeffCI)
+ORcoeffCI
+
+# Compare 2 verus 3 factor models
+glmGG <- glm(data=d, formula = admit~gpa+gre, family=binomial)
+glmGR <- glm(data=d, formula = admit~gpa+rank, family=binomial)
+glmRG <- glm(data=d, formula = admit~gre+rank, family=binomial)
+anova(glmGG,glmGGR, test="Chisq")
+anova(glmGR,glmGGR, test="Chisq")
+anova(glmRG,glmGGR, test="Chisq")
+
+# Compare model with and model without interactions
+glmNO <- glm(data=d, admit~rank+gpa+gre, family="binomial")
+glmALL <- glm(data=d, admit~rank*gpa*gre, family="binomial")
+anova(glmNO,glmALL, test="Chisq") # adding interaction terms to model doesn't significantly decrease deviance
+```
+
+### Log-Linear or Poisson Regression
+
+Sometimes, we want to model a response variable that is in the form of count data (e.g., species richness on an island in terms of distance from the mainland, number of plants of a particular species found in a sampling plot in relation to altitude). Many discrete response variables have counts as possible outcomes. Binomial counts are the number of successes $x$ in a fixed number of trials, $n$. Poisson counts are the number occurrences of some event in a certain interval of time (or space). While binomial counts only take values between 0 and n, Poisson counts have no upper bound. We are going to focus on Poisson counts here.
+
+As we have discussed before, for Poisson distributed variables, the mean and the variance are equal and represented by a single parameter ($\lambda$), and therefore linear models based on normal distributions may not be appropriate. We have seen that sometimes we can simply transform a response variable with some kind of power transformation to make it appear more normally distributed, but an alternative is to use a GLM with a Poisson error term and use a *log* transformation as the link function, resulting in in a **log-linear** model. Thus, when we do Poisson regression, our regression model tries to predict the natural log of the expected value of $Y$, i.e., $\lambda_i$.
+
+The link function is thus:
+
+<img src="img/poisson.svg" width="150px"/>
+
+The inverse link function is, then:
+
+<img src="img/invpoisson.svg" width="125px"/>
+
+Our regression formulation is the same as in logistic regression, above, except we use `family="Poisson"`, e.g, `glm(y ~ x, family = "poisson")`
+
+#### EXAMPLE:
+
+<center><p><img src="http://ichef.bbci.co.uk/naturelibrary/images/ic/credit/640x395/b/br/brown_woolly_monkey/brown_woolly_monkey_1.jpg" style="border:5px solid black"></p>
+</center><br>
+
+Researchers studied the reproductive success of a set of male woolly monkeys over a period of 8 years. The age of each monkey at the beginning of the study and the number of successful matings they had during the 8 years were recorded, and they were also scored into ranks of "high", "medium", and "low". We assume the number of matings follows a Poisson distribution, and we are interested in exploring whether mating success depends on the age of the monkey in question.
+
+```{r}
+library(curl)
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/woollydata.csv")
+d <- read.csv(f, header = TRUE, sep = ",")
+head(d)
+summary(d)
+# first, some exploratory visualization
+par(mfrow=c(1,1))
+p <- ggplot(data=d, aes(x=age, y=success)) + geom_point() + xlab("Age") + ylab("Mating Success")
+p
+pairs(d)
+table(d$rank,d$success)
+# glm of success~age
+glm <- glm(data=d, success~age, family="poisson")
+summary(glm)
+coeffs <- glm$coefficients
+coeffs
+CIs <- confint(glm, level=0.95) # uses ML approaches
+CIs
+CIs <- confint(glm, level=0.95) # uses standard errors
+CIs
+```
+
+In the `summary()`, note that the residual deviance is slighly higher than the residual degrees of freedom, which suggests that our data are slightly overdispersed (i.e., there is some extra, unexplained variation in the response, where the variance is greater than the mean). If this were dramatic, we might use "quasipoisson" for the family instead, but we will stick with "poisson".
+
+Now, let's fit a "line" of best fit through our data, along with 95% CI around this "line". We want to plot the relationship between success (rather than log success) and age, so this relationship will not actually be linear but log-linear.
+
+```{r}
+x <- data.frame(age=seq(from=5,to=17,length.out = 30))
+prediction <- cbind(age=x, predict(glm, newdata = x, type="response", se=TRUE))
+# IMPORTANT: Using the argument type="response" makes our prediction be units of our actual Y variable (success) rather than log(success)
+prediction$LL <- prediction$fit - 1.96*prediction$se.fit
+prediction$UL <- prediction$fit + 1.96*prediction$se.fit
+head(prediction)
+p <- p + geom_line(data=prediction, aes(x=age, y=fit)) + geom_ribbon(data=prediction, aes(x=age, y=fit, ymin = LL, ymax = UL), alpha = 0.2)  + xlab("Age") + ylab("Mating Success")
+p # note the curvilinear "line" of best fit
+```
+
+Is this model better than an intercept-only model? YES! We can see this by doing a likelihood ratio test.
+
+```{r}
+glm1 <- glm(data=d, success~1, family="poisson")
+glm2 <- glm(data=d, success~age, family="poisson")
+# using the anova function
+anova(glm1, glm2, test="Chisq")
+# based on the deviance between a specified null and full models
+x2 <-glm1$deviance - glm2$deviance
+x2
+p <- 1-pchisq(x2, df=1)
+p
+# based on hand calculating deviance for each model; logLik() function returns the log-likelihood of a model
+Dglm1 = -2*logLik(glm1)
+Dglm1
+Dglm2 = -2*logLik(glm2)
+Dglm2
+x2 <- as.numeric(Dglm1-Dglm2)
+x2
+p <- 1-pchisq(x2, df=1) # df = difference in number of parameters in the full verus reduced model
+p
+```
+
+As mentioned briefly in [Module 16](https://fuzzyatelin.github.io/bioanth-stats/module-16/module-16.html), the Akaike Information Criterion, or AIC, is another way of evaluating and comparing related models. For similar models, those with lower AIC models are preferred over those with higher AIC. The AIC value is based on the deviance associated with the model, but it penalizes model complexity. Much like an adjusted R-squared, it’s intent is to prevent you from including irrelevant predictors when choosing among similar models. Models with low AICs represent a better fit to the data, and if many models have similarly low AICs, you should choose the one with the fewest model terms. For both continuous and categorical predictors, we prefer comparing full and reduced models against one another to test individual terms rather than comparing the fit of all possible models to try and select the “best” one. Thus, AIC values are useful for comparing models, but they are not interpretable on their own. The `logLik()` function returns the log-likelihood associated with a particular model and can be used to calculate AIC values by hand.
+
+```{r}
+AIC <- 2 * 2 - 2 * logLik(glm2) # formula for AIC = 2 * # params estimated - 2 * log-likelihood of model; for thise model we estimated 2 params
+AIC
+AICreduced <- 2 * 1 - 2 * logLik(glm1) # for this model, 1 param is estimated
+AICreduced
+```
+
+Here, the log-likelihood of the model including *age* as a predictor is much lower than the log-likelihood of the reduced (intercept only) model, so we prefer the former.
+
+#### CHALLENGE:
+
+Using the woolly monkey mating success data set, explore multiple Poisson regression models of [a] mating success in relation to *rank* and [b] mating success in relation to *age* + *rank* (and their interaction) on your own. What conclusions can you come to about the importance of rank and rank in combination with age versus age alone?
+
+```{r}
+# glm of success~age
+glm1 <- glm(data=d, success~rank, family="poisson")
+summary(glm1)
+coeffs <- glm1$coefficients
+coeffs
+CIs <- confint(glm1, level=0.95)
+CIs
+# glm of success~age+rank
+glm2 <- glm(data=d, success~age+rank, family="poisson")
+summary(glm2)
+coeffs <- glm2$coefficients
+coeffs
+CIs <- confint(glm2, level=0.95)
+CIs
+# glm of success~age+rank+age:rank
+glm3 <- glm(data=d, success~age*rank, family="poisson")
+summary(glm3)
+coeffs <- glm3$coefficients
+coeffs
+CIs <- confint(glm3, level=0.95)
+CIs
+```

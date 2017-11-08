@@ -122,9 +122,9 @@ summary(m2)
 
 ####Model Selection Using *AIC*
 
-Now, there are two R functions that can act as further shortcuts for this process that use the [Akaike Information Criterion (AIC)](http://www.statisticshowto.com/akaikes-information-criterion/) rather than the partial F-test to determine relative model fit.
+Now, there are two R functions that can act as further shortcuts for this process that use the [Akaike Information Criterion (AIC)](http://www.statisticshowto.com/akaikes-information-criterion/) rather than the partial F-test to determine relative model fit. We'll talk in more detail about how we get AIC in [Module 17](https://fuzzyatelin.github.io/bioanth-stats/module-17/module-17.html).
 
-The AIC is typically calculated as the -2(log-likelihood) + 2K, where K is the number of model parameters (variables in the model plus the intercept), and the Log-likelihood is a measure of model fit (the higher, the better). Keep in mind, though, that log-likelihood is a function of sample size, and so larger samples will tend to have lower log-likelihoods regardless of fit! We won't derive log-likelihood by hand in class, but if you want to know more about how log-likelihood is derived, you can check out [this helpful resource](https://onlinecourses.science.psu.edu/stat504/node/27).
+The AIC is typically calculated as the -2(log-likelihood) + 2K, where K is the number of model parameters (variables in the model plus the intercept), and the Log-likelihood is a measure of model fit (the higher, the better). Keep in mind, though, that log-likelihood is a function of sample size, and so larger samples will tend to have lower log-likelihoods regardless of fit! We won't derive log-likelihood by hand in class just yet, but if you want to know more about how log-likelihood is derived, you can check out [this helpful resource](https://onlinecourses.science.psu.edu/stat504/node/27).
 
 As you might guess from how we derive AIC, the model with the *lowest* AIC is typically designated as the best fit for the data. Like log-likelihood, although AIC can be used to assess the relative fit of a model to a certain data set, it can't say anything about the absolute fit of the model (e.g., like the $R^2$ value). Keep in mind that the best fit according to AIC (among the models you test against each other) may actually explain very little of the variation.
 
