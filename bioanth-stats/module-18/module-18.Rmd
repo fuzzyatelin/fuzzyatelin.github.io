@@ -239,4 +239,5 @@ r.squaredGLMM(null)
 
 ### Generalized Linear Mixed Modeling (GLMM)
 
-Just as we extended our standard linear modeling approach to include non normally distributed response variables/error structures, so too can we extend our mixed effects modeling to such situations. This is referred to as **generalized linear mixed modeling, or GLMM**. There are several ***R*** packages we can use to do this (e.g., {glmm}, {glmer}). The methods for generating maximum likelihood parameter estimates under GLMMs are more complicated, but conceptually, the process is a simple extension of what we have talked about already.
+Just as we extended our standard linear modeling approach to include non normally distributed response variables/error structures, so too can we extend our mixed effects modeling to such situations. This is referred to as **generalized linear mixed modeling, or GLMM**. There are several ***R*** packages we can use to do this (e.g., {MCMCglmm}, {lme4} using the `glmer()` call). The methods for generating maximum likelihood parameter estimates under GLMMs are more complicated, but conceptually, the process is a simple extension of what we have talked about already.
+

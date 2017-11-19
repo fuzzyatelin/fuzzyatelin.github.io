@@ -118,11 +118,11 @@ Each module listed is linked to another page containing instructions and helpful
 ###**Week 13 (2017-11-28)**
 ***
 
-###Module 19 - **Accessing Web APIs**
+###[Module 21 - **Accessing Web APIs**](http://fuzzyatelin.github.io/bioanth-stats/module-21/module-21.html)
 
-###Module 20 - **Basic Text Mining**
+###[Module 22 - **Basic Text Mining**](http://fuzzyatelin.github.io/bioanth-stats/module-22a/module-22.html)
 
-###Module 21 - **Analyzing Web Data via {spocc}**
+###Module 23 - **Analyzing Web Data via {spocc}**
 ***
 
 ###Week 14 (2017-12-05)
