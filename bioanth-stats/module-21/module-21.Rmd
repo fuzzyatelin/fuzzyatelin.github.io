@@ -327,7 +327,7 @@ ndt <- lookup_users("bjork")
 ndt <- get_timeline("bjork", n=100)
 head(ndt$text)
 
-# here we pass Neil DeGrasse Tyson's tweets into a corpus for text mining (see Module 20!)
+# here we pass Bjork's tweets into a corpus for text mining (see Module 20!)
 library(tm)
 ndtCorpus <- Corpus(VectorSource(ndt$text))
 
@@ -379,7 +379,7 @@ FBtoken <- "[YOUR TOKEN HERE]"
 ```{r echo = FALSE}
 library(Rfacebook)
 
-FBtoken <- "EAACEdEose0cBAMzHyMrAv98kXugZBOugdm912c7ceRPI8uVNcqFgf8hIwaEU6yX72KltqL37CNV9n8ZB8Nt4laCeESVVrwSNTZB3oRyZBmnl5BhP3tkNbGp88rZC84ZBbkZC52RfX1YMMtpnZAuaBciw7CmlMpM1LwywUBpwCiJ3haLlKoEBeNkRTKK9N8SM31IZD"
+FBtoken <- "EAACEdEose0cBAFiOwjVDztlbRejX1ns12TZAU6zTSvr9bO35rkxAVI4E3KZBxkB446WZB6IZBaiWVPZAfg4YZA5WAVcQ7IlcQvnqpLwjDSZBOeuCVnZAiqxNfqOnUAxZBusCwGMPdAXqjs6owgrpbGEPXZAeGYZC3VBEz3gIqZCY2ZAEuhlR70gwa1Sdkclex2TH9yrkZD"
 ```
 
 ```{r}
