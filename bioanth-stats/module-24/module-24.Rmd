@@ -9,7 +9,7 @@ output:
 ---
 
 # Preliminaries
-To begin, please start by installing the following packages and their dependents using the code below:
+To begin, please start by installing the following packages and their dependencies using the code below:
 
 * install.packages("adegenet", dep=TRUE)
 * install.packages("phangorn", dep=TRUE)
