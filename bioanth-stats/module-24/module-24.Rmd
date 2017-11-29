@@ -110,6 +110,7 @@ We're using the DNA sequences for a set of different influenza strains collected
 
 This data can be downloaded from Genbank [here](http://www.ncbi.nlm.nih.gov/genbank/). The data is organized into two files: 1) the [DNA sequences](http://adegenet.r-forge.r-project.org/files/usflu.fasta) and 2) the [annotations](http://adegenet.r-forge.r-project.org/files/usflu.annot.
 csv). We'll start by loading the DNA sequences data using the function `fasta2DNAbin()` from the {adegenet} package. FASTA is a universally used sequence file format that we will later convert to the format used by the {phangorn} package. Let's name this dataframe `dna`. We can call this dataframe and see that it is organized in a matrix in binary format and contains 80 DNA sequences...
+
 ```{r}
 library(adegenet)
 dna <- fasta2DNAbin(file="http://adegenet.r-forge.r-project.org/files/usflu.fasta")
@@ -121,6 +122,7 @@ Flus evolve rapidly compared to some other viruses, and this occurs mostly due t
 ![](http://homepage.usask.ca/~vim458/virology/studpages2009/H1N1/Images/shift.jpg)
 
 We can read in the annotation file in R using the following code:
+
 ```{r}
 annot <- read.csv("http://adegenet.r-forge.r-project.org/files/usflu.annot.csv", header=TRUE, row.names=1)
 annot
@@ -156,6 +158,7 @@ temp <- as.data.frame(as.matrix(D))
 table.paint(temp, cleg=0, clabel.row=.5, clabel.col=.5) #darker shades of gray mean a larger distance # you can also make cool color plots but they're much more complicated because they use the image() function
 #we can start to see a pattern because the data is ordered by year, but we can't really make any conclusions yet
 ```
+
 New functions:
 
 - `dist.dna()` from {ape} package: this literally just makes a matrix of pairwise distances from the DNA we give it, super easy; "TN93" is just the type of evolutionary model we're using, this particular one allows for different transition rates, heterogenous base frequencies, and variation of substitution rate at the same site
@@ -195,7 +198,8 @@ Feel free to try the other three functions out on your own! How do they compare 
 
 The two previous examples show the simplest types of trees that we can make, but you can also add annotations, labels, and colors to make the tree easier to interpret. 
 
-*EXAMPLE*: we can use colors to represent different years
+*EXAMPLE*: we can use colors to represent different years.
+
 ```{r trees with color}
 plot(tre, show.tip=FALSE) # gets rid of the labels on the end, refer to the first tree depicted above
 title("Unrooted NJ tree")
@@ -204,6 +208,7 @@ tiplabels(annot$year, bg=num2col(annot$year, col.pal=myPal), cex=.5) #we use the
 temp <- pretty(1993:2008, 5)
 legend("bottomleft", fill=num2col(temp, col.pal=myPal), leg=temp, ncol=2)
 ```
+
 New functions:
 
 - `colorRampPalette()` in {grDevices} package: takes a certain set of colors and returns new color palettes or color "ramps" to map an interval
@@ -234,6 +239,7 @@ axisPhylo()
 temp <- pretty(1993:2008, 5)
 legend("topright", fill=transp(num2col(temp, col.pal=myPal),.7), leg=temp, ncol=2)
 ```
+
 New  functions:
 
 - `root()` from {ape} package: reroots a phylo tree using a specific outgroup
@@ -302,6 +308,7 @@ New functions:
 The numbers shown by `nodelabels()` is just the number of times each node appeared in the bootstrapped trees (remember, bootstrapping means that we're running the analysis numerous times, not just recreating the tree once). Let's assume bootstrapping recreated the phylogeny 1000 times. The numbers by each node are pretty low, meaning there's not a huge overlap between the nodes in our original tree and the nodes in the bootstrapped tree. What does this mean? Basically, it means that some of the nodes aren't supported. 
 
 How do we overcome this and fix our tree? We can collapse some of the smaller branches, which will make the tree less informative but more concrete.
+
 ```{r collapsing branches}
 temp <- tre2
 N <- length(tre2$tip.label)
@@ -337,6 +344,7 @@ tre.ini
 ```
 
 We can then measure this tree's parsimony using the function `parsimony()` from the {phangorn} package.
+
 ```{r}
 parsimony(tre.ini, dna2)
 ```
