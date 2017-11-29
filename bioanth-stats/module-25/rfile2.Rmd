@@ -1,0 +1,141 @@
+---
+title: "new file"
+output: html_document
+---
+
+```{r}---
+title: "Cluster Analysis"
+authors: Aarti Arora, Andrew Mark, Natalie Robinson, Audrey Tjahjadi
+output: 
+  html_document: 
+    toc: TRUE
+    toc_float: TRUE
+---
+
+# Cluster Analysis
+
+## Preliminaries
+
+* Install these packages in R: {rattle.data}, {NbClust}, {flexclust}, {curl}
+
+## Objectives
+In this module we will learn about k-means clustering, the pros and cons of this method, and why its application is useful. 
+(add more once we actually know what we're doing)
+
+## Introduction {.tabset}
+### What is Cluster Analysis?
+  (tab content)
+### K-means Clustering
+  (tab content)
+  *pros and cons
+  *potential issues (you can only use continuous data, not categorical)
+### Formulas
+  (tab content)
+### Why is this useful?
+  (tab content)
+### Recent Research and Applications
+  (tab content
+  
+  https://ac-els-cdn-com.ezproxy.bu.edu/S0920410516300742/1-s2.0-S0920410516300742-main.pdf?_tid=1212e7cc-c582-11e7-afd1-00000aab0f27&acdnat=1510254990_e2794bdbec581af54de5c11ea7d5f23d
+  
+  )
+
+## Useful Skills You'll Learn Today
+  * add to this at the end
+  
+## Example 1 (Wine Data using R in Action)
+#This is the example from the R in Action K-means analysis; please consult the R in Action, 16.4.1 (pages 378-382). 
+install.packages("rattle.data") #this package contains the wine dataset; 
+#R in Action asks you to download the rattle package however the wine dataset is no longer in the rattle package
+```
+```{r}
+library(rattle.data)
+```
+
+```{r}
+data(wine, package="rattle.data")
+head(wine)
+df<-scale(wine[-1])
+#this new dataframe contains a standardized dataset 
+```
+
+```{r}
+wssplot <- function(data, nc=15, seed=1234){ #where data is the dataset, 
+#nc is the maximum number of clusters to consider, and seed is the randomly generated dataset
+  wss <- (nrow(data)-1)*sum(apply(data,2,var))
+  for (i in 2:nc){
+    set.seed(seed)
+    wss[i] <- sum(kmeans(data, centers=i)$withinss)}
+  plot(1:nc, wss, type="b", xlab="Number of Clusters",
+       ylab="Within groups sum of squares")}
+```
+
+K means, unlike other methods of clustering, requires that the user specify the number of clusters to make. Instead of picking a random number of clusters, one can look at a bend in a graph to determine the number of clusters to use. A graph similar to a Cattell Scree test, which is used in Principle Components Analysis and Kabacoff suggests using the NbClust package as a guide for determing the number of clusters. Kabacoff also suggests plotting the following: total within-groups sum of squares against number of clusters in the k-means solution. More information about a Scree test and an example of one is in R in Action 14.2.1. 
+
+```{r}
+wssplot(df)
+library(NbClust)
+set.seed(1234)
+devAskNewPage(ask=TRUE)
+```
+
+```{r}
+nc<-NbClust(df, min.nc=2, max.nc=15, method="kmeans") #this is how the number of clusters is determined
+table(nc$Best.n[1, ])
+```
+
+```{r, eval = FALSE}
+barplot(table(nc$Best.n[1,])
+        xlab="Number of Clusters", ylab = "Number of Criteria", 
+        main= "Number of Clusters Chosen by 26 Criteria")
+#this particular section isn't really working either
+```
+
+```{r}
+set.seed(1234)
+fit.km<-kmeans(df, 3, nstart=25)
+fit.km$size
+#this is the k means clusters analysis 
+fit.km$centers
+```
+
+```{r}
+#cross-tabulation of Type and cluster membership:
+ct.km<-table(wine$Type, fit.km$cluster)
+ct.km
+#agreement given by index of -1 to 1
+library(flexclust)
+randIndex(ct.km)
+```
+## Example 2 (Seed Data?)
+###Seed Data File
+
+This dataset contains 7 measurements for geometric properties of 210 kernels from 3 different varieties of wheat.
+```{r}
+seeddata<-read.csv(file = "tabseeddata.csv", header = TRUE, sep = ",")
+head(seeddata)
+ds<- scale(seeddata[-1])
+```
+
+```{r}
+wssplot <- function(data, nc=15, seed=1234){ 
+  wss <- (nrow(data)-1)*sum(apply(data,2,var))
+  for (i in 2:nc){
+    set.seed(seed)
+    wss[i] <- sum(kmeans(data, centers=i)$withinss)}
+  plot(1:nc, wss, type="b", xlab="Number of Clusters",
+       ylab="Within groups sum of squares")
+  }
+```
+```{r}
+wssplot(ds)
+library(NbClust)
+set.seed(1234)
+devAskNewPage(ask=TRUE)
+```
+
+As in the wine data, we can see a clear decrease in the within group sum of squares between 1, 2, and 3 clusters and then little decrease after. This suggests that 3 is an appropriate number of clusters. The figure also shows that there will most likely not be more than 15 clusters.
+
+```{r}
+nc1<-NbClust(df, min.nc=2, max.nc=15, method="kmeans") #this is how the number of clusters is determined
+table(nc$Best.n[1, ])

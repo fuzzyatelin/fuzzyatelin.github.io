@@ -1,0 +1,311 @@
+---
+title: "Module 25: Cluster Analysis"
+author: "Aarti Arora, Andrew Mark, Natalie Robinson, Audrey Tjahjadi (with modifications by Christopher A. Schmitt)"
+output: 
+  html_document: 
+    toc: TRUE
+    toc_float: TRUE
+---
+
+# K-Means Analysis
+## Preliminaries
+
+* Install the following packages in R: [{rattle.data}](https://cran.r-project.org/web/packages/rattle.data/rattle.data.pdf), [{NbClust}](https://cran.r-project.org/web/packages/NbClust/NbClust.pdf), [{flexclust}](https://cran.r-project.org/web/packages/flexclust/flexclust.pdf), [{curl}](https://cran.r-project.org/web/packages/curl/curl.pdf), [{cluster}](https://cran.r-project.org/web/packages/cluster/index.html)
+
+## Objectives
+In this module we will learn about cluster analysis, specifically K-means clustering. We will discuss the pros and cons of this method, and why its application is useful. We will work through two examples to understand how K-means works.
+
+## Introduction {.tabset}
+### What is Cluster Analysis?
+
+Cluster analysis uncovers subgroups of observations within a dataset by reducing a large number of observations to a smaller number of clusters. A **cluster** is a group of observations that are more similar to each other than they are to the observations in other groups. 
+
+Two popular clustering approaches are **hierarchical agglomerative clustering** and **partitioning clustering**. 
+
+  1. Hierarchical agglomerative clustering begins with each observation as a cluster. Clusters are then combined until they all merge into a single cluster. Common algorithms include single linkage, complete linkage, average linkage, centroid, and Ward's method.
+  
+  2. Partitioning clustering begins with a specific K which indicates the desired number of clusters. Observations are then divided into cohesive clusters. Common algorithms include K-means and partitioning around medoids (PAM). 
+
+Today we will only focus on K-means clustering.  
+  
+### K-means Clustering
+![](http://www.turingfinance.com/wp-content/uploads/2015/02/K-Means-Clustering-Gif.gif)
+  
+To understand the K-means algorithm conceptually, our textbook *R in Action* provides us with the following steps:
+  
+1. Select K centroids (K rows chosen at random)
+2. Assign each data point to its closest centroid
+3. Recalculate the centroids as the average of all data points in a cluster (the centroids are p-length mean vectors where p is the number of variables).
+4. Assign data points to their closest centroids.
+5. Continue steps 3 and 4 until the observations aren’t reassigned or the maximum number of iterations (R uses 10 as a default) is reached.
+  
+To do this, R uses an algorithm that partitions observations into K groups so that the sum of squares of the observations to their assigned cluster centers is a minimum. Each observation is assigned to the cluster with the smallest value of:
+
+$$ ss(k) = \sum_{i=1}^n \sum_{j=0}^p (x_{ij} - \bar{x}_{kj})^2 $$
+k = cluster
+$x_{ij}$ = the value of the jth variable for the ith observation
+$\bar{x}_{kj}$ = the mean of the jth variable for the kth cluster
+p = the number of variables
+
+####Pros
+K-means analysis is efficient, simple, robust, and can be adapted to data with complex properties, high dimentionality, and class imbalance. It can also handle larger datasets than other clustering techniques, and observations  are not permanently assigned to a specific cluster. 
+ 
+####Cons
+There are three main issues with cluster analysis: 
+
+    1. There are essentially an infinite number of ways the data can be clustered 
+    2. There is no accepted theoretical framework about how to perform cluster analyis 
+    3. There is no strict definition of what a cluster is (the users define what a cluster means for their specific situation). This means that users should know what they want to understand from their data and then choose the appropriate type of cluster analysis to answer those specific questions. 
+
+Additionally, variables for K-means must be continuous; if you are working with categorical data, another method must be used. Outliers can greatly affect results. K-means also performs poorly with convex clusters (for example, a binomial cluster), and with non-globular clusters. The results of K-means is a set of clusters which are generally uniform in size even if the original data had clusters of different sizes. 
+  
+### Why is this useful?
+K-means is a simple, efficient, and widely accepted method to partion data into meaningful groups. K-means is used as a benchmark to test newly created clustering techniques. 
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Iris_Flowers_Clustering_kMeans.svg/450px-Iris_Flowers_Clustering_kMeans.svg.png)
+  
+### Recent Research and Applications
+
+K-means clustering analysis is a common way to group and interpret large sets of data regardless of the distribution. Here are three ways in which researchers used K-means to analyze and interpret data.  
+
+**Example 1**
+[Yang, Huaijie, Heping Pan, Huolin Ma, Ahmed Amara Konaté, Jing Yao, and Bo Guo. (2016). Performance of the synergetic wavelet transform and modified K-means clustering in lithology classification using nuclear log. Journal of Petroleum Science and Engineering, 144:1-9.](https://ac.els-cdn.com/S0920410516300742/1-s2.0-S0920410516300742-main.pdf?_tid=373203c8-cfd5-11e7-aa36-00000aacb35e&acdnat=1511390220_af008af7a4aad067a2555a4680bba341)
+
+Yang et al. (2016) used synergetic wavelet transform and K-means clustering to identify types of metamorphic rocks from the Chinese Continental Scientific Drilling Main Hole near the village of Maobei, China. They performed multiple wave functions on previously documented well logs, a detailed record of the geological changes and characteristics of a stratigraphy. The authors then used a K-means clustering algorithm to group the observed metamorphic rock into five categories: orthogneiss, amphibolites, eclogite, paragneiss, and ultramafic, the five most common metamorphic rock at this site. Next, Yang et al. (2016) analyzed the accuracy of identifying each type of metamorphic rock by comparing the results of the K-means analysis to the well logs. They reported accuracies ranging from 94.51% to 70.58%. They conclude their article by suggesting that through the use of synergetic wavelet transform and K-means clustering, the accuracy of identifying metamorphic rocks increases, and the time spent computing this data decreases. 
+
+**Example 2**
+[Argote-Espino, Denisse, Jesús Solé, Pedro López-García, and Osvaldo Sterpone. (2013). Geochemical characterisation of Otumba obsidian sub-sources (Central Mexico) by inductively coupled plasma mass spectrometry and density-based spatial clustering of applications with noise statistical analysis. Open Journal of Archaeology, 1(18): 85-88.](http://www.pagepress.org/journals/index.php/arc/article/view/arc.2013.e18/4167)
+
+Argote-Espino et al. (2013) seek to better understand the economic and political expansion of influential Mesoamerican cultures in relation to the control of obsidian sources and their and trade routes. They measured the chemical composition of four sources of obsidian in the Otumba’s region. They then measured the makeup of obsidian artifacts found through this region. Due to obsidian sources compositions' being relatively homogeneous yet different sources’ compositions varying greatly, Argote-Espino et al (2013) were able to perform a cluster analysis on this area showing which source of obsidian was most used for tool production. This is just one way K-means is being used in archaeology.
+
+**Example 3**
+[Johnson, A., & Johnson, A. (1975). K-Means and Temporal Variability in Kansas City Hopewell Ceramics. American Antiquity, 40(3), 283-295.](https://www.cambridge.org/core/journals/american-antiquity/article/div-classtitlespan-classitalickspan-means-and-temporal-variability-in-kansas-city-hopewell-ceramicsdiv/659CD81F64D6ED29DB73C185729177A5)
+
+Johnson and Johnson (1975) seek to create a chronology for the Hopewell culture located near Kansas City, Missouri. To do this they looked at four sites within a 20 mile radius of the Missouri River Valley, located north of Kansas City. From there they used K-means analysis to observe 863 ceramic rims, and cluster them into groups based on the characteristics of the rims. Johnson and Johnson (1975) compared these clusters with previously excavated ceramic rims in association with radiocarbon dates. They found a relationship between radiocarbon dates and the clusters and concluded that their K-means analysis can be used to create a chronology of the area.
+
+These are just some examples of how K-means cluster analysis is used in archaeology and geology. This method is also used frequently in biology, behavioral sciences, marketing, genetics, and medical research. Check out these links below to see examples of K-means clusters being used in both genetics and marketing.
+
+[Tamayo,Pablo, Donna Slonim, Jill Mesirov, Qing Zhu, Sutisak Kitareewan, Ethan Dmitrovsky, Eric S. Lander, and Todd R. Golub. (1998). Interpreting patterns of gene expression with self-organizing maps: Methods and application to hematopoietic differentiation. PNAS 1999 96 (6) 2907-2912.](http://www.pnas.org/content/96/6/2907.full.pdf)
+
+[Punj, G., & Stewart, D. (1983). Cluster Analysis in Marketing Research: Review and Suggestions for Application. Journal of Marketing Research, 20(2), 134-148.](http://www.jstor.org/stable/3151680?seq=1#page_scan_tab_contents)
+
+## Useful Skills You'll Learn Today
+  1. How to determine the number of clusters needed for a K-means cluster analysis 
+  2. How to cluster two different data sets
+  3. How to create a 2D representation of the analyses
+  4. How to justify agreement of the analyses using an adjusted Rand index
+  
+## Example 1: Wine Data
+
+![](https://media.giphy.com/media/3SB4hYwiSpIkw/giphy.gif)
+
+
+**This is the example from the *R in Action* K-means analysis. Please consult 16.4.1 (pages 378-382) in the book for further information. **
+
+Our first example will use the wine dataset. This dataset contains the results of a chemical analysis of wines grown in a specific area of Italy. Three types of wine are represented in the 178 samples, with the results of 13 chemical analyses recorded for each sample. 
+
+*R in Action* asks you to download the {rattle} package, however the dataset we want is no longer in this package. We have downloaded rattle.data instead.
+
+```{r}
+library(rattle.data)
+```
+
+First, we create a standardized dataframe.
+```{r}
+data(wine, package="rattle.data")
+head(wine)
+```
+
+```{r}
+df <- scale(wine[-1]) #this new dataframe contains a standardized dataset 
+```
+
+Next, we need to determine the number of clusters we want.
+
+```{r}
+wssplot <- function(data, nc=15, seed=1234){ #where data is the dataset, nc is the maximum number of clusters to consider, and seed is the randomly generated dataset
+  wss <- (nrow(data)-1)*sum(apply(data,2,var))
+  for (i in 2:nc){
+    set.seed(seed)
+    wss[i] <- sum(kmeans(data, centers=i)$withinss)}
+  plot(1:nc, wss, type="b", xlab="Number of Clusters",
+       ylab="Within groups sum of squares")}
+```
+
+```{r}
+wssplot(df)
+```
+
+K-means, unlike other methods of clustering, requires that the user specify the number of clusters to make. Instead of picking a random number of clusters, one can look at a bend in a graph to determine the number of clusters to use. The graph we have plotted above has a bend at three, which suggests we should use three clusters. This graph is especially useful if you know nothing about your dataset. 
+
+*R in Action* suggests using the {NbClust} package as a guide for determing the number of clusters. They also suggests plotting total within-groups sum of squares against number of clusters in the K-means solution. More information about Scree tests and an example is in section 14.2.1 of the book. 
+
+The {NbClust} package allows the user to determine the optimum number of clusters for a particular dataset, and provides different clustering schemes. Clusters can be determined for several methods. In this case we are using the K-means method, however seven other methods are available (including average, median, centroid, etc.). {NbClust} can also select the best clustering method for a particular dataset if, for example, you want to maximize the difference between hierarchy members. 
+
+```{r}
+library(NbClust)
+set.seed(1234)
+devAskNewPage(ask=TRUE)
+```
+
+```{r}
+nc<-NbClust(df, min.nc=2, max.nc=15, method="kmeans") #this is how the number of clusters is determined
+table(nc$Best.n[1, ])
+```
+
+Here we see that 15 of the indices proposed 3 as the best number of clusters to use. According to the majority rule, this is what we should use.
+
+```{r, eval = FALSE}
+barplot(table(nc$Best.n[1, ]),
+        xlab= "Number of Clusters", ylab = "Number of Criteria", 
+        main= "Number of Clusters Chosen by 26 Criteria")
+```
+
+This figure shows the reccommended number of clusters (3) using 26 criteria provided by the {NbClust} package.
+
+```{r}
+set.seed(1234)
+fit.km<-kmeans(df, 3, nstart=25) # performs the k-means cluster analysis
+fit.km
+```
+
+Note that we are able to see the size of each cluster, and the cluster means (this is the actual K-means cluster analysis).
+
+We can then see how well the K-means clustering uncovered the actual structure of the data contained in the variable.
+
+```{r}
+#cross-tabulation of Type and cluster membership:
+ct.km<-table(wine$Type, fit.km$cluster)
+ct.km
+```
+
+We can use an adjusted Rand index to quantify the agreement bewteen type and cluster. This provides a measure of the agreement between two partitions, adjusted for chance. -1 indicates no agreeement, while 1 indicates perfect agreement.
+
+```{r}
+#agreement given by index of -1 to 1
+library(flexclust)
+randIndex(ct.km)
+```
+
+Our wine data has nearly 0.9 agreement between the wine varietal type and the cluster solution! If our agreement had not been as high, we would want to use a different clustering method.
+
+Finally, we can create a 2D representation of the cluster solution in order to visually interpret our results.
+
+```{r}
+fit.km$cluster # these are each of the clusters
+```
+
+```{r}
+library(cluster)
+clusplot(df, fit.km$cluster, main='2D Representation of the Cluster Solution',
+         color=TRUE, shade=TRUE, plotchar = TRUE, labels=2, lines=0)
+```
+
+## Example 2: Seed Data
+
+![](https://i.imgur.com/cuW8K7N.gif)
+
+Our next example uses data on seeds. This dataset contains 7 measurements for geometric properties of 210 kernels from 3 different varieties of wheat. This dataset is publicly available, though we will download it from our Github repository as we have already converted it into a csv file.
+
+First, we create a standardized dataframe. 
+```{r}
+# obtaining the dataset
+library(curl)
+f <- curl("https://raw.githubusercontent.com/teriyakiaud/group-project/master/tabseeddata.csv")
+seeddata<-read.csv(file = f, header = TRUE, sep = ",")
+head(seeddata)
+ds<- scale(seeddata[-1])
+```
+
+Just as in the first example, we need to figure out how many clusters to use.
+```{r}
+plot1 <- function(data = ds, nc=15, seed=1234){ 
+  wss <- (nrow(data)-1)*sum(apply(data,2,var))
+  for (i in 2:nc){
+    set.seed(seed)
+    wss[i] <- sum(kmeans(data, centers=i)$withinss)}
+  plot(1:nc, wss, type="b", xlab="Number of Clusters",
+       ylab="Within groups sum of squares")
+  }
+```
+
+```{r}
+plot1(ds)
+library(NbClust)
+set.seed(1234)
+devAskNewPage(ask=TRUE)
+```
+
+As in the wine dataset, we can see a clear decrease in the within group sum of squares between 1, 2, and 3 clusters and then a smaller decrease after. This suggests that 3 is an appropriate number of clusters to use. The figure also shows that there will likely not be more than 15 clusters.
+
+We can also use {NbClust} to determine the optimum number of clusters.
+
+```{r}
+nc1<-NbClust(ds, min.nc=2, max.nc=15, method="kmeans") 
+table(nc1$Best.n[1, ])
+```
+
+```{r}
+barplot(table(nc1$Best.n[1, ]),
+        xlab= "Number of Clusters", ylab = "Number of Criteria", 
+        main= "Number of Clusters Chosen by 26 Criteria")
+```
+
+We can see that 20 of the indices proposed 3 as the best number of clusters. According to the majority rule, we should use 3 clusters.
+
+```{r}
+set.seed(1234)
+fit.kmseed<-kmeans(ds, 3, nstart=25) # performs the k-means cluster analysis
+fit.kmseed$size
+fit.kmseed$centers
+```
+
+We can compare our results with the results of the original paper and see that while they are similar, they are not the exact same result. However, since K-means cluster analysis is a random algorithm, this result is entirely probable. 
+![](https://raw.githubusercontent.com/teriyakiaud/group-project/master/Capture.PNG)
+
+```{r}
+# cross-tabulation of type and cluster membership:
+ct.kmseed<-table(seeddata$Variety, fit.kmseed$cluster)
+ct.kmseed
+
+# using an adjusted Rand index to quantify the agreement
+library(flexclust)
+randIndex(ct.kmseed)
+```
+
+Here, we see that our seed data has a 0.96 agreement between the seed variety and the cluster solution!
+
+Finally, let's create a 2D representation of the cluster solution.
+
+```{r}
+fit.kmseed$cluster # these are each of the clusters
+```
+
+```{r}
+library(cluster)
+clusplot(ds, fit.kmseed$cluster, main='2D Representation of the Cluster Solution',
+         color=TRUE, shade=TRUE, plotchar = TRUE, labels=2, lines=0)
+```
+
+## Additional Resources and Useful Links
+
+**Used for constructing the module**
+  
+  * Kabacoff R. (2015). R in Action, 2nd Edition. New York: Manning Publications.
+
+  * [Wu, Junjie. (2012). Advances in K-means Clustering: A Data Mining Thinking. PhD dissertation, Department of Information Systems, Tsinghua University, Beijing, China](https://link.springer.com/book/10.1007%2F978-3-642-29807-3)
+
+  * [M. Charytanowicz, J. Niewczas, P. Kulczycki, P.A. Kowalski, S. Lukasik, and S. Zak. (2012). 'A Complete Gradient Clustering Algorithm for Features Analysis of X-ray Images', in: Information Technologies in Biomedicine, Ewa Pietka, Jacek Kawa (eds.), Springer-Verlag, Berlin-Heidelberg, 2010, pp. 15-24.](https://www.researchgate.net/publication/234073581_Seeds_dataset) 
+       
+       
+**Used for Recent Research and Applications**
+  
+  * [Argote-Espino, Denisse, Jesús Solé, Pedro López-García, and Osvaldo Sterpone. (2013). Geochemical characterisation of Otumba obsidian sub-sources (Central Mexico) by inductively coupled plasma mass spectrometry and density-based spatial clustering of applications with noise statistical analysis. Open Journal of Archaeology, 1(18): 85-88.](http://www.pagepress.org/journals/index.php/arc/article/view/arc.2013.e18/4167)
+  
+  * [Johnson, A., & Johnson, A. (1975). K-Means and Temporal Variability in Kansas City Hopewell Ceramics. American Antiquity, 40(3), 283-295.](https://www.cambridge.org/core/journals/american-antiquity/article/div-classtitlespan-classitalickspan-means-and-temporal-variability-in-kansas-city-hopewell-ceramicsdiv/659CD81F64D6ED29DB73C185729177A5)
+  
+  * [Punj, G., & Stewart, D. (1983). Cluster Analysis in Marketing Research: Review and Suggestions for Application. Journal of Marketing Research, 20(2), 134-148.](http://www.jstor.org/stable/3151680?seq=1#page_scan_tab_contents)
+  
+  * [Tamayo,Pablo, Donna Slonim, Jill Mesirov, Qing Zhu, Sutisak Kitareewan, Ethan Dmitrovsky, Eric S. Lander, and Todd R. Golub. (1998). Interpreting patterns of gene expression with self-organizing maps: Methods and application to hematopoietic differentiation. PNAS 1999 96 (6) 2907-2912.](http://www.pnas.org/content/96/6/2907.full.pdf)
+  
+  * [Yang, Huaijie, Heping Pan, Huolin Ma, Ahmed Amara Konaté, Jing Yao, and Bo Guo. (2016). Performance of the synergetic wavelet transform and modified K-means clustering in lithology classification using nuclear log. Journal of Petroleum Science and Engineering, 144:1-9.](https://ac.els-cdn.com/S0920410516300742/1-s2.0-S0920410516300742-main.pdf?_tid=373203c8-cfd5-11e7-aa36-00000aacb35e&acdnat=1511390220_af008af7a4aad067a2555a4680bba341)

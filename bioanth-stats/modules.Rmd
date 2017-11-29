@@ -131,7 +131,7 @@ Each module listed is linked to another page containing instructions and helpful
 ###[Module 24 - **Phylogenetic Tree Constuction**](http://fuzzyatelin.github.io/bioanth-stats/module-24/module-24.html)
 (Brandon Guell, Isabella Muratore, Danielle Antos)
 
-###[Module 25 - **Cluster Analysis**]() 
+###[Module 25 - **Cluster Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-25/module-25.html) 
 (Aarti Arora, Andrew Mark, Natalie Robinson, Audrey Tahjadi)
 
 ***
