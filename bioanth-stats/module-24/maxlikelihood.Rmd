@@ -1,0 +1,113 @@
+---
+title: "maxlikelihodd"
+author: "Isabella Muratore"
+date: "November 7, 2017"
+output: html_document
+---
+
+When phylogenetics first came into vogue, most scientists used small sets of morphological features to predict the relationships between small groups of organisms and most of them built Bayesian trees, based upon Bayes' Theorem. 
+
+However as biological observations became more complex, most people switched over to "frequentist" methods, such as parsimony, due to the large amount of computational power that would be required to resolve Bayesian phylogenies for larger data sets. 
+
+Towards the latter half of the 20th century, most biologist began to agree that Bayesian methods created more realistic trees, due to their relative resistance to problems such as long-branch attraction, among other issues. The advent of computing technology once again made these methods feasible. However, many scientists bitterly resisted this transition, resulting in intellectual conflicts. 
+
+One such conflict has been called ["Parsimony-gate"](https://www.wired.com/2016/02/twitter-nerd-fight-reveals-a-long-bizarre-scientific-feud/). This involved the traditionalist editors of the well-known journal "Cladistics" publishing an editorial discouraging the use of Bayesian methods in journal submissions when parsimony could be used. Subsequently, many biologists criticized the article on twitter, only to receive aggressive responses from the original author. 
+
+
+Maximum likelihood is considered a type of likelihood based tree construction, a group to which Bayesian methods also belong. Maximum likelihood maximizes the chances of collecting the data set in question given that the calculated tree, along with parameters describing evolutionary rules, are true. 
+
+```{r}
+
+library(ape)
+library(phangorn)
+library(adegenet)
+```
+
+This function takes a vector of color labels and makes them applicable to groups on a tree
+```{r}
+myPal <- colorRampPalette(c("red","yellow","green","blue"))
+```
+Loading DNA sequences for a set of different influenza strains collected from 1993 to 2008 in the US (get your flu shot every year!)
+
+FASTA is a universally used sequence file format that is here converted to the format used by the phangorn package
+```{r}
+dna <- fasta2DNAbin(file="http://adegenet.r-forge.r-project.org/files/usflu.fasta")
+```
+Loading annotations to mark the identity of the sequences
+```{r}
+annot <- read.csv("http://adegenet.r-forge.r-project.org/files/usflu.annot.csv", header=TRUE, row.names=1)
+```
+First, we build a simple neighbor-joining tree that we can hand to the ape package in order to turn it into maximum likelihood
+
+The genetic distances between flu strains are here calculated using a model published by Tamura and Nei (1993). This model says that transitions (purine to purine or pyramidine to pyramidine) and transversions (purine to pyramidine or vice versa) may happen at different rates, that not every nucleotide appears at the same frequency, and that the rate of substitution can vary between different regions of the sequence.
+```{r}
+tre.ini <- nj(dist.dna(dna,model="TN93"))
+```
+pml calculates the likelihood of the data given the model, initially just using our neighbor joining tree
+```{r}
+pml(tre.ini, dna2, k=4)
+```
+The above calculation has failed since the loglikelihood is listed as NaN. This is likely caused by missing sequence data
+
+Using table we can look at the number of occurences of the difference bases according to their [IUPAC ambiguity codes](http://www.dnabaser.com/articles/IUPAC%20ambiguity%20codes.html). In a typical fasta file, bases that could not be sequenced accurately are listed as "N" and a number of other letters can indicate a lesser degree of uncertainty such as "Y" to indicate that the base must be a pyramidine, etc. 
+```{r}
+table(as.character(dna2))
+```
+Since we think there is a problem with missing bases, we search for any bases that are not listed as A, T, G, or C
+```{r}
+na.posi <- which(apply(as.character(dna),2, function(e) any(!e %in% c("a","t","g","c"))))
+```
+Due to the nature of sequencing techniques, sometimes sequences have poorer quality in a particular area such as the very beginning or very end. Therefore, we will plot the frequence of non-ATCG bases over their position in the sequence. 
+```{r}
+temp <- apply(as.character(dna),2, function(e) sum(!e %in% c("a","t","g","c")))
+plot(temp, type="l", col="blue", xlab="Position in HA segment", ylab="Number of NAs")
+```
+Due to the majority of the missing data appearing in the start of the sequence, we can infer that this was caused to differences in overall length between strains due to sequence divergence (AKA your flu shot from 2 years ago will not work!!)
+
+We can exclude the missing data
+```{r}
+dna3 <- dna[,-na.posi]
+```
+Now it looks complete
+```{r}
+table(as.character(dna3))
+```
+Now we can convert back to phangorn format
+```{r}
+dna4 <- as.phyDat(dna3)
+```
+We can make the NJ tree again, and use pml again to calculate likelihood
+```{r}
+tre.ini <- nj(dist.dna(dna3,model="TN93"))
+fit.ini <- pml(tre.ini, dna4, k=4)
+fit.ini
+```
+Now we can optimize the tree, using options to also optimize tree topology (optNni), base frequencies (optBf), and substitution rates (optQ). We will use a gamma distribution (optGamma) for variation in substitution rates at different sites in the sequence
+```{r}
+fit <- optim.pml(fit.ini, optNni=TRUE, optBf=TRUE, optQ=TRUE, optGamma=TRUE)
+fit
+```
+Let's compare the optimized tree to the neighbor joining tree using an anova. 
+```{r}
+anova(fit.ini, fit)
+```
+The anova shows a significant difference between the two trees. We can use the AIC, as discussed in previous modules, to see which is better.
+```{r}
+AIC(fit.ini)
+
+AIC(fit)
+```
+Since a lower AIC value is better, we can see that the optimized tree worked better than the neighbor joining tree. 
+
+Now we plot the tree using the same method as before
+```{r}
+tre4 <- root(fit$tree,1)
+tre4 <- ladderize(tre4)
+plot(tre4, show.tip=FALSE, edge.width=2)
+title("Maximum-likelihood tree")
+tiplabels(annot$year, bg=transp(num2col(annot$year, col.pal=myPal),.7), cex=.5, fg="transparent")
+axisPhylo()
+temp <- pretty(1993:2008, 5)
+legend("topright", fill=transp(num2col(temp, col.pal=myPal),.7), leg=temp, ncol=2)
+
+```

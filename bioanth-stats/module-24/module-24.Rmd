@@ -1,0 +1,506 @@
+---
+title: "Module 24: An Intro to Phylogenetic Tree Construction in R"
+author: "Brandon Güell, Dani Antos, Isabella Muratore (with modifications by Christopher A. Schmitt)"
+date: "11/7/2017"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+# Preliminaries
+To begin, please start by installing the following packages and their dependents using the code below:
+
+* install.packages("adegenet", dep=TRUE)
+* install.packages("phangorn", dep=TRUE)
+
+Make sure to load the following packages which we will use throughout the module:
+
+* [{stats}](https://www.rdocumentation.org/packages/stats/versions/3.4.1) - super cool dope rad common statistical analysis package 
+* [{ade4}](http://pbil.univ-lyon1.fr/ade4/home.php?lang=eng) - awesome functions to analyse ecological/environmental data in "Euclidean Exploratory" framework
+* [{ape}](http://ape-package.ird.fr/) - not as in primate, as in analysis & computation of phylo trees from DNA sequences
+* [{adegenet}](https://github.com/thibautjombart/adegenet/wiki) - package for multivariate analysis of genetic markers data
+* [{phangorn}](https://github.com/KlausVigo/phangorn) - phylo whaaaa? phylogenetic analysis package!
+
+
+# Objectives
+
+> In this module, we will learn about phylogenetic trees and how to recontruct them using three different methods in R. We will download and manipulate a small data set on seasonal influenza isolate samples in the US from 1993-2008. We will describe and show examples of how each of these approaches work and how to interpret and visualize the results for each using different aspects of phylo tree aesthetics.
+
+
+# Introduction
+Phylogenetic (phylo) trees..."I think"
+
+![](https://i.stack.imgur.com/ahJk5.jpg)
+
+Phylogenetic trees are useful diagrams which show inferred evolutionary relationships of a set of organisms, or a set of traits within a group of organisms. Phylogenetic tree reconstructions are made from analysis of observed heritable traits, commonly DNA sequences, previously morphological characters, in order to estimate common ancestors between taxa and sometimes times of divergence. Trees can represent evolutionary divergence according to information from entire genomes, or from one gene or a set of genes. Commonly, the so-called DNA barcode, part of the sequence for the highly conserved cytochrome oxidase subunit one has been single-handedly used to construct trees. This electron transport chain component is useful because very few mutations persist in fit organisms, so those that stick are very solid predictors of differences between lineages. 
+
+Almost all phylogenetics methods start with a distance matrix in which differences between taxa are estimated by summing discrepancies in nucleotides or quantified morphological characters:
+
+![A distance matrix](http://rosalind.info/media/distance_based_phylogeny.png)
+
+This matrix is the direct basis for the simplest kind of tree, called UPGMA, or unweighted pair group method using arithmetic mean. Another form of simple tree building is called neighbor joining and is considered more reliable. Neighbor joining mehtods produce unrooted trees unless you take further steps to root the tree, while UPGMA produced a rooted tree. Perhaps the most important difference between these two is that UPGMA assumes a constant rate of evolution AKA nucleotide substitution everywhere and over time. Neighbor joining does not make this assumption. 
+
+When phylogenetics first came into vogue, most scientists used small sets of morphological features to predict the relationships between small groups of organisms and most of them built Bayesian trees, based upon Bayes' Theorem. 
+
+However as biological observations became more complex, most people switched over to "frequentist" methods, such as parsimony, due to the large amount of computational power that would be required to resolve Bayesian phylogenies for larger data sets. 
+
+Towards the latter half of the 20th century, most biologist began to agree that Bayesian methods created more realistic trees, due to their relative resistance to problems such as long-branch attraction, among other issues. The advent of computing technology once again made these methods feasible. However, many scientists bitterly resisted this transition, resulting in intellectual conflicts. 
+
+### Nerd Drama
+
+One such conflict has been called ["Parsimony-gate"](https://www.wired.com/2016/02/twitter-nerd-fight-reveals-a-long-bizarre-scientific-feud/). This involved the traditionalist editors of the well-known journal "Cladistics" publishing an editorial discouraging the use of Bayesian methods in journal submissions when parsimony could be used. Subsequently, many biologists criticized the article on twitter, only to receive aggressive responses from the original author. 
+
+
+![](https://images.gr-assets.com/hostedimages/1406924837ra/10618636.gif)
+
+*****
+
+## Types of phylo trees {.tabset}
+### Rooted
+Rooted phylo trees imply relationships about the most recent common ancestor. This information is given by showing an "outgroup" which is the most basal extant ancestor in a given tree. Each node thus represents the most recent common ancestor for each set of taxa which meet at that node.
+
+![](https://www.ncbi.nlm.nih.gov/Class/NAWBIS/Modules/Phylogenetics/images/phylo1003.gif)
+
+### Unrooted
+Unrooted phylogenetic trees are similar to rooted trees in that each node represents the most recent comon ancestor between groups. However, it differs in that it does not give information or imply any ancentral "root" or basal outgroup.
+
+![](https://www.ncbi.nlm.nih.gov/Class/NAWBIS/Modules/Phylogenetics/images/phylo1002.gif)
+
+### Tree Drawing Styles
+Phylo trees can also be drawn differently. The trees below all show the same relationships between the taxa, just in different aesthetically pleasing ways.
+
+![](http://ksuweb.kennesaw.edu/~jdirnber/InvertZoo/LecIntro/trees2.jpg)
+
+
+## Three methods for phylo tree reconstruction discussed here:{.tabset}
+
+### Distance-based
+Distance based phylogenetic trees are pretty much exactly what they sound like: we find the "genetic distance" between pairs of taxa and cluster the species using the distances. Pairs with shorter distances are clustered more closely together than pairs with large distances. Because making distance-based trees is usually requires an algorithm to compute the pairwise distances, the trees produced can be rooted or unrooted depending on the algorithm used (we'll go into this a litter later). **Advantages** of this method? It's fast and flexible. **Disadvantages**? The tree produced can change based on the algorithm we choose, and we can't test to make sure that we're using the best model, so the tree can be inaccurate.
+
+### Maximum parsimony
+Maximum parisomy phylo trees aim to minimize the number of character-state changes in a tree. Thus, this usually produces the simplest possible trees with the least amount of branches (i.e. character-state changes). The method is composed of 1) initiating an algorithm using a tree and 2) making small changes to the tree by simplifying relationships until we are left with the most parsimonious tree and no futher simplifications can be made.
+
+### Likelihood-based
+Maximum likelihood is considered a type of likelihood based tree construction, a group to which Bayesian methods also belong. Maximum likelihood maximizes the chances of collecting the data set in question given that the calculated tree, along with parameters describing evolutionary rules, are true. Mathematically this is represented as:
+
+P(D|M)
+
+Where P = probability, D = observed data, and M = model
+
+A common way of understanding this approach is to use an observed set of coin flips to say whether this outcome is more likely under the model that the coin is fair, or that it is biased. 
+
+Maximum Likelihood favors minimizing the number of mutations at "internal nodes", AKA divergence points, inside a tree. This is based on the assumption that the fewest number of possible substitutions to get from sequence version A to sequence version B is most likely what actually happened. In reality this is not always true of course.
+
+*****
+
+# Useful skills we will go over today:
+* Importing data on DNA sequences in a phylogenetic tree format
+* Phylogenetic tree reconstruction using various methods in R
+* Plotting and interpret results from trees constructed
+* Test for molecular clock and estimates rates of evolution
+* Use bootstrapping for examining tree topology/organization reliability
+
+*****
+*****
+*****
+
+# Read in the DNA sequences of seasonal influenza (H3N2)
+We're using the DNA sequences for a set of different influenza strains collected from 1993 to 2008 in the US (get your flu shot every year!)
+
+This data can be downloaded from Genbank [here](http://www.ncbi.nlm.nih.gov/genbank/). The data is organized into two files: 1) the [DNA sequences](http://adegenet.r-forge.r-project.org/files/usflu.fasta) and 2) the [annotations](http://adegenet.r-forge.r-project.org/files/usflu.annot.
+csv). We'll start by loading the DNA sequences data using the function `fasta2DNAbin()` from the {adegenet} package. FASTA is a universally used sequence file format that we will later convert to the format used by the {phangorn} package. Let's name this dataframe `dna`. We can call this dataframe and see that it is organized in a matrix in binary format and contains 80 DNA sequences...
+```{r}
+library(adegenet)
+dna <- fasta2DNAbin(file="http://adegenet.r-forge.r-project.org/files/usflu.fasta")
+dna
+```
+
+Flus evolve rapidly compared to some other viruses, and this occurs mostly due to mutations accumulated in the membrane proteins. We will see whether this fact shapes how our trees turn out. 
+
+![](http://homepage.usask.ca/~vim458/virology/studpages2009/H1N1/Images/shift.jpg)
+
+We can read in the annotation file in R using the following code:
+```{r}
+annot <- read.csv("http://adegenet.r-forge.r-project.org/files/usflu.annot.csv", header=TRUE, row.names=1)
+annot
+```
+
+
+# Distance-based methods
+
+Just to recap on some background mentioned earlier: Distance-based trees are produced by calculating the genetic distances between pairs of taxa, followed by hierarchical clustering that creates the actual "tree" look. While there are tons of algorithms to choose from when computing distances, there are two popular clustering methods that are used most frequently. 
+
+1. UPGMA- this is the simplest method for constructing trees, assumes the same evolutionary speed for all lineages (which can be a disadvantage); all leaves have the same distance from the root (creates ultrametric tree)
+
+2. Neighbor-joining- taking the two closest nodes of the tree and defines them as neighbors; you keep doing this until all of the nodes have been paired together
+
+The following figure can help visually distinguish UPGMA methods from neighbor-joining methods (you can ignore single linkage and complete linkage)
+
+![](https://openi.nlm.nih.gov/imgs/512/123/2277402/PMC2277402_1471-2105-9-90-5.png)
+
+There are 3 basic steps for Distance-Based Phylogenies:
+
+1. find genetic distances for pairs of individuals (in our case, isolates)
+
+2. make a tree using these distances
+
+3. evaluate the relevance of the tree
+
+##Step 1
+```{r step 1}
+library(ape)
+D <- dist.dna(dna, model = "TN93")
+length(D) #number of pairwise distances, computed as n(n-1)/2
+temp <- as.data.frame(as.matrix(D))
+table.paint(temp, cleg=0, clabel.row=.5, clabel.col=.5) #darker shades of gray mean a larger distance # you can also make cool color plots but they're much more complicated because they use the image() function
+#we can start to see a pattern because the data is ordered by year, but we can't really make any conclusions yet
+```
+New functions:
+
+- `dist.dna()` from {ape} package: this literally just makes a matrix of pairwise distances from the DNA we give it, super easy; "TN93" is just the type of evolutionary model we're using, this particular one allows for different transition rates, heterogenous base frequencies, and variation of substitution rate at the same site
+
+That was step 1 in its entirety, so it's pretty easy because we have a nice function that computes all of our distances for us. The darker colors indicate larger distances, so, while we have some data about the genetic differences between a pair of species, we aren't quite ready to draw massive conclusions yet.
+
+##Step 2
+
+
+![](https://media.giphy.com/media/3osBLyuYM8tXH0yKD6/giphy.gif)
+
+Building the tree generally just gives us a better visual understanding of what's going on. As I mentioned previously, the figure from Step 1 shows us that there is a trend or pattern of some sort, but it's difficult to get more than that just from the figure. On the other hand, we can't always assume that a tree is the best or most efficient representation of our genetic distances.
+
+R has a ton of algorithm options for us to choose from to make our tree (New functions):
+
+- `nj()` from {ape} package: classic Neighbor-Joining algorithm
+
+- `bionj()` from {ape} package: Neighbor-Joining 2.0 (basically)
+
+- `fastme.bal()` AND `fastme.ols()` both from {ape} package: minimum evolution algorithm (to my understanding, usually looks the same as neighbor joining, topology shows the smallest value of branch sums)
+
+- `hclust()` from {stats} package (a base package in R): classical hierarchical clustering, including UPGMA and others
+
+```{r step 2}
+tre <- nj(D)
+class(tre) #all trees created using {ape} package will be of class phylo
+tre <- ladderize(tre)
+tre # tells us what the tree will look like but doesn't show the actual construction
+plot(tre, cex = 0.6)
+title("A Simple NJ Tree")
+# or 
+h_cluster <- hclust(D, method = "average", members = NULL) # method = average is used for UPGMA, members can be equal to NULL or a vector with a length of size D
+plot(h_cluster, cex = 0.6)
+```
+
+Feel free to try the other three functions out on your own! How do they compare to these two examples? Do you think one is better than the rest?
+
+The two previous examples show the simplest types of trees that we can make, but you can also add annotations, labels, and colors to make the tree easier to interpret. 
+
+*EXAMPLE*: we can use colors to represent different years
+```{r trees with color}
+plot(tre, show.tip=FALSE) # gets rid of the labels on the end, refer to the first tree depicted above
+title("Unrooted NJ tree")
+myPal <- colorRampPalette(c("red","yellow","green","blue"))
+tiplabels(annot$year, bg=num2col(annot$year, col.pal=myPal), cex=.5) #we use the annot dataset to get our years
+temp <- pretty(1993:2008, 5)
+legend("bottomleft", fill=num2col(temp, col.pal=myPal), leg=temp, ncol=2)
+```
+New functions:
+
+- `colorRampPalette()` in {grDevices} package: takes a certain set of colors and returns new color palettes or color "ramps" to map an interval
+
+- `tiplabels()` in {ape} package: adds labels to or near nodes/edges of a tree
+
+- `num2col()` in {adegenet} package: can translate variables onto a color scale
+
+- `pretty()`: computes a sequence of equally spaced values that encompass the range of x values
+
+The tree is now easy to read with the color coding, but the location of some of the isolates can be deceiving due to the unrooted nature of the tree. We can re-draw the tree like this:
+```{r redrawn unrooted tree}
+plot(tre, type = "unrooted", show.tip = FALSE)
+title("Unrooted NJ Tree")
+tiplabels(tre$tip.label, bg = num2col(annot$year, col.pal = myPal), cex = 0.5)
+```
+
+Or, even better, we can make a root for the tree. The best rooting would be any of the oldest isolates. We can use the `annot` dataset again.
+
+```{r rooting tree}
+head(annot)
+tre2 <- root(tre, out = 1)
+tre2 <- ladderize(tre2)
+plot(tre2, show.tip=FALSE, edge.width=2)
+title("Rooted NJ tree")
+tiplabels(tre$tip.label, bg=transp(num2col(annot$year, col.pal=myPal),.7), cex=.5, fg="transparent")
+axisPhylo()
+temp <- pretty(1993:2008, 5)
+legend("topright", fill=transp(num2col(temp, col.pal=myPal),.7), leg=temp, ncol=2)
+```
+New  functions:
+
+- `root()` from {ape} package: reroots a phylo tree using a specific outgroup
+
+- `axisPhylo()` from {ape} package: adds a scaled axis on the side of a plot
+
+##Step 3
+Because there are so many different algorithms to choose from when constructing our tree, we have to make sure the one we chose was appropriate for our dataset, using our original distance matrix (in this case, `D`). This is much easier than it sounds, and just requires some plots and correlation calculations. 
+```{r step 3 NJ tree}
+x <- as.vector(D)
+y <- as.vector(as.dist(cophenetic(tre2)))
+plot(x, y, xlab="original pairwise distances", ylab="pairwise distances on the tree", main="Is NJ appropriate?", pch=20, col=transp("black",.1), cex=3)
+abline(lm(y~x), col="red")
+cor(x,y)^2
+```
+
+New functions:
+
+- `cophenetic()` in {stats} package: computes distances between the tips of the trees
+
+The graph can be read similarly to a QQ plot, so the Neighbor-Joining tree is a good representation of our genetic distances.
+
+Let's try one of the other trees that we made in a previous example, using the UPGMA method.
+
+```{r step 3 UPGMA tree}
+tre3 <- as.phylo(hclust(D,method="average"))
+y <- as.vector(as.dist(cophenetic(tre3)))
+plot(x, y, xlab="original pairwise distances", ylab="pairwise distances on the tree", main="Is UPGMA appropriate?", pch=20, col=transp("black",.1), cex=3)
+abline(lm(y~x), col="red")
+cor(x,y)^2
+```
+
+From this graph, we can tell that UPGMA wouldn't be a great choice. As a reminder, here's the UPGMA based tree:
+
+```{r UPGMA tree}
+plot(tre3, cex=.5)
+title("UPGMA tree")
+```
+
+This tree is called an **ultrametric** tree, meaning that we assume that all isolates have gone through the same amount of evolution (which is usually not true, especially in this case when our isolates are coming from several different years).
+
+###Bootstrapping
+Similar to all other instances when we've used bootstrapping before, here, bootstrapping a phylogeny can be used to validate the tree. 
+
+To validate our tree, we sample our nucleotides with replacement and rebuild the tree. If our tree is appropriate, the nodes in the original tree and the nodes in the bootstrapped tree should be the same. 
+
+```{r bootstrapping}
+myBoots <- boot.phylo(tre2, dna, function(e) root(nj(dist.dna(e, model = "TN93")),1))
+myBoots
+plot(tre2, show.tip=FALSE, edge.width=2)
+title("NJ tree + bootstrap values")
+tiplabels(frame="none", pch=20, col=transp(num2col(annot$year, col.pal=myPal),.7), cex=3, fg="transparent")
+16
+axisPhylo()
+temp <- pretty(1993:2008, 5)
+legend("topright", fill=transp(num2col(temp, col.pal=myPal),.7), leg=temp, ncol=2)
+nodelabels(myBoots, cex=.6)
+```
+
+New functions:
+
+- `bootphylo()` in {ape} package: performs the bootstrap automatically for us
+
+- `nodelabels()` in {ape} package: adds labels to or near the nodes, pretty self explanatory
+
+The numbers shown by `nodelabels()` is just the number of times each node appeared in the bootstrapped trees (remember, bootstrapping means that we're running the analysis numerous times, not just recreating the tree once). Let's assume bootstrapping recreated the phylogeny 1000 times. The numbers by each node are pretty low, meaning there's not a huge overlap between the nodes in our original tree and the nodes in the bootstrapped tree. What does this mean? Basically, it means that some of the nodes aren't supported. 
+
+How do we overcome this and fix our tree? We can collapse some of the smaller branches, which will make the tree less informative but more concrete.
+```{r collapsing branches}
+temp <- tre2
+N <- length(tre2$tip.label)
+toCollapse <- match(which(myBoots<70)+N, temp$edge[,2])
+temp$edge.length[toCollapse] <- 0
+tre3 <- di2multi(temp, tol=0.00001)
+plot(tre3, show.tip=FALSE, edge.width=2)
+title("NJ tree after collapsing weak nodes")
+tiplabels(tre3$tip.label, bg=transp(num2col(annot$year, col.pal=myPal),.7), cex=.5, fg="transparent")
+axisPhylo()
+temp <- pretty(1993:2008, 5)
+legend("topright", fill=transp(num2col(temp, col.pal=myPal),.7), leg=temp, ncol=2)
+```
+
+# Maximum parsimony
+
+> Note: if you haven't already, make sure to install the package {phangorn}. 
+
+To use the maximum parsimony phylo tree reconstruction methods, we will need a tree in {ape}'s format: as a `phylo` object and the original DNA data sequences in a format from the {phangorn} package: `phyDat`. Let's begin!
+
+```{r}
+library(phangorn)
+dna2 <- as.phyDat(dna) #assign the original dna sequences data as a phyDat object...
+class(dna2) #ensure that new dataframe "dna2" is in phyDat format
+dna2
+```
+
+Next, we will reconstruct a tree using the `nj()` function as we saw before.
+
+```{r}
+tre.ini <- nj(dist.dna(dna,model="raw"))
+tre.ini
+```
+
+We can then measure this tree's parsimony using the function `parsimony()` from the {phangorn} package.
+```{r}
+parsimony(tre.ini, dna2)
+```
+
+Lastly, the function which which will algorithmically make our tree the most parsimonious possible is the `otim.parsimony()` function. Lets use it below on our newly reconstructed tree and see what happens.
+
+```{r}
+tre.pars <- optim.parsimony(tre.ini, dna2)
+tre.pars
+
+parsimony(tre.pars, dna2)
+```
+
+The result is a very similar tree to the one before, but its final "p-score" is 2 values lower than before. Thus, although not by much, this newly made `tre.pars` phylo tree is our most parsimonious tree.
+
+Again, we can plot this tree similarly as before.
+
+This function takes a vector of color labels and makes them applicable to groups on a tree:
+
+```{r}
+myPal <- colorRampPalette(c("red","yellow","green","blue"))
+```
+
+```{r}
+library(ape)
+plot(tre.pars, type="unr", show.tip=FALSE, edge.width=2)
+title("Maximum-parsimony tree")
+tiplabels(tre.pars$tip.label, bg=transp(num2col(annot$year, col.pal=myPal),.7), cex=.5, fg="transparent")
+temp <- pretty(1993:2008, 5)
+legend("bottomright", fill=transp(num2col(temp, col.pal=myPal),.7), leg=temp, ncol=2, bg=transp("white"))
+```
+
+Again, our tree is unrooted and has no branch lengths. We can likely attribute the similarity in results in our parsimonious tree to the other methods we used before to the fact that there is little divergence between the sequences in our data.
+
+# Maximum Likelihood-based
+Let's prepare to build a maximum likelihood tree. Import the influenza data set and annotations from above if you haven't already.
+
+First, we build a simple neighbor-joining tree that we can hand to the ape package in order to turn it into maximum likelihood.
+
+The genetic distances between flu strains are here calculated using a model published by Tamura and Nei (1993). This model says that transitions (purine to purine or pyrimidine to pyrimidine) and transversions (purine to pyrimidine or vice versa) may happen at different rates, that not every nucleotide appears at the same frequency, and that the rate of substitution can vary between different regions of the sequence. Alternatives to this model include the Jukes-Cantor model in which all types of nucleotide substitutions are equally probable.
+
+```{r}
+tre.ini <- nj(dist.dna(dna,model="TN93"))
+```
+
+`pml()` calculates the likelihood of the data given the model, initially just using our neighbor joining tree:
+
+```{r}
+pml(tre.ini, dna2, k=4)
+```
+
+The above calculation may have failed if the loglikelihood is listed as NaN. This would likely be caused by missing sequence data.
+
+Using `table()` we can look at the number of occurences of the difference bases according to their [IUPAC ambiguity codes](http://www.dnabaser.com/articles/IUPAC%20ambiguity%20codes.html). In a typical FASTA file, bases that could not be sequenced accurately are listed as "N" and a number of other letters can indicate a lesser degree of uncertainty such as "Y" to indicate that the base must be a pyramidine, etc. 
+
+```{r}
+table(as.character(dna2))
+```
+
+Since we think there is a problem with missing bases, we use `na.posi()` to search for any bases that are not listed as A, T, G, or C.
+
+```{r}
+na.posi <- which(apply(as.character(dna),2, function(e) any(!e %in% c("a","t","g","c"))))
+```
+
+Due to the nature of sequencing techniques, sometimes sequences have poorer quality in a particular area such as the very beginning or very end. Therefore, we will plot the frequence of non-ATCG bases over their position in the sequence. 
+```{r}
+temp <- apply(as.character(dna),2, function(e) sum(!e %in% c("a","t","g","c")))
+plot(temp, type="l", col="blue", xlab="Position in HA segment", ylab="Number of NAs")
+```
+
+Due to the majority of the missing data appearing in the start of the sequence, we can infer that this was caused to differences in overall length between strains due to sequence divergence (AKA your flu shot from 2 years ago will not work!!).
+
+We can exclude the missing data:
+
+```{r}
+dna3 <- dna[,-na.posi]
+```
+
+Now it looks complete:
+
+```{r}
+table(as.character(dna3))
+```
+
+Now we can convert back to {phangorn} format:
+
+```{r}
+dna4 <- as.phyDat(dna3)
+```
+
+We can make the NJ tree again, and use `pml()` again to calculate likelihood:
+
+```{r}
+tre.ini <- nj(dist.dna(dna3,model="TN93"))
+fit.ini <- pml(tre.ini, dna4, k=4)
+fit.ini
+```
+
+Now we can optimize the tree, using options to also optimize tree topology (`optNni`), base frequencies (`optBf`), and substitution rates (`optQ`). We will use a gamma distribution (`optGamma`) for variation in substitution rates at different sites in the sequence:
+
+```{r}
+fit <- optim.pml(fit.ini, optNni=TRUE, optBf=TRUE, optQ=TRUE, optGamma=TRUE)
+fit
+```
+
+Let's compare the optimized tree to the neighbor joining tree using an anova:
+
+```{r}
+anova(fit.ini, fit)
+```
+
+The anova shows a significant difference between the two trees. We can use the AIC, as discussed in previous modules, to see which is a better model for the data.
+
+```{r}
+AIC(fit.ini)
+
+AIC(fit)
+```
+
+Since a lower AIC value is better, we can see that the optimized tree worked better than the neighbor joining tree. 
+
+Now we plot the tree using the same method as before:
+
+```{r}
+tre4 <- root(fit$tree,1)
+tre4 <- ladderize(tre4)
+plot(tre4, show.tip=FALSE, edge.width=2)
+title("Maximum-likelihood tree")
+tiplabels(annot$year, bg=transp(num2col(annot$year, col.pal=myPal),.7), cex=.5, fg="transparent")
+axisPhylo()
+temp <- pretty(1993:2008, 5)
+legend("topright", fill=transp(num2col(temp, col.pal=myPal),.7), leg=temp, ncol=2)
+
+```
+
+Since we know flus evolve rapidly, this tree shape makes sense and reflects the accumulation of successive mutations over a short period of time. Fast evolving organisms can be very useful for studying evolutionary processes within the lifetime of a single professor. 
+
+*****
+
+# References used
+* [Introduction to phylogenetics using R](http://adegenet.r-forge.r-project.org/files/MSc-intro-phylo.1.1.pdf)
+* [Phylogenetic trees in R: Lars Schmitz](http://schmitzlab.info/phylo.html)
+* [Data wrangling cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+* [Rmarkdown cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+
+*****
+
+# Citations
+1. S. Dray and A.-B. Dufour. The ade4 package: implementing the duality diagram
+for ecologists. Journal of Statistical Software, 22(4):1–20, 2007.
+2. T. Jombart. adegenet: a R package for the multivariate analysis of genetic
+markers. Bioinformatics, 24:1403–1405, 2008.
+3. T. Jombart and I. Ahmed. adegenet 1.3-1: new tools for the analysis of genomewide
+snp data. Bioinformatics, 27:3070–3071, 2011.
+4. Scot A Kelchner and Michael A Thomas. Model use in phylogenetics: nine key
+questions. Trends Ecol Evol, 22(2):87–94, Feb 2007.
+5. E. Paradis, J. Claude, and K. Strimmer. APE: analyses of phylogenetics and
+evolution in R language. Bioinformatics, 20:289–290, 2004.
+6. R Development Core Team. R: A Language and Environment for Statistical
+Computing. R Foundation for Statistical Computing, Vienna, Austria, 2011.
+ISBN 3-900051-07-0.
+7. Klaus Peter Schliep. phangorn: phylogenetic analysis in r. Bioinformatics,
+27(4):592–593, Feb 2011.
+8. K. Tamura and M. Nei. Estimation of the number of nucleotide substitutions in
+the control region of mitochondrial dna in humans and chimpanzees. Mol Biol
+Evol, 10(3):512–526, May 1993.

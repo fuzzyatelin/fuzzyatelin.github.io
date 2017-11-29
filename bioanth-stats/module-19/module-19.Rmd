@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 # Using Bayesian Statistics for Mixed Effects Modeling
 
 ## Preliminaries
-- Install these packages in ***R***: [{MCMCglmm}](https://cran.r-project.org/web/packages/MCMCglmm/vignettes/CourseNotes.pdf)
+- Install these packages in ***R***: [{MCMCglmm}](https://cran.r-project.org/web/packages/MCMCglmm/vignettes/CourseNotes.pdf), {dplyr}, {ggplot2}, {ape}, {geiger}, {phytools}, {curl}
 
 ## Objectives
 > In this module, we'll go over the basics of Bayesian inference and implement some simple mixed models.
@@ -40,8 +40,6 @@ There are quite a few problems with the assumptions of this case, part of which 
 
 In order to truly understand the odds of two infants in the same household dying of SIDS, we need to understand *conditional probability*, or the *relative* likelihood of a second infant in the Clark household dying of SIDS, given that one has already done so.
 
-
-
 Describing this a bit more concisely, we could say that while frequentist statistics assume that parameters are unknown but fixed (like the mean of a population), Bayesian statistics assume that parameters are not fixed but rather follow their own prior probability distribution. This *prior distribution* is based on what we *already* know about the population in question -- this can either be knowledge about the distribution of this parameter from previous experiments or analyses, or can reflect the idea that we have very little prior knowledge about the distribution of parameters (we call these *uninformative* or *vague* prior distributions). This *prior distribution*, in conjunction with the data itself, allows us to estimate the *posterior distribution* for the parameter. Conceptually, the data helps us to pinpoint our posterior distribution in a specific area of the stipulated prior distribution. From this posterior we estimate our parameter(s), complete with *credibility intervals* and p-values.
 
 ##Markov Chain Monte Carlo Techniques
@@ -50,5 +48,182 @@ Monte Carlo Markov Chains (MCMC) are a method that allow us to create an actual 
 
 Once we've generated a large number of these chains, after discarding the burn-in, the distribution of final parameter values is taken to represent the posterior distribution. We can summarize this distrubution with the same summary statistics as those used to summarize frequentist samples, like means and quantiles. This is the distribution from which we generate p-values (or p<sub>MCMC</sub> values), as well.
 
+##A Primate Example Using {MCMCglmm}
 
+To illustrate an example of Bayesian analysis from a publiushed source, we'll take a look at one of my own papers where I used Bayesian methods to control for and investigate the ways in which phylogenetic relatedness influences dental trait variation in catarrhine primates:
 
+[<b>Hlusko LJ, Schmitt CA, Monson T, Brasil M and Mahaney MC. 2016. The integration of quantitative genetics, paleontology, and neontology reveals genetic underpinnings of primate dental evolution. Proc Nat Acad Sci 113(33): 9262-9267.</b>](http://www.pnas.org/content/113/33/9262.full.pdf)
+
+Let's get started by loading the packages we'll be using for data organization, analyses, and plots:
+
+```{r,message=FALSE}
+library(ggplot2)
+library(dplyr)
+library(ape)
+library(MCMCglmm)
+library(geiger)
+library(phytools)
+library(curl)
+```
+
+Now, we need to download our dataset. The data here are museum specimens of extant primates who have had metric measurements taken on their cheek teeth. 'ID' is the specimen number, 'phylo' is the species, 'age' is coded either 'extant' or 'fossil', 'tree' indicates whether or not the species is included in the phylogenetic tree, and the tooth measurements are coded to identify individual teeth ('D' is for mandibular, 'L' is for left side, 'M' or 'P' are for molar or premolar, and the number indicates order in the tooth row, while the final letter indicates whether the measure is 'L' for mesiodistal length or 'AW' for anterior buccolingual width). Finally, the phenotypes we'll be investigating are actually compound phenotypes.
+
+***MMC*** stands for *molar-module cascade*, referring to the *inhibitory cascade* of the molars -- that is, there is a consistent pattern by which the molars sequentially increase or decrease in size that appears to be the result of a cascading effect of some inhibitor during tooth development. We'd like to see if that pattern has a phylogenetic signal.
+
+***PMM*** stands for the *premolar-molar module*, referring to the apparently high genetic correlation between premolar size and average molar size. We'd also like to see if this pattern has a phylogenetic signal.
+
+```{r}
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/catarrhine-mandibular.csv")
+teeth <- read.csv(f, header=TRUE, sep=",", stringsAsFactors=FALSE)
+head(teeth)
+```
+
+And we also need to download the relevant phylogeny. For those of us that want to actually create or download the phylogeny ourselves, it was initially downloaded from the website [10ktrees](http://10ktrees.nunn-lab.org/), which essentially aggregates genetic data on phylogenetic relationships for primates and allows us to download both consensus and blocks of variable phylogenetic trees.  For today, let's just download a ready-made consensus tree for this analysis:
+
+```{r}
+g <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/catarrine-phylo.phy")
+phylo<-read.tree(g)
+plot(phylo)
+```
+
+Now, to start out, let's make sure we only have those species that occur on the phylogenetic tree:
+
+```{r}
+teeth<-
+  teeth %>%
+  filter(tree=="y")
+```
+
+Let's take a look at this data:
+
+```{r}
+g1<-ggplot(data=teeth,aes(x=PMM,y=MMC,colour=phylo,shape=phylo,label=phylo,alpha=phylo,size=phylo))+coord_fixed(ratio=1)+geom_point()+theme_bw()+scale_x_continuous(limits=c(0.75,2.0),breaks=c(0.8,1.0,1.2,1.4,1.6,1.8,2.0))+scale_y_continuous(limits=c(0.75,2.0),breaks=c(0.8,1.0,1.2,1.4,1.6,1.8,2.0))
+g2<-g1+guides(colour=guide_legend(ncol=1),shape=guide_legend(ncol=1))+labs(x="PMM",y="MMC")
+g3<-g2+scale_shape_manual(name="Taxon",values=c(16,16,16,16,16,16,16,16,16,16,16,16,16,16),breaks=c("Cercopithecus_mitis","Colobus_guereza","Gorilla_gorilla","Homo_sapiens","Macaca_fascicularis","Macaca_mulatta","Nasalis_larvatus","Pan_paniscus","Pan_troglodytes","Papio_hamadryas","Pongo_pygmaeus","Presbytis_melalophos","Presbytis_rubicunda","Theropithecus_gelada"))
+g4<-g3+scale_colour_manual(  name="Taxon",values=c("yellow","green","grey80","maroon","plum","mediumpurple1","darkgreen","#663300","chocolate4","cyan3","grey40","olivedrab2","olivedrab4","skyblue"),
+breaks=c("Cercopithecus_mitis","Colobus_guereza","Gorilla_gorilla","Homo_sapiens","Macaca_fascicularis","Macaca_mulatta","Nasalis_larvatus","Pan_paniscus","Pan_troglodytes","Papio_hamadryas","Pongo_pygmaeus","Presbytis_melalophos","Presbytis_rubicunda","Theropithecus_gelada"))
+g5<-g4+scale_size_manual(name="Taxon",values=c(3.5,3.5,3.5,3.5,3.5,3.5,3.5,3.5,3.5,3.5,3.5,3.5,3.5,3.5),
+breaks=c("Cercopithecus_mitis","Colobus_guereza","Gorilla_gorilla","Homo_sapiens","Macaca_fascicularis","Macaca_mulatta","Nasalis_larvatus","Pan_paniscus","Pan_troglodytes","Papio_hamadryas","Pongo_pygmaeus","Presbytis_melalophos","Presbytis_rubicunda","Theropithecus_gelada"))
+g6<-g5+scale_alpha_manual(name="Taxon",values=c(1,1,1,1,1,1,1,1,1,1,1,1,1,1),
+breaks=c("Cercopithecus_mitis","Colobus_guereza","Gorilla_gorilla","Homo_sapiens","Macaca_fascicularis","Macaca_mulatta","Nasalis_larvatus","Pan_paniscus","Pan_troglodytes","Papio_hamadryas","Pongo_pygmaeus","Presbytis_melalophos","Presbytis_rubicunda","Theropithecus_gelada"))
+print(g6)
+```
+
+As we can see, it looks like these two traits together are differentiating the species pretty well, and that closely related species appear to be more similar in their trait space... all the apes are down in the same morphospace, all the papionins (baboons and macaques) are in their own morphospace, etc. This suggests that, if we want to see how these traits are functioning in these species, we need to assess their *phylogenetic signal*, or how closely trait variation coincides with phylogenetic relatedness.
+
+Now, to assess phylogenetic signal, we want to only get those variables of importance: individual ID, species, and the trait(s) of interest.  We also want to include the anterior width of the second molar. This is a proxy for body size (this trait is *pleiotropic* with body size in primates, meaning about 25% of the variation in this trait appears to be genetically controlled by the same genes controlling for body size), which we want to include to control for size.
+
+```{r}
+teeth.pgls.pmm<-
+  teeth %>%
+  filter(age=='extant') %>%
+  select(id,phylo,DLM2AW,PMM) %>%
+  na.omit() %>%
+  droplevels()
+teeth.pgls.mmc<-
+  teeth %>%
+  filter(age=='extant') %>%
+  select(id,phylo,DLM2AW,MMC) %>%
+  na.omit() %>%
+  droplevels()
+```
+
+BLERG NOT ULTRAMETRIC.
+
+```{r}
+library(phangorn)
+phylo<-force.ultrametric(phylo) ## default method
+is.ultrametric(phylo)
+```
+
+Now we need to calculate the inverse of the Sigma matrix of phylogenetic correlation:
+
+```{r}
+inv.phylo<-inverseA(phylo,nodes="TIPS",scale=TRUE)
+```
+
+And then, since we are conducting this analysis using a Bayesian framework, we need to establish our priors. In our case, we used canonical uninformative priors (inverse-Gamma distribution):
+
+```{r}
+prior<-list(R=list(V=1,nu=0.02),
+                G=list(G1=list(V=1,nu=0.02),
+                          G2=list(V=1,nu=0.02)))
+```
+
+Also, for MCMCglmm to work, we need the level names of the taxa in the dataframe to be set as in the same order as in phylo. Let's do that now:
+
+```{r}
+teeth.pgls.mmc$phylo<-factor(teeth.pgls.mmc$phylo,levels=c("Cercopithecus_mitis","Theropithecus_gelada","Papio_hamadryas","Macaca_fascicularis","Macaca_mulatta","Colobus_guereza","Nasalis_larvatus","Presbytis_melalophos","Presbytis_rubicunda","Gorilla_gorilla","Homo_sapiens","Pan_paniscus","Pan_troglodytes","Pongo_pygmaeus"))
+```
+
+And we need to make sure that the names in the dataframe are concordant with the names in our phylogenetic tree:
+
+```{r}
+blah1<-inv.phylo$node.names
+blah2<-levels(teeth.pgls.mmc$phylo)
+all(blah1 == blah2)
+```
+
+We also need to convert our dplyr data table back into a dataframe for MCMCglmm to read it properly:
+
+```{r}
+pgls.mmc<-as.data.frame(teeth.pgls.mmc)
+```
+
+And now we can run our MMC model, incorporating phylogeny into it. In this case, we're attempting to control for the effects of body size by including the anterior width of the second molar as a covariate in the models.
+
+```{r,results="hide"}
+model.phylo.mmc<-MCMCglmm(MMC~1,random=~DLM2AW+phylo,family="gaussian",ginverse=list(phylo=inv.phylo$Ainv),data=pgls.mmc,prior=prior,burnin=4000,thin=10,nitt=150000)
+```
+```{r}
+summary(model.phylo.mmc)
+```
+
+Let's check for autocorrelation:
+
+```{r}
+autocorr(model.phylo.mmc$Sol)
+```
+
+Looks ok! Let's take a look at phylogenetic signal...
+
+```{r}
+lambda.mmc<-model.phylo.mmc$VCV[,'phylo']/
+ (model.phylo.mmc$VCV[,'phylo']+model.phylo.mmc$VCV[,'units'])
+
+mean(lambda.mmc)
+
+posterior.mode(lambda.mmc)
+
+HPDinterval(lambda.mmc)
+```
+
+OK! So what this suggests is that there IS indeed a very strong phylogenetic signal for MMC (lambda = 1 suggests evolution under a Brownian motion model, essentially a perfect phylogenetic signal) with perhaps a bit of noise.
+
+Let's take a look at PMM, now, using the same method:
+
+```{r,results="hide"}
+teeth.pgls.pmm$phylo<-factor(teeth.pgls.pmm$phylo,levels=c("Cercopithecus_mitis","Theropithecus_gelada","Papio_hamadryas","Macaca_fascicularis","Macaca_mulatta","Colobus_guereza","Nasalis_larvatus","Presbytis_melalophos","Presbytis_rubicunda","Gorilla_gorilla","Homo_sapiens","Pan_paniscus","Pan_troglodytes","Pongo_pygmaeus"))
+
+pgls.pmm<-as.data.frame(teeth.pgls.pmm)
+
+model.phylo.pmm<-MCMCglmm(PMM~1,random=~DLM2AW+phylo,family="gaussian",ginverse=list(phylo=inv.phylo$Ainv),data=pgls.pmm,prior=prior,burnin=4000,thin=10,nitt=150000)
+```
+```{r}
+summary(model.phylo.pmm)
+
+autocorr(model.phylo.pmm$Sol)
+
+lambda.pmm<-model.phylo.pmm$VCV[,'phylo']/
+ (model.phylo.pmm$VCV[,'phylo']+model.phylo.pmm$VCV[,'units'])
+
+mean(lambda.pmm)
+
+posterior.mode(lambda.pmm)
+
+HPDinterval(lambda.pmm)
+```
+
+Ok, so also a strong phylogenetic signal for PMM (albeit a bit weaker than that seen for MMC).
+
+Now, as a special treat, since we have all this data loaded, we can also look at 

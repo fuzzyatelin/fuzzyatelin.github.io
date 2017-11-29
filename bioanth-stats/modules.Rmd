@@ -128,10 +128,10 @@ Each module listed is linked to another page containing instructions and helpful
 ###Week 14 (2017-12-05)
 ***
 
-###[Module 22 - **Phylogenetic Tree Constuction**]() 
+###[Module 24 - **Phylogenetic Tree Constuction**](http://fuzzyatelin.github.io/bioanth-stats/module-24/module-24.html)
 (Brandon Guell, Isabella Muratore, Danielle Antos)
 
-###[Module 23 - **Cluster Analysis**]() 
+###[Module 25 - **Cluster Analysis**]() 
 (Aarti Arora, Andrew Mark, Natalie Robinson, Audrey Tahjadi)
 
 ***
@@ -139,10 +139,10 @@ Each module listed is linked to another page containing instructions and helpful
 ###Week 15 (2017-12-12)
 ***
 
-###[Module 24 - **3D Visualization and Analysis**]() 
+###[Module 26 - **3D Visualization and Analysis**]() 
 (Zach Coto, Maria Codlin, Julie Jung)
 
-###[Module 25 - **Factor Analysis (and MAYBE Principal Components Analysis)**]() 
+###[Module 27 - **Factor Analysis (and MAYBE Principal Components Analysis)**]() 
 (Graham Albert, Becca DeCamp, Faye Harwell, Zeynep Senveli)
 
 ***
