@@ -135,7 +135,7 @@ Each module listed is linked to another page containing instructions and helpful
 (Aarti Arora, Andrew Mark, Natalie Robinson, Audrey Tahjadi)
 
 ###[Guest Module - **Writing Functions in R**](http://fuzzyatelin.github.io/bioanth-stats/Garrett_Module.html)
-(Dr. Eva Garrett)
+(Dr. Eva Garrett, Department of Anthropology)
 
 ***
 
