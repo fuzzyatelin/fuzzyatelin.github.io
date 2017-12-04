@@ -134,6 +134,9 @@ Each module listed is linked to another page containing instructions and helpful
 ###[Module 25 - **Cluster Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-25/module-25.html) 
 (Aarti Arora, Andrew Mark, Natalie Robinson, Audrey Tahjadi)
 
+###[Guest Module - **Writing Functions in R**](http://fuzzyatelin.github.io/bioanth-stats/Garrett_Module.html)
+(Dr. Eva Garrett)
+
 ***
 
 ###Week 15 (2017-12-12)
