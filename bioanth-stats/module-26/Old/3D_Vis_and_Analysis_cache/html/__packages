@@ -1,0 +1,17 @@
+base
+plot3D
+scatterplot3d
+lattice
+rgl
+car
+ggplot2
+plotly
+bindrcpp
+ggmap
+maps
+ape
+geomorph
+Morpho
+abind
+curl
+knitr

@@ -1,0 +1,493 @@
+---
+title: "Factor Analysis and Principle Component Module"
+author: "Graham Albert, Becca DeCamp, Faye Harwell, & Zeynep Senveli"
+output:
+  html_document:
+    toc: yes
+    toc_depth: 6
+    toc_float: yes
+  'html_document:': default
+---
+# Preliminaries
+
+<b>Packages to install prior to starting the module:</b>
+<br>curl()- get that data
+<br>dplyr()- manipulate that data
+<br>psych()- get your psychology on... and explanatory factor analysis
+<br>ggplot2()- make those fabulous figures
+<br>mice()- eeek there is missing data!
+<br>GPArotation()- round and round we go (advanced rotations!)
+<br>rlang()- lots of pretty plots!
+<br>yaml()- I wasn't lying about the prettiness of these plots
+<br>stringi()- can you believe how many packages there are for plots?
+<br>gplots()- did someone say pretty plots?
+<br>gridExtra()- plots plots plots plots
+<br>moments()- Moments? I thought we were talking about plots?
+
+
+# Objectives
+
+In this module, we will describe both factor analysis (FA) and principal component analysis (PCA), while also differentiating between the two. We will demonstrate the usefulness of both of these statistical models using a functioning dataset. Also, we will use multiple codes/ packages that perform factor analysis and principal components. Finally, we will show previous studies that have used either method.  
+
+# Introduction
+
+<b>Factor Analysis (FA)</b> is a statistical method used to determine the latent structure behind a set of variables. What does latent structure/variable mean? Good question! 
+
+<img src= "latent.PNG">
+
+In statistical terms, this means that a latent variable is a,  “variable that cannot be directly measured, but is assumed to be related to several variables that can be measured” (Fields, 2013). So basically, FA is helping boil down a bunch of unexplainable variables into a smaller subset of important ones. 
+
+Latent variables are like faith. Say your friend tells you she is a very faithful person. What exactly does this mean? Maybe when your friend is in the lab she is acting according to her faith in science? Maybe when she goes home to her family she is living via her faith in religion? OR, maybe she actually has no faith in science, religion, the government, or herself? Faith is unmeasurable and slightly difficult to define. You always have the option to run a factor analysis on your friend’s behavior to determine the underlying causes to all of her personality quirks…
+
+<img src= "FaithinHumanity.jpg">
+
+<b>Principal Component Analysis (PCA)</b> takes a large number of correlated variables and makes a smaller set of uncorrelated variables. So really, PCA is trying to simplify your statistical life (just kidding.... nothing in statistics is <i>that</i> simple)...
+
+<img src= "laughing.gif">
+
+I will break it down for you further in an example that will tie into a later example. What if we could make meaningful variables related to love (... don't worry your love can never be quantified... yours is special or something like that). Let's say we have this giant list of variables:
+
+<br>* Talkativeness
+<br>* Frequency of Penetrative Sex
+<br>* Willingness to pay for a date (money does buy love?)
+<br>* Desire to see one another
+<br>* Luvin' & Leavin'
+<br>* Deriving pain from talk of marriage
+<br>* Sassiness
+<br>* Laughing
+<br>* Sweaty Pits
+<br>* Dry Throat
+<br>* Frequency of Making Out
+<br>* Enjoying that marriage talk
+<br>* Frequency of Annoying, Meaningless Texts
+<br>* Spontaneous Acts of Kindness (Romantic Gestures?)
+<br>* Number of Dates (<i>how</i> romantic)
+<br>* Eye Contact
+<br>* Engagement in Conversations
+<br>* Horniness
+<br>* Length of time spent looking at your counterpart's parts 
+<br>* Unnecessary PDA
+<br>* Huggin' & Luvin'
+<br>* Eye Fluttering
+<br>* Commitment
+<br>* Frequency of Oral Sex
+<br>* Genuine Concern
+<br>* Artificial Concern (with the expectation of sex)
+<br>* Frequency of Sexting
+<br>* Butt slapping
+
+<img src= "minion.gif">
+
+Isn't a minion in a thong mesmorizing? Don't lie to me- you're totally checking out his buns.... Anyways, let's say that our variables load into three components as such:
+
+<br>* <b>PCA1:</b> Desire to See One Another, Commitment, Genuine Concern, Artificial Concern (with the expectation of sex), Engagement in Conversations, Laughing
+<br>* <b>PCA2:</b> Frequency of Penetrative Sex, Frequency of Oral Sex, Length of time spent looking at your counterpart's parts, Butt slapping
+<br>* <b>PCA3:</b> Sweaty Pitts, Dry Throat, Eye Fluttering, Horniness, Eye Contact
+
+# Uses of FA & PCA
+
+<br>As mentioned above, FA in particular is useful for attempting to determine the underlying, yet correlated, variables (factors) that a dataset is influencing. This is often useful in studies where the variables being used are unmeasurable or unquantifiable (for example, FA is used a lot in the field of psychology, because it is impossible to measure things like intelligence or how considerate someone is directly). 
+
+<br>PCA is mainly useful for data reduction, i.e. taking a large amount of correlated variables and compressing them into a smaller number of linear variables (components) without losing the original patterns of correlation. This is particularly useful for dimensional data (such as morphological data) that you want to do cluster analysis on in order to see how your variables cluster together based on correlation. 
+
+<br>Finally, both techniques can be used on a dataset if you want to do a sensitivity analysis. Sensitivity analysis involves determining how the different values of independent variables in a dataset impact the dependent variables. 
+
+<br>For specific scholarly examples of both techniques, please refer to the example papers at the bottom of the module. 
+
+# Basic Concepts
+
+<img src= "Basic.JPG">
+<br>
+<br>As we said above, factor analysis is a method we use to analyze the covariation among our variables. Let’s start with defining what a factor is. A <b>factor</b> is another way of saying latent variable—something that cannot be measured directly because of its many facets (other measurable variables). We find the facets that go together, put them in a group we call “a factor” and analyze them together (they are called “components” in PCA). So we can say that a factor is a group of variables that highly correlate with each other. 
+<br>
+<br>Next, we pick a variable we compare every other factor to. We will refer to this as the <b>Original Variable</b>. In order to understand the underlying nature of a factor, we look at how it correlates to our original variable. These correlations between our factors and original variables are called <b>Factor Loadings</b>. If we organize these factor loadings (between each pair of variables) in a table, we can call that table our <b>R-matrix</b>. If we square a factor loading, it will give us the percentage of variation explained by our factor in our original variable. 
+<br>
+<br>Now let’s talk about <b>Eigenvalues</b>. You might think to yourself “why the unnecessary jargon” but hold onto that thought until you hear how wikipedia defines eigenvalues: “if T is a linear transformation from a vector space V over a field F into itself and v is a vector in V that is not the zero vector, then v is an eigenvector of T if T(v) is a scalar multiple of v”. Let’s try to make that sound a bit more human. A factor’s eigenvalue is just a column of it’s sum of squared factor loadings. It’s job is to tell you the amount of variance explained by that factor.
+
+# Assumptions and Limitations 
+
+<img src= "Assumptions Meme.jpg">
+
+<b>Limitations of Factor Analysis:</b>
+
+* Remember that factor analysis is a statistical method for attempting to find latent factors, which are constructs that cannot be directly measures, such as aspects of personality.
+
+<b>Practical Issues:</b>
+
+* Factor analysis requires a large sample size
+* 100-200 acceptable with well determined factors
+* At least 300 cases with smaller communalities
+* Well over 500 with lower communalities and larger numbers of weakly determined factor
+* Random data can give factors
+* If you generate a lot of random numbers, a factor analysis may still find apparent structure in the data. It is difficult to tell if the factors that emerge reflect the data or are simply part of the power of factor analysis to find patterns.
+
+<b>Theoretical Issues:</b>
+
+* May not be able to pool results of samples because if the samples vary on an important criterion, such as socio-economic status, they may have a different underlying factor structure.
+* The answers you get depend entirely on the questions you ask
+* The factors that appear can only come from the questions that you ask
+* Selecting a good set of questions to get at all of the latent variables is difficult
+* Logically in order to completely reveal a process underlying an area of research all relevant factors must be included. Therefore, if you miss a relevant factor when you are constructing a measure such as a survey then your factor structure and the results you produce are meaningless as you are missing a critical component essential to the factor structure. Essentially failure to measure factor may distort the apparent relationship between factors.
+* It is hard to decide how many factors to include
+* One task of the factor analyst is deciding how many factors to keep. There are a variety of methods for determining this, and there is little agreement as to which is best.
+* Interpretation of the meaning of the factors is subjective.
+* Factor analysis can tell you which variables in your dataset "go together" in ways that aren’t always obvious. But interpreting what those sets of variables actually represent is up to the analyst, and reasonable people can disagree.
+* Your ability to validate your measure is based on the existence of other related measures which you are assuming also have a well develop factor structure.
+
+<b>Assumptions:</b>
+
+* Factor analysis is robust in terms of violations from normality.
+* Ideally want to have multivariate normality means that all linear combinations of the variables are normal
+* Multivaraite normality implies linearity
+* Extreme mulit-colinearity and singularity presents a problem for factor analysis
+
+# Step by Step 
+
+<b>Steps involved in both FA and PCA:</b>
+
+<br>1.Prepare the data. Both PCA and FA derive their solutions from the correlations among the observed variables. You can input either the raw data matrix or the correlation matrix to the principal () and f a () functions. If raw daw is input, the correlation matrix is automatically calculated. Be sure to screen the data tor missing values before proceeding. 
+<br>2. Select a factor model. Decide whether PCA (data reduction) or FA (uncovering latent structure) is a better fit for your research goals. If you select an FA approach, you'll also need to choose a specific factoring method (for example, maximum likelihood). 
+<br>3. Decide how many components/factors to extract 
+<br>4. Extract the components/factors. 
+<br>5. Rotate the components/factors. 
+<br>6. Interpret the results. 
+<br>7. Compute component or factor scores.
+
+# CHALLENGE 
+
+May the odds be ever in your favor loading these packages:
+
+```{r}
+require(psych) 
+require(curl)
+require(mice)
+require(GPArotation)
+require(dplyr)
+require(rlang)
+require(yaml)
+require(stringi)
+require(gplots)
+require(gridExtra)
+require(moments)
+```
+
+## Purpose of the Study
+
+<br>One of the primary areas of study within evolutionary psychology is individual differences in mating behavior. Thus far, literature on human mating has focused on the strategies adopted when seeking, attracting, and retaining romantic partners. However, very little research investigates the effort put forth in employing these strategies and to what extent it varies between individuals.
+
+<br>Rowe, Vazsonyi, and Figuerdo (1997), investigated individual variation in mating effort in a sample of at risk adolescents. They found that an individual’s mating effort was related to their reproductive success, such that the individuals who reported higher levels of mating effort also had more short-term relationships (Rowe et al., 1997). However, the scale they developed only contained a small number of items and the internal consistency of the measure suggest that it may not effective measure the entire construct. Therefore, by developing and testing a new and more-encompassing scale, we hope to contribute to the psychometric tests that can be used by psychologists studying human mating behavior.
+
+<br>Here we define mating motivation as the extent of energy which people allocate towards locating, attracting, and retaining romantic partners. We will measure mating motivation using the “Mating Motivation Scale” we developed, which contains questions about the importance respondents place on being in and maintaining a relationship and questions about behaviors that participants engage in to locate, attract, and retain romantic partners.
+
+<img src= "DatingPsychology.JPG">
+
+## Scale Development
+
+<br>We have developed a 79 item scale. This is a Likert-type scale, which means participants respond by indicating the extent to which they agreed or disagreed with each statement. Responses are being made using a 7 point Likert-type scale, where 1= Strongly Disagree and 7= Strongly Agree.
+
+<img src= "Scale.PNG">
+
+<br>Step 1: Prepare the data. Decide whether we are using FA or PCA. Because we are looking for hypothetical constructs that explain the data, we will use FA, which functions to uncover the latent structure of the variables. In scale validation, we use FA because we do not already know how the variables being the test items are organized, or which item responses will correlate with each other.
+
+In FA, we are assuming that the underlying factors cause our variables (our test items).
+
+Let's load in data and get started:
+
+```{r}
+f <- curl("https://raw.githubusercontent.com/GrahamAlbert/AN-597-group-presentation-and-written-R-vignette/master/MatingMotivationScaleEFA_20171201.csv")
+MatingMotivationScaleV1<- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
+head(MatingMotivationScaleV1)
+```
+
+You should see that each of the 79 variables is coded as, "MMSXX", where MMS stands for Mating Motivation Scale and XX would simply be the question number. 
+
+Sorry not sorry- our data looks like a wall of numbers. 
+
+Here is a sample of what each question looks like: 
+
+<img src= "SampleQuestions.PNG">
+
+Let's scan for missing data:
+
+```{r}
+percentmiss=function(x){sum(is.na(x)/length(x))*100}
+missing=apply(MatingMotivationScaleV1, 1,percentmiss)
+table(missing)
+replacepeople=subset(MatingMotivationScaleV1, missing<=5)
+apply(replacepeople, 2, percentmiss)
+```
+
+Based on an analysis of the columns (see above) it appears that the data is missing at random and we can proceed with replacing the missing data with the mean of the given variable using the package <b>mice</b>.
+
+
+```{r}
+tempnomiss = mice(replacepeople)
+nomiss = complete (tempnomiss, 1)
+```
+
+<b>Mahalanobis Distance:</b> one of the methods used in detecting MVOs is the Mahalanobis statistic (usually referred to as the Mahalanobis Distance). The Mahalanobis Distance measures how many standard deviations a point of prediction (P) is from a distribution (D). If P overlaps with the mean of D, the distance comes up as zero. Its nature is unitless, scale-invariant, and takes into account the correlations in the set, therefore it comes in handy while doing factor analysis.
+
+We can screen for multivariate outliers using nomiss and mahalanbis. Multivariate outliers are data that are unexpected. So, in this case, it would be responses from participants that are unusual compared to other participants. 
+
+```{r}
+cutoff = qchisq(0.99, ncol(nomiss))
+mahal = mahalanobis(nomiss, 
+                    colMeans(nomiss),
+                    cov(nomiss))
+cutoff #####generates cutoff score
+ncol(nomiss) #####determines df
+summary(mahal<cutoff)
+```
+
+From the chunk above, you can see that there are 34 individuals that are considered 'outliers', while the bulk of our participants have 'expected' responses (N=237). 
+
+Now, we will remove these outlier datapoints (i.e. those individuals who are just a little unusual): 
+```{r}
+noout = subset(nomiss, mahal<cutoff)
+head(noout)
+```
+
+In the table above, we removed 34 individuals. For example, you can see that individual #7 was removed (the row numbers jump from 6 to 8). 
+
+##Testing Assumptions of EFA
+
+<b>Additivity:</b> we can screen for addivity, which is one of the assumptions for FA. Additive assumptions are those that assume that the effect of a given predictor variable on a response variable are independent from other predictor variables. 
+
+```{r}
+correl=cor(noout, use ="pairwise.complete.obs")
+symnum(correl)
+```
+Set-up:
+```{r}
+random = rchisq(nrow(noout), 7)
+fake = lm(random ~.,data=noout)
+standardized = rstudent(fake)
+fitted = scale(fake$fitted.values)
+```
+
+<b>Normality:</b> we’ve been doing this for pretty much the entire class. We assume that the variable of interest at least roughly follows a normal distribution, i.e. it fits a bell curve shape. This is necessary before running almost any parametric test because all these tests make this assumption. If your data isn’t normally distributed and you use a test that assumes it, it won’t be pretty.
+
+Being normal is overrated, but let's test for it anyway.
+
+```{r}
+hist(standardized)
+```
+
+<b>Linearity:</b> It is in the name, really. Certain tests (such as linear regression) makes the initial assumption that the relationship between your independent and dependent variables are linear. The linearity assumption can be tested best using scatter plots or q-q plots. 
+
+```{r}
+qqnorm(standardized)
+```
+
+Not perfect.... but we'll take it :)  
+
+<b>Homogeneity of Variance:</b>this is another standard assumption, which most widespread tests like ANOVA or t-test use. It assumes that the variance within each population is equal to one another. In other words, we expect that the dispersion of our dependent variable data is relatively equal at each level of our independent variable data. 
+
+And now, homogeneity of variance:
+
+```{r}
+plot(fitted, standardized)
+abline(0,0)
+abline(v=0)
+```
+
+## Let's Do This
+
+Now that we made you jump through all of those statistical hoops, you can finally run your factor analysis. 
+
+All of the assumptions have been met. Now we need to see if we have enough correlation among the variables (i.e. our 79 questions). To do this, we will perform Bartlett's Test, which will indicate whether we will actually be able to form meaningful factors. 
+
+```{r}
+cortest.bartlett(correl, n = nrow(noout))
+```
+
+The <b>Kieser Meyer Oken (KMO) test</b> assesses sampling adequacy. To boil it down- do you have enough samples? For this example, our sample size is N=237. Results from this test range between 0 and 1 with larger values representing more adequate smaples (We want 1!We want 1!We want 1!).
+
+```{r}
+KMO(correl)
+```
+
+Look at that beauty- we love it!
+
+### Selecting the number of factors to extract
+<br>The most common approach is based on the eigenvalues. Each factor is associated with an eigenvalue of the correlation matrix. The first factor is associated with the largest eigenvalue, the second factor with the second-largest eigenvalue, and so on.
+<br>The <b>Kaiser-Harris criterion</b> suggests retaining factors with eigenvalues greater than 1. Factors with eigenvalues less than 1 explain less variance than contained in a single variable... thus they are not really helping reduce anything. 
+<br>In a <b>Cattell Scree Test</b>, the eigenvalues are plotted against their factor numbers. Such plots typically demonstrate a bend or elbow, and the number of factors above this sharp break are retained.
+<br>Finally, you can run simulations, extracting eigenvalues from random data matrices of the same size as the original matrix.
+<br>You can assess all three eigenvalue criteria at the same time via the <b>fa. parallel()</b>
+detereminig number of factors for extraction.
+
+Let's check out our Scree Plot:
+```{r}
+nofactors <- fa.parallel(noout,fm="ml",fa="fa")
+sum(nofactors$fa.values > 1.0)#####old kaiser criterion
+sum(nofactors$fa.values > 0.7)#####new kaiser criterion
+```
+On our Scree Plot, the black horizontal line is drawn at 1. This represents an eigenvalue= 1. We are going to count the number of factors (little blue triangles) and include that factor number in our analysis. 
+
+Hard to see, but there are 7 little blue triangles with an eigenvalue greater than 1. This is based off of the Kaiser-Harris Criterion. 
+
+From here, we want to reduce the residuals in our analysis. To do this, we are going to "rotate" our data. 
+
+You can rotate the 7 factor solution from above using an orthogonal or an oblique rotation. Because our factors are inter-correlated, we will use an obilique rotation as this allows the factors to correlated with each other. Since we are creating a scale designed to assess a latent construct we would expect and want our factors to correlate- so again we will use an oblique rotation. 
+
+In R, oblique rotation is called <i>oblimin</i>.
+
+Here we will conduct the first factor anlaysis with oblimin rotation and fm being maximum likelihood. 
+```{r}
+round1 = fa(noout,nfactors=7,rotate="oblimin", fm="ml")
+round1
+```
+We can now identify items that load on multiple factors or do not load on any factor and eliminate them from the analysis. We repeat this process until all items load onto a single factor. 
+
+In the output above, you look at each row, which represents 1 of our 79 variables. In each row, you want to see at least one absolute factor loading of 0.30 or greater. If a row has this qualification, then you keep it. Otherwise, eliminate it from the analysis. 
+
+Round 2! Conduct second factor anlaysis with oblimin roation and fm being maximum likelihood. Notice that we are removing certain rows from our analysis. 
+
+```{r}
+round2 = fa(noout[ ,-c(30,55,7,1,9,35,29,39,45,61,63,79,14,15,18,19,25,40,48,60,78)],nfactors=7,rotate="oblimin", fm="ml")
+round2
+```
+ 
+Round 3!
+```{r}
+round3 = fa(noout[ ,-c(30,55,7,1,9,35,29,39,45,61,63,79,14,15,18,19,25,40,48,60,78,50,58,24)],nfactors=7,rotate="oblimin", fm="ml")
+round3
+```
+
+Round 4!
+```{r}
+round4 = fa(noout[ ,-c(30,55,7,1,9,35,29,39,45,61,63,79,14,15,18,19,25,40,48,60,78,50,58,24,28,33,34,47,53)],nfactors=7,rotate="oblimin", fm="ml")
+round4
+```
+
+Round 5! You should be noticing that our list of rows is growing- we are eliminating more variables. 
+```{r}
+round5 = fa(noout[ ,-c(30,55,7,1,9,35,29,39,45,61,63,79,14,15,18,19,25,40,48,60,78,50,58,24,28,33,34,47,53,5,6)],nfactors=7,rotate="oblimin", fm="ml")
+round5
+```
+
+Round 6! Final Round!
+```{r}
+finalmodel= fa(noout[ ,-c(30,55,7,1,9,35,29,39,45,61,63,79,14,15,18,19,25,40,48,60,78,50,58,24,28,33,34,47,53,5,6,16,67)],nfactors=7,rotate="oblimin", fm="ml")
+finalmodel
+```
+
+Goodness of fit statistics compare the reproduced correlation matrix to the actual correlation matrix. We will use the <b>Tucker Lewis Index</b> and the <b>Comparative Fix Index (CFI)</b> to judge model fit. Values are between 0 and 1, where larger values represent better model fit. In psychology, goodness of fit indices of >.95 are considered excellent, those >.90 are considered acceptable and anything <.9 is considered poor (....we don't accept your kind here).
+
+```{r}
+CFI<-1-((finalmodel$STATISTIC-finalmodel$dof)/(finalmodel$null.chisq-finalmodel$null.dof))
+CFI
+```
+
+Happy Dances all around!
+
+```{r}
+factor1=c(49,54,59,62,64,66,69,73,74,76,77)
+factor2=c(3,12,13,20,22,26,42,51)
+factor3=c(38,44,65)
+factor4=c(17,32,41,46)
+factor5=c(11,27,56,57,68,70,75)
+factor6=c(2,8,10,21,23,31,36,43)
+factor7=c(4,37,52,71,72)
+
+alpha(noout[,factor1])
+alpha(noout[,factor2])
+alpha(noout[,factor3])
+alpha(noout[,factor4])
+alpha(noout[,factor5],check.keys=TRUE)
+alpha(noout[,factor6])
+alpha(noout[,factor7])
+```
+Let's create our factors!
+
+```{r}
+noout$f1=apply(noout[,factor1], 1,mean)#####creates average score for f1.
+noout$f2=apply(noout[,factor2], 1,mean)#####creates average score for f2.
+noout$f3=apply(noout[,factor3], 1,mean)#####creates average score for f3.
+noout$f4=apply(noout[,factor4], 1,mean)#####creates average score for f4.
+noout$f5=apply(noout[,factor5], 1,mean)#####creates average score for f5.
+noout$f6=apply(noout[,factor6], 1,mean)#####creates average score for f6.
+noout$f7=apply(noout[,factor7], 1,mean)#####creates average score for f7.
+head(noout)
+```
+If you are interested in standard deviation, this one is for you: 
+```{r}
+sd(noout$f1)
+sd(noout$f2)
+sd(noout$f3)
+sd(noout$f4)
+sd(noout$f5)
+sd(noout$f6)
+sd(noout$f7)
+```
+Now, the exciting part (drum roll please): our factor plot
+To create a factor plot.
+```{r}
+factor.plot(finalmodel, labels=rownames(finalmodel)) 
+```   
+And an image of our factor structure:
+```{r}
+fa.diagram(finalmodel, simple=FALSE)
+```
+
+# Examples from the Literature
+
+<b>Brainz Example (Paleoanthropology)</b>
+
+<img src= "TrumpBrain.jpg">
+<br>
+<br>
+One of the biggest questions in paleoanthropology is how hominin brain evolved to increase in size over time. However, brain size is obviously not a trait that can be studied directly by looking at the hominin fossil record, as brains, like all soft tissue, decompose (dah). This study aimed to find basicranial (cranial base) measurements that are correlated with relative brain size- AND to do this they used factor analysis. 
+
+<br>The table below shows all of the correlated groups of basicranial measurements for each group of primates (all catarrhines, non-hominid catarrhines, cercopithecoids, hominoids) they studied, from which they concluded the best overall basicranial measurements for predicting relative brain size (listed in the footnote of the table). <br>
+<br>
+<br>
+<img src= "FAbrains.PNG">
+<br>
+<b>What does this lovely table mean?</b>
+<br>
+
+* In several phylogenetic groups, basicranial characteristics were analyzed, but only one group showed similarities with hominoids.<br>
+* Cranial Measurements that serve as Morphological Predictors for ALL Groups: Flex, Incl, FM, Posn FM, Incl NP, TN Crst, Brain 
+
+Strait, D. S. (2001). <i>Integration, phylogeny, and the hominid cranial base.</i> American Journal of Physical Anthropology, 114: 273–297. doi:10.1002/ajpa.1041.
+<br>
+<br><b> Orangutan Example </b>
+
+A new species of orangutan has been announced!!!! His name is the Tapanuli orangutan (<i>Pongo tapanuliensis</i>)!
+
+<img src= "jazzhands.gif">
+<br>
+<br>For one of their many analyses, they ran a principle components analysis on traits related to the genetic diversity seen across different populations of orangutans. Take a look at the plot of PCA1 and PCA2: 
+<br>
+<img src= "PCAorangutan.PNG">
+<br>
+<br> Note anything fishy? The answer is yes, yes you do. PCA1 is awesome! We like PCA1- it accounts for 34.2% of the variance in our samples (really I mean species). PCA2 only accounts for a tiny 3.6% of variance, BUT it makes tapanuli orangutans look like a totally different species from Sumatran orangutans (<i>P. abelii</i>) and Bornean orangutans (<i>P. pygmaeus</i>).
+<br>
+<br>Take away message.... be very careful in how you interpret your principle component analysis!
+<br>
+<br>Nater, A., Mattle-Greminger, M. P., Nurcahyo, A., Nowak, M. G., de Manuel, M., Desai, T., Groves, C., Pybus, M., Sonay, T. C., Roos, C., ... & Lameira, A. R. (2017). Morphometric, behavioral, and genomic evidence for a new orangutan species. <i>Current Biology</i>.
+
+# Literature Cited 
+
+<br>Brown, T. A. (2014). <i>Confirmatory factor analysis for applied research</i>. Guilford Publications.
+<br>
+<br>Field, A. (2013). <i>Discovering statistics using IBM SPSS statistics</i>. Sage Publications.
+<br>
+<br>Kruger, D. J. (2017). Brief Self-Report Scales Assessing Life History Dimensions of Mating and Parenting Effort. <i>Evolutionary Psychology</i>, 15(1).
+<br>
+<br>Merriam-Webster, Inc. (1983). <i>Webster's ninth new collegiate dictionary</i>. Merriam-Webster.
+<br>
+<br>Rowe, D. C., Vazsonyi, A. T., & Figueredo, A. J. (1997). Mating-effort in adolescence: A conditional or alternative strategy. <i>Personality and Individual Differences</i>, 23(1), 105-115.
+<br>
+<br>Tabachnick, B. G., & Fidell, L. S. (2013). <i>Using multivariate statistics</i> (6th ed.). Pearson.
+
+
+
+
+
+
+
+
+

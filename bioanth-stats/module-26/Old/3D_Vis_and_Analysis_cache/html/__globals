@@ -1,0 +1,110 @@
+unnamed-chunk-1	demo	persp
+unnamed-chunk-2	demo	.packages
+unnamed-chunk-3	install.packages
+unnamed-chunk-4	library
+unnamed-chunk-5	example	surf3D	persp3D
+unnamed-chunk-6	par	c	R	r	x	seq	pi	y	M	mesh	alpha	beta	surf3D	cos	sin
+unnamed-chunk-7	install.packages
+unnamed-chunk-8	library
+unnamed-chunk-9	example	scatterplot3d
+unnamed-chunk-10	library	lattice
+unnamed-chunk-11	example	cloud
+unnamed-chunk-12	install.packages
+unnamed-chunk-13	library
+unnamed-chunk-14	data	iris	head
+unnamed-chunk-15	x	sep.l	iris	Sepal.Length	y	pet.l	Petal.Length	z	sep.w	Sepal.Width
+unnamed-chunk-16	rgl.open	scatter3d	sep.l	pet.l	sep.w	rglwidget
+unnamed-chunk-17	scatter3d	sep.l	pet.l	sep.w	rglwidget
+unnamed-chunk-18	scatter3d	sep.l	pet.l	sep.w	iris	Species	rglwidget
+unnamed-chunk-19	scatter3d	sep.l	pet.l	sep.w	iris	Species	rglwidget
+unnamed-chunk-20	scatter3d	sep.l	pet.l	sep.w	iris	Species	rglwidget
+unnamed-chunk-21	scatter3d	sep.l	pet.l	sep.w	iris	Species	rglwidget
+unnamed-chunk-22	
+unnamed-chunk-23	
+unnamed-chunk-24	rgl.open	rgl.bg	rgl.points	x	y	z	rgl.spheres	rgl.bbox	rglwidget
+unnamed-chunk-25	rgl.open	rgl.bg	rgl.points	x	y	z	rglwidget
+unnamed-chunk-26	rgl.open	rgl.spheres	x	y	z	rgl.lines	c	min	max	rglwidget
+unnamed-chunk-27	x1	x	min	max	y1	y	z1	z
+unnamed-chunk-28	rgl.open	rgl.spheres	x1	y1	z1	rgl.lines	c	rglwidget
+unnamed-chunk-29	lim	c	max	abs	x
+unnamed-chunk-30	rgl.open	rgl.spheres	x	y	z	rgl.lines	lim	c	rglwidget
+unnamed-chunk-31	lat	matrix	seq	pi	long
+unnamed-chunk-32	r	x	cos	lat	long	y	sin	z
+unnamed-chunk-33	open3d	persp3d	x	y	z	system.file	rglwidget
+unnamed-chunk-34	rgl.useNULL	play3d	spin3d	c	rglwidget
+unnamed-chunk-35	install.packages
+unnamed-chunk-36	install_github
+unnamed-chunk-37	library	plotly
+unnamed-chunk-38	attach	iris	hist	plot_ly	Sepal.Length	layout	list
+unnamed-chunk-39	box_plot	plot_ly	Sepal.Length	Species	layout	list
+unnamed-chunk-40	scatter_plot1	plot_ly	Sepal.Length	Sepal.Width	layout	list
+unnamed-chunk-41	scatter_plot2	plot_ly	Sepal.Length	Sepal.Width	Species	layout	list
+unnamed-chunk-42	scatter_plot3	plot_ly	Sepal.Length	Sepal.Width	Species	Petal.Length	layout	list
+unnamed-chunk-43	scatter_plot4	plot_ly	Sepal.Length	Sepal.Width	Petal.Length	Petal.Width	Species	layout
+unnamed-chunk-44	data	AirPassengers	str
+unnamed-chunk-45	time_series	plot_ly	time	AirPassengers	layout	list
+unnamed-chunk-46	data	volcano	dim
+unnamed-chunk-47	p	plot_ly	volcano
+unnamed-chunk-48	install.packages
+unnamed-chunk-49	library	ICC_WC_T20	c	countries	geocode	nation.x	lon	nation.y	lat	mapWorld	borders	q	ggplot	geom_point	aes	ggplotly
+install	install.packages
+load packages	library	geomorph	Morpho	abind	curl	knitr	rgl
+load	library	curl	geomorph	f1	A1	read.ply	A2	A3
+unnamed-chunk-50	plot3d	A1
+unnamed-chunk-51	library	Morpho	name	file2mesh	curl
+unnamed-chunk-52	A1_fix	digit.fixed	A1
+unnamed-chunk-53	wd	getwd	setwd	A1_nts	readmulti.nts	c
+unnamed-chunk-54	plotspec	A1	A1_fix
+unnamed-chunk-55	plotspec	A1	A1_nts
+unnamed-chunk-56	A1_nts	readmulti.nts	c
+unnamed-chunk-57	A1_nts
+unnamed-chunk-58	plotspec	A1	A1_nts
+unnamed-chunk-59	A1_temp	buildtemplate	A1	A1_fix
+unnamed-chunk-60	A1_temp	buildtemplate	A1	A1_nts
+unnamed-chunk-61	plotspec	A1	A1_temp	T
+unnamed-chunk-62	A1_temp_ed	editTemplate	A1_temp
+unnamed-chunk-63	digitsurface	A2
+unnamed-chunk-64	wd	getwd	setwd	A2_nts	readmulti.nts	c
+unnamed-chunk-65	digitsurface	A2	A2_nts
+unnamed-chunk-66	wd	getwd	setwd	A3_nts	readmulti.nts	c
+unnamed-chunk-67	A3_nts	readmulti.nts	c	digitsurface	A3
+unnamed-chunk-68	digitsurface	A3	A3_nts
+unnamed-chunk-69	sliders	define.sliders	A1_temp
+unnamed-chunk-70	wd	getwd	setwd	sliders	as.matrix	read.csv
+unnamed-chunk-71	sliders
+unnamed-chunk-72	filelist	list.files
+unnamed-chunk-73	setwd	filelist	list.files	arrow_nts	readmulti.nts	wd
+unnamed-chunk-74	arrow_nts	readmulti.nts	filelist	str
+unnamed-chunk-75	str	arrow_nts
+unnamed-chunk-76	require	abind	filelist	list.files	mydata	i	tmp	readland.nts	coords	names	rbind	cbind	dimnames	colnames	c
+unnamed-chunk-77	plotAllSpecimens	arrow_nts
+unnamed-chunk-78	GPA	gpagen	arrow_nts	sliders
+unnamed-chunk-79	summary	GPA
+unnamed-chunk-80	View	GPA
+unnamed-chunk-81	plotAllSpecimens	GPA	coords	rglwidget
+unnamed-chunk-82	alinks	matrix	c	rep
+unnamed-chunk-83	plotAllSpecimens	GPA	coords	alinks
+unnamed-chunk-84	meanarrow	mshape	GPA	coords
+unnamed-chunk-85	plot	meanarrow
+unnamed-chunk-86	plotRefToTarget	meanarrow	GPA	coords
+unnamed-chunk-87	plotRefToTarget	meanarrow	GPA	coords	rglwidget
+unnamed-chunk-88	plotRefToTarget	meanarrow	GPA	coords	alinks
+unnamed-chunk-89	plotRefToTarget	meanarrow	GPA	coords	alinks	rglwidget
+unnamed-chunk-90	plotRefToTarget	meanarrow	GPA	coords	gridPar	alinks
+unnamed-chunk-91	plotRefToTarget	meanarrow	GPA	coords	gridPar	alinks	rglwidget
+unnamed-chunk-92	plotRefToTarget	GPA	coords	alinks
+unnamed-chunk-93	plotRefToTarget	GPA	coords	alinks	rglwidget
+unnamed-chunk-94	library	geomorph	data	plethspecies	Y.gpa	gpagen	land
+unnamed-chunk-95	
+unnamed-chunk-96	plotAllSpecimens	Y.gpa	coords
+unnamed-chunk-97	y	two.d.array	Y.gpa	coords	plotTangentSpace
+unnamed-chunk-98	
+unnamed-chunk-99	library	geomorph	data	plethspecies	Y.gpa	gpagen	land
+unnamed-chunk-100	
+setup5	gp.end	factor	c	names	plethspecies	phy	tip
+unnamed-chunk-101	
+setup1	ER	compare.evol.rates	Y.gpa	coords	plethspecies	phy	c	gp.end
+unnamed-chunk-102	
+setup3	plot	ER
+setup4	PS	physignal	Y.gpa	coords	plethspecies	phy	summary	plot
+unnamed-chunk-103	

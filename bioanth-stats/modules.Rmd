@@ -142,10 +142,10 @@ Each module listed is linked to another page containing instructions and helpful
 ###Week 15 (2017-12-12)
 ***
 
-###[Module 26 - **3D Visualization and Analysis**]() 
+###[Module 26 - **3D Visualization and Analysis**](http://fuzzyatelin.github.io/bioanth-stats/Module-26/Module-26.html) 
 (Zach Coto, Maria Codlin, Julie Jung)
 
-###[Module 27 - **Factor Analysis (and MAYBE Principal Components Analysis)**]() 
+###[Module 27 - **Factor Analysis (and MAYBE Principal Components Analysis)**](http://fuzzyatelin.github.io/bioanth-stats/module-25/module-25.html) 
 (Graham Albert, Becca DeCamp, Faye Harwell, Zeynep Senveli)
 
 ***
