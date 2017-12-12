@@ -799,7 +799,7 @@ plotspec(A1, A1_temp, ptsize=5, centered=T)#run in R studio for output
 If you need to edit the template you can use `editTemplate()` to remove *n* points from the template.
 
 ```{r eval=FALSE}
-A1_temp_ed<-editTemplate(template=A1_temp, fixed=8, n=1)#template, # of fixed points, number of points to be removed
+A1_temp_ed<-editTemplate(template=A1_temp, fixed=10, n=1)#template, # of fixed points, number of points to be removed
 ```
 
 ##Create semi-landmarks
@@ -1249,7 +1249,7 @@ Based on 1000 random permutations
 
 As you can see, the K value is in the upper tail of the distribution with a p value <0.5. Given an alpha of 0.05, we have support for rejecting the null hypothesis that evolution of these species occuring randomly. Those species who are sister species are more related than would be expected if brownain evolution had occured, the divergence between sister species is not equivalent to the divergence between non-sister species and therefore we should consider phylogeny when doing statisics on these data. Therefore, these phenotypic data support that the species are not all equally related. 
 
-For an overview of all of {geomorph} functions and datasets, see the Package Documentation by Adams et al (2017)
+For an overview of all of {geomorph} functions and datasets, see the Package Documentation by Adams et al (2017).
 
 # References Cited:
 
