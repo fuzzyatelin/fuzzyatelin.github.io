@@ -1,0 +1,51 @@
+---
+title: "Lab 7 - Finding a new locus..."
+author: "Becca DeCamp"
+date: "7/29/2018"
+output: html_document
+---
+## How to Choose A Locus For Study
+<br> 
+
+Today, we will be talking about how to choose a new locus, or gene, for study. This is a fairly simple process that I will illustrate with a personal example. Hopefully, you will find this helpful in choosing a locus to complete your final project. 
+<br>
+
+### Part 1: Think About A Trait Of Interest
+<br> 
+The first thing to do is think about if you have a gene or trait that is of specific interest to you. Are you interested in cancer causing genes? Genes that affect metabolism? Genes involved in immunity like the MHC? Or are you interested in a specific gene such as FOXP2 or the Sonic Hedgehog (SHH) gene? Additionally, it's important to think about how these genes interact with the environment in humans. An important regulatory gene such as SHH or HOX isn't likely to show differences between populations. 
+<br>
+<br>
+The example that I will be using in the rest of this tutorial is the gene OR7D4, which is part of the olfaction gene family. I became interested in this gene because of my work with Professor Eva Garrett, who studies olfaction in primates. Humans have the weakest olfaction out of every primate species but can still percieve scents differently, so I wanted to see if there was a difference at the populational level of scent perception. How I got to the specific gene OR7D4 will be explained as we go along. 
+<br>
+
+(The Sonic Hedgehog gene is in fact a real gene, it plays an incredibly important role in organogenesis and brain/limb pattern formation in vertabrate fetuses)
+<br>
+
+![](shh.jpg)
+<br>
+
+### Part 2: Researching The Trait Of Interest
+<br>
+
+The next thing to do is research population genetics studies on the traits or genes that you have in mind. I would suggest starting with a [Google Scholar](https://scholar.google.com/) or a [BU Library](https://www.bu.edu/library/) search. Search simple keywords such as "[Your gene] population genetics" or "[Your trait] population genetics." This research will probably be the background information in your paper so feel free to simply research studies that have been done on your gene or trait as well. If you're simply interested in a trait, look specifically for genes that are involved in that trait and come up with a few that you might want to study. If possible, look for which alleles have been shown to be associated with certain traits. 
+<br>
+<br>
+For example, I knew I was interested in OR genes, so I searched "OR population genetics," and I came up with several papers that I was able to use for my background information, and find the gene, OR7D4, that I will use for later analysis: 
+<br>
+
+![](OR.png)
+<br>
+
+### Part 3: Going to Ensembl
+<br>
+
+The last thing you should do before you begin your analysis is turn to Ensembl. Search your gene (or genes). Go through the gene page like we did in Lab 1. First, look at the variant table and filter the variants by missense. Filter variants by Minor Allele Frequency, from high to low. Then, click on one and explore the variant like we did in Lab 1. Especially make sure to scope out the "population genetics" tab under the SNP you chose, to see if there is any variation of MAF in the populations of study. Additionally, look at the "Citations" tab to see if your allele has been cited in any papers that mya help your research.
+<br>
+
+![](OR7.png)
+<br>
+
+And that's it! I hope this bit of advice helps you to think about your final projects!
+
+## Good Luck!!
+
