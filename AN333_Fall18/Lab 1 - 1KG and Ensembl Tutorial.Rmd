@@ -1,7 +1,6 @@
 ---
-title: 'Lab 1: Accessing Human Candidate Gene Region Data – UCP1'
-author: "Becca DeCamp"
-date: "5/25/2018"
+title: 'Lab 1: Accessing Human Candidate Gene Region Data – *UCP1*'
+author: "Becca DeCamp & Christopher Schmitt"
 output: html_document
 ---
 
@@ -12,13 +11,17 @@ output: html_document
 <br>
 <br>
 
-The 1000 Genomes Project, which ran between 2008 and 2015, is what we could call a "catalogue of human variation." Essentially, it is a database of human genetic sequence from 26 distinct populations from around the world, which has been aligned to a human reference sequence. This data is free to use, and is an excellent resource for researchers who want to study genetic variation in a gene across populations, but cannot afford to collect their own samples. The 1000 Genomes project had several phases in which they published their data; in their final phase (Phase 3), they had gathered samples from 2,504 individuals from the 26 populations. In 2015, the International Genome Sample Resource (IGSR) was established to "ensure the future usability and accessibility of the 1000 Genomes data." Some of the things the IGSR has done so far is: re-mapped the Phase 3 data to the latest two human reference sequences, GRCh37 and GRCh38, incorporated published genomic data (such as RNA-seq data) in to their dataset, as well as begun the process of expanding the number of populations represented in the database. Below is a map of the current populations represented in the 1000 Genomes dataset, as well as a reference list of the abbreviations used to identify the populations in the 1000 Genomes dataset that you can use throughout the labs.  
+**The 1000 Genomes Project**, which ran between 2008 and 2015, is as close as it comes to a "catalogue of human variation." The output of this initiative is a database of whole genome sequences from 26 distinct populations from around the world, all aligned to the same human reference sequence. This data is free to use, and is an excellent resource for researchers who want to study genetic variation in a gene across populations, but cannot afford to collect their own samples. 
+
+While it was active, The 1000 Genomes Project published their data in several phases; by the final phase (Phase 3), they had gathered samples from 2,504 individuals from the 26 targeted populations. In 2015, the **International Genome Sample Resource** (**IGSR**) was established to "ensure the future usability and accessibility of the 1000 Genomes data." In keeping with this goal, the IGSR has: re-mapped the Phase 3 data to the latest two human reference sequences, **GRCh37** and **GRCh38**, incorporated externally generated, published genomic data (such as *RNA-seq* data) into their own dataset, and begun adding previously unsampled populations the database. 
+
+Below is a map of the current populations represented in the 1000 Genomes dataset, as well as a reference list of the abbreviations used to identify these populations.  
 <br>
 
 ![](1KGmap.png)
 <br>
 
-### Reference List of Current Populations Represented in the Dataset
+### Reference List of Current ISGR Populations
 <br>
 
 * <b>CHB</b> - Han Chinese in Beijing, China

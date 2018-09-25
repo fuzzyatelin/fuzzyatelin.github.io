@@ -1,0 +1,64 @@
+---
+title: "AN333/733: Human Population Genetics"
+author: "Christopher A Schmitt</br>Boston University"
+date: "September 6, 2018"
+output: html_document
+---
+***
+<center><p><img src="http://3.bp.blogspot.com/-RhRP4oF0zY8/VhE9HtdOM6I/AAAAAAAAYjg/KUllTWJyVKo/s1600/tmp.jpg"></p></center>
+
+***
+<center>
+<b>Fall 2018, Lecture is held on MWF, 1:25 - 2:15pm in CAS 237</b>
+</center>
+***
+###Faculty Instructor:
+  **Christopher A. Schmitt**, Assistant Professor of Anthropology and Biology  
+  Office: Stone Science Building, Room 247E<br> 
+  Office Hours: Monday 3:00 - 5:00pm, Wednesday 3:00 - 4:00pm.  
+  Web: http://www.evopropinquitous.net  
+  Email: caschmit[at]bu[dot]edu  
+  Twitter: http://www.twitter.com/fuzzyatelin  
+  
+***
+
+###[Syllabus](https://fuzzyatelin.github.io/AN333_Fall18/Syllabus.pdf)
+###[Lab Syllabus](https://fuzzyatelin.github.io/AN333_Fall18/LabSyllabus.html)
+
+***
+###Course Description
+***
+<p>
+<img src=https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/ADMIXTURE_analysis_of_Horn_of_Africa_populations_in_a_broad_context.png/640px-ADMIXTURE_analysis_of_Horn_of_Africa_populations_in_a_broad_context.png style="float:right" width="360" hspace="40">
+This course uses human genomic and population variation as a framework within which to better understand human evolutionary history. We do this by familiarizing ourselves with the methods, techniques, and biology that allow us to understand human variation at its most basic level: the genome. Throughout the course, we will download, analyze, and draw conclusions about human evolutionary and population history from open-source human genomic datasets derived from the [1000 Genomes Project](http://www.internationalgenome.org). From there, we expand our view to better grasp human diversity and what it can tell us about our evolutionary history from our last common ancestor with other apes to how modern human populations have diverged, specialized and then interacted during our spread from East Africa to every part of the globe. Finally, we take a close look at the biological underpinnings of contemporary human variation and what impact our knowledge of these systems can have on our conceptions of public policy, health and disease. 
+</p>  
+
+***
+###Prerequisites
+***
+CAS AN 102, or AN 233; or CAS BI 107 and either BI 119, BI 211, or BI 303; or consent of instructor. 
+
+***
+###Course Format
+***
+This is a 4-unit lecture course with some lab-like classes held in lieu of lecture. Lectures will be held three times a week for a total of 3 hours. 
+
+***
+###Assessment
+***
+Performance will be based on a total of 500 possible points distributed across five assessments:
+<ol>
+1.	Exam 1: 100 points,	Wednesday, 10 October, 2018
+2.	Exam 2: 100 points,	Friday, 09 November, 2018
+3.	Exam 3: 100 points,	Monday, 12 December, 2018
+4.  Lab Homework: 60 points (see below)
+5.  Final Project: 140 points, due Monday, 17 December, 2018
+</ol>
+
+***
+###Required Texts
+***
+The course text is be available for purchase at [BU Barnes & Noble](https://bu.bncollege.com), and is also on library reserve at the [Science and Engineering Library](http://www.bu.edu/library/sel/).
+<ul><li>Hartl DL & Clark AG. 2007. <i>[Principles of Population Genetics, Fourth Edition](https://global.oup.com/ushe/product/principles-of-population-genetics-9780878933082?lang=en&cc=ca)</i>. Oxford: Oxford University Press.</li><br>  
+<center><p><img src="https://global.oup.com/academic/covers/pdp/9780878933082" height="168" width="140"></p></center></ul><br>
+

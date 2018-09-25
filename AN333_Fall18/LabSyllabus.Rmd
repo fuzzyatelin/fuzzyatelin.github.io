@@ -1,0 +1,26 @@
+---
+title: 'AN333/733: Lab Syllabus'
+author: "Christopher A Schmitt"
+date: "September 25, 2018"
+output: html_document
+---
+
+***
+
+**Pre-Lab: BU Shared Computing Cluster Tutorial**<br>
+**September 21**<br>
+
+***
+
+**Material covered**: Introduction to and tutorial on using the BU Shared Computing Cluster, via Linux-based SCC.<br>
+**Readings**: None.<br>
+**Activities**: We will create personal profiles using the SCC interface with the help of a representative from Research Computing. We’ll learn how to connect to SCC and some basic commands that will help us navigate the interface and access analytical software that will be used in the course.<br>
+**Assignment**: In-class worksheet based on activities will be graded.<br>
+**Learning Outcomes**:
+<ul>
+<li>Learn how to access your SCC profile and data storage, and become familiar with analytical software and data download and storage commands.</li>
+<li>Learn basic command-line tools, vocabulary, and syntax.</li>
+<li>Learn how to access analytical software such as R and RStudio, which we will be using to do real-
+life population genetic analyses.</li>
+<li>If we have time, we will begin using these tools to get a head start on Lab 1!</li></ul>
+***
