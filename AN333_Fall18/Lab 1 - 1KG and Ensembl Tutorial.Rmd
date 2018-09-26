@@ -21,7 +21,7 @@ Below is a map of the current populations represented in the 1000 Genomes datase
 ![](1KGmap.png)
 <br>
 
-### Reference List of Current ISGR Populations
+### Reference List of Current ISGR Sub-Populations
 <br>
 
 * <b>CHB</b> - Han Chinese in Beijing, China
@@ -63,65 +63,73 @@ One last thing to note is that each of these populations falls under a "super po
 * <b>SAS</b> - South Asian
 <br>
 
+For the in-class labs this semester, each of you will be assigned a focal sub-population for our investigations into *UCP1*. Unless told otherwise, this is the population you'll be tracking variation in for the remainder of our time investigating *UCP1*. You can find your assigned population [here](https://fuzzyatelin.github.io/AN333_Fall18/1KG_SubPop_Fall2018.html)!
+
 For more information about 1000 Genomes and IGSR, visit <http://www.internationalgenome.org/home>.
 <br>
 
-## A Brief Understanding the Bioinformatics Used To Create The 1000 Genomes Database
+## A Brief Word on Bioinformatics and the Creation of the 1000 Genomes Database
 <br>
-Bioinformatics is the "science of developing methods and software tools for collecting and understanding biological data." The 1000 Genomes Project, or even digitally recording the information DNA gives us, would not have been possible without this field. To understand the files that we will be working with (such as VCF files, which we will discuss later), it is beneficial to know how raw data is transformed in to digital information. In order to explain this process, I have included a simple flowchart that I will walk through. 
+Bioinformatics is the "science of developing methods and software tools for collecting and understanding biological data." It's become huge academic and professional field in a relatively short time as big datasets proliferate in biology, thanks to rapid developments in sequencing technology and the advances in the various '-omics' fields.<br>
+
+BU has an interdisciplinary [**Master's Program in Bioinformatics**](http://www.bu.edu/bioinformatics/), a [**Bioinformatics Research and Interdisciplinary Training Experience (BRITE REU)**](http://sites.bu.edu/britereu/) for undergraduate students, as well as a [**Bioinformatics Hub (the BUBHUB)**](http://bubhub.bumc.bu.edu/) meant to support faculty and students conducting research in bioinformatics. These might be good resources if you decide you like this kind of work and want to pursue it further.<br>
+
+Starting this semester, there's even a student-led **Biology/Bioinformatics Peer Coding Hour** here at BU, where undergraduate and graduate students help each other with bioinformatics and statistical coding issues. The Peer Coding Hour will have their first meet-and-greet (with free food!) on **October 2nd from 4-5pm in BRB 113**. I recommend everyone join!<br>
+
+The 1000 Genomes Project, or even digitally recording the information DNA gives us, would not have been possible without this field. To understand the files that we will be working with (such as VCF files, which we will discuss later), it is beneficial to know how raw data is transformed in to digital information. In order to explain this process, I have included a simple flowchart that I will walk through. 
 <br> 
 
 ![](fastq-vcf.jpg)
 <br>
 
-The first step in this flowchart is the DNA sequencing itself. There are several kinds of sequencing, but we know from the 1000 Genomes paper we read that they used what is called Illumina sequencing. Illumina sequencing is a type of next-generation sequencing (NGS on the diagram). All NGS is is a faster, more efficient, and more in-depth process of sequencing that has revolutionized the study of genomics. Illumina sequencing was invented by the Illumina company, and uses a unique method of sequencing that makes it one of the most efficient, affordable, and accurate ways of sequencing that we have today. Illumina sequencing in itself is an incredibly complex process that we won't talk about here, but a good video that explains the process can be found [here](https://www.youtube.com/watch?annotation_id=annotation_228575861&feature=iv&src_vid=womKfikWlxM&v=fCd6B5HRaZ8). 
+The first step in this flowchart is the DNA sequencing itself. There are several kinds of sequencing, but we know from the 1000 Genomes paper we read that they used what is called an Illumina platform. Illumina uses a specific method of **next-generation sequencing** (NGS on the diagram). NGS is is a faster, more efficient, and more in-depth process of sequencing that is based on shearing the genome into small pieces and then reconstructing them en masse and in parallel (multiple times at once) using various proprietary technologies before mapping those pieces to a **reference genome** (typically the first, highest quality, or most completely sequenced individual genome of a species; this does *not* mean this is the representative, average, or most common version of the genome!). The proprietary Illumina platform was invented by [Illumina](https://www.illumina.com/), and uses a unique method of sequencing that makes it among the most efficient, affordable, and accurate ways of sequencing that we have today. BU has it's own [Illumina sequencing facility on campus](http://www.bumc.bu.edu/microarray/services/illumina-library-prep-sequencing/). Illumina sequencing in itself is an incredibly complex process that we won't talk about in detail here, but a good video that explains the process can be found [here](https://www.youtube.com/watch?annotation_id=annotation_228575861&feature=iv&src_vid=womKfikWlxM&v=fCd6B5HRaZ8). 
 <br>
 <br>
-DNA sequence reads don't come out of the machine nicely put together and cleaned, however. There are a few more steps to make them in to nice, neat files. As shown in the diagram, the output of a sequencing machine is a file type called a Fastq file. A Fastq file consists of a raw nucleotide sequence that is not aligned to a reference genome, and its quality scores, which are scores that tells how reliable the sequencing read for each base is. You can work with these files, but without aligning them to a reference genome, we won't be able to get as much from them as we want. That's where the next step in the diagram comes in. 
+DNA sequence reads don't come out of the machine nicely put together and cleaned, however. There are a few more steps to turn them in to nice, neat files. As shown in the diagram, the output of a sequencing machine is called a **Fastq** file. A Fastq file consists of a raw nucleotide sequence that is not yet aligned to a reference genome, and accompanying **quality scores**, which are scores that tell us how reliable the sequencing read for each base is. You can work with these files, but without aligning them to a reference genome we won't be able to get as much from them as we want. That's where the next step in the diagram comes in... 
 <br>
 <br>
-Aligning a DNA sequence is the process of taking a chunk of DNA sequence and using an algorithm that compares that chunk to a reference genome to figure out where in the genome that chunk goes. This is done with all the sequence chunks that come from the initial Fastq file until you have a full genome. Once you have aligned your Fastq sequence to a reference sequence, you have a BAM file. A BAM file therefore not only contains an entire genome's worth of genetic code, but also gives information about where any particular piece of code falls within the genome. These files are good to work with if you need an entire genome's worth of information, or detailed information about every nucleotide in a region.
+**Alignment** is the process of taking a chunk of DNA sequence and using a statistical algorithm to compare that chunk to a reference genome to figure out what portion of the genome that chunk represents. This is done with all the small sequence chunks that come from the initial Fastq file until you have a fully aligned genome. Once you have aligned your Fastq sequence to a reference sequence, you have a **BAM** file. A BAM file therefore not only contains an entire genome's worth of genetic code, but also gives information about where any particular piece of code falls within the genome. These files are good to work with if you need an entire genome's worth of information, or detailed information about every nucleotide in a region.
 <br>
 <br>
-The final step in the flowchart is the VCF file, which is what we will be working with in our class. VCF files are the result of picking out just the variant positions from a BAM file and identifying the genotypes of the genome you sequenced. Below, we will look at the VCF file type more in-depth, as we will be using VCF files in this class. 
+The final step in the flowchart is the **VCF** file, which is what we will be working with in our class. VCF files are the result of picking out just the *variant* nucleotide positions (in other words, loci where individual sequences differ from the reference) from a BAM file. Below, we will look at the VCF file type more in-depth, as we will be using VCF files in this class. 
 <br>
  
 ## Overview of the Variant Call Format (VCF) 
 <br>
 
-In our labs, we will be using VCF files to look at our candidate gene, UCP1. The VCF file format is a computer file format that genetic information can be stored in, as we have seen above. VCF files in particular are a way of formatting SNP-only information without having to deal with the rest of the sequence that the SNPs come from. Other file types, such as BAM files, have their own uses but for the purposes of our study (and most population genetics studies) they simply contain way more information than we need. Seriously, a BAM file containing an entire genome can be almost a terabyte (1000 gigabytes) in size! 
-<br>
-VCF files are a text-file format which can be opened with a plain text editor on your computer, and can be analyzed using various softwares. Below I have included an example screenshot of what a VCF file looks like when opened in a plain text editor. 
+In our labs, we will be using VCF files to look at our candidate gene, *UCP1*. The VCF file format is a computer file format in which variant genetic information can be stored, as we have seen above. VCF files in particular are a way of formatting SNP-only information without having to deal with the rest of the sequence that the SNPs come from. Other file types, such as BAM files, have their own uses but for the purposes of our study (and most population genetics studies) they simply contain way more information than we need: a single BAM file containing an entire genome can be almost a terabyte (1000 gigabytes) in size!<br>
+
+VCF files are a text-file format which can be opened with a plain text editor on your computer, and can be analyzed using various softwares. Below I have included an example screenshot of what a VCF file looks like when opened in a plain text editor. This example compares what a simple representation of the sequence itself aligned to the reference ('*Alignment*') looks like in VCF format ('*VCF representation*'):
 <br>
 
 ![](VCFexample.jpeg)
 <br>
 
-As you can see from parts (b-g) of the figure, there is different notation that can be used depending on what type of SNP or variant position is being recorded. Don't worry though! You will not need to remember any of the notation used in VCF files, this is just here so you understand one way that SNP information is recorded, and what file type our software will use for the analyses. If you're interested in bioinformatics, there's more information about VCF files [here](http://www.internationalgenome.org/wiki/Analysis/vcf4.0/).
+As you can see from parts (b-g) of the figure, there is different notation that can be used depending on what type of SNP or variant position is being recorded. If you're interested in more complex bioinformatic analyses with data like this, there's more information about VCF files [here](http://www.internationalgenome.org/wiki/Analysis/vcf4.0/).
 <br>
 <br>
 
-## How To Use Ensembl To Obtain VCF Information From The 1000 Genomes Dataset
-<br>
+## How to Use *Ensembl* to Get VCF Data Files from the 1000 Genomes Dataset
 
 Links to, and information for, all of the genome browsers that feature 1000 Genomes data is found [here](http://www.internationalgenome.org/1000-genomes-browsers). 
 <br>
 <br>
-As the 1000 Genomes project was running, 1000 Genomes had its own "early access" genome browsers that allowed researchers to get detailed information about a specific gene of interest. These browsers, which are still available today, contain the open-access information that was updated with each phase of the project. However, these browsers are now outdated, and the most up-to-date genomic alignments for the 1000 Genomes project data are generated by Ensembl. Ensembl is a genome database that is maintained by the European Bioinformatics Instritute, and houses genomic data for many different species. Ensembl also has several different versions which are updated as new alignment information becomes available. For this class, we will be using the most up-to-date version of the Ensembl human geneome browser, the GRCh38 browser. Today we will use Ensembl to look at our gene of interest, UCP1. 
-<br>
+While the 1000 Genomes project was still active, it had its very own "early access" genome browsers that allowed researchers to get detailed information about specific genes of interest. These browsers, still available today, contain open-access data that was updated with each phase of the project. These browsers are now outdated, however, and the most up-to-date genomic alignments for the 1000 Genomes data are generated by and stored in *Ensembl*. *Ensembl* is a genome database that is maintained by the [European Bioinformatics Institute](https://www.ebi.ac.uk/), and houses genomic data for many different species. *Ensembl* also has several versions of each dataset, which are updated as new alignment information becomes available.<br>
+
+For this class, we will be using the most up-to-date version of the *Ensembl* human geneome browser, the **GRCh38.p12** browser. Today we will use *Ensembl* to look at our gene of interest, *UCP1*. 
 <br>
 
-### Step-by-step Instructions for Using Ensembl
+### Step-by-step Instructions for Using *Ensembl*
 <br>
 ![](Ensemblheader.png)
 <br>
 <br>
 
-#### Step 1: Finding UCP1
+#### Step 1: Finding *UCP1*
 
 * Go to the website: <http://useast.ensembl.org/Homo_sapiens/Info/Index>
 
-* Find the search bar in the top left-hand corner and type in "UCP1." Make sure the "category" drop-down menu is set to "Search all categories." Click "go."
+* Find the search bar in the top left-hand corner and type in "UCP1." Make sure the "category" drop-down menu is set to "Search all categories." Click "Go."
 <br>
 
 ![](search.png)
@@ -133,26 +141,26 @@ As the 1000 Genomes project was running, 1000 Genomes had its own "early access"
 ![](result.png)
 <br>
 
-* Clicking on that will bring you to the "home page" for the gene UCP1, which will look like this: 
+* Clicking on that will bring you to the "home page" for the gene *UCP1*, which will look like this: 
 <br>
 <br>
 
 ![](homepage.png)
 <br>
 
-Congratulations, you've found your gene! Now, let's visually explore UCP1. 
+Congratulations, you've found your gene of interest in *Ensembl*! Now, let's visually explore the genomic information available for *UCP1*... 
 <br>
 <br>
 
-#### Step 2: Visualizing UCP1 and its Variants
+#### Step 2: Visualizing *UCP1* and its Variants
 
-* If you scroll down on the first page, you will see an interactive map of the UCP1 region of the genome. 
+* If you scroll down on the first page, you will see an interactive map of the *UCP1* coding region of the genome. 
 <br>
 
 ![](Human_UCP1.png)
 <br>
 
-If you click on the "Go to region in detail" option directly above this image, you will get a more detailed version of the image. If you're interested, you can do this on your own time, but we will not need to do that for the purposes of this class. What we will look at, however, is an image that shows all of the variants in UCP1. 
+If you click on the "Go to region in detail" option directly above this image, you will get a more detailed version of the coding region. If you're interested, you can do this on your own time; we will not be using this more detailed view for the purposes of this class. What we will look at, however, is an image that shows all of the variants in *UCP1*. 
 <br>
 
 * To get to the variant image, simply go to the lefthand sidebar and look for the "Variant Image" tab under "Genetic Variation."
@@ -163,7 +171,7 @@ If you click on the "Go to region in detail" option directly above this image, y
 <br>
 <br>
 
-Oh no!  JUST IN THE LAST MONTH, Ensembl decided to retire this view of the human genome, as known variants have proliferated to the point where there's TOO much information here. I'll show you what it used to look like, just to give you an idea of how useful it was (note, you can still get this view for NON-human sequences).<br><br>
+Oh no: *JUST IN THE LAST MONTH*, *Ensembl* decided to retire this view of the human genome, as known variants have proliferated to the point where there's *so* much information in this view that it's become more confusing than helpful. I'll show you what it used to look like, just to give you an idea of the information it contains (note, you can still get this view for *non*-human sequences).<br><br>
 In species where this still works, you will find an interactive image that looks like this: 
 <br>
 
@@ -177,7 +185,7 @@ You can click on each little variant box as well, which will give you informatio
 <br>
 <br>
 
-Feel free to play around with this image, but what will probably be more helpful is the variant table. 
+While it's a shame that this image view is no longer available, the far more helpful data format - the **variant table** - is still here! 
 <br>
 
 * To get to the variant table, simply go to the tab in the lefthand sidebar that is above the one you are currently in, which will say "Variant Table"
@@ -192,41 +200,41 @@ You will get a table that looks like this:
 ![](varianttable.png)
 <br>
 
-As you can see under the "Conseq. type" column, all of the variants at the top of the table are downstream variants. 
+As you can see under the "Conseq. Type" column, all of the variants at the top of the table are downstream variants (e.g., variants that take place past the stop codon of the *UCP1* protein coding region). 
 <br>
 <br>
-Let's do a little exercise, shall we? Above the table, there are some filtering options. Click on the "Consequences" filtering option and hit "Turn all off"
+Let's do a little exercise, shall we? Above the table, there are some filtering options. Click on the "Consequences" filtering option and hit "Turn All Off"
 <br>
 <br>
 
 ![](filter.png)
 <br>
 
-Now, turn back on all of the mutations that lie within the coding region of the gene AND will cause a change in genotype. Hint: I chose six types of mutation. After you're done choosing, hit "apply changes."
+Now, turn back on *all of the mutations that lie within the coding region* of the gene that will also *cause a change in genotype*. After you're done choosing, hit "Apply Changes."
 <br>
 <br>
-Now that we have a shortlist of SNPs that will actually come in handy for us, let's learn how to get useful information about a specific SNP that we will use in later labs. 
+Now that we have a shortlist of SNPs that will actually come in handy for understanding variation in the protein output of *UCP1*, let's learn how to get useful information about a specific SNP that we will use in later labs. 
 <br>
 <br>
 
-#### Step 3: Exploring A SNP Of Choice
+#### Step 3: Exploring a SNP of Choice - rs45539933
 
-The first thing we'll look is the Global Minor Allele Frequency (MAF). MAF is simply the frequency at which the second most common allele (i.e. the minor allele) occurs in a population. We will be able to get population breakdowns of the MAF, but first we'll look at the Global MAF. 
+The first thing we'll look is the Global Minor Allele Frequency (MAF). MAF is simply the frequency at which the second most common *variant* allele from the reference genome (i.e. the minor allele) occurs in a population. We will be able to get population breakdowns of the MAF, but first we'll look at the Global MAF. 
 <br>
  
-* To do this, look at variant table with the results you filtered and find the "Global MAF" column. Click on the small grey arrows by the column header to sort the SNPs from highest-to-lowest MAF. The example SNP in the picture below has a Global MAF of 0.086, which means that 8.6% of the 1000 Genomes participants have the minor "T" allele as opposed to the major "C" allele. In the "Alleles" column, the major allele will always be listed first. 
+* To do this, look at variant table with the results you filtered and find the "Global MAF" column. Click on the small grey 'down' arrow by the column header to sort the SNPs from highest-to-lowest MAF. The example SNP in the picture below has a Global MAF of 0.086, which means that 8.6% of the 1000 Genomes participants have the minor "T" allele as opposed to the major "C" allele. In the "Alleles" column, the major allele will always be listed first. 
 <br>
 
 ![](MAF.png)
 <br>
 
-* Now that we know how to find out the MAF of a SNP, let's explore the SNP some more. Click on the "Variant ID" of the SNP that has the highest MAF. Clicking on that link will bring you to the SNP page, which looks like this: 
+* Now that we know how to find out the MAF of a SNP, let's explore this SNP some more. Click on the "Variant ID" of the SNP that has the highest MAF. Clicking on that link will bring you to the SNP page, which looks like this: 
 <br>
 
 ![](Variant.png)
 <br>
 
-* Under "Explore This Variant" there is several different tabs that will tell us different things about the SNP. In this class, we will be using two of these features in the future: "Population Genetics" and "Linkage Disequilibrium." Right now, we will do a quick tour of these tabs so you can just see how they work. 
+* Under "Explore This Variant" there is several different tabs that will tell us different things about the SNP. In this class, we will be using two of these features: "**Population Genetics**" and "**Linkage Disequilibrium**". Right now, we will do a quick tour of these tabs so you can just see how they work. 
 
 * First, click on the "Population Genetics" icon. You will get this page: 
 <br>
@@ -234,7 +242,7 @@ The first thing we'll look is the Global Minor Allele Frequency (MAF). MAF is si
 ![](popgen.png)
 <br>
 
-* You can see in these pie charts that there are differences in the allele frequencies in each population. 
+* As you can see in these pie charts that there appear to be differences in the allele frequencies for this SNP in each population and sub-population. 
 
 * Scroll down to the table that gives you the allele frequency breakdown for all the 1000 Genomes populations. Here is an example section of the 1000 Genomes data table: 
 <br>
@@ -242,65 +250,62 @@ The first thing we'll look is the Global Minor Allele Frequency (MAF). MAF is si
 ![](allelefreq.png)
 <br>
 
-* From left to right, you can see the count numbers of how many C and T alleles reside in each population, as well as the heterozygous and homozygous genotype counts for each population. 
+* From left to right, you can see the frequencies and count numbers (in parentheses) of how many C and T alleles reside in each population, as well as the heterozygous and homozygous genotype frequencies and counts for each population. 
 <br>
 
-As an exercise, find your population in this table, and make sure you can find the allele and genotype counts for your population. This will come in handy when we do our Hardy-Weinberg lab. 
+As an exercise, find *your* population in this table. Make sure you can find the allele and genotype counts. This will come in handy when we do our [Hardy-Weinberg Lab](https://fuzzyatelin.github.io/AN333_Fall18/Lab_2_-_HWE.html). 
 <br>
 
 The final page we'll explore is the "Linkage Disequilibrium" page.
 
-* To do this, go back to the SNP page and click on the Linkage Disequilibrium icon. You will get this page: 
+* To do this, navigate back back to the SNP page and click on the "Linkage Disequilibrium" icon. You will get this page: 
 <br>
 
 ![](LD.png)
 <br>
 
-* Find your population. There are a few things we will look at. 
+* Find your population. 
 
 * First, click on the right-most "View Plot" link for your population. The icon is a reddish triangle. A few things will come up on this page. 
 
-* The first thing you should see on the page is an image of Chromosome 4, with a red line marking where the SNP of interest is: 
+* The first thing you should see on the page is an image of Chromosome 4, with a red line marking the locus of our SNP of interest: 
 <br>
 
 ![](chromsnp.png)
 <br>
 
-Think about how the location of this SNP on the chromosome will affect the likelihood of Linkage Disequilibrium. Is it more or less likely that this SNP will be out of Linkage Disequilibrium?
+Knowing what we know about recombination and the structure of the genome, think about how the location of this SNP on the chromosome will affect the likelihood of Linkage Disequilibrium. Is it more or less likely that this SNP will be out of Linkage Disequilibrium?
 
-* Scrolling down, you will see a plot. The plot will look like this:
+* Scrolling down, you will see a plot:
 <br>
 
 ![](LDBlock.png)
 <br>
 
-* This is a Linkage Disequilibrium block. When we talk about Linkage Disequilibrium, we will learn how to read one of these blocks. For now, just know what it looks like. 
+* This plot represents Linkage Disequilibrium blocks. When we talk about Linkage Disequilibrium, we will learn how to read one of these blocks. For now, it's enough to know what it looks like. 
 
-* Now, go back to the table on the previous page. For your population, click on the "Show" link under the "Variants in High LD" column. If your population has SNPs in high Linkage Disequilibrium, you will get a table that looks like this: 
+* Now, navigate back to the table on the previous page. For your population, click on the "Show" link under the "Variants in High LD" column. If your population has SNPs in high Linkage Disequilibrium, you will get a table that looks like this: 
 <br>
 
 ![](highLD.png)
 <br>
 
-* This table shows us a couple of things that will come in handy later, like how far away a linked SNP is from the SNP of interest, what kind of SNP the linked SNP is, and which gene, if any, the linked SNP falls in. 
+* This table shows us a couple of things that will come in handy, like how many base pairs away a linked SNP is from the SNP of interest ("Distance (bp)"), what effect the linked SNP has on transcription/translation and subsequent phneotype, and in which gene coding region, if any, the linked SNP falls ("Located in gene(s)"). 
 <br>
 
-If your population DOESN'T have SNPs in high Linkage Disequilibrium, think about what that tells us about the importance of UCP1 in your population. 
+If your population *doesn't* have SNPs in high Linkage Disequilibrium, think about what that tells us about the importance of *UCP1* in your population. 
 <br>
 <br>
-Now that we have explored some important features of the Ensembl website, we can learn how to download some data of our own!
+Now that we have explored some important features of the *Ensembl* website, we can learn how to download some more focused datasets of our own that we'll use here in our Labs!
 <br>
 <br>
 
-#### Step 4: Getting Genetic Data For Your Population
+#### Step 4: Getting Genetic Data for your Sub-Population
 
-Usually when you are working with genomic information, you are given a whole chromosome or even a whole genome's worth of information in either a BAM file or a VCF file. If you only need to look at one part of the genome, it can be very annoying to work with a lot of extra data. The Ensembl data slicer is a convenient way to get only the amount of data that you want without using a programto cut it out yourself. Therefore, we will use this tool to get the data for our analysis of UCP1. We will be taking <b>two</b> slices of data today, one that contains all of the SNPs in UCP1, and one that contains only about 1/4 of the SNPs in the gene. We will be using the larger slice in most of our analyses, but we will need the smaller slice for Lab 3. 
+Usually when you are working with genomic information, you are given a whole chromosome or even a whole genome's worth of information in either a BAM file or a VCF file. If you only need to look at one small part of the genome, it can be very annoying to work with a lot of extra data. The *Data Slicer* in *Ensembl* is a convenient way to get only the amount of data that you want without using a separate program to cut it out yourself. We will use this tool to get the data for our analysis of *UCP1*. We will be taking *two* slices of data today: one that contains all of the SNPs in *UCP1* (we may have already done this in our Pre-Lab exercises), and one that contains only about 1/4 of the SNPs in the gene. We will be using the larger slice in most of our analyses, but we will need the smaller slice for [Lab 3](). 
 <br>
 <br>
-One thing to note about the data slicer is that it is only available for the GRCh37 version of Ensembl, which is one version before GRCh38 (the version we have been using). What's different about the two versions of this site is that all of the 1000 Genomes data is aligned to a different reference genome in each version. All this means for us is that UCP1 will have different genomic coordinates in each version. Similarly, the coordinates of SNPs will be affected, but the SNP ID numbers will be the same since those are universal.  Don't worry about finding the coordinates of UCP1, I will give the GRCh37  to you here.
-<br>
-<br>
-The link to the data slicer is available here: <http://grch37.ensembl.org/Homo_sapiens/Tools/DataSlicer?db=core>. 
+The link to the data slicer is available here: <http://grch38.ensembl.org/Homo_sapiens/Tools/DataSlicer?db=core>. 
 <br>
 <br>
 Now, on to the tutorial!
