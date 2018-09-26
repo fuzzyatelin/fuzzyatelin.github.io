@@ -300,7 +300,7 @@ Now that we have explored some important features of the *Ensembl* website, we c
 <br>
 <br>
 
-#### Step 4: Getting Genetic Data for your Sub-Population
+#### Step 4: Getting Genetic Data for your Sub-Population {.tabset .tabset-fade}
 
 Usually when you are working with genomic information, you are given a whole chromosome or even a whole genome's worth of information in either a BAM file or a VCF file. If you only need to look at one small part of the genome, it can be very annoying to work with a lot of extra data. The *Data Slicer* in *Ensembl* is a convenient way to get only the amount of data that you want without using a separate program to cut it out yourself. We will use this tool to get the data for our analysis of *UCP1*. We will be taking *two* slices of data today: one that contains all of the SNPs in *UCP1* (we may have already done this in our Pre-Lab exercises), and one that contains only about 1/4 of the SNPs in the gene. We will be using the larger slice in most of our analyses, but we will need the smaller slice for [Lab 3](). 
 <br>
@@ -308,11 +308,11 @@ Usually when you are working with genomic information, you are given a whole chr
 The link to the *Data Slicer* is available here: <https://useast.ensembl.org/Homo_sapiens/Tools/DataSlicer>. 
 <br>
 <br>
-**IMPORTANT NOTE**: As many of you may have already noticed, sometimes *Data Slicer* sucks and forgets how to link to the Phase 3 dataset appropriately. This makes things a bit more complicated. As such, I've appended two methods, below, to getting the data we need. The firt tab - *Data Slicer WINS!* - contains instructions for when *Data Slicer* is actually working. The second tab - *Data Slicer SUCKS!* - is for when *Data Slicer* fails us. The second method isn't harder, it just involves post-download filtering of our file, which might take a wee smidge longer. 
+**IMPORTANT NOTE**: As many of you may have already noticed, sometimes *Data Slicer* sucks and forgets how to link to the Phase 3 dataset appropriately. This makes things a bit more complicated. As such, I've appended two methods, below, to getting the data we need. The firt tab - *Data Slicer WINS!* - contains instructions for when *Data Slicer* is actually working. The second tab - *Data Slicer SUCKS!* - is for when *Data Slicer* fails us. The second method isn't harder, it just involves post-download filtering of our file, which might take a wee smidge longer.<br>
+
+Try the *Data Slicer WINS!* method first. If that fails, it's time to move on the the *Data Slicer SUCKS!* method.<br>
 
 Now, on to the tutorial!
-
-
 
 * Click on the link provided above. It will take you here: 
 <br>
@@ -328,13 +328,15 @@ Now, on to the tutorial!
 ![](dataslicer2.png)
 <br>
 
-* First off, the file format should be set for VCF. If it's not, click the drop-down menu and select VCF. 
+* First off, in the "Name for this job" category, let's name it after our assigned population. I'll be working with the Yoruba population, so I'll name mine "**YRI_UCP1**".
 
-* In the "region lookup" bar, copy and paste in the location *4: 140,559,434-140,568,805*. These are the GRCh38 version alignment coordinates for the gene *UCP1*. This is the larger of the two chunks we will be taking.  
+*The file format should be set for VCF. If it's not, click the drop-down menu and select VCF. 
 
-* In in the "Choose Data File" dropdown list, make sure "Phase 3" is selected. This will ensure you get data from the last phase of the 1000 Genomes project. 
+* In the "region lookup" bar, copy and paste in the location **4:140559434-140568805**. These are the GRCh38.p12 version alignment coordinates for the gene *UCP1*. This is the larger of the two chunks we will be taking.
 
-* In the "filters" category, select "By populations." This will give you a dropdown menu of all of the 1000 Genomes populations. Select the population that you were assigned, so that you only get the data for that population. 
+* In in the "Choose data collections..." dropdown list, make sure "Phase 3" is selected. This will ensure you get data from the last phase of the 1000 Genomes project. 
+
+* In the "filters" category, select "By populations". This will give you a dropdown menu of all of the 1000 Genomes populations. Select the population that you were assigned, so that you only get the data for that population. 
 
 * The filled-in interface should look like this: 
 <br>
@@ -342,11 +344,19 @@ Now, on to the tutorial!
 ![](dataslicer3.png)
 <br>
 
+If this has worked, and your window looks more or less like the image above (the entries above might not match yours), then *Data Slicer* is winning and you can continue!<br>
+
+If this hasn't worked and *Data Slicer* is giving you some kind of error message asking for some URL or other... well... *Data Slicer* sucks and it's time to get resourceful, so click on that tab and check out what to do next...
+
+Now, some students have noticed that this second process literally takes forever... in that case, if all else fails... we'll use ***Tabix***!
+
+#####***Data Slicer WINS!***
+
 * Hit the "run" button at the bottom of the page.
 
-* At the top of the page, hit "New Job" and <b>repeat this process</b>, but this time with the coordinates <b>4:141481462-141485260</b>. These are the coordinates for the smaller slice that we will be taking. 
+* At the top of the page, hit "New Job" and *repeat this process*, but this time with the coordinates **4:140560308-140564106**. Let's name this one something slightly different so we don't get confused. These are the coordinates for the smaller slice that we will be taking, so I'll name mine "**YRI_UCP1_small**"
 
-* When you have clicked "run" for both jobs, you will see this table will pop up, and will tell you when your job has been processed. Click "View results" to look at your results. 
+* When you have clicked "Run" for both jobs, you will see this table pop up, which will eventually tell you when your job has been processed. Click "View Results" to look at your results. 
 <br>
 
 ![](job.png)
@@ -365,59 +375,74 @@ Now, on to the tutorial!
 ![](body.png)
 <br>
 
-We check our file to see if the body is there because sometimes the server will malfunction and give you only the head of the VCF file. If that happens, repeat the data slicer process. Check both files in this same way.  
+We check our file to see if the body is there because sometimes the server will malfunction and give you only the head of the VCF file. If that happens, repeat the *Data Slicer* process. Check both files in this same way.  
 <br>
+
+* Once you've checked your files to make sure everything is there, click on "Download results file", which should save these files in *filename.vcf.gz* format in the 'Downloads' folder in your *anth333* workspace on the *SCC*.
+
+* Once in your workspace, change your filenames to make things easier. Rename the full *UCP1* file with the acronym for your population. Name the smaller file with the acronym and then "small." For example, I downloaded data from the **YRI** population, so I named the larger file "YRI.vcf.gz" and will name the smaller file "YRIsmall.vcf.gz". Remember, to rename a file in the *SCC* workspace, you use the *mv* command (e.g., '*mv oldname.vcf.gz YRI.vcf.gz*')
+
 <br> 
 
-#### Step 5: Getting The File To SCC
+#####***Data Slicer SUCKS!***
 
-The last thing we'll do is save our file and put our newly downloaded files in to the folders we made in the SCC tutorial with Charlie Jahnke. To do that: 
+*Gah... this bug in Data Slicer is THE WORST*. But it's also not the end of the world. We can still get what we need from *Ensembl*, it'll just take a bit longer. The bonus is that we'll learn how to use a couple extra bioinformatics tools that are actually *preferred* over *Data Slicer* by folks who work frequently with human genomic data.
+
+* Retrace your steps to get to the *Data Slicer* and re-enter all the naming and coordinate information you had before.
+
+* In in the "Choose data collections..." dropdown list, where it says "Phase 3", click and choose "Provide file URLs".
+
+* In the blank box that opens up next to "Genotype file URL", copy the following URL and paste it into the box:<br>
+
+ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/GRCh38_positions/ALL.chr4_GRCh38.genotypes.20170504.vcf.gz
+
+* Now, click on the "By populations" button for "Filters", and a new error message with crop up asking for a sample population mapping file URL. When that happens, paste this URL into the "Sample population mapping file URL" box:<br>
+
+ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/integrated_call_samples_v3.20130502.ALL.panel
+
+* Once that's done, your *Data Slicer* entry should look like this:
+
+<br>
+
+![](dataslicer4.png)
+
+<br>
+
+* Hit the "run" button at the bottom of the page.
+
+* At the top of the page, hit "New Job" and *repeat this process*, but this time with the coordinates **4:140560308-140564106**. Let's name this one something slightly different so we don't get confused. These are the coordinates for the smaller slice that we will be taking, so I'll name mine "**YRI_UCP1_small**"
+
+* When you have clicked "Run" for both jobs, you will see this table pop up, which will eventually tell you when your job has been processed. Click "View Results" to look at your results. 
+<br>
+
+![](job.png)
+<br>
+<br>
+
+* You will get this page: 
+<br>
+
+![](results.png)
+<br>
+
+* Scroll down to the bottom of the results preview. Recall from earlier that there is a "head" and a "body" section of a VCF file. Check to make sure that the "body" of the file is there. It will look like this: 
+<br>
+
+![](body.png)
+<br>
+
+We check our file to see if the body is there because sometimes the server will malfunction and give you only the head of the VCF file. If that happens, repeat the *Data Slicer* process. Check both files in this same way.  
+<br>
+
+* Once you've checked your files to make sure everything is there, click on "Download results file", which should save these files in *filename.vcf.gz* format in the 'Downloads' folder in your *anth333* workspace on the *SCC*.
+
+* Once in your workspace, change your filenames to make things easier. Rename the full *UCP1* file with the acronym for your population. Name the smaller file with the acronym and then "small." For example, I downloaded data from the **YRI** population, so I named the larger file "YRI.vcf.gz" and will name the smaller file "YRIsmall.vcf.gz". Remember, to rename a file in the *SCC* workspace, you use the *mv* command (e.g., '*mv oldname.vcf.gz YRI.vcf.gz*')
+
 <br> 
 
-* Hit the "Download results file" button for both of your slices. You will get a file with your data. Rename the full UCP1 file with the acronym for your population. Name the smaller file with the acronym and then "small." For example, I downloaded data from the YRI population, so I named the larger file "YRI.vcf" and will name the smaller file "YRIsmall.vcf." Save the files to the desktop.
+#####***It's Tabix time***
+
+Ok, so nothing has worked now... we're tired of it. There's a solution: ***tabix***!
+
 <br> 
-
-![](saving.png)
-<br>
-
-* Open a new Moba X Term window on the computer and double-click on "user sessions" (highlighted here). 
-<br>
-
-![](mobax1.png)
-<br>
-
-* You will open the "session settings" window. Click on the SFTP tag. In the "remote host" box, type "scc1.bu.edu." Type your BU username in to the Username box. Hit "OK."
-<br>
-
-![](mobax2.png)
-<br>
-
-* Enter your BU password in the popup box. 
-<br>
-
-![](mobax3.png)
-<br>
-
-* Now you have an interactive interface where you can see all the files loaded in to your SCC account. In the highlighted box, type the file path that you created in the pre-lab to store your data.
-<br>
-
-![](mobax4.png)
-<br>
-<br>
-
-* Now you are in the directory you will use for this class. Go to the desktop of the computer, and your two downloaded files should be right on the home screen. Simply drag both of your files from the desktop and drop them in to your directory's interface like so:
-<br>
-<br>
-
-![](mobax5.png)
-<br>
-
-After you drag and drop your files, you'll see them in your directory: 
-<br>
-
-![](mobax6.png)
-<br>
-
-And now, you're good to go for Lab 2!
-
 # Congratulations, you now have your genetic data!
