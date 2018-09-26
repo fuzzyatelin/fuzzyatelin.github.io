@@ -7,15 +7,15 @@ output: html_document
 
 ***
 
-**Pre-Lab: BU Shared Computing Cluster Tutorial**<br>
+###*Pre-Lab: BU Shared Computing Cluster Tutorial*
 **September 21**<br>
 
 ***
 
-**Material covered**: Introduction to and tutorial on using the BU Shared Computing Cluster, via Linux-based SCC.<br>
-**Readings**: None.<br>
-**Activities**: We will create personal profiles using the SCC interface with the help of a representative from Research Computing. We’ll learn how to connect to SCC and some basic commands that will help us navigate the interface and access analytical software that will be used in the course.<br>
-**Assignment**: In-class worksheet based on activities will be graded.<br>
+**Material covered**: Introduction to and tutorial on using the BU Shared Computing Cluster, via Linux-based SCC.<br><br>
+**Readings**: None.<br><br>
+**Activities**: We will create personal profiles using the SCC interface with the help of a representative from Research Computing. We’ll learn how to connect to SCC and some basic commands that will help us navigate the interface and access analytical software that will be used in the course.<br><br>
+**Assignment**: In-class worksheet based on activities will be graded.<br><br>
 **Learning Outcomes**:
 <ul>
 <li>Learn how to access your SCC profile and data storage, and become familiar with analytical software and data download and storage commands.</li>
@@ -23,4 +23,50 @@ output: html_document
 <li>Learn how to access analytical software such as R and RStudio, which we will be using to do real-
 life population genetic analyses.</li>
 <li>If we have time, we will begin using these tools to get a head start on Lab 1!</li></ul>
+
+**Please download associated materials on Blackboard**
+
 ***
+
+###[*Lab 1: Accessing Human Candidate Gene Region Data* – *UCP1*](https://fuzzyatelin.github.io/AN333_Fall18/Lab_1_-_1KG_and_Ensembl_Tutorial.html)
+**September 28**<br>
+
+***
+
+**Material covered**: Introduction to the *1000 Genomes Project* dataset, and tutorial on using *Ensembl* to access the 1000 Genomes dataset. For illustrative purposes, we’ll focus on the *UCP1* gene, a candidate gene implicated in human obesity and metabolic disorders, which is specifically implicated in metabolic processes in humans related to the activation of brown adipose tissue (these are fat cells that actually generate heat, to keep us warm in cold weather).<br><br>
+**Readings**:<ul>
+<li>The 1000 Genomes Project Consortium. 2015. A global reference for human genetic variation. *Nature* 526: 68-74.</li>
+<li>Danecek P, Auton A, Abecasis G, Albers CA, Banks E, DePristo MA, Handsaker RE, Lunter G, Marth GT, Sherry ST, McVean G, Durbin R, 1000 Genomes Project Analysis Group. 2011. The variant call format and VCFtools. *Bioinformatics App Note* 27: 2156-2158.</li>
+<li>Gonzalez-Barroso MDM, Ricquier D, Cassard-Doulcier AM. 2000. The human uncoupling protein-1 gene (UCP1): present status and perspectives in obesity research. *Obesity Rev* 1: 61-72.</li></ul><br>
+**Activities**: We’ll learn how to use the *Ensembl* database to navigate our candidate gene, *UCP1*, and find more information about it. Each student will be assigned a single 1000 Genomes population that they will look at over the course of the labs, and we will use the *Data Slicer* within *Ensembl* to download data for those populations into our *SCC* accounts.<br><br>
+**Assignment**: Students must turn in a worksheet – with questions related to *UCP1* variation in humans and related to the downloaded dataset –  in class the following Monday. **Pre-Lab Homework Assignment is due today.**<br><br>
+**Learning Outcomes**:<ul>
+<li>Learn about the basics of bioinformatics and how genetic data is transformed from raw sequencing reads in to a VCF file, which is the file type we will be working with.</li>
+<li>Learn about the public data on human genomes available via the 1000 Genomes Project, and how to access it via *Ensembl*.</li>
+<li>Learn about the role of *UCP1* variation in humans, and how it is implicated in thermoregulation, brown adipose tissue, and whether and how it may be involved in human evolution and clinical medicine.</li>
+<li>Learn how to download specific regions of genomic data – or candidate gene regions – from 1000 Genome populations in VCF format using the *Data Slicer* in *Ensembl* and move them on to the *SCC*.</li>
+
+***
+
+###[*Lab 2: UCP1 Variants and Hardy-Weinberg Equilibrium*](https://fuzzyatelin.github.io/AN333_Fall18/Lab_2_-_HWE.html)
+**October 05**<br>
+
+***
+
+**Material covered**: Using *R* and *RStudio* via the *SCC* to run pre-written code that will perform our analyses. Assessing allelic variation in SNPs within and across populations. Testing **Hardy-Weinberg equilibrium (HWE)** and understanding what it means if violated, which involves knowing the assumptions of the model. Using downloaded candidate region data from 1000 Genomes Project to assess HWE in living human populations using a Chi-Squared test. Using *Ensembl* to obtain genotype count information in order to use the Wigginton and Cutler method of HWE calculation on selected SNPs.<br><br> 
+**Readings**:<ul> 
+<li>Chen, J. The Hardy-Weinberg Principle and Its Applications in Modern Population Genetics. *Frontiers in Biology* 5(4): 348-53.</li>
+<li>Rose, Giuseppina, *et al*. Two variants located in the upstream enhancer region of human UCP1 gene affect gene expression and are correlated with human longevity. *Experimental Gerontology* 46(11): 897-904.</li>
+<li>Wigginton JE, Cutler DJ, Abecasis GR. 2005. A note on exact tests of Hardy-Weinberg equilibrium. *Am J Hum Genet* 76: 887-893.</li></ul><br>
+**Activities**: We will use the *R* coding language to test HWE in the dataset on *UCP1* we downloaded from *Ensembl*. We will assess whether or not SNPs in this genomic region are in Hardy-Weinberg equilibrium based on a Chi-Squared test in assigned human populations. We will then re-test selected SNPs using the "True HWE" method described in Wigginton and Cutler. We will then discuss what our results mean, in accordance with what we know about those populations, HWE, and the phenotypic effects of *UCP1*.<br><br>
+**Assignment**: Students must turn in a worksheet – with questions related to UCP1 variation in humans and related to the downloaded dataset –  in class the following Monday. **Lab 1 Homework Assignment is due today.**<br><br>
+**Learning Outcomes**:<ul>
+<li>Learn how to use the *SCC* and *R* coding language to observe and understand population differences in *UCP1* variation.</li>
+<li>Calculate Hardy-Weinberg Equilibrium for all *UCP1* SNPs in individual populations using a traditional Chi-Square test.</li>
+<li>Perform a check on all SNPs not in Hardy-Weinberg Equilibrium by calculating "True" Hardy-Weinberg with the built-in Shiny App.</li> 
+<li>Research the consequence types of these SNPs in order to understand how these SNPs might affect the genome itself, and how they might affect genotype.</li> 
+<li>Calculate the "true" Hardy-Weinberg Equilibrium using the Shiny App for *A3826G* (SNP ID *rs1800592*), an upstream SNP that has known phenotypic consequences, and determine what the Hardy-Weinberg Equilibrium says about the population.</li>
+
+***
+
+
