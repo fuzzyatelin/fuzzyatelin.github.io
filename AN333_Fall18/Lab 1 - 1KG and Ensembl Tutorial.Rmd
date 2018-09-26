@@ -43,7 +43,7 @@ Below is a map of the current populations represented in the 1000 Genomes datase
 * <b>ACB</b> - African Caribbeans in Barbados
 * <b>MXL</b> - Mexican Ancestry from Los Angeles USA
 * <b>PUR</b> - Puerto Ricans from Puerto Rico
-* <b>CLM</b> - Columbians from Medellin, Columbia
+* <b>CLM</b> - Colombians from Medellin, Columbia
 * <b>PEL</b> - Peruvians from Lima, Peru
 * <b>GIH</b> - Gujarati Indian from Houston, Texas
 * <b>PJL</b> - Punjabi from Lahore, Pakistan
@@ -305,10 +305,14 @@ Now that we have explored some important features of the *Ensembl* website, we c
 Usually when you are working with genomic information, you are given a whole chromosome or even a whole genome's worth of information in either a BAM file or a VCF file. If you only need to look at one small part of the genome, it can be very annoying to work with a lot of extra data. The *Data Slicer* in *Ensembl* is a convenient way to get only the amount of data that you want without using a separate program to cut it out yourself. We will use this tool to get the data for our analysis of *UCP1*. We will be taking *two* slices of data today: one that contains all of the SNPs in *UCP1* (we may have already done this in our Pre-Lab exercises), and one that contains only about 1/4 of the SNPs in the gene. We will be using the larger slice in most of our analyses, but we will need the smaller slice for [Lab 3](). 
 <br>
 <br>
-The link to the data slicer is available here: <http://grch38.ensembl.org/Homo_sapiens/Tools/DataSlicer?db=core>. 
+The link to the *Data Slicer* is available here: <https://useast.ensembl.org/Homo_sapiens/Tools/DataSlicer>. 
 <br>
 <br>
+**IMPORTANT NOTE**: As many of you may have already noticed, sometimes *Data Slicer* sucks and forgets how to link to the Phase 3 dataset appropriately. This makes things a bit more complicated. As such, I've appended two methods, below, to getting the data we need. The firt tab - *Data Slicer WINS!* - contains instructions for when *Data Slicer* is actually working. The second tab - *Data Slicer SUCKS!* - is for when *Data Slicer* fails us. The second method isn't harder, it just involves post-download filtering of our file, which might take a wee smidge longer. 
+
 Now, on to the tutorial!
+
+
 
 * Click on the link provided above. It will take you here: 
 <br>
@@ -326,9 +330,9 @@ Now, on to the tutorial!
 
 * First off, the file format should be set for VCF. If it's not, click the drop-down menu and select VCF. 
 
-* In the "region lookup" bar, copy and paste in the location <b> 4:141,480,588-141,489,959</b>. These are the GRCh37 version alignment coordinates for the gene UCP1. This is the larger of the two chunks we will be taking.  
+* In the "region lookup" bar, copy and paste in the location *4: 140,559,434-140,568,805*. These are the GRCh38 version alignment coordinates for the gene *UCP1*. This is the larger of the two chunks we will be taking.  
 
-* In in the "Choose data file" dropdown list, make sure "phase 3" is selected. This will ensure you get data from the last phase of the 1000 Genomes project. 
+* In in the "Choose Data File" dropdown list, make sure "Phase 3" is selected. This will ensure you get data from the last phase of the 1000 Genomes project. 
 
 * In the "filters" category, select "By populations." This will give you a dropdown menu of all of the 1000 Genomes populations. Select the population that you were assigned, so that you only get the data for that population. 
 
