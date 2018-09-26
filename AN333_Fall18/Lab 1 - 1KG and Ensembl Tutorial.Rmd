@@ -163,7 +163,8 @@ If you click on the "Go to region in detail" option directly above this image, y
 <br>
 <br>
 
-There, you will find an interactive image that looks like this: 
+Oh no!  JUST IN THE LAST MONTH, Ensembl decided to retire this view of the human genome, as known variants have proliferated to the point where there's TOO much information here. I'll show you what it used to look like, just to give you an idea of how useful it was (note, you can still get this view for NON-human sequences).<br><br>
+In species where this still works, you will find an interactive image that looks like this: 
 <br>
 
 ![](variantimage.png)
