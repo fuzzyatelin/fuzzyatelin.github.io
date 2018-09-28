@@ -440,43 +440,69 @@ We check our file to see if the body is there because sometimes the server will 
 
 <br> 
 
-#####***It's TABIX time***
+#####***It's TABIX time...***
 
 Ok, so nothing has worked... we're tired of working with *Data Slicer*!<br>
 
 There's a solution: ***tabix***!<br>
 
-*tabix* is a module that you can load into your *SCC* workspace, like any other module. 
+*tabix* is a module that you can load into your *SCC* workspace, like any other module.
 
-* Enter this code in your prompt to load *tabix*:<br>
+* Make sure you're in your home directory on the *SCC*, meaning your prompt should look like this (if it doesn't, enter '**cd ..**', and that should take you back to your home directory):
+```{r, eval = FALSE}
+[caschmit@scc1 ~]$
+```
 
-> module load tabix
+* Enter this code in your prompt to load *tabix*:
+```{r, eval = FALSE}
+module load tabix
+```
 
-* First, let's download the ID Panel from 1000 Genomes. This is a list of IDs associated with each genome, including their population of origin:
-
-> wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/integrated_call_samples_v3.20130502.ALL.panel
-
-* Now, we need to make a list of IDs just from our population of interest, so we can tell *tabix* to only keep those individuals. Remember, mine is YRI, so I'll use that code. Where you see 'YRI' in my code, insert the three-letter code of *your* population:
-
-> grep YRI integrated_call_samples_v3.20130502.ALL.panel | cut -f1 > YRI.samples.list
-
-* Let's now load *vcftools*, which has the *vcf-subset* tool we need to use to filter out our population:
-
-> module load vcftools
-
-* Now, we can download the data and filter it *at the same time*! Use the following command:
-
-> tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/GRCh38_positions/ALL.chr4_GRCh38.genotypes.20170504.vcf.gz 4:140559434-140568805 |perl vcf-subset YRI.samples.list | bgzip -c YRI.vcf.gz
+* First, we can download the data! Remember, mine is YRI, so I'll use that code. Where you see 'YRI' in my code, insert the three-letter code of *your* population. Use the following command:
+```{r, eval = FALSE}
+tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/GRCh38_positions/ALL.chr4_GRCh38.genotypes.20170504.vcf.gz 4:140559434-140568805 > YRI_all.vcf
+```
 
 * Notice the syntax in that command? It's basically:
+```{r, eval = FALSE}
+tabix -h [data URL] [region lookup] > [filename].vcf
+```
 
-> tabix -h [data URL] [region lookup] | perl vcf-subset [POP].samples.list | bgzip -c [new file name].vcf.gz
+* This has saved the *UCP1* region as a VCF formatted file into your working directory!
 
-* Let's also download the smaller region:
+* Next, let's download the *ID Panel* from 1000 Genomes. This is a list of IDs associated with each genome, including their population of origin:
+```{r, eval = FALSE}
+wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/integrated_call_samples_v3.20130502.ALL.panel
+```
 
-> tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/GRCh38_positions/ALL.chr4_GRCh38.genotypes.20170504.vcf.gz 4:140560308-140564106 | bgzip -c YRIsmall.vcf.gz
+* Now, we need to make a list of IDs just from our population of interest, so we can tell *vcftools* to only keep those individuals. Remember, mine is YRI, so I'll use that code. Where you see 'YRI' in my code, insert the three-letter code of *your* population:
+```{r, eval = FALSE}
+grep YRI integrated_call_samples_v3.20130502.ALL.panel | cut -f1 > YRI.samples.list
+```
 
-*And that should do it!
+* Let's now load *vcftools*, which has the *--keep* option we need to use to filter out our population:
+```{r, eval = FALSE}
+module load vcftools
+```
+
+* Now we can use *vcftools* to subset our dataset:
+```{r, eval = FALSE}
+vcftools --vcf YRI_all.vcf --keep YRI.samples.list --recode --out YRI
+```
+
+* My *new* VCF file is called ***YRI.recode.vcf***. Again, yours should be similar but with *your* population three-letter name. Rename this, as follows:
+```{r, eval = FALSE}
+mv YRI.recode.vcf YRI.vcf
+```
+
+* Great! You now have your *UCP1* data file for just your population, which should be named ***YRI.vcf*** (but with your population name)!
+
+* Once you've done this, let's also download the smaller region:
+```{r, eval = FALSE}
+tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/GRCh38_positions/ALL.chr4_GRCh38.genotypes.20170504.vcf.gz 4:140560308-140564106 > YRIsmall_all.vcf
+```
+
+* Use the same post-download processing to subset this smaller regional dataset in the same way as the larger, name the final file ***YRIsmall.vcf*** (with your own population name, of course), and you're finished!
 <br>
 <br> 
 
