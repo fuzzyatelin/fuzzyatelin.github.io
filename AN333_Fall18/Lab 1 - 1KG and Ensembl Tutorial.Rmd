@@ -440,9 +440,44 @@ We check our file to see if the body is there because sometimes the server will 
 
 <br> 
 
-#####***It's Tabix time***
+#####***It's TABIX time***
 
-Ok, so nothing has worked now... we're tired of it. There's a solution: ***tabix***!
+Ok, so nothing has worked... we're tired of working with *Data Slicer*!<br>
 
+There's a solution: ***tabix***!<br>
+
+*tabix* is a module that you can load into your *SCC* workspace, like any other module. 
+
+* Enter this code in your prompt to load *tabix*:<br>
+
+> module load tabix
+
+* First, let's download the ID Panel from 1000 Genomes. This is a list of IDs associated with each genome, including their population of origin:
+
+> wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/integrated_call_samples_v3.20130502.ALL.panel
+
+* Now, we need to make a list of IDs just from our population of interest, so we can tell *tabix* to only keep those individuals. Remember, mine is YRI, so I'll use that code. Where you see 'YRI' in my code, insert the three-letter code of *your* population:
+
+> grep YRI integrated_call_samples_v3.20130502.ALL.panel | cut -f1 > YRI.samples.list
+
+* Let's now load *vcftools*, which has the *vcf-subset* tool we need to use to filter out our population:
+
+> module load vcftools
+
+* Now, we can download the data and filter it *at the same time*! Use the following command:
+
+> tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/GRCh38_positions/ALL.chr4_GRCh38.genotypes.20170504.vcf.gz 4:140559434-140568805 |perl vcf-subset YRI.samples.list | bgzip -c YRI.vcf.gz
+
+* Notice the syntax in that command? It's basically:
+
+> tabix -h [data URL] [region lookup] | perl vcf-subset [POP].samples.list | bgzip -c [new file name].vcf.gz
+
+* Let's also download the smaller region:
+
+> tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/GRCh38_positions/ALL.chr4_GRCh38.genotypes.20170504.vcf.gz 4:140560308-140564106 | bgzip -c YRIsmall.vcf.gz
+
+*And that should do it!
+<br>
 <br> 
+
 # Congratulations, you now have your genetic data!
