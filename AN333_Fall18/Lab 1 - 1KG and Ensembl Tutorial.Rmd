@@ -470,17 +470,41 @@ tabix -h [data URL] [region lookup] > [filename].vcf
 
 * This has saved the *UCP1* region as a VCF formatted file into your working directory!
 
+* If you want to take a look at the file, and see that it's all there, you can use the '*less*' command and scroll with the 'down arrow' key to see the file itself. The screenshot below is of the first look, before you start scrolling. Notice there are A LOT of individuals (over 2,500), with names starting with '*HG*' or '*NA*'. To leave the scrolling and go back to the prompt, press '*q*':
+```{r, eval = FALSE}
+less YRI_all.vcf
+```
+
+![](YRI_all_view.png)
+<br>
+
 * Next, let's download the *ID Panel* from 1000 Genomes. This is a list of IDs associated with each genome, including their population of origin:
 ```{r, eval = FALSE}
 wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/integrated_call_samples_v3.20130502.ALL.panel
 ```
+
+* Let's take a look at this file, as well. Notice that each sample has it's sub-population ('*pop*'), population ('*super_pop*'), and gender noted here. Scroll down and take a look at what sample ID numbers are associated with your population. To leave the scrolling and go back to the prompt, press '*q*':
+```{r, eval = FALSE}
+less integrated_call_samples_v3.20130502.ALL.panel
+```
+
+![](10kg_poppanel.png)
+<br>
 
 * Now, we need to make a list of IDs just from our population of interest, so we can tell *vcftools* to only keep those individuals. Remember, mine is YRI, so I'll use that code. Where you see 'YRI' in my code, insert the three-letter code of *your* population:
 ```{r, eval = FALSE}
 grep YRI integrated_call_samples_v3.20130502.ALL.panel | cut -f1 > YRI.samples.list
 ```
 
-* Let's now load *vcftools*, which has the *--keep* option we need to use to filter out our population:
+* Let's take a quick look at our samples list. It should have a single column of sample names, and these sample names should match those you saw in your population. To leave the scrolling and go back to the prompt, press '*q*':
+```{r, eval = FALSE}
+less YRI.samples.list
+```
+
+![](YRIsampleslist.png)
+<br>
+
+* Let's now load *vcftools*, which has the *--keep* option we'll use to filter out our population:
 ```{r, eval = FALSE}
 module load vcftools
 ```
@@ -495,7 +519,13 @@ vcftools --vcf YRI_all.vcf --keep YRI.samples.list --recode --out YRI
 mv YRI.recode.vcf YRI.vcf
 ```
 
-* Great! You now have your *UCP1* data file for just your population, which should be named ***YRI.vcf*** (but with your population name)!
+* Great! You now have your *UCP1* data file for just your population, which should be named ***YRI.vcf*** (but with your population name)! If you take a look at the VCF file and scroll, you should see a list of IDs that match your samples list, meaning that the only genotypes included are those from your sample population:
+```{r, eval = FALSE}
+less YRI.vcf
+```
+
+![](YRIvcf.png)
+<br>
 
 * Once you've done this, let's also download the smaller region:
 ```{r, eval = FALSE}
