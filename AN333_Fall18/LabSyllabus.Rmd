@@ -35,8 +35,8 @@ life population genetic analyses.</li>
 
 **Material covered**: Introduction to the *1000 Genomes Project* dataset, and tutorial on using *Ensembl* to access the 1000 Genomes dataset. For illustrative purposes, we’ll focus on the *UCP1* gene, a candidate gene implicated in human obesity and metabolic disorders, which is specifically implicated in metabolic processes in humans related to the activation of brown adipose tissue (these are fat cells that actually generate heat, to keep us warm in cold weather).<br><br>
 **Readings**:<ul>
-<li>[The 1000 Genomes Project Consortium. 2015. A global reference for human genetic variation. *Nature* 526: 68-74.](https://www.nature.com/articles/nature15393)</li>
-<li>[Danecek P, Auton A, Abecasis G, Albers CA, Banks E, DePristo MA, Handsaker RE, Lunter G, Marth GT, Sherry ST, McVean G, Durbin R, 1000 Genomes Project Analysis Group. 2011. The variant call format and VCFtools. *Bioinformatics App Note* 27: 2156-2158.](https://academic.oup.com/bioinformatics/article/27/15/2156/402296)</li>
+<li>[The 1000 Genomes Project Consortium. 2015. A global reference for human genetic variation. *Nature* 526: 68-74.](https://www.nature.com/articles/nature15393)</li><br>
+<li>[Danecek P, Auton A, Abecasis G, Albers CA, Banks E, DePristo MA, Handsaker RE, Lunter G, Marth GT, Sherry ST, McVean G, Durbin R, 1000 Genomes Project Analysis Group. 2011. The variant call format and VCFtools. *Bioinformatics App Note* 27: 2156-2158.](https://academic.oup.com/bioinformatics/article/27/15/2156/402296)</li><br>
 <li>[Gonzalez-Barroso MDM, Ricquier D, Cassard-Doulcier AM. 2000. The human uncoupling protein-1 gene (UCP1): present status and perspectives in obesity research. *Obesity Rev* 1: 61-72.](https://onlinelibrary.wiley.com/doi/full/10.1046/j.1467-789x.2000.00009.x)</li></ul><br>
 **Activities**: We’ll learn how to use the *Ensembl* database to navigate our candidate gene, *UCP1*, and find more information about it. [**Each student will be assigned a single 1000 Genomes sub-population**](https://fuzzyatelin.github.io/AN333_Fall18/1KG_SubPop_Fall2018.html) that they will look at over the course of the labs, and we will use the *Data Slicer* within *Ensembl* to download data for those populations into our *SCC* accounts.<br><br>
 **Assignment**: Students must turn in a worksheet – with questions related to *UCP1* variation in humans and related to the downloaded dataset –  in class the following Monday. **Pre-Lab Homework Assignment is due today.**<br><br>
@@ -59,9 +59,9 @@ life population genetic analyses.</li>
 
 **Material covered**: Using *R* and *RStudio* via the *SCC* to run pre-written code that will perform our analyses. Assessing allelic variation in SNPs within and across populations. Testing **Hardy-Weinberg equilibrium (HWE)** and understanding what it means if violated, which involves knowing the assumptions of the model. Using downloaded candidate region data from 1000 Genomes Project to assess HWE in living human populations using a Chi-Squared test. Using *Ensembl* to obtain genotype count information in order to use the Wigginton and Cutler method of HWE calculation on selected SNPs.<br><br> 
 **Readings**:<ul> 
-<li>Chen, J. The Hardy-Weinberg Principle and Its Applications in Modern Population Genetics. *Frontiers in Biology* 5(4): 348-53.</li>
-<li>Rose, Giuseppina, *et al*. Two variants located in the upstream enhancer region of human UCP1 gene affect gene expression and are correlated with human longevity. *Experimental Gerontology* 46(11): 897-904.</li>
-<li>Wigginton JE, Cutler DJ, Abecasis GR. 2005. A note on exact tests of Hardy-Weinberg equilibrium. *Am J Hum Genet* 76: 887-893.</li></ul><br>
+<li>[Chen J. The Hardy-Weinberg Principle and Its Applications in Modern Population Genetics. *Frontiers in Biology* 5(4): 348-53.](https://link.springer.com/article/10.1007/s11515-010-0580-x)</li><br>
+<li>[Rose G, Crocco O, D'Aquila P, Montesanto A, Bellizi D, Passarino G. 2011. Two variants located in the upstream enhancer region of human UCP1 gene affect gene expression and are correlated with human longevity. *Experimental Gerontology* 46(11): 897-904.](https://www.sciencedirect.com/science/article/pii/S0531556511001987?via%3Dihub)</li><br>
+<li>[Wigginton JE, Cutler DJ, Abecasis GR. 2005. A note on exact tests of Hardy-Weinberg equilibrium. *Am J Hum Genet* 76: 887-893.](https://www.cell.com/ajhg/fulltext/S0002-9297(07)60735-6?code=ajhg-site)</li></ul><br>
 **Activities**: We will use the *R* coding language to test HWE in the dataset on *UCP1* we downloaded from *Ensembl*. We will assess whether or not SNPs in this genomic region are in Hardy-Weinberg equilibrium based on a Chi-Squared test in assigned human populations. We will then re-test selected SNPs using the "True HWE" method described in Wigginton and Cutler. We will then discuss what our results mean, in accordance with what we know about those populations, HWE, and the phenotypic effects of *UCP1*.<br><br>
 **Assignment**: Students must turn in a worksheet – with questions related to UCP1 variation in humans and related to the downloaded dataset –  in class the following Monday. **Lab 1 Homework Assignment is due today.**<br><br>
 **Learning Outcomes**:<ul>
@@ -70,6 +70,10 @@ life population genetic analyses.</li>
 <li>Perform a check on all SNPs not in Hardy-Weinberg Equilibrium by calculating "True" Hardy-Weinberg with the built-in Shiny App.</li> 
 <li>Research the consequence types of these SNPs in order to understand how these SNPs might affect the genome itself, and how they might affect genotype.</li> 
 <li>Calculate the "true" Hardy-Weinberg Equilibrium using the Shiny App for *A3826G* (SNP ID *rs1800592*), an upstream SNP that has known phenotypic consequences, and determine what the Hardy-Weinberg Equilibrium says about the population.</li>
+
+***
+
+###[Homework for Lab 2: DUE Friday, October 12th](https://fuzzyatelin.github.io/AN333_Fall18/Lab2_Homework.html)
 
 ***
 

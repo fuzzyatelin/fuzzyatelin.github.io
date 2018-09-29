@@ -1,20 +1,37 @@
 ---
 title: "Lab 2 - UCP1 Variants and Hardy-Weinberg Equilibrium"
-author: "Becca DeCamp"
+author: "Becca DeCamp & Christopher Schmitt"
 date: "6/4/2018"
 output: html_document
 ---
 ## Introduction to Hardy-Weinberg Equilibrium Lab
-<br>
-We have already discussed Hardy-Weinberg Equilibrium in class, but we haven't really linked it to population genetics yet. Today's lab will focus on the uses of Hardy-Weinberg Equilibrium in modern population genetics as we use R to look at Hardy-Weinberg Equilibrium in our assigned populations. 
+
+***
+
+**Readings**:<ul> 
+<li>[Chen J. The Hardy-Weinberg Principle and Its Applications in Modern Population Genetics. *Frontiers in Biology* 5(4): 348-53.](https://link.springer.com/article/10.1007/s11515-010-0580-x)</li><br>
+<li>[Rose G, Crocco O, D'Aquila P, Montesanto A, Bellizi D, Passarino G. 2011. Two variants located in the upstream enhancer region of human UCP1 gene affect gene expression and are correlated with human longevity. *Experimental Gerontology* 46(11): 897-904.](https://www.sciencedirect.com/science/article/pii/S0531556511001987?via%3Dihub)</li><br>
+<li>[Wigginton JE, Cutler DJ, Abecasis GR. 2005. A note on exact tests of Hardy-Weinberg equilibrium. *Am J Hum Genet* 76: 887-893.](https://www.cell.com/ajhg/fulltext/S0002-9297(07)60735-6?code=ajhg-site)</li></ul>
+
+***
+
+We have already discussed Hardy-Weinberg Equilibrium in class, but we haven't really linked it to population genetics yet. Today's lab will focus on the uses of Hardy-Weinberg Equilibrium in modern population genetics as we use *R* to look at Hardy-Weinberg Equilibrium in our assigned populations. 
 <br>
 
 ### Hardy-Weinberg Equilibrium in Population Genetics
 <br>
-In modern population genetics studies, Hardy-Weinberg Equilibrium has a slightly different meaning than what we have talked about in class. A population that is in true Hardy-Weinberg Equilibrium has to fit five conditions: The population must be extremely large, it must be isolated from other populations, there must be no mutations, there must be random mating, and there must be no natural selection. Obviously, holding a population of any species to this standard is impossible, so we will use Hardy-Weinberg differently in our population genetics study. 
+In modern population genetics studies, Hardy-Weinberg Equilibrium has a slightly different meaning than what we have talked about so far in class. A population that is in true Hardy-Weinberg Equilibrium has to fit five conditions: 
+
+* the population must be extremely large (no genetic drift)
+* it must be isolated from other populations (no gene flow)
+* there must be no mutations
+* there must be random mating (no assortative mating or sexual selection)
+* there must be no natural selection
+
+Obviously, holding a population of any species to this standard is pretty much impossible, so we will use Hardy-Weinberg differently to understand real populations (like humans) in our own population genetics study. 
 <br>
 <br>
-You will often see Hardy-Weinberg Equilibrium being used in modern population genetics to simply measure whether the observed genotype frequencies of a specific SNP or microsatellite are the same as the estimated genotype frequencies. Population geneticists will often use this measure of deviance as a "starting point," so to speak, for their studies. They use Hardy-Weinberg as their starting point for a few reasons; to check the genotype quality of their data, to get a general sense of the amount of allelic variability and selection happening at specific loci, or, most commonly, as an assumption about the frequency of disease causing genotypes. The assigned Rose et al. paper use Hardy- Weinberg in the latter manner as a check to make sure there was no selection happening at the two loci they looked at.
+You will often see Hardy-Weinberg Equilibrium being used in modern population genetics to simply measure whether the observed genotype frequencies of a specific SNP or microsatellite are the same as the estimated genotype frequencies. Population geneticists will often use this measure of deviance as a "starting point," so to speak, for their studies. They use Hardy-Weinberg as their starting point for a few reasons; to check the genotype quality of their data, to get a general sense of the amount of allelic variability and selection happening at specific loci, or, most commonly, as an assumption about the frequency of disease causing genotypes in their population. The assigned Rose et al. (2011) paper use Hardy- Weinberg in the latter manner as a check to make sure there was no selection happening at the two loci they looked at.
 <br>
 <br>
 In order to determine how much the observed phenotype deviates from the espected phenotype, a statistical test called a Chi Square Goodness Of Fit test is usually performed, the output of which is a P-value that will tell you how much the observed genotype frequency deviates from the expected frequency. However, we learned from the Wigginton reading that the Chi Square test has a tendency to give false positives. In their paper, they proposed a new mathematical method of calculating the "True" Hardy-Weinberg value, which fixes the problem of false positives. We will not need to get in to the specifics of the equation to calculate the "True" Hardy-Weinberg Equilibrium, but you will be calculating your population's "True" Hardy-Weinberg Equilibrium as well as using a traditional Chi Square test. 
