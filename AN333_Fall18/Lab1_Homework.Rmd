@@ -9,6 +9,15 @@ output: html_document
 
 <br>
 
+***
+
+**Readings**:<ul>
+<li>[The 1000 Genomes Project Consortium. 2015. A global reference for human genetic variation. *Nature* 526: 68-74.](https://www.nature.com/articles/nature15393)</li>
+<li>[Danecek P, Auton A, Abecasis G, Albers CA, Banks E, DePristo MA, Handsaker RE, Lunter G, Marth GT, Sherry ST, McVean G, Durbin R, 1000 Genomes Project Analysis Group. 2011. The variant call format and VCFtools. *Bioinformatics App Note* 27: 2156-2158.](https://academic.oup.com/bioinformatics/article/27/15/2156/402296)</li>
+<li>[Gonzalez-Barroso MDM, Ricquier D, Cassard-Doulcier AM. 2000. The human uncoupling protein-1 gene (UCP1): present status and perspectives in obesity research. *Obesity Rev* 1: 61-72.](https://onlinelibrary.wiley.com/doi/full/10.1046/j.1467-789x.2000.00009.x)</li></ul>
+
+***
+
 ![](1KGheader.png)
 <br>
 <br>
@@ -26,7 +35,7 @@ To make things easier, I've also created an online interface where you can answe
 Go to the *Ensembl* web page for the gene *UCP1*, and look at the *variant table*.<br> 
 
 * How many variants code for an inframe deletion within the coding region of *UCP1*?
-* Sort the SNPs by base pair location from first to last (e.g., lowest bp number to highest on chromosome 4), and list the first *five* variants (if there are less than five, list them all).
+* Sort the variants by base pair location from first to last (e.g., lowest bp number to highest on chromosome 4), and list the first *five* variants (if there are less than five, list them all).
 * What is the average number of base pairs deleted in your list of variants?
 * Are any of these deletion variants (e.g., the minor, deleted genotype) present in *your* 1000 Genomes study population?
 * How many individuals in *your* 1000 Genomes population have the *deleted*, or minor allele at each variant site?
