@@ -1,10 +1,11 @@
 ---
 title: "Lab 2 - UCP1 Variants and Hardy-Weinberg Equilibrium"
 author: "Becca DeCamp & Christopher Schmitt"
-date: "6/4/2018"
+date: "October 5, 2018"
 output: html_document
+runtime: shiny
 ---
-## Introduction to Hardy-Weinberg Equilibrium Lab
+## Introduction to Hardy-Weinberg Equilibrium
 
 ***
 
@@ -31,10 +32,10 @@ In modern population genetics studies, Hardy-Weinberg Equilibrium has a slightly
 Obviously, holding a population of any species to this standard is pretty much impossible, so we will use Hardy-Weinberg differently to understand real populations (like humans) in our own population genetics study. 
 <br>
 <br>
-You will often see Hardy-Weinberg Equilibrium being used in modern population genetics to simply measure whether the observed genotype frequencies of a specific SNP or microsatellite are the same as the estimated genotype frequencies. Population geneticists will often use this measure of deviance as a "starting point," so to speak, for their studies. They use Hardy-Weinberg as their starting point for a few reasons; to check the genotype quality of their data, to get a general sense of the amount of allelic variability and selection happening at specific loci, or, most commonly, as an assumption about the frequency of disease causing genotypes in their population. The assigned Rose et al. (2011) paper use Hardy- Weinberg in the latter manner as a check to make sure there was no selection happening at the two loci they looked at.
+You will often see Hardy-Weinberg Equilibrium being used in modern population genetics to simply measure whether the observed genotype frequencies of a specific SNP or microsatellite are the same as the estimated genotype frequencies. Population geneticists will often use this measure of deviance as a "starting point," so to speak, for their studies. They use Hardy-Weinberg as their starting point for a few reasons; to check the genotype quality of their data, to get a general sense of the amount of allelic variability and selection happening at specific loci, or, most commonly, as an assumption about the frequency of disease causing genotypes in their population. The assigned [Rose et al. (2011)](https://www.sciencedirect.com/science/article/pii/S0531556511001987?via%3Dihub) paper uses Hardy-Weinberg in the latter manner, as a check to make sure there was no selection happening at their two loci of interest.
 <br>
 <br>
-In order to determine how much the observed phenotype deviates from the espected phenotype, a statistical test called a Chi Square Goodness Of Fit test is usually performed, the output of which is a P-value that will tell you how much the observed genotype frequency deviates from the expected frequency. However, we learned from the Wigginton reading that the Chi Square test has a tendency to give false positives. In their paper, they proposed a new mathematical method of calculating the "True" Hardy-Weinberg value, which fixes the problem of false positives. We will not need to get in to the specifics of the equation to calculate the "True" Hardy-Weinberg Equilibrium, but you will be calculating your population's "True" Hardy-Weinberg Equilibrium as well as using a traditional Chi Square test. 
+In order to determine how much the observed phenotype deviates from the expected phenotype, we've been using a *Chi-Squared Goodness-of-Fit test*, the output of which is a *P-value* that will tell you how much the observed genotype frequency deviates from the expected frequency. However, we learned from the [Wigginton reading](https://www.cell.com/ajhg/fulltext/S0002-9297(07)60735-6?code=ajhg-site) that the Chi-Squared test has a tendency to give false positives, meaning it will tell us something is significantly different when it's actually not; this is also called a *Type I Error*). In their paper, they propose a new mathematical method of calculating the "True" Hardy-Weinberg value, which fixes the problem of false positives. We will not need to get in to the specifics of the equation to calculate the "True" Hardy-Weinberg Equilibrium, but you will be calculating your population's "True" Hardy-Weinberg Equilibrium as well as using a traditional Chi-Squared test. 
 <br>
 <br>
 Now that we have learned more about the applications of Hardy-Weinberg Equilibrium in modern population genetics, let's get to the lab! 
@@ -42,41 +43,33 @@ Now that we have learned more about the applications of Hardy-Weinberg Equilibri
 
 ### Learning Outcomes
 <br>
-* Use the SCC and R coding language to observe and understand population differences in UCP1 variation.
+* Use the *SCC* and *R* coding language to observe and understand population differences in *UCP1* variation.
 
-* Calculate Hardy-Weinberg Equilibrium for all UCP1 SNPs in individual populations using a traditional Chi Square test.
+* Calculate Hardy-Weinberg Equilibrium for all *UCP1* SNPs in individual populations using a traditional Chi-Squared test.
 
-* Perform a check on all SNPs not in Hardy-Weinberg Equilibrium by calculating "True" Hardy-Weinberg with the built-in Shiny App. 
+* Perform a check on all SNPs *not* in Hardy-Weinberg Equilibrium by calculating "True" Hardy-Weinberg with the built-in *Shiny App*. 
 
-* Research the consequence types of these SNPs in order to understand how these SNPs might affect the genome itself, and how they might affect genotype. 
+* Research the consequence types of these SNPs in order to better understand *how* these SNPs might affect the genome itself, and also how they might affect subsequent phenotypes. 
 
-* Calculate the "True" Hardy-Weinberg Equilibrium using the Shiny App for A-3826G (SNP ID rs1800592), an upstream SNP that has known phenotypic consequences, and determine what the Hardy-Weinberg Equilibrium says about the population. 
+* Calculate the "True" Hardy-Weinberg Equilibrium using the *Shiny App* for *A-3826G* (SNP ID *rs1800592*), an upstream SNP that has known phenotypic consequences, and determine what the Hardy-Weinberg Equilibrium says about the population. 
 <br> 
 
-## Step 1: Accessing Rstudio and Your Data
+## Step 1: Accessing *R Studio* and your Data
 <br>
-The first thing we need to do is access RStudio. If you remember from the tutorial, there are a few steps you need to do in order to log in. First, log in to SCC and enter your password: 
-<br>
-```{bash, eval = F, echo = T}
-ssh -Y username@scc1.bu.edu
-```
+The first thing we need to do is access *R Studio* within the *SCC* environment. If you remember from the tutorial, there are a few steps you need to do in order to log in. 
 
-Then, go to your directory: 
-<br>
-```{bash, eval = F, echo = T}
-cd /project/anth333/yourfilename
-```
-Your VCF file should be in there from last time. 
+* First, log in to SCC and enter your password.
 
+* Your VCF file should be in there from last time. 
+
+* *R Studio* needs a few *modules* loaded before it can be opened. Use the following commands to get *R Studio* going: 
 <br>
-Finally, open up R Studio with the following commands: 
-<br>
+
 ```{bash, eval = F, echo = T}
 module load gcc #we need this module to load R packages
 module load R
 rstudio #this will launch R Studio
 ```
-
 
 ## Step 2: Calculating Hardy-Weinberg Equilibrium Using Chi-Square
 <br> 
@@ -105,7 +98,7 @@ Now that we have all our packages loaded, we can get to the analysis! In the "fi
  YRI <- read.vcfR("YRI.vcf.gz", verbose = TRUE)
 ```
 
-This will give you a file in your workspace called a "vcfR" file, because we used a function from the vcfR package to load our data. Most genetics-based packages have their own way of formatting and working with genetic data. When working with these packages, you often have to convert from one format to another if you want to use functions from different packages to do your analysis. Therefore, the next line of code will seem a little counterintuitive, because we have to change the format of the file to work with functions in the Pegas package. But, the good news is that doing this will not delete the original file (as long as you name the file something different), so we can use the vcfR file again. The type of file we have to convert to is called "genind," so we will do that here: 
+This will give you a file in your workspace called a *vcfR* file, because we used a function from the vcfR package to load our data. Most genetics-based packages have their own way of formatting and working with genetic data. When working with these packages, you often have to convert from one format to another if you want to use functions from different packages to do your analysis. Therefore, the next line of code will seem a little counterintuitive, because we have to change the format of the file to work with functions in the Pegas package. But, the good news is that doing this will not delete the original file (as long as you name the file something different), so we can use the vcfR file again. The type of file we have to convert to is called "genind," so we will do that here: 
 <br>
 ```{r}
 pegas.YRI <- vcfR2genind(YRI, sep = "[|/]")
