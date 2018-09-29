@@ -5,7 +5,12 @@ output: html_document
 ---
 
 ## Introduction to the International Genome Sample Resource (Formerly known as the 1000 Genomes Project)
-<br>
+
+***
+
+###[Homework for Lab 1: DUE Friday, October 5th](https://fuzzyatelin.github.io/AN333_Fall18/Lab1_Homework.html)
+
+***
 
 ![](1KGheader.png)
 <br>
@@ -49,7 +54,7 @@ Below is a map of the current populations represented in the 1000 Genomes datase
 * <b>PJL</b> - Punjabi from Lahore, Pakistan
 * <b>BEB</b> - Bengali from Bangladesh
 * <b>STU</b> - Sri Lankan Tamil in the UK
-* <b>ITU</b> - Undian Telugu in the UK
+* <b>ITU</b> - Indian Telugu in the UK
 <br>
 
 One last thing to note is that each of these populations falls under a "super population" which denotes the general area of the world each population is from. Many times, you will see information split up by these super populations instead of by each individual population. These super populations are as follows: 
@@ -350,6 +355,10 @@ If this hasn't worked and *Data Slicer* is giving you some kind of error message
 
 Now, some students have noticed that this second process literally takes forever... in that case, if all else fails... we'll use ***Tabix***!
 
+<br>
+<br>
+<br>
+
 #####***Data Slicer WINS!***
 
 * Hit the "run" button at the bottom of the page.
@@ -532,7 +541,18 @@ less YRI.vcf
 tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/GRCh38_positions/ALL.chr4_GRCh38.genotypes.20170504.vcf.gz 4:140560308-140564106 > YRIsmall_all.vcf
 ```
 
-* Use the same post-download processing to subset this smaller regional dataset in the same way as the larger, name the final file ***YRIsmall.vcf*** (with your own population name, of course), and you're finished!
+* And then let's use the same post-download processing to subset this smaller regional dataset in the same way as the larger, name the final file ***YRIsmall.vcf*** (with your own population name, of course):
+
+```{r, eval = FALSE}
+vcftools --vcf YRIsmall_all.vcf --keep YRI.samples.list --recode --out YRIsmall
+```
+
+* My *new* VCF file is called ***YRI.recode.vcf***. Again, yours should be similar but with *your* population three-letter name. Rename this, as follows:
+```{r, eval = FALSE}
+mv YRIsmall.recode.vcf YRIsmall.vcf
+```
+
+* YAY! You're finished!
 <br>
 <br> 
 

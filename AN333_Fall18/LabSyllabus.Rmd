@@ -1,7 +1,7 @@
 ---
 title: 'AN333/733: Lab Syllabus'
 author: "Christopher A Schmitt"
-date: "September 25, 2018"
+date: "September 28, 2018"
 output: html_document
 ---
 
@@ -45,6 +45,10 @@ life population genetic analyses.</li>
 <li>Learn about the public data on human genomes available via the 1000 Genomes Project, and how to access it via *Ensembl*.</li>
 <li>Learn about the role of *UCP1* variation in humans, and how it is implicated in thermoregulation, brown adipose tissue, and whether and how it may be involved in human evolution and clinical medicine.</li>
 <li>Learn how to download specific regions of genomic data – or candidate gene regions – from 1000 Genome populations in VCF format using the *Data Slicer* in *Ensembl* and move them on to the *SCC*.</li>
+
+***
+
+###[Homework for Lab 1: DUE Friday, October 5th](https://fuzzyatelin.github.io/AN333_Fall18/Lab1_Homework.html)
 
 ***
 
