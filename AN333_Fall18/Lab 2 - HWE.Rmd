@@ -3,6 +3,7 @@ title: "Lab 2 - UCP1 Variants and Hardy-Weinberg Equilibrium"
 author: "Becca DeCamp & Christopher Schmitt"
 date: "October 5, 2018"
 output: html_document
+runtime: shiny
 ---
 ## Introduction to Hardy-Weinberg Equilibrium (using Human Genome Data)
 
@@ -152,7 +153,7 @@ No more coding will happen in this lab tutorial. Instead, you will be interactin
 
 ```{r, eval=T,echo=F}
 library(shiny)
-runGitHub("fuzzyatelin.github.io","fuzzyatelin")
+runGitHub("sososhiny","fuzzyatelin",subdir="shiny_HWE/")
 
 ```
 
