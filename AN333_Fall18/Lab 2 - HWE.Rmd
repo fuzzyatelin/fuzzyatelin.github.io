@@ -5,7 +5,7 @@ date: "October 5, 2018"
 output: html_document
 runtime: shiny
 ---
-## Introduction to Hardy-Weinberg Equilibrium
+## Introduction to Hardy-Weinberg Equilibrium (using Human Genome Data)
 
 ***
 
@@ -71,12 +71,12 @@ module load R
 rstudio #this will launch R Studio
 ```
 
-## Step 2: Calculating Hardy-Weinberg Equilibrium Using Chi-Square
+## Step 2: Calculating Hardy-Weinberg Equilibrium Using Chi-Squared
 <br> 
-Now that we are in R Studio and have our data, we can get started. The first thing we need to do here is install two packages. 
+Now that we are in *R Studio* and have our data in place in our working directory (from Lab 1), we can get started. The first thing we need to do here is install two *packages*. 
 <br>
 <br>
-Put simply, packages are bundles of functions that R users have written to perform analyses that do not come with the base program. In this class we will be using packages that were designed for population genetics analysis. To install these packages, run these two lines of code in the console: 
+In *R* space, packages are essentially bundles of functions that *R* users have written to perform analyses that do not come with the base program. In this class we will be using packages that were designed specifically for population genetics analysis. To install these packages, run these two lines of code in the console: 
 <br>
 ```{r, eval=F, echo=T}
 install.packages("vcfR")
@@ -90,15 +90,21 @@ library(vcfR)
 library(pegas)
 ```
 
-Now that we have all our packages loaded, we can get to the analysis! In the "files" tab in the bottom left quadrant, you should see the VCF files we downloaded in your folder. We will be working with the larger VCF file today. We will need to load this file in to our workspace much like we did with our R packages. Unlike the packages, however, we need to give a name to the file. To make things simple, it would be a good idea to name this fiile in accordance with the acronym of your population. I will use the YRI population as an example: 
+Now that we have all our packages loaded, we can get to the analysis! In the "files" tab in the bottom left quadrant, you should see the VCF files we downloaded in your folder. We will be working with the larger VCF file today. We will need to load this file in to our workspace much like we did with our R packages. Unlike the packages, however, we need to give a name to the file. To make things simple, it would be a good idea to name this fiile in accordance with the acronym of your population. I will use the YRI population as an example. Use one of the two options below to enter your VCF data into the *R* space: 
 <br>
-```{r, echo=T, results='hide'}
-#Note that, while I have the .gz extension on my file, you may not. If your file is just .vcf, that's all you need to put in. 
+```{r, echo=F, results='hide'}
+#If your file is zipped (e.g., ends in '.vcf.gz') then use this code:
 
- YRI <- read.vcfR("YRI.vcf.gz", verbose = TRUE)
+YRI <- read.vcfR("YRI.vcf.gz", verbose = TRUE)
 ```
 
-This will give you a file in your workspace called a *vcfR* file, because we used a function from the vcfR package to load our data. Most genetics-based packages have their own way of formatting and working with genetic data. When working with these packages, you often have to convert from one format to another if you want to use functions from different packages to do your analysis. Therefore, the next line of code will seem a little counterintuitive, because we have to change the format of the file to work with functions in the Pegas package. But, the good news is that doing this will not delete the original file (as long as you name the file something different), so we can use the vcfR file again. The type of file we have to convert to is called "genind," so we will do that here: 
+```{r, echo=T, results='hide'}
+#If your file is unzipped (e.g., ends in just '.vcf') then use this code:
+
+YRI <- read.vcfR(YRI.vcf, verbose = TRUE)
+```
+
+This will give you a file in your workspace called a *vcfR* file. Most genetics-based packages have their own way of formatting and working with genetic data, and this is the format *R* can use. The next line of code will seem a little counterintuitive, because we have to change the format of the file *again* to work with functions in the *pegas* package. Doing this will not delete the original file (as long as you name the file something different), so we can use the *vcfR* file again in later analyses. The type of file we have to convert to for *pegas* is called "genind," so we will do that here: 
 <br>
 ```{r}
 pegas.YRI <- vcfR2genind(YRI, sep = "[|/]")
