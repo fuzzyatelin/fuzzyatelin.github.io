@@ -1,4 +1,4 @@
-shinyApp(
+library(shiny)
   
   ui <- fluidPage(
     
@@ -35,7 +35,8 @@ shinyApp(
         
       )
     )
-  ),
+  )
+  
   server = function(input, output) {
     
     output$HWE <- renderText({if (input$hom1 < 0 || input$hom2 < 0 || input$hetero < 0)
@@ -105,4 +106,5 @@ shinyApp(
       p <- min(1.0, sum(probs[probs <= target])/ mysum)})
     
   }
-)
+
+  shinyApp(ui=ui,server=server)
