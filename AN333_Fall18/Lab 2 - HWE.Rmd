@@ -92,16 +92,16 @@ library(pegas)
 
 Now that we have all our packages loaded, we can get to the analysis! In the "files" tab in the bottom left quadrant, you should see the VCF files we downloaded in your folder. We will be working with the larger VCF file today. We will need to load this file in to our workspace much like we did with our R packages. Unlike the packages, however, we need to give a name to the file. To make things simple, it would be a good idea to name this fiile in accordance with the acronym of your population. I will use the YRI population as an example. Use one of the two options below to enter your VCF data into the *R* space: 
 <br>
-```{r, echo=F, results='hide'}
+```{r, echo=T, results='hide'}
 #If your file is zipped (e.g., ends in '.vcf.gz') then use this code:
 
 YRI <- read.vcfR("YRI.vcf.gz", verbose = TRUE)
 ```
 
-```{r, echo=T, results='hide'}
+```{r, eval = F, echo=T, results='hide'}
 #If your file is unzipped (e.g., ends in just '.vcf') then use this code:
 
-YRI <- read.vcfR(YRI.vcf, verbose = TRUE)
+YRI <- read.vcfR(YRI.vcf, verbose = FALSE)
 ```
 
 This will give you a file in your workspace called a *vcfR* file. Most genetics-based packages have their own way of formatting and working with genetic data, and this is the format *R* can use. The next line of code will seem a little counterintuitive, because we have to change the format of the file *again* to work with functions in the *pegas* package. Doing this will not delete the original file (as long as you name the file something different), so we can use the *vcfR* file again in later analyses. The type of file we have to convert to for *pegas* is called "genind," so we will do that here: 
@@ -110,48 +110,46 @@ This will give you a file in your workspace called a *vcfR* file. Most genetics-
 pegas.YRI <- vcfR2genind(YRI, sep = "[|/]")
 ```
 
-Finally, now that we have our data in the format that we need, we can do our Hardy-Weinberg tests. This function will test whether all of your population's SNPs in the coding region of UCP1 are in Hardy-Weinberg Equilibrium. As an example, I will run the funtion with my pegas.YRI file. Remember to save your results by assigning them a name:
+Finally, now that we have our data in the format that we need, we can do our Hardy-Weinberg tests. This function will test whether *all* of your population's SNPs in the coding region of *UCP1* are in Hardy-Weinberg Equilibrium. As an example, I will run the funtion with my *pegas.YRI* file. Remember to save your results by assigning them a name:
 <br>
 ```{r}
 HWE <- hw.test(pegas.YRI, B = 0) #B MUST equal 0 here, changing this value will affect the result!
 HWE #Running the name of your results file will print the results
 ```
 
-What you'll get is this table. On the right is a list of P-values. Look over your P-values to see if any of them are significant (< 0.05). If any of your P-values are significant, this means that that SNP is not in Hardy-Weinberg Equilibrium! Record the SNP ID numbers that have significant P-values, because they will be important for what we do next. 
+What you'll get is this table. On the right is a list of P-values. Look over your P-values to see if any of them are significant (p < 0.05). If any of your P-values *are* significant, this means that that SNP is not in Hardy-Weinberg Equilibrium! Record the SNP ID numbers that have significant P-values, because they will be important for what we do next. 
 <br>
 <br>
-Hopefully, some of you have found that there are SNPs in your population that are not in Hardy-Weinberg Equilibrium. That's exciting! But, think back to the Wigginton paper. There is a large Type 1 Error rate for Hardy-Weinberg tests performed by using a Chi-Square test. Therefore, we will test our significant SNPs for type 1 error using the Shiny App calculator I created. Here's how we will do that: 
+Hopefully, some of you have found that there are SNPs in your population that are not in Hardy-Weinberg Equilibrium. That's exciting! But, think back to the Wigginton paper. There is a large *Type 1 Error* rate for Hardy-Weinberg tests performed by using a Chi-Squared test. To account for this, we will test our significant SNPs for Type 1 Error using the Shiny App calculator Becca De Camp created for us. Here's how we will do that: 
 
 ## Step 3: Finding the "True" Hardy-Weinberg Equilibrium
 <br>
-No more coding will happen in this lab. Instead, you will be interacting with a user interface that was created to calculate "true" Hardy-Weinberg Equilibrium P-values for one SNP at a time. The input for this UI will be the genotype frequencies from your population (i.e. the number of people from the population with the heterozygous genotype, the number of people with one homozygous genotype, etc.). You will find this information on Ensembl by doing the following: 
+No more coding will happen in this lab tutorial. Instead, you will be interacting with a user interface on this webpage that was created to calculate "true" Hardy-Weinberg Equilibrium P-values for one SNP at a time. The input for this UI will be the genotype frequencies from your population (i.e. the number of people from the population with the heterozygous genotype, the number of people with one homozygous genotype, etc.). You will find this information on *Ensembl* by doing the following: 
 <br> 
 
-* Make a shortlist of FOUR SNP ID numbers of the SNPs that you found not to be in Hardy-Weinberg Equilibrium. When making this list, check the 'degrees of freedom,' column. This UI will only accept SNPs with only two alleles, or one degree of freedom. Therefore, even though there are SNPs with more than two alleles that are not in Hardy-Weinberg Equilibrium, we will ignore them for now. If you do NOT have FOUR SNPs that meet these criteria, fill in your list with SNPs at random. Ultimately, EVERYONE should be looking at FOUR SNPs each. 
+* Make a shortlist of ***FOUR*** SNP ID numbers of the SNPs that you found *not* to be in Hardy-Weinberg Equilibrium. When making this list, check the *degrees of freedom*, column. This UI will only accept SNPs with only *two* alleles, or *one* degree of freedom. Therefore, even though there are SNPs with more than two alleles that are not in Hardy-Weinberg Equilibrium, please ignore them for now. If you do *not* have four SNPs that meet these criteria, fill in your list with SNPs at random. Ultimately, EVERYONE should be looking at FOUR SNPs each. 
 
-* Go to the UCP1 gene page on Ensembl and click on the "Variant table" tab so you get this familiar page: 
-<br>
+* Go to the *UCP1* gene page on *Ensembl* and click on the *Variant table* tab so you get this familiar page: 
 
-![](variantpage.png)
-<br>
-
-* In the search bar at the top right of the variant table, type in the SNP ID number for one of your SNPs that's not in Hardy-Weinberg Equilibrium and search it. I will use the SNP rs6818140 to demonstrate this. 
+* In the search bar at the top right of the variant table, type in the SNP ID number for one of your SNPs that's not in Hardy-Weinberg Equilibrium and search it. I will use the SNP **rs6818140** to demonstrate this. 
 <br> 
 
 ![](rs6818140.png)
 <br>
 
-* When you have found your SNP in the table, you should first make note of the consequence type of the SNP. For example, rs6818140 is an intron variant. How do you think the consequence type will affect the kind of SNP? 
+* When you have found your SNP in the table, you should first make note of the consequence type of the SNP. For example, *rs6818140* is an intron variant. How do you think the consequence type will affect the phenotypic outcome of this SNP? 
 
-* Next, click on the SNP ID to get to the SNP page. From there, click on the "Population Genetics" tab to get the population genetics table. 
+* Next, click on the SNP ID to get to the SNP page. From there, click on the *Population Genetics* tab to get the population genetics table. 
 
-* Find the "Genotype Frequency" column in this table: 
+* Find the *Genotype Frequency* column in this table: 
 <br>
 
 ![](genotypefreq.png)
 <br>
 
-* Find your population in the table. Record the genotype frequency count numbers (heterozygous, homozygous 1 and homozygous 2). These will be your input to the UI below. Using this method, find these genotype frequencies for each SNP you want to test. 
+* Find *your* population in the table. Record the genotype frequency count numbers (heterozygous, homozygous 1 and homozygous 2). These will be your input to the UI below. Using this method, find these genotype frequencies for each SNP you want to test.
+
+* NOTE: before you've entered any data into the UI, it will show a result error ("Error: missing value where TRUE/FALSE needed"). This just means there's nothing entered yet. Once you've entered your genotype counts, that error message will be replaced by the calculated "True" Hardy-Weinberg Equilibrium P-value for your SNP.
 
 ```{r, echo=F}
 library(shiny)
@@ -270,7 +268,7 @@ server = function(input, output) {
 Record your results, and make sure to record the SNP ID of each SNP you are testing. The last thing we'll do is think about what the calculations you did today mean. 
 <br>
 
-## Step 4: What Do Your Results Mean? Discuss with a partner: 
+## Step 4: What Do Your Results Mean? Discuss with a partner from class: 
 <br>
 
 Think about the results you produced today in the context of your population. Here are some guiding questions to help you: 
@@ -278,4 +276,4 @@ Think about the results you produced today in the context of your population. He
 
 * If your population had SNPs that were not in Hardy-Weinberg Equilibrium, what kind of consequence did the SNP(s) have? How would that consequence type affect the phenotype? 
 
-* Does a SNP not being in Hardy-Weinberg Equilibrium mean that evolutionary forces are acting on it? How might evolutionary forces be acting on UCP1 if a SNP is not in Hardy-Weinberg Equilibrium? 
+* Does a SNP not being in Hardy-Weinberg Equilibrium mean that evolutionary forces are acting on it? How might evolutionary forces be acting on *UCP1* if a SNP is *not* in Hardy-Weinberg Equilibrium? 
