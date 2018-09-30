@@ -3,7 +3,6 @@ title: "Lab 2 - UCP1 Variants and Hardy-Weinberg Equilibrium"
 author: "Becca DeCamp & Christopher Schmitt"
 date: "October 5, 2018"
 output: html_document
-runtime: shiny
 ---
 ## Introduction to Hardy-Weinberg Equilibrium (using Human Genome Data)
 
@@ -151,7 +150,12 @@ No more coding will happen in this lab tutorial. Instead, you will be interactin
 
 * NOTE: before you've entered any data into the UI, it will show a result error ("Error: missing value where TRUE/FALSE needed"). This just means there's nothing entered yet. Once you've entered your genotype counts, that error message will be replaced by the calculated "True" Hardy-Weinberg Equilibrium P-value for your SNP.
 
-```{r, eval=T,echo=F}
+```{r,echo=F}
+library(knitr)
+include_app("https://fuzzyatelin.shinyapps.io/shiny_HWE/")
+```
+
+```{r, eval=F,echo=F}
 library(shiny)
 runGitHub("sososhiny","fuzzyatelin",subdir="shiny_HWE/")
 
