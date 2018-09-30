@@ -151,7 +151,13 @@ No more coding will happen in this lab tutorial. Instead, you will be interactin
 
 * NOTE: before you've entered any data into the UI, it will show a result error ("Error: missing value where TRUE/FALSE needed"). This just means there's nothing entered yet. Once you've entered your genotype counts, that error message will be replaced by the calculated "True" Hardy-Weinberg Equilibrium P-value for your SNP.
 
-```{r, echo=F}
+```{r, eval=T,echo=F}
+library(shiny)
+runGitHub("shiny_HWE","fuzzyatelin",subdir="fuzzyatelin.github.io/AN333_Fall2018/")
+
+```
+
+```{r, eval=F,echo=F}
 library(shiny)
 shinyApp(
    
