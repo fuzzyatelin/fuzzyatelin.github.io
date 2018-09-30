@@ -153,7 +153,7 @@ No more coding will happen in this lab tutorial. Instead, you will be interactin
 
 ```{r, eval=T,echo=F}
 library(shiny)
-runGitHub("shiny_HWE","fuzzyatelin",subdir="fuzzyatelin.github.io/AN333_Fall2018/")
+runGitHub("fuzzyatelin.github.io","fuzzyatelin",subdir = "AN333_Fall2018/shiny_HWE")
 
 ```
 
