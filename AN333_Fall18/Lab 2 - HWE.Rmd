@@ -67,7 +67,7 @@ The first thing we need to do is access *R Studio* within the *SCC* environment.
 ```{bash, eval = F, echo = T}
 module load gcc #we need this module to load R packages
 module load R
-rstudio #this will launch R Studio
+rstudio & #this will launch R Studio
 ```
 
 ## Step 2: Calculating Hardy-Weinberg Equilibrium Using Chi-Squared
