@@ -191,7 +191,7 @@ library(pegas)</code></pre>
 YRI &lt;- read.vcfR(&quot;YRI.vcf.gz&quot;, verbose = TRUE)</code></pre>
 <pre class="r"><code>#If your file is unzipped (e.g., ends in just '.vcf') then use this code:
 
-YRI &lt;- read.vcfR(YRI.vcf, verbose = FALSE)</code></pre>
+YRI &lt;- read.vcfR(&quot;YRI.vcf&quot;&quot;, verbose = TRUE)</code></pre>
 <p>This will give you a file in your workspace called a <em>vcfR</em> file. Most genetics-based packages have their own way of formatting and working with genetic data, and this is the format <em>R</em> can use. The next line of code will seem a little counterintuitive, because we have to change the format of the file <em>again</em> to work with functions in the <em>pegas</em> package. Doing this will not delete the original file (as long as you name the file something different), so we can use the <em>vcfR</em> file again in later analyses. The type of file we have to convert to for <em>pegas</em> is called “genind,” so we will do that here: <br></p>
 <pre class="r"><code>pegas.YRI &lt;- vcfR2genind(YRI, sep = &quot;[|/]&quot;)</code></pre>
 <p>Finally, now that we have our data in the format that we need, we can do our Hardy-Weinberg tests. This function will test whether <em>all</em> of your population’s SNPs in the coding region of <em>UCP1</em> are in Hardy-Weinberg Equilibrium. As an example, I will run the funtion with my <em>pegas.YRI</em> file. Remember to save your results by assigning them a name: <br></p>
