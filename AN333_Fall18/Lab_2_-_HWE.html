@@ -405,7 +405,13 @@ HWE #Running the name of your results file will print the results</code></pre>
 ## rs200045723 0.000000e+00  0  1.00000000
 ## rs73856656  1.494810e+00  1  0.22147171
 ## rs144172393 1.211511e-01  1  0.72778940</code></pre>
-<p>What you’ll get is this table. On the right is a list of P-values. Look over your P-values to see if any of them are significant (p &lt; 0.05). If any of your P-values <em>are</em> significant, this means that that SNP is not in Hardy-Weinberg Equilibrium! Record the SNP ID numbers that have significant P-values, because they will be important for what we do next. <br> <br> Hopefully, some of you have found that there are SNPs in your population that are not in Hardy-Weinberg Equilibrium. That’s exciting! But, think back to the Wigginton paper. There is a large <em>Type 1 Error</em> rate for Hardy-Weinberg tests performed by using a Chi-Squared test. To account for this, we will test our significant SNPs for Type 1 Error using the Shiny App calculator Becca De Camp created for us. Here’s how we will do that:</p>
+<p>What you’ll get is this table. In your <em>TERMINAL</em> space, open the text editor program <em>gedit</em>:</p>
+<pre class="bash"><code>gedit &amp;</code></pre>
+<p>Once it’s open, go back to your <em>R Studio</em> space and scroll over your results table to highlight them. Copy them using ‘ctrl C’, paste them into <em>gedit</em>, and save them as a file named “<strong>YRI.HWE.txt</strong>” (but with <em>your</em> population name instead of YRI). Now, you’ll have a saved copy of the results of your HWE analysis of all the variants in <em>UCP1</em> for your population in your workspace! <br> <br> If you’ve got the text file saved, you can close <em>R Studio</em> and complete the rest of this exercise using the analysis results in the text file. You can look at it either in <em>gedit</em>:</p>
+<pre class="bash"><code>gedit YRI.HWE.txt &amp;</code></pre>
+<p>Or in the terminal space itself using the <em>less</em> command (don’t forget, to leave the <em>less</em> output, press ‘q’):</p>
+<pre class="bash"><code>less YRI.HWE.txt</code></pre>
+<p>Now, on the right of your table is a list of P-values. Look over your P-values to see if any of them are significant (p &lt; 0.05). If any of your P-values <em>are</em> significant, this means that that SNP is not in Hardy-Weinberg Equilibrium! Record the SNP ID numbers that have significant P-values, because they will be important for what we do next. <br> <br> Hopefully, some of you have found that there are SNPs in your population that are not in Hardy-Weinberg Equilibrium. That’s exciting! But, think back to the Wigginton paper. There is a large <em>Type 1 Error</em> rate for Hardy-Weinberg tests performed by using a Chi-Squared test. To account for this, we will test our significant SNPs for Type 1 Error using the Shiny App calculator Becca De Camp created for us. Here’s how we will do that:</p>
 </div>
 <div id="step-3-finding-the-true-hardy-weinberg-equilibrium" class="section level2">
 <h2>Step 3: Finding the “True” Hardy-Weinberg Equilibrium</h2>
@@ -435,7 +441,6 @@ HWE #Running the name of your results file will print the results</code></pre>
 </div>
 <div id="step-4-what-do-your-results-mean-discuss-with-a-partner-from-class" class="section level2">
 <h2>Step 4: What Do Your Results Mean? Discuss with a partner from class:</h2>
-<p><br></p>
 <p>Think about the results you produced today in the context of your population. Here are some guiding questions to help you: <br></p>
 <ul>
 <li><p>If your population had SNPs that were not in Hardy-Weinberg Equilibrium, what kind of consequence did the SNP(s) have? How would that consequence type affect the phenotype?</p></li>
