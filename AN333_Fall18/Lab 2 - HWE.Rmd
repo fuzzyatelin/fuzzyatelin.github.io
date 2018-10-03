@@ -41,7 +41,7 @@ Now that we have learned more about the applications of Hardy-Weinberg Equilibri
 <br>
 
 ### Learning Outcomes
-<br>
+
 * Use the *SCC* and *R* coding language to observe and understand population differences in *UCP1* variation.
 
 * Calculate Hardy-Weinberg Equilibrium for all *UCP1* SNPs in individual populations using a traditional Chi-Squared test.
@@ -308,3 +308,35 @@ Think about the results you produced today in the context of your population. He
 * If your population had SNPs that were not in Hardy-Weinberg Equilibrium, what kind of consequence did the SNP(s) have? How would that consequence type affect the phenotype? 
 
 * Does a SNP not being in Hardy-Weinberg Equilibrium mean that evolutionary forces are acting on it? How might evolutionary forces be acting on *UCP1* if a SNP is *not* in Hardy-Weinberg Equilibrium? 
+<br>
+<br>
+<br>
+
+##PRO-TIP: HWE Using *VCF Tools*
+
+You can actually run the same analysis we just did using a single line of code in *vcftools*, thanks to the ***hardy*** option.
+
+If you'd like to try, load the *vcftools* module:
+
+```{bash, eval = F, echo = T}
+module load vcftools
+```
+
+Now, enter the following code. This is essentially telling *vcftools* to run the "true" HWE test on each variant site, and to give the output as a file called "**YRI.hwe**":
+
+```{bash, eval = F, echo = T}
+vcftools --vcf YRI.vcf --hardy --out YRI
+```
+
+Once it's run, you can read the output file using the *less* command:
+
+```{bash, eval = F, echo = T}
+less YRI.hwe
+```
+
+![](YRIhwe.png)
+
+<br>
+Notice that the output is giving us both more and less information than our analysis in *R Studio*. Rather than the variant name, we're given just the variant position ('POS') on which chromosome ('CHR'). We're also, however, given the observed ('OBS(HOM1/HET/HOM2)') and expected ('E(HOM1/HET/HOM2)') counts of individuals under "true" HWE with each genotype, along with the "true" HWE Chi-Squared ('ChiSq_HWE') and P-values ('P_HWE'). It's also giving us P-values regarding whether there is a significant deficit ('P_HET_DEFICIT') or excess ('P_HET_EXCESS') in heterozygotes, which can tell us a bit more about *why* the population is out of Hardy-Weinberg equilibrium (we'll learn more about this in class).
+<br>
+<br>
