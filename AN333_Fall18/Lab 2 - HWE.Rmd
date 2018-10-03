@@ -100,7 +100,7 @@ YRI <- read.vcfR("YRI.vcf.gz", verbose = TRUE)
 ```{r, eval = F, echo=T, results='hide'}
 #If your file is unzipped (e.g., ends in just '.vcf') then use this code:
 
-YRI <- read.vcfR("YRI.vcf"", verbose = TRUE)
+YRI <- read.vcfR("YRI.vcf"", verbose = TRUE, nrows = 206)
 ```
 
 This will give you a file in your workspace called a *vcfR* file. Most genetics-based packages have their own way of formatting and working with genetic data, and this is the format *R* can use. The next line of code will seem a little counterintuitive, because we have to change the format of the file *again* to work with functions in the *pegas* package. Doing this will not delete the original file (as long as you name the file something different), so we can use the *vcfR* file again in later analyses. The type of file we have to convert to for *pegas* is called "genind," so we will do that here: 
