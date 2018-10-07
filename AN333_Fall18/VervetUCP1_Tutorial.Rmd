@@ -1,0 +1,175 @@
+---
+title: "Vervet UCP1 Analysis"
+author: "Christopher A Schmitt"
+date: "October 5, 2018"
+output: html_document
+---
+
+Here's some code to initate a gene analysis in the Vervet worldwide genome dataset, as published in Svardal et al. (2017). This will be done in the *SCC* workspace at BU, as part of the *vervpop* Project.
+
+NOTE: There will be both *R* and unix code here. The *SCC* is accessible through a unix-based terminal, while *R* code will be executed within that space using an *R Studio* module. All files are available in the *vervpop* project space.
+
+ALSO NOTE: This code is for a Mac OSX machine. It may be slightly different for a Windows interface.
+
+First, let's get to our workspace by logging in to the *SCC*. If you have a *vervpop* login, use that where you see 'caschmit' (it should be your BUID login). If you don't have a login for the *SCC*, contact Dr. Schmitt:
+```{bash, eval = F, echo = T}
+ssh -Y caschmit@scc1.bu.edu
+```
+
+Enter your password, you should be automatically logged in to the *vervpop* space. Once there, navigate to the *vervpop* folder, which contains our files of interest:
+
+```{bash, eval = F, echo = T}
+cd vervpop
+```
+
+The vervet population genomics data has been downloaded as a gunzipped VCF file in the *vervpop* folder called "**163_201701_UG_vervet_monkey_SNPs_all_chrom_beagle_shapeit.vcf.gz**". You can get more information by reading the associated 'README' file.
+
+Our first task will be to isolate the *UCP1* gene region from the whole genome data, to make it more manageable. To do this, we'll use *tabix*:
+```{bash, eval = F, echo = T}
+module load tabix
+```
+
+Now, based on the ChlSab1.1 reference genome (available and searchable on *Ensembl*), the *UCP1* gene region in the vervet is on chromosome 7, with the following positions: **7:87,492,195-87,502,665**.
+
+Let's use *tabix* to separate out that full gene region, and call it ***vervUCP1.full.vcf***:
+
+```{bash, eval = F, echo = T}
+tabix -h 163_201701_UG_vervet_monkey_SNPs_all_chrom_beagle_shapeit.vcf.gz CAE7:87492195-87502665 > vervUCP1.full.vcf
+```
+
+Let's take a quick and dirty look at how many variant calls we have in this gene region:
+
+```{bash, eval = F, echo = T}
+wc -l vervUCP1.full.vcf
+grep -c "^##" vervUCP1.full.vcf
+```
+
+Ok, that's 330  lines in the VCF file, only 38 of which are metadata headlines! That means there are 291 variant calls in the *UCP1* gene region, and for 163 individual vervets! That's great! Humans have about 208, so we've got a lot to work with.
+
+Now, Christian Gagnon is hoping to use *PAML* to analyze this data, which means that we'll need to extract just the exonic regions. We can get the positions of the exonic regions from the vervet reference genome on *Ensembl* (you can click the *6 exons* hyperlink in the *About this transcript* subsection of the *Transcript UCP1-201* tab; they're in red on the sequence output, and positions are listed if you look at the transcript table). They include the following positions:
+
+* CAE7:87502451-87502329 (not including UTR)
+* CAE7:87501718-87501520
+* CAE7:87496233-87496033
+* CAE7:87495927-87495826
+* CAE7:87495081-87494901
+* CAE7:87492718-87492611 (not including UTR)
+
+Now, to get *only* those translated sequence regions, we can try using the *bcftools view* option *t*. To do so, we'll need to add those regions to the *-t* option call in a comma-delimited fashion. Let's try that:
+
+```{{bash, eval = F, echo = T}}
+module load bcftools
+bcftools view -t CAE7:87502451-87502329,CAE7:87501718-87501520,CAE7:87496233-87496033,CAE7:87495927-87495826,CAE7:87495081-87494901,CAE7:87492718-87492611 vervUCP1.full.vcf > vervUCP1.exons.vcf
+```
+
+Nope. No genoytpe data in the file...
+
+We can also try using the *tabix* option *-R*. To do so, we'll need to add those regions to a tab-delimited file where chromosome (CHROM), start position (POS), and end position (POS_TO) columns are listed (with header row).  I've made one in *gedit* called **verv.ucp1.exons.txt** which is saved in *vervpop*, let's use that:
+
+```{{bash, eval = F, echo = T}}
+module load tabix/1.9
+tabix -hR verv.ucp1.exons.txt vervUCP1.full.vcf > vervUCP1.exons.vcf
+```
+
+Sigh... have to wait for the *SCC* to upgrade the version to 1.9 (currently at 1.1).
+
+In the meantime, let's look at variation in the whole gene region, starting with some HWE tests.
+
+Now, before actually doing this, we should divide the vervets into their respective populations based on ID. We can do this using a population panel file, like in 1000 Genomes. I'll create one using a text editor and the supplemental data from Svardal et al. (2017) and store it in the *vervpop* folder, called ***vervet.population.panel***. Once that's available, we can filter by whichever variable we choose!
+
+For example, to get a sample of vervets only found in the taxon *pygerythrus*:
+
+```{bash, eval = F, echo = T}
+grep pygerythrus vervet.population.panel | cut -f1 > pyg.samples.list
+```
+
+Now we can use *vcftools* to create a VCF with just the samples comprising the taxon *pygerythrus*:
+
+```{bash, eval = F, echo = T}
+module load vcftools
+vcftools --vcf vervUCP1.full.vcf --keep pyg.samples.list --recode --out pygUCP1
+mv pygUCP1.recode.vcf pygUCP1.vcf
+```
+
+This will create a file called ***pygUCP1.vcf*** that only has the variants called for *UCP1* within our *Ch. pygerythrus* sample. Let's see if these variants are in HWE. To do so, first we can go to our *R* space and run a quick power test to see if 51 samples is even enough to see anything:
+
+```{r,eval=F,echo=T}
+library(pwr)
+pwr.chisq.test(w = 0.5, df = 1, sig.level = 0.05, power=0.95)
+```
+
+Hmmm... the above equation is for 52 samples (we have 51). After playing around a bit, it looks like we'd really need a pretty big effect size (0.5) to see a statistically strong result given our sample size.
+
+Let's take a look!
+
+```{bash, eval = F, echo = T}
+module load vcftools
+vcftools --vcf pygUCP1.vcf --hardy --out pygUCP1
+less pygUCP1.hwe
+```
+
+Ok! We actually have significant deviations from HWE for the following variants in the *Ch. pygerythrus* sample (genotype proportions are hom1/het/hom2):
+
+* CAE7:87492384 (p = 0.009; 32/12/7): This is in the UTR region
+* CAE7:87492801 (p = 0.0237; 17/17/17): Intronic (5-6) variant
+* CAE7:87492842 (p = 0.0248; 31/13/7): Intronic (5-6) variant
+* CAE7:87493023 (p = 0.0237; 17/17/17): Intronic (5-6) variant
+* CAE7:87493291 (p = 0.0482; 16/18/17): Intronic (5-6) variant
+* CAE7:87493379 (p = 0.0482; 16/18/17): Intronic (5-6) variant
+* CAE7:87494126 (p = 0.0482; 17/18/16): Intronic (5-6) variant
+* CAE7:87494632 (p = 0.0482; 17/18/16): Intronic (5-6) variant
+* CAE7:87494842 (p = 0.0297; 49/1/1): Intronic (5-6) variant
+* CAE7:87495040 (p = 0.0297; 49/1/1): Exonic (5) variant
+* CAE7:87495213 (p = 0.0297; 1/1/49): Intronic (4-5) variant
+* CAE7:87495288 (p = 0.0297; 49/1/1): Intronic (4-5) variant
+* CAE7:87496971 (p = 0.00441; 21/15/15): Intronic (2-3) variant
+* CAE7:87497024 (p = 0.0494; 32/13/6): Intronic (2-3) variant
+* CAE7:87497809 (p = 0.011; 20/16/15): Intronic (2-3) variant
+* CAE7:87497815 (p = 0.0234; 15/17/19): Intronic (2-3) variant
+
+Should check into those with 1 het and hom to see if those are Botswana (suspect they might be), but otherwise this is a lot to work with. Also remember, these are from multiple populations that may be separated by mating barriers (especially Parys, Botswana, and Gariep relative to Soetdoring and Sandveld).
+
+The one significant exonic variant is at the 41st position in Exon 5, and is the third nucleotide in codon 181 (**GGA** in the reference). This codes for a Glycine (G), as would every other allele at this SNP, so it's a *silent polymorphism*; variants shouldn't have any phenotypic impact.
+
+For the intronic variants, these might be influential for splices, or expression... we should check out what their orthologs are in humans!
+
+Now, the only other populations with sequenced samples that might be big enough to actually detect relevant SNPs using would be the West African and Caribbean *Ch. sabaeus* populations. It might also be interesting to look for differences in variation between them because 1) the Caribbean population is an inbred bottleneck of the West African, and 2) the Caribbean population is also in a more temperate - if still tropical - latitude (we'd have to actually check the climatic data to see if there's a significant difference).
+
+Let's see if there are variants out of HWE in those two populations:
+
+```{bash, eval = F, echo = T}
+grep Caribbean vervet.population.panel | cut -f1 > sabCB.samples.list
+grep Gambia vervet.population.panel | cut -f1 > sabWA.samples.list
+```
+
+Looks like we have 39 Caribbean vervets sequenced, and 22 West African... not as good a sample as in South Africa.
+
+```{bash, eval = F, echo = T}
+module load vcftools
+vcftools --vcf vervUCP1.full.vcf --keep sabCB.samples.list --recode --out sabCB_UCP1
+mv sabCB_UCP1.recode.vcf sabCB_UCP1.vcf
+
+vcftools --vcf vervUCP1.full.vcf --keep sabWA.samples.list --recode --out sabWA_UCP1
+mv sabWA_UCP1.recode.vcf sabWA_UCP1.vcf
+```
+
+Let's take a look:
+
+```{bash, eval = F, echo = T}
+vcftools --vcf sabCB_UCP1.vcf --hardy --out sabCB_UCP1
+less sabCB_UCP1.hwe
+```
+
+Only one variant in this population is significantly out of HWE, surprising given there must be a large amount of genetic drift in the Caribbean population:
+
+* CAE7:87501922 (p = 0.0278; 30/6/3): Intronic (1-2) region
+
+```{bash, eval = F, echo = T}
+vcftools --vcf sabWA_UCP1.vcf --hardy --out sabWA_UCP1
+less sabWA_UCP1.hwe
+```
+
+Nothing significant in the West African sample, but then sample size is only 22, so we most likely don't have the power to detect anything out of HWE.
+
+It would be really great to set up a variant table for the gene (like in 1000 Genomes) so we could see the geographic proportions of variants at specific SNPs, particularly for exonic variants, which look to be relatively small in number.
+
