@@ -1,0 +1,139 @@
+---
+title: 'AN333/733: Midterm 1'
+author: "Christopher A Schmitt"
+date: "October 7, 2018"
+output: html_document
+---
+
+## Midterm 1
+
+This midterm is **open notes, open textbook, open Lab tutorial** and will cover genetics review concepts, discrete vs. continuous traits, single vs. multiple alleles in populations,  the organization of the genome, Hardy-Weinberg equilibrium, and linkage disequilibrium. <br>
+
+You may begin the exam when the submission link (below) becomes active on **Wednesday, October 10**, and work on the exam until the link closes at midnight of the exam due date, **Wednesday, October 17**.<br>
+
+*No late responses will be accepted!*<br><br>
+
+<center>
+###[Access the online interface to submit your Midterm 1 answers here.](https://goo.gl/forms/JTrXZDh0KaXvoOHm1)
+</center><br>
+
+Parts of this exam will require downloading, processing, and analyzing data from *Ensembl* in ways that should, by now, be familiar to you; these may involve interfacing with *R/R Studio*, *tabix*, *vcftools*, and other modules in the *SCC*. If you've forgotten how to use these modules, you should use your online Lab tutorials as guides (this is an open notes exam, after all).<br>
+
+All *SCC*-based files associated with exam analyses should be uploaded to a folder in the general *anth333* project space. Doing this will be part of the exam, and involves commands you've already learned and used in the context of class.<br>
+
+NOTE: I will *not* help you directly with exam questions in office hours. However, I *will* help you with exercises already present on Lab tutorials or previous homework assignments. *Please do not ask for help on exam questions*. Also, although you are encouraged to do your homework in cooperation with other students, you should be doing your take-home exam *alone*.<br>
+
+***
+
+###Part 1: Preparing a Workspace for Genomic Data Analysis (5 points)
+
+<ol>1. Log in to your *SCC* working directory. **(1 point)**<br><br> 
+
+Once there, enter the following code:
+
+```{bash, eval = F, echo = T}
+#this gives you access to a shared project space on the SCC that I can access.
+cd /project/anth333/
+```
+</ol><br>
+<ol>2. Create a new directory in this *anth333* shared project space named after your BU login. For example, my directory would be called *caschmit*, which is both my BUID and my *SCC* login name. **(2 points)**</ol><br>
+
+<ol>3. Now, navigate to your newly named directory so that it's your current directory (i.e., where all of the files you download from *Ensembl* will be deposited and saved). *Conduct all work for the midterm from this directory*. At the end of the exam, all your newly created or saved files associated with Midterm 1 *must* be in this folder. **(2 points)**<br><br>
+
+HINT: Given you answered these first questions correctly, your *SCC* prompt will look like this for all midterm analyses:
+
+```{bash, eval = F, echo = T}
+[username@scc1 username]$
+```
+
+Now, all of the analyses and processing you do will be done *within* this single named directory, allowing me to grade your individual progress.</ol>
+
+***
+
+###Part 2: Downloading and Processing Novel Human Genomic Data from *Ensembl* (20 points)
+
+So far in our labs, we've been focusing on the human mitochondrial uncoupling protein 1 (*UCP1*). However, there are *multiple* mitochondrial uncoupling proteins found in the human genome. For the purposes of this exam, we'll focus on a *paralog* of *UCP1* called *UCP3*, which has also been implicated in cold adaptations in humans.<br>
+
+Open *firefox* from your *SCC* workspace and look up *UCP3* in the most recent human reference genome (Human GRCh38.p12) on *Ensembl*. Answer the following questions based on both information you learned in lecture and information you see specifically on the *UCP3* page:<br>
+
+<ol>1. If *UCP3* is a *paralog* of *UCP1*, it most likely represents what kind of larger-scale variation in the genome? **(2 points)**
+
+<ol>a) transposable element</ol>
+
+<ol>b) microsatellite</ol>
+
+<ol>c) copy number variant (CNV)</ol>
+
+<ol>d) variable number of tandem repeats (VNTR)</ol>
+
+</ol><br>
+
+<ol>2. Is *UCP3* on the same chromosome as *UCP1*? **(2 points)**
+
+<ol>a) Yes</ol>
+
+<ol>b) No</ol>
+
+</ol><br>
+
+<ol>3. *UCP1* has no splice variants - the coding region of the gene can only become be transcribed to make one functional protein. Scroll down to the interactive map for *UCP3*. How many splice variants are there for *UCP3* (in other words, how many functional proteins can be made from the *UCP3* coding region by alternative splicing)? **(2 points)**
+
+<ol>a) 1</ol>
+
+<ol>b) 2</ol>
+
+<ol>c) 4</ol>
+
+<ol>d) 7</ol>
+
+</ol><br>
+
+<ol>4. What is the *location* of *UCP3* in the human genome (i.e., on which chromosome, and at what base-pair position does the gene region start and end). Answer in the standard format: [chromosome number]**:**[start-position]**-**[end-position]. **(3 points)**</ol><br>
+
+Now, we're going to download the *UCP3* data just for the **Chinese Dai in Xishuangbanna, China** from the 1000 Genomes project dataset.<br><br> 
+
+<ol>5. What is the three-letter code for the Chinese Dai in Xishuangbanna, China population in the 1000 Genome project dataset? **(1 point)**</ol><br>
+
+<ol>6. Download the variant data for *UCP3* only for the Chinese Dai in Xishuangbanna, China population using the same procedure we used for *UCP1*. As in [Lab 1](Lab_1_-_1KG_and_Ensembl_Tutorial.html), you can try first using the *Data Slicer* (the ***Data Slicer WINS!*** tab in Lab 1). If the *Data Slicer* isn't working, you must use the either the modified *Data Slicer* method (the ***Data Slicer SUCKS!*** tab in Lab 1) or the *tabix* code (the ***It's TABIX time...*** tab in Lab 1).<br><br>
+
+If you're forced to use the latter methods, you will need the proper data URL:
+
+```{r, eval = F, echo = T}
+ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/GRCh38_positions/ALL.chr11_GRCh38.genotypes.20170504.vcf.gz
+```
+
+The rest of the code will be the same as in the Lab 1 tutorial (modified, of course, with the position of *UCP3* and specific to the Chinese Dai in Xishuangbanna, China population). **(10 points)**
+
+**Please keep all files associated with this process in your personal *anth333* folder, created in Part 1 of this exam!**</ol><br>
+
+***
+
+###Part 3: Understanding Variation Within Genes, and Hardy-Weinberg Equilibrium
+
+For this section of the exam, we'll take a closer look at the variation present within the *UCP3* region of the Chinese Dai in Xishuangbanna, China. Answer the following questions based on both information you learned in lecture and information you see specifically on the *UCP3* page on *Ensembl* and through your own analyses of the dataset you just downloaded.<br>
+
+Prior to answering these questions, please repeat the analyses from [Lab 2](https://fuzzyatelin.github.io/AN333_Fall18/Lab_2_-_HWE.html) on the *UCP3* region of the genome in the population of Chinese Dai in Xishuangbanna, China. Remember to do all analyses from, and save all files to, your named directory in the shared *anth333* project space created in Part 1 of this midterm.<br>
+
+<ol>1. There are 305 documented variant sites in *UCP3* in the 1000 Genomes dataset. How many of these variant sites are *not* in Hardy-Weinberg equilibrium in the Chinese Dai of Xishuangbanna, China (according to our method of analysis using *R* and *R Studio*)? **(2 points)**</ol><br>
+
+<ol>2. Name each variant that is out of Hardy-Weinberg equilibrium in this population, using the dbSNP nomenclature (i.e., "rs123456789"). **(3 points)**</ol><br>
+
+<ol>3. For the first SNP that is significantly out of HWE on the list as you scroll down, what are the major and minor alleles (please answer in the following way: "major/minor")? **(2 points)**</ol><br>
+
+<ol>4. What is the minor allele frequency at this SNP for the Chinese Dai of Xishuangbanna, China? **(2 points)**</ol><br>
+
+<ol>5. Using either tabix or the Shiny App from Lab 2, assess the "true" Hardy-Weinberg equilibrium for this SNP in the Chinese Dai of Xishuangbanna, China. Is it still out of equilibrium?  **(2 points)**</ol><br>
+
+<ol>6. Which of the larger-scale 1000 Genomes population appears to have the *most* different allele frequencies compared to all others at this locus? **(2 points)**
+
+<ol>a) African (AFR)</ol>
+
+<ol>b) East Asian (EAS)</ol>
+
+<ol>c) European (EUR)</ol>
+
+<ol>d) South Asian (SAS)</ol>
+
+</ol><br>
+
+<ol>7.
