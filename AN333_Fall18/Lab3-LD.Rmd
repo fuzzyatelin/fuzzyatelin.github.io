@@ -8,6 +8,10 @@ output: html_document
 
 ***
 
+###[Homework for Lab 3: DUE Friday, October 19th](https://fuzzyatelin.github.io/AN333_Fall18/Lab3_Homework.html)
+
+***
+
 **Readings**:<ul> 
 <li>[Ramos AV, Bastos-Rodriguez L, Resende BA, Friedman E, Campanha-Versiani L, Miranda DM, Sarquis M, De Marco L. 2012. The contribution of *FTO* and *UCP-1* SNPs to extreme obesity, diabetes and cardiovascular risk in Brazilian individuals. *BMC Med Genet* 13:101.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3526455/)</li><br>
 <li>[Slatkin M. 2008. Linkage disequilibrium – understanding the evolutionary past and mapping the medical future. *Nat Rev Genet* 9: 477-485.](https://www.nature.com/articles/nrg2361)</li><br>
