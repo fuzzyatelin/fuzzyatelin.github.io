@@ -77,4 +77,27 @@ life population genetic analyses.</li>
 
 ***
 
+###[*Lab 3: Linkage Disequilibrium (LD) in UCP1*](https://fuzzyatelin.github.io/AN333_Fall18/Lab3-LD.html)
+**October 12**<br>
 
+***
+
+**Material covered**: In this lab, we'll be assessing linkage disequilibrium (LD) in the *UCP1* genomic regions of th 1000 Genomes populations using *R* coding language. We'll also work on calculating LD by hand between two known loci in *UCP1*. All of this will help us work towards understanding factors that increase LD in the human genome.<br><br> 
+**Readings**:<ul> 
+<li>[Ramos AV, Bastos-Rodriguez L, Resende BA, Friedman E, Campanha-Versiani L, Miranda DM, Sarquis M, De Marco L. 2012. The contribution of *FTO* and *UCP-1* SNPs to extreme obesity, diabetes and cardiovascular risk in Brazilian individuals. *BMC Med Genet* 13:101.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3526455/)</li><br>
+<li>[Slatkin M. 2008. Linkage disequilibrium – understanding the evolutionary past and mapping the medical future. *Nat Rev Genet* 9: 477-485.](https://www.nature.com/articles/nrg2361)</li><br>
+<li>[Claiborne Stephens J, Schneider JA, Tanguay DA, Choi J, Acharya Y, Stanley SE, Jiang R, *et al*. 2001. Haplotype variation and linkage disequilibrium in 313 human genes. *Science* 293: 489-93.](http://science.sciencemag.org/content/293/5529/489)</li></ul><br>
+**Activities**: We'll assess linkage disequilibrium across the *UCP1* locus using our datasets downloaded from *Ensembl*, with a focus on the SNPs that are defined in Ramos *et al*. (2012). We will then discuss what high linkage disequilibrium in our populations could mean regarding potential for selection having occurred within our populations.<br><br>
+**Assignment**: Students must turn in a worksheet – with questions related to *UCP1* variation in humans and related to the downloaded dataset –  in class the following Friday. **Lab 2 Homework Assignment is due today.**<br><br>
+**Learning Outcomes**:<ul>
+<li>Learn about the SNPs *rs6536991*, *rs35243591*, *rs2270565*, and *rs12502572* and their roles in obesity.</li>
+<li>Learn how to use the *R* package *SNPStats* to perform LD analysis in a population, including constructing LD matrices and LD heatmaps.</li> 
+<li>Learn about the two statistics *D'* and *R<sup>2</sup>*, which are the most commonly used statistics to evaluate LD between SNPs. Learn what each can tell us about a population, and apply the two statistics to our own populations</li> 
+<li>Learn how to use *Ensembl* to look at long-distance LD between SNPs in *UCP1*, as well as for SNPs in other genes. 
+</li>
+
+***
+
+###[Homework for Lab 3: DUE Friday, October 19th](https://fuzzyatelin.github.io/AN333_Fall18/Lab3_Homework.html)
+
+***
