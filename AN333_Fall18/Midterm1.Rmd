@@ -271,7 +271,7 @@ While we're on *Ensembl*, look up the *UCP3* variant called '***rs145884716***'.
 
 ###A Relict Population in Xishuangbanna
 
-Imagine you meet a relict population descended from the Chinese Dai of Xishuangbanna, China, found isolated for generations high in the mountains. When you genotype this population (n = 250), you observe the following genotype frequencies for *rs145884716*:
+Imagine you meet a relict population descended from the Chinese Dai of Xishuangbanna, China, found isolated for generations high in the mountains. When you genotype this population (n = 250), you observe the following genotype counts for *rs145884716*:
 
 * GG = 115
 
@@ -305,7 +305,7 @@ Imagine you meet a relict population descended from the Chinese Dai of Xishuangb
 
 <ol>20. Under the Modern Synthesis definition of evolution, has this relict population *evolved* since it first split from the Chinese Dai of Xishuangbanna, China? **(2 points)**</ol><br><br>
 
-<ol>21. Look again at the *Ensembl* page for this particular *UCP3* variant (*rs145884716*). What kind of consequence does the minor allele code for? What does this mean for the phenotype of those that possess the minor allele?**(2 points)**</ol><br>
+<ol>21. Look again at the *Ensembl* page for this particular *UCP3* variant (*rs145884716*). What kind of consequence does the minor allele code for? What does this mean for the phenotype of those that possess the minor allele? **(2 points)**</ol><br>
 
 <ol>22. A Dai man, Payalawu, has two parents who do NOT express *UCP3*. He has fallen in love with Zhi Ruo, a woman who moved recently into the relict population and is Han Chinese from Southern China. The two have expressed a desire to have children. If they do, what is the probability that their child *will* express *UCP3*? **(2 points)**</ol><br><br>
 <center>
