@@ -14,7 +14,7 @@ You may begin the exam when the submission link (below) becomes active on **Wedn
 *No late responses will be accepted!*<br><br>
 
 <center>
-###[Access the online interface to submit your Midterm 1 answers here.](https://goo.gl/forms/JTrXZDh0KaXvoOHm1)
+###[Access the online interface to submit your Midterm 1 answers here.](https://goo.gl/forms/RVvIHblrcv75v58M2)
 </center><br>
 
 Parts of this exam will require downloading, processing, and analyzing data from *Ensembl* in ways that should, by now, be familiar to you; these may involve interfacing with *R/R Studio*, *tabix*, *vcftools*, and other modules in the *SCC*. If you've forgotten how to use these modules, you should use your online Lab tutorials as guides (this is an open notes exam, after all).<br>
@@ -235,17 +235,25 @@ For this section of the exam, we'll take a closer look at the variation present 
 
 Prior to answering these questions, please repeat the analyses from [Lab 2](https://fuzzyatelin.github.io/AN333_Fall18/Lab_2_-_HWE.html) on the *UCP3* region of the genome in the population of Chinese Dai in Xishuangbanna, China. Remember to do all analyses from, and save all files to, your named directory in the shared *anth333* project space created in Part 1 of this midterm.<br>
 
-<ol>1. There are 305 documented variant sites in *UCP3* in the 1000 Genomes dataset. How many of these variant sites are *not* in Hardy-Weinberg equilibrium in the Chinese Dai of Xishuangbanna, China (according to our method of analysis using *R* and *R Studio*)? **(2 points)**</ol><br>
+<ol>1. Open your VCF file using the `less` command in your SCC space. What is the ID of the first human sample listed for this population? **(2 points)**</ol><br>
 
-<ol>2. Name each variant that is out of Hardy-Weinberg equilibrium in this population, using the dbSNP nomenclature (i.e., "rs123456789"). **(3 points)**</ol><br>
+<ol>2. According to Danecek et al. (2011), what character(s) is used to denote header space in the VCF file format (e.g., where metadata and information about the file itself is stored)? **(2 points)**</ol><br>
 
-<ol>3. For the first SNP that is significantly out of HWE on the list as you scroll down, what are the major and minor alleles (please answer in the following way: "major/minor")? **(2 points)**</ol><br>
+<ol>3. There are 305 documented variant sites in *UCP3* in the 1000 Genomes dataset. How many of these variant sites are *not* in Hardy-Weinberg equilibrium in the Chinese Dai of Xishuangbanna, China (according to our method of analysis using *R* and *R Studio*)? **(2 points)**</ol><br>
 
-<ol>4. What is the minor allele frequency at this SNP for the Chinese Dai of Xishuangbanna, China? **(2 points)**</ol><br>
+<ol>4. Name each variant that is out of Hardy-Weinberg equilibrium in this population, using the dbSNP nomenclature (i.e., "rs123456789"). **(3 points)**</ol><br>
 
-<ol>5. Using either tabix or the Shiny App from Lab 2, assess the "true" Hardy-Weinberg equilibrium for this SNP in the Chinese Dai of Xishuangbanna, China. Is it still out of equilibrium?  **(2 points)**</ol><br>
+<ol>5. For the first SNP that is significantly out of HWE on the list as you scroll down, what are the major and minor alleles (please answer in the following way: "major/minor")? **(2 points)**</ol><br>
 
-<ol>6. Which of the larger-scale 1000 Genomes population appears to have the *most* different allele frequencies, on average, compared to all others at this locus? **(2 points)**
+<ol>6. What is the minor allele frequency at this SNP for the Chinese Dai of Xishuangbanna, China? **(2 points)**</ol><br>
+
+<ol>7. Using either tabix or the Shiny App from Lab 2, assess the "true" Hardy-Weinberg equilibrium for this SNP in the Chinese Dai of Xishuangbanna, China. Is it still out of equilibrium?  **(2 points)**</ol><br>
+
+<ol>9. What is the consequence of this SNP? How likely is it to have an affect on the phenotype of the individuals who carry the minor allele?  **(5 points)**</ol><br>
+
+<ol>8. Given the climate of where the Chinese Dai of Xishuangbanna, China live, and given that *UCP3* may also be involved in buffering individuals from cold temperatures, would we expect for there to be selection acting on *UCP3*?  **(10 points)**</ol><br>
+
+<ol>9. On the Ensembl 'Population Genetics' page for this SNP, which of the larger-scale 1000 Genomes population appears to have the *most* different allele frequencies, on average, compared to all others at this locus? **(2 points)**
 
 <ol>a) African (AFR)</ol>
 
@@ -257,4 +265,58 @@ Prior to answering these questions, please repeat the analyses from [Lab 2](http
 
 </ol><br>
 
-<ol>7. 
+While we're on *Ensembl*, look up the *UCP3* variant called '***rs145884716***'.
+
+<ol>10. What is the consequence of the minor allele of this SNP? Describe it both as listed on the Variant Table, and tell me what that means for the subsequent protein and phenotype (given *UCP3* has the same effect as *UCP1*)? **(5 points)**</ol><br><br>
+
+###A Relict Population in Xishuangbanna
+
+Imagine you meet a relict population descended from the Chinese Dai of Xishuangbanna, China, found isolated for generations high in the mountains. When you genotype this population (n = 250), you observe the following genotype frequencies for *rs145884716*:
+
+* GG = 115
+
+* GA = 18
+
+* GT = 76
+
+* TT = 24
+
+* TA = 10
+
+* AA = 7
+
+<ol>11. What is the frequency of the '**A**' allele in this population? **(0.5 points)**</ol><br>
+
+<ol>12. What is the frequency of the '**G**' allele in this population? **(0.5 points)**</ol><br>
+
+<ol>14. If this SNP is in Hardy-Weinberg equilibrium, what is the expected count of '**AA**' genotyped individuals in this population? **(0.5 points)**</ol><br>
+
+<ol>15. If this SNP is in Hardy-Weinberg equilibrium, what is the expected count of '**GT**' genotyped individuals in this population? **(0.5 points)**</ol><br>
+
+<ol>17. What is the Chi-squared value of the observed genotype counts vs. the genotype counts expected under Hardy-Weinberg Equilibrium? **(2 points)**</ol><br>
+
+<ol>18. What are the degrees of freedom for this test? **(1 points)**</ol><br><br>
+
+<center>
+![](chisqdist.png)
+</center><br><br>
+
+<ol>19. Using the above table to estimate the P-value of this test, it this SNP in Hardy-Weinberg equilibrium in this relict population? **(2 points)**</ol><br>
+
+<ol>20. Under the Modern Synthesis definition of evolution, has this relict population *evolved* since it first split from the Chinese Dai of Xishuangbanna, China? **(2 points)**</ol><br><br>
+
+<ol>21. Look again at the *Ensembl* page for this particular *UCP3* variant (*rs145884716*). What kind of consequence does the minor allele code for? What does this mean for the phenotype of those that possess the minor allele?**(2 points)**</ol><br>
+
+<ol>22. A Dai man, Payalawu, has two parents who do NOT express *UCP3*. He has fallen in love with Zhi Ruo, a woman who moved recently into the relict population and is Han Chinese from Southern China. The two have expressed a desire to have children. If they do, what is the probability that their child *will* express *UCP3*? **(2 points)**</ol><br><br>
+<center>
+##Congratulations!  You've finished your first midterm!
+</center>
+<br><br><br>
+
+
+
+
+
+
+
+
