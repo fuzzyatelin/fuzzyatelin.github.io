@@ -21,7 +21,7 @@ For our homework, we'll be digging a little further into ***linkage disequilibri
 As before, you'll be turning in your homework via an online interface.  I recommend writing your essays in a document on your laptop and only engaging with the online interface when you're ready to turn in *all* of your completed answers.<br>
 
 <center>
-###[Access the online interface to submit your homework answers here.]()
+###[Access the online interface to submit your homework answers here.](https://goo.gl/forms/HVN5KaCMlzbzeAHK2)
 </center><br>
 
 * According to Slatkin (2008), what is the definition of linkage disequilibrium (LD)?
