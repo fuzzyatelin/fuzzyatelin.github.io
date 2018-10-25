@@ -101,3 +101,54 @@ life population genetic analyses.</li>
 ###[Homework for Lab 3: DUE Friday, October 19th](https://fuzzyatelin.github.io/AN333_Fall18/Lab3_Homework.html)
 
 ***
+
+###[*Lab 4: Introduction to Nearest-Neighbor Joining and Phylogenetics*](https://fuzzyatelin.github.io/AN333_Fall18/Lab4-Phylogeny.html)
+**October 26**<br>
+
+***
+
+**Material covered**: In this lab, we'll be using Nearest-Neighbor Joining to see which individuals within our assigned 1000 Genomes populations are most related to each other (at least insofar as *UCP1* variation indicates). We'll also plot these *phylogenetic trees* to better understand the patterns of molecular variation and amount of diversity in *UCP1* within our populations. 
+<br><br> 
+**Readings**:<ul> 
+<li>[Kimura M. 1980. A simple method for estimating evolutionary rates of base substitutions through comparative studies of nucleotide sequences. *J Mol Evol* 16: 111–120.](http://www.nematodes.org/teaching/tutorials/phylogenetics/Bayesian_Workshop/PDFs/Kimura%20J%20Mol%20Evol%201980.pdf)</li><br>
+<li>[Saitou N, Nei M. 1987. The neighbor-joining method: a new method for reconstructing phylogenetic trees. *Mol Biol Evol* 4: 406–425.](https://academic.oup.com/mbe/article/4/4/406/1029664)</li></ul><br>
+**Activities**: We'll learn how to create a phylogenetic tree with simple neighbor-joining methods using the *ape* package in *R*. We'll then learn how to make a tree from multiple populations, which will allow us to compare those different populations’ structures in a qualitative way. We will also use these phylogenetic trees to assess the diversity of *UCP1* in each population, and discuss what that means. <br><br>
+**Assignment**: Students must turn in a worksheet – with questions related to *UCP1* variation in humans and related to the downloaded dataset –  in class the following Friday.<br><br>
+**Learning Outcomes**:<ul>
+<li>Learn how to apply Kimura's Neutral Theory to our populations to create a matrix of genetic distances between individuals in a population.</li>
+<li>Learn how to use the *ape* package's Nearest Neighbor Joining algorithm to create a Nearest Neighbor Joining tree, and learn how to use the package *phangorn* to manipulate phylogenetic trees.</li> 
+<li>Learn how to interpret a phylogenetic tree, and learn what it can tell us about molecular diversity within our populations.
+</li> 
+
+***
+
+###[Homework for Lab 4: DUE Friday, November 2nd](https://fuzzyatelin.github.io/AN333_Fall18/Lab4_Homework.html)
+
+***
+
+###[*Lab 5: Introduction to Neutrality Statistics and Signs of Selective Sweeps*](https://fuzzyatelin.github.io/AN333_Fall18/Lab5-Neutrality.html)
+**November 02**<br>
+
+***
+
+**Material covered**: This lab is an introduction to statistical tests of *neutrality* that can be used in genomic studies. *Tajima’s D*, *Fu and Li’s D and F*, and *iHS scores* will be covered and discussed. We'll work towards understanding what each of these tests do to measure selection, and what these statistics can tell us about population structure and history.
+<br><br> 
+**Readings**:<ul> 
+<li>[]()</li><br>
+<li>[]()</li><br>
+<li>[Tajima F. 1989. Statistical method for testing the neutral mutation hypothesis by DNA polymorphism. *Genetics* 123(3): 585–95.]()</li></ul><br>
+**Activities**: We'll use the packages *PopGenome* and *pegas* to cauclate Fu and Li’s D and F, as well as Tajima’s D for *UCP1* in our respective 1000 Genomes populations. We'll also look at an example of an iHS score with the example data from the *rehh* package. Finally, we will take ample time to understand what the Fu and Li’s D and F and Tajima’s D test results tell us about how our populations are evolving, and use the example of iHS to predict whether or not our populations underwent a selective sweep in the *UCP1* region. <br><br>
+**Assignment**: Students must turn in a worksheet – with questions related to *UCP1* variation in humans and related to the downloaded dataset – in class the following Friday. **Lab 4 Homework Assignment is due today.**<br><br>
+**Learning Outcomes**:<ul>
+<li>Learn what Fu and Li's D and F, Tajima's D, and iHS scores mean, and how to interpret them.</li>
+<li>Learn to use the *PopGenome* package to calculate neutrality statistics like Fu and Li's D and F, and Tajima's D.</li> 
+<li>Learn to use the *pegas* package to explore our Tajima's D statistic further.</li>
+<li>Learn about iHS by looking at an example of how to calculate iHS in *R*, and reflect on what the iHS score for our population's *UCP1* haplotype might look like.</li>
+<li>Learn about whether or not selection is happening in our populations based on these statistics, and relate it to what may be happening in the local environment to cause these alleles to be selected for/against.
+</li> 
+
+***
+
+###[Homework for Lab 5: DUE Friday, November 9th](https://fuzzyatelin.github.io/AN333_Fall18/Lab5_Homework.html)
+
+***
