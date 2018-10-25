@@ -1,7 +1,7 @@
 ---
 title: 'AN333/733: Lab Syllabus'
 author: "Christopher A Schmitt"
-date: "September 28, 2018"
+date: "October 25, 2018"
 output: html_document
 ---
 

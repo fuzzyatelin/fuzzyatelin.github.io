@@ -113,7 +113,8 @@ Here is our tree! Remember when running this tutorial on your to plot *your own*
 plot(YRItree, cex=0.5)
 ```
 
-As you can see from the example, YRI is a very molecularly diverse population in the context of *UCP1*, and there are many different nodes on the tree. To interpret this tree, think of every node (or splitting point) as a point at which two sub-populations differ by at least one variant. Everyone to the right of a node along one particular branch shares the same difference. The *length* of the line from left-to-right corresponds to the number of base-pair differences in the sequence (this means that longer lines from left-to-right imply more changes in the sequence, or more mutations; if we assume a constant mutations rate, this also implies more time).<br> 
+As you can see from the example, YRI is a very molecularly diverse population in the context of *UCP1*, and there are many different nodes on the tree. To interpret this tree, think of every node (or splitting point) as a point at which two sub-populations differ by at least one variant. Everyone to the right of a node along one particular branch shares the same difference. The *length* of the line from left-to-right corresponds to the number of base-pair differences in the sequence (this means that longer lines from left-to-right imply more changes in the sequence, or more mutations; if we assume a constant mutations rate, this also implies more time).
+<br><br>
 How does *your* tree compare to the example tree from the YRI population? Is it more or less diverse than YRI? Do you think there might be an adaptive explanation for the amount of diversity in your population, or might what you see be a product of human migration out of Africa? Think about these questions as we move in to the next part of the lab... 
 <br>
 
@@ -131,7 +132,8 @@ cp /project/anth333/DeCamp/filename.vcf /usr4/anth333/login/filename.vcf
 In the above instructions, [filename] should be replaced by the three-letter acronym for the population whose data you'd like to download, and [login] should be replaced by your BUID that you use to log in to the *SCC*.<br><br>
 
 Now you have the data for two new populations in your working directory! You can now return to your *R Studio* screen, where you should see the new files in your directory in the bottom right screen (click on the "Files" tab). We will now use these files to create trees that we can compare to our original population. 
-<br>
+<br><br>
+
 First, we will create our new trees with the same code we used before. Remember to name your *R* files after each separate population to keep everything in order! In my case, since my focal population is the Yoruba in Ibadan (YRI), I copied the files for the LWK and ASW populations, which are both also African (AFR) populations:
 ```{r}
 #Tree 1
