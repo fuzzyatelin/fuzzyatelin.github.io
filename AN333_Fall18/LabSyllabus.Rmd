@@ -126,7 +126,7 @@ life population genetic analyses.</li>
 
 ***
 
-###[*Lab 5: Introduction to Neutrality Statistics and Signs of Selective Sweeps*](https://fuzzyatelin.github.io/AN333_Fall18/Lab5-Neutrality.html)
+###[*Lab 5: Introduction to Neutrality Statistics and Signs of Selection*](https://fuzzyatelin.github.io/AN333_Fall18/Lab5-Neutrality.html)
 **November 02**<br>
 
 ***
@@ -134,9 +134,10 @@ life population genetic analyses.</li>
 **Material covered**: This lab is an introduction to statistical tests of *neutrality* that can be used in genomic studies. *Tajima’s D*, *Fu and Li’s D and F*, and *iHS scores* will be covered and discussed. We'll work towards understanding what each of these tests do to measure selection, and what these statistics can tell us about population structure and history.
 <br><br> 
 **Readings**:<ul> 
-<li>[]()</li><br>
-<li>[]()</li><br>
-<li>[Tajima F. 1989. Statistical method for testing the neutral mutation hypothesis by DNA polymorphism. *Genetics* 123(3): 585–95.]()</li></ul><br>
+<li>[Garrigan DR, Lewontin R, Wakeley J. 2010. Measuring the sensitivity of single-locus “neutrality tests” using a direct perturbation approach. *Mol Biol Evol* 27(1): 73-89.]()</li><br>
+<li>[Southam L, Soranzo N, Montgomery SB, Frayling TM, McCarthy MI, Barroso I, Zeggini E. 2009. Is the thrifty genotype hypothesis supported by evidence based on confirmed type 2 diabetes- and obesity-susceptibility variants? *Diabetologia* 52: 1846-1851.]()</li><br>
+<li>[Tajima F. 1989. Statistical method for testing the neutral mutation hypothesis by DNA polymorphism. *Genetics* 123(3): 585–595.]()</li></ul>
+<br>
 **Activities**: We'll use the packages *PopGenome* and *pegas* to cauclate Fu and Li’s D and F, as well as Tajima’s D for *UCP1* in our respective 1000 Genomes populations. We'll also look at an example of an iHS score with the example data from the *rehh* package. Finally, we will take ample time to understand what the Fu and Li’s D and F and Tajima’s D test results tell us about how our populations are evolving, and use the example of iHS to predict whether or not our populations underwent a selective sweep in the *UCP1* region. <br><br>
 **Assignment**: Students must turn in a worksheet – with questions related to *UCP1* variation in humans and related to the downloaded dataset – in class the following Friday. **Lab 4 Homework Assignment is due today.**<br><br>
 **Learning Outcomes**:<ul>
