@@ -126,7 +126,7 @@ life population genetic analyses.</li>
 
 ***
 
-###[*Lab 5: Introduction to Neutrality Statistics and Signs of Selection*](https://fuzzyatelin.github.io/AN333_Fall18/Lab5-Neutrality.html)
+###[*Lab 5: Introduction to Neutrality Statistics and Signs of Selection*](https://fuzzyatelin.github.io/AN333_Fall18/Lab5-neutrality.html)
 **November 02**<br>
 
 ***
