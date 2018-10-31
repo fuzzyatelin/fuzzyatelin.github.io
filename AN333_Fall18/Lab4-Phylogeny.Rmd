@@ -67,7 +67,14 @@ YRIdna <- vcfR2DNAbin(YRI)
 YRIdna
 ```
 
-Notice that the output messages tell us that the DNAbin format is ignoring all *indel* variants. This is important to our genetic distance estimates because we need our sequences to be identical in length so that nucleotide positions can be read a single point mutation.
+Notice that the output messages tell us that the DNAbin format is ignoring all *indel* variants. This is important to our genetic distance estimates because we need our sequences to be identical in length so that nucleotide positions can be read a single point mutation.<br><br>
+If you want to actually take a look at the variation in your population's *UCP1* sequence, you can do so using this code:
+```{r,fig.height=25}
+par(mar=c(5,8,4,2))
+ape::image.DNAbin(YRIdna[,ape::seg.sites(YRIdna)],cex.lab=0.5)
+```
+
+Notice, here, that each individual has *two* sequences under their name (one with a '0' at the end, and one with a '1')? That's because our genotype data has genotypes for each of two alleles per person at every site, with the alleles on one copy of each chromosome phased into *haplotypes*. In simpler terms, think of it as one (maybe the '0') sequence being what was inherited from the mother, and the other (maybe the '1') being inherited from the father. Because of this, when we construct our tree, below, we'll actually be constructing it based on haplotypes rather than a single sequence per individual. So DNA from the same individual *could* fall into *two* places on the tree, depending on how much heterozygosity there is in each individual's *UCP1* gene. You may also notice that we have 207 variants in our total *UCP1* file, but there are only 38 represented here... that's because the YRI population only has 38 *segregating sites* (or sites that are variable) out of those 207 in the *UCP1* region (that means the other 169 variant sites documented for *UCP1* are all variant in other, non-YRI populations).
 
 ## Part 2: Creating a Distance Matrix using Kimura's Evolutionary Model
 
@@ -81,11 +88,11 @@ dist <- dist.dna(YRIdna, model = "K80")
 length(dist)
 ```
 
-Notice that the length of our `dist` file... does it look familiar? What does that represent?<br>
+Notice the length of our `dist` file... what do you think that might represent?<br>
 
 Now, we'll create a data frame from this genetic distance matrix so we can make a heatmap to visualize our genetic distances between individuals in our population. You may have to pop out the window (press 'Zoom' in your Plot window) to view the plot properly. As you can see from this module output, it's a pretty big plot!
 
-```{r}
+```{r,fig.height=12,fig.width=12}
 heatmap <- as.data.frame(as.matrix(dist))
 table.paint(heatmap, cleg=0, clabel.row=.5, clabel.col=.5)
 ```
@@ -109,7 +116,7 @@ summary.phylo(YRItree)
 Ok, our tree is ready to be plotted! Before we do this, think about your population... Would you expect there to be a lot of molecular variation within this population, or only a little? Given our distance matrix is based on *genetic* distance, which is a count of how many differences you see between individuals, how do you think a lot or a little molecular variation will present itself in the context of your tree? 
 <br><br>
 Here is our tree! Remember when running this tutorial on your to plot *your own* tree and not mine!
-```{r}
+```{r,fig.height=16,fig.width=12}
 plot(YRItree, cex=0.5)
 ```
 
@@ -171,15 +178,15 @@ class(africa)
 <br>
 Finally, plot all the trees on the same axis. It will probably take some time to render the plots because there are a *lot* of tips (each representing an individual in your populations) on the tree: 
 
-```{r}
-densitree <- densiTree(africa, type="phylogram", col=c("red", "green", "blue"), width=2, jitter=list(amount=.3, random=FALSE), alpha=1)
+```{r,fig.height=16,fig.width=12}
+densitree <- densiTree(africa, type="phylogram", col=c("red", "green", "blue"), tip.color=c("red", "green", "blue"), cex = 0.5, width=2, jitter=list(amount=.3, random=FALSE), alpha=1)
 ```
 
 This might look confusing at first, especially without a legend. Unfortunately, this function isn't programmed to make a legend for us, so we have to figure out which tree is which based on their order in the *multiPhylo* object. The *red* tree represents the first tree you named in the *multiPhylo* object (in my case, the YRI tree), the *green* tree represents the second tree in the *multiPhylo* object (in my case, the LWK tree), and the *blue* tree represents the last tree in the *multiPhylo* object (in my case, the ASW tree). In this case, if you put *your* population's tree as the first tree in the *multiPhylo* object, the red tree represents *your* population. 
 <br>
 <br>
 Now that you can tell which tree is which, let's take a closer look at your trees. How does your tree compare with the other two? Does it have more diversity, a similar amount of diversity, or less diversity (and how can you tell)? Look at the shape of each tree. Is there a similar number of larger clusters in each tree, or not? Does any one tree have the *oldest* genotypes according to the timescale listed below the trees (typically, older branches on a phylogeny belong to extinct species, but in the context of our data they represent older genotypes)? 
-<br>
+<br><br>
 
 ## Part 5: What Do Your Results Mean? Discuss with a partner from class: 
 
