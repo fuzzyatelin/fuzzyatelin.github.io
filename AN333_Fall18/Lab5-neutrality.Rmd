@@ -98,7 +98,7 @@ YRIgenome
 
 And here we'll make our *DNAbin* object:
 ```{r}
-YRI <- read.vcfR("YRI.vcf")
+YRI <- read.vcfR("YRI/YRI.vcf")
 YRIdna <- vcfR2DNAbin(YRI)
 YRIdna
 ```
