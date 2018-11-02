@@ -34,7 +34,7 @@ With Tajima's D, the closer to 0 the D statistic is, the closer the locus being 
 
 ### Fu and Li's D and F
 
-Fu and Li's D and F are also fairly straightforward tests derived from the same \theta statistics as Tajima's D. Like Tajima's D, these statistics are also based upon Kimura's neutrality statistic, again meaning that anything deviating from 0 is a violation of neutrality. What these statistics do, specifically, is measure the number of *singleton* or *private* mutations (i.e., the number of people within a sample that have a novel mutation specific to themselves). While the *D statistic* is based on the difference between the number of singletons in the population and the *total number of mutations in population*, the *F statistic* is based on the difference between the number of singletons and the *average number of nucleotide differences between pairs of sequences*. This difference in how they're derived makes it possible for one statistic to be positive while the other is negative in the same population.<br><br>
+Fu and Li's D and F are also fairly straightforward tests derived from the same $\Theta$ statistics as Tajima's D. Like Tajima's D, these statistics are also based upon Kimura's neutrality statistic, again meaning that anything deviating from 0 is a violation of neutrality. What these statistics do, specifically, is measure the number of *singleton* or *private* mutations (i.e., the number of people within a sample that have a novel mutation specific to themselves). While the *D statistic* is based on the difference between the number of singletons in the population and the *total number of mutations in population*, the *F statistic* is based on the difference between the number of singletons and the *average number of nucleotide differences between pairs of sequences*. This difference in how they're derived makes it possible for one statistic to be positive while the other is negative in the same population.<br><br>
 We can interpret these statistics like so:
 
 * If the statistics are strongly negative, this shows an *excess of singletons* in the population. This means there are quite a few people whose genomic variants don't match each other. Such a situation could be from rapid population growth (meaning everyone is closely related and so there's been no time for mutation to catch up to the increased numbers) or a *selective sweep* (see below for a formal definition) further back in the population's history, meaning that strong directional selection for a certain mutation led to an overrepresentation of that mutation (at the expense of other variants at that SNP).
@@ -66,7 +66,7 @@ Log in to the *SCC* and bring up the *R Studio* window [as usual](https://fuzzya
 ```{bash, eval = F, echo = T}
 module load gcc
 module load R
-rstudio
+rstudio &
 ```
 
 Next, we need to install the package *PopGenome* in our *R Studio* space, because the SCC doesn't have it pre-installed.
@@ -85,7 +85,7 @@ library(pegas)
 Finally, we need to format our data for analysis. *PopGenome* is a bit funky about how they look for the files in your directory, so we need to move some files around in our folders to make the *GENOME* object that the *PopGenome* package will work with. Specifically, if you haven't already done so, we need to make a new directory within our working directory, and put a copy of our data into that folder. Do this in your *SCC* space using the *mkdir* and *cp* commands (remember to use *your* population name rather than YRI!):
 ```{bash, eval = F, echo = T}
 mkdir YRI
-cp YRI.vcf /YRI/YRI.vcf
+cp YRI.vcf YRI/YRI.vcf
 ```
 
 Now, we can make our *GENOME* object by directing the function to the folder we just created. Additionally, we'll make a *DNAbin* object ([as we have done before](https://fuzzyatelin.github.io/AN333_Fall18/Lab4-Phylogeny.html)) to save for later... 
