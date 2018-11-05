@@ -60,7 +60,7 @@ Now, let's prepare our data! As usual, I will be using the population **YRI** as
 
 ```{r}
 #read in data
-YRI <- read.vcfR("YRI.vcf")
+YRI <- read.vcfR("YRI.vcf",verbose=T,nrows=206)
 
 #create DNAbin
 YRIdna <- vcfR2DNAbin(YRI)
