@@ -181,3 +181,20 @@ life population genetic analyses.</li>
 ###[Homework for Lab 6: DUE Friday, November 16th](https://fuzzyatelin.github.io/AN333_Fall18/Lab6_Homework.html)
 
 ***
+
+###[*Lab 7: Finding a New Locus…*](https://fuzzyatelin.github.io/AN333_Fall18/Lab7-newlocus.html)
+**November 09**<br>
+
+***
+
+**Material covered**: We'll discuss the process of finding a new locus on which to conduct a population genetics study for your final project! Make sure the locus is related somehow to a trait you're really interested in, and also preferably a trait that varies among contemporary human populations. A *candidate gene* for a particular trait would be great (i.e., a gene that's been noted to perhaps be associated with a trait in a GWAS, but hasn't really been tested across populations that vary in that trait). A trait that's been noted to have been under selection previously would be great, but is by no means necessary.
+<br><br> 
+**Readings**:<ul> 
+<li>[Slate J. 03 Nov 2015. Why I’m wary of candidate gene studies.](http://jon-slate.staff.shef.ac.uk/why-im-wary-of-candidate-gene-studies/)</li><br>
+<li>[Patnala R, Clements J, Batra J. 2013. Candidate gene association studies: a comprehensive guide to useful in silico tools. *BMC Genet* 14:39.](https://bmcgenet.biomedcentral.com/articles/10.1186/1471-2156-14-39)</li><br></ul>
+<br>
+**Activities**: We will go over a brief tutorial on how to think about finding a new locus of interest to study on your own, and we will have a class discussion on final project topic ideas.<br><br>
+**Assignment**: Students must answer questions about a potential candidate gene of interest by the following Friday. **Lab 5 Homework Assignment is due today.**<br><br>
+**Learning Outcomes**:<ul>
+<li>Learn how to use the resources provided to you in this class to find a new genetic locus for study.</li>
+<li>Assess the merits/flaws of using a candidate gene approach to understand trait histories in human populations.</li><br><br> 
