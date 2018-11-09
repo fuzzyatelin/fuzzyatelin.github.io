@@ -1,14 +1,8 @@
 ---
 title: 'Lab 5: Homework'
 author: "Christopher A Schmitt"
-date: "November 3, 2018"
+date: "November 9, 2018"
 output: html_document
----
----
-title: "Lab 5: Homework"
-author: "Christopher A Schmitt"
-date: "11/04/2018"
-output: html_notebook
 ---
 
 ## Introduction to Neutrality Statistics and Signs of Selection
@@ -22,10 +16,46 @@ output: html_notebook
 
 ***
 
-For our homework, we'll be doing a little more work with neutrality statistics and using them to detect selection in genomic regions.
+For our homework, we'll be doing a little more work with neutrality statistics and using them to detect selection in genomic regions. Most importantly, we'll be interpreting the results of our lab and doing a little bit of dN/dS assessement!
 
 As before, you'll be turning in your homework via an online interface.  I recommend writing your essays in a document on your laptop and only engaging with the online interface when you're ready to turn in *all* of your completed answers in a single submission.<br>
 
 <center>
-###[Access the online interface to submit your homework answers here.]()
+###[Access the online interface to submit your homework answers here.](https://goo.gl/forms/xzBw46KxoNSrOiBO2)
 </center><br>
+
+* What is a segregating site?
+
+* According to Tajima (1989), why is a pure count of segregating sites (*S*) alone not a good estimate to explain levels of polymorphism in a population?
+
+* According to Tajima (1989), when selection is occurring, which two measures of nucleotide diversity in a population conceptually become unequal?
+
+* An approach to what value of Tajima's *D* statistic implies that *no* selection is occurring?
+
+* Of the genes based on restriction sites Tajima tested in fruit flies (*Drosophila melanogaster*), which showed signs of selection based on his D statistic?
+
+* According to your lab exercises, what was the value of Tajima's D for *your* study population? Is this a significant deviation from the assumptions of neutrality (please give p-value)?
+
+* Based on this value, what kind of selection does Tajima's D imply your population might be experiencing in *UCP1* (if any)?
+
+* Match the statistic to its appropriate descriptor. Both of Fu and Li's statistics compare the number of private mutations in a given population to some other value. Which test goes with which comparative measure/value?
+
+* What was Fu & Li's F for your population?
+
+* What was Fu * Li's D for your population?
+
+* What does this say about potential selection in your population?
+
+* According to the Garrigan et al. (2010) paper, which of the test statistics we used today is the least reliable to random perturbations in allele frequencies that are NOT selection?
+
+* Garrigan et al. (2010) find that it takes, on average, *4N generations* after a random demographic purturbation in allele frequencies (i.e., a bottleneck or founder event) for the test statistics to "relax to their theoretical, steady-state distributions." What does this mean, and why is it important for our understanding of the results of our tests of selection in humans?
+
+* iHS relies on extended haplotypes of homozygosity in regions of the genome that have experienced selective sweeps. Based on what you learned in lecture, what kind of selective sweep is iHS showing us? Hard or soft?
+
+* Match the kind of selective sweep (hard, soft, partial) to the kind of variant under selection. Ancestral, novel, or one of several involved in a polygenic trait?
+
+* In Southam et al. (2009), the authors tried to find Type 2 diabetes and obesity genes under selection (based on the *Thrifty Genotype hypothesis*). They used well-replicated candidate loci from genome-wide association studies associated with those traits. As part of their analysis, the assessed whether the disease allele (the allele associated with a higher likelihood of developing T2D or obesity) was *novel* or *ancestral* by comparing the disease allele to the chimpanzee allele at that locus. What did they find?
+
+* Which potential 'thrifty gene(s)' did they found evidence of a selective sweep for using iHS?
+
+* The only tests Southam et al. (2009) used to assess selection was F-statistics (to compare across populations) and iHS. They hypothesized that they would see signs of selection, as indicated by iHS, around these alleles/loci. Given what *you* know about iHS and how it assesses selection in the genome, would *you* expect to see signs of selection around all of the alleles/loci they test? Why or why not?

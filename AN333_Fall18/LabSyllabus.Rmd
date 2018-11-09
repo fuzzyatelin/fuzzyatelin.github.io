@@ -1,7 +1,7 @@
 ---
 title: 'AN333/733: Lab Syllabus'
 author: "Christopher A Schmitt"
-date: "October 25, 2018"
+date: "November 04, 2018"
 output: html_document
 ---
 
@@ -150,6 +150,34 @@ life population genetic analyses.</li>
 
 ***
 
-###[Homework for Lab 5: DUE Friday, November 9th](https://fuzzyatelin.github.io/AN333_Fall18/Lab5_Homework.html)
+###[Homework for Lab 5: DUE Friday, November 16th](https://fuzzyatelin.github.io/AN333_Fall18/Lab5_Homework.html)
+
+***
+
+###[*Lab 6: A Brief Digression from UCP1 for Quantitative Genetics*](https://fuzzyatelin.github.io/AN333_Fall18/Lab6_quantgen.html)
+**November 09**<br>
+
+***
+
+**Material covered**: Quantitative genetics and partitioning variance in phenotypes between genetic and environmental signals. To do this, we'll be working with some captive vervet monkey (*Chlorocebus sabaeus*) data I collected at Wake Forest College of Medicine's Vervet Research Colony (VRC). We'll also learn about the *SOLAR* work environment, which is a (relatively) easy interface for doing quantitative genetics analysis in the *SCC* space. Through this, we'll learn a bit about the quantitative genetics of BMI and body mass.
+<br><br> 
+**Readings**:<ul> 
+<li>[Almasy L, Blangero J. 1998. Multipoint quantitative-trait linkage analysis in general pedigrees. *Am J Hum Genet* 62: 1198–1211.]()</li><br>
+<li>[Schmitt CA, Service S, Cantor RM, Jasinska AJ, Jorgensen MJ, Kaplan JR, and Freimer NB. 2018. High heritability of obesity and obesogenic growth are both highly heritable and modified by diet in a nonhuman primate model, the African green monkey (Chlorocebus aethiops sabaeus). *Int J Obesity* 42: 765-774.]()</li><br>
+<li>[Hill WG. 2012. Quantitative genetics in the genomics era. *Curr Genomics* 13(3): 196-206.]()</li></ul>
+<br>
+**Activities**: There will be a brief discussion of quantitative genetics and the vervet monkey (*Chlorocebus sabaeus*) model as implemented in *SOLAR* using the Almasy & Blangero terminology and orientation to using *SOLAR* in the *SCC* environment. We will conduct in class exercises that will be used to answer questions in the Lab 6 homework. <br><br>
+**Assignment**: Students must turn in a worksheet – with questions related to quantitative genetic variation in vervets related to BMI, body mass, and obesity – in class the following Friday. **Lab 5 Homework Assignment is due today.**<br><br>
+**Learning Outcomes**:<ul>
+<li>Learn about basic quantitative genetics terminology, and the process of variance decomposition.</li>
+<li>Learn about pedigree-based analyses and how to process a pedigree file.</li> 
+<li>Learn how to use the program *SOLAR* (in the *SCC* framework).</li>
+<li>Learn how to transform data to meet quantitative genetics model assumptions.</li>
+<li>Learn how to appropriately interpret quantitative genetics outcomes, including narrow-sense heritability, what environmental component means, and how to interpret a household/maternal effect in this context.
+</li> 
+
+***
+
+###[Homework for Lab 6: DUE Friday, November 16th](https://fuzzyatelin.github.io/AN333_Fall18/Lab6_Homework.html)
 
 ***
