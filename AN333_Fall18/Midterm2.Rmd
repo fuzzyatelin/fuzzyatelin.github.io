@@ -4,3 +4,50 @@ author: "Christopher A Schmitt"
 date: "November 18, 2018"
 output: html_document
 ---
+
+## Midterm 2 (100 points)
+
+This midterm is **open notes, open textbook, open Lab tutorial** and will cover genetics review concepts (insofar as they are relevant to our newer work), linkage disequilibrium, genetic drift, heterozygosity, and detecting and measuring selection in the genome. <br>
+
+You may begin the exam when the submission link (below) becomes active at class time on **Monday, November 19**, and work on the exam until the link closes at midnight of the exam due date, **Wednesday, November 28**.<br>
+
+*No late responses will be accepted!*<br><br>
+
+<center>
+###[Access the online interface to submit your Midterm 2 answers here.](https://goo.gl/forms/RVvIHblrcv75v58M2)
+</center><br>
+
+Parts of this exam will require downloading, processing, and analyzing data from *Ensembl* in ways that should, by now, be familiar to you; these may involve interfacing with *R/R Studio*, *tabix*, *vcftools*, and other modules in the *SCC*. If you've forgotten how to use these modules, you should use your online Lab tutorials as guides (this is an open notes exam, after all).<br>
+
+All *SCC*-based files associated with exam analyses should be uploaded to a folder in the general *anth333* project space. Doing this will be part of the exam, and involves commands you've already learned and used in the context of class.<br>
+
+NOTE: I will *not* help you directly with exam questions in office hours. However, I *will* help you with exercises already present on Lab tutorials or previous homework assignments. *Please do not ask for help on exam questions*. Also, although you are encouraged to do your homework in cooperation with other students, you should be doing your take-home exam *alone*.<br>
+
+***
+
+###Part 1: Preparing your Workspace for Midterm 2 (5 points)
+
+<ol>1. Log in to your *SCC* working directory. **(1 point)**<br><br>
+
+Once there, enter the following code:
+```{bash, eval = F, echo = T}
+#this gives you access to a shared project space on the SCC that I can access.
+cd /project/anth333/
+```
+</ol><br>
+<ol>2. Create a new directory in this *anth333* shared project space named after your BU login, followed by the number '**2**'. For example, my directory would be called *caschmit2*, which is both my BUID and my *SCC* login name wiht the number 2 after it. **(2 points)**</ol><br>
+
+<ol>3. Now, navigate to your newly named directory so that it's your current directory (i.e., where all of the files you download from *Ensembl* will be deposited and saved). *Conduct all work for the midterm from this directory*. At the end of the exam, all your newly created or saved files associated with Midterm 2 *must* be in this folder. **(2 points)**<br><br>
+
+HINT: Given you answered these first questions correctly, your *SCC* prompt will look like this for all midterm analyses:
+
+```{bash, eval = F, echo = T}
+[username@scc1 username2]$
+```
+
+Now, all of the analyses and processing you do will be done *within* this single named directory, allowing me to grade your individual progress.</ol>
+
+***
+
+###Part 2: New Stats in a New Population (50 points)
+
