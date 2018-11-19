@@ -377,3 +377,8 @@ Traits: lactase persistence, lighter skin pigmentation, hypoxia
 </ol><br>
 
 <ol>42. If Trait A has a heritability of 1, and Trait B has a heritability of 0.4, which will respond more readily to selection? Using the concept of realized heritability, explain why? **(5 points)**
+
+<center>
+##Congratulations!  You've finished your last midterm!
+</center>
+<br><br><br>
