@@ -24,7 +24,7 @@ output: html_document
 
 ###[Syllabus](https://fuzzyatelin.github.io/AN333_Fall18/Syllabus.html)
 ###[Lab Syllabus](https://fuzzyatelin.github.io/AN333_Fall18/LabSyllabus.html)
-###[Exam](https://fuzzyatelin.github.io/AN333_Fall18/Midterm1.html)
+###[Exam]()
 
 ***
 ###Course Description
