@@ -1,0 +1,33 @@
+---
+title: "Simulating a QuantGen Dataset"
+author: "Christopher A Schmitt"
+date: "November 18, 2018"
+output: html_document
+---
+
+Ok, so here I'm simulating a quantitative genetics dataset that can be analyzed in SOLAR for my course. To do this, I'll be using the package {synbreed}.
+
+```{r}
+library(synbreed)
+```
+
+The first thing we need to do is to simulate a pedigree for this population. Let's do it. In this case, let's say we're looking at a population of monkeys that our research group has been following for over 8 generations (in vervets, that would be about 45 years):
+
+```{r}
+vervped<-simul.pedigree(generations = 8, ids = c(40,55,38,46,52,61,70,64), animals=TRUE,familySize=1)
+plot(vervped)
+```
+
+Now we'll simulate the phenotype. In this case, let's try to simulate something like body mass. For this, we need to simulate our variance components (in this case, we'll try to make them look more or less like what we see in captive obesity at the VRC).
+
+```{r}
+varcom<-list(sigma2e=0.16,sigma2a=0.72,sigma2l=0,sigma2b=0)
+vervdat<-simul.phenotype(pedigree=vervped,mu=6.52,vc=varcom,Nloc=1,Nrepl=1)
+head(vervdat)
+```
+
+Ok, now let's export. After export, we'll need to change the phenotypes to introduce a sex effect on body weight (e.g., by just reducing female BW by a consistent, arbitrary value):
+```{r}
+write.csv(vervped,file="vervped.csv")
+write.csv(vervdat,file="vervdat.csv")
+```

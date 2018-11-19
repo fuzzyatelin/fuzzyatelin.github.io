@@ -1,0 +1,6 @@
+---
+title: "Midterm 2"
+author: "Christopher A Schmitt"
+date: "November 18, 2018"
+output: html_document
+---
