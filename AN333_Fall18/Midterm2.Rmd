@@ -14,7 +14,7 @@ You may begin the exam when the submission link (below) becomes active at class 
 *No late responses will be accepted!*<br><br>
 
 <center>
-###[Access the online interface to submit your Midterm 2 answers here.]()
+###[Access the online interface to submit your Midterm 2 answers here.](https://goo.gl/forms/y4I1lOaDjlIUD4yy2)
 </center><br>
 
 Parts of this exam will require downloading, processing, and analyzing data from *Ensembl* in ways that should, by now, be familiar to you; these may involve interfacing with *R/R Studio*, *tabix*, *vcftools*, and other modules in the *SCC*. If you've forgotten how to use these modules, you should use your online Lab tutorials as guides (this is an open notes exam, after all).<br>
