@@ -302,7 +302,7 @@ Answer the following questions based on these genotype results.
 
 </ol><br>
 
-<ol>33. The McDonald-Kreitman Test is a test designed to detect taxon-informative markers; we use it to contrast *within* and *between* taxon synonymous and non-synonymous differences. In the case of *Drosophila* variation at the alcohol dehydrogenase gene (see the figure on slide 23 of Lecture 12), which of the loci presented are the *best* species-informative loci to differentiate between them (e.g., loci that really differentiate species from each other) aside from 781, which we dicussed in class? **(6 points)**</ol><br>
+<ol>33. The McDonald-Kreitman Test is a test designed to detect taxon-informative markers; we use it to contrast *within* and *between* taxon synonymous and non-synonymous differences. In the case of *Drosophila* variation at the alcohol dehydrogenase gene (see the figure on slide 23 of Lecture 12), which of the loci presented are the *best* species-informative loci to differentiate between them (e.g., loci that really differentiate species from each other) aside from 781, which we discussed in class? **(6 points)**</ol><br>
 
 <ol>34. When using d<sub>N</sub>/d<sub>S</sub>, a significantly *positive* value implies what kind of selection? **(2 points)**
 
