@@ -162,9 +162,9 @@ life population genetic analyses.</li>
 **Material covered**: Quantitative genetics and partitioning variance in phenotypes between genetic and environmental signals. To do this, we'll be working with some captive vervet monkey (*Chlorocebus sabaeus*) data I collected at Wake Forest College of Medicine's Vervet Research Colony (VRC). We'll also learn about the *SOLAR* work environment, which is a (relatively) easy interface for doing quantitative genetics analysis in the *SCC* space. Through this, we'll learn a bit about the quantitative genetics of BMI and body mass.
 <br><br> 
 **Readings**:<ul> 
-<li>[Almasy L, Blangero J. 1998. Multipoint quantitative-trait linkage analysis in general pedigrees. *Am J Hum Genet* 62: 1198–1211.]()</li><br>
-<li>[Schmitt CA, Service S, Cantor RM, Jasinska AJ, Jorgensen MJ, Kaplan JR, and Freimer NB. 2018. High heritability of obesity and obesogenic growth are both highly heritable and modified by diet in a nonhuman primate model, the African green monkey (Chlorocebus aethiops sabaeus). *Int J Obesity* 42: 765-774.]()</li><br>
-<li>[Hill WG. 2012. Quantitative genetics in the genomics era. *Curr Genomics* 13(3): 196-206.]()</li></ul>
+<li>[Almasy L, Blangero J. 2010. Variance component methods for analysis of complex phenotypes *Cold Spring Harbor Protocols* 2010(5): pdb.top77.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3064490/pdf/nihms253587.pdf)</li><br>
+<li>[Schmitt CA, Service S, Cantor RM, Jasinska AJ, Jorgensen MJ, Kaplan JR, and Freimer NB. 2018. High heritability of obesity and obesogenic growth are both highly heritable and modified by diet in a nonhuman primate model, the African green monkey (*Chlorocebus aethiops sabaeus*). *Int J Obesity* 42: 765-774.](https://www.nature.com/articles/ijo2017301)</li><br>
+<li>[Hill WG. 2012. Quantitative genetics in the genomics era. *Curr Genomics* 13(3): 196-206.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3382274/pdf/CG-13-196.pdf)</li></ul>
 <br>
 **Activities**: There will be a brief discussion of quantitative genetics and the vervet monkey (*Chlorocebus sabaeus*) model as implemented in *SOLAR* using the Almasy & Blangero terminology and orientation to using *SOLAR* in the *SCC* environment. We will conduct in class exercises that will be used to answer questions in the Lab 6 homework. <br><br>
 **Assignment**: Students must turn in a worksheet – with questions related to quantitative genetic variation in vervets related to BMI, body mass, and obesity – in class the following Friday. **Lab 5 Homework Assignment is due today.**<br><br>

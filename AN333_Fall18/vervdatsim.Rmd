@@ -5,6 +5,8 @@ date: "November 18, 2018"
 output: html_document
 ---
 
+##Using {synbreed}
+
 Ok, so here I'm simulating a quantitative genetics dataset that can be analyzed in SOLAR for my course. To do this, I'll be using the package {synbreed}.
 
 ```{r}
@@ -14,14 +16,14 @@ library(synbreed)
 The first thing we need to do is to simulate a pedigree for this population. Let's do it. In this case, let's say we're looking at a population of monkeys that our research group has been following for over 8 generations (in vervets, that would be about 45 years):
 
 ```{r}
-vervped<-simul.pedigree(generations = 8, ids = c(40,55,38,46,52,61,70,64), animals=TRUE,familySize=1)
+vervped<-simul.pedigree(generations = 10, ids = c(150,142,110,124,138,168,140,155,158,162), animals=TRUE,familySize=1)
 plot(vervped)
 ```
 
 Now we'll simulate the phenotype. In this case, let's try to simulate something like body mass. For this, we need to simulate our variance components (in this case, we'll try to make them look more or less like what we see in captive obesity at the VRC).
 
 ```{r}
-varcom<-list(sigma2e=0.16,sigma2a=0.72,sigma2l=0,sigma2b=0)
+varcom<-list(sigma2e=0.10,sigma2a=0.90,sigma2l=0,sigma2b=0)
 vervdat<-simul.phenotype(pedigree=vervped,mu=6.52,vc=varcom,Nloc=1,Nrepl=1)
 head(vervdat)
 ```
@@ -30,4 +32,33 @@ Ok, now let's export. After export, we'll need to change the phenotypes to intro
 ```{r}
 write.csv(vervped,file="vervped.csv")
 write.csv(vervdat,file="vervdat.csv")
+```
+
+Now, when we run this particular model through *SOLAR*, we end up getting a heritability estimate of **0.600**, but with high residual kurtosis. The i-normalized version of this trait has a heritability of **0.629** , which is about what we would go for for BW.
+
+Let's make another trait estimate for a less heritable trait and add it to our data file. Let's model this on BMI, which in the ideal range would be 22:
+```{r}
+varcom<-list(sigma2e=0.40,sigma2a=0.60,sigma2l=0,sigma2b=0)
+vervdat2<-simul.phenotype(pedigree=vervped,mu=22,vc=varcom,Nloc=1,Nrepl=1)
+head(vervdat2)
+write.csv(vervdat2,file="vervdat2.csv")
+```
+
+Ok, so in this case the estimated heritability for our simulated "BMI" trait is at **0.451** (without need of transformation). Now, I've added a Diet covariate that has soaked up some of this.
+
+##Pedigree drawing using {pedantics}
+
+```{r}
+library(dplyr)
+vervped2<-tbl_df(vervped)
+vervped2<-
+  vervped2 %>%
+  mutate(id=ID,dam=Par2,sire=Par1,cohort=gener,sex=sex) %>%
+  select(id,dam,sire,cohort,sex)
+
+vervped3<-as.data.frame(cbind(vervped2$id,vervped2$dam,vervped2$sire))
+names(vervped3)<-c("id","dam","sire")
+
+library(pedantics)
+drawPedigree(vervped3,cohorts=vervped2$cohort,sex=vervped2$sex,dots="y",sexColours=c("blue","gold"))
 ```
