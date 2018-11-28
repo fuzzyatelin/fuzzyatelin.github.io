@@ -22,7 +22,7 @@ output: html_document
 
 In this lab, we'll take a VERY brief look at the practicalities of running a quantitative genetics analysis of *variance decomposition*. In other words, we'll look at a quantitative trait and figure out how much of the variation in that trait can be attributed to *narrow sense* heritability, and how much from environmental factors.  We'll also take a look at a few important environmental *covariates* and see how including them can change our estimates.
 
-##Part 1: Vervents of the Caribbean
+##Part 1: Vervets of the Caribbean
 
 For today's lab, metrics of obesity like body mass and BMI will be from simulated measurements from a wild population of vervet monkeys (*Chlorocebus sabaeus*):<br><br>
 <center>
