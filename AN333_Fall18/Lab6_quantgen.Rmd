@@ -81,7 +81,7 @@ cd /project/anth333/vervet/
 Once there, copy both the files from the vervet folder to your personal folder in the project directory. These files include the wild vervet pedigree, and the population dataset on BW, BMI and the dietary covariate. You can use the following code, as an example (in this case, replace 'filename' with the name of the file, and 'BUID' with *your* BUID, so that the file will be copied to your named folder):
 
 ```{bash,eval=F}
-cp /project/anth33/vervet/filename /project/anth333/BUID/
+cp /project/anth333/vervet/filename /project/anth333/BUID/
 ```
 
 Before continuing, let's take a look at our vervet data. Use the `less` command to take a look at the pedigree file, `vervped.csv` (remember, you can press 'q' at any time to get back to your prompt):
