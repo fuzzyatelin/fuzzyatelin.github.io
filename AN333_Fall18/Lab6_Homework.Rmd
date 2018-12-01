@@ -5,7 +5,7 @@ date: "12/1/2018"
 output: html_document
 ---
 
-##A Brief Digression from *UCP1* for Quantitative Genetics
+##A Brief Digression from *UCP1* forQuantitative Genetics
 
 ***
 
