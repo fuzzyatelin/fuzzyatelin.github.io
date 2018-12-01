@@ -16,7 +16,7 @@ output: html_document
 
 ***
 
-###[Homework for Lab 6: DUE Friday, November 30th](https://fuzzyatelin.github.io/AN333_Fall18/Lab6_Homework.html)
+###[Homework for Lab 6: DUE Friday, December 7th](https://fuzzyatelin.github.io/AN333_Fall18/Lab6_Homework.html)
 
 ***
 
