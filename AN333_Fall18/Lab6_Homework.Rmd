@@ -1,0 +1,43 @@
+---
+title: 'Lab 6: Homework'
+author: "Christopher A Schmitt"
+date: "12/1/2018"
+output: html_document
+---
+
+##A Brief Digression from *UCP1* for Quantitative Genetics
+
+***
+
+**Readings**:<ul> 
+<li>[Almasy L, Blangero J. 2010. Variance component methods for analysis of complex phenotypes *Cold Spring Harbor Protocols* 2010(5): pdb.top77.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3064490/pdf/nihms253587.pdf)</li><br>
+<li>[Schmitt CA, Service S, Cantor RM, Jasinska AJ, Jorgensen MJ, Kaplan JR, and Freimer NB. 2018. High heritability of obesity and obesogenic growth are both highly heritable and modified by diet in a nonhuman primate model, the African green monkey (*Chlorocebus aethiops sabaeus*). *Int J Obesity* 42: 765-774.](https://www.nature.com/articles/ijo2017301)</li><br>
+<li>[Hill WG. 2012. Quantitative genetics in the genomics era. *Curr Genomics* 13(3): 196-206.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3382274/pdf/CG-13-196.pdf)</li></ul>
+
+***
+
+For our homework, we'll be doing a little more work with quantitative genetics and using it to look for genetic and environmental variance contributing to heritability in obesity phenotypes in vervet monkeys. Most importantly, we'll be interpreting the results of our lab!
+
+As before, you'll be turning in your homework via an online interface.  I recommend writing your essays in a document on your laptop and only engaging with the online interface when you're ready to turn in *all* of your completed answers in a single submission.<br>
+
+<center>
+###[Access the online interface to submit your homework answers here.](https://goo.gl/forms/j66Coiu99cjSbWxf2)
+</center><br>
+
+* Define narrow-sense heritability.
+
+* What is the narrow-sense heritability for BMI when you run a polygenic model for this trait *without* the Diet covariate?
+
+* Is Diet a significant covariate when assessing the heritability of BMI? When Diet is included as a covariate in your model, how much of the variance in BMI does diet, genetic heritability, and environment contribute, respectively?
+
+* Why does heritability for BMI change when we include our dietary covariate? Does that mean our first estimate of heritability was wrong? Why?
+
+* Given how BMI is measured, did you expect it to be more or less influenced by diet and/or genetics compared to BW? Were your expectations met?
+
+* How do your results for BMI compare to the findings of Schmitt et al. (2018) in captive vervets? If there is a difference, why do you think this difference exists?
+
+* Drawing on what you know regarding significant covariates associated with BMI in vervets according to Schmitt et al. (2018) and perhaps your own knowledge of these traits, what other covariates would you want to include in your polygenic model for these traits to get the most accurate assessment of heritability?
+
+<br>
+<br>
+<br>
