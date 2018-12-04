@@ -13,7 +13,13 @@ Choose a gene that you can show is related to a trait that is integral to why yo
 
 We will choose loci together as part of [Lab 7](https://fuzzyatelin.github.io/AN333_Fall18/Lab7-newlocus.html), but this guide is to help you through the process of preparing an writing your final paper.
 
+<center>
+##[**Please submit your Final Project paper as a single saved Google Doc file (downloaded as a Microsoft Word, or *.docx* file) at this link by 5:00pm of Monday, December 17**](https://goo.gl/forms/3WFuWsI9A2jHeE123)
+</center>
+
 ##Final Project Paper Formatting
+
+The body of your paper should no less than 7 and no more than 10 pages long using 12-point font, double-spaced, with 1-inch margins (*not* including title/author lines, abstract, tables, figures, or references).
 
 Final papers will have formatting similar to a paper submitted to the [*American Journal of Physical Anthropology*](https://onlinelibrary.wiley.com/journal/10968644). This will include:
 
@@ -53,9 +59,7 @@ To see an example article written by your professor in the *American Journal of 
 
 [Turner, T.R., Schmitt, C.A., Cramer, J.D., Lorenz, J., Grobler, J.P., Jolly, C.J., & Freimer, N.B. (2018). Morphological variation in the genus *Chlorocebus*: Ecogeographic and anthropogenically mediated variation in body mass, postcranial morphology, and growth. *Am J Phys Anthropol* 166(3), 682-707.](https://onlinelibrary.wiley.com/doi/full/10.1002/ajpa.23459)
 
-<center>
-###[**Please submit your Final Project paper as a single saved Google Doc file (downloaded as a Microsoft Word, or *.docx* file) at this link by 5:00pm of Monday, December 17**](https://goo.gl/forms/3WFuWsI9A2jHeE123)
-</center>
+
 <br>
 <br>
 <br>
