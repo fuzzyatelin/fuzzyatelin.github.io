@@ -204,3 +204,200 @@ As we wrap up this lab, think about the results you've generated. You have alrea
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+
+##Pro-Tip: How to run an iHS analysis on *1000 Genomes Project* Data
+
+If you *really* want to run an iHS analysis on *1000 Genomes Project* data, you can... you just need to convert the VCF file for a broader genomic region surrounding your gene of interest into a haplotype file. This is relatively simple to do, but it involves using some unfamiliar *python* and *unix* code and some data transformations. It also can take *a lot* of memory, so I'll ask you to delete files along the way as you try this out. To demonstrate, let's try running an iHS analysis on a portion of human chromosome 4 to see if we can find evidence of a positive selective sweep around and related to *UCP1*.
+
+We'll first need to download a larger chunk of chromosome 4 than we had previously. We *could* do this on the entire chromosome, as we did for the cow, but this would take up a *way* over our class' storage allotment on the *SCC*. Instead, let's pick a relatively large chunk - about 30 Mb - of chromosome 4 surrounding *UCP1*.
+
+To cut down on data size, let's also restrict this dataset to a population where we might expect to see selection around *UCP1*, perhaps a population that's been living in the cold, like the Finns!
+
+To do this, we'll first need to load our *modules*. This will include *tabix* to download the data, and *vcftools* to modify it. We'll also need to load the programming language *python* for a few short commands later:
+
+```{bash, eval = F, echo = T}
+module load tabix
+module load vcftools
+module load python
+```
+
+Next, we'll download our *1000 Genomes Project* population panel file and create an isolated list of the FIN samples so that we can subset our data file:
+```{bash, eval = F, echo = T}
+#download the population panel file:
+wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/integrated_call_samples_v3.20130502.ALL.panel
+
+#get a list of sample IDs for the FIN population:
+grep FIN integrated_call_samples_v3.20130502.ALL.panel | cut -f1 > FIN.samples.list
+```
+
+Now, to save on space, we'll download our extended positions (roughly 15 Mb above and below my gene of interest, *UCP1*) from chromosome 4 into a zipped file using a familiar *tabix* command:
+```{bash, eval = F, echo = T}
+tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/GRCh38_positions/ALL.chr4_GRCh38.genotypes.20170504.vcf.gz 4:125000000-155000000 | bgzip -c > CH4_All.vcf.gz
+```
+
+Then, we'll subset the zipped file for *just* the FIN data with a familiar *vcftools* command. While we're at it, we'll also filter out all indels and SNPs with a MAF lower than 5%:
+```{bash, eval = F, echo = T}
+vcftools --gzvcf CH4_All.vcf.gz --keep FIN.samples.list --maf 0.05 --remove-indels --recode-INFO AA --recode --stdout | bgzip -c > FIN_CH4.vcf.gz
+```
+
+Running the above code took about 10 minutes, because we're actually filtering 99 individuals from 2504 while also filtering down 62,551 SNPs!!! That's a *huge* amount of data compared to what we've been working with so far.
+
+To make sure everything worked appropriately, check out the final file (so far) using the `less` command (press 'q' when you're done):
+```{bash, eval = F, echo = T}
+gunzip -c FIN_CH4.vcf.gz | less
+```
+
+Given your data looks good, now let's erase the larger file with all the *1000 Genomes Project* individuals, along with other files we're done with:
+```{bash, eval = F, echo = T}
+rm CH4_All.vcf.gz
+rm integrated_call_samples_v3.20130502.ALL.panel
+rm FIN.samples.list
+```
+
+Now we're ready to convert this into a haplotype file and a genome map file for {rehh} using a few relatively unfamiliar steps... these are modified from the [Informatics Portal website](https://csprojects.me/481/tools.php). 
+
+First, we'll extract our INFO on ancestral alleles:
+```{bash, eval = F, echo = T}
+vcftools --gzvcf FIN_CH4.vcf.gz --get-INFO AA
+```
+
+I have to note that this step is - conceptually - a little complicated because the way the *1000 Genomes Project* estimates the ancestral allele at a position is a bit different what folks usually think about an ancestral allele (i.e., the allele state of the LCA of the groups you're testing). You don't have to worry about it, for now, but [you can learn more about it here](https://www.biostars.org/p/61267/).
+
+Next, we'll change lower- to upper-case letters in our INFO file:
+```{bash, eval = F, echo = T}
+cat out.INFO | tr '[:lower:]' '[:upper:]' > out2.INFO
+```
+
+Export the VCF file in IMPUTE format:
+```{bash, eval = F, echo = T}
+vcftools --gzvcf FIN_CH4.vcf.gz --IMPUTE
+```
+
+Delete the first row in our INFO file and replace tabs for spaces:
+```{bash, eval = F, echo = T}
+more +2 out2.INFO | awk '{if($3==$5) print$0,"yes";if($3!=$5) print$0,"no";}' | sed -e 's/\t/ /g' > out3.INFO
+```
+
+OK, so there's a problem here in that IMPUTE is deleting a few loci from the sample. We need to use the 'join' command to merge the properly matched columns based on position (column 2 in out3.INFO and column 2 in out.impute.legend), which will automatically then delete non-matches in the output file (both files need to be sorted by the position name for this to work):
+```{bash, eval = F, echo = T}
+join -j 2 -o 1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8 out3.INFO <(sort -k2 out.impute.legend) > out4.INFO
+```
+
+Merge info file and impute our `hap` file, eliminate from merged file markers with no ancestral allele info (".") or ("N") or ("-"):
+```{bash, eval = F, echo = T}
+paste out4.INFO out.impute.hap | awk '($5!="." && $5!="N" && $5!="-")' > merged.out
+```
+
+Change the allele codes (0 to 3 and 1 to 4) starting in column 7, and remove potential duplicates:
+```{bash, eval = F, echo = T}
+awk '{for(i=7;i<=NF;i++)if($i==0)$i=3; else $i=4; print}' merged.out | awk '{if(ip[$2]=="") print; ip [$2]=1}' > merged2.out
+```
+
+```{bash, eval = F, echo = T}
+# prepare rehh map file using information from the first 2 columns
+awk '{print $1"-"$2,$1,$2,"1","2"}' merged2.out > mapFIN_CH4.out
+
+#change label 3 to 1 when reference allele = ancestral allele (yes)
+#change label 4 to 2 when reference allele = ancestral allele (yes)
+#change label 3 to 2 when reference allele = derived allele (no)
+#change label 4 to 1 when reference allele = derived allele (no)
+#eliminate 6 initial fields in hap file to prepare rehh input hap file
+
+sed -e '/yes/ s/3/1/g' -e '/yes/ s/4/2/g' -e '/no/ s/3/2/g' -e '/no/ s/4/1/g' merged2.out | cut -d " " -f7-  > merged3.out
+```
+
+Transpose to create final haplotype file for {rehh} input:
+```{bash, eval = F, echo = T}
+python -c "import sys; print('\n'.join(' '.join(c) for c in zip(*(l.split() for l in sys.stdin.readlines() if l.strip()))))" < merged3.out > merged4.out
+```
+
+Add first column with numbers in increasing order:
+```{bash, eval = F, echo = T}
+awk '{print NR " "$0}' merged4.out > hapFIN_CH4.out
+```
+
+Remove intermediate files:
+```{bash, eval = F, echo = T}
+rm merged.out
+rm merged2.out
+rm merged3.out
+rm merged4.out
+rm out.INFO
+rm out.impute.hap
+rm out.impute.hap.indv
+rm out.log
+rm out2.INFO
+rm out3.INFO
+rm out4.INFO
+```
+
+After this whole process, the files `mapCH4_FIN.out` and `hapCH4_FIN.out` are the input files for our {rehh} analysis!
+
+Ok... now let's try it!
+
+```{bash, eval = F, echo = T}
+module load gcc
+module load R
+rstudio &
+```
+
+Once you're in R, let's get going! Load the {rehh} library (if it isn't already):
+```{r,eval = F, echo = T}
+library(rehh)
+```
+
+Then, we need to import our newly made files for the Finns:
+```{r,eval = F, echo = T}
+hap<-data2haplohh(hap_file="hapFIN_CH4.out",map_file="mapFIN_CH4.out", recode.allele = TRUE, chr.name = 4)
+```
+
+Once those are read in, you should see that our dataset consists of 62510 SNPs split into 198 haplotypes.
+
+Now we can run our extended haplotype homozygosity assessment (this step might take a while, be patient):
+```{r,eval = F, echo = T}
+ehh<-scan_hh(hap,limhaplo=2,limehh=0.05,limehhs=0.05,maxgap=NA,threads=1)
+```
+
+Retrieve our iHS scores:
+```{r,eval = F, echo = T}
+ihs <- ihh2ihs(ehh,freqbin=0.025,minmaf=0.05)
+```
+
+And plot them:
+```{r,eval = F, echo = T}
+ihsplot(ihs, plot.pval=TRUE, ylim.scan=2.5, pch=16, main="iHS")
+```
+
+![](iHS_FIN_CH4.png)
+
+As you can see, we've got a few potential regions where there might be selective sweeps in this part of the genome. There maybe appears to be one or two around the position of *UCP1* (~140.5 Mb)... let's take a closer look at an actual *SNP* of interest.
+
+In a recent study in Japan by [Nishimura et al. (2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5514118/), researchers found that human subjects placed in a cold room for almost two hours showed significant differences in oxygen consumption (metabolism) and increased non-shivering thermogenesis based on having a derived allele (T/**C**) at a locus in a downstream regulator of *UCP1* expression (located −3826 bp from the gene itself) at [rs1800592](https://www.snpedia.com/index.php/Rs1800592), which is also implicated, in other studies, with obesity and diabetes mellitus.
+
+We can investigate whether the derived version of this SNP is showing greater extended haplotype homozygosity compared to the ancestral version, which would imply a positive selective sweep on that particular SNP. To actually analyze the SNP, we need to check its position on *Ensembl* (for rs1800592, it's 140572807). Once we've done that, we need to find what number (as in first, second, third, etc) that SNP is in our haplotype file...
+
+This seems complicated, but it's actually pretty simple. You first need to download your `out.impute.legend` file to your desktop, and then *Import* it into *Excel* as a text file with spaces as the delimiters. Once that's done, you can insert a new column, *Fill* it with a *Series* that increases by one from the first to last SNP, and then you've got each SNP marked in numerical order. All you have to do then is *Find* your SNP name. Once you've got the number, enter it into the `mrk`; in this case, rs1800592 is the 36,102 variant in our file):
+```{r,eval = F, echo = T}
+res.ehh<-calc_ehh(hap,mrk=36102)
+```
+
+![](EHH_rs1800592.png)
+
+We can see here that there doesn't seem to be a very clear, extensive difference between the EHH of the ancestral allele vs. the derived, suggesting that no evident selection for this particular enhancer SNP has occurred in the Finnish population. BUT the paper also mentioned that there was significant linkage (LD = 1) between rs1800592 and another SNP of interest, rs4956451. Just to be thorough, let's check out the EHH for this SNP, as well. Remember, if a phenotypic effect is associated with a SNP, but that SNP is in perfect linkage with another, it might actually be the *other* SNP that's controlling the phenotype:
+```{r,eval = F, echo = T}
+res.ehh<-calc_ehh(hap,mrk=36131)
+```
+
+![](EHH_rs4956451.png)
+
+Ok, it *does* look like there is extended haplotype homozygosity in the derived allele compared to the ancestral (notice how the red line is consistently higher than the blue around our SNP?) for rs4956451, suggesting positive selection for this SNP in the Finns! In other words, it's possible that Finns adapted to their cold environment, in part, through an increased derived allele frequency at this SNP, which is an enhancer locus that increases expression of *UCP1*!
+
+You can also, with {rehh} compare haplotype homozygosity *between* two different populations, to see if a particular genomic region or SNP has been under differential selection between them (e.g., between Finns and Yorubans). However, that's getting a bit more avdanced than we'll get for this lab!
+
+If you're interested, you can learn more about these other options by reading through the [{rehh} vignette here](https://cran.r-project.org/web/packages/rehh/vignettes/rehh.pdf).
+<br>
+<br>
+<br>
