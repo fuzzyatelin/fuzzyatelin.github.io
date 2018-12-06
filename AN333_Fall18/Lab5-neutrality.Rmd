@@ -395,9 +395,35 @@ res.ehh<-calc_ehh(hap,mrk=36131)
 
 Ok, it *does* look like there is extended haplotype homozygosity in the derived allele compared to the ancestral (notice how the red line is consistently higher than the blue around our SNP?) for rs4956451, suggesting positive selection for this SNP in the Finns! In other words, it's possible that Finns adapted to their cold environment, in part, through an increased derived allele frequency at this SNP, which is an enhancer locus that increases expression of *UCP1*!
 
-You can also, with {rehh} compare haplotype homozygosity *between* two different populations, to see if a particular genomic region or SNP has been under differential selection between them (e.g., between Finns and Yorubans). However, that's getting a bit more avdanced than we'll get for this lab!
+You can also, with {rehh} compare haplotype homozygosity *between* two different populations, to see if a particular genomic region or SNP has been under differential selection between them (e.g., between Finns and Yorubans). However, that's getting a bit more advanced than we'll get for this lab! If you're interested, you can learn more about these other options by reading through the [{rehh} vignette here](https://cran.r-project.org/web/packages/rehh/vignettes/rehh.pdf).
 
-If you're interested, you can learn more about these other options by reading through the [{rehh} vignette here](https://cran.r-project.org/web/packages/rehh/vignettes/rehh.pdf).
+One final exercise we can do, though, is to visualize the haplotype structure around our SNP of interest to give us a better idea of the origin of an observed effect of selection. The original use of this is in a paper by [Sabeti et al. (2002)](https://www.nature.com/articles/nature01140). This will look like a bifurcating tree, with the thicker branches representing the relative number of individuals maintaining that particular haplotype surrounding the core allele (which is at the vertical dashed line). The nodes of the tree are where the haplotype/linkage is broken by a variant.
+
+```{r,eval = F, echo = T}
+layout(matrix(1:2,2,1))
+bifurcation.diagram(hap,mrk_foc=36131,all_foc=1,nmrk_l=20,nmrk_r=20,
+main="Bifurcation diagram (rs4956451, UCP1 enhancer): Ancestral Allele")
+bifurcation.diagram(hap,mrk_foc=36131,all_foc=2,nmrk_l=20,nmrk_r=20,
+main="Bifurcation diagram (rs4956451, UCP1 enhancer): Derived Allele")
+```
+
+![](bifurcation_rs4956451.png)
+
+We can see in this figure that the haplotype associated with the derived allele is pretty strongly preserved, with fewer breaks in linkage across the genome than the ancestral allele, further indicative of positive selection for the derived allele.
+
+Let's take a look at our original SNP of interest using this method, rs1800592:
+```{r,eval = F, echo = T}
+layout(matrix(1:2,2,1))
+bifurcation.diagram(hap,mrk_foc=36102,all_foc=1,nmrk_l=20,nmrk_r=20,
+main="Bifurcation diagram (rs1800592, UCP1 enhancer): Ancestral Allele")
+bifurcation.diagram(hap,mrk_foc=36102,all_foc=2,nmrk_l=20,nmrk_r=20,
+main="Bifurcation diagram (rs1800592, UCP1 enhancer): Derived Allele")
+```
+
+![](bifurcation_rs1800592.png)
+
+That's more like it!  Altough linkage isn't preserved well in all individuals, particularly on the left (as the we follow the genome towards the centromere), the majority of individuals have preserved the haplotype associated with the derived allele, at least a bit more than is the case with the ancestral. The previous SNP looks *more* like a clear case of positive selection around the SNP, but this one looks like there has at least been *some* preservation of the haplotype via selection, as well.
+
 <br>
 <br>
 <br>
