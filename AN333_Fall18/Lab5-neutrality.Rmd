@@ -212,7 +212,7 @@ As we wrap up this lab, think about the results you've generated. You have alrea
 
 If you *really* want to run an iHS analysis on *1000 Genomes Project* data, you can... you just need to convert the VCF file for a broader genomic region surrounding your gene of interest into a haplotype file. This is relatively simple to do, but it involves using some unfamiliar *python* and *unix* code and some data transformations. It also can take *a lot* of memory, so I'll ask you to delete files along the way as you try this out. To demonstrate, let's try running an iHS analysis on a portion of human chromosome 4 to see if we can find evidence of a positive selective sweep around and related to *UCP1*.
 
-We'll first need to download a larger chunk of chromosome 4 than we had previously. We *could* do this on the entire chromosome, as we did for the cow, but this would take up a *way* over our class' storage allotment on the *SCC*. Instead, let's pick a relatively large chunk - about 30 Mb - of chromosome 4 surrounding *UCP1*.
+We'll first need to download a larger chunk of chromosome 4 than we had previously. We *could* do this on the entire chromosome, as we did for the cow, but this would take up *way* over our class' storage allotment on the *SCC*. Instead, let's pick a relatively large chunk - about 30 Mb - of chromosome 4 surrounding *UCP1*.
 
 To cut down on data size, let's also restrict this dataset to a population where we might expect to see selection around *UCP1*, perhaps a population that's been living in the cold, like the Finns!
 
@@ -264,14 +264,14 @@ First, we'll extract our INFO on ancestral alleles:
 vcftools --gzvcf FIN_CH4.vcf.gz --get-INFO AA
 ```
 
-I have to note that this step is - conceptually - a little complicated because the way the *1000 Genomes Project* estimates the ancestral allele at a position is a bit different what folks usually think about an ancestral allele (i.e., the allele state of the LCA of the groups you're testing). You don't have to worry about it, for now, but [you can learn more about it here](https://www.biostars.org/p/61267/).
+I have to note that this step is - conceptually - a little complicated because the way the *1000 Genomes Project* estimates the ancestral allele at a given position is a bit different from how folks *usually* think about an ancestral allele (i.e., the allele state of the LCA of the groups you're testing). You don't have to worry about it, for now, but [you can learn more about it here](https://www.biostars.org/p/61267/).
 
 Next, we'll change lower- to upper-case letters in our INFO file:
 ```{bash, eval = F, echo = T}
 cat out.INFO | tr '[:lower:]' '[:upper:]' > out2.INFO
 ```
 
-Export the VCF file in IMPUTE format:
+Export the VCF file in IMPUTE format, which is what groups alleles into haplotypes:
 ```{bash, eval = F, echo = T}
 vcftools --gzvcf FIN_CH4.vcf.gz --IMPUTE
 ```
@@ -281,12 +281,12 @@ Delete the first row in our INFO file and replace tabs for spaces:
 more +2 out2.INFO | awk '{if($3==$5) print$0,"yes";if($3!=$5) print$0,"no";}' | sed -e 's/\t/ /g' > out3.INFO
 ```
 
-OK, so there's a problem here in that IMPUTE is deleting a few loci from the sample. We need to use the 'join' command to merge the properly matched columns based on position (column 2 in out3.INFO and column 2 in out.impute.legend), which will automatically then delete non-matches in the output file (both files need to be sorted by the position name for this to work):
+Now, there's a problem here in that IMPUTE is deleting a few loci from the sample. We need to use the 'join' command to merge the properly matched columns based on position (column 2 in out3.INFO and column 2 in out.impute.legend), which will automatically then delete non-matches in the output file (both files need to be sorted by the position name for this to work):
 ```{bash, eval = F, echo = T}
 join -j 2 -o 1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8 out3.INFO <(sort -k2 out.impute.legend) > out4.INFO
 ```
 
-Merge info file and impute our `hap` file, eliminate from merged file markers with no ancestral allele info (".") or ("N") or ("-"):
+Merge most recent INFO file and our IMPUTE `hap` file, then eliminate from the merged file those markers with no ancestral allele info (".") or ("N") or ("-"):
 ```{bash, eval = F, echo = T}
 paste out4.INFO out.impute.hap | awk '($5!="." && $5!="N" && $5!="-")' > merged.out
 ```
@@ -296,8 +296,8 @@ Change the allele codes (0 to 3 and 1 to 4) starting in column 7, and remove pot
 awk '{for(i=7;i<=NF;i++)if($i==0)$i=3; else $i=4; print}' merged.out | awk '{if(ip[$2]=="") print; ip [$2]=1}' > merged2.out
 ```
 
+Prepare {rehh} `map` file using information from the first 2 columns:
 ```{bash, eval = F, echo = T}
-# prepare rehh map file using information from the first 2 columns
 awk '{print $1"-"$2,$1,$2,"1","2"}' merged2.out > mapFIN_CH4.out
 
 #change label 3 to 1 when reference allele = ancestral allele (yes)
@@ -319,7 +319,7 @@ Add first column with numbers in increasing order:
 awk '{print NR " "$0}' merged4.out > hapFIN_CH4.out
 ```
 
-Remove intermediate files:
+An finally, remove intermediate files you won't use anymore:
 ```{bash, eval = F, echo = T}
 rm merged.out
 rm merged2.out
@@ -336,7 +336,7 @@ rm out4.INFO
 
 After this whole process, the files `mapCH4_FIN.out` and `hapCH4_FIN.out` are the input files for our {rehh} analysis!
 
-Ok... now let's try it!
+Ok... now let's open *Rstudio* and try it!
 
 ```{bash, eval = F, echo = T}
 module load gcc
@@ -344,7 +344,7 @@ module load R
 rstudio &
 ```
 
-Once you're in R, let's get going! Load the {rehh} library (if it isn't already):
+Once you're in *R*, load the {rehh} library (if it throws an error, you may need to install {rehh}; see the main Lab 5 exercise on iHS to see how):
 ```{r,eval = F, echo = T}
 library(rehh)
 ```
@@ -373,7 +373,9 @@ ihsplot(ihs, plot.pval=TRUE, ylim.scan=2.5, pch=16, main="iHS")
 
 ![](iHS_FIN_CH4.png)
 
-As you can see, we've got a few potential regions where there might be selective sweeps in this part of the genome. There maybe appears to be one or two around the position of *UCP1* (~140.5 Mb)... let's take a closer look at an actual *SNP* of interest.
+As you can see, we've got a few potential regions where there might be selective sweeps in this part of the genome. There maybe appears to be one or two around the position of *UCP1* (~140.5 Mb).
+
+Let's take a closer look at an actual *SNP* of interest.
 
 In a recent study in Japan by [Nishimura et al. (2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5514118/), researchers found that human subjects placed in a cold room for almost two hours showed significant differences in oxygen consumption (metabolism) and increased non-shivering thermogenesis based on having a derived allele (T/**C**) at a locus in a downstream regulator of *UCP1* expression (located −3826 bp from the gene itself) at [rs1800592](https://www.snpedia.com/index.php/Rs1800592), which is also implicated, in other studies, with obesity and diabetes mellitus.
 
@@ -386,37 +388,39 @@ res.ehh<-calc_ehh(hap,mrk=36102)
 
 ![](EHH_rs1800592.png)
 
-We can see here that there doesn't seem to be a very clear, extensive difference between the EHH of the ancestral allele vs. the derived, suggesting that no evident selection for this particular enhancer SNP has occurred in the Finnish population. BUT the paper also mentioned that there was significant linkage (LD = 1) between rs1800592 and another SNP of interest, rs4956451. Just to be thorough, let's check out the EHH for this SNP, as well. Remember, if a phenotypic effect is associated with a SNP, but that SNP is in perfect linkage with another, it might actually be the *other* SNP that's controlling the phenotype:
+We can see here that there doesn't seem to be a very clear, extensive difference between the EHH of the ancestral allele vs. the derived allele, but *just* near the SNP the derived allele has higher EHH, which continues away from the centromere (to the right), suggesting selection for this particular enhancer SNP has occurred in the Finnish population!
+
+The paper also mentioned that there was significant linkage (LD = 1) between rs1800592 and another SNP of interest, rs4956451. Just to be thorough, let's check out the EHH for this SNP, as well. Remember, if a phenotypic effect is associated with a SNP, but that SNP is in perfect linkage with another, it might actually be the *other* SNP that's controlling the phenotype:
 ```{r,eval = F, echo = T}
 res.ehh<-calc_ehh(hap,mrk=36131)
 ```
 
 ![](EHH_rs4956451.png)
 
-Ok, it *does* look like there is extended haplotype homozygosity in the derived allele compared to the ancestral (notice how the red line is consistently higher than the blue around our SNP?) for rs4956451, suggesting positive selection for this SNP in the Finns! In other words, it's possible that Finns adapted to their cold environment, in part, through an increased derived allele frequency at this SNP, which is an enhancer locus that increases expression of *UCP1*!
+Ok, it *really* looks like there is extended haplotype homozygosity in the derived allele compared to the ancestral (notice how the red line is consistently higher than the blue around our SNP?) for rs4956451, suggesting positive selection for this SNP in the Finns! In other words, it's possible that Finns adapted to their cold environment, in part, through an increased derived allele frequency at this locus, which is an enhancer that increases expression of *UCP1*!
 
 You can also, with {rehh} compare haplotype homozygosity *between* two different populations, to see if a particular genomic region or SNP has been under differential selection between them (e.g., between Finns and Yorubans). However, that's getting a bit more advanced than we'll get for this lab! If you're interested, you can learn more about these other options by reading through the [{rehh} vignette here](https://cran.r-project.org/web/packages/rehh/vignettes/rehh.pdf).
 
-One final exercise we can do, though, is to visualize the haplotype structure around our SNP of interest to give us a better idea of the origin of an observed effect of selection. The original use of this is in a paper by [Sabeti et al. (2002)](https://www.nature.com/articles/nature01140). This will look like a bifurcating tree, with the thicker branches representing the relative number of individuals maintaining that particular haplotype surrounding the core allele (which is at the vertical dashed line). The nodes of the tree are where the haplotype/linkage is broken by a variant.
+One final exercise we can do, though, is to visualize the haplotype structure around our SNP of interest to give us a better idea of the observed effect of selection. The original use of this is in a paper by [Sabeti et al. (2002)](https://www.nature.com/articles/nature01140). This will look like a bifurcating tree, with the thicker branches representing the relative number of individuals maintaining that particular haplotype (thicker = more people in the sample have that haplotype) surrounding the core allele (which is at the vertical dashed line). The nodes of the tree are where the haplotype/linkage is broken by a variant. Let's check out rs4956451 first:
 
 ```{r,eval = F, echo = T}
 layout(matrix(1:2,2,1))
-bifurcation.diagram(hap,mrk_foc=36131,all_foc=1,nmrk_l=20,nmrk_r=20,
+bifurcation.diagram(hap,mrk_foc=36131,all_foc=1,nmrk_l=80,nmrk_r=80,
 main="Bifurcation diagram (rs4956451, UCP1 enhancer): Ancestral Allele")
-bifurcation.diagram(hap,mrk_foc=36131,all_foc=2,nmrk_l=20,nmrk_r=20,
+bifurcation.diagram(hap,mrk_foc=36131,all_foc=2,nmrk_l=80,nmrk_r=80,
 main="Bifurcation diagram (rs4956451, UCP1 enhancer): Derived Allele")
 ```
 
 ![](bifurcation_rs4956451.png)
 
-We can see in this figure that the haplotype associated with the derived allele is pretty strongly preserved, with fewer breaks in linkage across the genome than the ancestral allele, further indicative of positive selection for the derived allele.
+We can see in this figure that the haplotype associated with the derived allele is pretty strongly preserved (this figure goes 80 SNPs to the left and right of our core allele), with fewer breaks in linkage across the genome than the ancestral allele. This further indicates positive selection for the derived allele.
 
 Let's take a look at our original SNP of interest using this method, rs1800592:
 ```{r,eval = F, echo = T}
 layout(matrix(1:2,2,1))
-bifurcation.diagram(hap,mrk_foc=36102,all_foc=1,nmrk_l=20,nmrk_r=20,
+bifurcation.diagram(hap,mrk_foc=36102,all_foc=1,nmrk_l=80,nmrk_r=80,
 main="Bifurcation diagram (rs1800592, UCP1 enhancer): Ancestral Allele")
-bifurcation.diagram(hap,mrk_foc=36102,all_foc=2,nmrk_l=20,nmrk_r=20,
+bifurcation.diagram(hap,mrk_foc=36102,all_foc=2,nmrk_l=80,nmrk_r=80,
 main="Bifurcation diagram (rs1800592, UCP1 enhancer): Derived Allele")
 ```
 
