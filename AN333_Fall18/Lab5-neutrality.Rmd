@@ -5,6 +5,17 @@ date: "10/26/2018"
 output: html_document
 ---
 
+```{r,echo=F}
+library(knitr)
+```
+
+```{css,echo=F}
+.sccCode {
+background-color: black;
+color: white;
+}
+```
+
 ## Introduction to Neutrality Statistics and Signs of Selection
 
 ***
@@ -63,7 +74,7 @@ Recent positive selection usually happens by *selective sweeps* (i.e. the rapid 
 ## Part 1: Getting Started
 
 Log in to the *SCC* and bring up the *R Studio* window [as usual](https://fuzzyatelin.github.io/AN333_Fall18/Lab_2_-_HWE.html): 
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 module load gcc
 module load R
 rstudio &
@@ -83,7 +94,7 @@ library(pegas)
 ```
 
 Finally, we need to format our data for analysis. *PopGenome* is a bit funky about how they look for the files in your directory, so we need to move some files around in our folders to make the *GENOME* object that the *PopGenome* package will work with. Specifically, if you haven't already done so, we need to make a new directory within our working directory, and put a copy of our data into that folder. Do this in your *SCC* space using the *mkdir* and *cp* commands (remember to use *your* population name rather than YRI!):
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 mkdir YRI
 cp YRI.vcf YRI/YRI.vcf
 ```
@@ -218,14 +229,14 @@ To cut down on data size, let's also restrict this dataset to a population where
 
 To do this, we'll first need to load our *modules*. This will include *tabix* to download the data, and *vcftools* to modify it. We'll also need to load the programming language *python* for a few short commands later:
 
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 module load tabix
 module load vcftools
 module load python
 ```
 
 Next, we'll download our *1000 Genomes Project* population panel file and create an isolated list of the FIN samples so that we can subset our data file:
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 #download the population panel file:
 wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/integrated_call_samples_v3.20130502.ALL.panel
 
@@ -234,24 +245,24 @@ grep FIN integrated_call_samples_v3.20130502.ALL.panel | cut -f1 > FIN.samples.l
 ```
 
 Now, to save on space, we'll download our extended positions (roughly 15 Mb above and below my gene of interest, *UCP1*) from chromosome 4 into a zipped file using a familiar *tabix* command:
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/GRCh38_positions/ALL.chr4_GRCh38.genotypes.20170504.vcf.gz 4:125000000-155000000 | bgzip -c > CH4_All.vcf.gz
 ```
 
 Then, we'll subset the zipped file for *just* the FIN data with a familiar *vcftools* command. While we're at it, we'll also filter out all indels and SNPs with a MAF lower than 5%:
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 vcftools --gzvcf CH4_All.vcf.gz --keep FIN.samples.list --maf 0.05 --remove-indels --recode-INFO AA --recode --stdout | bgzip -c > FIN_CH4.vcf.gz
 ```
 
 Running the above code took about 10 minutes, because we're actually filtering 99 individuals from 2504 while also filtering down 62,551 SNPs!!! That's a *huge* amount of data compared to what we've been working with so far.
 
 To make sure everything worked appropriately, check out the final file (so far) using the `less` command (press 'q' when you're done):
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 gunzip -c FIN_CH4.vcf.gz | less
 ```
 
 Given your data looks good, now let's erase the larger file with all the *1000 Genomes Project* individuals, along with other files we're done with:
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 rm CH4_All.vcf.gz
 rm integrated_call_samples_v3.20130502.ALL.panel
 rm FIN.samples.list
@@ -260,44 +271,44 @@ rm FIN.samples.list
 Now we're ready to convert this into a haplotype file and a genome map file for {rehh} using a few relatively unfamiliar steps... these are modified from the [Informatics Portal website](https://csprojects.me/481/tools.php). 
 
 First, we'll extract our INFO on ancestral alleles:
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 vcftools --gzvcf FIN_CH4.vcf.gz --get-INFO AA
 ```
 
 I have to note that this step is - conceptually - a little complicated because the way the *1000 Genomes Project* estimates the ancestral allele at a given position is a bit different from how folks *usually* think about an ancestral allele (i.e., the allele state of the LCA of the groups you're testing). You don't have to worry about it, for now, but [you can learn more about it here](https://www.biostars.org/p/61267/).
 
 Next, we'll change lower- to upper-case letters in our INFO file:
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 cat out.INFO | tr '[:lower:]' '[:upper:]' > out2.INFO
 ```
 
 Export the VCF file in IMPUTE format, which is what groups alleles into haplotypes:
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 vcftools --gzvcf FIN_CH4.vcf.gz --IMPUTE
 ```
 
 Delete the first row in our INFO file and replace tabs for spaces:
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 more +2 out2.INFO | awk '{if($3==$5) print$0,"yes";if($3!=$5) print$0,"no";}' | sed -e 's/\t/ /g' > out3.INFO
 ```
 
 Now, there's a problem here in that IMPUTE is deleting a few loci from the sample. We need to use the 'join' command to merge the properly matched columns based on position (column 2 in out3.INFO and column 2 in out.impute.legend), which will automatically then delete non-matches in the output file (both files need to be sorted by the position name for this to work):
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 join -j 2 -o 1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8 out3.INFO <(sort -k2 out.impute.legend) > out4.INFO
 ```
 
 Merge most recent INFO file and our IMPUTE `hap` file, then eliminate from the merged file those markers with no ancestral allele info (".") or ("N") or ("-"):
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 paste out4.INFO out.impute.hap | awk '($5!="." && $5!="N" && $5!="-")' > merged.out
 ```
 
 Change the allele codes (0 to 3 and 1 to 4) starting in column 7, and remove potential duplicates:
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 awk '{for(i=7;i<=NF;i++)if($i==0)$i=3; else $i=4; print}' merged.out | awk '{if(ip[$2]=="") print; ip [$2]=1}' > merged2.out
 ```
 
 Prepare {rehh} `map` file using information from the first 2 columns:
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 awk '{print $1"-"$2,$1,$2,"1","2"}' merged2.out > mapFIN_CH4.out
 
 #change label 3 to 1 when reference allele = ancestral allele (yes)
@@ -310,17 +321,17 @@ sed -e '/yes/ s/3/1/g' -e '/yes/ s/4/2/g' -e '/no/ s/3/2/g' -e '/no/ s/4/1/g' me
 ```
 
 Transpose to create final haplotype file for {rehh} input:
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 python -c "import sys; print('\n'.join(' '.join(c) for c in zip(*(l.split() for l in sys.stdin.readlines() if l.strip()))))" < merged3.out > merged4.out
 ```
 
 Add first column with numbers in increasing order:
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 awk '{print NR " "$0}' merged4.out > hapFIN_CH4.out
 ```
 
 An finally, remove intermediate files you won't use anymore:
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 rm merged.out
 rm merged2.out
 rm merged3.out
@@ -338,7 +349,7 @@ After this whole process, the files `mapCH4_FIN.out` and `hapCH4_FIN.out` are th
 
 Ok... now let's open *Rstudio* and try it!
 
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 module load gcc
 module load R
 rstudio &
