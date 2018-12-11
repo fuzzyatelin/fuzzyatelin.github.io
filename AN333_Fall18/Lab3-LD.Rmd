@@ -4,6 +4,18 @@ author: "Becca DeCamp & Christopher Schmitt"
 date: "10/09/2018"
 output: html_document
 ---
+
+```{r,echo=F}
+library(knitr)
+```
+
+```{css,echo=F}
+.sccCode {
+background-color: black;
+color: white;
+}
+```
+
 ## Introduction to Linkage Disequilibrium (LD)
 
 ***
@@ -49,7 +61,7 @@ We will be using two statistics to gauge LD in our populations: ***D'*** (pronou
 ## Step 1: Getting to *R Studio* and Preparing your Data
 
 Log in to the *SCC* and bring up the *R Studio* window [like we did in the last lab](https://fuzzyatelin.github.io/AN333_Fall18/Lab_2_-_HWE.html): 
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 module load gcc
 module load R
 rstudio &

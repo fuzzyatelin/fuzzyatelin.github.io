@@ -98,6 +98,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -105,14 +108,74 @@ button.code-folding-btn:focus {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -129,6 +192,12 @@ $(document).ready(function () {
 </div>
 
 
+<style type="text/css">
+.sccCode {
+background-color: black;
+color: white;
+}
+</style>
 <div id="introduction-to-linkage-disequilibrium-ld" class="section level2">
 <h2>Introduction to Linkage Disequilibrium (LD)</h2>
 <hr />
@@ -177,7 +246,7 @@ $(document).ready(function () {
 <div id="step-1-getting-to-r-studio-and-preparing-your-data" class="section level2">
 <h2>Step 1: Getting to <em>R Studio</em> and Preparing your Data</h2>
 <p>Log in to the <em>SCC</em> and bring up the <em>R Studio</em> window <a href="https://fuzzyatelin.github.io/AN333_Fall18/Lab_2_-_HWE.html">like we did in the last lab</a>:</p>
-<pre class="bash"><code>module load gcc
+<pre class="bash sccCode"><code>module load gcc
 module load R
 rstudio &amp;</code></pre>
 <p>Now that we’re in <em>R</em>, we can prepare our data for analysis. The functions we will use today require our data to be in a special format called a <em>SNPMatrix</em>, so we’ll convert our data in to a <em>SNPMatrix</em> now. As usual, I will use the population YRI again as an example; change all YRI code to <em>your</em> population code! <br></p>
