@@ -5,6 +5,17 @@ date: "November 16, 2018"
 output: html_document
 ---
 
+```{r,echo=F}
+library(knitr)
+```
+
+```{css,echo=F}
+.sccCode {
+background-color: black;
+color: white;
+}
+```
+
 ##A Brief Digression from *UCP1* for Quantitative Genetics
 
 ***
@@ -74,19 +85,19 @@ Here's where we come in!  We're going to use an analytical program called [*SOLA
 
 The first thing we need to do is log in to the *SCC*, and then navigate to the *anth333* project directory, where there's a folder called *vervet*:
 
-```{bash,eval=F}
+```{bash,eval=F, class.source="sccCode"}
 cd /project/anth333/vervet/
 ```
 
 Once there, copy both the files from the vervet folder to your personal folder in the project directory. These files include the wild vervet pedigree, and the population dataset on BW, BMI and the dietary covariate. You can use the following code, as an example (in this case, replace 'filename' with the name of the file, and 'BUID' with *your* BUID, so that the file will be copied to your named folder):
 
-```{bash,eval=F}
+```{bash,eval=F, class.source="sccCode"}
 cp /project/anth333/vervet/filename /project/anth333/BUID/
 ```
 
 Before continuing, let's take a look at our vervet data. Use the `less` command to take a look at the pedigree file, `vervped.csv` (remember, you can press 'q' at any time to get back to your prompt):
 
-```{bash, eval=F}
+```{bash, eval=F, class.source="sccCode"}
 less vervped.csv
 ```
 <br><br>
@@ -97,7 +108,7 @@ less vervped.csv
 As you can see, we have a few different columns here. *FamID* is to identify separate family structures; in this case, it's all one interbreeding population, so there's only one family ID. *ID* is the unique identifier for each individual in the population. *Fa* stands for 'father', or 'sire', and is the male parent, while 'Mo' stands for 'mother', or 'dam', and is the female parent. You'll notice that these first ten individuals don't have any sires or dams listed (Fa = '0', Mo = '0'); this is because when we started following this population in 1968, we only knew the adults already in the group... we couldn't find out who their parents were. If you scroll down, you'll see that subsequent generations *do* have known sires and dams.  Finally, we have *Sex*, with '1' indicating males, and '0' indicating females. This looks really simple, but from this file we're able to both construct the complex-looking pedigree diagram you see above, and we can calculate approximate amounts of IBD (all it takes in this case are the individual ID, the the mother's ID, and the father's ID to estimate relatedness and thus estimated proportions of IBD).
 
 We can also take a look at our data file, `vervdat.csv` (remember, you can press 'q' at any time to get back to your prompt):
-```{bash, eval=F}
+```{bash, eval=F, class.source="sccCode"}
 less vervdat.csv
 ```
 <br><br>
@@ -109,7 +120,7 @@ Here, we can see all the phenotypes and environmental factors measured for each 
 
 Once you're familiar with the dataset, we're ready to load *SOLAR-Eclipse*:
 
-```{bash, eval=F}
+```{bash, eval=F, class.source="sccCode"}
 module load solar-eclipse
 solar
 ```
@@ -117,14 +128,14 @@ solar
 Now, you'll notice that once you've loaded *SOLAR*, that the prompt has changed to `solar>`. This means that once *SOLAR* is loaded, you can *only* run *SOLAR* commands. If you need to run other commands, you can type `quit` at the prompt to get back to your regular workspace prompt. If you've done that, you'll need to type `solar` once more to reinitiate *SOLAR-Eclipse*.
 
 Once *SOLAR* is loaded, we need to load our pedigree into the *SOLAR* program. This is pretty straightforward:
-```{bash, eval=F}
+```{bash, eval=F, class.source="sccCode"}
 load pedigree vervped.csv
 ```
 
 You'll be given a warning message about the IBD estimates, don't worry about it!
 
 Then, we'll load our dataset:
-```{bash, eval=F}
+```{bash, eval=F, class.source="sccCode"}
 load phenotypes vervdat.csv
 ```
 
@@ -137,17 +148,17 @@ The *SOLAR* package was written by Laura Almasy and John Blangero, who wrote [th
 To demonstrate, let's estimate the narrow-sense heritability of body weight (*BW*) in the vervet population. To do this, we'll run a series of commands that set up our analysis.
 
 First, we'll start a new variance decomposition model:
-```{bash, eval=F}
+```{bash, eval=F, class.source="sccCode"}
 model new
 ```
 
 Then, we'll define the trait we want to analyze as our dependent variable, or the trait whose variance we want to decompose into genetic and environmental components. In this case, it's *BW*:
-```{bash, eval=F}
+```{bash, eval=F, class.source="sccCode"}
 trait BW
 ```
 
 For now, let's keep it simple and not include any explicit environmental covariates. We'll simply look for how much variance in BW can be attributed to genetic relatedness based on the pedigree. To run this variance decomposition, all we have to do is enter the command `polygenic`:
-```{bash, eval=F}
+```{bash, eval=F, class.source="sccCode"}
 polygenic
 ```
 
@@ -164,12 +175,12 @@ There some more important information here, too. All of our analysis files, for 
 Most importantly for our analysis, though, we can also see that the residual kurtosis for BW in our analysis is too high. This analysis may seem complex, but it's still essentially a linear regression, and like any linear regression the distribution of our dependent variable must be normal...
 
 We can fix this by *transforming* our dependent variable. In this case, we'll *normalize* the variable using a simple function already stored in *SOLAR*:
-```{bash, eval=F}
+```{bash, eval=F, class.source="sccCode"}
 define nBW = inormal_BW
 ```
 
 Now we've created a new trait variable, called *nBW*, which is the normalized version of BW. Let's run our same, simple polygenic model assessment on this trait:
-```{bash, eval=F}
+```{bash, eval=F, class.source="sccCode"}
 model new
 trait nBW
 polygenic
@@ -184,7 +195,7 @@ As you can see, normalizing our trait hasn't changed our model much, but has all
 Our next step towards better understanding the variance in BW will be to account for the proportion explained by the covariate of *Diet*. Remember, from our discussion of variance components in class: a good covariate will *absorb* variance in our trait, giving us a more accurate estimate of how much of our trait variance is due to genetics. In the case of diet, it may absorb some environmental variance (since, for example, animals stuck on the periphery of the population, will be sharing both that environment *and* that diet), and some of the genetic variance (since, for example, it's likely that mothers will teach their daughters how to sneak into the high-quality food area, making that trait consistent among closely related relatives).
 
 To model a covariate, we must define our covariate using the `covariate` command, and modify our `polygenic` command with the options `-screen`, and `-all`. These options ask *SOLAR* to compare models with and without the covariates so that we can assess how significant an effect each covariate might have on the dependent variable. This comparison also allows us to figure out how much environmental variance is absorbed by our covariate, and how much is left as random environmental effects. Let's run the code now:
-```{bash, eval=F}
+```{bash, eval=F, class.source="sccCode"}
 model new
 trait nBW
 covariate Diet
