@@ -5,6 +5,17 @@ date: "10/18/2018"
 output: html_document
 ---
 
+```{r,echo=F}
+library(knitr)
+```
+
+```{css,echo=F}
+.sccCode {
+background-color: black;
+color: white;
+}
+```
+
 ## Introduction to Nearest-Neighbor Joining and Phylogenetics
 
 ***
@@ -39,7 +50,7 @@ Another important method we will be using today to try to reconstruct relatednes
 ## Step 1: Getting to *R Studio* and Preparing your Data
 
 Log in to the *SCC* and bring up the *R Studio* window [like we did in previous labs](https://fuzzyatelin.github.io/AN333_Fall18/Lab_2_-_HWE.html): 
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 module load gcc
 module load R
 rstudio &
@@ -132,7 +143,7 @@ In the next part of the lab, we'll make two more trees of populations from the s
 <br>
 The first step for this part of the lab will be to download the *UCP1* data from these other two populations in your region. Instead of downloading more data from Ensembl, you can get the data from the */project/anth333/* directory called "*DeCamp*" (HINT: this is the same directory where you did your Midterm 1 work. This directory contains downloads of *UCP1* data from all of the 1000 Genomes populations. This process will be similar to what we did in [Lab 1](https://fuzzyatelin.github.io/AN333_Fall18/Lab_1_-_1KG_and_Ensembl_Tutorial.html) to get our data in to our *SCC* folders. Just in case, here's how you would copy this files from the "*DeCamp*" folder to your working directory:
 
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 cp /project/anth333/DeCamp/filename.vcf /usr4/anth333/login/filename.vcf
 ```
 
