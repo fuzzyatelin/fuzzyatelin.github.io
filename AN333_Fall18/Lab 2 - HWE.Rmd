@@ -4,6 +4,18 @@ author: "Becca DeCamp & Christopher Schmitt"
 date: "October 5, 2018"
 output: html_document
 ---
+
+```{r,echo=F}
+library(knitr)
+```
+
+```{css,echo=F}
+.sccCode {
+background-color: black;
+color: white;
+}
+```
+
 ## Introduction to Hardy-Weinberg Equilibrium (using Human Genome Data)
 
 ***
@@ -68,7 +80,7 @@ The first thing we need to do is access *R Studio* within the *SCC* environment.
 * *R Studio* needs a few *modules* loaded before it can be opened. Use the following commands to get *R Studio* going: 
 <br>
 
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 module load gcc #we need this module to load R packages
 module load R
 rstudio & #this will launch R Studio
@@ -122,7 +134,7 @@ HWE #Running the name of your results file will print the results
 
 What you'll get is this table. In your *TERMINAL* space, open the text editor program *gedit*:
 
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 gedit &
 ```
 
@@ -131,13 +143,13 @@ Once it's open, go back to your *R Studio* space and scroll over your results ta
 <br>
 If you've got the text file saved, you can close *R Studio* and complete the rest of this exercise using the analysis results in the text file. You can look at it either in *gedit*:
 
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 gedit YRI.HWE.txt &
 ```
 
 Or in the terminal space itself using the *less* command (don't forget, to leave the *less* output, press 'q'):
 
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 less YRI.HWE.txt
 ```
 
@@ -322,19 +334,19 @@ You can actually run the same analysis we just did using a single line of code i
 
 If you'd like to try, load the *vcftools* module:
 
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 module load vcftools
 ```
 
 Now, enter the following code. This is essentially telling *vcftools* to run the "true" HWE test on each variant site, and to give the output as a file called "**YRI.hwe**":
 
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 vcftools --vcf YRI.vcf --hardy --out YRI
 ```
 
 Once it's run, you can read the output file using the *less* command:
 
-```{bash, eval = F, echo = T}
+```{bash, eval = F, echo = T, class.source="sccCode"}
 less YRI.hwe
 ```
 
