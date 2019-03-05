@@ -1,21 +1,21 @@
 ---
 title: "AN597: Project Design and Statistics</br> in Biological Anthopology"
 author: "Christopher A Schmitt</br>Boston University"
-date: "September 6, 2017"
+date: "March 5, 2019"
 output: html_document
 ---
 ***
-<center><p><img src="https://qph.ec.quoracdn.net/main-qimg-527cbeca6d5ab2127118ace7d469b087"></p></center>
+<center><p><img src="https://imgs.xkcd.com/comics/correlation.png"></p></center>
 
 ***
 <center>
-<b>Fall 2017, Seminar is held on Tuesdays, 3:30 - 6:15pm in <i>BSC B07</i></b>
+<b>Fall 2019, Seminar is held on Mondays, 2:30 - 5:15pm in <i>Room TBD</i></b>
 </center>
 ***
 ###Faculty Instructor:
   **Christopher A. Schmitt**, Assistant Professor of Anthropology and Biology  
-  Office: 232 Bay State Road, Room 104B  
-  Office Hours: Wednesday 2:00 - 4:00pm; Thursday by appointment.  
+  Office: Stone Science Building (STO), 675 Commonwealth Ave, Rm 247E  
+  Office Hours: Wednesday 2:00 - 5:00pm  
   Web: http://www.evopropinquitous.net  
   Email: caschmit[at]bu[dot]edu  
   Twitter: http://www.twitter.com/fuzzyatelin  
@@ -36,17 +36,19 @@ output: html_document
 Statistical methods are the backbone of scientific research, but are often given short shrift when designing research in biological anthropology. The purpose of this seminar is two-fold: 1) to familiarize students with the use of relevant statistical programming packages (primarily R), and 2) to discuss select advances in statistical techniques from related disciplines that may help students while designing and implementing their own research projects. 
 
 Potential foci of discussion may include statistical methods for accounting for small sample sizes or non-normal data, using power analyses and preliminary statistics to justify data collection design, and the use of mixed models and information theoretic approaches to analyze a number of different data types. Although there will be a discussion element to the seminar, students should see this course as a guided workshop or practicum in which we learn by working with both our own and previously published datasets.
+
+This course is open to students outside of Anthropology willing to learn the methods involved. Past students include undergraduate and graduate students from Anthropology, Archaeology, Biology, and Economics.
 </p>  
 
 ***
 ###Prerequisites
 ***
-CAS AN 102, and consent of instructor. At least one semester of introductory statistics is recommended, but not required. Prior experience programming is helpful, but also not required.  
+CAS AN 102 or CAS BI 107/108 (for undergraduates) or graduate student standing, and/or consent of instructor. At least one semester of introductory statistics is recommended, but not required. Prior experience programming is helpful, but also not required.  
 
 ***
 ###Course Format
 ***
-This is a 4 credit seminar course. Seminar will be held once a week for a total of 3 hours. Please bring laptops or tablets to class loaded with appropriate software for course exercises (these can be found in Resources, above). Within CAS, these credits count as NS divisional credits towards the BA.  
+This is a 4 credit seminar course. Seminar will be held once a week for a total of 3 hours. Please bring laptops or tablets to class loaded with appropriate software for course exercises (these can be found in Resources, above). Within CAS, these credits count as NS divisional credits towards the BA. This course is not (yet) integrated into the BU Hub.
 
 ***
 ###Assessment
@@ -57,7 +59,7 @@ Performance in the class will be assessed as follows:
 2. 50 points (10 x 5): Class coding quizzes.  
 3. 100 points (10 x 10 Programming homework sets)  
 4. 100 points: One individual <b>data analysis replication assignment</b> based on a published paper with a publicly available dataset, chosen in consultation with the instructor.  
-5. 100 points: One <b>group presentation and written R vignette</b> demonstrating the use of a particular statistical method chosen in consultation with the instructor.
+5. 100 points: One <b>group presentation and written R vignette</b> demonstrating the use of a particular statistical method chosen in consultation with the instructor (past examples available in the [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)).
 </ol>
 
 ***
@@ -73,6 +75,7 @@ Performance in the class will be assessed as follows:
 ###Optional Texts
 ***
 <ul>
+<li>Wickham H, Grolemund G. 2017. <i>R for Data Science</i>. Boston: O'Reilly</li>
 <li>Dalgaard P. 2008. <i>Introductory Statistics with R, 2nd Edition</i>. New York: Springer.</li>
 <li>Crawley MJ. 2014. <i>Statistics: An Introduction Using R, 2nd Edition</i>. Chichester, UK: John Wiley & Sons, Inc.</li></ul>
 
