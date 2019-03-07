@@ -15,7 +15,7 @@ output: html_document
 ###Faculty Instructor:
   **Christopher A. Schmitt**, Assistant Professor of Anthropology and Biology  
   Office: Stone Science Building (STO), 675 Commonwealth Ave, Rm 247E  
-  Office Hours: Wednesday 2:00 - 5:00pm  
+  Office Hours: Wednesday 2:00 - 3:30pm, Friday 2:00 - 3:30pm 
   Web: http://www.evopropinquitous.net  
   Email: caschmit[at]bu[dot]edu  
   Twitter: http://www.twitter.com/fuzzyatelin  
