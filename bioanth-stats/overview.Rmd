@@ -9,7 +9,7 @@ output: html_document
 
 ***
 <center>
-<b>Fall 2019, Seminar is held on Mondays, 2:30 - 5:15pm in <i>Room TBD</i></b>
+<b>Fall 2019, Seminar will be held on Mondays, 2:30 - 5:15pm in <i>Room TBD</i></b>
 </center>
 ***
 ###Faculty Instructor:
