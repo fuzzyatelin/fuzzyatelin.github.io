@@ -1,7 +1,7 @@
 ---
 title: "AN597: Project Design and Statistics</br> in Biological Anthopology"
 author: "Christopher A Schmitt</br>Boston University"
-date: "March 5, 2019"
+date: "April 12, 2019"
 output: html_document
 ---
 ***
@@ -9,7 +9,7 @@ output: html_document
 
 ***
 <center>
-<b>Fall 2019, Seminar will be held on Mondays, 2:30 - 5:15pm in <i>Room TBD</i></b>
+<b>Fall 2019, Seminar will be held on Mondays, 2:30 - 5:15pm in <i>CAS 335</i></b>
 </center>
 ***
 ###Faculty Instructor:
