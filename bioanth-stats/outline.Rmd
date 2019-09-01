@@ -1,6 +1,8 @@
 ---
 title: "AN597: Course Outline"
-output: html_document
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
 ---
 ***
 
@@ -8,11 +10,11 @@ output: html_document
 ###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
 ###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
 ###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
-###[Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+###[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
 
 ***
 
-###Week 01 (2017-09-05)
+###Week 01 (2019-09-02)
 ***
 
 ###An Introduction to R
@@ -79,10 +81,10 @@ output: html_document
 
 ***
 
-###Week 02 (2017-09-12)
+###Week 02 (2019-09-09)
 ***
 
-[Homework 1 assigned - DUE 2pm 2016-09-15](http://fuzzyatelin.github.io/bioanth-stats/homework-01.html)
+[Homework 1 assigned - DUE 5pm 2019-09-15](http://fuzzyatelin.github.io/bioanth-stats/homework-01.html)
 
 ###Data Science Preliminaries
 
@@ -154,10 +156,10 @@ output: html_document
 </ul>
 ***
 
-###Week 03 (2017-09-19)
+###Week 03 (2019-09-16)
 ***
 
-[Homework 2 assigned - DUE 2pm 2017-09-30](http://fuzzyatelin.github.io/bioanth-stats/homework-02.html)
+[Homework 2 assigned - DUE 5pm 2019-09-22](http://fuzzyatelin.github.io/bioanth-stats/homework-02.html)
 
 ###Statistics Fundamentals - Exploratory Data Analysis, Central Tendency, and Variance
 
@@ -209,10 +211,10 @@ output: html_document
 <li>Chapter 14 - Basic Data Visualization</li></ul>
 ***
 
-###Week 04 (2017-09-26)
+###Week 04 (2019-09-23)
 ***
 
-[Homework 3 assigned - DUE 2pm 2017-10-06](http://fuzzyatelin.github.io/bioanth-stats/homework-03.html)
+[Homework 3 assigned - DUE 5pm 2019-09-29](http://fuzzyatelin.github.io/bioanth-stats/homework-03.html)
 
 ###Statistics Fundamentals - Probability and Distributions
 
@@ -251,12 +253,12 @@ output: html_document
 
 ***
 
-###Week 05 (2017-10-03)
+###Week 05 (2019-09-30)
 ***
 
 **IMPORTANT! Today is the deadline for choosing a paper from the primary literature to replicate analyses.**
 
-[UPDATE: You an find instructions for the data re-analysis assignment here!](http://fuzzyatelin.github.io/bioanth-stats/data-reanalysis-assignment.html)
+[You can find instructions for the replication assignment here!](http://fuzzyatelin.github.io/bioanth-stats/data-reanalysis-assignment.html)
 
 ###Statistical Inference and Basic Hypothesis Testing
 
@@ -286,17 +288,10 @@ output: html_document
 
 ***
 
-###Week 06 (2017-10-10)
+###Week 06 (2019-10-07)
 ***
 
-Class cancelled for Indigenous Peoples' Day!
-
-***
-
-###Week 07 (2017-10-17)
-***
-
-[Homework 4 assigned - DUE 2pm 2017-10-23](http://fuzzyatelin.github.io/bioanth-stats/homework-04.html)
+[Homework 4 assigned - DUE 5pm 2017-10-13](http://fuzzyatelin.github.io/bioanth-stats/homework-04.html)
 
 ###Introduction to Linear Regression
 
@@ -338,8 +333,10 @@ Class cancelled for Indigenous Peoples' Day!
 
 ***
 
-###Week 08 (2017-10-24)
+###Week 07 (2019-10-15)
 ***
+
+Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day.
 
 ### Elements of Regression Analysis
 
@@ -363,7 +360,7 @@ Class cancelled for Indigenous Peoples' Day!
 
 ***
 
-###Week 09 (2017-10-31)
+###Week 08 (2019-10-21)
 ***
 
 ### Basic Categorical Data Analysis and ANOVA
@@ -400,7 +397,7 @@ Class cancelled for Indigenous Peoples' Day!
 
 ***
 
-###Week 10 (2017-11-07)
+###Week 09 (2019-10-28)
 ***
 
 ### Multiple Regression and ANCOVA
@@ -428,12 +425,10 @@ Class cancelled for Indigenous Peoples' Day!
 
 ***
 
-###Week 11 (2017-11-14)
+###Week 10 (2019-11-04)
 ***
 
-**IMPORTANT! Deadline for choosing topic for group statistical methods presentation and vignette**
-
-[Homework 5 assigned - DUE 2pm 2017-11-20](http://fuzzyatelin.github.io/bioanth-stats/homework-05.html)
+[Homework 5 assigned - DUE 5pm 2019-11-10](http://fuzzyatelin.github.io/bioanth-stats/homework-05.html)
 
 ### Model Selection, Generalized Linear Modeling, and Mixed Effects Modeling
 
@@ -462,13 +457,23 @@ Class cancelled for Indigenous Peoples' Day!
 #### Useful but Optional Readings
 
 - [Bolker, B.M. (2008). Chapter 9. Standard statistics revisited. In: *Ecological Models and Data in R.* Princeton, NJ: Princeton University Press.](https://ms.mcmaster.ca/~bolker/emdbook/book.pdf)
-- [Bolker, B.M., Brooks, M.E., Clark, C.J., Geange, S.W., Poulsen, J.R., Stevens, M.H.H., White, J-S.S. (2008) Generalized linear mixed models: a practical guide for ecology and evolution. *Trends in Ecology and Evolution* 24(3):127-135.](http://avesbiodiv.mncn.csic.es/estadistica/curso2011/regm26.pdf)
 - [Quinn, G. P., & Keough, M. J. (2002). Chapter 13. Generalized linear models and logistic regression. *Experimental Design and Data Analysis for Biologists.* Cambridge, UK: Cambridge University Press.](http://www2.ib.unicamp.br/profs/fsantos/apostilas/Quinn%20&%20Keough.pdf)
 - Package descriptions for [{AICcmodavg}](https://cran.r-project.org/web/packages/AICcmodavg/AICcmodavg.pdf) and [{MuMIn}](https://cran.r-project.org/web/packages/MuMIn/MuMIn.pdf)
 
 ***
 
-###Week 12 (2017-11-21)
+###Week 11 (2019-11-11)
+***
+
+**IMPORTANT! Deadline for choosing topic for group statistical methods presentation and vignette**
+
+Same readings as last week, plus:
+
+[Bolker, B.M., Brooks, M.E., Clark, C.J., Geange, S.W., Poulsen, J.R., Stevens, M.H.H., White, J-S.S. (2008) Generalized linear mixed models: a practical guide for ecology and evolution. *Trends in Ecology and Evolution* 24(3):127-135.](http://avesbiodiv.mncn.csic.es/estadistica/curso2011/regm26.pdf)
+
+***
+
+###Week 12 (2019-11-18)
 ***
 
 ###A Very Brief Introduction to Bayesian Methods
@@ -496,7 +501,7 @@ More details coming soon!
 
 ***
 
-###Week 13 (2017-11-28)
+###Week 13 (2019-11-25)
 ***
 
 ### Using APIs and Basics of Text Mining
@@ -526,28 +531,24 @@ More details coming soon!
 
 ***
 
-###Week 14 (2017-12-05)
+###Week 14 (2019-12-02)
 ***
 
 Group Presentations and Vignettes
 
-###[Module 22 - **Phylogenetic Tree Constuction**]() 
-(Brandon Guell, Isabella Muratore, Danielle Antos)
+###[Module 22 - **TBA**]() 
 
-###[Module 23 - **Cluster Analysis**]() 
-(Aarti Arora, Andrew Mark, Natalie Robinson, Audrey Thahjadi)
+###[Module 23 - **TBA**]()
 
 ***
 
-###Week 15 (2017-12-12)
+###Week 15 (2017-12-09)
 ***
 
 Group Presentations and Vignettes
 
-###[Module 24 - **3D Visualization and Analysis**]() 
-(Zach Coto, Maria Codlin, Julie Jung)
+###[Module 24 - **TBA**]()
 
-###[Module 25 - **Factor Analysis (and MAYBE Principal Components Analysis)**]() 
-(Graham Albert, Becca DeCamp, Faye Harwell, Zeynep Senveli)
+###[Module 25 - **TBA**]() 
 
 ***

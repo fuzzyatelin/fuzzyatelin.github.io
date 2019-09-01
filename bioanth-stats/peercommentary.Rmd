@@ -1,0 +1,291 @@
+---
+title: "AN597: Peer Commentary Assignments"
+author: "Christopher A Schmitt"
+date: "September 1, 2019"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
+---
+***
+
+###[Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
+###[Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
+###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
+###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
+###[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+
+***
+
+<center>
+
+<font size="+2"><b>Instructions and Assigned Partners for Peer Commentary Assignments</b></font></center><br>
+
+<center><p><img src="https://media.giphy.com/media/XhQSJ1NodRh3q/giphy.gif" style="border:5px solid black"></p>
+</center><br>  
+
+<center>
+The Peer Commentary assignment is one of the most important exercises in this class. It's a chance for you to work *with* your classmates to learn different perspectives on approaching and coding statistics while also engaging in respectful feedback about the ways in which your peers code, comment their code, and work through coding and statistical problems.
+
+(Please... no Bianca Del Rio-level shade in this class; we'll *all* be making mistakes this semester).
+
+</center>
+
+***
+
+###**How it works...**
+
+Every week, after you've finished the [Homework]() associated with your assigned [Module](https://fuzzyatelin.github.io/bioanth-stats/modules.html), you will be required to share your annoted/commented code with your weekly assigned Peer Group. This will typically be a group of three, although depending on final class size it may be a group of two, and this group will change on a weekly basis (see below for your assigned groups). **You must send your commented/annotated code from your Homework to your Peer Group by 8:00 pm on Thursday night**. It is up to your group whether one or both of the other members work together to respectfully critique the others' code, and groups are encouraged to meet over the weekend to discuss their code.
+
+###**What you're critiquing...**
+
+As noted in the [Homework]() instructions, while completing your homework each of you will compile a list of the five most impactful challenges faced while coding it, along with how you overcame them (or what you attempted if you couldn't overcome them). You, as a peer commenter, must spend *at least an hour* reviewing and testing your peer's code with an eye towards understanding the challenges they faced, and in the process write down the following:
+<br><ol>
+1. What you learned from running their code that helped improve your own code.
+2. What you did in your own code that might help to improve theirs.
+3. What challenges, if any, you *both* faced in your code that could not be helped by comparison.
+4. Whether the annotation/commenting on your peer's code is readable and interpretable to you, and if how it could be improved.
+</ol>
+Although not required, you are encouraged to meet outside class so that you may work together on this process.
+
+**Students must turn in their Peer Commentaries to me, along with their own homework assignments, by 5:00 pm on Sunday**
+
+In class, for 10 minutes, you will be given a chance to meet with your Peer Group in order to prioritize questions or challenges that your group would like to bring to the attention of the whole class.
+
+We will then take 30 minutes of each class to address these challenges together, and see if other Peer Groups faced similar challanges or found unique solutions to each problem, and together will do our best to solve them.
+
+Although grades will not be assigned for Peer Commentaries, if it comes to my attention that particular students are not actively participating in this process, it will be considered when reading their argument for their final grade.
+
+###**Who you're working with...**
+
+Assigned Peer Groups for each week will be as follows (although they may change over the course of the semester):
+
+####**Week 01 (2019-09-02)**
+***
+
+No formal class meeting, and no Peer Commentary due.
+
+***
+
+####**Week 02 (2019-09-09)**
+***
+
+Peer Group 1: Timothy McHale, Laura Angley, Gianna Grob
+
+Peer Group 2: Frank Azorza Salazar, Mel Zarate, Ishrat Chowdhury
+
+Peer Group 3: Laura Brubaker-Wittman, Christian Gagnon, Lara Hakam
+
+Peer Group 4: Melissa Hurtado, Peter Kovacik, Clint Lockwood
+
+Peer Group 5: Nicola Kriefall, Ena Miculinic, Gregory Pelose 
+
+Peer Group 6: Maria Salazar Nicholls, Brenna Stallings, C Vega
+
+***
+
+####**Week 03 (2019-09-16)**
+***
+
+Peer Group 1: Laura Angley, Frank Azorza Salazar, Lara Hakam
+
+Peer Group 2: Mel Zarate, Laura Brubaker-Wittman, Clint Lockwood
+
+Peer Group 3: Christian Gagnon, Melissa Hurtado, Gregory Pelose
+
+Peer Group 4: Peter Kovacik, Nicola Kriefall, C Vega
+
+Peer Group 5: Ena Miculinic, Maria Salazar Nicholls, Gianna Grob
+
+Peer Group 6: Brenna Stallings, Timothy McHale, Ishrat Chowdhury
+
+***
+
+####**Week 04 (2019-09-23)**
+***
+
+Peer Group 1: Frank Azorza Salazar, Christian Gagnon, Clint Lockwood
+
+Peer Group 2: Laura Brubaker-Wittman, Peter Kovacik, Gregory Pelose
+
+Peer Group 3: Melissa Hurtado, Ena Miculinic, C Vega
+
+Peer Group 4: Nicola Kriefall, Brenna Stallings, Gianna Grob
+
+Peer Group 5: Maria Salazar Nicholls, Laura Angley, Ishrat Chowdhury
+
+Peer Group 6: Timothy McHale, Mel Zarate, Lara Hakam
+
+
+***
+
+####**Week 05 (2019-09-30)**
+***
+
+Peer Group 1: Christian Gagnon, Nicola Kriefall, Ishrat Chowdhury
+
+Peer Group 2: Peter Kovacik, Maria Salazar Nicholls, Lara Hakam
+
+Peer Group 3: Ena Miculinic, Timothy McHale, Clint Lockwood
+
+Peer Group 4: Brenna Stallings, Frank Azorza Salazar, Gregory Pelose
+
+Peer Group 5: Laura Angley, Laura Brubaker-Wittman, C Vega
+
+Peer Group 6: Mel Zarate, Melissa Hurtado, Gianna Grob
+
+
+***
+
+####**Week 06 (2019-10-07)**
+***
+
+Peer Group 1: Christian Gagnon, Timothy McHale, C Vega
+
+Peer Group 2: Peter Kovacik, Frank Azorza Salazar, Gianna Grob
+
+Peer Group 3: Ena Miculinic, Laura Brubaker-Wittman, Ishrat Chowdhury
+
+Peer Group 4: Brenna Stallings, Melissa Hurtado, Lara Hakam
+
+Peer Group 5: Laura Angley, Nicola Kriefall, Clint Lockwood
+
+Peer Group 6: Mel Zarate, Maria Salazar Nicholls, Gregory Pelose
+
+***
+
+####**Week 07 (2019-10-15)**
+(Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day)
+
+***
+
+Peer Group 1: Nicola Kriefall, Maria Salazar Nicholls, Brenna Stallings
+
+Peer Group 2: Laura Brubaker-Wittman, Melissa Hurtado, Laura Angley
+
+Peer Group 3: Frank Azorza Salazar, Timothy McHale, Mel Zarate
+
+Peer Group 4: C Vega, Gianna Grob, Peter Kovacik
+
+Peer Group 5: Ishrat Chowdhury, Lara Hakam, Ena Miculinic
+
+Peer Group 6: Clint Lockwood, Gregory Pelose, Christian Gagnon
+
+***
+
+####**Week 08 (2019-10-21)**
+***
+
+Peer Group 1: Nicola Kriefall, Timothy McHale, Ena Miculinic
+
+Peer Group 2: Laura Brubaker-Wittman, Gianna Grob, Christian Gagnon
+
+Peer Group 3: Frank Azorza Salazar, Lara Hakam, Brenna Stallings
+
+Peer Group 4: C Vega, Gregory Pelose, Laura Angley
+
+Peer Group 5: Ishrat Chowdhury, Maria Salazar Nicholls, Peter Kovacik
+
+Peer Group 6: Clint Lockwood, Melissa Hurtado, Mel Zarate
+
+***
+
+####**Week 09 (2019-10-28)**
+***
+
+Peer Group 1: Laura Brubaker-Wittman, Clint Lockwood, Lara Hakam
+
+Peer Group 2: Timothy McHale, C Vega, Ena Miculinic
+
+Peer Group 3: Gianna Grob, Brenna Stallings, Ishrat Chowdhury
+
+Peer Group 4: Nicola Kriefall, Maria Salazar Nicholls, Mel Zarate
+
+Peer Group 5: Christian Gagnon, Melissa Hurtado, Frank Azorza Salazar
+
+Peer Group 6: Peter Kovacik, Gregory Pelose, Laura Angley
+
+***
+
+####**Week 10 (2019-11-04)**
+***
+
+Peer Group 1: Gregory Pelose, Melissa Hurtado, Brenna Stallings
+
+Peer Group 2: Clint Lockwood, Laura Angley, Frank Azorza Salazar
+
+Peer Group 3: Peter Kovacik, Nicola Kriefall, Christian Gagnon
+
+Peer Group 4: Ishrat Chowdhury, C Vega, Mel Zarate
+
+Peer Group 5: Timothy McHale, Laura Brubaker-Wittman, Lara Hakam
+
+Peer Group 6: Ena Miculinic, Gianna Grob, Maria Salazar Nicholls
+
+***
+
+####**Week 11 (2019-11-11)**
+***
+
+Peer Group 1: Ena Miculinic, Laura Brubaker-Wittman, Melissa Hurtado
+
+Peer Group 2: Gianna Grob, C Vega, Frank Azorza Salazar
+
+Peer Group 3: Mel Zarate, Maria Salazar Nicholls, Gregory Pelose
+
+Peer Group 4: Brenna Stallings, Ishrat Chowdhury, Clint Lockwood
+
+Peer Group 5: Timothy McHale, Nicola Kriefall, Peter Kovacik
+
+Peer Group 6: Laura Angley, Christian Gagnon, Lara Hakam
+
+***
+
+####**Week 12 (2019-11-18)**
+***
+
+Peer Group 1: C Vega, Christian Gagnon, Brenna Stallings
+
+Peer Group 2: Clint Lockwood, Ena Miculinic, Laura Angley
+
+Peer Group 3: Gianna Grob, Gregory Pelose, Lara Hakam
+
+Peer Group 4: Frank Azorza Salazar, Maria Salazar Nicholls, Timothy McHale
+
+Peer Group 5: Nicola Kriefall, Ishrat Chowdhury, C Vega
+
+Peer Group 6: Mel Zarate, Peter Kovacik, Melissa Hurtado
+
+***
+
+####**Week 13 (2019-11-25)**
+***
+
+Peer Group 1: Laura Angley, Maria Salazar Nicholls, Lara Hakam
+
+Peer Group 2: Gregory Pelose, Ishrat Chowdhury, Timothy McHale
+
+Peer Group 3: C Vega, Melissa Hurtado, Brenna Stallings
+
+Peer Group 4: Gianna Grob, Christian Gagnon, Peter Kovacik
+
+Peer Group 5: Mel Zarate, Nicola Kriefall, Frank Azorza Salazar
+
+Peer Group 6: Ena Miculinic, Clint Lockwood, Laura Brubaker-Wittman
+
+***
+
+####**Week 14 (2019-12-02)**
+***
+
+Student Module presentations, no peer commentary due.
+
+***
+
+####**Week 15 (2019-12-09)**
+***
+
+Student Module presentations, no peer commentary due.
+
+***
+
+

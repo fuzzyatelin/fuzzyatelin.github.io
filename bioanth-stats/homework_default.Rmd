@@ -1,6 +1,8 @@
 ---
 title: "AN597: Homework"
-output: html_document
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
 ---
 ***
 
@@ -15,6 +17,6 @@ output: html_document
 <br>
 <center><p><img src="https://s-media-cache-ak0.pinimg.com/originals/cc/df/4c/ccdf4c1ee649861696572202587de65e.gif"></p>
 
-##**This homework assignment isn't available yet, but check in again soon!**
+#**This homework assignment isn't available yet, but check in again soon!**
 </center>
 ***

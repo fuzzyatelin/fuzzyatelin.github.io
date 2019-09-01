@@ -1,8 +1,10 @@
 ---
 title: "AN597: Project Design and Statistics</br> in Biological Anthopology"
 author: "Christopher A Schmitt</br>Boston University"
-date: "April 12, 2019"
-output: html_document
+date: "September 1, 2019"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
 ---
 ***
 <center><p><img src="https://imgs.xkcd.com/comics/correlation.png"></p></center>
@@ -13,9 +15,10 @@ output: html_document
 </center>
 ***
 ###Faculty Instructor:
-  **Christopher A. Schmitt**, Assistant Professor of Anthropology and Biology  
+  **Christopher A. Schmitt**  
+  Assistant Professor of Anthropology and Biology  
   Office: Stone Science Building (STO), 675 Commonwealth Ave, Rm 247E  
-  Office Hours: Wednesday 2:00 - 3:30pm, Friday 2:00 - 3:30pm 
+  Office Hours: Wednesday 2:00 - 3:30pm, Friday 2:00 - 3:30pm  
   Web: http://www.evopropinquitous.net  
   Email: caschmit[at]bu[dot]edu  
   Twitter: http://www.twitter.com/fuzzyatelin  
@@ -26,7 +29,7 @@ output: html_document
 ###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
 ###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
 ###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
-###[Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+###[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
 
 ***
 ###Course Description
@@ -48,18 +51,20 @@ CAS AN 102 or CAS BI 107/108 (for undergraduates) or graduate student standing, 
 ***
 ###Course Format
 ***
-This is a 4 credit seminar course. Seminar will be held once a week for a total of 3 hours. Please bring laptops or tablets to class loaded with appropriate software for course exercises (these can be found in Resources, above). Within CAS, these credits count as NS divisional credits towards the BA. This course is not (yet) integrated into the BU Hub.
+This is a 4 credit seminar course. Seminar will be held once a week for a total of 3 hours. Please bring laptops or tablets to class loaded with appropriate software for course exercises (these can be found in Resources, above; packages required for the week will be noted in the Modules). Within CAS, these credits count as NS divisional credits towards the BA. This course is not (yet) integrated into the BU Hub.
 
 ***
 ###Assessment
 ***
-Performance in the class will be assessed as follows:
+Performance in the class will be assessed on a **gradeless** basis for the semester, with only a single final grade being assigned in consultation with each student. Assessment will entail the following assignments:
 <ol>
-1. 50 points: Regular attendance and class participation.  
-2. 50 points (10 x 5): Class coding quizzes.  
-3. 100 points (10 x 10 Programming homework sets)  
-4. 100 points: One individual <b>data analysis replication assignment</b> based on a published paper with a publicly available dataset, chosen in consultation with the instructor.  
-5. 100 points: One <b>group presentation and written R vignette</b> demonstrating the use of a particular statistical method chosen in consultation with the instructor (past examples available in the [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)).
+1. Regular attendance and class participation.  
+2. On-time completion of assigned [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html) prior to seminar meetings.
+3. Programming homework sets associated with each [Module](https://fuzzyatelin.github.io/bioanth-stats/modules.html), **due Thursday at 8:00 pm to your assigned [peer commentary partner](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html)**.
+4. Respectful [Peer Commentary](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) on homework coding, **to be submitted to me by 5:00pm Sunday**.
+5. One individual [analysis replication assignment](https://fuzzyatelin.github.io/bioanth-stats/data_reanalysis_assignment.html) based on a published paper with a publicly available dataset, chosen in consultation with the instructor.  
+6. One <b>group presentation and written R vignette</b> demonstrating the use of a particular statistical method chosen in consultation with the instructor (past examples available in the [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)).
+7. A final report and assessment written by *you* arguing for the grade you have earned through your progress and the quality of your work in the class.
 </ol>
 
 ***
@@ -72,7 +77,7 @@ Performance in the class will be assessed as follows:
 *Tillman* available in print or electronic format from [No Starch Press](https://www.nostarch.com/) and [O'Reilly Media](https://www.oreilly.com/); *Kabacoff* availble in print or electronic format from [Manning Publications](https://www.manning.com/books/r-in-action-second-edition); both texts are available at [Amazon.com](https://www.amazon.com/).  
 
 ***
-###Optional Texts
+###Optional Texts Students Find Helpful
 ***
 <ul>
 <li>Wickham H, Grolemund G. 2017. <i>R for Data Science</i>. Boston: O'Reilly</li>

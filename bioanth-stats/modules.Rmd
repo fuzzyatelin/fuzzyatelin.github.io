@@ -1,6 +1,8 @@
 ---
 title: 'AN597: Course Modules'
-output: html_document
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
 ---
 ***
 
@@ -8,7 +10,7 @@ output: html_document
 ###[Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
 ###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
 ###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
-###[Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+###[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
 
 ***
 
@@ -20,12 +22,14 @@ output: html_document
 </center><br>  
 
 <center>
-Each module listed is linked to another page containing instructions and helpful code. There are two to three modules to perform each week, at your own pace, to be completed by class on the following Tuesday so we can troubleshoot any problems during seminar. Homework assignments are real-world applications of procedures you'll have been guided through in your modules.
+Each module listed is linked to another page containing instructions and helpful code. There are two to three modules to perform each week, at your own pace, to be completed (along with associated Homework and Peer Commentary, if applicable) by class on the following Monday. Homework assignments are real-world applications of procedures you'll have been guided through in your modules.
 
 </center>
 ***
 
-###**Week 01 (2017-09-05)**
+###**Week 01 (2019-09-02)**
+(No formal class meeting, and no Peer Commentary due)
+
 ***
 
 ###[Module 01 - **First Steps with <i>R</i>**](http://fuzzyatelin.github.io/bioanth-stats/module-01/module-01.html)
@@ -33,7 +37,7 @@ Each module listed is linked to another page containing instructions and helpful
 ###[Module 02 - **Basics of Version Control**](http://fuzzyatelin.github.io/bioanth-stats/module-02/module-02.html)
 ***
 
-###**Week 02 (2017-09-12)**
+###**Week 02 (2019-09-09)**
 ***
 
 ###[Module 03 - **Reproducible Research using RMarkdown**](http://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html)
@@ -43,7 +47,7 @@ Each module listed is linked to another page containing instructions and helpful
 ###[Module 05 - **Getting Data into <i>R</i>**](http://fuzzyatelin.github.io/bioanth-stats/module-05/module-05.html)
 ***
 
-###**Week 03 (2017-09-19)**
+###**Week 03 (2019-09-16)**
 ***
 
 ###[Module 06 - **Exploratory Data Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-06/module-06.html)
@@ -51,13 +55,13 @@ Each module listed is linked to another page containing instructions and helpful
 ###[Module 07 - **Central Tendency and Variance**](http://fuzzyatelin.github.io/bioanth-stats/module-07/module-07.html)
 ***
 
-###**Week 04 (2017-09-26)**
+###**Week 04 (2019-09-23)**
 ***
 
 ###[Module 08 - **Probabilities and Distributions**](http://fuzzyatelin.github.io/bioanth-stats/module-08/module-08.html)
 ***
 
-###**Week 05 (2017-10-03)**
+###**Week 05 (2019-09-30)**
 ***
 
 ###[Module 09 - **Introduction to Statistical Inference**](http://fuzzyatelin.github.io/bioanth-stats/module-09/module-09.html)
@@ -65,57 +69,66 @@ Each module listed is linked to another page containing instructions and helpful
 ###[Module 10 - **Classical Hypothesis Testing**](http://fuzzyatelin.github.io/bioanth-stats/module-10/module-10.html)
 ***
 
-###**Week 06 (2017-10-10)**
-***
-
-###No class meeting
-***
-
-###**Week 07 (2017-10-17)**
+###**Week 06 (2019-10-07)**
 ***
 
 ###[Module 11 - **Type I and Type II Error and Power**](http://fuzzyatelin.github.io/bioanth-stats/module-11/module-11.html)
 
 ###[Module 12 - **Introduction to Linear Regression**](http://fuzzyatelin.github.io/bioanth-stats/module-12/module-12.html)
+
 ***
 
-###**Week 08 (2017-10-24)**
+###**Week 07 (2019-10-15)**
+
+Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day
+
 ***
 
 ###[Module 13 - **Elements of Regression Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-13/module-13.html)
+
 ***
 
-###**Week 09 (2017-10-31)**
+###**Week 08 (2019-10-21)**
 ***
 
 ###[Module 14 - **Basic Categorical Data Analysis and ANOVA**](http://fuzzyatelin.github.io/bioanth-stats/module-14/module-14.html)
+
 ***
 
-###**Week 10 (2017-11-07)**
+###**Week 09 (2019-10-28)**
 ***
 
 ###[Module 15 - **Multiple Regression and ANCOVA**](http://fuzzyatelin.github.io/bioanth-stats/module-15/module-15.html)
+
 ***
 
-###**Week 11 (2017-11-14)**
+###**Week 10 (2019-11-04)**
 ***
 
 ###[Module 16 - **Model Selection in General Linear Regression**](http://fuzzyatelin.github.io/bioanth-stats/module-16/module-16.html)
 
 ###[Module 17 - **Generalized Linear Modeling**](http://fuzzyatelin.github.io/bioanth-stats/module-17/module-17.html)
 
-###[Module 18 - **Mixed Effects Modeling**](http://fuzzyatelin.github.io/bioanth-stats/module-18/module-18.html)
 ***
 
-###**Week 12 (2017-11-21)**
+###**Week 11 (2019-11-11)**
+***
+
+
+###[Module 18 - **Mixed Effects Modeling**](http://fuzzyatelin.github.io/bioanth-stats/module-18/module-18.html)
+
+***
+
+###**Week 12 (2019-11-18)**
 ***
 
 ###Module 19 - **An Introduction to Bayesian Methods & Models**
 
 ###Module 20 - **Incorporating Phylogenies into Mixed Models**
+
 ***
 
-###**Week 13 (2017-11-28)**
+###**Week 13 (2019-11-25)**
 ***
 
 ###[Module 21 - **Accessing Web APIs**](http://fuzzyatelin.github.io/bioanth-stats/module-21/module-21.html)
@@ -125,7 +138,7 @@ Each module listed is linked to another page containing instructions and helpful
 ###Module 23 - **Analyzing Web Data via {spocc}**
 ***
 
-###Week 14 (2017-12-05)
+###Week 14 (2019-12-02)
 ***
 
 ###[Module 24 - **Phylogenetic Tree Construction**](http://fuzzyatelin.github.io/bioanth-stats/module-24/module-24.html)
@@ -139,7 +152,7 @@ Each module listed is linked to another page containing instructions and helpful
 
 ***
 
-###Week 15 (2017-12-12)
+###Week 15 (2019-12-09)
 ***
 
 ###[Module 26 - **3D Visualization and Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-26/Module-26.html) 

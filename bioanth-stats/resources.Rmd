@@ -1,13 +1,25 @@
 ---
-title: "Useful Data Science Resources"
-output: html_document
+title: "AN597: Useful Data Science Resources"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
 ---
 
 ###[Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
 ###[Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
 ###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
 ###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
-###[Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+###[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+***
+
+
+<center>
+
+<font size="+2"><b>Use These Resources to Hone Your Data Science Skills</b></font></center><br>
+
+<center><p><img src="https://66.media.tumblr.com/a86257f40de2bebb75913fc98ee50e95/tumblr_nlyiveuF4g1r3jqyco1_400.gif" style="border:5px solid black"></p>
+</center><br>
+
 ***
 
 ###Software Tools
