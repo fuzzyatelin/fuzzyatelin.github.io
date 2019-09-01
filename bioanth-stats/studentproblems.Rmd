@@ -1,8 +1,10 @@
 ---
-title: "Student Coding Problems"
+title: "Insurmountable Student Coding Problems"
 author: "Christopher A Schmitt"
-date: "9/13/2017"
-output: html_document
+date: "September 1, 2019"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
 ---
 ***
 
@@ -22,14 +24,14 @@ output: html_document
 </center><br>  
 
 <center>
-We won't have time to work together on every problem that crops up in class, but we can help each other out!  If you ever run into a road block in a Module or Challenge, the first thing you should do is CONSULT THE TEXTBOOKS! Nine times out of ten they've got the solution, or can help you get to it. The next step is to google the problem (I suggest starting by throwing quotation marks around the error message and googling that way). If, after a few unproductive hours, you feel like tearing your hair out, then create an ***R Markdown*** file and completely describe the problem, complete with reproducible R code blocks, knitting it together as an html file, and uploading it to the **AN597_StudentProblems** repository on my ***GitHub*** account, **fuzzatelin**. See the instructions below to find out how!
+We won't have time to work together on *every* problem that crops up in class, but we can help each other out!  If you ever run into a road block in a Module or Challenge, the first thing you should do is check your syntax or spelling (this is usually the problem if you're a beginner). The next step is to **consult the textbooks**! Nine times out of ten they've got the solution, or can help you get to it. The next step is to *google* the problem. I suggest starting by throwing quotation marks around the error message, pasting it into your search engine of choice with the name of the package, and searching that way. If, after a few unproductive hours, you feel like tearing your hair out, then create an ***R Markdown*** file and completely describe the problem, complete with reproducible R code blocks, knitting it together as an html file, and uploade it to the **AN597_StudentProblems** repository on my ***GitHub*** account, **fuzzatelin**. See the instructions below for more details.
 
 </center>
 ***
 
-So you want to contribute to the **AN597_StudentProblems** repository?  Here we go...
+So you want to contribute to the **AN597_StudentProblems** repository? OK, here we go...
 
-###I will add you as a collaborator to the *AN597_StudentProblems* repository.
+##I will add you as a collaborator to the *AN597_StudentProblems* repository.
 
 That actually should be sufficient. You'll receive an email from me inviting you to collaborate. Accept it, and you should be able to work with the repository as you like.
 
@@ -68,7 +70,7 @@ git remote -v
 * `git add` and `git commit` those changes
 git push them back to ***GitHub***. These will go to *your version* of the repository.
 
-###Handling pull requests
+##Handling pull requests
 Say I've made some changes to your code. When I do, you'll get an email about it at the email address to which your ***GitHub*** account is registered.
 **Using the *GitHub* website**
 

@@ -1,5 +1,6 @@
 ---
 title: "AN597: Course Outline"
+date: "September 1, 2019"
 output: 
   rmarkdown::html_document:
     theme: cosmo
