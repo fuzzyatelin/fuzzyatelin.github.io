@@ -30,7 +30,7 @@ knitr::opts_chunk$set(
 ***
 <center>
 
-<font size="+2"><b>Push It</b></font></center><br>
+<font size="+2"><b>Push It!</b></font></center><br>
 
 <br>
 <center><p><img src="http://25.media.tumblr.com/tumblr_m7zp53WTvk1qlvwnco1_400.gif" style="border:5px solid black"></p>
