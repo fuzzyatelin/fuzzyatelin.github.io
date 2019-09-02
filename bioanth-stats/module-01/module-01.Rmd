@@ -1,8 +1,11 @@
 ---
 title: "Module 01"
 author: by Anthony Di Fiore, with modifications by Christopher Schmitt
-output:
-    html_document
+output: 
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
 ---
 
 ***
@@ -54,13 +57,13 @@ We are going to introduce several of these ways of working with ***R***, but the
 - Download and install ***R*** from the [**Compehensive R Archive Network (CRAN)**](https://cran.r-project.org/) website. Choose the correct version for your operating system.
 
 <br><center>
-<img src="img/install-R.png" style="border:5px solid black" width="500px"/>
+<img src="img/install-R.png" style="border:3px solid black" width="500px"/>
 </center><br>
 
 - If you are using MacOS, you should also install [***XQuartz***](https://www.xquartz.org/), which lets you use the **X11** X Windows management software.
 
 <br><center>
-<img src="img/install-XQuartz.png" style="border:5px solid black" width="500px"/>
+<img src="img/install-XQuartz.png" style="border:3px solid black" width="500px"/>
 </center><br>
 
 - Open the ***R*** program from wherever you installed it... you should see the console window and the `>` prompt. Note that your screen may look slightly different from the screenshots below. Also, note that you can also run ***R*** in a terminal window (MacOS or Unix) or from the Windows command shell after starting it with the command “r”.
@@ -102,7 +105,14 @@ We are going to introduce several of these ways of working with ***R***, but the
 - To clear objects from your workspace, use the `rm()` function [where an individual object's name or a list of object names is included as the argument to `rm()`]
 - To remove all objects from your workspace, you can use `rm(list=ls())` [in this case, you are passing to `rm()` a list consisting of all the objects in the workspace, provided by the `ls()` function
 
-#### CHALLENGE:
+<br>
+
+***
+
+#### **CHALLENGE**
+
+***
+
 Try interacting with ***R*** via the command line or console window.
 
 - Try doing some math in ***R*** by using it to evaluate the followinge expressions:
@@ -174,6 +184,10 @@ ls()
 - What happens if you type a function name without including the parentheses?
 - What happens if you type a function with an invalid or missing argument?
 
+***
+
+<br>
+
 ## Working with ***R*** Packages
 
 One of the fantastic things about ***R***, and one of the reasons it is such a flexible tool for so many types of data analysis, is the ability to extend its functionality with *packages*. Packages are sets of reusable ***R*** functions created by the core development team or by users and are akin to *libraries* in other programming software, like ***`Python`***. They can be installed into ***R*** and then attached to a workspace (using the `require()` or `library()` functions), which then gives the user access to the functions contained therein.
@@ -235,7 +249,7 @@ Apart from the GUIs included in the MacOS and Windows installations of ***R***, 
 - Download and install the [**RStudio**](https://www.rstudio.com/) Integrated Development Environment (IDE)
 
 <br><center>
-<img src="img/install-RStudio.png" style="border:5px solid black" width="500px">
+<img src="img/install-RStudio.png" style="border:3px solid black" width="500px">
 </center><br>
 
 - Open the ***RStudio*** program...
@@ -248,10 +262,21 @@ The **Source** pane is where you work with and edit various file types (e.g., sc
 <img src="img/RStudio.png" width="500px"</center>
 </center><br>
 
-#### CHALLENGE:
+<br>
+
+***
+
+#### **CHALLENGE**
+
+***
+
 Repeat Challenge 1 from above using the editor and console in ***RStudio***.
 
 **NOTE:** In both the base GUI that ships with the ***R*** application and in ***RStudio***, the console supports *code completion*. Pressing `TAB` after starting to type a function or variable name will give you suggestions as to how to complete what you have begun to type. In ***RStudio***, this functionality is present also when you are typing code in the text editor in the **Source** pane. Also helpful in ***RStudio*** are popup windows that accompany code completion that show, for each function, what possible arguments that function can take and their default values.
+
+***
+
+<br>
 
 ## Objects, Classes, Attributes, and Vectors
 
@@ -298,7 +323,14 @@ Some objects in ***R*** also have *attributes*, which we can think of as metadat
 length(x)
 ```
 
-#### CHALLENGE:
+<br>
+
+***
+
+#### **CHALLENGE**
+
+***
+
 Try some vector math using the console in ***RStudio***
 
 - Assign a sequence of numbers from 15 to 28 to a vector, **x**. [There are at least two ways to do this.]
@@ -336,13 +368,24 @@ mean(s)
 sd(s)
 ```
 
+***
+
+<br>
+
 ## Working with Scripts
 
 As noted above, scripts are text files that store ***R*** commands and they can be used to link together sets of commands to perform complete analyses and show results. ***R*** scripts may be constructed using lines of individual code to accomplish tasks, but if the code will be executed repeatedtly, it is much better to organize the code into user-defined *functions*. A function is a bit of code that performs a specific task. It may take arguments or not, and it may return nothing, a single value, or any ***R*** object (e.g., a vector or a list, which is another data structure will discuss later on). If care is taken to write functions that work under a wide range of circumstances, then they can be reused in many different places. Novel functions are the basis of the thousands of user-designed packages that are what make ***R*** so extensible and powerful.
 
 If you save a script, you can then use the `source()` function (with the path to the script file of interest as an argument) at the console prompt (or in another script) to read and execute the entire contents of the script file. In ***RStudio*** you may also go to **Code > Source** to run an entire script, or you can run lines in the script by opening it, highlighting the lines of interest, and sending those lines to the console using the **Run** button or the appropriate keyboard shortcut, `⌘-RETURN` (Mac) or `control-R` (PC).
 
-#### CHALLENGE:
+<br>
+
+***
+
+#### **CHALLENGE**
+
+***
+
 Try writing a script containing a function.
 
 - Open a new blank document in ***RStudio***
@@ -372,6 +415,10 @@ sayhi(name1)
 ``` {r}
 sayhi(name2)
 ```
+
+***
+
+<br>
 
 ## Quitting ***R*** and Saving your Work
 
