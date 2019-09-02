@@ -1,7 +1,9 @@
 ---
 title: "AN597: Homework 01"
+date: "September 2, 2019"
 output:
-    html_document
+  html_document:
+    theme: cosmo
 ---
 
 ```{r setup, include=FALSE}
@@ -23,11 +25,12 @@ knitr::opts_chunk$set(
 ###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
 ###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
 ###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
-###[Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+###[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
 
 ***
 <center>
-## DUE 2017-09-15 at 2pm
+
+<font size="+2"><b>Push It</b></font></center><br>
 
 <br>
 <center><p><img src="http://25.media.tumblr.com/tumblr_m7zp53WTvk1qlvwnco1_400.gif" style="border:5px solid black"></p>
@@ -36,8 +39,30 @@ knitr::opts_chunk$set(
 
 <br>
 
-Create a repository in your ***GitHub*** account called "AN597-Week-2", and upload an **RMarkdown** (Rmd) file - you can create one using the 'new file' button on the editor in ***RStudio*** - with your notes and code for all of the CHALLENGES from Module 04, which you'll be trying on your own this week.
+***
 
-ALSO, please make sure that you've been able to PUSH that file up to ***GitHub*** from ***R*** (it should be accessible in your GitHub account. Notes in Module 03 should help you accomplish this - and, of course, feel free to come see me for additional help if you're having problems).
+<center>
 
-Some of you will no doubt realize that you will be able to see your colleagues' **Rmd** documents on ***GitHub*** each time they push them up, if you check out their accounts... I encourage you to troubleshoot code together, but please refrain from copying each others' work - in person or from repositories - and **make your work your own**!
+<font size="+2"><b>Must be submitted for Peer Commentary by 8:00 pm Thursday, September 12th.</b></font></center><br>
+
+<center>
+
+<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Sunday, September 15th.</b></font></center><br>
+
+***
+
+Create a repository in your ***GitHub*** account called ***AN597-Week-2***, and upload an **RMarkdown** (Rmd) file - you can create one using the 'new file' button on the editor in ***RStudio*** - with your notes and annotated code for all of the **CHALLENGES** from [Module 04](http://fuzzyatelin.github.io/bioanth-stats/module-04/module-04.html) named ***BUlogin_OriginalHomeworkCode_01*** (i.e., for me, it would be *caschmit_OriginalHomeworkCode_01*), which you'll be trying on your own this week.
+
+ALSO, please make sure that you've been able to PUSH that file up to ***GitHub*** directly from ***R*** (i.e., once pushed, it should be accessible in your *AN597-Week-2* repo within your GitHub account). Notes in [Module 03](http://fuzzyatelin.github.io/bioanth-stats/module-04/module-03.html) should help you accomplish this - and, of course, feel free to come see me for additional help during my office hours if you're having problems.
+
+Peer Commentary for this week should focus on the code for the **CHALLENGES**, and should also be added to your *AN597-Week-2* repo. Share your Original Homework Code by sending a link to your repo to your Peer Group by 8:00 pm on Thursday, September 12th. You may work with your Peer Group together to work through commentary, or the Peer responsible for commenting on your code may do so alone and share their comments directly with you. Either way, please have commentaries finished and shared with Peers in time for you to take those comments into account and share a link to your repo with me, complete with your Final Homework Code (an Rmd file named ***BUlogin_FinalHomeworkCode_01***) and the Peer Commentary made on YOUR code by your Peer(s) (an Rmd file named ***Peerlogin_PeerCommentary_BUlogin_01***, where *Peerlogin* is the *BUlogin* of the commenter; for example, if Prof. Eva Garrett were the commenter on my code, the file would be named *garrette_PeerCommentary_caschmit_01*, and if the whole Peer Group worked together to comment, it would be called *PeerGroupX_PeerCommentary_caschmit_01*) by 5:00 pm on Sunday, September 15th.
+
+Some of you will no doubt realize that you will be able to see your colleagues' **Rmd** documents on ***GitHub*** each time they push them up, if you check out their accounts... during the Peer Commentary stage, I encourage you to troubleshoot code together, but during the first phase of your homework, while writing your original code, please refrain from copying each others' work - in person or from repositories - it is critically important that you **make your original work your own**!
+
+Your final assignment, due to me by 5:00 pm on September 15th, should be an email with a link to your *AN597-Week-2* repo containing only the following files:
+<ol>
+1. Your original code, including the five challenges you faced, as given to your Peer Group prior to Peer Commentary, named *BUlogin_OriginalHomeworkCode_01*.
+2. The Peer Commentary made on *your* code, named *Peerlogin_PeerCommentary_BUlogin_01* or *PeerGroupX_PeerCommentary_BUlogin_01*.
+3. Your Final Homework Code, which has taken into account any changes recommended from the Peer Commentary and notes, named *BUlogin_FinalHomeworkCode_01*.
+
+***
