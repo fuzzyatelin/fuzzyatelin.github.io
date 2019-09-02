@@ -19,7 +19,12 @@ knitr::opts_chunk$set(
 	fig.path = "img/"
 )
 ```
+
+***
+
 # Basics of Version Control
+
+***
 
 ## Objectives
 > To introduce the basics of working with version control systems in ***R***, using ***Git***, ***GitHub***, and ***GitHub Desktop***
@@ -66,7 +71,7 @@ Create a new repository on ***GitHub***
 
 - Follow the instructions laid out in the [**Hello World**](https://guides.github.com/activities/hello-world/) ***GitHub*** guide. 
 
-<br></center>
+<br><center>
 <img src="img/hello-world.png" width=500px/>
 </center><br>
 
