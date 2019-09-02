@@ -109,7 +109,7 @@ We are going to introduce several of these ways of working with ***R***, but the
 
 ***
 
-#### **CHALLENGE**
+#### **CHALLENGE 1**
 
 ***
 
@@ -266,7 +266,7 @@ The **Source** pane is where you work with and edit various file types (e.g., sc
 
 ***
 
-#### **CHALLENGE**
+#### **CHALLENGE 2**
 
 ***
 
@@ -327,7 +327,7 @@ length(x)
 
 ***
 
-#### **CHALLENGE**
+#### **CHALLENGE 3**
 
 ***
 
@@ -382,7 +382,7 @@ If you save a script, you can then use the `source()` function (with the path to
 
 ***
 
-#### **CHALLENGE**
+#### **CHALLENGE 4**
 
 ***
 

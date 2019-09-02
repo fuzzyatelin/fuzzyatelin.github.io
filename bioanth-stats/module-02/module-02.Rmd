@@ -1,8 +1,11 @@
 ---
 title: "Module 02"
 author: by Anthony Di Fiore, with modifications by Christopher A. Schmitt
-output:
-    html_document
+output: 
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
@@ -31,11 +34,15 @@ One of the most popular and frequently used VCSs is ***git***.
 
 - Download and install [**git**](https://git-scm.com/) for your operating system. This will put the appropriate software on your machine.
 
+<br><center>
 <img src="img/install-git.png" width=500px/>
+</center><br>
 
 - A good text editor is also an important tool for programmers, web developers, and data analysts. While we're at it, let's grab one! Download and install the [**Atom**](https://atom.io) text editor. [Other text editors, such as [**TextWrangler**](http://www.barebones.com/products/textwrangler/download.html), for MacOS, or [**Notepad++**](https://notepad-plus-plus.org/), for Windows, are also very good. **Atom**, however, is available for multiple platforms and is created by the folks resposible for ***GitHub*** (see below).]
 
+<br><center>
 <img src="img/install-atom.png" width=500px/>
+</center><br>
 
 ## Getting Started with ***GitHub*** and Creating Repositories
 
@@ -43,23 +50,39 @@ The ***git*** software we just installed is strictly a command-line tool and is 
 
 - Go to [**GitHub.com**](https://github.com/), choose `Sign Up` and create your own account.
 
+<br><center>
 <img src="img/github.png" width=500px/>
+</center><br>
 
-#### CHALLENGE:
+<br>
+
+***
+
+#### **CHALLENGE 1**
+
+***
+
 Create a new repository on ***GitHub***
 
 - Follow the instructions laid out in the [**Hello World**](https://guides.github.com/activities/hello-world/) ***GitHub*** guide. 
 
+<br></center>
 <img src="img/hello-world.png" width=500px/>
+</center><br>
 
 - In doing so, you should create a **repository** (colloquially, a **repo**) and name it (e.g., "test-repo"). **NOTE:** Do not include spaces in your repo name!
 
+<br><center>
 <img src="img/create-test-repo.png" width=500px/>
-
+</center><br>
 
 - Create a `README` file for your repo using the browser-based [**Markdown**](https://en.wikipedia.org/wiki/Markdown) editor. **Markdown** is basically a set of rules for how to easily style plain text files in such a way that can be easily converted and rendered in HTML, the structural language of the web. This module, for example, is written using **Markdown**! ***GitHub*** has a nice, short tutorial that you can follow about [**Mastering Markdown**](https://guides.github.com/features/mastering-markdown/).
 - Following the online guide, create a **fork** of your repo, make some edits to your `README` file, and then merge your edits back into the `master` branch of your repo.
 - Be sure to also read the ***GitHub*** guide on ["Documenting your Projects on GitHub"](https://guides.github.com/features/wikis/) for a useful overview of the benefits of good documentation.
+
+***
+
+<br>
 
 ## Managing ***git*** from the Desktop with a GUI
 
@@ -67,11 +90,19 @@ Create a new repository on ***GitHub***
 
 - Download and install [***GitHub Desktop***](https://desktop.github.com/)
 
+<br><center>
 <img src="img/install-github-desktop.png" width=500px/>
+</center><br>
 
 With ***GitHub Desktop***, we can download, work on, and update remote repos or we can create, work on, and push local repos to remote sites.
 
-#### CHALLENGE:
+<br>
+
+***
+
+#### **CHALLENGE 2**
+
+***
 
 Clone a remote repository from ***GitHub*** to your computer
 
@@ -80,47 +111,74 @@ Clone a remote repository from ***GitHub*** to your computer
 	- Go to **GitHub.com** and log in
 	- Go to your repository and choose *Clone or download* and then select *Open in Desktop*
 
+<br><center>
 <img src="img/clone-repo.png" width=500px/>
+</center><br>
 
+<center>
 <img src="img/open-in-desktop.png" width=500px/>
+</center><br>
 
 This should create a local copy of your repo. On MacOS, if you then *right-click* on it in the list of your local repos, you will see the option to open your repo in **GitHub** (which will take you back to the web interface), in the **Terminal**, in the **Finder**, or with the [**Atom**](https://atom.io/) text editor. The process should be *similar* on Windows, but the same options listed above may not appear.
 
+<br><center>
 <img src="img/test-repo.png" width=500px/>
+</center><br>
 
 - Try making some edits to your **README** file in your local copy using **Atom** or another text editor...
 - Then switch to ***GitHub Desktop*** (where you should see the changes highlighted) and **Commit** the changes (to save them locally...
 - Then **Sync** your changes with the remote master on ***GitHub***
 
-#### CHALLENGE:
+<br>
+
+***
+
+#### **CHALLENGE 3**
+
+***
+
 Create a local repository and push it to ***GitHub***
 
 - Open ***GitHub Desktop*** and create a new local repo (e.g., "local-repo")
 
+<br><center>
 <img src="img/create-local-repo.png" width=500px/>
+</center><br>
 
 - On MacOS, navigate to the folder of the repo you just created by *right-clicking* on the repo and choosing **Open in Atom**. You can also choose **Open in Finder**, though the next steps will then be a bit different. The process will be similar, though not identical, on Windows.
 - If you opened in ***Atom***, you should see the folder **.git**, which is a hidden folder (indicated by the "."). You probably will **not** see this if you opened in the Finder, since "." prefaced files are hidden by default.
 
+<br><center>
 <img src="img/empty-repo.png" width=500px/>
+</center><br>
 
 - The ***Atom*** editor should also have opened a new, *untitled* plain text file. If it did not, you can simply create a new file.
 - Type something into this plain text file using [**Markdown**](https://en.wikipedia.org/wiki/Markdown) syntax and save it as "README.md".
 
+<br><center>
 <img src="img/README.png" width=500px/>
+</center><br>
 
 - Switch back to ***GitHub Desktop*** and then **Commit** your `README.md` file to the `master` branch, providing a short bit of text describing your commit (e.g., "Initial commit").
 
 **NOTE:** This file is still located only in your local ***git*** repository, and not on ***GitHub***'s servers.
 
+<br><center>
 <img src="img/initial-commit.png" width=500px/>
+</center><br>
 
 - After you have committed the file, you can choose *Publish* to push your repo to **GitHub**.
 
+<br><center>
 <img src="img/publish.png" width=500px/>
+</center><br>
 
+<center>
 <img src="img/push-to-github.png" width=500px/>
+</center><br>
 
 If you now go to **GitHub.com** and log in, you should be able to find the repo you have pushed up there.
 
+<br><center>
 <img src="img/pushed-repo.png" width=500px/>
+</center><br>
