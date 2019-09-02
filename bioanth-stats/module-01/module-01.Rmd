@@ -5,6 +5,8 @@ output:
     html_document
 ---
 
+***
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
 	echo = TRUE,
@@ -17,6 +19,8 @@ knitr::opts_chunk$set(
 )
 ```
 # First Steps with ***R*** and ***RStudio***
+
+***
 
 ## Objectives
 > The goal of this module is to get everyone's computers set up for the semester and to provide background and an introduction to the ***R*** programming language and the ***R*** environment.
@@ -33,7 +37,7 @@ Here are a few of the main ones, in a nutshell:
 
 - ***R*** is high quality software. It is actively developed by an international community of statisticians and software developers with multiple releases and bug fixes every year.
 - ***R*** is FREE (as in thought). The source code is openly avaialable under the GNU General Public License, which allows others to easily evaluate the quality of the code, contribute new functionality, and quickly fix bugs.
-- ***R*** is FREE (as in beer). Whereas licenses for other statistical software such as ***SAS***, ***SPSS***, or ***Stata*** may cost thousands of dollars, ***R*** is available free of charge.
+- ***R*** is FREE (as in lunch). Whereas licenses for other statistical software such as ***SAS***, ***SPSS***, or ***Stata*** may cost thousands of dollars, ***R*** is available free of charge.
 - ***R*** is available for multiple platforms. Installers are available for Windows, Mac OS, and other Unix based systems and most package are OS agnostic.
 - ***R*** is very extensible. If there is a procedure you want to run that is not included in one of the standard packages, it is likely available in one of the thousands of extensions packages that have been developed and are also freely available. You can also use ***R*** to control or interface with external applications, including other programming languages (like ***Python***, ***SQL***, ***C++***, ***NetLogo***), other analysis tools (like GIS software), and databases (like ***MySQL***, ***PostgreSQL***, ***SQLite***, etc). It is also always possible for you to improve ***R*** yourself. You can **literally** do just about anything in ***R***.
 - ***R*** has a vibrant, intelligent, and generous user community. LOTS of resources are available online for learning and troubleshooting (see, for example, the section on ***R*** at the [**Stack Overflow**](http://stackoverflow.com/tags/r/info) website.
@@ -49,21 +53,29 @@ We are going to introduce several of these ways of working with ***R***, but the
 
 - Download and install ***R*** from the [**Compehensive R Archive Network (CRAN)**](https://cran.r-project.org/) website. Choose the correct version for your operating system.
 
-<img src="img/install-R.png" width="500px"/>
+<br><center>
+<img src="img/install-R.png" style="border:5px solid black" width="500px"/>
+</center><br>
 
 - If you are using MacOS, you should also install [***XQuartz***](https://www.xquartz.org/), which lets you use the **X11** X Windows management software.
 
-<img src="img/install-XQuartz.png" width="500px"/>
+<br><center>
+<img src="img/install-XQuartz.png" style="border:5px solid black" width="500px"/>
+</center><br>
 
 - Open the ***R*** program from wherever you installed it... you should see the console window and the `>` prompt. Note that your screen may look slightly different from the screenshots below. Also, note that you can also run ***R*** in a terminal window (MacOS or Unix) or from the Windows command shell after starting it with the command “r”.
 
 - **On MacOS...**
 
+<br><center>
 <img src="img/R-console-Mac.png" width="500px"/>
+</center><br>
 
 - **On Windows...**
 
+<br><center>
 <img src="img/RGui-windows.png" width="500px"/>
+</center><br>
 
 ## Taking Our First Steps in ***R***
 - ***R*** can be used as an interactive calculator from the console line
@@ -222,7 +234,9 @@ Apart from the GUIs included in the MacOS and Windows installations of ***R***, 
 
 - Download and install the [**RStudio**](https://www.rstudio.com/) Integrated Development Environment (IDE)
 
-<img src="img/install-RStudio.png" width="500px">
+<br><center>
+<img src="img/install-RStudio.png" style="border:5px solid black" width="500px">
+</center><br>
 
 - Open the ***RStudio*** program...
 
@@ -230,7 +244,9 @@ Note that the workspace you see is divided into four separate panes (**Source** 
 
 The **Source** pane is where you work with and edit various file types (e.g., scripts), while the **Console** pane is where you send commands to the ***R*** interpreter and see the results of those commands. The other two customizable panes provide easy access to useful tools and overviews of your interactions with ***R***. For example, the **Environment** tab lists all of the objects in your current workspace, the **History** tab shows the log of all of the commands you have sent to the interpreter, and the **Packages** tab provides a convenient interface for installing and loading packages. 
 
+<br><center>
 <img src="img/RStudio.png" width="500px"</center>
+</center><br>
 
 #### CHALLENGE:
 Repeat Challenge 1 from above using the editor and console in ***RStudio***.
@@ -342,7 +358,9 @@ sayhi <- function(x) {
 ```
 Now, send this function to ***R*** by highlighting it and hitting `⌘-RETURN` (Mac) or `control-R` (PC) to it to the console.
 
+<br><center>
 <img src="img/sayhi.png" width="500px"/>
+</center><br>
 
 - Now we can create some test data and call the function. What are the results?
 
