@@ -30,7 +30,7 @@ knitr::opts_chunk$set(
 
 ## Preliminaries
 
-- GO TO: https://github.com/fuzzyatelin/AN597_Fall19/, select the **random-people.csv** file, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally.
+- GO TO: https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN597_Fall19/, select the **random-people.csv** file, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally.
 
 - Install this package in ***R***: [{stringr}](https://cran.r-project.org/web/packages/stringr/stringr.pdf)
 
