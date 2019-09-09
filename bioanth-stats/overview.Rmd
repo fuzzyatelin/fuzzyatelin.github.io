@@ -80,7 +80,7 @@ Performance in the class will be assessed on a **gradeless** basis for the semes
 ###Optional Texts Students Find Helpful
 ***
 <ul>
-<li>Wickham H, Grolemund G. 2017. <i>R for Data Science</i>. Boston: O'Reilly</li>
+<li>[Grolemund G., Wickham H. 2017. <i>R for Data Science</i>. Boston: O'Reilly](https://r4ds.had.co.nz/)</li>
 <li>Dalgaard P. 2008. <i>Introductory Statistics with R, 2nd Edition</i>. New York: Springer.</li>
 <li>Crawley MJ. 2014. <i>Statistics: An Introduction Using R, 2nd Edition</i>. Chichester, UK: John Wiley & Sons, Inc.</li></ul>
 
