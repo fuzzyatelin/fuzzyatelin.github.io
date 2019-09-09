@@ -315,3 +315,19 @@ In many cases the authentication for an **SSH** connection is done using public/
 To make working with `RSA` key pairs more straightforward the **RStudio Version Control** options panel can be used to both create new `RSA` public/private key pairs as well as view and copy the current `RSA` public key.
 
 While Linux and Mac OSX both include SSH as part of the base system, Windows does not. As a result the standard Windows distribution of ***git*** (Msysgit, referenced above) also includes an SSH client.
+
+#Tips for **RMarkdown** Prettification
+
+One of the more delightful aspects of using **RMarkdown** is knitting to a visually pleasing format that enhances your data management and sharing experience. Although we may not formally go over these tips in class, there are a number of websites and cheat sheets that can help make your **RMarkdown** experience smoother, more aesthetically rigorous, and more useful:
+<ul>
+<li>An introduction to [R Markdown](https://rmarkdown.rstudio.com/)</li>
+<li>[R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)</li>
+<li>[R Markdown Cheatsheet](https://rmarkdown.rstudio.com/lesson-15.html)</li>
+<li>[Another R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)</li>
+<li>[Pimp my RMD: A Few Tips for R Markdown](https://holtzy.github.io/Pimp-my-rmd/)</li>
+<li>[R Markdown Templates for Journal Submissions](https://github.com/rstudio/rticles/tree/master/inst/rmarkdown/templates)</li>
+<li>[Using R Markdown for Class Reports](https://www.stat.cmu.edu/~cshalizi/rmarkdown/)</li>
+<li>[R Markdown Theme Gallery](http://www.datadreaming.org/post/r-markdown-theme-gallery/)</li>
+<li>[Creating Pretty Documents from R Markdown](https://cran.r-project.org/web/packages/prettydoc/vignettes/architect.html)</li>
+</ul>
+<br>
