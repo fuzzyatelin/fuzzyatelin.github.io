@@ -151,7 +151,7 @@ v[seq(from = 1, to = 100, by = 2)]
 
 ***
 
-- First, create a vector of 1 word character strings comprising the first line of the *Ulysses*, by James Joyce: "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
+- First, create a vector of 1 word character strings comprising the first line of the novel *Ulysses*, by James Joyce: "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
 
 - Then, extract every third element of this vector.
 
