@@ -1,9 +1,14 @@
 ---
 title: "Module 03"
 author: by Anthony Di Fiore, with modifications by Christopher A. Schmitt
-output:
-    html_document
+output: 
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
 ---
+
+***
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -18,6 +23,8 @@ knitr::opts_chunk$set(
 ```
 
 # Reproducible Research using **RMarkdown**
+
+***
 
 ## Objectives
 > The objective of this module is to set you up with a new local repository under version control in which you will take notes and practice coding and set you up to be able to push changes that you make locally to a remote copy of the repository hosted on ***GitHub***. We also introduce the idea of *reproducible research* and practice using **RMarkdown** to implement that.
@@ -77,11 +84,15 @@ We now need to set up ***RStudio*** to interface with ***git***.
 - Click `Enable version control interface for RStudio projects`
 - Ensure that the path to your ***git*** executable is correct (usually */usr/bin/git* on MacOS, *C:/Program Files (x86)/Git/bin/git.exe* on Windows) and, if not, then enter it.
 
+<br><center>
 <img src="img/r-global-options.png" width=500px/>
+</center><br>
 
 - From this same window, also hit `Create RSA key` so you can use **SSH**, a secure information transfer protocol, to send and receive data from remote servers.
 
+<br><center>
 <img src="img/create-rsa-key.png" width=500px/>
+</center><br>
 
 Now, there are a couple of different routes we can take to get ***RStudio***, ***git***, and ***GitHub*** to work together. 
 
@@ -93,15 +104,21 @@ RStudio's version control features are tied to the use of **Projects** (which ar
 - Open ***RStudio*** and execute the **New Project** command (from the **File** menu)
 - Choose to create a new project from `Version Control`
 
+<br><center>
 <img src="img/r-new-project-vcs.png" width=500px/></center>
+</center><br>
 
 - Choose the top option to clone a project from an existing ***git*** repository.
 
+<br><center>
 <img src="img/version-control.png" width=500px/></center>
+</center><br>
 
 - In the following dialog box, provide the repository URL (which should be the URL for the repository you just created, likely https://github.com/ followed by *your GitHub username*/*your repo name*. The `Project directory name` should be *your repo name*, and you should choose a parent directory for your local copy of the repo using the `Create project as a subdirectory of:` text field. Then click **Create Project**.
 
+<br><center>
 <img src="img/clone-git-repo.png" width=500px/></center>
+</center><br>
 
 The remote repository will then cloned into the specified directory and ***RStudio***'s version control features will then be available for that directory. ***RStudio*** will create an *.Rproj* file in the directory (with the name of your project) and a .gitignore file inside of it. This directory is now being tracked by ***git***.
 
@@ -115,17 +132,23 @@ The remote repository will then cloned into the specified directory and ***RStud
 - After saving your file, it should appear in the git tab in the upper right pane of ***RStudio***, along with the **.Rproj** and **.gitignore** files.
 - Click on all of the file(s) you wish to add to your repo, and their status should turn to a green `A` (for "added").
 
+<br><center>
 <img src="img/added.png" width=500px/>
+</center><br>
 
 - Click `Commit`. You will see another window open up with the names of the files in your directory in the upper left pane. Selecting any of these will show you the contents of the file in the lower pane.
 - Enter an identifying commit message in the upper right pane and then click `Commit`. A window will pop up confirming what you have just done, which you can close.
 
+<br><center>
 <img src="img/commit-message.png" width=500px/></center>
+</center><br>
 
 You have now committed the current version of the file(s) you have added to your repository on your local computer. These files should now no longer show up on the ***Git*** tab.
 - Now edit one or more of your files and save those edits. The changed file should show up in the ***Git*** tab with a blue `M` (for "modified") next to it.
 
+<br><center>
 <img src="img/modified.png" width=500px/></center>
+<br>
 
 - Click on the check box to *stage* it (i.e., get it ready to commit to the local repo) and then click the `Commit` button.
 
@@ -139,8 +162,10 @@ If you now select the `History` tab you can see the history of commits, and sele
 
 - With your commits completed, the files disappear from the commit window (meaning they have all been committed locally) and you should now be able to pass all of your changes up to ***GitHub*** using the `Push` button. This updates the remote copy of your repo and makes it available to collaborators.
 
+<br><center>
 <img src="img/push.png" width=500px/>
 <img src="img/push-confirm.png" width=500px/>
+</center><br>
 
 ### Step 4, version 2 - Creating a new ***R*** project based on a local directory already under version control
 
@@ -149,7 +174,9 @@ If you now select the `History` tab you can see the history of commits, and sele
 - Execute the **New Project** command (from the **File** menu)
 - Choose to create a new project from an `Existing Directory`
 
+<br><center>
 <img src="img/r-new-project-existing.png" width=500px/>
+</center><br>
 
 - Select the appropriate directory and then click **Create Project**
 
@@ -161,13 +188,17 @@ So far, however, this project is only under *local version control*... you will 
 
 - In ***RStudio***, select **File -> New project** and click `New Directory`.
 
+<br><center>
 <img src="img/r-new-project-new.png" width=500px/>
+</center><br>
 
 - Choose `Empty Project`, name the directory and choose where you would like it to be stored, check the box marked `Create a git repository`, and press `Create Project`.
 
+<br><center>
 <img src="img/empty-project.png" width=500px/>
 
 <img src="img/empty-project-with-git.png" width=500px/>
+</center><br>
 
 - ***RStudio*** will create a new directory with an **.Rproj** file (with the name of your project) and a **.gitignore** file inside of it. This directory is now being tracked by ***git*** and ***RStudio***. You can now create and edit files in this new directory and stage and commit them to the local repo directly from ***RStudio***. See the section above on **Adding to the repository, staging changes, and committing**.
 
@@ -182,18 +213,24 @@ If you did not create your project repository by cloning a remote repo from ***G
 - In ***RStudio***, select **Tools -> Global Options** and then select the `Git/SVN` icon.
 - If you haven't already ceated an `RSA` Key, click `Create RSA Key...` and follow through with any additional dialog boxes.
 
+<br><center>
 <img src="img/create-rsa-key.png" width=500px/>
+</center><br>
 
 - Then close this window, click `View public key`, copy the displayed public key, and close out of the **Global Options** dialog box. If you have created a key previously, just click `View public key`, copy the displayed public key, and close out of the **Global Options** dialog box.
 
+<br><center>
 <img src="img/view-rsa-key.png" width=500px/>
+</center><br>
 
 #### Step 2:
 
 - Go to your ***GitHub*** account online, open your profile/account settings (e.g., by clicking the `Edit Profile` button), and the select the `SSH & GPG keys` tab.
 - Click `New SSH key`, type a title for the new key, paste in the public key you copied from ***RStudio***, and then click `Add SSH key` at the bottom of the window.
 
-<img src="img/ssh-key.png" width=500px/></center>
+<br><center>
+<img src="img/ssh-key.png" width=500px/>
+</center><br>
 
 - Return to ***RStudio***.
 
@@ -204,7 +241,9 @@ Now you will want to create a remote repository on ***GitHub*** to which you can
 - Go to the ***GitHub*** website and create a new repository. You can use the same name as that of the ***RStudio*** project you want to push up, or you can create a different one. **You should not initialize this repo with a README file!**
 - From the next screen, first make sure that the `SSH` button is selected under the **Quick setup...** option at the top. Then, scroll down to the option: **...or push an existing repository from the command line**.
 
-<img src="img/new-repo-github.png" width=500px/></center>
+<br><center>
+<img src="img/new-repo-github.png" width=500px/>
+</center><br>
 
 - Copy the first line of code listed there (the one that begins *git remote add origin...*) and then return to ***RStudio***
 
@@ -213,7 +252,9 @@ Now you will want to create a remote repository on ***GitHub*** to which you can
 
 - In ***RStudio***, open the project that you want to push to ***GitHub*** and click **Tools -> Shell...** to open a terminal window.
 
-<img src="img/shell-prompt.png" width=500px/></center>
+<br><center>
+<img src="img/shell-prompt.png" width=500px/>
+</center><br>
 
 **NOTE:** Your prompt will almost certainly look different than that in the image above!
 
@@ -228,13 +269,23 @@ The first line tells ***git*** the remote URL that you are going to push to, and
 
 - From within ***RStudio***, you can now open the project and repo that you just pushed to ***GitHub***. In the project, you can add or edit files, and you can locally commit any changes you make to those files and push them up to GitHub as described above.
 
-**Congratulations!** You have now pushed commits from your local repo to ***GitHub***, and you should be able to see those files in your ***GitHub*** repo online. The `Pull` and `Push` buttons in ***RStudio*** should now also work. Remember, after each `Commit`, you will have to push to ***GitHub*** manually. This does not happen automatically.
+**Congratulations!** You have now pushed commits from your local repo to ***GitHub***, and you should be able to see those files in your ***GitHub*** repo online. The `Pull` and `Push` buttons in ***RStudio*** should now also work. 
 
-#### CHALLENGE:
+***Remember***: after each `Commit`, you will have to push to ***GitHub*** manually. This does not happen automatically.
 
-- Start a new ***R*** project using one of the methods above -- call it "ADA-WEEK-2" -- and in it, create an **RMarkdown** document in which you will take notes and complete the coding CHALLENGES from Module 4. You can begin with a standard **RMarkdown** document template created by choosing **File -> New File -> R Markdown** and choosing `HTML` as the `Default Document Output`.
+<br>
 
-<img src="img/new-R-markdown-1.png" width=500px/></center>
+***
+
+#### **CHALLENGE**
+
+***
+
+- Start a new ***R*** project using one of the methods above -- call it "AN597-Week-2" -- and in it, create an **RMarkdown** document in which you will take notes and complete the coding CHALLENGES from [Module 4](http://fuzzyatelin.github.io/bioanth-stats/module-04/module-04.html). You can begin with a standard **RMarkdown** document template created by choosing **File -> New File -> R Markdown** and choosing `HTML` as the `Default Document Output`.
+
+<br><center>
+<img src="img/new-R-markdown-1.png" width=500px/>
+</center><br>
 
 - You should commit your document locally several times during class and as you complete the coding challenges, and you should push your updated repo to ***GitHub*** periodically as well. The instructions above should be helpful in getting you comfortable with commiting changes to your local repo and pushing changes up to ***GitHub***. Feel free to come see me during the week if you run into any problems!
 
