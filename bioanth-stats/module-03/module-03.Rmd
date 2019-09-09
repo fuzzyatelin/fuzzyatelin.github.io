@@ -27,7 +27,7 @@ knitr::opts_chunk$set(
 ***
 
 ## Objectives
-> The objective of this module is to set you up with a new local repository under version control in which you will take notes and practice coding and set you up to be able to push changes that you make locally to a remote copy of the repository hosted on ***GitHub***. We also introduce the idea of *reproducible research* and practice using **RMarkdown** to implement that.
+> The objective of this module is to set you up with a new local repository under version control in which you will take notes and practice coding, and also set you up to be able to push changes that you make locally to a remote copy of the repository hosted on ***GitHub***. We also introduce the idea of *reproducible research* and practice implementing it using **RMarkdown**.
 
 ## The Backstory
 Last time, we introduced the concept of version control and looked at tools in ***RStudio*** for interfacing with ***git***, a popular version control system. Today, we are going to put these ideas into practice as a means for fostering *reproducible research*.

@@ -1,9 +1,14 @@
 ---
 title: "Module 04"
 author: by Anthony Di Fiore, with modifications by Christopher A. Schmitt
-output:
-    html_document
+output: 
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
 ---
+
+***
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -18,12 +23,14 @@ knitr::opts_chunk$set(
 ```
 # Working with Other Data Structures
 
+***
+
 ## Objectives
 > The objective of this module is to introduce additional data structures in ***R*** (arrays, matrices, lists, and data frames) and to learn how to extract, filter, and subset data from them.
 
 ## Preliminaries
 
-- GO TO: https://github.com/fuzzyatelin/AN597_Fall17/, select the **random-people.csv** file, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally.
+- GO TO: https://github.com/fuzzyatelin/AN597_Fall19/, select the **random-people.csv** file, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally.
 
 - Install this package in ***R***: [{stringr}](https://cran.r-project.org/web/packages/stringr/stringr.pdf)
 
@@ -136,7 +143,13 @@ v <- 101:200
 v[seq(from = 1, to = 100, by = 2)]
 ```
 
-#### CHALLENGE:
+<br>
+
+***
+
+#### **CHALLENGE 1**
+
+***
 
 - First, create a vector of 1 word character strings comprising the first line of the *Ulysses*, by James Joyce: "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
 
@@ -162,7 +175,13 @@ x
 
 You can also extract an entire row or an entire column (or set of rows or set of columns) from a matrix by specifying the desired row or column number(s) and leaving the other value blank.
 
-#### CHALLENGE:
+<br>
+
+***
+
+#### **CHALLENGE 2**
+
+***
 
 - Given the matrix, **m**, above, extract the 2nd, 3rd, and 6th columns and assign them to the variable **x**
 
@@ -170,7 +189,13 @@ You can also extract an entire row or an entire column (or set of rows or set of
 
 - Given the matrix, **m**, above, extract the elements from row 2, column 2 to row 6, column 9 and assign them to the variable **x**
 
-#### CHALLENGE:
+<br>
+
+***
+
+#### **CHALLENGE 3**
+
+***
 
 - Construct a 4-dimensional, 400 element array (5 x 5 x 4 x 4) named **a** consisting of the numbers 400 to 1 (i.e., a descending series)
 
@@ -256,7 +281,13 @@ l$string
 l$matrix[3,5]
 ```
 
-#### CHALLENGE:
+<br>
+
+***
+
+#### **CHALLENGE 4**
+
+***
 
 - Create a **list** representing this (simplified) primate taxonomy. **HINT:** you can use **lists** as elements in a list.
 
@@ -380,7 +411,13 @@ Finally, ***R*** has three special data values that it uses in a variety of situ
 - `Inf` (and `-Inf`) is used when the result of a numerical calculation is too extreme for ***R*** to express
 - `NaN` (for *not a number*) is used when ***R*** cannot express the results of a calculation , e.g., when you try to take the square root of a negative number
 
-#### CHALLENGE:
+<br>
+
+***
+
+#### **CHALLENGE 5**
+
+***
 
 - Store the following numbers as a 5 x 3 matrix: 3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2. Be sure to fill the matrix ROWWISE.
 
