@@ -61,3 +61,30 @@ Every Saturday morning, at the same time, a primatologist goes and sits in the f
 - Plot the relevant Poisson mass function over the values in range 0 ≤ x ≤ 30.
 - Simulate 104 results from this distribution (i.e., 2 years of Saturday monitoring sessions).
 - Plot the simulated results using hist() and use xlim() to set the horizontal limits to be from 0 to 30. How does your histogram compare to the shape of the probability mass function you plotted above?
+
+***
+
+###**Your Final Assignment for Homework 02**
+
+Your final assignment, due to me by 5:00 pm on September 22nd, is to have in your *AN597-Week-3-BUlogin* repo only the following files:
+<ol>
+1. Your Original Homework Code, including the five challenges you faced, as pushed to your repo by 8:00 pm on Thursday, an R Markdown file named *BUlogin_OriginalHomeworkCode_02*.
+2. The *FINAL PUSH* of the [Peer Commentary](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) made on *your* code, an R Markdown file named *Peerlogin_PeerCommentary_BUlogin_02* or *PeerGroupX_PeerCommentary_BUlogin_02*.
+3. Your Final Homework Code, which has taken into account any changes recommended from the Peer Commentary and notes, an R Markdown file named *BUlogin_FinalHomeworkCode_02*.
+</ol>
+
+***
+
+NOTE: If you want your homework code to look nice (beyond being *very* well annotated and commented), and be easy to use by others, please consider consulting the following helpful guidelines on how to write effective **R Markdown** documents (also available at the end of [Module 03](https://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html)).
+<ul>
+<li>An introduction to [R Markdown](https://rmarkdown.rstudio.com/)</li>
+<li>[R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)</li>
+<li>[R Markdown Cheatsheet](https://rmarkdown.rstudio.com/lesson-15.html)</li>
+<li>[Another R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)</li>
+<li>[Pimp my RMD: A Few Tips for R Markdown](https://holtzy.github.io/Pimp-my-rmd/)</li>
+<li>[R Markdown Templates for Journal Submissions](https://github.com/rstudio/rticles/tree/master/inst/rmarkdown/templates)</li>
+<li>[Using R Markdown for Class Reports](https://www.stat.cmu.edu/~cshalizi/rmarkdown/)</li>
+<li>[R Markdown Theme Gallery](http://www.datadreaming.org/post/r-markdown-theme-gallery/)</li>
+<li>[Creating Pretty Documents from R Markdown](https://cran.r-project.org/web/packages/prettydoc/vignettes/architect.html)</li>
+</ul>
+<br>
