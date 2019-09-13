@@ -1,9 +1,14 @@
 ---
 title: "Module 07"
 author: by Anthony Di Fiore and Christopher A. Schmitt
-output:
-    html_document
+output: 
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
 ---
+
+***
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -17,6 +22,8 @@ knitr::opts_chunk$set(
 )
 ```
 # Central Tendency and Variance
+
+***
 
 ## Preliminaries
 - Install this package in ***R***: {sciplot}
@@ -46,9 +53,13 @@ These measures are relevant to summarizing observations about processes that are
 - **Harmonic mean** = the reciprocal of the average of the reciprocals of a set of values.
 - **Geometric mean** = a measure of central tendency for processes that are multiplicative rather than additive = the nth root of the product of the values (for the mathematically inclindes, it also = the antilog of the averaged log values).
 
-#### CHALLENGE:
-Given a vector, x <- c(1,2,3,4,5,6,7,8,9,10,100,1000)
-- Write a function to determine the geometric mean of the values in a vector. Remember the general form for functions is:
+***
+
+#### **CHALLENGE 1**
+
+***
+
+Given a vector, x <- c(1,2,3,4,5,6,7,8,9,10,100,1000), write a function to determine the geometric mean of the values in a vector. Remember the general form for functions is:
 
 *function name* <- function(*arguments to pass*){*code to run*}
 
@@ -60,7 +71,12 @@ gm1(x)
 gm2 <- function(x){exp(mean(log(x)))}
 gm2(x)
 ```
-- What happens if you have `NA`s or zeros or negative numbers in the vector? **HINT:** The argument `na.rm = TRUE` and the function `na.omit()` may help you write more generic functions.
+
+What happens if you have `NA`s or zeros or negative numbers in the vector? 
+
+**HINT:** The argument `na.rm = TRUE` and the function `na.omit()` may help you write more generic functions.
+
+***
 
 ### Measures of Spread
 A measure of spread or variability in a dataset is one of the most important summary statistics to calculate. The *range* (min to max) is one measure of spread as is the *interquartile* range (25th to 75th quartile). As we've seen, these are returned by the `summary()` function.
@@ -71,8 +87,13 @@ We commonly characterize spread, however, in terms of the **deviation of values 
 
 [Why do we use the sum of the **squared** deviations of values from the mean rather than just the sum of deviations? Because the latter would simply be ZERO.]
 
-#### CHALLENGE:
-- Write a function to calculate the *sum of squares* for a vector
+***
+
+#### **CHALLENGE 2**
+
+***
+
+Write a function to calculate the *sum of squares* for a vector
 
 ``` {r}
 ss1 <- function(x){sum((x-mean(x))^2)}
@@ -107,8 +128,13 @@ If, however, we have not measured all of the individual cases in population... i
 
 In this formula, *n - 1* is the number of *degrees of freedom* implied by the sample. The *degrees of freedom* is the number of values used to calculate a sample statistic that are free to vary. We used **n** observations to calculate the mean of our sample, and that implies *n - 1* degrees of freedom. We use that statistic about our sample as an estimate of the population mean, which is used to derive an estimate of the population variance. 
 
-#### CHALLENGE:
-- Write a function to calculate the variance for a vector of values representing a *sample* of measurements. Compare the results of your function to the built-in function, `var()`, which calculates sample variance.
+***
+
+#### **CHALLENGE 3**
+
+***
+
+Write a function to calculate the variance for a vector of values representing a *sample* of measurements. Compare the results of your function to the built-in function, `var()`, which calculates sample variance.
 
 ``` {r}
 sample_v <- function (x){sum((x-mean(x))^2)/(length(x)-1)}
@@ -191,9 +217,13 @@ or
 
 **SE mean** = (sample standard deviation) / square root of (number of observations)
 
+***
 
-#### CHALLENGE:
-- Write a function to calculate the *standard error of the mean* for a vector of values representing a sample of measurements. You can use either your own function for sample variance or the built-in `var()` function 
+#### **CHALLENGE 4**
+
+***
+
+Write a function to calculate the *standard error of the mean* for a vector of values representing a sample of measurements. You can use either your own function for sample variance or the built-in `var()` function 
 
 ``` {r}
 SE1 <- function(x){sqrt(sample_v(x)/length(x))}
@@ -294,6 +324,14 @@ quantile(set)
 quantile(set, c(0.025, 0.975))
 ```
 
-#### CHALLENGE:
-- How does the CI calculated this way, by simulation, compare to that calculated based on assuming a normal distribution?
-- How does the width of the CI change with decreasing or increasing **n** (the number of observations drawn from your sample with replacement)? For example, if we set **n** at 5? At 50? At 500?
+***
+
+#### **CHALLENGE 5**
+
+***
+
+How does the CI calculated this way, by simulation, compare to that calculated based on assuming a normal distribution?
+
+How does the width of the CI change with decreasing or increasing **n** (the number of observations drawn from your sample with replacement)? For example, if we set **n** at 5? At 50? At 500?
+
+***
