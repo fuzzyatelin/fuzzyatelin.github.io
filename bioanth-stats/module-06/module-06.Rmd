@@ -1,9 +1,14 @@
 ---
 title: "Module 06"
 author: by Anthony Di Fiore and Christopher A. Schmitt
-output:
-    html_document
+output: 
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
 ---
+
+***
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -18,18 +23,20 @@ knitr::opts_chunk$set(
 ```
 # Exploratory Data Analysis
 
+***
+
 ## Objectives
 > The objective of this module to begin exploring data using the summary functions and graphing abilities of ***R***.
 
 ## Preliminaries
-- GO TO: https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN597_Fall17/, select the `.csv` version of the *Country-Data-2016* file, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally. Do the same for the *KamilarAndCooperData* file.
+- GO TO: https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN597_Fall19/, select the `.csv` version of the *Country-Data-2016* file, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally. Do the same for the *KamilarAndCooperData* file.
 
-- Install these packages in ***R***: [{dplyr}](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html), [{ggplot2}](http://ggplot2.tidyverse.org/reference/)
+- Install these packages in ***R***: [{dplyr}](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html), [{ggplot2}](http://ggplot2.tidyverse.org/reference/). These are part of the [{tidyverse}](https://www.tidyverse.org/), which you can install as a shorthand for them.
 
 ## The Backstory
 ***R*** has some very easy to use functions for taking a quick tour of your data. We have seen some of these already (e.g., `head()`, `tail()`, and `str()`), and you should always use these right after loading in a dataset to work with. Also useful are `dim()` to return the number of rows and columns in a data frame, `names()`, `colnames()`, and sometimes `rownames()`.
 
-> As an aside, you can use the `attach()` function to make variables within data frames accessible in ***R*** with fewer keystrokes. The `attach()` functions binds the variables from data frame named as an argument to the local namespace so that as long as the data frame is attached, variables can be called by their names without explicitly referring to the data frame. That is, if you `attach()` a data frame, then you do not need to use the **$** operator or **bracket notation** to refer to a particular variable. It is important to remember to `detach()` data frames when finished. It is also possible to attach multiple data frames (and the same data frame multiple times), and, if these share variable names, then the more recently attached one will mask the other. Thus, it is best to attach only one data frame at a time.
+> As an aside, you can use the `attach()` function to make variables within data frames accessible in ***R*** with fewer keystrokes. The `attach()` function binds the variables from the data frame named as an argument to the local namespace so that as long as the data frame is attached, variables can be called by their names without explicitly referring to the data frame. That is, if you `attach()` a data frame, then you do not need to use the **$** operator or **bracket notation** to refer to a particular variable. It is important to remember to `detach()` data frames when finished. It is also possible to attach multiple data frames (and the same data frame multiple times), and, if these share variable names, then the more recently attached one will mask the other. Thus, it is best to attach only one data frame at a time (or none at all).
 
 > The `with()` function accomplishes much the same thing as `attach()` but is self-contained and cleaner, especially for use in functions. If you use `with()`, all code to be run should be included as an argument of the function.
 
@@ -39,13 +46,17 @@ knitr::opts_chunk$set(
 
 - Summary: The `summary()` function provides a quick overview of each column in a data frame. For **numeric** variables, this includes the minimum, 25th percentile, median, mean, 75th percentile, and maximum of the data, as well as a count of `NA` (missing values). For **factors**, it includes a count of each factor.
 
-#### CHALLENGE:
+***
 
-- Load the **Country-Data-2016** dataset into a data frame variable, **d**, and summarize the variables in that data frame. You can load the file any way you want, e.g., load from a local file, or you can access the data straight from ***GitHub***, as in the code below.
+#### **CHALLENGE 1**
+
+***
+
+Load the **Country-Data-2016** dataset into a data frame variable, **d**, and summarize the variables in that data frame. You can load the file any way you want, e.g., load from a local file, or you can access the data straight from ***GitHub***, as in the code below.
 
 ``` {r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/Country-Data-2016.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/Country-Data-2016.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 head(d)
 summary(d)
@@ -75,11 +86,18 @@ mean(new$population, na.rm = TRUE)
 mean(new$area, na.rm = TRUE)
 ```
 
+***
+
 - Boxplots : The `boxplot()` function provides a box-and-whiskers visual representation of the five-number summary plus outliers that go beyond the bulk of the data. The function balks if you pass it nonnumeric data, so you may need to reference columns specifically using either **bracket notation** or the **$** operator.
 - Barplot : The `barplot()` function is useful for crude data, with bar height proportional to the value of the variable. The function `dotchart()` provides a similar graphical summary.
 
-#### CHALLENGE:
-- Make boxplots of the raw population and area data, then do the same after `log()` transforming these variables.
+***
+
+#### **CHALLENGE 2**
+
+***
+
+Make boxplots of the raw population and area data, then do the same after `log()` transforming these variables.
 
 **NOTE:** The `par()` command will let you set up a grid of panel in which to plot. Here, I set up a two row by three column grid.
 ``` {r}
@@ -92,11 +110,17 @@ barplot(d$population)
 barplot(d$area)
 ```
 
+***
+
 - Histograms : The `hist()` function returns a histogram showing the complete empirical distribution of the data in binned categories, which is useful for checking skewwness of the data, symmetry, multi-modality, etc. Setting the argument `freq=FALSE` will scale the Y axis to represent the *proportion* of observations falling into each bin rather than the *count*.
 
-#### CHALLENGE:
+***
 
-- Make histograms of the `log()` transformed population and area data from the **Country-Data-2016** file. Explore what happens if you set `freq=FALSE` versus the default of `freq=TRUE`. Try looking at other variables as well.
+#### **CHALLENGE 3**
+
+***
+
+Make histograms of the `log()` transformed population and area data from the **Country-Data-2016** file. Explore what happens if you set `freq=FALSE` versus the default of `freq=TRUE`. Try looking at other variables as well.
 
 ``` {r}
 par(mfrow=c(1,2)) # gives us two panels
@@ -106,6 +130,8 @@ hist(log(area), freq=FALSE, col = "red", main = "Plot 2", xlab = "log(area)", yl
 ```
 
 **NOTE:** You can add a line to your histograms (e.g., to show the mean value for a variable) using the `abline()` command, with arguments. For exmaple, to show a single *vertical* line representing the mean log(population size), you would add the argument `v=mean(log(population))`)
+
+***
 
 - Density plot : The `density()` function computes a non-parametric estimate of the distribution of a variable, which can be combined with `plot()` to also yield a graphical view of the distribution of the data. If your data have missing values, then you need to add the argument `na.rm=TRUE` to the `density()` function. To superimpose a `density()` curve on a histogram, you can use the `lines(density())` function.
 
@@ -118,8 +144,13 @@ detach(d)
 ```
 - Tables : the `table()` function can be used to summarize counts and proportions for categorical variables in your dataset.
 
-#### CHALLENGE:
-- Using the `table()` function, find what is the most common form of government in the **Country-Data-2016** dataset. How many countries have that form? **HINT:** We can combine `table()` with `sort()` and the argument `decreasing=TRUE` to get the desired answered straight away: 
+***
+
+#### **CHALLENGE 4**
+
+***
+
+Using the `table()` function, find what is the most common form of government in the **Country-Data-2016** dataset. How many countries have that form? **HINT:** We can combine `table()` with `sort()` and the argument `decreasing=TRUE` to get the desired answered straight away: 
 
 ``` {r}
 sort(table(d$govt_form),decreasing=TRUE)
@@ -129,14 +160,18 @@ sort(table(d$govt_form),decreasing=TRUE)
 
 - Multiple boxplots or histograms can be laid out side-by-side or overlaid. For boxplots, the **~** operator can be read as "by".
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 5**
+
+***
 
 Read in the dataset **KamilarAndCooperData**, which contains a host of summary information about 213 primate species.
 
 Spend some time exploring the data and then make boxplots of **log(female body mass) ~ family**. Try doing this with {base} graphics and then look at how we might do in in {ggplot2}, which provides a standard "grammar of graphics" (see the [{ggplot2} documentation](http://docs.ggplot2.org/current/))
 
 ``` {r}
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/KamilarAndCooperData.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/KamilarAndCooperData.csv")
 d <- read.csv(f, header = TRUE, stringsAsFactors = FALSE)
 attach(d)
 head(d)
@@ -158,10 +193,17 @@ p <- p + ylab("log(Female Body Mass)")
 p
 ```
 
+***
+
 - Scatterplots : Scatterplots are a natural tool for visualizing two continuous variables and can be made easily with the `plot(x=XXX, y=YYY)` function in {base} graphics (where **XXX* and **YYY** denote the names of the two variables you wish to plot). Transformations of the variables, e.g., `log` or square-root (`sqrt()`), may be necessary for effective visualization.
 
-#### CHALLENGE:
-- Again using data from the *KamilarAndCooperData* dataset, plot the relationship between female body size and female brain size. Then, play with log transforming the data and plot again.
+***
+
+#### **CHALLENGE 6**
+
+***
+
+Again using data from the *KamilarAndCooperData* dataset, plot the relationship between female body size and female brain size. Then, play with log transforming the data and plot again.
 
 ``` {r}
 attach(d)
@@ -195,8 +237,13 @@ p <- p + geom_smooth(method="lm", fullrange=TRUE)
 p
 ```
 
-#### CHALLENGE:
-- Build your own bivariate scatterplot using the **KamilarAndCooperData** dataset.
+***
+
+#### **CHALLENGE 7**
+
+***
+
+Build your own bivariate scatterplot using the **KamilarAndCooperData** dataset.
 
 ``` {r}
 p <- ggplot(data=d, aes(x=log(Body_mass_female_mean),
@@ -249,19 +296,25 @@ s <- summarise(byFamily,
                avgM = mean(Body_mass_male_mean, na.rm=TRUE))
 s
 ```
-### Chaining
+### Piping
 
-One other cool thing about the {dplyr} package is that it provides a convenient way to chain together operations on a data frame using the **%>%** operator.
+One other cool thing about the {dplyr} package is that it provides a convenient way to pipe together operations on a data frame using the `%>%` operator. Althought his may at fist seem cumbersome, it qill quickly become one of the best ways to make your code simpler and more readable.
 
-#### CHALLENGE:
-- In one line of code, do the following:
+***
+
+#### **CHALLENGE 8**
+
+***
+
+In one line of code, do the following:
 	- Add a variable, *Binomial* to our data frame **d**, which is a concatenation of the *Genus* and *Species*...
 	- Trim the data frame to only include the variables *Binomial*, *Family*, *Body_mass_female_mean*, *Body_mass_male_mean* and *Mass_Dimorphism*...
 	- Group these by *Family*...
 	- And calculate the average value for female body mass, male body mass, and mass dimorphism.
 
 ``` {r}
-s <- mutate(d, Binomial = paste(Genus, Species, sep=" ")) %>%
+s <- d %>% 
+  mutate(Binomial = paste(Genus, Species, sep=" ")) %>%
 	select(Binomial, Family, Body_mass_female_mean, Body_mass_male_mean, Mass_Dimorphism) %>%
 	group_by(Family) %>%
 	summarise(avgF = mean(Body_mass_female_mean, na.rm=TRUE),
@@ -269,3 +322,5 @@ s <- mutate(d, Binomial = paste(Genus, Species, sep=" ")) %>%
 						avgBMD = mean(Mass_Dimorphism, na.rm=TRUE))
 s
 ```
+
+***
