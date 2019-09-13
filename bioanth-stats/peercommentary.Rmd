@@ -1,7 +1,7 @@
 ---
 title: "AN597: Peer Commentary Assignments"
 author: "Christopher A Schmitt"
-date: "September 2, 2019"
+date: "September 13, 2019"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -34,22 +34,32 @@ The Peer Commentary assignment is one of the most important exercises in this cl
 
 ###**How it works...**
 
-Every week, after you've finished the [Homework]() associated with your assigned [Module](https://fuzzyatelin.github.io/bioanth-stats/modules.html), you will be required to share your annoted/commented code with your weekly assigned Peer Group. At the end of your Homework Code, in a section labeled **CHALLENGES**, you will share a list of the 5 five most difficult challenges you faced in writing your code, and what you did to overcome them. The Peer Group you share this code with will typically be a group of three, although depending on final class size it may be a group of two, and this group will change on a weekly basis (see below for your assigned groups). **You must send your commented/annotated code from your Homework to your Peer Group by 8:00 pm on Thursday night**. It is up to your group whether one or both of the other members work together to respectfully critique the others' code, and groups are encouraged to meet over the weekend to discuss their code.
+Every week, once finished working on your Original Homework Code associated with your assigned [Module](https://fuzzyatelin.github.io/bioanth-stats/modules.html) (links to Homework can be found in the weekly entries on the [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)), you will be required to share your annoted/commented code as an ***R Markdown*** file with your weekly assigned Peer Group. At the end of your Original Homework Code, in a section labeled **CHALLENGES**, you will share a list of the five most difficult challenges you faced in writing your code, and what you did to overcome them. The Peer Group you share this code with will typically be a group of three, although depending on final class size it may be a group of two, and this group will change on a weekly basis (see below for your assigned groups). **You must push your commented/annotated Original Homework Code to your homework repository, which you must share with your Peer Group and instructor, by 8:00 pm on Thursday night**. It is up to your group whether one or both of the other members work together to respectfully critique the others' code, and groups are encouraged to meet over the weekend to discuss their code in person.
+
+###**How you share your code**
+
+You will be creating a new repo on ***GitHub***, and cloning that repo to your computer so that you can make a git-referenced ***Rstudio*** project, for each individual homework assignment (instructions for each assignment on what to name that repo will be on the specific Homework webpage). Your homework code should be entered (and commented/annotated!) in an ***R Markdown*** file created and saved in your homework project, which can then be shared by '[pushing](https://fuzzyatelin.github.io/bioanth-stats/homework-01.html)' it to ***GitHub***. 
+
+You must then *invite* your Peer Group (and me, your instructor) to 'Collaborate' on that repo.  Instructions for how to invite us to collaborate are [here](https://help.github.com/en/articles/inviting-collaborators-to-a-personal-repository). This will generate an email invitation (sent to the email address registered to their ***GitHub*** account), which your collaborators will have to Accept. 
+
+Please keep an eye out for, and Accept, your Peer Group's invitations each week!
+
+Once you're an active collaborator, you can clone your *Peer's* repository to your computer, create a git-referenced Project from *that* repo in ***Rstudio***, and then write and push a new R Markdown file with your comments/changes/recommendations on how to improve their code directly to *their* homework repo.
 
 ###**What you're critiquing...**
 
-As noted in the [Homework]() instructions, while completing your homework each of you will compile a list of the five most impactful challenges faced while coding it, along with how you overcame them (or what you attempted if you couldn't overcome them). You, as a peer commenter, must spend *at least an hour* reviewing and testing your peer's code with an eye towards understanding the challenges they faced, and in the process write down the following:
+As noted in the homework instructions, while completing your homework each of you will compile a list of the five most impactful challenges faced while coding it, along with how you overcame them (or what you attempted if you couldn't overcome them). You, as a peer commenter, must spend *at least an hour* reviewing and testing your peer's code with an eye towards understanding the challenges they faced, and in the process write down the following:
 <br><ol>
-1. What you learned from running their code that helped improve your own code.
+1. What you learned from running their Original Homework Code that helped improve your own code.
 2. What you did in your own code that might help to improve theirs.
 3. What challenges, if any, you *both* faced in your code that could not be helped by comparison.
-4. Whether the annotation/commenting on your peer's code is readable and interpretable to you, and if not then how it could be improved.
+4. Whether the annotation/commenting on your peer's Original Homework Code is readable and interpretable to you, and if not then how it could be improved.
 </ol>
 Although not required, you are encouraged to meet outside class so that you may work together on this process.
 
-Ideally, as peer commenter you will give your comments back to the original coder in time for them to take into account your comments and turn in a corrected (and hopefully function) Final Homework.
+Ideally, as peer commenter you will give your comments back to your peer with enough time for them to take into account your comments and turn in an improved (and hopefully functional) Final Homework Code.
 
-**Students must turn in their Original Homework Code (with Challenges noted), Peer Commentaries, and Final Homework Code to me by 5:00 pm on Sunday**
+**Students must have their Original Homework Code (with Challenges noted), Peer Commentaries, and Final Homework Code in their Homework repo by 5:00 pm on Sunday**
 
 In class, for 10 minutes, you will be given a chance to meet with your Peer Group in order to prioritize questions or challenges that your group would like to bring to the attention of the whole class.
 
@@ -59,7 +69,31 @@ Although grades will not be assigned for Peer Commentaries, if it comes to my at
 
 ###**Who you're working with...**
 
-Assigned Peer Groups for each week will be as follows (although they may change over the course of the semester):
+The students currently enrolled in Fall 2019 (and their associated GitHub accounts) include:
+
+* Laura Angley: [langley1](https://github.com/langley1)
+* Frank Azorsa Salazar: [frankazorsa](https://github.com/frankazorsa)
+* Laura Brubaker-Wittman: [laurabw](https://github.com/laurabw)
+* Ish Chowdhury: [ishratc](https://github.com/ishratc)
+* Christian Gagnon: [cmgagnon](https://github.com/cmgagnon)
+* Gianna Grob: [EagleEyeG](https://github.com/EagleEyeG)
+* Lara Hakam: [Hakalar2000](https://github.com/Hakalar2000)
+* Nicola Kriefall: [NicolaKriefall](https://github.com/NicolaKriefall)
+* Clint Lockwood: [cjlw2020](https://github.com/cjlw2020)
+* Tim McHale: [tmorama](https://github.com/tmorama)
+* Ena Miculinic: [enamic](https://github.com/enamic)
+* Greg Pelose: [gpelose](https://github.com/gpelose)
+* MaJo Salazar Nicholls: [mjsalnic](https://github.com/mjsalnic)
+* Brenna Stallings: [brennastallings](https://github.com/brennastallings)
+* C Vega: [cavega36](https://github.com/cavega36)
+* Feiya Wang: [feiyawang1207](https://github.com/feiyawang1207)
+
+And my own GitHub account is:
+
+* Christopher Schmitt: [fuzzyatelin](https://github.com/fuzzyatelin)
+
+
+###**Assigned Peer Groups**
 
 ####**Week 01 (2019-09-02)**
 ***
@@ -77,7 +111,7 @@ Peer Group 2: Frank Azorza Salazar, Mel Zarate, Ishrat Chowdhury
 
 Peer Group 3: Laura Brubaker-Wittman, Christian Gagnon, Lara Hakam
 
-Peer Group 4: Melissa Hurtado, Peter Kovacik, Clint Lockwood
+Peer Group 4: Feiya Wang, Clint Lockwood
 
 Peer Group 5: Nicola Kriefall, Ena Miculinic, Gregory Pelose 
 
@@ -92,9 +126,9 @@ Peer Group 1: Laura Angley, Frank Azorza Salazar, Lara Hakam
 
 Peer Group 2: Mel Zarate, Laura Brubaker-Wittman, Clint Lockwood
 
-Peer Group 3: Christian Gagnon, Melissa Hurtado, Gregory Pelose
+Peer Group 3: Christian Gagnon, Gregory Pelose
 
-Peer Group 4: Peter Kovacik, Nicola Kriefall, C Vega
+Peer Group 4: Feiya Wang, Nicola Kriefall, C Vega
 
 Peer Group 5: Ena Miculinic, Maria Salazar Nicholls, Gianna Grob
 
@@ -107,9 +141,9 @@ Peer Group 6: Brenna Stallings, Timothy McHale, Ishrat Chowdhury
 
 Peer Group 1: Frank Azorza Salazar, Christian Gagnon, Clint Lockwood
 
-Peer Group 2: Laura Brubaker-Wittman, Peter Kovacik, Gregory Pelose
+Peer Group 2: Laura Brubaker-Wittman, Feiya Wang, Gregory Pelose
 
-Peer Group 3: Melissa Hurtado, Ena Miculinic, C Vega
+Peer Group 3: Ena Miculinic, C Vega
 
 Peer Group 4: Nicola Kriefall, Brenna Stallings, Gianna Grob
 
@@ -125,7 +159,7 @@ Peer Group 6: Timothy McHale, Mel Zarate, Lara Hakam
 
 Peer Group 1: Christian Gagnon, Nicola Kriefall, Ishrat Chowdhury
 
-Peer Group 2: Peter Kovacik, Maria Salazar Nicholls, Lara Hakam
+Peer Group 2: Feiya Wang, Maria Salazar Nicholls, Lara Hakam
 
 Peer Group 3: Ena Miculinic, Timothy McHale, Clint Lockwood
 
@@ -133,7 +167,7 @@ Peer Group 4: Brenna Stallings, Frank Azorza Salazar, Gregory Pelose
 
 Peer Group 5: Laura Angley, Laura Brubaker-Wittman, C Vega
 
-Peer Group 6: Mel Zarate, Melissa Hurtado, Gianna Grob
+Peer Group 6: Mel Zarate, Gianna Grob
 
 
 ***
@@ -143,11 +177,11 @@ Peer Group 6: Mel Zarate, Melissa Hurtado, Gianna Grob
 
 Peer Group 1: Christian Gagnon, Timothy McHale, C Vega
 
-Peer Group 2: Peter Kovacik, Frank Azorza Salazar, Gianna Grob
+Peer Group 2: Feiya Wang, Frank Azorza Salazar, Gianna Grob
 
 Peer Group 3: Ena Miculinic, Laura Brubaker-Wittman, Ishrat Chowdhury
 
-Peer Group 4: Brenna Stallings, Melissa Hurtado, Lara Hakam
+Peer Group 4: Brenna Stallings, Lara Hakam
 
 Peer Group 5: Laura Angley, Nicola Kriefall, Clint Lockwood
 
@@ -162,11 +196,11 @@ Peer Group 6: Mel Zarate, Maria Salazar Nicholls, Gregory Pelose
 
 Peer Group 1: Nicola Kriefall, Maria Salazar Nicholls, Brenna Stallings
 
-Peer Group 2: Laura Brubaker-Wittman, Melissa Hurtado, Laura Angley
+Peer Group 2: Laura Brubaker-Wittman, Laura Angley
 
 Peer Group 3: Frank Azorza Salazar, Timothy McHale, Mel Zarate
 
-Peer Group 4: C Vega, Gianna Grob, Peter Kovacik
+Peer Group 4: C Vega, Gianna Grob, Feiya Wang
 
 Peer Group 5: Ishrat Chowdhury, Lara Hakam, Ena Miculinic
 
@@ -185,9 +219,9 @@ Peer Group 3: Frank Azorza Salazar, Lara Hakam, Brenna Stallings
 
 Peer Group 4: C Vega, Gregory Pelose, Laura Angley
 
-Peer Group 5: Ishrat Chowdhury, Maria Salazar Nicholls, Peter Kovacik
+Peer Group 5: Ishrat Chowdhury, Maria Salazar Nicholls, Feiya Wang
 
-Peer Group 6: Clint Lockwood, Melissa Hurtado, Mel Zarate
+Peer Group 6: Clint Lockwood, Mel Zarate
 
 ***
 
@@ -202,20 +236,20 @@ Peer Group 3: Gianna Grob, Brenna Stallings, Ishrat Chowdhury
 
 Peer Group 4: Nicola Kriefall, Maria Salazar Nicholls, Mel Zarate
 
-Peer Group 5: Christian Gagnon, Melissa Hurtado, Frank Azorza Salazar
+Peer Group 5: Christian Gagnon, Frank Azorza Salazar
 
-Peer Group 6: Peter Kovacik, Gregory Pelose, Laura Angley
+Peer Group 6: Feiya Wang, Gregory Pelose, Laura Angley
 
 ***
 
 ####**Week 10 (2019-11-04)**
 ***
 
-Peer Group 1: Gregory Pelose, Melissa Hurtado, Brenna Stallings
+Peer Group 1: Gregory Pelose, Brenna Stallings
 
 Peer Group 2: Clint Lockwood, Laura Angley, Frank Azorza Salazar
 
-Peer Group 3: Peter Kovacik, Nicola Kriefall, Christian Gagnon
+Peer Group 3: Feiya Wang, Nicola Kriefall, Christian Gagnon
 
 Peer Group 4: Ishrat Chowdhury, C Vega, Mel Zarate
 
@@ -228,7 +262,7 @@ Peer Group 6: Ena Miculinic, Gianna Grob, Maria Salazar Nicholls
 ####**Week 11 (2019-11-11)**
 ***
 
-Peer Group 1: Ena Miculinic, Laura Brubaker-Wittman, Melissa Hurtado
+Peer Group 1: Ena Miculinic, Laura Brubaker-Wittman
 
 Peer Group 2: Gianna Grob, C Vega, Frank Azorza Salazar
 
@@ -236,7 +270,7 @@ Peer Group 3: Mel Zarate, Maria Salazar Nicholls, Gregory Pelose
 
 Peer Group 4: Brenna Stallings, Ishrat Chowdhury, Clint Lockwood
 
-Peer Group 5: Timothy McHale, Nicola Kriefall, Peter Kovacik
+Peer Group 5: Timothy McHale, Nicola Kriefall, Feiya Wang
 
 Peer Group 6: Laura Angley, Christian Gagnon, Lara Hakam
 
@@ -255,7 +289,7 @@ Peer Group 4: Frank Azorza Salazar, Maria Salazar Nicholls, Timothy McHale
 
 Peer Group 5: Nicola Kriefall, Ishrat Chowdhury, C Vega
 
-Peer Group 6: Mel Zarate, Peter Kovacik, Melissa Hurtado
+Peer Group 6: Mel Zarate, Feiya Wang
 
 ***
 
@@ -266,9 +300,9 @@ Peer Group 1: Laura Angley, Maria Salazar Nicholls, Lara Hakam
 
 Peer Group 2: Gregory Pelose, Ishrat Chowdhury, Timothy McHale
 
-Peer Group 3: C Vega, Melissa Hurtado, Brenna Stallings
+Peer Group 3: C Vega, Brenna Stallings
 
-Peer Group 4: Gianna Grob, Christian Gagnon, Peter Kovacik
+Peer Group 4: Gianna Grob, Christian Gagnon, Feiya Wang
 
 Peer Group 5: Mel Zarate, Nicola Kriefall, Frank Azorza Salazar
 
