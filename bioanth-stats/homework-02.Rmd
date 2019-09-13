@@ -1,7 +1,9 @@
 ---
 title: "AN597: Homework 02"
+date: "September 13, 2019"
 output:
-    html_document
+  html_document:
+    theme: cosmo
 ---
 
 ```{r setup, include=FALSE}
@@ -23,20 +25,35 @@ knitr::opts_chunk$set(
 ###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
 ###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
 ###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
-###[Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+###[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
 
 ***
+
+<center>
+<font size="+2"><b>Titis in the Mist...</b></font></center><br>
+
+<br><center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CkUCCyhv5Xc?start=161&end=257&autoplay=1&loop=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:5px solid black"></iframe>
+</center>
+<br>
+
+***
+
 <center>
 
-## DUE 2017-09-22 at 2pm
+<font size="+2"><b>Must be submitted for Peer Commentary by 8:00 pm Thursday, September 19th.</b></font>
 
-<br>
-<center><p><img src="https://i.pinimg.com/originals/97/91/1c/97911cdc6d289241e630fbb32e2dbd19.jpg" style="border:5px solid black"></p>
-</center>
+</center><br>
 
-<br>
+<center>
 
-Every Saturday, at the same time, a primatologist goes and sits in the forest in the morning and listens for titi monkey calls, counting the number of calls they hear in a 2 hour window from 5am to 7am. Based on previous knowledge, she believes that the mean number calls she will hear in that time is exactly 15. Let X represent the appropriate Poisson random variable of the number of calls heard in each monitoring session.
+<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Sunday, September 22nd.</b></font>
+
+</center><br>
+
+***
+
+Every Saturday morning, at the same time, a primatologist goes and sits in the forest to listen for titi monkey calls, counting the number of calls they hear in a 2 hour window from 5am to 7am. Based on previous knowledge, she believes that the mean number of calls she will hear in that time is exactly 15. Let X represent the appropriate Poisson random variable of the number of calls heard in each monitoring session.
 
 - What is the probability that she will hear more than 8 calls during any given session?
 - What is the probability that she will hear no calls in a session?
