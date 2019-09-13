@@ -44,13 +44,13 @@ knitr::opts_chunk$set(
 
 ###For univariate data
 
-- Summary: The `summary()` function provides a quick overview of each column in a data frame. For **numeric** variables, this includes the minimum, 25th percentile, median, mean, 75th percentile, and maximum of the data, as well as a count of `NA` (missing values). For **factors**, it includes a count of each factor.
-
 ***
 
 #### **CHALLENGE 1**
 
 ***
+
+**Summary**: The `summary()` function provides a quick overview of each column in a data frame. For **numeric** variables, this includes the minimum, 25th percentile, median, mean, 75th percentile, and maximum of the data, as well as a count of `NA` (missing values). For **factors**, it includes a count of each factor.
 
 Load the **Country-Data-2016** dataset into a data frame variable, **d**, and summarize the variables in that data frame. You can load the file any way you want, e.g., load from a local file, or you can access the data straight from ***GitHub***, as in the code below.
 
@@ -88,14 +88,13 @@ mean(new$area, na.rm = TRUE)
 
 ***
 
-- Boxplots : The `boxplot()` function provides a box-and-whiskers visual representation of the five-number summary plus outliers that go beyond the bulk of the data. The function balks if you pass it nonnumeric data, so you may need to reference columns specifically using either **bracket notation** or the **$** operator.
-- Barplot : The `barplot()` function is useful for crude data, with bar height proportional to the value of the variable. The function `dotchart()` provides a similar graphical summary.
-
-***
-
 #### **CHALLENGE 2**
 
 ***
+
+**Boxplots**: The `boxplot()` function provides a box-and-whiskers visual representation of the five-number summary plus outliers that go beyond the bulk of the data. The function balks if you pass it nonnumeric data, so you may need to reference columns specifically using either **bracket notation** or the **$** operator.
+
+**Barplots** : The `barplot()` function is useful for crude data, with bar height proportional to the value of the variable. The function `dotchart()` provides a similar graphical summary.
 
 Make boxplots of the raw population and area data, then do the same after `log()` transforming these variables.
 
@@ -112,13 +111,11 @@ barplot(d$area)
 
 ***
 
-- Histograms : The `hist()` function returns a histogram showing the complete empirical distribution of the data in binned categories, which is useful for checking skewwness of the data, symmetry, multi-modality, etc. Setting the argument `freq=FALSE` will scale the Y axis to represent the *proportion* of observations falling into each bin rather than the *count*.
-
-***
-
 #### **CHALLENGE 3**
 
 ***
+
+**Histograms** : The `hist()` function returns a histogram showing the complete empirical distribution of the data in binned categories, which is useful for checking skewwness of the data, symmetry, multi-modality, etc. Setting the argument `freq=FALSE` will scale the Y axis to represent the *proportion* of observations falling into each bin rather than the *count*.
 
 Make histograms of the `log()` transformed population and area data from the **Country-Data-2016** file. Explore what happens if you set `freq=FALSE` versus the default of `freq=TRUE`. Try looking at other variables as well.
 
@@ -133,7 +130,7 @@ hist(log(area), freq=FALSE, col = "red", main = "Plot 2", xlab = "log(area)", yl
 
 ***
 
-- Density plot : The `density()` function computes a non-parametric estimate of the distribution of a variable, which can be combined with `plot()` to also yield a graphical view of the distribution of the data. If your data have missing values, then you need to add the argument `na.rm=TRUE` to the `density()` function. To superimpose a `density()` curve on a histogram, you can use the `lines(density())` function.
+**Density plot** : The `density()` function computes a non-parametric estimate of the distribution of a variable, which can be combined with `plot()` to also yield a graphical view of the distribution of the data. If your data have missing values, then you need to add the argument `na.rm=TRUE` to the `density()` function. To superimpose a `density()` curve on a histogram, you can use the `lines(density())` function.
 
 ``` {r}
 par(mfrow=c(1,1)) # set up one panel and redraw the log(population) histogram
@@ -142,13 +139,14 @@ abline(v=mean(log(population),na.rm=TRUE), col= "blue")
 lines(density(log(population), na.rm =TRUE), col = "green")
 detach(d)
 ```
-- Tables : the `table()` function can be used to summarize counts and proportions for categorical variables in your dataset.
 
 ***
 
 #### **CHALLENGE 4**
 
 ***
+
+**Tables** : the `table()` function can be used to summarize counts and proportions for categorical variables in your dataset.
 
 Using the `table()` function, find what is the most common form of government in the **Country-Data-2016** dataset. How many countries have that form? **HINT:** We can combine `table()` with `sort()` and the argument `decreasing=TRUE` to get the desired answered straight away: 
 
@@ -158,13 +156,13 @@ sort(table(d$govt_form),decreasing=TRUE)
 
 ### For multivariate data
 
-- Multiple boxplots or histograms can be laid out side-by-side or overlaid. For boxplots, the **~** operator can be read as "by".
-
 ***
 
 #### **CHALLENGE 5**
 
 ***
+
+Multiple boxplots or histograms can be laid out side-by-side or overlaid. For boxplots, the **~** operator can be read as "by".
 
 Read in the dataset **KamilarAndCooperData**, which contains a host of summary information about 213 primate species.
 
@@ -195,13 +193,11 @@ p
 
 ***
 
-- Scatterplots : Scatterplots are a natural tool for visualizing two continuous variables and can be made easily with the `plot(x=XXX, y=YYY)` function in {base} graphics (where **XXX* and **YYY** denote the names of the two variables you wish to plot). Transformations of the variables, e.g., `log` or square-root (`sqrt()`), may be necessary for effective visualization.
-
-***
-
 #### **CHALLENGE 6**
 
 ***
+
+**Scatterplots** : Scatterplots are a natural tool for visualizing two continuous variables and can be made easily with the `plot(x=XXX, y=YYY)` function in {base} graphics (where **XXX* and **YYY** denote the names of the two variables you wish to plot). Transformations of the variables, e.g., `log` or square-root (`sqrt()`), may be necessary for effective visualization.
 
 Again using data from the *KamilarAndCooperData* dataset, plot the relationship between female body size and female brain size. Then, play with log transforming the data and plot again.
 
@@ -265,7 +261,7 @@ Or, alternatively...
 ``` {r}
 aggregate(x = d["Body_mass_female_mean"], by = d["Family"], FUN = "mean", na.rm = TRUE)
 ```
-Another, EASIER, way to summarize data is to use the package {plyr}, which provides "a flexible grammar of data manipulation" that includes a set of **verbs** that can be used to perform useful operations on data frames. Before using {dplyr} for this, let's look in general at what it can do...
+Another, EASIER, way to summarize data is to use the package {dplyr}, which provides "a flexible grammar of data manipulation" that includes a set of **verbs** that can be used to perform useful operations on data frames. Before using {dplyr} for this, let's look in general at what it can do...
 
 ``` {r}
 library(dplyr)
@@ -307,10 +303,11 @@ One other cool thing about the {dplyr} package is that it provides a convenient 
 ***
 
 In one line of code, do the following:
-	- Add a variable, *Binomial* to our data frame **d**, which is a concatenation of the *Genus* and *Species*...
-	- Trim the data frame to only include the variables *Binomial*, *Family*, *Body_mass_female_mean*, *Body_mass_male_mean* and *Mass_Dimorphism*...
-	- Group these by *Family*...
-	- And calculate the average value for female body mass, male body mass, and mass dimorphism.
+
+- Add a variable, *Binomial* to our data frame **d**, which is a concatenation of the *Genus* and *Species*...
+- Trim the data frame to only include the variables *Binomial*, *Family*, *Body_mass_female_mean*, *Body_mass_male_mean* and *Mass_Dimorphism*...
+- Group these by *Family*...
+- And calculate the average value for female body mass, male body mass, and mass dimorphism.
 
 ``` {r}
 s <- d %>% 
