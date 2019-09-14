@@ -229,33 +229,33 @@ Lists and data frames, unlike vectors, matrices, and arrays, can be used to grou
 Lists are created using the `list()` function where the elements to add to the list are given as arguments to the function, separated by commas. Type in the following example:
 
 ``` {r}
-s <- c("this","is","a","vector","of","strings")
+s <- c("this","is","a","vector","of","strings") # here we have a vector
 m <- matrix(data=1:40, nrow=5, ncol=8) # this is a matrix
-b <- FALSE
-l <- list(s, m, b)
+b <- FALSE #and this is a logical statement
+l <- list(s, m, b) # this puts them all together as a list
 l
 ```
 
 You can extract elements from a list similarly to how you would from other data structure, except that you use **double brackets** to reference a single element in the list.
 
 ``` {r}
-l[[2]]
+l[[2]] #let's take another look at our matrix
 ```
 
 An extension of this notation can be used to access elements contained within an element in the list. For example:
 
 ``` {r}
-l[[2]][2,6]
+l[[2]][2,6] #this will show us the entry at row 2, column 6 of the matrix in the second position of the list
 ```
 
 To reference/extract multiple elements from a list, you would use **single bracket** notation, which would itself return a list. This is called "list slicing".
 
 ``` {r}
-l[1:2]
+l[1:2] # here we're slicing our list so it just has the first and second elements
 ```
 
 ``` {r}
-l[c(1,3)]
+l[c(1,3)] # and here we're only taking the first and third elements
 ```
 
 Using `str()` provides details about the three elements in our list:
@@ -274,11 +274,11 @@ names(l)
 Now, you can use the name of an item in the list to refer to it:
 
 ``` {r}
-l$string
+l$string # this is calling the element named 'string' in list 'l'
 ```
 
 ``` {r}
-l$matrix[3,5]
+l$matrix[3,5] # this is calling the entry in row 3, column 5 of the element named 'matrix' in list 'l'
 ```
 
 <br>
@@ -289,7 +289,7 @@ l$matrix[3,5]
 
 ***
 
-- Create a **list** representing this (simplified) primate taxonomy. **HINT:** you can use **lists** as elements in a list.
+Create a **list** representing this (simplified) primate taxonomy: 
 
 - Primates
 	- Haplorhini
@@ -314,6 +314,19 @@ l$matrix[3,5]
 			- Indriidae
 			- Lemuridae
 			- Daubentoniidae
+			
+**HINT:** you can use **lists** as elements in a list, which would nest the names like in a phylogeny.
+
+I'll get you started with the Strepsirhini:
+```{r}
+Lemuroidea<-list("Cheirogaleidae","Lepilemuridae","Indriidae","Lemuridae","Daubentoniidae")
+names(Lemuroidea)<-c("Cheirogaleidae","Lepilemuridae","Indriidae","Lemuridae","Daubentoniidae")
+Lorisoidea<-list("Lorisidae","Galagidae")
+names(Lorisoidea)<-c("Lorisidae","Galagidae")
+Strepsirhini<-list(Lemuroidea,Lorisoidea)
+names(Strepsirhini)<-c("Lemuroidea","Lorisoidea")
+Strepsirhini
+```
 
 A **data frame** is the perhaps the most useful (and most familiar) data structure that we can operate with in ***R*** as it most closely aligns with how we tend to represent tabular data, with rows as *cases* or *observations* and columns as *variables* describing those observations (e.g., a measurement of a particular type). Variables tend to be measured using the same units and thus fall into the same data class and can be thought of as analogous to vectors.
 

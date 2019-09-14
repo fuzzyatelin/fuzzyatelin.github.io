@@ -456,10 +456,10 @@ m[,8] &lt;- c(&quot;a&quot;,&quot;b&quot;)</code></pre>
 <h2>Lists and Data Frames</h2>
 <p>Lists and data frames, unlike vectors, matrices, and arrays, can be used to group together a mix of <strong><em>R</em></strong> structures and objects. A single list could contain a matrix, vector of character strings, vector of factors, an array, even another list.</p>
 <p>Lists are created using the <code>list()</code> function where the elements to add to the list are given as arguments to the function, separated by commas. Type in the following example:</p>
-<pre class="r"><code>s &lt;- c(&quot;this&quot;,&quot;is&quot;,&quot;a&quot;,&quot;vector&quot;,&quot;of&quot;,&quot;strings&quot;)
+<pre class="r"><code>s &lt;- c(&quot;this&quot;,&quot;is&quot;,&quot;a&quot;,&quot;vector&quot;,&quot;of&quot;,&quot;strings&quot;) # here we have a vector
 m &lt;- matrix(data=1:40, nrow=5, ncol=8) # this is a matrix
-b &lt;- FALSE
-l &lt;- list(s, m, b)
+b &lt;- FALSE #and this is a logical statement
+l &lt;- list(s, m, b) # this puts them all together as a list
 l</code></pre>
 <pre><code>## [[1]]
 ## [1] &quot;this&quot;    &quot;is&quot;      &quot;a&quot;       &quot;vector&quot;  &quot;of&quot;      &quot;strings&quot;
@@ -475,7 +475,7 @@ l</code></pre>
 ## [[3]]
 ## [1] FALSE</code></pre>
 <p>You can extract elements from a list similarly to how you would from other data structure, except that you use <strong>double brackets</strong> to reference a single element in the list.</p>
-<pre class="r"><code>l[[2]]</code></pre>
+<pre class="r"><code>l[[2]] #let's take another look at our matrix</code></pre>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]
 ## [1,]    1    6   11   16   21   26   31   36
 ## [2,]    2    7   12   17   22   27   32   37
@@ -483,10 +483,10 @@ l</code></pre>
 ## [4,]    4    9   14   19   24   29   34   39
 ## [5,]    5   10   15   20   25   30   35   40</code></pre>
 <p>An extension of this notation can be used to access elements contained within an element in the list. For example:</p>
-<pre class="r"><code>l[[2]][2,6]</code></pre>
+<pre class="r"><code>l[[2]][2,6] #this will show us the entry at row 2, column 6 of the matrix in the second position of the list</code></pre>
 <pre><code>## [1] 27</code></pre>
 <p>To reference/extract multiple elements from a list, you would use <strong>single bracket</strong> notation, which would itself return a list. This is called “list slicing”.</p>
-<pre class="r"><code>l[1:2]</code></pre>
+<pre class="r"><code>l[1:2] # here we're slicing our list so it just has the first and second elements</code></pre>
 <pre><code>## [[1]]
 ## [1] &quot;this&quot;    &quot;is&quot;      &quot;a&quot;       &quot;vector&quot;  &quot;of&quot;      &quot;strings&quot;
 ## 
@@ -497,7 +497,7 @@ l</code></pre>
 ## [3,]    3    8   13   18   23   28   33   38
 ## [4,]    4    9   14   19   24   29   34   39
 ## [5,]    5   10   15   20   25   30   35   40</code></pre>
-<pre class="r"><code>l[c(1,3)]</code></pre>
+<pre class="r"><code>l[c(1,3)] # and here we're only taking the first and third elements</code></pre>
 <pre><code>## [[1]]
 ## [1] &quot;this&quot;    &quot;is&quot;      &quot;a&quot;       &quot;vector&quot;  &quot;of&quot;      &quot;strings&quot;
 ## 
@@ -514,17 +514,17 @@ l</code></pre>
 names(l)</code></pre>
 <pre><code>## [1] &quot;string&quot;  &quot;matrix&quot;  &quot;logical&quot;</code></pre>
 <p>Now, you can use the name of an item in the list to refer to it:</p>
-<pre class="r"><code>l$string</code></pre>
+<pre class="r"><code>l$string # this is calling the element named 'string' in list 'l'</code></pre>
 <pre><code>## [1] &quot;this&quot;    &quot;is&quot;      &quot;a&quot;       &quot;vector&quot;  &quot;of&quot;      &quot;strings&quot;</code></pre>
-<pre class="r"><code>l$matrix[3,5]</code></pre>
+<pre class="r"><code>l$matrix[3,5] # this is calling the entry in row 3, column 5 of the element named 'matrix' in list 'l'</code></pre>
 <pre><code>## [1] 23</code></pre>
 <p><br></p>
 <hr />
 <div id="challenge-4" class="section level4">
 <h4><strong>CHALLENGE 4</strong></h4>
 <hr />
+<p>Create a <strong>list</strong> representing this (simplified) primate taxonomy:</p>
 <ul>
-<li><p>Create a <strong>list</strong> representing this (simplified) primate taxonomy. <strong>HINT:</strong> you can use <strong>lists</strong> as elements in a list.</p></li>
 <li>Primates
 <ul>
 <li>Haplorhini
@@ -567,6 +567,38 @@ names(l)</code></pre>
 </ul></li>
 </ul></li>
 </ul>
+<p><strong>HINT:</strong> you can use <strong>lists</strong> as elements in a list, which would nest the names like in a phylogeny.</p>
+<p>I’ll get you started with the Strepsirhini:</p>
+<pre class="r"><code>Lemuroidea&lt;-list(&quot;Cheirogaleidae&quot;,&quot;Lepilemuridae&quot;,&quot;Indriidae&quot;,&quot;Lemuridae&quot;,&quot;Daubentoniidae&quot;)
+names(Lemuroidea)&lt;-c(&quot;Cheirogaleidae&quot;,&quot;Lepilemuridae&quot;,&quot;Indriidae&quot;,&quot;Lemuridae&quot;,&quot;Daubentoniidae&quot;)
+Lorisoidea&lt;-list(&quot;Lorisidae&quot;,&quot;Galagidae&quot;)
+names(Lorisoidea)&lt;-c(&quot;Lorisidae&quot;,&quot;Galagidae&quot;)
+Strepsirhini&lt;-list(Lemuroidea,Lorisoidea)
+names(Strepsirhini)&lt;-c(&quot;Lemuroidea&quot;,&quot;Lorisoidea&quot;)
+Strepsirhini</code></pre>
+<pre><code>## $Lemuroidea
+## $Lemuroidea$Cheirogaleidae
+## [1] &quot;Cheirogaleidae&quot;
+## 
+## $Lemuroidea$Lepilemuridae
+## [1] &quot;Lepilemuridae&quot;
+## 
+## $Lemuroidea$Indriidae
+## [1] &quot;Indriidae&quot;
+## 
+## $Lemuroidea$Lemuridae
+## [1] &quot;Lemuridae&quot;
+## 
+## $Lemuroidea$Daubentoniidae
+## [1] &quot;Daubentoniidae&quot;
+## 
+## 
+## $Lorisoidea
+## $Lorisoidea$Lorisidae
+## [1] &quot;Lorisidae&quot;
+## 
+## $Lorisoidea$Galagidae
+## [1] &quot;Galagidae&quot;</code></pre>
 <p>A <strong>data frame</strong> is the perhaps the most useful (and most familiar) data structure that we can operate with in <strong><em>R</em></strong> as it most closely aligns with how we tend to represent tabular data, with rows as <em>cases</em> or <em>observations</em> and columns as <em>variables</em> describing those observations (e.g., a measurement of a particular type). Variables tend to be measured using the same units and thus fall into the same data class and can be thought of as analogous to vectors.</p>
 <p>The <code>data.frame()</code> command can be used to create dataframes from scratch.</p>
 <pre class="r"><code>df &lt;- data.frame(firstName=c(&quot;Nitin&quot;,&quot;Silvy&quot;,&quot;Ingrid&quot;,&quot;Claire&quot;), program=c(&quot;iSchool&quot;,&quot;Anthro&quot;,&quot;Anthro&quot;,&quot;EEB&quot;), sex=c(&quot;M&quot;,&quot;F&quot;,&quot;F&quot;,&quot;F&quot;), yearInProgram=c(1,2,2,3))
