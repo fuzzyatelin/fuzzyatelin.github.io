@@ -212,15 +212,31 @@ summary {
 </p>
 </center>
 <p><br></p>
-</div>
-<div id="due-5pm-december-11-2019-last-day-of-classes" class="section level2">
-<h2><strong>DUE 5pm, December 11, 2019 (last day of classes)</strong></h2>
-<p>Replication is meant to be one of the keystones of science. Every experiment, observation, or analysis <em>should</em> be replicable by any other scientist, if we’ve all done our jobs right. The objective of this assignment is to use your skills in <strong><em>R</em></strong> to replicate as closely as you can a set of statistical analyses and results reported in a published paper of your choosing. You should select and confirm with me a paper and dataset you will replicate by <strong>September 30, 2019</strong>!</p>
-<p>You do not need to replicate ALL of the analysis presented in the paper (the more the better, though), <em>but at minimum you must replicate at least 3 analyses</em>, including at least one <em>descriptive</em> statistical analysis and one <em>inferential</em> statistical analysis. As part of this assignment, you must also replicate to best of your abililties or <em>improve upon</em> at least one figure.</p>
-<p>For this assignment, you should prepare several files to share with me via <strong><em>GitHub</em></strong> in a new repo called “data-replication-assignment”: [1] a PDF of the paper you are replicating analyses from, [2] a “.csv” file (you can make this in Excel) with the original data for that paper (either as you downloaded them as supplementary material, or received them from the paper’s author), and [3] an “.Rmd” file where you thoroughly describe and run the code for all of the steps in your replication. I should be able to take the “.Rmd” file along with the “.csv” file and knit it to produce a nicely formatted “.html” report describing what you did and in which I can easily see your results.</p>
-<p>You should also embed in your “.Rmd” file, near your own results, any images or figures from the original paper that you replicate so that I can see them together. These should be included in a folder called “img” within your repo. You can include code like the following to reference files in your “img” folder for inclusion in your document.</p>
+<hr />
+<center>
+<p><br></p>
+<p><font size="+2"><b>Final Homework DUE at 5:00 pm Monday, December 11th (Last Day of Classes).</b></font></p>
+</center>
+<p><br></p>
+<hr />
+<p>Replication is meant to be one of the keystones of scientific inquiry. Every experiment, observation, or analysis <em>should</em> be replicable by any other scientist, if we’ve all done our jobs right. The objective of this assignment is to use your skills in <strong><em>R</em></strong> to replicate as closely as you can a set of statistical analyses and results reported in a published paper of your choosing.</p>
+<p>You should select and confirm with me a paper and dataset you will replicate by <strong>September 30, 2019</strong>!</p>
+<p>You do not need to replicate ALL of the analyses presented in the paper, <em>but at minimum you must replicate at least 3 analyses</em>, including at least one <em>descriptive</em> statistical analysis and one <em>inferential</em> statistical analysis. As part of this assignment, you must also replicate to best of your abililties at least one figure.</p>
+For this assignment, you should prepare several files to share with me via <strong><em>GitHub</em></strong> in a new repo, shared with me as a collaborator, called “<strong>BUlogin-data-replication-assignment</strong>”:
+<ol>
+<li>
+A PDF copy of the paper from which you are replicating analyses.
+</li>
+<li>
+A <code>.csv</code> file (you can make this in Excel) with the original data for that paper.
+</li>
+<li>
+An <code>.Rmd</code> file where you thoroughly describe and run the code for all of the steps in your replication. I should be able to take the <code>.Rmd</code> file along with the <code>.csv</code> file and knit it to produce a nicely formatted <code>.html</code> report describing what you did and in which I can easily see your results.
+</li>
+</ol>
+<p>You should also embed in your <code>.Rmd</code> file, near your own results, any images or figures from the original paper that you replicate so that I can see them together. These should be included as <code>.png</code> files in a folder called “img” within your repo. You can include code like the following to reference files in your “img” folder for inclusion in your document.</p>
 <p><code>&lt;img src=&quot;img/imagename.filetype&quot; width=&quot;###px&quot;/&gt;</code></p>
-<p>Where you replace <em>imagename.filetype</em> with the name of your file, e.g., “figure-1.jpeg” and <em>###</em> with a integer number of pixels, e.g., width=“200px”.</p>
+<p>Where you replace <em>imagename.filetype</em> with the name of your file, e.g., “figure-1.png” and <em>###</em> with a integer number of pixels, e.g., width=“200px”.</p>
 <p>If you include the following chunk at the beginning of your Rmd document with the headline <code>{r setup, include=FALSE}</code> (which lays out for <strong><em>R</em></strong> a particular set of instructions for knitting), it will ensure that all of the figures associated with your chunks of code will be put into the “img” folder:</p>
 <pre class="r"><code>&gt; knitr::opts_chunk$set(
 &gt;   echo = TRUE,
@@ -235,11 +251,12 @@ summary {
 <div id="elements-of-your-report" class="section level2">
 <h2>Elements of Your Report</h2>
 <p>You should start your replication report with a short description of the study and of the specific data and replication analyses you will be performing, to orient your reader. Outline (briefly) the goal of the original paper, the data set used, and the analyses conducted, then describe which you will replicate. You should also demonstrate how you read your datafile into <strong><em>R</em></strong>, and show a few lines of raw data in your output (e.g., using <code>head()</code>).</p>
-<p>I will be looking for you to clearly take your reader through all of the elements of data manipulation, analysis, and, where appropriate, visualization. You should provide as much coding detail, explanation, and output tables as necessary to compare your results to those published! Annotate your code well, and good luck!</p>
+<p>I will be looking for you to clearly take your reader through all of the elements of data manipulation, analysis, and, where appropriate, visualization. You should provide as much coding detail, explanation, and output tables as necessary to compare your results to those published.</p>
+<p>Annotate your code well, and good luck!</p>
 </div>
 <div id="example-replication-assignments" class="section level2">
 <h2>Example Replication Assignments</h2>
-<p>For some excellent examples of a past assignment, see <a href="https://fuzzyatelin.github.io/bioanth-stats/jung_replication.html">here</a> and <a href="https://fuzzyatelin.github.io/bioanth-stats/codlin_replication.html">here</a>.</p>
+<p>For some excellent examples of past assignments, see <a href="https://fuzzyatelin.github.io/bioanth-stats/jung_replication.html">here</a> and <a href="https://fuzzyatelin.github.io/bioanth-stats/codlin_replication.html">here</a>.</p>
 </div>
 
 

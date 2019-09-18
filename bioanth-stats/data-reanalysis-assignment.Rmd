@@ -37,19 +37,31 @@ knitr::opts_chunk$set(
 
 <br>
 
-##**DUE 5pm, December 11, 2019 (last day of classes)**
+***
+<center><br>
 
-Replication is meant to be one of the keystones of science. Every experiment, observation, or analysis *should* be replicable by any other scientist, if we've all done our jobs right. The objective of this assignment is to use your skills in ***R*** to replicate as closely as you can a set of statistical analyses and results reported in a published paper of your choosing. You should select and confirm with me a paper and dataset you will replicate by **September 30, 2019**!
+<font size="+2"><b>Final Homework DUE at 5:00 pm Monday, December 11th (Last Day of Classes).</b></font>
 
-You do not need to replicate ALL of the analysis presented in the paper (the more the better, though), *but at minimum you must replicate at least 3 analyses*, including at least one *descriptive* statistical analysis and one *inferential* statistical analysis. As part of this assignment, you must also replicate to best of your abililties or *improve upon* at least one figure.
+</center><br>
 
-For this assignment, you should prepare several files to share with me via ***GitHub*** in a new repo called "data-replication-assignment": [1] a PDF of the paper you are replicating analyses from, [2] a ".csv" file (you can make this in Excel) with the original data for that paper (either as you downloaded them as supplementary material, or received them from the paper's author), and [3] an ".Rmd" file where you thoroughly describe and run the code for all of the steps in your replication. I should be able to take the ".Rmd" file along with the ".csv" file and knit it to produce a nicely formatted ".html" report describing what you did and in which I can easily see your results.
+***
 
-You should also embed in your ".Rmd" file, near your own results, any images or figures from the original paper that you replicate so that I can see them together. These should be included in a folder called "img" within your repo. You can include code like the following to reference files in your "img" folder for inclusion in your document.
+Replication is meant to be one of the keystones of scientific inquiry. Every experiment, observation, or analysis *should* be replicable by any other scientist, if we've all done our jobs right. The objective of this assignment is to use your skills in ***R*** to replicate as closely as you can a set of statistical analyses and results reported in a published paper of your choosing. 
+
+You should select and confirm with me a paper and dataset you will replicate by **September 30, 2019**!
+
+You do not need to replicate ALL of the analyses presented in the paper, *but at minimum you must replicate at least 3 analyses*, including at least one *descriptive* statistical analysis and one *inferential* statistical analysis. As part of this assignment, you must also replicate to best of your abililties at least one figure.
+
+For this assignment, you should prepare several files to share with me via ***GitHub*** in a new repo, shared with me as a collaborator, called "**BUlogin-data-replication-assignment**":
+<ol><li>A PDF copy of the paper from which you are replicating analyses.</li> 
+<li>A `.csv` file (you can make this in Excel) with the original data for that paper.</li>
+<li>An `.Rmd` file where you thoroughly describe and run the code for all of the steps in your replication. I should be able to take the `.Rmd` file along with the `.csv` file and knit it to produce a nicely formatted `.html` report describing what you did and in which I can easily see your results.</li></ol>
+
+You should also embed in your `.Rmd` file, near your own results, any images or figures from the original paper that you replicate so that I can see them together. These should be included as `.png` files in a folder called "img" within your repo. You can include code like the following to reference files in your "img" folder for inclusion in your document.
 
 `<img src="img/imagename.filetype" width="###px"/>`
 
-Where you replace *imagename.filetype* with the name of your file, e.g., "figure-1.jpeg" and *###* with a integer number of pixels, e.g., width="200px".
+Where you replace *imagename.filetype* with the name of your file, e.g., "figure-1.png" and *###* with a integer number of pixels, e.g., width="200px".
 
 If you include the following chunk at the beginning of your Rmd document with the headline `{r setup, include=FALSE}` (which lays out for ***R*** a particular set of instructions for knitting), it will ensure that all of the figures associated with your chunks of code will be put into the "img" folder:
 
@@ -69,8 +81,10 @@ knitr::opts_chunk$set(
 
 You should start your replication report with a short description of the study and of the specific data and replication analyses you will be performing, to orient your reader. Outline (briefly) the goal of the original paper, the data set used, and the analyses conducted, then describe which you will replicate. You should also demonstrate how you read your datafile into ***R***, and show a few lines of raw data in your output (e.g., using `head()`).
 
-I will be looking for you to clearly take your reader through all of the elements of data manipulation, analysis, and, where appropriate, visualization. You should provide as much coding detail, explanation, and output tables as necessary to compare your results to those published! Annotate your code well, and good luck!
+I will be looking for you to clearly take your reader through all of the elements of data manipulation, analysis, and, where appropriate, visualization. You should provide as much coding detail, explanation, and output tables as necessary to compare your results to those published. 
+
+Annotate your code well, and good luck!
 
 ## Example Replication Assignments
 
-For some excellent examples of a past assignment, see [here](https://fuzzyatelin.github.io/bioanth-stats/jung_replication.html) and [here](https://fuzzyatelin.github.io/bioanth-stats/codlin_replication.html).
+For some excellent examples of past assignments, see [here](https://fuzzyatelin.github.io/bioanth-stats/jung_replication.html) and [here](https://fuzzyatelin.github.io/bioanth-stats/codlin_replication.html).
