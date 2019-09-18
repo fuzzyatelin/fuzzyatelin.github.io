@@ -160,7 +160,7 @@ output:
 ###Week 03 (2019-09-16)
 ***
 
-[Homework 2 assigned - DUE 5pm 2019-09-22](http://fuzzyatelin.github.io/bioanth-stats/homework-02.html)
+[Homework 2 assigned - DUE 5pm 2019-09-29](http://fuzzyatelin.github.io/bioanth-stats/homework-02.html)
 
 ###Statistics Fundamentals - Exploratory Data Analysis, Central Tendency, and Variance
 
@@ -215,8 +215,6 @@ output:
 ###Week 04 (2019-09-23)
 ***
 
-[Homework 3 assigned - DUE 5pm 2019-09-29](http://fuzzyatelin.github.io/bioanth-stats/homework-03.html)
-
 ###Statistics Fundamentals - Probability and Distributions
 
 ####Topics
@@ -257,6 +255,8 @@ output:
 ###Week 05 (2019-09-30)
 ***
 
+[Homework 3 assigned - DUE 5pm 2019-10-13](http://fuzzyatelin.github.io/bioanth-stats/homework-03.html)
+
 **IMPORTANT! Today is the deadline for choosing a paper from the primary literature to replicate analyses.**
 
 [You can find instructions for the replication assignment here!](http://fuzzyatelin.github.io/bioanth-stats/data-reanalysis-assignment.html)
@@ -291,8 +291,6 @@ output:
 
 ###Week 06 (2019-10-07)
 ***
-
-[Homework 4 assigned - DUE 5pm 2017-10-13](http://fuzzyatelin.github.io/bioanth-stats/homework-04.html)
 
 ###Introduction to Linear Regression
 
@@ -336,6 +334,8 @@ output:
 
 ###Week 07 (2019-10-15)
 ***
+
+[Homework 4 assigned - DUE 5pm 2017-10-27](http://fuzzyatelin.github.io/bioanth-stats/homework-04.html)
 
 Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day.
 

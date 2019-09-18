@@ -1,7 +1,9 @@
 ---
 title: "AN597: Homework 03"
+date: "September 18, 2019"
 output:
-    html_document
+  html_document:
+    theme: cosmo
 ---
 
 ```{r setup, include=FALSE}
@@ -23,33 +25,80 @@ knitr::opts_chunk$set(
 ###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
 ###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
 ###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
-###[Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+###[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
 
 ***
 <center>
 
-## DUE 2016-10-06 at 2pm
+<font size="+2"><b>Some of my best friends are Zombies...</b></font></center><br>
 
 <br>
-<center><p><img src="http://data.whicdn.com/images/237875240/original.gif" style="border:5px solid black"></p>
+<center><p><img src="https://media.giphy.com/media/3oEduFMPXOPdhp9kw8/giphy.gif" style="border:5px solid black"></p>
 </center>
 
 <br>
 
-Using a new `.Rmd` file than you used for Homework 01, and pushing both the Markdown and knitted `.html` files to the same "AN597-Week-4" repository, do the following:
+***
 
-Load in the dataset "zombies.csv" from my ***GitHub*** repo at https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN597_Fall17/. This data includes the first and last name and gender of the entire population of 1000 people who have survived the zombie apocalypse and are now ekeing out an existence somewhere on the East Coast, along with several other variables (height, weight, age, number of years of education, number of zombies they have killed, and college major [see here for info on important post-zombie apocalypse majors](http://www.thebestschools.org/magazine/best-majors-surviving-zombie-apocalypse/)
+<center>
 
-[1] Calculate the *population* mean and standard deviation for each quantitative random variable (height, weight, age, number of zombies killed, and years of education). NOTE: You will not want to use the built in `var()` and `sd()` commands as these are for *samples*.
+<font size="+2"><b>Must be submitted for Peer Commentary by 8:00 pm Thursday, October 10th.</b></font>
 
-[2] Use {ggplot} and make boxplots of each of these variable by gender.
+</center><br>
 
-[3] Use {ggplot} and make scatterplots of height and weight in relation to age. Do these variables seem to be related? In what way?
+<center>
 
-[4] Using histograms and Q-Q plots, check whether the quantitative variables seem to be drawn from a normal distribution. Which seem to be and which do not (hint: not all are drawn from the normal distribution)? For those that are not, can you determine what common distribution they are drawn from?
+<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Sunday, October 13th.</b></font>
 
-[5] Now use the `sample()` function to sample ONE subset of 30 zombie survivors (without replacement) from this population and calculate the mean and sample standard deviation for each variable. Also estimate the standard error for each variable and construct the 95% confidence interval for each mean. Note that for the variables that are not drawn from the normal distribution, you may need to base your estimate of the CIs on slightly different code than for the normal...
+</center><br>
 
-[6] Now draw 99 more random samples of 30 zombie survivors out and calculate the mean for each variable for each of these samples. Together with the first sample you drew out, you now have a set of 100 means for each variable (each based on 30 observations), which constitutes a sampling distribution for each variable. What are the means and standard deviations of this distribution of means for each variable? How do the standard deviations of means compare to the standard errors estimated in [5]? What do these sampling distributions look like? Are they normally distributed? What about for those variables that you concluded were not originally drawn from a normal distribution?
+***
 
-###[Homework 03 Solutions](https://fuzzyatelin.github.io/bioanth-stats/homework-Mod08-key.html)
+Create a new ***GitHub*** repo and git-referenced ***Rstudio*** Project called "**AN597_Zombies_BUlogin**". Within that repo, create a new `.Rmd` file called "**BUlogin_OriginalHomeworkCode_03**". Don't forget to add your [Peer Group](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) and instructor as collaborators, and to accept their invitations to you. Making sure to push both the markdown and knitted `.html` files to your repository, do the following:
+
+Load in the dataset "zombies.csv" from [my ***GitHub*** repo](https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN597_Fall19/). This data includes the first name, last name, and gender of the entire population of 1000 people who have *survived* the zombie apocalypse and are now ekeing out an existence somewhere on the East Coast, along with several other variables (height, weight, age, number of years of education, number of zombies they have killed, and college major; [see here for info on important post-zombie apocalypse majors](http://www.thebestschools.org/magazine/best-majors-surviving-zombie-apocalypse/)).
+
+<ol><li>Calculate the *population* mean and standard deviation for each quantitative random variable (height, weight, age, number of zombies killed, and years of education). NOTE: You will not want to use the built in `var()` and `sd()` commands as these are for *samples*.</li>
+
+<li>Use {ggplot} to make boxplots of each of these variables by gender.</li>
+
+<li>Use {ggplot} to make scatterplots of height and weight in relation to age. Do these variables seem to be related? In what way?</li>
+
+<li>Using histograms and Q-Q plots, check whether the quantitative variables seem to be drawn from a normal distribution. Which seem to be and which do not (hint: not all are drawn from the normal distribution)? For those that are not normal, can you determine from which common distribution they are drawn?</li>
+
+<li>Now use the `sample()` function to sample ONE subset of 30 zombie survivors (without replacement) from this population and calculate the mean and sample standard deviation for each variable. Also estimate the standard error for each variable, and construct the 95% confidence interval for each mean. Note that for the variables that are not drawn from the normal distribution, you may need to base your estimate of the CIs on slightly different code than for the normal...</li>
+
+<li>Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate the mean for each variable for each of these samples. Together with the first sample you drew, you now have a set of 100 means for each variable (each based on 30 observations), which constitutes a *sampling* distribution for each variable. What are the means and standard deviations of this distribution of means for each variable? How do the standard deviations of means compare to the standard errors estimated in [5]? What do these sampling distributions look like (a graph might help here)? Are they normally distributed? What about for those variables that you concluded were *not* originally drawn from a normal distribution?</li></ol>
+
+***
+
+###**Your Final Assignment for Homework 03**
+
+Your final assignment, due to me by 5:00 pm on October 10th, is to have in your *AN597_Zombies_BUlogin* repo only the following files:
+<ol>
+1. The *FINAL PUSH* of your Original Homework Code, including the five challenges you faced, as pushed to your repo by 8:00 pm on Thursday, an R Markdown file named *BUlogin_OriginalHomeworkCode_03*.
+2. The *FINAL PUSH* of the [Peer Commentary](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) made on *your* code, an R Markdown file named *Peerlogin_PeerCommentary_BUlogin_03* or *PeerGroupX_PeerCommentary_BUlogin_03*.
+3. The *FINAL PUSH* of your Final Homework Code, which has taken into account any changes recommended from the Peer Commentary and notes, an R Markdown file named *BUlogin_FinalHomeworkCode_03*.
+</ol>
+
+***
+
+###[Homework 03 Solutions]() will be posted on October 13th.
+
+***
+
+NOTE: If you want your homework code to look nice (beyond being *very* well annotated and commented), and be easy to use by others, you can check out the relatively simply example **R Markdown** templates in the [AN597_Week_3_caschmit](https://github.com/fuzzyatelin/AN597_Week_3_caschmit) repo.
+
+Please also consider consulting the following helpful guidelines on how to write effective **R Markdown** documents (also available at the end of [Module 03](https://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html)), which go well beyond the simple formatting of the templates.
+<ul>
+<li>An introduction to [R Markdown](https://rmarkdown.rstudio.com/)</li>
+<li>[R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)</li>
+<li>[R Markdown Cheatsheet](https://rmarkdown.rstudio.com/lesson-15.html)</li>
+<li>[Another R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)</li>
+<li>[Pimp my RMD: A Few Tips for R Markdown](https://holtzy.github.io/Pimp-my-rmd/)</li>
+<li>[R Markdown Templates for Journal Submissions](https://github.com/rstudio/rticles/tree/master/inst/rmarkdown/templates)</li>
+<li>[Using R Markdown for Class Reports](https://www.stat.cmu.edu/~cshalizi/rmarkdown/)</li>
+<li>[R Markdown Theme Gallery](http://www.datadreaming.org/post/r-markdown-theme-gallery/)</li>
+<li>[Creating Pretty Documents from R Markdown](https://cran.r-project.org/web/packages/prettydoc/vignettes/architect.html)</li>
+</ul>
+<br>

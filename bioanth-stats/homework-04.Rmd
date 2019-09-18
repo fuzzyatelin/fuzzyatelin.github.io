@@ -1,7 +1,9 @@
 ---
 title: "AN597: Homework 04"
+date: "September 18, 2019"
 output:
-    html_document
+  html_document:
+    theme: cosmo
 ---
 
 ```{r setup, include=FALSE}
@@ -23,12 +25,12 @@ knitr::opts_chunk$set(
 ###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
 ###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
 ###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
-###[Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+###[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
 
 ***
 <center>
 
-## DUE 2017-10-23 at 2pm
+<font size="+2"><b>What's Your Malfunction?</b></font></center><br>
 
 <br>
 <center><p><img src="https://i.pinimg.com/originals/22/50/6e/22506e027fd83560ff8b18c502a2b3fc.gif" style="border:5px solid black"></p>
@@ -36,9 +38,25 @@ knitr::opts_chunk$set(
 
 <br>
 
-Using a new `.Rmd` file and pushing both the markdown and knitted `.html` file to a new repository named "homework-week-6" on your *GitHub* page, answer the following questions:
+***
 
-### [1] Write a simple R function, `Z.prop.test()`, that can perform one- or two-sample Z-tests for proportion data, using the following guidelines.
+<center>
+
+<font size="+2"><b>Must be submitted for Peer Commentary by 8:00 pm Thursday, October 24th.</b></font>
+
+</center><br>
+
+<center>
+
+<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Sunday, October 27th.</b></font>
+
+</center><br>
+
+***
+
+Create a new ***GitHub*** repo and git-referenced ***Rstudio*** Project called "**AN597_Malfunction_BUlogin**". Within that repo, create a new `.Rmd` file called "**BUlogin_OriginalHomeworkCode_04**". Don't forget to add your [Peer Group](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) and instructor as collaborators, and to accept their invitations to you. Making sure to push both the markdown and knitted `.html` files to your repository, do the following:
+
+### [1] Write a simple R function, `Z.prop.test()`, that can perform one- or two-sample Z-tests for proportion data, using the following guidelines:
 
 - Your function should take the following arguments: **p1** and **n1** (no default) representing the estimated proportion and sample size (i.e., based on your sample data); **p2** and **n2** (both defaulting to NULL) that contain a second sample's proportion and sample size data in the event of a two-sample test; **p0** (no default) as the expected value for the population proportion; and **alternative** (default "two.sided") and **conf.level** (default 0.95), to be used in the same way as in the function `t.test()`.
 - When conducting a two-sample test, it should be **p1** that is tested as being smaller or larger than **p2** when alternative="less" or alternative="greater", the same as in the use of x and y in the function `t.test()`.
@@ -46,10 +64,43 @@ Using a new `.Rmd` file and pushing both the markdown and knitted `.html` file t
 - The function should contain a check for the rules of thumb we have talked about ($n * p > 5$ and $n * (1-p) > 5$) to ensure the validity of assuming the normal distribution in both the one- and two-sample settings. If this is violated, the function should still complete but it should also print an appropriate warning message.
 - The function should return a list containing the members **Z** (the test statistic), **P** (the appropriate p value), and **CI** (the two-sided CI with respect to "conf.level" around **p1** in the case of a one-sample test and around **p2-p1** in the case of a two-sample test). For all test alternatives ("two.sided", "greater", "less"), calculate symmetric CIs based on quantiles of the normal distribution rather than worrying about calculating single-limit confidence bounds.
 
-### [2] The dataset from Kamilar and Cooper has in it a large number of variables related to life history and body size. For this exercise, the end aim is to fit a simple linear regression model to predict longevity (`MaxLongevity_m`) measured in months from species' brain size (`Brain_Size_Species_Mean`) measured in grams. Do the following for both `longevity~brain size` and `log(longevity)~log(brain size)`.
+### [2] The dataset from Kamilar and Cooper has in it a large number of variables related to life history and body size. For this exercise, the end aim is to fit a simple linear regression model to predict longevity (`MaxLongevity_m`) measured in months from species' brain size (`Brain_Size_Species_Mean`) measured in grams. Do the following for both `longevity~brain size` and `log(longevity)~log(brain size)`:
 
 - Fit the regression model and, using {ggplot2}, produce a scatterplot with the fitted line superimposed upon the data. Append the the fitted model equation to your plot (HINT: use the function `geom_text()`).
 - Identify and interpret the point estimate of the slope ($\beta_1$), as well as the outcome of the test associated with the hypotheses H0: $\beta_1$ = 0; HA: $\beta_1$ ≠ 0. Also, find a 90 percent CI for the slope ($\beta_1$) parameter.
 - Using your model, add lines for the 90 percent confidence and prediction interval bands on the plot and add a legend to differentiate between the lines.
 - Produce a point estimate and associated 90 percent PI for the longevity of a species whose brain weight is 800 gm. Do you trust the model to predict observations accurately for this value of the explanatory variable? Why or why not?
 - Looking at your two models, which do you think is better? Why?
+
+***
+
+###**Your Final Assignment for Homework 03**
+
+Your final assignment, due to me by 5:00 pm on October 10th, is to have in your *AN597_Zombies_BUlogin* repo only the following files:
+<ol>
+1. The *FINAL PUSH* of your Original Homework Code, including the five challenges you faced, as pushed to your repo by 8:00 pm on Thursday, an R Markdown file named *BUlogin_OriginalHomeworkCode_04*.
+2. The *FINAL PUSH* of the [Peer Commentary](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) made on *your* code, an R Markdown file named *Peerlogin_PeerCommentary_BUlogin_04* or *PeerGroupX_PeerCommentary_BUlogin_04*.
+3. The *FINAL PUSH* of your Final Homework Code, which has taken into account any changes recommended from the Peer Commentary and notes, an R Markdown file named *BUlogin_FinalHomeworkCode_04*.
+</ol>
+
+***
+
+###[Homework 04 Solutions]() will be posted on October 28th.
+
+***
+
+NOTE: If you want your homework code to look nice (beyond being *very* well annotated and commented), and be easy to use by others, you can check out the relatively simply example **R Markdown** templates in the [AN597_Week_3_caschmit](https://github.com/fuzzyatelin/AN597_Week_3_caschmit) repo.
+
+Please also consider consulting the following helpful guidelines on how to write effective **R Markdown** documents (also available at the end of [Module 03](https://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html)), which go well beyond the simple formatting of the templates.
+<ul>
+<li>An introduction to [R Markdown](https://rmarkdown.rstudio.com/)</li>
+<li>[R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)</li>
+<li>[R Markdown Cheatsheet](https://rmarkdown.rstudio.com/lesson-15.html)</li>
+<li>[Another R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)</li>
+<li>[Pimp my RMD: A Few Tips for R Markdown](https://holtzy.github.io/Pimp-my-rmd/)</li>
+<li>[R Markdown Templates for Journal Submissions](https://github.com/rstudio/rticles/tree/master/inst/rmarkdown/templates)</li>
+<li>[Using R Markdown for Class Reports](https://www.stat.cmu.edu/~cshalizi/rmarkdown/)</li>
+<li>[R Markdown Theme Gallery](http://www.datadreaming.org/post/r-markdown-theme-gallery/)</li>
+<li>[Creating Pretty Documents from R Markdown](https://cran.r-project.org/web/packages/prettydoc/vignettes/architect.html)</li>
+</ul>
+<br>

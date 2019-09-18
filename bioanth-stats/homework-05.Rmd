@@ -1,7 +1,9 @@
 ---
 title: "AN597: Homework 05"
+date: "September 18, 2019"
 output:
-    html_document
+  html_document:
+    theme: cosmo
 ---
 
 ```{r setup, include=FALSE}
@@ -23,12 +25,12 @@ knitr::opts_chunk$set(
 ###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
 ###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
 ###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
-###[Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+###[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
 
 ***
 <center>
 
-## DUE 2016-11-20 at 2pm
+<font size="+2"><b>Boots for Days!</b></font></center>
 
 <br>
 <center><p><img src="https://d12edgf4lwbh8j.cloudfront.net/photo/image/Charlie_Boot.gif" style="border:5px solid black"></p>
@@ -36,7 +38,25 @@ knitr::opts_chunk$set(
 
 <br>
 
-Using a new `.Rmd` file and pushing both the markdown and knitted `.html` file to a new repository named "homework-number-5" on your *GitHub* page, answer the questions below. You are welcome to work with ONE OTHER PERSON on this homework assignment or on your own. If you work with someone else, please include BOTH of your names somewhere in the header information for your `.Rmd` file and also email me to LET ME KNOW who you worked with and from whom I should download the GitHub repo.
+***
+
+<center>
+
+<font size="+2"><b>Must be submitted for Peer Commentary by 8:00 pm Thursday, October 31st.</b></font>
+
+</center><br>
+
+<center>
+
+<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Sunday, November 4th.</b></font>
+
+</center><br>
+
+***
+
+Create a new ***GitHub*** repo and git-referenced ***Rstudio*** Project called "**AN597_Boots_BUlogin**". Within that repo, create a new `.Rmd` file called "**BUlogin_OriginalHomeworkCode_04**". Don't forget to add your [Peer Group](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) and instructor as collaborators, and to accept their invitations to you. Making sure to push both the markdown and knitted `.html` files to your repository, do the following:
+
+You are welcome to work *with your Peer Group together* on this homework assignment or on your own. If you work with someone else, please include all of your names in the header information for your `.Rmd` file.
 
 ### Bootstrapping Standard Errors and CIs for Linear Models.
 
@@ -52,10 +72,43 @@ When we initially discussed the central limit theorem and confidence intervals, 
 
 - How does the latter compare to the 95% CI estimated from your entire dataset?
 
-**EXTRA CREDIT: + 2**
+**EXTRA CREDIT**
 
 Write a FUNCTION that takes as its arguments a dataframe, "d", a linear model, "m" (as a character string, e.g., "logHR~logBM"), a user-defined confidence interval level, "conf.level" (with default = 0.95), and a number of bootstrap replicates, "n" (with default = 1000). Your function should return a dataframe that includes: beta coefficient names; beta coefficients, standard errors, and upper and lower CI limits for the linear model based on your entire dataset; and mean beta coefficient estimates, SEs, and CI limits for those coefficients based on your bootstrap.
 
-**EXTRA EXTRA CREDIT: + 1**
+**EXTRA EXTRA CREDIT**
 
 Graph each beta value from the linear model and its corresponding mean value, lower CI and upper CI from a bootstrap as a function of number of bootstraps from 10 to 200 by 10s. HINT: the beta value from the linear model will be the same for all bootstraps and the mean beta value may not differ that much!
+
+***
+
+###**Your Final Assignment for Homework 03**
+
+Your final assignment, due to me by 5:00 pm on November 4th, is to have in your *AN597_Zombies_BUlogin* repo only the following files:
+<ol>
+1. The *FINAL PUSH* of your Original Homework Code, including the five challenges you faced, as pushed to your repo by 8:00 pm on Thursday, an R Markdown file named *BUlogin_OriginalHomeworkCode_05*.
+2. The *FINAL PUSH* of the [Peer Commentary](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) made on *your* code, an R Markdown file named *Peerlogin_PeerCommentary_BUlogin_05* or *PeerGroupX_PeerCommentary_BUlogin_05*.
+3. The *FINAL PUSH* of your Final Homework Code, which has taken into account any changes recommended from the Peer Commentary and notes, an R Markdown file named *BUlogin_FinalHomeworkCode_05*.
+</ol>
+
+***
+
+###[Homework 05 Solutions]() will be posted on November 5th.
+
+***
+
+NOTE: If you want your homework code to look nice (beyond being *very* well annotated and commented), and be easy to use by others, you can check out the relatively simply example **R Markdown** templates in the [AN597_Week_3_caschmit](https://github.com/fuzzyatelin/AN597_Week_3_caschmit) repo.
+
+Please also consider consulting the following helpful guidelines on how to write effective **R Markdown** documents (also available at the end of [Module 03](https://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html)), which go well beyond the simple formatting of the templates.
+<ul>
+<li>An introduction to [R Markdown](https://rmarkdown.rstudio.com/)</li>
+<li>[R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)</li>
+<li>[R Markdown Cheatsheet](https://rmarkdown.rstudio.com/lesson-15.html)</li>
+<li>[Another R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)</li>
+<li>[Pimp my RMD: A Few Tips for R Markdown](https://holtzy.github.io/Pimp-my-rmd/)</li>
+<li>[R Markdown Templates for Journal Submissions](https://github.com/rstudio/rticles/tree/master/inst/rmarkdown/templates)</li>
+<li>[Using R Markdown for Class Reports](https://www.stat.cmu.edu/~cshalizi/rmarkdown/)</li>
+<li>[R Markdown Theme Gallery](http://www.datadreaming.org/post/r-markdown-theme-gallery/)</li>
+<li>[Creating Pretty Documents from R Markdown](https://cran.r-project.org/web/packages/prettydoc/vignettes/architect.html)</li>
+</ul>
+<br>
