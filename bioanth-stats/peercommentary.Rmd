@@ -1,7 +1,7 @@
 ---
 title: "AN597: Peer Commentary Assignments"
 author: "Christopher A Schmitt"
-date: "September 13, 2019"
+date: "September 18, 2019"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -102,7 +102,7 @@ No formal class meeting, and no Peer Commentary due.
 
 ***
 
-####**Homework 01: "Push It!" (Assigned 09SEP, Due 15SEP)**
+####**Homework 01: [Push It!](https://fuzzyatelin.github.io/bioanth-stats/homework-01.html) (Assigned 09SEP, Due 15SEP)**
 ***
 
 Peer Group 1: Laura Angley, Gianna Grob
@@ -119,7 +119,7 @@ Peer Group 6: Maria Salazar Nicholls, Brenna Stallings, C Vega
 
 ***
 
-####**Homework 02: "Titis in the Mist" (Assigned 16SEP, Due 29SEP)**
+####**Homework 02: [Titis in the Mist](https://fuzzyatelin.github.io/bioanth-stats/homework-02.html) (Assigned 16SEP, Due 29SEP)**
 ***
 
 Peer Group 1: Laura Angley, Frank Azorza Salazar, Lara Hakam
@@ -136,7 +136,7 @@ Peer Group 6: Brenna Stallings, Ishrat Chowdhury
 
 ***
 
-####**Homework 03: "Some of My Best Friends are Zombies" (Assigned 30SEP, Due 13OCT)**
+####**Homework 03: [Some of My Best Friends are Zombies](https://fuzzyatelin.github.io/bioanth-stats/homework-03.html) (Assigned 30SEP, Due 13OCT)**
 ***
 
 Peer Group 1: Frank Azorza Salazar, Christian Gagnon, Clint Lockwood
@@ -154,7 +154,7 @@ Peer Group 6: Mel Zarate, Lara Hakam
 
 ***
 
-####**Homework 04: "What's Your Malfunction?" (Assigned 15OCT, Due 27OCT)**
+####**Homework 04: [What's Your Malfunction?](https://fuzzyatelin.github.io/bioanth-stats/homework-04.html) (Assigned 15OCT, Due 27OCT)**
 ***
 
 Peer Group 1: Christian Gagnon, Nicola Kriefall, Ishrat Chowdhury
@@ -172,7 +172,7 @@ Peer Group 6: Mel Zarate, Gianna Grob, Gregory Pelose
 
 ***
 
-####**Homework 05: "Boots for Life (History)" (Assigned 28OCT, Due 04NOV)**
+####**Homework 05: [Boots for Days!](https://fuzzyatelin.github.io/bioanth-stats/homework-05.html) (Assigned 28OCT, Due 04NOV)**
 ***
 
 Peer Group 1: Christian Gagnon, C Vega, Feiya Wang
