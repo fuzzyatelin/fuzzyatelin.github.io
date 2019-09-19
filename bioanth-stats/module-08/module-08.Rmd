@@ -1,9 +1,14 @@
 ---
 title: "Module 08"
 author: by Anthony Di Fiore and Christopher A. Schmitt
-output:
-    html_document
+output: 
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
 ---
+
+***
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -17,6 +22,8 @@ knitr::opts_chunk$set(
 )
 ```
 # Probabilities and Distributions
+
+***
 
 ## Preliminaries
 - Install this package in ***R***: [{manipulate}](https://cran.r-project.org/web/packages/manipulate/manipulate.pdf)
@@ -63,7 +70,12 @@ manipulate(
 )
 ```
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 1**
+
+***
+
 Write a function to simulate rolling a die where you pass the number of rolls as an argument. Then, use your function to simulate rolling two dice 1000 times and take the sum of the rolls. Plot a histogram of those results.
 
 ``` {r}
@@ -72,6 +84,8 @@ roll <- function(x) {sample(1:6, x, replace = TRUE)}
 two_dice <- roll(nrolls)+roll(nrolls)
 hist(two_dice,breaks=c(1.5:12.5), probability = TRUE, main="Rolling Two Dice", xlab = "sum of rolls", ylab = "probability")
 ```
+
+***
 
 ### Rules of Probability
 
@@ -111,7 +125,12 @@ hist(two_dice,breaks=c(1.5:12.5), probability = TRUE, main="Rolling Two Dice", x
 	
 	If event $A$ and $B$ are *dependent*, then  *Pr* $(A$ $\vert$ $B)$ ≠ *Pr* $(A)$
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 2**
+
+***
+
 You have a deck of 52 cards, Ace to 10 + 3 face cards in each suit. You draw a card at random.
 
 - What is the probability that you draw a *face card*?
@@ -305,7 +324,11 @@ $f(x)$ = $p^x(1-p)^{1-x}$ where $x$ = {0 or 1}
 
 For this distribution, $\mu_X$ = $p$ and $\sigma_X^2$ = $p(1-p)$
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 3**
+
+***
 
 Using the Bernoulli distribution, calculate the expectation for drawing a *spade* from a deck of cards? What is the variance in this expectation across a large number of draws?
 
@@ -333,7 +356,11 @@ For this distribution, $\mu_X$ = *np* and $\sigma_X^2$ = *np*(1-*p*). Recall, $\
 
 Where $n$ = 1, this simplifies to the Bernoulli distribution.
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 4**
+
+***
 
 What is the chance of getting a "1" on each of six consecutive rolls of a die? What about of getting exactly three "1"s? What is the expected number of "1"s to occur in six consecutive rolls?
 
@@ -449,9 +476,7 @@ barplot(ppois(q=x,lambda=l),ylim=0:1,space=0, names.arg=x,xlab="x",ylab="Pr(X �
 
 ***
 
-<h3 style="color:blue";> HOMEWORK PROBLEM:</h3>
->
->Create a new ***GitHub*** repository and a new ***R*** Project named "homework-week-4". In your repo, create an **R Markdown** file and answer the following problems. When you are done, "knit" your **R Markdown** file to `.html` and push your `.Rmd` and `.html` files up to ***GitHub*** for me to look at.
+<h3 style="color:blue";> [HOMEWORK PROBLEM](https://fuzzyatelin.github.io/bioanth-stats/homework-02.html)</h3>
 >
 >Every Saturday, at the same time, a primatologist goes and sits in the forest in the morning and listens for titi monkey calls, counting the number of calls they hear in a 2 hour window from 5am to 7am. Based on previous knowledge, she believes that the mean number calls she will hear in that time is exactly 15. Let $X$ represent the appropriate Poisson random variable of the number of calls heard in each monitoring session.
 >
@@ -476,8 +501,12 @@ The probability density function for the **UNIFORM DISTRIBUTION** is:
 
 where $a$ $\leq$ $x$ $\leq$ $b$ and 0 for $x$ < $a$ and $x$ > $b$
 
+***
 
-#### CHALLENGE:
+#### **CHALLENGE 5**
+
+***
+
 What would you predict the expectation (mean) should be for a uniform distribution?
 
 For this distribution:
@@ -501,8 +530,12 @@ Note that for the uniform distribution, the *cumulative density function* increa
 plot(x,punif(q=x,min=a,max=b),type="l",xlab="x",ylab="Pr(X ≤ x)",main="Cumulative Probability") # punif() is the cumulative probability density up to a given x
 ```
 
+***
 
-#### CHALLENGE:
+#### **CHALLENGE 6**
+
+***
+
 Simulate a sample of 10000 random numbers from a uniform distribution in the interval between $a$ = 6 and $b$ = 8. Calculate the mean and variance of this simulated sample and compare it to the expectation for these parameters.
 
 #### Normal Distribution
@@ -578,7 +611,11 @@ manipulate(plot(seq(from=(mu - 4*sigma), to=(mu + 4*sigma), length.out = 1000), 
 )
 ```
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 7**
+
+***
 
 - Create a vector, *v*, containing **n** random numbers selected from a normal distribution with mean $\mu$ and standard deviation $\sigma$. Use 1000 for **n**, 3.5 for $\mu$, and 4 for $\sigma$. **HINT:** Such a function exists! `rnorm()`.
 - Calculate the mean, variance, and standard deviation for your sample of random numbers.
@@ -633,7 +670,12 @@ Step 4: Plot these quantiles against one another
 plot(theoretical_q,observed_q, main="Normal QQ plot random normal variables", xlab="Theoretical Quantiles", ylab="Sample Quantiles")
 ```
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 8**
+
+***
+
 What happens if you simulate fewer observations in your vectors? Or if you simulate observations from a *different* distribution?
 
 #### The "Standard Normal" Distribution
@@ -728,15 +770,13 @@ Despite their similarities, the standard error of the mean calculated for a give
 
 ***
 
-<h3 style="color:blue";> HOMEWORK PROBLEM:</h3>
+<h3 style="color:blue";> [HOMEWORK PROBLEM](https://fuzzyatelin.github.io/bioanth-stats/homework-03.html)</h3>
 >
->Using a new `.Rmd` file than you used for Homework 01, and pushing both the Markdown and knitted `.html` files to the same "AN597-Week-4" repository, do the following:
->
->Load in the dataset "zombies.csv" from my ***GitHub*** repo at https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN597_Fall17/. This data includes the first and last name and gender of the entire population of 1000 people who have survived the zombie apocalypse and are now ekeing out an existence somewhere on the East Coast, along with several other variables (height, weight, age, number of years of education, number of zombies they have killed, and college major [see here for info on important post-zombie apocalypse majors](http://www.thebestschools.org/magazine/best-majors-surviving-zombie-apocalypse/)
+>Load in the dataset "zombies.csv" from my ***GitHub*** repo at https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN597_Fall19/. This data includes the first and last name and gender of the entire population of 1000 people who have survived the zombie apocalypse and are now ekeing out an existence somewhere on the East Coast, along with several other variables (height, weight, age, number of years of education, number of zombies they have killed, and college major [see here for info on important post-zombie apocalypse majors](http://www.thebestschools.org/magazine/best-majors-surviving-zombie-apocalypse/)
 >
 ``` {r}
 library(curl)
-f <- f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/zombies.csv")
+f <- f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/zombies.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 head(d)
 ```
