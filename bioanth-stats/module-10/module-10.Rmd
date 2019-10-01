@@ -2,8 +2,13 @@
 title: "Module 10"
 author: Anthony Di Fiore and Christopher A. Schmitt
 output:
-    html_document
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
 ---
+
+***
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -17,6 +22,8 @@ knitr::opts_chunk$set(
 )
 ```
 # Classical Hypothesis Testing
+
+***
 
 ## Objectives
 > The objective of this module is to continue our discussion of classical *hypothesis testing* from a frequentist statistics approach.
@@ -79,7 +86,7 @@ Suppose we have a vector describing the adult weights of vervet monkeys trapped 
 
 ``` {r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/vervet-weights.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/vervet-weights.csv")
 d <- read.csv(f, header=TRUE, sep=",", stringsAsFactors=FALSE)
 head(d)
 mean(d$weight)
@@ -168,15 +175,25 @@ ci <- t$conf.int
 ci # using t test
 ```
 
-#### CHALLENGE:
+So our conclusion, then, would be to reject the $H_0$ that the weights of the sample of monkeys from the 2016 trapping season come from the same distribution as the weights of monkeys from previous trapping seasons based on the average, since the average from previous seasons falls outside the 95% confidence interval for the t distribution based on the sample average from the 2016 trapping season.
+
+In other words, the 2016 trapping season has vervet monkeys whose weights are significantly heavier than the average from previous trapping seasons (p < 0.01).
+
+***
+
+#### **CHALLENGE 1**
+
+***
 
 <center><p><img src="img/lagothrix.JPG" style="border:5px solid black"></p>
 </center> 
 
-Adult lowland woolly monkeys are reported to have an average body weight of 7.2 kilograms. You are working with an isolated population of woolly monkeys from the Colombian Andes that you think may be a different species from the lowland form, and you collect a sample of 15 weights of from adult individuals at that site. From your sample, you calculate a mean of 6.43 kilograms and a standard deviation of 0.98 kilograms. Perform a hypothesis test to test whether body weights in your population are different from the reported average for lowland woolly monkeys by setting up a "two-tailed" hypothesis, carrying out the analysis, and interpreting the p value (assume the significance level is $\alpha$=0.05). Your sample is < 30, so you should use the t distribution and do a t test. Do your calculations both by hand and using the `t.test()` function and confirm that they match.
+Adult lowland woolly monkeys are reported to have an average body weight of 7.2 kilograms. You are working with an isolated population of woolly monkeys from the Peruvian Andes that you think may be a different species from the lowland form, and you collect a sample of 15 weights from adult individuals at that site. From your sample, you calculate a mean of 6.43 kilograms and a standard deviation of 0.98 kilograms. 
+
+Perform a hypothesis test of whether body weights in your population are different from the reported average for lowland woolly monkeys by setting up a "two-tailed" hypothesis, carrying out the analysis, and interpreting the p value (assume the significance level is $\alpha$=0.05). Your sample is < 30, so you should use the t distribution and do a t test. Do your calculations both by hand and using the `t.test()` function and confirm that they match.
 
 ``` {r}
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/woolly-weights.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/woolly-weights.csv")
 d <- read.csv(f, header=TRUE, sep=",", stringsAsFactors=FALSE)
 head(d)
 x <- d$weight
@@ -189,7 +206,7 @@ t <- (m - mu)/sem
 t
 alpha <- 0.05
 crit <- qt(1 - alpha/2, df=n-1) # identify critical values
-test <- t < -crit || t > crit # boolean test as two whether t is larger than the critical value at either tail
+test <- t < -crit || t > crit # boolean test as to whether t is larger than the critical value at either tail
 test <- abs(t) > crit
 t.test(x=x, mu=mu, alternative="two.sided")
 ```
@@ -217,7 +234,11 @@ where:
   * $s_1$ and $s_2$ = standard deviations of each sample group
   * $n_1$ and $n_2$ = numbers of observations in each sample group
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 2**
+
+***
 
 <center><p><img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Black_and_white_colobus_monkey_%2813945312952%29.jpg" style="border:5px solid black"></p>
 </center>
@@ -225,7 +246,7 @@ where:
 Let's do an example. Load in a file of black-and-white colobus weights and examine the `str()` of the file. Then, create 2 vectors, x and y, for male and female weights. Plot these in boxplots side by side and then calculate the mean, sd, and sample size for both males and females.
 
 ``` {r}
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/colobus-weights.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/colobus-weights.csv")
 d <- read.csv(f, header=TRUE, sep=",", stringsAsFactors=FALSE)
 head(d)
 x <- d$weight[d$sex =="male"]
@@ -336,12 +357,16 @@ where:
 
 Again, note that $\mu$ here is the expected difference between the means under the null hypothesis, which is zero, and we are dividing by the standard error of the mean for the set of differences between pairs.
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 3**
+
+***
 
 Let's play with a sample... IQs of individuals taking a certain statistics course pre and post a lecture on significance testing. Load in the `iqs.csv` data file, look at it, plot a barchart of values before and after and construct a paired t test to evaluate the means before and after.
 
 ``` {r}
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/iqs.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/iqs.csv")
 d <- read.csv(f, header=TRUE, sep=",", stringsAsFactors=FALSE)
 head(d)
 x <- d$IQ.before-d$IQ.after
@@ -424,12 +449,16 @@ or,
   * $\pi$ = expected proportion
   * $n$ = number of observations in sample
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 4**
+
+***
 
 <center><p><img src="http://www.rope-net.com/photo/rope-net/editor/20140506170127_89208.jpg" style="border:5px solid black"></p>
 </center>
 
-A neotropical ornithologist working in the western Amazon deploys 30 mist nets in a 100 ha grid. She monitors the nets on one morning and records whether or not a she captures any birds in the net (i.e., a "success" or "failure" for every net during a netting session). The following vector summarizes her netting results:
+A neotropical ornithologist working in the western Amazon deploys 30 mist nets in a 100 hectare (ha) grid. She monitors the nets on one morning and records whether or not a she captures any birds in the net (i.e., a "success" or "failure" for every net during a netting session). The following vector summarizes her netting results:
 
 ``` {r}
 v <- c(0,1,1,1,0,1,0,0,1,1,0,0,1,1,0,1,1,0,0,1,1,1,0,1,1,0,1,0,1,1)
@@ -486,7 +515,11 @@ where:
   * $p^*$ = pooled proportion
   * $n_1$ and $n_2$ = numbers of observations in each sample group
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 5**
+
+***
 
 <center><p><img src="https://www.nps.gov/common/uploads/photogallery/imr/park/tuzi/AB48880C-1DD8-B71B-0B28CA0E14825554/AB48880C-1DD8-B71B-0B28CA0E14825554-large.JPG" style="border:5px solid black"></p>
 </center>
