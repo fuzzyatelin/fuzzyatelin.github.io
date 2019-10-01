@@ -2,8 +2,13 @@
 title: "Module 09"
 author: by Anthony Di Fiore and Christopher A. Schmitt
 output:
-    html_document
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
 ---
+
+***
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -17,6 +22,8 @@ knitr::opts_chunk$set(
 )
 ```
 # Introduction to Statistical Inference
+
+***
 
 ## Preliminaries
 - Install this package in ***R***: {curl}
@@ -147,7 +154,11 @@ The expected sampling distribution for the proportion of successes is approximat
 
 Note: this expectation based on an approximation of the normal holds true only if both $n\times\pi$ and $n\times(1-\pi)$ are greater than roughly 5, so we should check this when working with proportion data.
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE**
+
+***
 
 Suppose a polling group in the Massachusetts is interested in the proportion of voting-age citizens in their state that already know they will vote for Elizabeth Warren in the upcoming November 6, 2018 midterm elections ([don't forget to vote!](https://ballotpedia.org/Massachusetts_elections,_2018)). The group obtains a yes or no answer from 1000 suitable randomly selected individuals. Of these individuals, 856 say they know they’ll vote for Senator Warren. How would we characterize the mean and variability associated with this proportion?
 
