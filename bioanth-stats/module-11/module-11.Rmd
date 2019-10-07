@@ -2,8 +2,13 @@
 title: "Module 11"
 author: Anthony Di Fiore and Christopher A. Schmitt
 output:
-    html_document
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
 ---
+
+***
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -17,6 +22,8 @@ knitr::opts_chunk$set(
 )
 ```
 # Type I and II Errors and Statistical Power
+
+***
 
 ## Preliminaries
 - Install these packages in ***R***: {curl}, {ggplot2}, {manipulate}
@@ -106,7 +113,12 @@ eI <- typeI(mu0=-3,sigma=2,n=5000,alternative="greater",alpha=0.05)
 eI <- typeI(mu0=5,sigma=2,n=1000,alternative="less",alpha=0.01)
 ```
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 1**
+
+***
+
 How does the Type I error rate change with $n$? With $\sigma$? With $\alpha$? HINT: It shouldn't change much... the Type I error rate is defined by $\alpha$!
 
 ## Multiple Comparison Corrections
@@ -220,7 +232,12 @@ return(length(p[p>=alpha])/k)
 }
 ```
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 2**
+
+***
+
 Explore this function using different values of $\mu_0$, $\sigma$, $n$, and different types of one- and two-tailed tests.
 
 ``` {r}
@@ -301,7 +318,12 @@ manipulate(
 
 In most cases, since we are dealing with limited samples from a population, we will want to use the t rather than the normal distibution as the basis for making our power evaluations. The `power.t.test()` function lets us easily implement power calculations based on the t distribution, and the results of using it should be very similar to those we found above by simulation. The `power.t.test()` function takes as possible arguments the sample size ($n$), the difference (delta, $\delta$) between group means, the standard deviation of the data = sigma ($\sigma$), the sig.level = alpha ($\alpha$\), the test type ("two.sample", "one.sample", or "paired"), the alternative test to run ("two.sided", "one sidedd") and the power. Power, $n$, or the difference between means is left as null and the other arguments are specified. The function then calculate the missing argument.
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 3**
+
+***
+
 Using the code below, which graphs the Type II error rate ($\beta$) and Power ($1-\beta$) for T tests (using the `power.t.test()` function), explore the effects of changing $\alpha$, within sample variability ($\sigma$), and the difference between sample means (i.e., $\mu_0$ and $\mu_A$ for a one sample test (or, equivalently, $\mu_1$ and $\mu_2$ for a two sample test). The plot shows the effect size, given the difference between the means, (i.e., $\vert(\mu_0 - \mu_A)\vert/\sigma$) and marks the sample size ($n$) needed to achieve a power of 0.8.
 
 ``` {r}
