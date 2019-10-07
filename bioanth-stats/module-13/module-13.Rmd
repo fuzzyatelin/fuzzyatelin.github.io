@@ -2,8 +2,13 @@
 title: "Module 13"
 author: Anthony Di Fiore and Christopher A. Schmitt
 output:
-    html_document
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
 ---
+
+***
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -18,8 +23,10 @@ knitr::opts_chunk$set(
 ```
 # Elements of Regression Analysis
 
+***
+
 ## Preliminaries
-- Install this package in ***R***: {curl} [{car}](https://cran.r-project.org/web/packages/car/car.pdf)
+- Install these packages in ***R***: {curl}, [{car}](https://cran.r-project.org/web/packages/car/car.pdf)
 
 ## Objectives
 > The objective of this module is to continue our discussion of simple linear regression analysis to understand how the object of regression is to partition variance in the response variable among different sources, i.e., into that explanined **by the regression model** itself (and, we'll see later on in our discussion of multivariate regression, among different factors in that model) versus the left-over **error or residual variance**. We also go through how to calculate the **standard errors** for our various regression coefficients and for the predicted values of our response variable based on our regression model, which, as we have seen are returned by the `lm()` function. Finally, we also briefly discuss ways to transform non-normally distributed data to make them more appropriate for analysis using linear regression.
@@ -32,17 +39,17 @@ Graphically...
 
 <img src="img/partitioningSS.png" width="500px"/>
 
-Let's make sure we have our zombie data loaded...
+Let's make sure we have our zombie survivor data loaded...
 
-``` {r}
+```{r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/zombies.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/zombies.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 ```
 
-Now, we run a straightforward bivariate regression model and, using the raw data (which are duplicated in the `$model` data structure within our model object), we will calculate the various sums of squares of our variables and identify the numbers of degrees of freedom associated with each source of variation. This allows us to generate the ANOVA table for our model, which is a summary of how variance is partitioned among different sources.
+Now, we'll run a straightforward bivariate regression model (as in [Module 12](https://fuzzyatelin.github.io/bioanth-stats/module-12/module-12.html)) and, using the raw data (which are duplicated in the `$model` data structure within our model object), we will calculate the various sums of squares of our variables and identify the numbers of degrees of freedom associated with each source of variation. This allows us to generate the ANOVA table for our model, which is a summary of how variance is partitioned among different sources.
 
-``` {r}
+```{r}
 m <- lm(data=d,height~weight)
 SSY <- sum((m$model$height-mean(m$model$height))^2) # height - mean(height)
 SSY
@@ -55,7 +62,7 @@ From here, we can calculate the variance in each of these components, typically 
 
 The degrees of freedom for the regression sum of squares (SSR) is equal to the number of predictor variables, which in this case is one (given our regression equation, we need to know only one piece of information, the value of our predictor variable, in order to calculate the predicted value of the response variable). The number of degrees of freedom for the error sum of squares (SSE) is equal to $n-2$. This is because we need to estimate two parameters ($\beta_0$ and $\beta_1$) from our data before we can calculate the error sum of squares. Finally, the number of degrees of freedom for the total sum of squares (SSY) is $n-1$... we need to estimate one parameter from our data (the mean value of **y**) before we can calculate SSY.
 
-``` {r}
+```{r}
 df_regression <- 1
 df_error <- 998
 df_y <- 999
@@ -66,7 +73,7 @@ MSY <- SSY/df_y
 
 The last item we need to calculate is the **F ratio**, the ratio of the variance explained by the regression model to the remaining, unexplained variance: MSR/MSE.
 
-``` {r}
+```{r}
 fratio <- MSR/MSE
 fratio
 ```
@@ -81,7 +88,7 @@ Together, the values we have calculated above form the main entries in the  **AN
 
 We can test the overall significance of our regression model by evaluating our F ratio test statistic against the F distribution, taking into account the number of degrees of freedom in each. The F distribution is a continuous probability distribution, defined for $x≥0$ and governed by two parameters, df1 and df2. The critical value above which we would reject the idea that the variance in our two sources is comparable is given by `qf(p,df1,df2)`, where **p** is 1-$\alpha$ and **df1** and **df2** are the degrees of freedom in the sources being compared (regression versus error).
 
-``` {r}
+```{r,fig.height=5,fig.width=5}
 curve(df(x,df=1,df2=1), col="green", lty=3, lwd=2, xlim=c(0,10), main="Some Example F Distributions\n(vertical line shows critical value for df1=1,df2=998)", ylab="f(x)", xlab="x")
 curve(df(x,df=2,df2=2), col="blue", lty=3, lwd=2, add=TRUE)
 curve(df(x,df=4,df2=4), col="red", lty=3, lwd=2, add=TRUE)
@@ -100,14 +107,14 @@ For our data, then, the value for the F ratio well exceeds this critical value.
 
 Alternatively, we can use the following formulation to directly estimate a p value associated with our value for the F ratio:
 
-``` {r}
+```{r}
 1-pf(q=fratio,df1=1,df2=998)
 ```
 ... and we see that the p value associated with this high of an F ratio is infintessimally small.
 
 As usual, ***R*** can handle all of the calculations above easily with a built-in function. The `aov()` function, like the `lm()` function, returns a model object that we can use `summary()` on to look at the results we want. Alternatively, we can run the function `summary.aov()` using the model object resulting from `lm()` as an argument. In either case, the results returned are the same as we calculated by hand above.
 
-``` {r}
+```{r}
 a <- aov(data=d,height~weight)
 summary(a)
 summary.aov(m)
@@ -115,7 +122,7 @@ summary.aov(m)
 
 Recall that the results returned by `summary()` of our regression model also shows the coefficient of determination, or the "R-squared value", which we defined above as the fraction of the total variation explained by the model. We can calculate this value directly from our ANOVA table as simply SSR/SSY. The correlation coefficient, $\rho$, between our response and predictor variable is simply the square root of this value.
 
-``` {r}
+```{r}
 rsquared <- SSR/SSY
 rsquared
 rho <- sqrt(rsquared)
@@ -132,7 +139,7 @@ The formula for the standard error of the regression slope, $\beta_1$, is calcul
 
 Using our data...
 
-``` {r}
+```{r}
 SSX <- sum((m$model$weight-mean(m$model$weight))^2)
 SEbeta1 <- sqrt(MSE/SSX)
 SEbeta1
@@ -142,7 +149,7 @@ The standard error of the intercept, $\beta_0$, is calculated as:
 
 <img src="img/sebeta0.svg" width="260px"/>
 
-``` {r}
+```{r}
 SEbeta0 <- sqrt((MSE*sum(m$model$weight^2))/(1000*SSX))
 SEbeta0
 ```
@@ -151,14 +158,14 @@ Finally, the standard error of each predicted value of y is calculated as:
 
 <img src="img/seyhat.svg" width="350px"/>
 
-``` {r}
+```{r}
 SEyhat <- sqrt(MSE*(1/1000+(m$model$weight-mean(m$model$weight))^2/SSX))
 head(SEyhat) # just the first 6 rows
 ```
 
 Again, these same standard errors for $\beta_0$ and $\beta_1$ are exactly what are returned by the `lm()` function.
 
-``` {r}
+```{r}
 summary(m)
 ```
 
@@ -175,11 +182,15 @@ What we haven't done yet, however, is checked our model fit critically in other 
 
 We can investigate our residuals as one way of assessing model fit. 
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 1**
+
+***
 
 Calculate the residuals from the regression of zombie height on weight and plot these in relation to weight (the **x** variable). There are lots of ways to do this quickly.
 
-``` {r}
+```{r,fig.height=5,fig.width=5}
 m <- lm(data=d,height~weight)
 plot(x=d$weight,y=m$residuals)
 # or
@@ -189,35 +200,36 @@ plot(x=d$weight,y=e)
 
 Now, plot a histogram of your residuals... ideally they are normally distributed!
 
-``` {r}
+```{r,fig.height=5,fig.width=5}
 hist(e, xlim=c(-4*sd(e),4*sd(e)),breaks=20, main="Histogram of Residuals")
 ```
 
 An additional way to quickly examine your residuals is to use the `plot()` function with your model as an argument. This prints out 4 plots that each tell you something.
 
-``` {r}
+```{r,fig.height=5,fig.width=5}
 plot(m$model$weight,m$residuals)
 par(mfrow=c(2,2))
 plot(m)
 ```
+
 The first plot of fitted values (<img src="img/yhat.svg" width="12px"/>) versus residuals should, like the plot of **x** versus residuals, not show any structure. We hope to see equally spread residuals around a horizontal line without distinct patterns. The second plot is a Q-Q plot of theoretical quantiles versus standardized quantiles for the residual values. These should fall on roughly a straight line, if the residuals are normally distributed. The third plot graphs the square root of the standardized residuals versus **x** and shows whether or not residuals are spread equally along the ranges of **x**s. It is good if you see a horizontal line with equally spread points rather than a decrease or increase in spread with **x**, which would indicate that the error variance increases or decreases with **x**. The fourth plot highlights whether there are particular observations that influence the results. In particular, we look to see if there are cases that fall in the upper or lower right portion of the plot.
 
 We can also do a QQ plot of our residuals:
 
-``` {r}
+```{r,fig.height=5,fig.width=5}
 qqnorm(m$residuals)
 ```
 
 Perhaps a more helpful QQ plot can be found in the {car} package. The function `qqPlot()` provides a trend line and confidence intervals that allow us to see exactly which points make the sample fall outside of normality (if any). Let's take a look:
 
-``` {r}
+```{r,fig.height=5,fig.width=5}
 library(car)
 qqPlot(m$residuals)
 ```
 
 Finally, there are a number of tests for normality that we can run within the ***R*** framework and using other packages. A Shapiro-Wilk Normality Test is perhaps the most widely used, where a low p value would indicate deviation from normality (technically, a measure of how far the trend line of the residuals deviates from the qqplot line).
 
-``` {r}
+```{r}
 s <- shapiro.test(m$residuals)
 s
 ```
@@ -246,7 +258,11 @@ Some other popular tests for normality, and the cases in which they're best used
 
 For a good discussion/demonstration of the relative power of each of these tests (meaning the probability that the test will correctly reject the null hypothesis) at different sample sizes, [check this out](https://ncss-wpengine.netdna-ssl.com/wp-content/themes/ncss/pdf/Procedures/PASS/Normality_Tests-Simulation.pdf), especially the tables on 670-8 and 670-9, and plots on 670-10. This can help you better understand which test is best for a given sample size, and how much faith to put in these tests given your sample!
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 2**
+
+***
 
 Load in the "KamilarAndCooper.csv" dataset and develop a linear model to look at the relationship between "weaning age" and "female body mass". You will probably need to look at the data and variable names again to find the appropriate variables to examine.
 
@@ -255,8 +271,8 @@ Load in the "KamilarAndCooper.csv" dataset and develop a linear model to look at
 - Generate the residuals for your linear model by hand, plot them in relation to female body weight, and make a histogram of the residuals. Do they appear to be normally distributed?
 - Run the `plot()` command on the result of `lm()` and examine the 4 plots produced. Again, based on examination of the residuals and the results of  Shapiro-Wilks test, does it look like your model has good fit?
 
-``` {r}
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/KamilarAndCooperData.csv")
+```{r,fig.height=5,fig.width=5}
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/KamilarAndCooperData.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 head(d)
 plot(data=d,WeaningAge_d~Body_mass_female_mean)
@@ -276,11 +292,15 @@ In many cases, these conditions may not be met... for example, the continuous me
 
 The logarithmic or "log" transformation (where we take the log value of each data point) is often applied to positive numeric variables with heavy skew to dramatically reduce the overall range of the data and bring extreme observations closer to a measure of centrality. The logarithm for a number is the power to which you must raise a base value (e.g., $e$, the natural log) in order to obtain that number. This is an example of a "power transformation", other examples of which include the square root transformation and the reciprocal (or multiplicative inverse) transformation.
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 3**
+
+***
 
 Return to the "KamilarAndCooper.csv" dataset you were looking at above and log transform both of your variables and then run a simple bivariate linear model. Do you notice a difference between these results and those obtained using untransformed variables?
 
-``` {r}
+```{r,fig.height=5,fig.width=5}
 d$logWeaningAge <- log(d$WeaningAge_d)
 d$logFemaleBodyMass <- log(d$Body_mass_female_mean)
 plot(data=d,logWeaningAge~logFemaleBodyMass)
@@ -297,7 +317,7 @@ The following chart and graphs shows some other common numerical transformations
 <img src="img/transformations.png" width="500px"/>
 
 
-``` {r}
+```{r}
 par(mfrow = c(1,2))
 
 a <- 2
