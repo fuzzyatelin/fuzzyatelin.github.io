@@ -2,8 +2,13 @@
 title: "Module 12"
 author: Anthony Di Fiore and Christopher A. Schmitt
 output:
-    html_document
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
 ---
+
+***
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -18,6 +23,8 @@ knitr::opts_chunk$set(
 ```
 # Introduction to Linear Regression
 
+***
+
 ## Preliminaries
 - Install these packages in ***R***: {curl}, {ggplot2}, [{gridExtra}](https://cran.r-project.org/web/packages/gridExtra/gridExtra.pdf), {manipulate}, [{lmodel2}](https://cran.r-project.org/web/packages/lmodel2/lmodel2.pdf)
 
@@ -31,7 +38,7 @@ So far, we have looked principally at single variables, but one of the main thin
 ``` {r}
 library(curl)
 library(ggplot2)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/zombies.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/zombies.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 head(d)
 plot(data=d,height~weight)
@@ -47,7 +54,11 @@ Similarly, the **covariance** is simply the product of the deviations of each of
 
 <img src="img/samplecov.svg" width="300px"/>
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 1**
+
+***
 
 What is the **covariance** between zombie weight and zombie height? What does it mean if the covariance is positive versus negative? Does it matter if you switch the order of the two variables?
 
@@ -68,7 +79,11 @@ We often describe the relationship between two variables using the **correlation
 
 <img src="img/samplecor.svg" width="225px"/>
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 2**
+
+***
 
 Calculate the **correlation** between zombie height and weight.
 
@@ -251,7 +266,12 @@ plot(data=d, height~weight, main="lm()")
 abline(mI)
 ```
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 3**
+
+***
+
 Using the zombies dataset, work with a partner to...
 
 - Plot zombie height as a function of age
@@ -314,7 +334,11 @@ Estimating our regression coefficients is pretty straightforward... but what do 
 - The **slope**, $\beta_1$ is EXPECTED CHANGE in units of **y** for every 1 unit of change in **x**.
 - The overall equation allows us to calculate PREDICTED values of **y** for new observations of **x**. We can also calculate CONFIDENCE INTERVALS (CIs) around the predicted mean value of **y** for each value of **x** (which addresses our uncertainly in the estimate of the mean), and we can also get PREDICTION INTERVALS (PIs) around our prediction (which gives the range of actual values of **y** we might expect to see at a given value of **x**).
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 4**
+
+***
 
 - If zombie weight is measured in *pounds* and zombie height is measured in *inches*, what is the expected height of a zombie weighing 150 pounds?
 - What is the predicted difference in height between a zombie weighing 180 and 220 pounds?
@@ -378,7 +402,12 @@ g <- g + geom_line(data=df,aes(x=x, y=PIupr), colour = "red")
 g
 ```
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 5**
+
+***
+
 Construct a linear model for the regression of zombie height on age and predict the mean height, the 95% confidence interval (CI) around the predicted mean height, and the 95% prediction interval (PI) around that mean for a vector of zombie ages, `v <- seq(from=10, to=30, by=1)`. Then, plot your points, your regression line, and lines for the lower and upper limits of the CI and of the PI.
 
 ``` {r}
