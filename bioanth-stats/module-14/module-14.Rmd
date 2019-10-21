@@ -2,8 +2,13 @@
 title: "Module 14"
 author: Anthony Di Fiore and Christopher A. Schmitt
 output:
-    html_document
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
 ---
+
+***
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -18,6 +23,8 @@ knitr::opts_chunk$set(
 ```
 # Basic Categorical Data Analysis and ANOVA
 
+***
+
 ## Preliminaries
 - Install these packages in ***R***: {curl}, {ggplot2}, {dplyr}, {car}
 
@@ -31,7 +38,7 @@ Thus far we have used simple linear regression models involving continuous expla
 
 ``` {r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/zombies.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/zombies.csv")
 z <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = TRUE)
 class(z$gender)
 summary(z$gender)
@@ -153,7 +160,12 @@ The following assumption makes the interpretation of results from ANOVA more str
 
 - Our experiment/observations have a balanced design (i.e., an equal number of cases in all groups). If this is violated, it ceases to be true that the total SS of our dataset = within SS + between SS, and then the calculations of MSE and F and our associated p values would be off.
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 1**
+
+***
+
 Load in the "gibbon-femurs.csv" dataset, which contains the lengths, in centimeters, of the femurs of 400 juvenile, subadult, and adult individuals gibbons. Use both ANOVA and simple linear regession to examine the relationship between age and femur length. Before beginning, make sure that you check for normality of observations within each group. 
 
 Is the omnibus test of the relationship between age category and femur length significant? Are femur lengths significantly different for juveniles versus subadults? Subadults versus adults? Juveniles versus adults? HINT: to test these bivariate options, you will need to `relevel()` your factors for simple linear regression.
@@ -161,7 +173,7 @@ Is the omnibus test of the relationship between age category and femur length si
 ``` {r}
 library(curl)
 library(dplyr)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/gibbon-femurs.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/gibbon-femurs.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = TRUE)
 d$age <- factor(d$age, levels = c("inf", "juv", "subadult", "adult")) #this reorders the age levels so that they're in order
 head(d)
@@ -354,7 +366,12 @@ where:
 
 We then compare the value of the $\chi^2$ statistic to the Chi-Square distribution with $k-1$ degrees of freedom.
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 2**
+
+***
+
 Let's return to the zombies dataset, where we defined an occupation based on major for survivors of the zombie apocalypse. We want to test the hypothesis that survivors of the zombie apocalypse are more likely than expected by chance to be natural science majors. We will assume that our null hypothesis is that the proportions of different post-apocalypse occupations are equivalent, i.e., that $\pi_{natural science}$ = $\pi_{engineering}$= $\pi_{logistics}$ = $\pi_{other}$ = 0.25.
 
 ``` {r}
