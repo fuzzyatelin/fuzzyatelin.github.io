@@ -1,8 +1,13 @@
 ---
 title: "Module 18"
 output:
-    html_document
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
 ---
+
+***
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -16,6 +21,8 @@ knitr::opts_chunk$set(
 )
 ```
 # Mixed Effects Modeling
+
+***
 
 ## Preliminaries
 - Install these packages in ***R***: {curl}, {ggplot2}, [{lme4}](https://cran.r-project.org/web/packages/lme4/lme4.pdf), {AICcmodavg}, [{MuMIn}](https://cran.r-project.org/web/packages/MuMIn/MuMIn.pdf)
@@ -31,7 +38,7 @@ A final extension of linear regression modeling that we will talk about is so-ca
 - **Generalized linear mixed models (GLMM)**, if we're dealing with various other variable types and error structure (e.g., binary, proportion, or count data).
 - **Nonlinear mixed models (NLMM)**, if we're dealing with situations where our response variable is best modeled by a nonliner combination of predictors.
 
-> NOTE: We have not talked in this course about general or generalized NONLINEAR modeling, but it's worth knowing that such approaches are also possible. NONLINEAR modeling is where our regression equation is a nonlinear function of the model parameters; for example, [I use NLMMs to model somatic growth in vervet monkeys](http://meeting.physanth.org/program/2015/session02/schmitt-2015-maternal-effects-influence-the-heritability-of-adult-obesity-traits-but-not-obesogenic-growth-trajectories-in-vervet-monkeys-chlorocebus-spp.html).
+> NOTE: We have not talked in this course about general or generalized NONLINEAR modeling, but it's worth knowing that such approaches are also possible. NONLINEAR modeling is where our regression equation is a nonlinear function of the model parameters; for example, [I've used NLMMs to model somatic growth in vervet monkeys](https://www.nature.com/articles/ijo2017301).
 
 In a (general or generalized) linear mixed model, we have a reponse variable, $Y$, and observations that fall into different factor categories each with some set of levels (e.g., "sex" with levels "male" and "female"), and we are interested in the effects of these factors and factor levels on the response variable. Generically, if $\mu$ = a population mean response and $\mu_A$ = mean response for observations belonging to factor level A, then the effect of A is given by $\mu$ - $\mu_A$. We have already dealt with factors and factor levels in our linear regression models when we looked at categorical predictors (e.g., *sex*, *rank category*) in our discussions of ANOVA and ANCOVA.
 
@@ -68,13 +75,17 @@ Using a mixed effects model, we can deal with this situation by adding **subject
 
 This is why a mixed effects model is called a **mixed** model. The models that we have considered so far have been “fixed effects only” models and included only one or more "fixed" predictor variables and a general error term. We essentially divided the world into things that we somehow understand or that are systematic (the fixed effects, or the explanatory variables) and things that we could not control for or do not understand ($\epsilon$). These fixed effects models did not examine possible structure *within* the error term. In a mixed model, by contrast, we add one or more random effects to our fixed effects that may explain a portion of the variance in our error term.
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 1**
+
+***
 
 Let's explore these idea using some actual data. First, load in the dataset "chimpgrooming.csv" and do some exploratory data analysis:
 
 ```{r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/chimpgrooming.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/chimpgrooming.csv")
 d <- read.csv(f, header = TRUE, sep = ",")
 head(d)
 summary(d)
@@ -105,7 +116,7 @@ We can think of this formula as saying that we expect our dataset to include mul
 
 The {lme4} package in **R** is commonly used for mixed effects modeling, and the function `lmer()` is the mixed model equivalent of the function `lm()`. In the formula syntax for mixed effects models using the {lme4} package, fixed effect are included without parentheses while random effects are included in parentheses (the error, $\epsilon$, is understood and is not included explicitly).
 
-> NOTE: We could also use the package {nlme} for mixed effects modeling (which requires a slightly different formula syntax that that used here). Both packages also allows us to do GLMMs and nonlinear mixed effects modeling, which we will not be talking about. It is important to note that {lme4} uses, by default, a slightly different parameter estimation algorithm than {nlme}. Unless otherwise specified, {lme4} uses "restricted maximum likelihood" (REML) rather than ordinary maximum likelihood estimation, which is what is used in {nlme}. In practice, these give very similar results. We will see below that when we want to compare different models using {lme4}, we will need to tell {lme4} to use ordinary maximum likelihood.
+> NOTE: We could also use the package {nlme} for mixed effects modeling (which requires a slightly different formula syntax that that used here). Both packages also allow us to do GLMMs and nonlinear mixed effects modeling, which we will not be discussing. It is important to note that {lme4} uses, by default, a slightly different parameter estimation algorithm than {nlme}. Unless otherwise specified, {lme4} uses "restricted maximum likelihood" (REML) rather than ordinary maximum likelihood estimation, which is what is used in {nlme}. In practice, these give very similar results. We will see below that when we want to compare different models using {lme4}, we will need to tell {lme4} to use ordinary maximum likelihood.
 
 The code block below implements this first mixed effects model.
 
@@ -166,7 +177,11 @@ anova(reduced,full, test="Chisq")
 
 Based on this result, including *parity* also significantly improves the fit of our model.
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 2**
+
+***
 
 Construct a model that includes an interaction of *reproductive condition* and *parity* and compare it to a model without the interaction term. Is the interaction of these two fixed effects significant?
 
@@ -222,9 +237,13 @@ In their paper, Nakagawa & Schielzeth propose two different measures of 'varianc
 
 There is an easy way to assess $R^{2}_{GLMM}$ in ***R*** using the `r.squaredGLMM()` function in the package {MuMIn}.
 
-#### CHALLENGE:
+***
 
-Compare the full, reduced, and null mixed models from the our random slope exercise using an information theoretic approach. Is your best model the best fit (e.g., explain the most variance) for the dataset?  How much more variance is explained by the random effects than the fixed effects alone?
+#### **CHALLENGE 3**
+
+***
+
+Compare the full, reduced, and null mixed models from our random slope exercise using an information theoretic approach. Is your best model the best fit (e.g., explain the most variance) for the dataset?  How much more variance is explained by the random effects than the fixed effects alone?
 
 ```{r,message=FALSE}
 library(AICcmodavg)
