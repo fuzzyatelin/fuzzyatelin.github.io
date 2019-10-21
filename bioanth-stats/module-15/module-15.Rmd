@@ -2,8 +2,13 @@
 title: "Module 15"
 author: Anthony Di Fiore and Christopher A. Schmitt
 output:
-    html_document
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
 ---
+
+***
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -17,6 +22,8 @@ knitr::opts_chunk$set(
 )
 ```
 # Multiple Regression and ANCOVA
+
+***
 
 ## Preliminaries
 - Install these packages in ***R***: {curl}, {ggplot2}, {gridExtra}, {dplyr}, {car}
@@ -50,7 +57,7 @@ Let's work some examples!
 
 ## Multiple Regression - Continuous Response Variable and More than One Continuous Predictor Variables
 
-We will start by constructing a dataset ourselves of some correlated random normal continuous variables. The following bit of code will let us do that. [See also this post](https://www.r-bloggers.com/simulating-random-multivariate-correlated-data-categorical-variables/). First, we define a matrix of correlations among our variables (you can play with the values in this matrix, but it must be symmetric):
+We will start by constructing a dataset *ourselves* of some correlated random normal continuous variables. The following bit of code will let us do that. [See also this post](https://www.r-bloggers.com/simulating-random-multivariate-correlated-data-categorical-variables/). First, we define a matrix of correlations among our variables (you can play with the values in this matrix, but it must be symmetric):
 
 ``` {r}
 R = matrix(cbind(1,0.80,-0.5,0.00,
@@ -97,7 +104,7 @@ M <- as.matrix(normalized) # redefine M as our matrix of normalized variables
 
 With `apply()` we apply a function to the specified margin of an array or matrix, and with `sweep()` we then perform whatever function is specified on all of the elements in an array specified by the given margin.
 
-Next, we take the Cholesky decomposition of our correlation matrix and then multiply our normalized data matrix by the decomposition matrix to yield a transformed dataset with the specified correlation among variables. The Cholesky decomposition breaks certain symmetric matrices into two such that:
+Next, we take the *Cholesky decomposition* of our correlation matrix and then multiply our normalized data matrix by the decomposition matrix to yield a transformed dataset with the specified correlation among variables. The Cholesky decomposition breaks certain symmetric matrices into two such that:
 
 <img src="img/chol.svg" width="150px"/>
 
@@ -121,11 +128,15 @@ cor(df)
 plot(df) # note the change to the axis scales; using `pairs(d)` would produce the same plot
 ```
 
-Now, we have a dataframe, **df**, comprising correlated random variables in original units!
+Now, we have a dataframe, **df**, comprising correlated random variables in our original units!
 
 Let's explore this dataset first with single and then with multivariate regression.
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 1**
+
+***
 
 Start off by making some bivariate scatterplots in {ggplot2}. Then, using simple linear regression as implemented with `lm()`, how does the response variable ($Y$) vary with each predictor variable ($X1$, $X2$, $X3$)? Are the $\beta_1$ coefficients significant? How much of the variation in $Y$ does each predictor explain in a simple bivariate linear model?
 
@@ -183,13 +194,17 @@ Second, looking at `summary()` we see that the $\beta$ coefficient for each of o
 
 Third, we can interpret our $\beta$ coefficients as we did in simple linear regression... for each change of one unit in a particular predictor variable (holding the other predictors constant), our predicted value of the response variable changes $\beta$ units.
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 2**
+
+***
 
 Load up the "zombies.csv" dataset again and run a linear model of height as a function of both weight and age. Is the overall model significant? Are both predictor variables significant when the other is controlled for?
 
 ``` {r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/zombies.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/zombies.csv")
 z <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = TRUE)
 head(z)
 m <- lm(data=z, height~weight+age)
@@ -253,7 +268,12 @@ confint(m, level=0.95)
 
 Similarly, using `predict()` allows us to determine confidence intervals for the predicted mean response and prediction intervals for individual responses for a given combination of predictor variables.
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 3**
+
+***
+
 - What is the estimated mean height, in inches, for a 29 year old male who has survived the zombie apocalypse?
 
 - What is the 95% confidence interval around this mean height?
@@ -301,7 +321,11 @@ p2 <- ggplot(data=z,aes(x=age, y=height)) + geom_point(aes(color=factor(gender))
 grid.arrange(p1,p2,ncol=2)
 ```
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 4**
+
+***
 
 - Load in the "KamilarAndCooper.csv"" dataset we have used previously
 
@@ -311,7 +335,7 @@ grid.arrange(p1,p2,ncol=2)
 
 ``` {r}
 library(dplyr)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/KamilarAndCooperData.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/KamilarAndCooperData.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = TRUE)
 head(d)
 d <- select(d, Brain_Size_Female_Mean,Family,Body_mass_female_mean,MeanGroupSize,DayLength_km,HomeRange_km2,Move)
