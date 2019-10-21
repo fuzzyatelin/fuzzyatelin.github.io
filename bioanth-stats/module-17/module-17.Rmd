@@ -1,8 +1,13 @@
 ---
 title: "Module 17"
 output:
-    html_document
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
 ---
+
+***
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -16,6 +21,8 @@ knitr::opts_chunk$set(
 )
 ```
 # Generalized Linear Models
+
+***
 
 ## Preliminaries
 - Install these packages in ***R***: {curl}, {ggplot2}, {broom}, {lmtest}
@@ -89,7 +96,7 @@ Load in the "graddata.csv" dataset, which comes from `http://www.ats.ucla.edu/`,
 
 ```{r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/graddata.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/graddata.csv")
 d <- read.csv(f, header = TRUE, sep = ",")
 head(d)
 summary(d)
@@ -159,7 +166,11 @@ CI <- glmresults$estimate[2] + c(-1,1) * qnorm(0.975) * glmresults$std.error[2] 
 CI
 ```
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 1**
+
+***
 
 Repeat the logistic regression above, but using *gpa* rather than *gre* as the predictor variable.
 
@@ -301,7 +312,11 @@ Here's some additional useful information about intepreting the results of `summ
 
 Logistic regression can be easily extended to situations with multiple predictor variables, including both continuous and categorical variables, as in our discussion of multiple regression under the general linear model.
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 2**
+
+***
 
 Using the same "graddata.csv" dataset, run a multiple logistic regression analysis using *gpa*, *gre*, and *rank* to look at student admissions to graduate school. Do not, at first, include interaction terms.
 
@@ -364,7 +379,7 @@ Researchers studied the reproductive success of a set of male woolly monkeys ove
 
 ```{r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/woollydata.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/woollydata.csv")
 d <- read.csv(f, header = TRUE, sep = ",")
 head(d)
 summary(d)
@@ -434,7 +449,11 @@ AICreduced
 
 Here, the log-likelihood of the model including *age* as a predictor is much lower than the log-likelihood of the reduced (intercept only) model, so we prefer the former.
 
-#### CHALLENGE:
+***
+
+#### **CHALLENGE 3**
+
+***
 
 Using the woolly monkey mating success data set, explore multiple Poisson regression models of [a] mating success in relation to *rank* and [b] mating success in relation to *age* + *rank* (and their interaction) on your own. What conclusions can you come to about the importance of rank and rank in combination with age versus age alone?
 
