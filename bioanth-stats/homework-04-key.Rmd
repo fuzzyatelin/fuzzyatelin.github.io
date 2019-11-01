@@ -11,7 +11,7 @@ Z.prop.test<-function(p1,n1,p2=NULL,n2=NULL,p0,alternative="two.sided",conf.leve
   if(is.na(p1))
     stop("You must enter a value for 'p1'!")
   if(is.na(n1))
-    stop("You must enter a value for 'p2'!")
+    stop("You must enter a value for 'n1'!")
   if(is.na(p0))
     stop("You must enter a value for 'p0'!")
   if(!missing(conf.level) &&
