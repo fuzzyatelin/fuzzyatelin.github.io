@@ -142,11 +142,11 @@ Great! Now we've got a basic map with the trails and river, with our spider monk
 
 For example, if we'd like to add satellite data to our map, we can use the {ggmap} package. Note that, as of recently, this requires registering with Google since we are actually accessing their API (application programming interface) within the package. Intructions on how to do so are [here](https://github.com/dkahle/ggmap), which you must complete before the next step.
 
-```{r}
+```{r,fig.width=8,fig.height=8}
 library(ggmap)
 #ggmap::register_google(key = "SET YOUR KEY HERE")
 map<-get_googlemap(center = c(lon = -76.15, lat = -0.635),
-                    zoom = 13, scale = 2,
+                    zoom = 14, scale = 2,
                     maptype ='satellite',
                     color = 'color')
 
