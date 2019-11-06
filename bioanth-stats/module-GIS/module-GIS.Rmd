@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 ***
 
 ## Preliminaries
-- Install these packages in ***R***, if you don't have them already: [{adehabitatHR}](https://cran.r-project.org/web/packages/adehabitatHR/vignettes/adehabitatHR.pdf), [{DT}](https://rstudio.github.io/DT/), [{lubridate}](https://lubridate.tidyverse.org/),
+- Install these packages in ***R***, if you don't have them already: [{adehabitatHR}](https://cran.r-project.org/web/packages/adehabitatHR/vignettes/adehabitatHR.pdf), [{DT}](https://rstudio.github.io/DT/), [{ggmap}](https://github.com/dkahle/ggmap), [{lubridate}](https://lubridate.tidyverse.org/),
 [{maptools}](https://cran.r-project.org/web/packages/maptools/maptools.pdf), [{readxl}](https://readxl.tidyverse.org/), [{rgdal}](https://crantastic.org/packages/rgdal), [{rgeos}](https://cran.rstudio.com/web/packages/rgeos/rgeos.pdf), [{sf}](https://r-spatial.github.io/sf/articles/sf1.html),
 [{sp}](https://cran.r-project.org/web/packages/sp/sp.pdf), [{spatialEco}](https://github.com/jeffreyevans/spatialEco), [{spdplyr}](https://github.com/mdsumner/spdplyr), [{tidyverse}](https://www.tidyverse.org/)
 
@@ -87,13 +87,95 @@ head(d)
 summary(d)
 ```
 
+Let's take a quick look at how these points map out:
 
+```{r,warning=F,message=F}
+library(tidyverse)
+ggplot(data=d,aes(x=UTMX,y=UTMY))+geom_point()+theme_bw()
+```
 
+Ok, so we can see there's some points... but without the projection and some other layers, they're not much help. Let's get some more information added to our 'map'.
 
+First, let's make sure we've got the points in the proper projection. We can do that most simply using the {sf} package. Note that the `crs` command (which stands for 'coordinate reference system') in the `st_as_sf` call is where we designate the projection. In this case, `32718` is the EPSG code. To learn more about how to define the projection, see [this helpful tutorial](). In the meantime, let's project!
 
+```{r}
+library(sf)
+d<-st_as_sf(d,coords=c("UTMX","UTMY"),crs=32718)
+```
 
+Now, we'll need to plot using the `geom_sf()` call, which will ensure that our `ggplot` is a map with the required coordinate system and projection (notice how our axes now contain the tranlsated latitude and longitude associated with our coordinate/projection):
 
+```{r}
+q<-ggplot()+geom_sf(data=d,color="light pink",alpha=0.5)+theme_bw()
+q
+```
 
+Now, to contextualize this data a bit more, we've also got some *shapefiles* associated with the study site. A shapefile is a simple, nontopological format for storing the location and attributes of a geographic feature, which can be represented by points, lines, or polygons (areas). Also associated with these values might be a dBASE table, which can store additional attributes associated with the shapefile features. In file format, shapefiles are actually several (5 or 6) files together. Most publicly available spatial layers (i.e., those available from governmental repositories) are available as shapefiles.
+
+To load a shapefile into ***R***, we must load all associated files at once. Luckily, the package {rgdal} has a set command for doing so. Let's load in a shapefile of the Tiputini River, which forms the southern boundary of the spider monkeys' territory.
+
+NOTE: To execute this code, you'll need to download these files from the [AN597_Fall19](https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN597_Fall19) folder on my GitHub page to a folder in your working directory called `GISdata`.
+
+```{r}
+library(rgdal)
+tbs_rio<-readOGR(dsn=path.expand("GISdata"),layer="rio_tiputini_drawing")
+tbs_rio<-st_as_sf(tbs_rio,crs=32718)
+```
+
+Notice that, in addition to importing, we've also converted our shapefile into an {sf} object with the same projection as our data. Let's see how they look:
+
+```{r}
+q<-ggplot()+geom_sf(data=tbs_rio,color="dodgerblue")+geom_sf(data=d,color="light pink",alpha=0.5)+theme_bw()
+q
+```
+
+We can do the same for the system of trails from Tiputini:
+```{r}
+tbs_trails<-readOGR(dsn=path.expand("GISdata"),layer="trail_polylines_2010")
+tbs_trails<-st_as_sf(tbs_trails,crs=32718)
+
+q<-ggplot()+geom_sf(data=tbs_trails)+geom_sf(data=tbs_rio,color="dodgerblue")+geom_sf(data=d,color="light pink",alpha=0.5)+theme_bw()
+q
+```
+
+Great! Now we've got a basic map with the trails and river, with our spider monkey ranging points overlaid above them. This is helpful for seeing where the spider monkeys occur on the trail system and relative to the river, but we can do much more...
+
+For example, if we'd like to add satellite data to our map, we can use the {ggmap} package. Note that, as of recently, this requires registering with Google since we are actually accessing their API (application programming interface) within the package. Intructions on how to do so are [here](https://github.com/dkahle/ggmap), which you must complete before the next step.
+
+```{r}
+library(ggmap)
+#ggmap::register_google(key = "SET YOUR KEY HERE")
+map<-get_googlemap(center = c(lon = -76.15, lat = -0.635),
+                    zoom = 13, scale = 2,
+                    maptype ='satellite',
+                    color = 'color')
+
+#Google is weird, so we need to define a function to fix the bbox to be in our actual data projection of EPSG:32718
+ggmap_bbox <- function(map) {
+  if (!inherits(map, "ggmap")) stop("map must be a ggmap object")
+  # Extract the bounding box (in lat/lon) from the ggmap to a numeric vector, 
+  # and set the names to what sf::st_bbox expects:
+  map_bbox <- setNames(unlist(attr(map, "bb")), 
+                       c("ymin", "xmin", "ymax", "xmax"))
+
+  # Coonvert the bbox to an sf polygon, transform it to 32718, 
+  # and convert back to a bbox (convoluted, but it works)
+  bbox_32718 <- st_bbox(st_transform(st_as_sfc(st_bbox(map_bbox, crs = 4326)), 32718))
+
+  # Overwrite the bbox of the ggmap object with the transformed coordinates 
+  attr(map, "bb")$ll.lat <- bbox_32718["ymin"]
+  attr(map, "bb")$ll.lon <- bbox_32718["xmin"]
+  attr(map, "bb")$ur.lat <- bbox_32718["ymax"]
+  attr(map, "bb")$ur.lon <- bbox_32718["xmax"]
+  map
+}
+
+# Use the function:
+map <- ggmap_bbox(map)
+
+p<-ggmap(map)+coord_sf(xlim=c(-76.18,-76.13),ylim=c(-0.63,-0.66),crs=st_crs(32718))+geom_sf(data=tbs_trails,inherit.aes=FALSE)+geom_sf(data=tbs_rio,color="dodgerblue",inherit.aes=FALSE)+geom_sf(data=d,color="light pink",alpha=0.5,inherit.aes=FALSE)
+p
+```
 
 
 
