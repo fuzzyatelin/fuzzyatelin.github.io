@@ -27,7 +27,8 @@ knitr::opts_chunk$set(
 ## Preliminaries
 - Install these packages in ***R***, if you don't have them already: [{adehabitatHR}](https://cran.r-project.org/web/packages/adehabitatHR/vignettes/adehabitatHR.pdf), [{DT}](https://rstudio.github.io/DT/), [{ggmap}](https://github.com/dkahle/ggmap), [{lubridate}](https://lubridate.tidyverse.org/),
 [{maptools}](https://cran.r-project.org/web/packages/maptools/maptools.pdf), [{readxl}](https://readxl.tidyverse.org/), [{rgdal}](https://crantastic.org/packages/rgdal), [{rgeos}](https://cran.rstudio.com/web/packages/rgeos/rgeos.pdf), [{sf}](https://r-spatial.github.io/sf/articles/sf1.html),
-[{sp}](https://cran.r-project.org/web/packages/sp/sp.pdf), [{spatialEco}](https://github.com/jeffreyevans/spatialEco), [{spdplyr}](https://github.com/mdsumner/spdplyr), [{tidyverse}](https://www.tidyverse.org/)
+[{sp}](https://cran.r-project.org/web/packages/sp/sp.pdf), [{spatialEco}](https://github.com/jeffreyevans/spatialEco), [{spdplyr}](https://github.com/mdsumner/spdplyr), [{tidyverse}](https://www.tidyverse.org/),
+[{zoom}](https://github.com/cbarbu/R-package-zoom)
 
 ## Objectives
 > In this module, we use R to extend our use of the system to GIS analyses. This module will include working with GIS data to create maps, and to extract data from numerous layers of different data types for spatial analysis. This is a first step, and by no means comprehensive. Remember that R is constantly changing, and the ways and packages by which GIS analyses are being done are changing, too!
@@ -75,7 +76,14 @@ Now, to start, let's import a GPS dataset of interest and start some spatial ana
 
 Suppose we have been studying a group of white-bellied spider monkeys (*Ateles belzebuth*) for the past few years at the Tiputini Biodiversity Station. While collecting behavioral data, we've also been collecting GPS points and location data from georeferenced markers every 20-minutes throughout the day, and every time we run into them throughout the day. From this data, we're interested in figuring out the size of their home range.
 
+***
+
 #### **CHALLENGE 1**
+
+***
+
+<center><p><img src="https://i.pinimg.com/originals/52/94/68/529468e0171cea4c81c5442a7f934a33.jpg" style="border:5px solid black"></p>
+</center><br>
 
 Let's explore this question using some actual data. First, load in the dataset "atelesranging.csv" and do some exploratory mapping and data analysis. This is only a little more complicated than how we've been doing it before given the spatial aspect of the data:
 
@@ -140,17 +148,18 @@ q
 
 Great! Now we've got a basic map with the trails and river, with our spider monkey ranging points overlaid above them. This is helpful for seeing where the spider monkeys occur on the trail system and relative to the river, but we can do much more...
 
-For example, if we'd like to add satellite data to our map, we can use the {ggmap} package. Note that, as of recently, this requires registering with Google since we are actually accessing their API (application programming interface) within the package. Intructions on how to do so are [here](https://github.com/dkahle/ggmap), which you must complete before the next step.
+For example, if we'd like to add satellite data to our map, we can use the {ggmap} package. Note that, as of recently, this requires registering with Google since we are actually accessing their API (application programming interface) within the package. Intructions on how to do so are [here](https://github.com/dkahle/ggmap), which you must complete before the next step (although they ask for billing information, they will not bill you).
 
 ```{r,fig.width=8,fig.height=8}
 library(ggmap)
 #ggmap::register_google(key = "SET YOUR KEY HERE")
+#Here, we download a satellite image centered on the WGS 84 GPS coordinates of the Tiputini Biodiversity Station (as eyeballed from our map, above). When downloading other maps, you may need to experiment with the zoom to get the right scale. Note that Google will not allow non-integer zooms, and also will not allow you to dictate the dimensions of the map (all maps must be square):
 map<-get_googlemap(center = c(lon = -76.15, lat = -0.635),
                     zoom = 14, scale = 2,
                     maptype ='satellite',
                     color = 'color')
 
-#Google is weird, so we need to define a function to fix the bbox to be in our actual data projection of EPSG:32718
+#Google is weird in that their 'bounding box' (coordinates that set the boundary of the image we download) is in a fixed coordinate system, so we need to define a function to fix the 'bounding box' to be in our actual data projection of EPSG:32718:
 ggmap_bbox <- function(map) {
   if (!inherits(map, "ggmap")) stop("map must be a ggmap object")
   # Extract the bounding box (in lat/lon) from the ggmap to a numeric vector, 
@@ -170,17 +179,145 @@ ggmap_bbox <- function(map) {
   map
 }
 
-# Use the function:
+# Use the function to change the coordinate system of the bounding box:
 map <- ggmap_bbox(map)
 
 p<-ggmap(map)+coord_sf(xlim=c(-76.18,-76.13),ylim=c(-0.63,-0.66),crs=st_crs(32718))+geom_sf(data=tbs_trails,inherit.aes=FALSE)+geom_sf(data=tbs_rio,color="dodgerblue",inherit.aes=FALSE)+geom_sf(data=d,color="light pink",alpha=0.5,inherit.aes=FALSE)
 p
 ```
 
+If you want to take a closer look, you can use the {zoom} package:
 
+```{r,eval=F}
+library(zoom)
+inout.zoom()
+```
 
+Although this is pretty, it's not necessarily helping us with our spatial analysis. To really get into understand the home range of these monkeys, we need to run some spatial statistics.
 
+### Basic Spatial Statistics in ***R***
 
+One interesting piece of data we can extract from our cloud of spider monkeys locations is to get an idea of their home range. There are a few ways to estimate home range in terrestrial mammals:
 
+#### Mimimum Convex Polygon
 
+The minimum convex polygon is, most simply put, drawing a line between each of the most peripheral points, such that a polygon is created that contains all points in the dataset. More epscifically, it is the smallest polygon containing all data points in which no internal angle exceeds 180 degrees. 
+
+This is the method recommended by the International Union for the Conservation of Nature (IUCN) for estimating home range, as it's easy to compute from coordinate data, and is appropriate for presence-only data (i.e., we are not taking into account absences in observation), although it is [not perfect](https://core.ac.uk/download/pdf/14989660.pdf).
+
+***
+
+#### **CHALLENGE 2**
+
+***
+
+<center><p><img src="https://www.mindenpictures.com/cache/pcache2/90160825.jpg" style="border:5px solid black"></p>
+</center><br>
+
+Let's use the package {adehabitatHR} to estimate the home range of this spider monkey group using mimumum convex polygons.
+
+Now, unfortunately, {agehabitatHR} does not yet allow for the use of {sf} objects. To use the spider monkey points in this package, we need to convert them to a *spatial points* object. We can do this by reimporting the dataframe and converting it to an {sp} object rather than an {sf} object:
+```{r}
+#Remember, the variable 'f' is still holding the location of our spider monkey data CSV file:
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/atelesranging.csv")
+e <- read.csv(f, header = TRUE, sep = ",")
+
+#Create a coordinate column, with both your X and Y values:
+
+xy<-e[,c("UTMX","UTMY")]
+
+#Create your Spatial Points dataframe:
+
+library(sp)
+ateles.sp<-SpatialPointsDataFrame(coords=xy,data=e,proj4string=CRS("+proj=utm +zone=18 +south +datum=WGS84 +units=m +no_defs"))
+```
+
+Notice that the coordinate reference system (CRS) call is very different from the ESPG number (which {sp} does not accept). Here's we're defining the projection (UTM), the zone (18), the datum (WGS84), and the units (meters). To learn how to write one of these strings, see [this helpful resource](https://www.earthdatascience.org/courses/earth-analytics/spatial-data-r/understand-epsg-wkt-and-other-crs-definition-file-types/).
+
+Now, unfortunately, {sp} objects are not easily plotted by {ggplot2}, so if we want to see our points on the map to make sure they mapped appropriately, we need to convert them either to a dataframe that `geom_point()` can render, or to an {sf} object. The latter is far easier, so let's take a look:
+
+```{r}
+ateles.sp.sf<-st_as_sf(ateles.sp)
+
+ggplot()+geom_sf(data=tbs_trails)+geom_sf(data=tbs_rio,color="dodgerblue")+geom_sf(data=ateles.sp.sf,color="light pink",alpha=0.5)+theme_bw()
+```
+
+Looks good!  Now we've got our spider monkey data in the right format for {adehabitatHR}. Let's make that minimum convex polygon estimate of the home range:
+
+```{r,warning=F,message=F}
+library(adehabitatHR)
+ateles.mcp<-mcp(ateles.sp, percent = 100)
+ateles.mcp
+```
+
+As you can see, the output is giving us an estimate of the home range area (in this case, 565 meters squared), and there's also a polygon made. Let's take a look at this polygon, laid over our map:
+
+```{r,warning=F,message=F}
+#First, we'll convert our polygon into an {sf} object:
+ateles.mcp<-st_as_sf(ateles.mcp)
+
+#Now, let's map it:
+mcp1<-q+geom_sf(data=ateles.mcp,color="pink",fill="pink",alpha=0.3)
+mcp1
+```
+
+Now, imagine that you think the points east of the trail system are outliers, and may actually represent a different group of monkeys... how do you get rid of them?  You could go back to the original data file and delete them... but then you're actually getting rid of recorded data (which is not a good idea). You could try to modify the {sp} dataframe here in ***R***, but regular {dplyr} and other dataframe 'verbs' don't work on a {sp} dataframe.  Luckily, there's a lovely solution called {spdplyr} that implements {dplyr} verbs in {sp} datasets.
+
+So, to get rid of those points, we would excise points using the `filter` command, in this case, all points that are east of the `UTMX` coordinate `373050`:
+
+```{r}
+library(spdplyr)
+ateles.sp<-
+  ateles.sp %>%
+  filter(UTMX<373050)
+```
+
+Now let's see how that influences our MCP estimate of the home range:
+
+```{r}
+ateles.mcp<-mcp(ateles.sp, percent = 100)
+ateles.mcp<-st_as_sf(ateles.mcp)
+mcp1<-q+geom_sf(data=ateles.mcp,color="pink",fill="pink",alpha=0.3)
+mcp1
+```
+
+#### Kernel Density Estimated Home Range
+
+Another way of estimating the home range is to take into account how *often* certain parts of the home range are used based on the density of observation points in a particular area of that range. Such density estimates assume that the observation points represent a random sample of occupation points that are not biased by observer sampling. We might be wary of this method if, for example, all our observations were on the trail system. Here, however, we do appear to have a relatively unbiased sample.
+
+In this case, we can try to get a *kernel density estimate* of the home range. Kernel density estimates essentially plot a smoothed curve over the density of points in a given geographic area (for an excellent, intuitive visual descriptor of the process, [see this resource](https://mathisonian.github.io/kde/)), which allows us to create a home range based on frequency of use rather than just a presence/absence MCP. Remember: although a kernel density estimator also uses presence data, absence is also considered to be data, as the density of points is a meaningful parameter.
+
+***
+
+#### **CHALLENGE 3**
+
+***
+
+<center><p><img src="https://www.mindenpictures.com/cache/pcache2/00476162.jpg" style="border:5px solid black"></p>
+</center><br>
+
+Let's use the {adehabitatHR} package to estimate the KDE home range!
+
+First, we'll need to implement the kernel smoothing algorithm on our {sp} spider monkey data points. The output of this algorithm will be a density map across the graphical range divided into a grid. This grid will indicate how many spider monkey points are present for each location on a visual scale, smoothed across the entire grid. As often occurs with spatial analysis, it may be easier to show than tell:
+
+```{r,warning=F,message=F}
+library(adehabitatHR)
+ateles_k100<-kernelUD(ateles.sp)
+image(ateles_k100)
+```
+
+In this case, the yellow grid squares are the areas of high density, while the red grid squares are the areas of low density.
+
+Now we can get and plot the 85% home range estimate from the kernel density estimator as a "core" home range, and the 99% to see where the "edge" of their home range falls. What this means is that 85% of our datapoints are falling within the 85% kernel range, while 99% fall into the 99% kernel range. Let's take a look:
+```{r}
+kern99<-getverticeshr(ateles_k100,percent=99)
+kern85<-getverticeshr(ateles_k100,percent=85)
+
+kern99<-st_as_sf(kern99)
+kern85<-st_as_sf(kern85)
+kern<-q+geom_sf(data=kern99,color="pink",fill="pink",alpha=0.3)+geom_sf(data=kern85,color="salmon1",fill="salmon1",alpha=0.3)
+kern
+```
+
+Natural hypotheses to test with such data might include whether kernel density correlates with resource density (i.e., the density of *Ocotea* trees), if kernel density has an inverse relationship with predator presence, or if the 85% KDE home range shifts temporally with seasonal considerations like fruiting season of key resources or the presence of flooded forest areas that protect them from terrestrial predators.
 
