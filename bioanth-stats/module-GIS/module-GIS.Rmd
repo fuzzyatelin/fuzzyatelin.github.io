@@ -1,0 +1,104 @@
+---
+title: "Module GIS"
+output:
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
+---
+
+***
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	fig.path = "img/",
+	warning = FALSE,
+	comment = "##",
+	prompt = FALSE,
+	tidy = TRUE,
+	tidy.opts = list(width.cutoff = 75)
+)
+```
+# GIS and Spatial Analysis in R
+
+***
+
+## Preliminaries
+- Install these packages in ***R***, if you don't have them already: [{adehabitatHR}](https://cran.r-project.org/web/packages/adehabitatHR/vignettes/adehabitatHR.pdf), [{DT}](https://rstudio.github.io/DT/), [{lubridate}](https://lubridate.tidyverse.org/),
+[{maptools}](https://cran.r-project.org/web/packages/maptools/maptools.pdf), [{readxl}](https://readxl.tidyverse.org/), [{rgdal}](https://crantastic.org/packages/rgdal), [{rgeos}](https://cran.rstudio.com/web/packages/rgeos/rgeos.pdf), [{sf}](https://r-spatial.github.io/sf/articles/sf1.html),
+[{sp}](https://cran.r-project.org/web/packages/sp/sp.pdf), [{spatialEco}](https://github.com/jeffreyevans/spatialEco), [{spdplyr}](https://github.com/mdsumner/spdplyr), [{tidyverse}](https://www.tidyverse.org/)
+
+## Objectives
+> In this module, we use R to extend our use of the system to GIS analyses. This module will include working with GIS data to create maps, and to extract data from numerous layers of different data types for spatial analysis. This is a first step, and by no means comprehensive. Remember that R is constantly changing, and the ways and packages by which GIS analyses are being done are changing, too!
+
+## Geographic Information Systems (GIS)
+
+Geographic Information Systems, or GIS, is an analytical framework that can be used to organize, communicate, and better understand landscape-scale datasets. GIS allows users to overlay multiple layers of data that are geographically referenced to the same mapping system, so that those layers can be associated and mutually inform each other. This allows for both the creation of comprehensive maps, and for the integration of diverse datatypes. 
+
+As is fitting for GIS, perhaps the best representation of this is an image:
+
+![](img/gisconcept.png)
+If we added another layer of GPS points with, say, locations where monkeys have been spotted, we can then use spatial analysis techniques to construct statistical models that may help us to better understand how all of the factors in these various layers might influence whether an observer would see a monkey at a particular location. Such data and techniques are typically used in creating landscape-level inferences regarding how organisms are found in the environment. These may include species distribution models, assessments of factors associated with daily ranging paths or presence/absence of species in different habitat types, and estimating home range use patterns. The nature of layer integration has also been helpful for predicting archaeological artefact discovery, analyzing dental enamel imperfections, and other, perhaps less readily intuitive uses.
+
+Historically, GIS analyses have been done primarily using the proprietary [ESRI](https://www.esri.com/en-us/what-is-gis/overview) system of programs, including the excellent ArcGIS, which are a comprehensive suite of GIS analytical tools. There are also open-source GIS frameworks that can be used, including [QGIS](https://qgis.org/en/site/) and [GRASS](https://grass.osgeo.org/), among many others.
+
+The increasing functionality of ***R*** for GIS, however, is providing another powerful option for open-source GIS analyses. In our case, this may be especially appealing, as we've already built some analytical capabilities. Conducting GIS analyses in ***R*** itself allows us to extract data from multiple layers and immediately analyze them using statistical models of our choice. As {ggplot2} and the rest of the {tidyverse} continues to integrate with GIS-style methods, this has become much easier, as well (and prettier!).
+
+In this module, we'll explore some aspects of GIS-based analysis as a base for asking questions about primate ranging and space use.
+
+### Importing Data for Use in GIS
+
+####Projections and Coordinate Systems
+
+For the most part, importing data for GIS analyses is similar to importing data for any other ***R*** analysis, depending on the type of data. To integrate your data with spatial datasets, however, those data must use a common *coordinate system*, and be *projected* into the same geospatial extent as the other data layers with which you're working. Coordinate systems and projections are critically important, as they dictate how commonly marked points align, and the ways in which the 3-dimensional geographic space of the globe are mapped into the 2-dimensional space of a map. To learn more about these systems, [ArcGIS Help](http://resources.arcgis.com/en/help/main/10.1/index.html#/What_are_map_projections/003r00000001000000/) has a great resource. You can also see a list of map projections [here](https://storymaps.arcgis.com/stories/ea0519db9c184d7e84387924c84b703f). For the most part, we'll be working using the Mercator (UTM) projection, shown here:
+
+![](img/mercatorprog.png)
+
+Always keep in mind that the projection is not a *true* representation of the relative size of landmasses on the globe, as these areas exist on a 3-dimensional surface and each projection system distorts those true areas into a 2-dimensional space. The WGS84/UTM coordinates on the Mercator projection is no different. Here's an image that shows the Mercator projection size vs. real size of each country (note that distortion in this projection increases with distance from the equator):
+
+![](img/utm_animation.gif)
+
+We'll also be using the WGS84 or Universal Transverse Mercator (UTM) coordinate systems to map points onto the Mercator projection. The UTM coordinate system maps points within 6-degree longitudinal tiles, or zones, in the Mercator projection. Each zone has a designated letter/number, and the coordinate system essentially counts a 'northing' and 'easting' from the southwest corner of the tile. Knowing your tile is critically important: because of the amplified distortion of the Mercator projection away from the equator, each zone has a slightly different system for accounting for distortion.
+
+You can see the zones here:
+
+![](img/utm_zones.png)
+
+Once you know your UTM zone, it's fairly straightforward to map UTM coordinates into the more commonly used GPS-based coordinate system, WGS84 (although you can set GPS receivers to record data directly in UTM). For example, spider monkey points collected at the [Tiputini Biodiversity Station](https://www.bu.edu/cecb/tiputini/) in Amazonian Ecuador would be mapped to UTM zone 17M. The World Geodetic System 1984 (WGS84) is defined and maintained by the United States National Geospatial-Intelligence Agency, and so is typically the default for U.S. GPS systems.
+
+Remember: if different datasets have different coordinate systems or projections, they won't integrate properly! Imagine trying to map UTM points onto a map using the Azimuthal Equidistant projection! Also remember that these global reference systems are continuously updated, and demarcated into epochs of use. New Zealand, for example, due to tectonic plate movement, shifts 5 cm every year from the designated WGS84 coordinates in that country!
+
+Now, to start, let's import a GPS dataset of interest and start some spatial analyses!
+
+#### EXAMPLE:
+
+Suppose we have been studying a group of white-bellied spider monkeys (*Ateles belzebuth*) for the past few years at the Tiputini Biodiversity Station. While collecting behavioral data, we've also been collecting GPS points and location data from georeferenced markers every 20-minutes throughout the day, and every time we run into them throughout the day. From this data, we're interested in figuring out the size of their home range.
+
+#### **CHALLENGE 1**
+
+Let's explore this question using some actual data. First, load in the dataset "atelesranging.csv" and do some exploratory mapping and data analysis. This is only a little more complicated than how we've been doing it before given the spatial aspect of the data:
+
+```{r}
+library(curl)
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/atelesranging.csv")
+d <- read.csv(f, header = TRUE, sep = ",")
+head(d)
+summary(d)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
