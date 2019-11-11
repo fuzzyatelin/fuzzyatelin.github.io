@@ -1,8 +1,13 @@
 ---
-title: "Module 21"
+title: "Module 20"
 output:
-    html_document
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
 ---
+
+***
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -16,6 +21,8 @@ knitr::opts_chunk$set(
 )
 ```
 # Accessing Web APIs
+
+***
 
 ## Preliminaries
 - Install these packages in ***R***: {twitteR}, {data.table}, {rtweet}, {Rfacebook}, {tm}, {httr}, {jsonlite}
@@ -103,7 +110,7 @@ The `userTimeline()` function can be used to access the most recent tweets of an
 tweets <- userTimeline('Mammals_Suck', n=50)
 head(tweets)
 str(tweets[[1]]) # take a look at the structure of the first tweet (a 'status')
-tweets <- userTimeline('potus', n=100)
+tweets <- userTimeline('RuPaul', n=100)
 length(tweets)
 head(tweets)
 ```
@@ -158,7 +165,8 @@ friends_df
 Here's how we would get a data frame of the friends of a different user...
 
 ```{r}
-ndt_friends <- getUser("neiltyson")$getFriends(n=100)
+library(data.table)
+ndt_friends <- getUser("RuPaul")$getFriends(n=100)
 length(ndt_friends)
 ndt_friends_df = rbindlist(lapply(ndt_friends,as.data.frame))
 ndt_friends_df$name
@@ -228,7 +236,7 @@ head(trends)
 We can also use {twitteR} to search for tweets containing a particular `searchString`. A "+" can be used to combine search terms, and other arguments can be used to limit the set of results.
 
 ```{r}
-wd <- searchTwitter("RuPaul+Drag+Race",lang="en",n=50,since='2017-10-01',geocode='42.3601,-71.0589,1000mi') # only required argument is searchString; since restricts to tweets since a date; geocode restricts to within a set radius of a given lat and long, here, within 1000 miles of Boston, MA
+wd <- searchTwitter("RuPaul+Drag+Race",lang="en",n=50,since='2019-11-01',geocode='42.3601,-71.0589,1000mi') # only required argument is searchString; since restricts to tweets since a date; geocode restricts to within a set radius of a given lat and long, here, within 1000 miles of Boston, MA
 wd <- twListToDF(wd)
 head(wd$text)
 ```
@@ -345,12 +353,14 @@ The {rtweet} [vignette](https://cran.r-project.org/web/packages/rtweet/vignettes
 
 ## Accessing the Facebook GraphAPI from ***R***
 
+**NOTE**: Facebook has become more strict with access to data from their API, and apps that contain more than public profile information must be approved by Facebook.  Review can take up to one week.
+
 * Go to: [https://developers.facebook.com/](https://developers.facebook.com/)
 * Login in, and from the dropdown menu in the upper left corner, select `Add a New App` and create a new app
 
 <img src="img/fbdev.png" width="500px"/>
 
-* Go to `Tools and Support`, choose `GraphApiExplorer` and then press the `Get Token` button
+* Go to `Tools`, choose `GraphApiExplorer` and then press the `Get Token` button
 
 <img src="img/toolsandsupport.png" width="500px"/>
 
@@ -379,7 +389,7 @@ FBtoken <- "[YOUR TOKEN HERE]"
 ```{r echo = FALSE}
 library(Rfacebook)
 
-FBtoken <- "EAACEdEose0cBAFiOwjVDztlbRejX1ns12TZAU6zTSvr9bO35rkxAVI4E3KZBxkB446WZB6IZBaiWVPZAfg4YZA5WAVcQ7IlcQvnqpLwjDSZBOeuCVnZAiqxNfqOnUAxZBusCwGMPdAXqjs6owgrpbGEPXZAeGYZC3VBEz3gIqZCY2ZAEuhlR70gwa1Sdkclex2TH9yrkZD"
+FBtoken <- "EAADmBw9u3zwBABXzF4udOQau4f8IMjumaytzqVIcOoRPE4MrfYW4hBZBmbR1JSxF9HvQfM5Adrk9mY716qeEpcX7bCmeDIoihlXMGvE1SyuOFFu26FQGRrOh1qJySmjX4R0uMet02kBAQAwqZCJnu6i7WwdZB74vbnHidMPd7HRyqVzw1qG2LJNQet1K21A91CeDt9wMkGxrPMZCENEwjlAA0DlnoYK5ZBuIWov3hgQZDZD"
 ```
 
 ```{r}
@@ -387,29 +397,29 @@ me <- getUsers("me", token=FBtoken, private_info = TRUE) # returns my profile in
 me
 ```
 
-The `getLikes()` function returns a list of the URLs I have liked.
+The `getLikes()` function returns a list of the URLs I have liked (since this is not public, we can't access it).
 
-```{r}
+```{r,eval=F}
 mylikes <- getLikes(user="me", token=FBtoken)
 mylikes
 ```
 
-The `searchGroup()` function lets us search for groups using a search string.
+The `searchGroup()` function lets us search for groups using a search string (also now requires explicit permissions).
 
-```{r}
+```{r,eval=F}
 searchGroup("Evolutionary Anthropology",token=FBtoken)
 searchGroup("March For Science",token=FBtoken)
 ```
 
-The `getGroup()` function lets us return posts from a particular public group. 
+The `getGroup()` function lets us return posts from a particular public group (this also now requires explicit permissions). 
 
-```{r}
+```{r,eval=F}
 getGroup(group_id=227055379125, token=FBtoken, n = 10)
 ```
 
-The `searchPages()` function lets us search for public posts using a particular search string.
+The `searchPages()` function lets us search for public posts using a particular search string (this also won't work without permissions).
 
-```{r}
+```{r,eval=F}
 monkeyPages <- searchPages("monkey", token=FBtoken, n = 20)
 monkeyPages$description
 ```
@@ -536,7 +546,7 @@ x
 
 To post pictures to my user node ("me"), we can set the endpoint as the "photos" edge and then include a "body" for our post.
 
-```{r}
+```{r,eval=F}
 endpoint <- "https://graph.facebook.com/v2.8/me/photos"
 query <- paste0("?access_token=",FBtoken)
 request <- paste0(endpoint,query)
@@ -551,9 +561,9 @@ For more information on the Facebook Graph API, following [this link](https://de
 
 ### The Google Maps API
 
-Finally, here's a simple example of using a different API that does not require use of an authorization token. The Google Maps API takes a query string and returns, among other things, location information as latitude and longitude.
+Finally, here's a simple example of using a different API that does not require use of an authorization token. The Google Maps API takes a query string and returns, among other things, location information as latitude and longitude. **NOTE** this also now requires a login - see the [GIS Module](http://fuzzyatelin.github.io/bioanth-stats/module-GIS/module-GIS.html) for more details.
 
-```{r}
+```{r,eval=F}
 # Google Maps AP1 v3
 endpoint <- "https://maps.googleapis.com/maps/api/geocode/json"
 query <- "?address=125+Peterborough+Street,+Boston,+MA" # my old address... no token needed

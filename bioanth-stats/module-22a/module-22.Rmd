@@ -1,8 +1,13 @@
 ---
-title: "Module 22"
+title: "Module 21"
 output:
-    html_document
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
 ---
+
+***
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -16,6 +21,8 @@ knitr::opts_chunk$set(
 )
 ```
 # Basic Text Mining
+
+***
 
 ## Preliminaries
 - Install these packages in ***R***: {tm}, {SnowballC}, {curl}, {ggplot2}, {RColorBrewer}, {Rgraphviz}, {cluster}, {dendextend}, {wordcloud}

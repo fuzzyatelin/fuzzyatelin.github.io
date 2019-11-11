@@ -1,6 +1,6 @@
 ---
 title: 'AN597: Course Modules'
-date: "September 1, 2019"
+date: "November 11, 2019"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -123,20 +123,19 @@ Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day
 ###**Week 12 (2019-11-18)**
 ***
 
-###Module 19 - **An Introduction to Bayesian Methods & Models**
+###[Module 19 - **Introduction to GIS and Spatial Analysis in R**](http://fuzzyatelin.github.io/bioanth-stats/module-GIS/module-GIS.html)
 
-###Module 20 - **Incorporating Phylogenies into Mixed Models**
+###[Module 20 - **Accessing Web APIs**](http://fuzzyatelin.github.io/bioanth-stats/module-21/module-21.html)
+
+###[Module 21 - **Basic Text Mining**](http://fuzzyatelin.github.io/bioanth-stats/module-22a/module-22.html)
 
 ***
 
 ###**Week 13 (2019-11-25)**
 ***
 
-###[Module 21 - **Accessing Web APIs**](http://fuzzyatelin.github.io/bioanth-stats/module-21/module-21.html)
+###Module 22 - **An Introduction to Bayesian Methods & Models**
 
-###[Module 22 - **Basic Text Mining**](http://fuzzyatelin.github.io/bioanth-stats/module-22a/module-22.html)
-
-###Module 23 - **Analyzing Web Data via {spocc}**
 ***
 
 ###Week 14 (2019-12-02)
