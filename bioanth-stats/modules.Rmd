@@ -141,29 +141,42 @@ Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day
 ###Week 14 (2019-12-02)
 ***
 
-###[Module 24 - **Phylogenetic Tree Construction**](http://fuzzyatelin.github.io/bioanth-stats/module-24/module-24.html)
-(Brandon Guell, Isabella Muratore, Danielle Antos)
+###Module 24 - **Discriminant Function Analyses in R**
+(Laura Angley, Laura Brubaker-Whitman, Christian Gagnon, Melissa Zarate)
 
-###[Module 25 - **Cluster Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-25/module-25.html) 
-(Aarti Arora, Andrew Mark, Natalie Robinson, Audrey Tahjadi)
-
-###[Guest Module - **Writing Functions in R**](http://fuzzyatelin.github.io/bioanth-stats/Garrett_Module.html)
-(Dr. Eva Garrett, Department of Anthropology)
+###Module 25 - **Spatial Autocorrelation**
+(Lara Hakam, Greg Pelose, Brenna Stallings)
 
 ***
 
 ###Week 15 (2019-12-09)
 ***
 
-###[Module 26 - **3D Visualization and Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-26/Module-26.html) 
-(Zach Coto, Maria Codlin, Julie Jung)
+###Module 26 - **Population Assignment for Genetic and Morphological Data**
+(Ish Chowdhury, Gianna Grob, C Vega)
 
-###[Module 27 - **Factor Analysis (and MAYBE Principal Components Analysis)**](http://fuzzyatelin.github.io/bioanth-stats/module-27/module-27.html) 
-(Graham Albert, Becca DeCamp, Faye Harwell, Zeynep Senveli)
+###Module 27 = **Managing and Extracting Data from Raster Layers**
+(Nicola Kriefall, Clint Lockwood, Ena Miculinic)
+
+###Module 28 - **Species Distribution Modeling in R**
+(Frank Azorsa Salazar, MaJo Salazar Nicholls, Feiya Wang)
 
 ***
 
-###Optional Module - [**Introduction to Spatial Data Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-22/module-22.html)
+## Previous Student Modules
 
+***
 
+###[**Introduction to Spatial Data Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-22/module-22.html)
 
+###[**Factor Analysis (and MAYBE Principal Components Analysis)**](http://fuzzyatelin.github.io/bioanth-stats/module-27/module-27.html) 
+(Graham Albert, Becca DeCamp, Faye Harwell, Zeynep Senveli; Fall 2017)
+
+###[**3D Visualization and Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-26/Module-26.html) 
+(Zach Coto, Maria Codlin, Julie Jung; Fall 2017)
+
+###[**Cluster Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-25/module-25.html) 
+(Aarti Arora, Andrew Mark, Natalie Robinson, Audrey Tahjadi; Fall 2017)
+
+###[**Phylogenetic Tree Construction**](http://fuzzyatelin.github.io/bioanth-stats/module-24/module-24.html)
+(Brandon Guell, Isabella Muratore, Danielle Antos; Fall 2017)
