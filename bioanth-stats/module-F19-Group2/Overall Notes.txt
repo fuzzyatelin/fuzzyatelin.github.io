@@ -1,0 +1,6 @@
+Folder w/ Modlue Name
+Files/Images/R Markdaon, Knit/ all 
+can include modified dataset that is the output of the analysis
+Think about usability and readability
+
+l

@@ -1,0 +1,30 @@
+---
+title: "Data Creation"
+author: "brennastallings"
+date: "11/4/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Will need a dataset with an x, y, and another attribute
+
+Ill start with 20 points and then add more later
+
+```{r}
+  color<- c("red", "green", "blue")
+  x<- sample(1:100,20,replace=T)
+  y<- sample(1:100,20,replace=T)
+  att<- sample(color, 20, replace=T)  
+data.made<- rbind(x,y,color)  
+#to visulize the data
+attach(data.made)
+plot(x, y, main="Scatterplot Example",
+     xlab="Lat ", ylab="Long ", pch=19)
+
+```
+plot(data.made$x, data.made$y, type=p)
+

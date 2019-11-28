@@ -141,7 +141,7 @@ Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day
 ###Week 14 (2019-12-02)
 ***
 
-###[Module 24 - **Discriminant Function Analyses in R**](http://fuzzyatelin.github.io/bioanth-stats/module-F19-Group1/module-F19-Group1.html)
+###[Module 24 - **Discriminant Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-F19-Group1/module-F19-Group1.html)
 (Laura Angley, Laura Brubaker-Whitman, Christian Gagnon, Melissa Zarate)
 
 ###[Module 25 - **Spatial Autocorrelation**](http://fuzzyatelin.github.io/bioanth-stats/module-F19-Group2/module-F19-Group2.html)

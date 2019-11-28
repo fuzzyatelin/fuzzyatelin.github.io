@@ -1,0 +1,168 @@
+---
+title: "Data Creation"
+author: "brennastallings"
+date: "11/4/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+Folder w/ Modlue Name
+Files/Images/R Markdaon, Knit/ all 
+can include modified dataset that is the output of the analysis
+
+
+Will need a dataset with an x, y, and another attribute
+
+Ill start with 20 points and then add more later
+
+This is for random data
+
+```{r}
+
+#  color<- c("red", "green", "blue")
+#  x<- sample(1:100,20,replace=T)
+#  y<- sample(1:100,20,replace=T)
+#  att<- sample(color, 20, replace=T)  
+#data.made.random<- as.data.frame(rbind(x,y,att) ) 
+#to visulize the data
+#attach(data.made.random)
+#plot(x, y, main="Scatterplot Example",
+#     xlab="Lat ", ylab="Long ", pch=att)
+#write.csv(data.made.random, file="Example_Data_Random")
+```
+
+Random-Way 2
+```{r}
+
+color<- c("1", "2")
+x<- sample(1:100,500,replace=T)
+y<- sample(1:100,500,replace=T)
+att<- sample(color, 20, replace=T)  
+data.made.random<- cbind(x,y,att) 
+#to visulize the data
+
+plot(data.made.random[,1], data.made.random[,2], main="Random Scatterplot Example",
+     xlab="Lat ", ylab="Long ", xlim=c(0, 100), ylim = c(0,100), pch=data.made.random[,3])
+
+write.csv(data.made.random, file="Example_Data_Random")
+```
+
+
+
+
+This is for (hopefully) cluped data. Im going to see if I can make it using sampling distributions. This is clumped regardless of attribute
+```{r}
+for(i in 1:250)
+        # 20 Samples
+        {
+            x1<- rnorm(n=i, mean=30 ,sd=3)
+            y1<- rnorm(n=i, mean=81 ,sd=5)
+        }
+ pt1<- cbind(x1,y1,"1")
+for(i in 1:250)
+        # 20 Samples
+        {
+            x2<- rnorm(n=i, mean=60 ,sd=3)
+            y2<- rnorm(n=i, mean=20 ,sd=6.7)
+}
+ pt2<- cbind(x2,y2,"2")
+
+
+data.made.clumped<- rbind(pt1, pt2) 
+plot(data.made.clumped[,1], data.made.clumped[,2], main="Clumped Scatterplot Example",
+     xlab="Lat ", ylab="Long ", xlim=c(0, 100), ylim = c(0,100), pch=data.made.clumped[,3])
+
+
+write.csv(data.made.clumped, file="Example_Data_Clumped")
+```
+
+Extraclumped Data
+```{r}
+for(i in 1:500)
+        # 20 Samples
+        {
+            x<- rnorm(n=i, mean=40 ,sd=1)
+            y<- rnorm(n=i, mean=81 ,sd=1)
+        }
+
+
+color<- c("1", "2")
+att<- sample(color, 20, replace=T)
+data.made.extraclumped<- cbind(x,y,att) 
+plot(data.made.extraclumped[,1], data.made.extraclumped[,2], main="Very Clumped Scatterplot Example",
+     xlab="Lat ", ylab="Long ", xlim=c(0, 100), ylim = c(0,100), pch=data.made.extraclumped[,3])
+
+
+write.csv(data.made.extraclumped, file="Example_Data_ExtraClumped")
+```
+
+
+
+
+random-8
+normal/uniform-7
+normal/beta-5
+if x or y is </> than, remove, do until 20 numbers
+
+
+Mixed TRY 2
+```{r}
+  x<- sample(1:100,300,replace=T)
+  y<- sample(1:100,300,replace=T)
+  data.made.pt1<- cbind(x,y,att="1")
+
+
+#normal/beta-5 
+  
+for(i in 1:200)
+        # 5 Samples
+        {
+            x<- rnorm(n=i, mean=65, sd=6)
+            y<- rbeta(n=i, 4,2)*100
+        }
+
+data.made.pt3<- cbind(x,y,att="2")
+
+
+data.made.mixed<- rbind(data.made.pt1, data.made.pt2, data.made.pt3)
+
+plot(data.made.mixed[,1], data.made.mixed[,2], main="Mixed Scatterplot Example",
+     xlab="Lat ", ylab="Long ", xlim=c(0, 100), ylim = c(0,100), pch=data.made.mixed[,3])
+
+write.csv(data.made.mixed, file="Example_Data_Mixed")
+
+```
+
+Making a uniform distribution
+```{r}
+x<- seq(0, 100, length.out = 5)
+x <- c(x,x,x,x)
+y<- c(0,0,0,0,0,25,25,25,25,25,50,50,50,50,50,75,75,75,75,75)
+att<- "1"  
+data.made.unif<- cbind(x,y,att)
+plot(data.made.unif[,1], data.made.unif[,2], main="Uniform Scatterplot Example",
+     xlab="Lat ", ylab="Long ", xlim=c(0, 100), ylim = c(0,100), pch=data.made.mixed[,3])
+write.csv(data.made.unif, file="Example_Data_Uniform")
+
+x1<-seq(0,100, length.out=20)
+x1<- rep(x1, times= 25)
+
+
+ys<- seq(0, 96, by = 4)
+var=NULL
+y.1=NULL
+for (i in ys)
+{
+  var<- rep(i, times=20)
+  y.1<- c(y.1,var)
+}
+att<- "1" 
+unif.500<- cbind(x1,y.1, att)
+plot(unif.500[,1], unif.500[,2], main="Uniform Scatterplot Example",
+     xlab="Lat ", ylab="Long ", xlim=c(0, 100), ylim = c(0,100))
+write.csv(unif.500, file="Example_Data_Uniform500")
+
+```
+
