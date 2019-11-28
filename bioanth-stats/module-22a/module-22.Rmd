@@ -30,8 +30,8 @@ knitr::opts_chunk$set(
 > NOTE: Installing {Rgraphviz} may not be straightforward. If you cannot install directly, then run the followoing commands:
 
 ```{r eval = FALSE}
-source("https://bioconductor.org/biocLite.R") # loads a of functions that allows us to access and install Bioconductor packages in addition to CRAN packages
-biocLite("Rgraphviz", suppressUpdates = TRUE) # installs the {Rgraphviz} package and suppresses updating of other packages from Bioconductor
+library(BiocManager) # loads a of functions that allows us to access and install Bioconductor packages in addition to CRAN packages
+BiocManager::install("Rgraphviz") # installs the {Rgraphviz} package and suppresses updating of other packages from Bioconductor
 ```
 
 ## Objectives

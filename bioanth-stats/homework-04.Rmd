@@ -2,8 +2,7 @@
 title: "AN597: Homework 04"
 date: "September 18, 2019"
 output:
-  html_document:
-    theme: cosmo
+  html_document
 ---
 
 ```{r setup, include=FALSE}

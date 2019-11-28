@@ -1,0 +1,516 @@
+---
+title: "AN597 F19 Module: Discriminant Analysis"
+author: "Laura Angley, Laura Brubaker-Wittman, Christian Gagnon, Mel Zarate"
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+    math: mathjax
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Preliminaries
+
+For this module, you will need to install the following packages:
+
+* {curl}
+* {MASS}
+* {candisc}
+* {ggplot2}
+* {klaR}
+* {mvnormtest}
+* {car}
+
+# Objectives
+
+The objective of this module is to introduce **discriminant analysis** in general as well as describe and go through examples using three different types of disriminant analysis: **linear discriminant analysis (LDA)**, **quadratic discriminant analysis (QDA)**, and **canonical discriminant analysis (CDA)**.
+
+# Introduction
+
+### What is Discriminant Analysis?
+**Discriminant analysis** is used when the objective of the assessment of data is to determine the adequacy of classification of data into groups, including a priori groups. This is different than a similar statistical tool, **principal component analysis (PCA)**, which focuses on overall variation in data without regard for a specific grouping of the observations.
+
+In this way, **discriminant analysis** allows us to build *classifiers*, that is, through this type of analysis, we can build a predictive model of group membership that we can then apply to new cases, to see into which group a new case would fall. As opposed to regression techniques, **discriminant analysis** produces group labels, and not a real value as its output.
+
+Furthermore, **discriminant analysis** can be linear or it can fit other curves; it can also be two- or multi-dimensional with either a line or plane separting the categories, depending on the numnber of dimensions. We will see some of the examples of how this works and the kinds of visuals that can be produced as part of this tutorial.
+
+While **discriminant analysis** parallels multiple regression analysis in some ways, one important difference is that regression analysis works with a *continuous dependent variable*, while **discriminant analysis** must use a *discrete dependent variable*.
+
+A simple example of **discriminant analysis** would be to consider the following situation: An academic advisor splits a cohort of students into three groups: *1) those who graduate and do not plan to go on to graduate school*, *2) those who graduate and go on to graduate school*, and *3) those who drop out of college*.  A variety of data could be collected for each group during their time in college, before knowing which group they will fall into at the end. After graduation for that cohort, all the students will fall into one of these categories. **Discriminant analysis** could then be used to determine which variable(s) that were collected work as the best predictors of the students' educational outcomes.
+
+# Linear Discriminant Analysis (LDA)
+
+Just like a **PCA** or other **discriminant analysis**, *the goal is to see if certain qualities can describe a categorical variable*. If so, when we plot these analyses, we should be able to see somewhat clear separation of the categories. **LDA** uses data to divide predictor variables into categorical regions with linear boundaries. Compared to **PCA**, **LDA** orders dimensions based on how much separation each category achieves, maximizing the difference and minimizing the overlap of clusters. 
+
+A **PCA** can be thought of as an “unsupervised” algorithm that ignores class labels and searches for the directions (principal components) that maximize variance. **LDA**, however, can be thought of as “supervised,” computing the directions (linear discriminants) that represent the axes in order to maximize separation between different classes. **LDA** tends to be better to use when there are multiple classes and the number of samples per class is relatively small. Also, in comparison with **QDA**, it is assumed that covariances of independent variables is the same for each class. 
+
+<img src = "https://sebastianraschka.com/images/blog/2014/linear-discriminant-analysis/lda_1.png">
+
+Here we have the blue AND green cluster on the x-axis, so if points in the future behave accordingly to the probability density function, then they should be classified into a single cluster.
+
+The LDA returns and output giving scores that define the weight to how much the variables compose the function. These scores are calculated with this equation: 
+
+
+\[ \delta_i (X) = - \frac{1}{2} \mu_i^T \Sigma^{-1}  X + ln(\pi_i)\]
+
+* $δ$ is the discriminant score for class $i$
+* $X$ is the matrix of independent variables
+* $μ$ is a vector containing the means of each variable for class $i$
+* $Σ$ is the covariance matrix of the variables (assumed to be the same for all classes)
+* $π$ is the prior probability that an observation belongs to class $i$
+
+But why would we ever do this by hand when we have the lovely **lda()** function in the {MASS} ***R*** package?!
+
+<img src = "https://www.lostandfoundnature.com/wp-content/uploads/Blog/Spreadwing_damselfly/Lagothrix-flavicauda-yellow-tailed-woolly-monkey-Andrew-WalmsleyNPC-3-1024x680.jpg">
+
+#### LDA CHALLENGE
+
+Packages we need: 
+```{r}
+library(curl)
+library(MASS)
+library(ggplot2)
+```
+
+We can use the Kamilar and Cooper data set to take a look at how this works. We're going to use the Kamala and Cooper dataset, but, for the sake of simplicity, this dataset only includes the primate families Atelidae, Cebidae, and two genera of Cercopithecidae (macaques and mandrills). The dataset also includes five numeric variables: *mean species brain size*, *mean female brain size*, *mean male body mass*, *mean female body mass*, and *mass dimorphism*. Furthermore, we took out any species within these families that did not have values for any of the variables. Let's load this data in first:
+
+```{r}
+f <- curl("https://raw.githubusercontent.com/laurabw/AN597_GroupProject_LLMC/master/kamcoop.simplified.2.csv")
+d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = TRUE)
+head(d)
+summary(d)
+str(d) # There are 3 different families, this is probably what we will use for the analysis
+plot(d$Family, d$Body_mass_male_mean) #plot mass and male body mass so we can start to see what differences we may be looking for 
+```
+
+This simple boxplot just shows what we will be looking for in the **LDA**; in terms of male body mass, Cercopithecidae and Atelidae are close to one another, but species within Cebidae are a bit smaller. 
+
+Now we're going to look for this difference in body mass (male and female) using an **LDA**. We will do this by simply running the **lda()** function from the {MASS} package. 
+
+```{r}
+kamcoop.lda <- lda(Family ~ Body_mass_male_mean + Body_mass_female_mean, data = d) #categorical dependent variable is family 
+kamcoop.lda
+```
+
+Output gives: group means, LD coefficients (lines that actually discriminate between the variables), prior proabilities of groups (what proportion of the data seemed to be in each group prior to starting), the proportion of trace is the percentage of separation achieved by each discriminant function (91% and 8%).
+
+Now we can generate prediction values based on the LDA function and store it in an object by passing the model through the **predict()** function. The length of the value predicted will be correspond with the length of the processed data.
+
+```{r}
+lda.predict <- predict(kamcoop.lda)
+lda.predict
+```
+ 
+These prediction values can also help us look at the accuracy of the **LDA** by creating a table between the predicted classes (families based off predicted values) and the actual families from the data.  
+ 
+```{r}
+lda.predict.class <- predict(kamcoop.lda,
+                       newdata=d[,c(7,8)]
+                       )$class #find prediction values of class
+lda.predict.class #gives the classifications that are in the predictions
+#determine how well the model fits by comparing predictions to 
+table(lda.predict.class, d[,2])
+``` 
+
+This is a cross-tabulation of the real families and the predicted families. This basically is saying how many "Atelidae" were predicted to be "Atelidae" and so on. Based off of our table, ours is okay but not great. Only 6/12 Atelidae were correctly classified and 6 Cercopithecidae were misclassified as Atelidae. 
+ 
+ 
+### Visualize LDA 
+ 
+One way we can visualize the output of the **LDA** is to plot the predicted linear discriminants for each family on stacked histograms.
+ 
+```{r}
+ldahist(lda.predict$x[,1], g = d$Family)
+ldahist(lda.predict$x[,2], g = d$Family)
+```
+ 
+As we saw earlier, Cercopithecidae has the most variance and is a bit all over the place for the first discriminant. So we can expect that they won't group together that well in a scatter plot. In the second, they all go to the left, so they will all probably overlap a bit in the scatter plot. 
+
+### Making a scatter plot: 
+
+```{r}
+newdata <- data.frame(Family = d[,2], lda = lda.predict$x) #make a dataframe with the familiy names and predicts LDs
+newdata
+library(ggplot2)
+ggplot(newdata) + geom_point(aes(lda.LD1, lda.LD2, colour = Family), size = 2.5)
+```
+
+They are kind of on top of each other, so I'm going to try to add another variable, mass dimorphism, which we can use the same dataset: 
+
+```{r}
+kamcoop.lda.2 <- lda(Family ~ Body_mass_male_mean + Body_mass_female_mean + Mass_Dimorphism, data = d) #categorical dependent variable is family 
+lda.predict.2 <- predict(kamcoop.lda.2)
+lda.predict.2
+newdata.2 <- data.frame(Family = d[,2], lda = lda.predict.2$x) 
+newdata.2 #3 LD because 3 variables?
+library(ggplot2)
+ggplot(newdata.2) + geom_point(aes(lda.LD1, lda.LD2, colour = Family), size = 2.5) 
+```
+
+There is a little bit of differentiation between Cebidae and the other two families. This makes sense because Cebidae includes capuchins and squirrel monkeys, which are pretty small in comparison to atelids and cercopithecids.
+
+### What about brain size???
+
+```{r}
+kamcoop.lda.3 <- lda(Family ~ Brain_Size_Species_Mean, data = d) 
+lda.predict.3 <- predict(kamcoop.lda.3)
+lda.predict.3
+newdata.3 <- data.frame(Family = d[,2], lda = lda.predict.2$x) 
+newdata.3 
+ggplot(newdata.3) + geom_point(aes(lda.LD1, lda.LD2, colour = Family), size = 2.5) 
+```
+
+So with all of these variables, we are able to say that body mass and brain size can describe Cebidae out of these three families, but not the other two because they are too similar. 
+
+# Quadratic Discriminant Analysis (QDA)
+
+Just like ANOVA, **Linear Discriminant Analyses (LDA)** assumes equal variance between our input variables. If the data fails to meet this criteria, observation are more likely to be assigned to the class showing the greatest variability. This type of bias error is the reason the **Quadratic Discriminant Analysis (QDA)** was invented. In other words, **LDA** and **QDA** are both classification techniques, but **QDA** is less conservative by allowing different variance matrices for different classes. Another key difference between **LDA** and **QDA** is that the former assigns a linear classification decision boundary while the later leads to a quadratic decision boundary.
+
+<img src = "https://scikit-learn.org/dev/_images/sphx_glr_plot_lda_qda_0011.png">
+
+
+* Top row: when the covariance matrices are indeed the same in the data, LDA and QDA lead to the same decision boundaries.
+* Bottom row: when the covariance matrices are different, LDA leads to bad performance as its assumption becomes invalid, while QDA performs classification much better.
+
+Both **LDA** and **QDA** can be derived from the same probabilistic models that model the class conditional distribution of the data $P(X|y=k)$ for each class $k$. **QDA** provides an alternative approach by assuming that each class has its own covariance matrix $\Sigma_k$.
+
+In order to calculate the quadratic boundary we use the following equation:
+
+\[\delta_k(x) = \log \pi_k - \frac{1}{2} \log |\Sigma_k| - \frac{1}{2} (x - \mu_k)^T \Sigma_k^{-1} (x - \mu_k)\]
+
+* $δ$ is the discriminant score for class $k$
+* $X$ is the matrix of independent variables
+* $μ$ is a vector containing the means of each variable for class $k$
+* $Σ$ is the covariance matrix of the variables (assumed to be the same for all classes)
+* $π$ is the prior probability that an observation belongs to class $k$
+
+Let's do a little exercise to see how **QDA** can be applied to our simplified Kamilar and Cooper dataset and how it differs from **LDA**.
+
+Packages we need: 
+```{r}
+library(curl)
+library(MASS)
+library(ggplot2)
+library(klaR)
+library(car)
+```
+
+
+### QDA CHALLENGE
+
+Similar to what we did for LDA, we will now try to use QDA to try to determine which variable or combination of variables will give us the best predictor model for which of the three families of primates an individual belongs. Our data was already loaded in earlier in the module but here it is in case you need it again.
+
+```{r}
+f <- curl("https://raw.githubusercontent.com/laurabw/AN597_GroupProject_LLMC/master/kamcoop.simplified.2.csv")
+d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = TRUE)
+```
+
+Now let's take a more expansive look at our data to see if our other variables differ between groups. 
+
+```{r}
+plot(d$Family, d$Body_mass_female_mean, main = "Mean Female Body Mass", ylab = "Body Mass (g)")
+plot(d$Family, d$Brain_Size_Species_Mean, main = "Mean Species Brain Size", ylab = "Brain Size (g)")
+plot(d$Family, d$Brain_Size_Female_Mean, main = "Mean Female Brain Size", ylab = "Brain Size (g)")
+plot(d$Family, d$Mass_Dimorphism, main = "Sexual Dimorphism in Mass", ylab = "Sexual Dimorphism")
+```
+
+Another way we can visualize the variation in our data is by using the **scatterplotMatrix()** function from the {car} package.
+
+```{r}
+scatterplotMatrix(~ Body_mass_male_mean + Body_mass_female_mean + Brain_Size_Species_Mean + Brain_Size_Female_Mean + Mass_Dimorphism| Family, data=d,legend = TRUE,smooth = list(method=gamLine),diagonal = TRUE,plot.points = TRUE)
+```
+
+Most of our variables appear to be noticebly different between families but let's investigate further with **QDA** to see if one is a better predictor than the others. Instead of using the **lda()**, here we need to use the **qda()** function, which is also a function of the {MASS} package. We can start with a model that includes all of our variables and we can simplify later if need be.
+
+```{r}
+kamcoop.qda <- qda(Family ~ Body_mass_male_mean + Body_mass_female_mean + Brain_Size_Species_Mean + Brain_Size_Female_Mean + Mass_Dimorphism, data = d) #categorical dependent variable is family 
+kamcoop.qda
+```
+
+### QDA Partition Plots
+
+Next we can use the **partimat()** function from the {klaR} package which allows us to plot the results of the **QDA**. This will create a figure for every possible combination of two variables from our data. 
+
+```{r}
+partimat(Family ~ Body_mass_male_mean + Body_mass_female_mean + Brain_Size_Species_Mean + Brain_Size_Female_Mean + Mass_Dimorphism, data = d, method="qda")
+```
+
+Think of each of these plots as a different prespective on our data. The different colored regions outline each classification area. Observation that falls within a region is predicted to be from a specific class. The apparent error rate at the top of each figure imforms us about how many observations fall outside their predicted range.
+
+### QDA Predictions
+
+The **predict()** function works identically to the way we used it for **LDA**. We will again use this function to create a confusion matrix for our data.
+
+```{r}
+qda.predict <- predict(kamcoop.qda)
+qda.predict
+```
+
+This doesn't tell us much. Let's create a matrix like we did with **LDA**.
+
+```{r}
+qda.predict.class <- predict(kamcoop.qda,
+                       newdata=d[,c(5,6,7,8,9)]
+                       )$class
+qda.predict.class
+table(qda.predict.class, d[,2])
+``` 
+
+Our model correctly predicted the correct family 100% of the time. This appears to be more accurate than the **LDA** model using mean male and female body mass only. However, we should also test simpler models to see if we get similar results. As we learned this semester, *simpler is better when it comes to modeling!*
+
+Let's test some other modeling options!
+
+Removing Mass_Dimorphism:
+
+```{r}
+kamcoop.qda1 <- qda(Family ~ Body_mass_male_mean + Body_mass_female_mean + Brain_Size_Species_Mean + Brain_Size_Female_Mean, data = d) 
+qda.predict.class1 <- predict(kamcoop.qda1,
+                       newdata=d[,c(5,6,7,8)]
+                       )$class
+qda.predict.class1
+table(qda.predict.class1, d[,2])
+``` 
+
+Still looking good!
+
+Now let's try without Mass_Dimorphism and Brain_Size_Female_Mean:
+
+```{r}
+kamcoop.qda2 <- qda(Family ~ Body_mass_male_mean + Body_mass_female_mean + Brain_Size_Species_Mean, data = d) 
+qda.predict.class2 <- predict(kamcoop.qda2,
+                       newdata=d[,c(5,7,8)]
+                       )$class
+qda.predict.class2
+table(qda.predict.class2, d[,2])
+``` 
+
+Still 100%!
+
+Now we try with just Male and Female body mass:
+
+```{r}
+kamcoop.qda3 <- qda(Family ~ Body_mass_male_mean + Body_mass_female_mean, data = d) 
+qda.predict.class3 <- predict(kamcoop.qda3,
+                       newdata=d[,c(7,8)]
+                       )$class
+qda.predict.class3
+table(qda.predict.class3, d[,2])
+```
+
+And now we see we are starting to lose accuracy.
+
+One more combo just for the sake of being thorough without body mass or sexual dimorphism:
+
+```{r}
+kamcoop.qda4 <- qda(Family ~ Brain_Size_Species_Mean + Brain_Size_Female_Mean, data = d) 
+qda.predict.class4 <- predict(kamcoop.qda4,
+                       newdata=d[,c(5,6)]
+                       )$class
+qda.predict.class4
+table(qda.predict.class4, d[,2])
+```
+
+Not very good!
+
+It looks as though our best and simplest model is:
+
+**Family ~ Body_mass_male_mean + Body_mass_female_mean + Brain_Size_Species_Mean**
+
+As such, we can use this model and **QDA** to predict how an unknown sample should be classified into one of our three Families of primates.
+
+<img src = "https://media.giphy.com/media/12NUbkX6p4xOO4/giphy.gif">
+
+# Canonical Discriminant Analysis (CDA)
+
+**Canonical discriminant analysis (CDA)** is a multivariate statistical technique that identifies differences among groups of treatments (the independent variables) and shows us the relationships between the various (dependent) variables within those groups. **CDA** determines the best way to discriminate the treatment groups from each other using quantitative measurements of all the variables within each group.
+
+Running the **CDA** yields several *uncorrelated* **canonical discriminant functions (CDFs)**. These linear combinations of the variables best separate the original treatment group means relative to within group variation. A lack of correlation between all of the **CDFs** allows each one to pull out a completely new dimension of information from the groups and variables. **CDF1** shows the maximum possible variations among groups, therefore yielding the greatest degree of group differences. **CDF1** and **CDF2** are completely uncorrelated so **CDF2** will reflect differences not shown in **CDF1**. Similarly, **CDF1** and **CDF2** are uncorrelated to **CDF3**, which reflects its own unique differences between groups.
+
+Time to load in some data! To all my true crime lovers out there...
+
+<img src = "https://media.giphy.com/media/9VnK7N0jOB1zBGFrfE/giphy.gif">
+
+Load in the USA Arrests dataset, which shows number of arrests per 100,000 residents for assault, murder, and burglary in each of the 50 US states in 1973 as well as the percentage of residents living in urban areas in each state. (*Note: This dataset has been modified for the purpose of this module.*)
+
+<img src = "https://media.giphy.com/media/Q4r9RDlu5Si0o/giphy.gif">
+
+```{r}
+library(curl)
+df<- curl("https://raw.githubusercontent.com/laurabw/AN597_GroupProject_LLMC/master/USArrests_data_NEW.csv")
+crimes<- read.csv(df, header = T, sep = ",", stringsAsFactors = T)
+head(crimes)
+```
+
+Let's assign our 50 states to 6 different geographical regions for the purpose of this analysis.
+
+```{r}
+crimes$region <- "temp" #creating a new variable name
+
+crimes$region[row(data.frame(levels(crimes$State))) %in% c(7, 8, 19, 20, 21, 29, 30, 32, 38, 39, 45)] <- "Northeast"
+crimes$region[row(data.frame(levels(crimes$State))) %in% c(1, 4, 9, 10, 18, 24, 33, 40, 42, 46, 48)] <- "Southeast"
+crimes$region[row(data.frame(levels(crimes$State))) %in% c(3, 31, 36, 43)] <- "Southwest"
+crimes$region[row(data.frame(levels(crimes$State))) %in% c(5, 6, 12, 26, 28, 37, 44, 47, 50)] <- "West"
+crimes$region[row(data.frame(levels(crimes$State))) %in% c(13, 14, 15, 16, 17, 22, 23, 25, 27, 34, 35, 41, 49)] <- "Midwest"
+crimes$region[row(data.frame(levels(crimes$State))) %in% c(2, 11)] <- "Noncontiguous"
+crimes$region <- as.factor(crimes$region)
+levels(crimes$region)
+```
+
+### Data exploration: What are we looking at?
+
+Let's explore our data a bit and view each variable separately across the 6 regions.
+
+```{r}
+par(mfrow = c(2,2))
+par(xaxt = "n") #this just removes the built in x-axis labels so that we can insert our own and put them on an angle
+lablist<-as.vector(c("MW", "NC", "NE", "SE", "SW", "W")) #our new x-axis labels
+
+plot(data= crimes, Murder ~ region, xlab= "Region")
+axis(1, at=seq(1, 6, by=1), labels = FALSE)
+text(seq(1, 6, by=1), par("usr")[1] - 0.2, labels = lablist, srt = 45, pos = 1, xpd = TRUE) #this code is just for the positioning of our new x-axis labels 
+
+plot(data= crimes, Assault ~ region, xlab= "Region")
+axis(1, at=seq(1, 6, by=1), labels = FALSE)
+text(seq(1, 6, by=1), par("usr")[2] - 0.2, labels = lablist, srt = 45, pos = 1, xpd = TRUE)
+
+plot(data= crimes, UrbanPop ~ region, xlab= "Region")
+axis(1, at=seq(1, 6, by=1), labels = FALSE)
+text(seq(1, 6, by=1), par("usr")[3] - 0.2, labels = lablist, srt = 45, pos = 1, xpd = TRUE)
+
+plot(data= crimes, Burglary ~ region, xlab= "Region")
+axis(1, at=seq(1, 6, by=1), labels = FALSE)
+text(seq(1, 6, by=1), par("usr")[2] - 0.2, labels = lablist, srt = 45, pos = 1, xpd = TRUE)
+```
+
+We should probably test for normality and see what we're working with. Since we have a multivariate dataset, we can use the **Shapiro-Wilk multivariate normality test** (conveniently, there is a built in package for this in the {mvnormtest} package).
+
+Let's create a matrix that has all of our dependent variables:
+
+```{r}
+library(mvnormtest)
+crimes_matrix<- cbind(crimes$Murder, crimes$Assault, crimes$UrbanPop, crimes$Burglary)
+
+#The mshapiro.test() requires that the dependent variables be in rows and the independent variables be in columns, the function t() solves this
+crimes_matrix_t<- t(crimes_matrix)  
+mshapiro.test(crimes_matrix_t)
+```
+
+This p-value from this test is <0.05 which means technically our data is **not** normally distributed. Normality and homogeneity assumptions are not always considered *absolute* prerequisites for **CDA** so for the purpose of this module we will continue with this dataset. However, note that you should try to normalize your data beforehand in most cases! 
+
+### Next Steps: Running a MANOVA
+
+In order to investigate between-group differences of multivariate data, we can use **multivariate analysis of variance**, or **MANOVA**. Remember, ANOVA only looks at 1 response/dependent variable and tests for the difference in means across two or more groups. MANOVA extends this analysis to **several dependent variables** and tests for the difference in two or more vectors of means. For the purpose of the **CDA**, a MANOVA is the most appropriate approach. **CDA** then shows *visual descriptions of differences* between the groups that a simple MANOVA does not.
+
+```{r}
+colnames(crimes_matrix)= c("Murder", "Assault", "Urban Population", "Blurglary") #setting column names in our matrix now will allow for better visualize with our CDA plot
+crimes_manova<- manova(data= crimes, crimes_matrix ~ region)
+summary(crimes_manova)
+```
+
+Great! We can see that there is a significant difference in the means of our variables across the 6 regions. To look at the differences more closely, let's quickly run an ANOVA summary...
+
+```{r}
+summary.aov(crimes_manova)
+```
+
+There is a significant difference in the mean number of murders, assaults, and burglaries across the regions but not in the percentage of people living in urban areas.
+
+### CDA Time!
+
+```{r}
+library(candisc)
+crimes_CDA<- candisc(crimes_manova)
+summary(crimes_CDA)
+```
+
+The **summary()** function with our **CDA** object shows us the standardized canonical coefficients for the first two dimensions across our dependent variables. The canonical coefficients yield relative information on each variable in distinguishing between groups. Each canonical dimension is most strongly influenced by the variable(s) with the **greatest absolute value coefficients**.
+
+We can see that **CDF1** is most strongly influenced by the Murder and Burglary variables while **CDF2** is most strongly influenced by Assault and Burglary.
+
+### Let's plot this sucker!
+
+```{r}
+par(mfrow = c(1,1))
+heplot(crimes_CDA, term = "region") 
+```
+
+Overall, we can see that the mean number of arrests for murder and assault in 1973 is most strongly associated with the southeast region of the United States. Arrests for burglary are most strongly associated with the noncontiguous states, Hawaii and Alaksa. Remember that our ANOVA showed that the percentage of people living in urban areas was not significantly different across the regions. Therefore, there is a weak association of UrbanPop with any of the regions in our **CDA** plot. In addition, the further away variables are from the "Error" circle, the stronger the association. Therefore, we see that the northeast, midwest, and southwest regions are not strongly associated with any of our response variables. 
+
+### CDA CHALLENGE 
+
+<img src = "https://media.giphy.com/media/QxZ0nbcVgMlPlnfZos/giphy.gif">
+
+Load in the built-in R dataset "Wine" in the {candisc} package, which contains the results of a chemical analysis of three types of wine, Barolo, Grignolino, and Barbera (all red wine), grown in a specific area of Italy.
+
+```{r}
+data("Wine")
+head(Wine)
+levels(Wine$Cultivar) #these are the categories of our independent variable... the three types of wine
+```
+
+Since this dataset is also not normally distributed, we are going to use the log transformation of the **most** normally distributed variables: Alcohol, Akalinity of Ash, and Color. 
+
+```{r}
+par(mfrow = c(1,2))
+hist(log(Wine$Alcohol))
+qqnorm(log(Wine$Alcohol))
+
+hist(log(Wine$AlcAsh))
+qqnorm(log(Wine$AlcAsh))
+
+hist(log(Wine$Color))
+qqnorm(log(Wine$Color))
+```
+
+Plot these log transformed variables against the Cultivar variable. 
+
+```{r}
+par(mfrow = c(2,2))
+par(xaxt = "s") #since we removed the x-axis above, we need this code to add them back in
+plot(data = Wine, log(Alcohol) ~ Cultivar) 
+plot(data = Wine, log(AlcAsh) ~ Cultivar)
+plot(data = Wine, log(Color) ~ Cultivar)
+```
+
+Create a log transformed matrix containing these variables. 
+
+```{r}
+wine_matrix<- cbind(Wine$Alcohol, Wine$AlcAsh, Wine$Color)
+log_wine_matrix<- log(wine_matrix) #log transforming the matrix
+```
+
+Name the columns of the matrix and run the appropriate MANOVA to use for this **CDA** analysis. *What does the MANOVA tell us? How can you tell which variables are significantly different across the three types of wine?*
+
+```{r}
+colnames(log_wine_matrix) = c("Alcohol", "Alkalinity of Ash", "Color")
+log_wine_manova<- manova(data = Wine, log_wine_matrix ~ Cultivar)
+summary(log_wine_manova)
+summary.aov(log_wine_manova)
+```
+
+Run the **CDA** and investigate which variables most strongly influence the first two **CDFs**, then plot it. 
+
+```{r}
+log_wine_CDA<- candisc(log_wine_manova)
+summary(log_wine_CDA)
+
+par(mfrow= c(1,1))
+heplot(log_wine_CDA, term = "Cultivar")
+```
+
+Let's add some color!
+
+```{r}
+myColors <- hsv((c(0,120,240) + 80)/360,s = 0.9,v = 0.8,0.7) #creating a vector for the colors
+plot(log_wine_CDA, col = myColors, pch = rep(16,20), xpd = T)
+```
+
+Thanks for joining us! We hope you enjoyed the module and learned a few things about **discriminant analysis!**
+
+<img src = "https://media.giphy.com/media/WQr2txk5iEYUS6Kv3d/giphy.gif">
+
+
