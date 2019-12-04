@@ -1,0 +1,19 @@
+ Analysis Description ( R - assignPOP ver. 1.1.7 )
+ Perform assign.MC() @ 2019-12-02 10:15:28 
+
+ train.inds = 0.33 
+ iterations = 3 
+ Total assignment tests = 3 
+ Data scaled and centerd: FALSE 
+ PCA for dimensionality reduction: TRUE 
+ PC retaining criteria: kaiser-guttman 
+ Machine learning model: svm 
+
+ Input Data (Non-genetics)
+ Number of individuals: 330 
+ Number of non-genetic variables: 4 
+ Number of categorical variables: 0 
+ Number of numeric variable: 4 
+ Number of populations: 9 
+ BM BN CROA FR GR ITCS MAC SICO SP 
+ 46 6 4 87 77 46 10 42 12 
