@@ -152,13 +152,13 @@ Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day
 ###Week 15 (2019-12-09)
 ***
 
-###Module 26 - **Population Assignment for Genetic and Morphological Data**
+###[Module 26 - **Population Assignment for Genetic and Morphological Data**](http://fuzzyatelin.github.io/bioanth-stats/module-F19-Group3/module-F19-Group3.html)
 (Ish Chowdhury, Gianna Grob, C Vega)
 
-###Module 27 = **Managing and Extracting Data from Raster Layers**
+###[Module 27 - **Managing and Extracting Data from Raster Layers**](http://fuzzyatelin.github.io/bioanth-stats/module-F19-Group4/module-F19-Group4.html)
 (Nicola Kriefall, Clint Lockwood, Ena Miculinic)
 
-###Module 28 - **Species Distribution Modeling in R**
+###[Module 28 - **Species Distribution Modeling in R**](http://fuzzyatelin.github.io/bioanth-stats/module-F19-Group5/module-F19-Group5.html)
 (Frank Azorsa Salazar, MaJo Salazar Nicholls, Feiya Wang)
 
 ***
