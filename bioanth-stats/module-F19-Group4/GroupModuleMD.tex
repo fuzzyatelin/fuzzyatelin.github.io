@@ -1,0 +1,336 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Group Module},
+            pdfauthor={Clint Lockwood,},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Group Module}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Clint Lockwood,}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{11/22/2019}
+
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+Within GIS there are multiple different tools to help you understand
+data that you collect about different landscapes. From previous modules
+you would have seen how to create maps to display your statistical
+analysis, or have seen how to identify different clusters and analyze
+significant hot and cold spots. Here we will explore how to take Lidar
+data files to create maps that help you analyze the landscape and
+interpret it to answer important questions. Lidar stands for Light
+Detection and Ranging. It is a surveying/remote sensing method that
+measures distance to a target. It does this by illuminating the target
+with laser light and measuring the reflected light with a sensor.
+Differences in laser return times and wavelengths can then be used to
+make digital 3-D representations. It is commonly used to make
+high-resolution maps, with applications in fields such as archaeology,
+geography, and laser guidance. By being able to analyze landscapes using
+Lidar, we can answer more important/pertinent questions to current
+issues. One example of this is Boston's pledge to being carbon neutral
+by 2050. While this falls under being a civil engineering problem, its
+an excellent example of a different but important application of GIS,
+specifically Lidar uses. One way that Boston can push towards being
+carbon neutral would be by switching to renewable energy sources like
+solar, wind, and hydrologic power. The best places to utilize solar
+power, for example, would be places that have constant uninterrupted
+exposure to sunlight. Using Lidar data to map out the rooftops of
+Boston, we would be able to determine how much solar radiation we can
+obtain. You would accomplish this by mapping out the rooftops and
+overlaying a solar radiation layer (another built in-tool). This would
+in turn help to determine if there would be enough watt hours over the
+course of a year for it to be beneficial to begin transitioning the
+majority, if not all, of Boston's rooftops to being solar paneled. info
+\& data download here:
+\url{https://drive.google.com/file/d/15Tdl4O4dje-7dQgGUciQpTgUza8LUo7Q/view}
+
+\#Import LIDAR data \#\#Download packages ``lidR'' and ``raster''
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#install.packages("lidR")}
+\KeywordTok{library}\NormalTok{(lidR) }\CommentTok{#this one for sure}
+\KeywordTok{library}\NormalTok{(sf)}
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\CommentTok{#library(raster)}
+\CommentTok{#ibrary(rgeos)}
+\CommentTok{#library(mapview)}
+\end{Highlighting}
+\end{Shaded}
+
+\#Get Raw LIDAR data into R \#\#raw LIDAR data The way LIDAR works is by
+emitting laser pulses to reflect from objects both on and above the
+ground surface: vegetation, buildings, bridges, etc. Any emitted laser
+pulse that encounters multiple reflection surfaces as it travels toward
+the ground is split into as many returns as there are reflective
+surfaces.
+
+\begin{itemize}
+\item
+  The first returned laser pulse is the most significant return and will
+  be associated with the highest feature in the landscape like a treetop
+  or the top of a building. The first return can also represent the
+  ground, in which case only one return will be detected by the lidar
+  system.
+\item
+  Multiple returns are capable of detecting the elevations of several
+  objects within the laser footprint of an outgoing laser pulse. The
+  intermediate returns, in general, are used for vegetation structure,
+  and the last return for bare-earth terrain models.
+\item
+  The last return will not always be from a ground return. For example,
+  consider a case where a pulse hits a thick branch on its way to the
+  ground and the pulse does not actually reach the ground. In this case,
+  the last return is not from the ground but from the branch that
+  reflected the entire laser pulse.
+\end{itemize}
+
+\#\#lidR package function**
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{setwd}\NormalTok{(}\StringTok{"C:/Users/clint/Desktop/Lab4_Data"}\NormalTok{)}
+\NormalTok{las1 <-}\StringTok{ }\KeywordTok{readLAS}\NormalTok{(}\StringTok{"USGS_LPC_MA_Sndy_CMPG_2013_19TCG255905_LAS_2015.las"}\NormalTok{)}
+\NormalTok{las2 <-}\StringTok{ }\KeywordTok{readLAS}\NormalTok{(}\StringTok{"USGS_LPC_MA_Sndy_CMPG_2013_19TCG270905_LAS_2015.las"}\NormalTok{)}
+\CommentTok{#nk:}
+\CommentTok{#las1 <- readLAS("~/Downloads/Lab4_Data/USGS_LPC_MA_Sndy_CMPG_2013_19TCG255905_LAS_2015/USGS_LPC_MA_Sndy_CMPG_2013_19TCG255905_LAS_2015.las")}
+\CommentTok{#las2 <- readLAS("~/Downloads/Lab4_Data/USGS_LPC_MA_Sndy_CMPG_2013_19TCG270905_LAS_2015/USGS_LPC_MA_Sndy_CMPG_2013_19TCG270905_LAS_2015.las")}
+
+\CommentTok{# Uses the raster package to combine raster images}
+\NormalTok{las <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(las1, las2)}
+\KeywordTok{plot}\NormalTok{(las) }\CommentTok{#30 seconds}
+\end{Highlighting}
+\end{Shaded}
+
+\#Transition LIDAR data to DEM*
+
+\#What is DEM? Why do we need it?* DEM stands for Digital Elevation
+Model. This is a 3D CG representation of a terrain's surface created
+from a terrain's elevation data. Things like power lines, buildings and
+towers or trees and other vegetation aren't included in the model. It
+filters out what are known as ``non-ground points''. Another way to
+think of it is an image containing only the topography from the ground
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dem <-}\StringTok{  }\KeywordTok{grid_terrain}\NormalTok{(las, }\DataTypeTok{algorithm =} \KeywordTok{tin}\NormalTok{())}
+\KeywordTok{plot}\NormalTok{(dem) }\CommentTok{# 1.5 min}
+\end{Highlighting}
+\end{Shaded}
+
+\#Convert to DSM + create hillshade model \#\#What is DSM? Why do we
+need it? DSM stands for Digital Surface Model. Unlike the DEM, the DSM
+DOES include man-made/built and natural points of reference into its
+representation. Another way to think of it is an image including the
+first return information. \#\#What is hillshade? Why do we need it? How
+is it made?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{proj4string}\NormalTok{(las) <-}\KeywordTok{CRS}\NormalTok{(}\StringTok{"+proj=utm +zone=19 +datum=NAD83"}\NormalTok{) }\CommentTok{#assigning coord ref system}
+\NormalTok{dsm1 <-}\StringTok{ }\KeywordTok{grid_canopy}\NormalTok{(las, }\DataTypeTok{res =} \DecValTok{1}\NormalTok{, }\KeywordTok{dsmtin}\NormalTok{())}
+\NormalTok{col <-}\StringTok{ }\KeywordTok{height.colors}\NormalTok{(}\DecValTok{100}\NormalTok{) }\CommentTok{#how many colors to use, the more colors the better resolution in the plot}
+\KeywordTok{plot}\NormalTok{(dsm1, }\DataTypeTok{col =}\NormalTok{ col)}
+\end{Highlighting}
+\end{Shaded}
+
+\#Elaborate Hillshade. What is it? How is is made?*
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{slope  <-}\StringTok{ }\KeywordTok{terrain}\NormalTok{(dsm1, }\DataTypeTok{opt=}\StringTok{'slope'}\NormalTok{)}
+\NormalTok{aspect <-}\StringTok{ }\KeywordTok{terrain}\NormalTok{(dsm1, }\DataTypeTok{opt=}\StringTok{'aspect'}\NormalTok{)}
+\NormalTok{hill <-}\StringTok{ }\KeywordTok{hillShade}\NormalTok{(slope, aspect, }\DecValTok{45}\NormalTok{, }\DecValTok{120}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(hill, }\DataTypeTok{col=}\KeywordTok{grey}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{100}\OperatorTok{/}\DecValTok{100}\NormalTok{), }\DataTypeTok{legend=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{main=}\StringTok{'Boston University'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(dsm1, }\DataTypeTok{col=}\KeywordTok{rainbow}\NormalTok{(}\DecValTok{25}\NormalTok{, }\DataTypeTok{alpha=}\FloatTok{0.35}\NormalTok{),}\DataTypeTok{add=}\OtherTok{TRUE}\NormalTok{) }\CommentTok{# 2 min}
+\end{Highlighting}
+\end{Shaded}
+
+\#Add Boston Univeristy rooftop shapefile \#Elaborate shapefile
+description*
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{BU_buildings_shp <-}\StringTok{ }\KeywordTok{st_read}\NormalTok{(}\StringTok{"building_structures_bu.shp"}\NormalTok{)}
+\NormalTok{BU_buildings <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_sf}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ BU_buildings_shp, }\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{color =} \StringTok{"black"}\NormalTok{, }\DataTypeTok{fill =} \StringTok{"cyan1"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"BU Buildings"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{coord_sf}\NormalTok{()}
+\KeywordTok{plot}\NormalTok{(BU_buildings) }\CommentTok{# 5 sec}
+\end{Highlighting}
+\end{Shaded}
+
+\#Plot Building Vector File on Raster
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#This projects the BU rooftop shape file correctly with the hillshade raster image}
+\NormalTok{dsm2 <-}\StringTok{ }\KeywordTok{projectRaster}\NormalTok{(dsm1, }\DataTypeTok{crs =} \KeywordTok{crs}\NormalTok{(BU_buildings))}
+\NormalTok{dsm3 <-}\StringTok{ }\KeywordTok{crop}\NormalTok{(dsm2, BU_buildings) }\CommentTok{#there are 16 different options instead of "2" here, not sure which one we want}
+
+\NormalTok{hill2 <-}\StringTok{ }\KeywordTok{projectRaster}\NormalTok{(hill, }\DataTypeTok{crs =} \KeywordTok{crs}\NormalTok{(BU_buildings))}
+\NormalTok{hill3 <-}\StringTok{ }\KeywordTok{crop}\NormalTok{(hill2, BU_buildings) }\CommentTok{#there are 16 different options instead of "2" here, not sure which one we want}
+
+\KeywordTok{plot}\NormalTok{(hill3, }\DataTypeTok{col=}\KeywordTok{grey}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{100}\OperatorTok{/}\DecValTok{100}\NormalTok{), }\DataTypeTok{legend=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{main =}\StringTok{'Boston University'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(BU_buildings,}\DataTypeTok{add=}\OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(dsm3,}\DataTypeTok{col=}\KeywordTok{rainbow}\NormalTok{(}\DecValTok{25}\NormalTok{, }\DataTypeTok{alpha=}\FloatTok{0.35}\NormalTok{),}\DataTypeTok{add=}\OtherTok{TRUE}\NormalTok{) }\CommentTok{# 30 sec}
+\end{Highlighting}
+\end{Shaded}
+
+\#Outdated script \#Get a processed DSM file into R
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dsm <-}\StringTok{ }\KeywordTok{raster}\NormalTok{(}\StringTok{"bu_dsm.tif"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(dsm)}
+\end{Highlighting}
+\end{Shaded}
+
+\#Create a hillshade from DSM
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{slope  <-}\StringTok{ }\KeywordTok{terrain}\NormalTok{(dsm, }\DataTypeTok{opt=}\StringTok{'slope'}\NormalTok{)}
+\NormalTok{aspect <-}\StringTok{ }\KeywordTok{terrain}\NormalTok{(dsm, }\DataTypeTok{opt=}\StringTok{'aspect'}\NormalTok{)}
+\NormalTok{hill <-}\StringTok{ }\KeywordTok{hillShade}\NormalTok{(slope, aspect, }\DecValTok{45}\NormalTok{, }\DecValTok{120}\NormalTok{)}
+\KeywordTok{quartz}\NormalTok{()}
+\KeywordTok{plot}\NormalTok{(hill, }\DataTypeTok{col=}\KeywordTok{grey}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{100}\OperatorTok{/}\DecValTok{100}\NormalTok{), }\DataTypeTok{legend=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{main=}\StringTok{'Boston University'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(dsm1, }\DataTypeTok{col=}\KeywordTok{rainbow}\NormalTok{(}\DecValTok{25}\NormalTok{, }\DataTypeTok{alpha=}\FloatTok{0.35}\NormalTok{), }\DataTypeTok{add=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\#unaligned raster + vector file
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(hill, }\DataTypeTok{col=}\KeywordTok{grey}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{100}\OperatorTok{/}\DecValTok{100}\NormalTok{), }\DataTypeTok{legend=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{main =}\StringTok{'Boston University'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(BU_buildings,}
+     \DataTypeTok{add =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(dsm1, }\DataTypeTok{col=}\KeywordTok{rainbow}\NormalTok{(}\DecValTok{25}\NormalTok{, }\DataTypeTok{alpha=}\FloatTok{0.35}\NormalTok{), }\DataTypeTok{add=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xml:lang="en"><Esri><CreaDate>20180930</CreaDate><CreaTime>23011800</CreaTime><ArcGISFormat>1.0</ArcGISFormat><ArcGISstyle>FGDC CSDGM Metadata</ArcGISstyle><SyncOnce>FALSE</SyncOnce><DataProperties><itemProps><itemName Sync="TRUE">building_structures_subset</itemName><imsContentType Sync="TRUE">002</imsContentType><nativeExtBox><westBL Sync="TRUE">35547.197200</westBL><eastBL Sync="TRUE">330581.911000</eastBL><southBL Sync="TRUE">777773.437600</southBL><northBL Sync="TRUE">959729.762900</northBL><exTypeCode Sync="TRUE">1</exTypeCode></nativeExtBox><itemLocation><linkage Sync="TRUE">file://\\DESKTOP-Q0LF2OK\D$\GE505_lab_data\lab4\building_structures_subset.shp</linkage><protocol Sync="TRUE">Local Area Network</protocol></itemLocation><itemSize Sync="TRUE">0.000</itemSize></itemProps><coordRef><type Sync="TRUE">Projected</type><geogcsn Sync="TRUE">GCS_North_American_1983</geogcsn><projcsn Sync="TRUE">NAD_1983_StatePlane_Massachusetts_Mainland_FIPS_2001</projcsn><peXml Sync="TRUE">&lt;ProjectedCoordinateSystem xsi:type='typens:ProjectedCoordinateSystem' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:typens='http://www.esri.com/schemas/ArcGIS/10.6'&gt;&lt;WKT&gt;PROJCS[&amp;quot;NAD_1983_StatePlane_Massachusetts_Mainland_FIPS_2001&amp;quot;,GEOGCS[&amp;quot;GCS_North_American_1983&amp;quot;,DATUM[&amp;quot;D_North_American_1983&amp;quot;,SPHEROID[&amp;quot;GRS_1980&amp;quot;,6378137.0,298.257222101]],PRIMEM[&amp;quot;Greenwich&amp;quot;,0.0],UNIT[&amp;quot;Degree&amp;quot;,0.0174532925199433]],PROJECTION[&amp;quot;Lambert_Conformal_Conic&amp;quot;],PARAMETER[&amp;quot;False_Easting&amp;quot;,200000.0],PARAMETER[&amp;quot;False_Northing&amp;quot;,750000.0],PARAMETER[&amp;quot;Central_Meridian&amp;quot;,-71.5],PARAMETER[&amp;quot;Standard_Parallel_1&amp;quot;,41.71666666666667],PARAMETER[&amp;quot;Standard_Parallel_2&amp;quot;,42.68333333333333],PARAMETER[&amp;quot;Latitude_Of_Origin&amp;quot;,41.0],UNIT[&amp;quot;Meter&amp;quot;,1.0],AUTHORITY[&amp;quot;EPSG&amp;quot;,26986]]&lt;/WKT&gt;&lt;XOrigin&gt;-36530900&lt;/XOrigin&gt;&lt;YOrigin&gt;-28803200&lt;/YOrigin&gt;&lt;XYScale&gt;122610652.81195112&lt;/XYScale&gt;&lt;ZOrigin&gt;-100000&lt;/ZOrigin&gt;&lt;ZScale&gt;10000&lt;/ZScale&gt;&lt;MOrigin&gt;-100000&lt;/MOrigin&gt;&lt;MScale&gt;10000&lt;/MScale&gt;&lt;XYTolerance&gt;0.001&lt;/XYTolerance&gt;&lt;ZTolerance&gt;0.001&lt;/ZTolerance&gt;&lt;MTolerance&gt;0.001&lt;/MTolerance&gt;&lt;HighPrecision&gt;true&lt;/HighPrecision&gt;&lt;WKID&gt;26986&lt;/WKID&gt;&lt;LatestWKID&gt;26986&lt;/LatestWKID&gt;&lt;/ProjectedCoordinateSystem&gt;</peXml><csUnits Sync="TRUE">Linear Unit: Meter (1.000000)</csUnits></coordRef><lineage><Process ToolSource="c:\program files (x86)\arcgis\desktop10.4\ArcToolbox\Toolboxes\Analysis Tools.tbx\Select" Date="20171002" Time="114835">Select "Database Connections\GISDATA_VW_DC.sde\GISDATA.STRUCTURES_POLY" E:\MassGIS\mtrust\structures\for_web\structures_poly_49.shp "TOWN_ID = 49 OR TOWN_ID2 = 49 OR TOWN_ID3 = 49"</Process><Process ToolSource="c:\program files (x86)\arcgis\desktop10.4\ArcToolbox\Toolboxes\Data Management Tools.tbx\DeleteField" Date="20171002" Time="114838">DeleteField E:\MassGIS\mtrust\structures\for_web\structures_poly_49.shp ARCHIVED;ARCHIVEDAT</Process><Process ToolSource="d:\program files (x86)\arcgis\desktop10.6\ArcToolbox\Toolboxes\Data Management Tools.tbx\Merge" Date="20180930" Time="225719">Merge structures_poly_49;structures_poly_46;structures_poly_35 D:\GE505_lab_data\lab4\building_structures_subset.shp "STRUCT_ID "STRUCT_ID" true true false 20 Text 0 0 ,First,#,structures_poly_49,STRUCT_ID,-1,-1,structures_poly_46,STRUCT_ID,-1,-1,structures_poly_35,STRUCT_ID,-1,-1;SOURCE "SOURCE" true true false 100 Text 0 0 ,First,#,structures_poly_49,SOURCE,-1,-1,structures_poly_46,SOURCE,-1,-1,structures_poly_35,SOURCE,-1,-1;SOURCETYPE "SOURCETYPE" true true false 20 Text 0 0 ,First,#,structures_poly_49,SOURCETYPE,-1,-1,structures_poly_46,SOURCETYPE,-1,-1,structures_poly_35,SOURCETYPE,-1,-1;SOURCEDATE "SOURCEDATE" true true false 10 Long 0 10 ,First,#,structures_poly_49,SOURCEDATE,-1,-1,structures_poly_46,SOURCEDATE,-1,-1,structures_poly_35,SOURCEDATE,-1,-1;SOURCEDATA "SOURCEDATA" true true false 50 Text 0 0 ,First,#,structures_poly_49,SOURCEDATA,-1,-1,structures_poly_46,SOURCEDATA,-1,-1,structures_poly_35,SOURCEDATA,-1,-1;MOVED "MOVED" true true false 1 Text 0 0 ,First,#,structures_poly_49,MOVED,-1,-1,structures_poly_46,MOVED,-1,-1,structures_poly_35,MOVED,-1,-1;AREA_SQ_FT "AREA_SQ_FT" true true false 19 Double 0 0 ,First,#,structures_poly_49,AREA_SQ_FT,-1,-1,structures_poly_46,AREA_SQ_FT,-1,-1,structures_poly_35,AREA_SQ_FT,-1,-1;TOWN_ID "TOWN_ID" true true false 5 Long 0 5 ,First,#,structures_poly_49,TOWN_ID,-1,-1,structures_poly_46,TOWN_ID,-1,-1,structures_poly_35,TOWN_ID,-1,-1;TOWN_ID2 "TOWN_ID2" true true false 5 Long 0 5 ,First,#,structures_poly_49,TOWN_ID2,-1,-1,structures_poly_46,TOWN_ID2,-1,-1,structures_poly_35,TOWN_ID2,-1,-1;TOWN_ID3 "TOWN_ID3" true true false 5 Long 0 5 ,First,#,structures_poly_49,TOWN_ID3,-1,-1,structures_poly_46,TOWN_ID3,-1,-1,structures_poly_35,TOWN_ID3,-1,-1;LOCAL_ID "LOCAL_ID" true true false 25 Text 0 0 ,First,#,structures_poly_49,LOCAL_ID,-1,-1,structures_poly_46,LOCAL_ID,-1,-1,structures_poly_35,LOCAL_ID,-1,-1;EDIT_DATE "EDIT_DATE" true true false 8 Text 0 0 ,First,#,structures_poly_49,EDIT_DATE,-1,-1,structures_poly_46,EDIT_DATE,-1,-1,structures_poly_35,EDIT_DATE,-1,-1;EDIT_BY "EDIT_BY" true true false 12 Text 0 0 ,First,#,structures_poly_49,EDIT_BY,-1,-1,structures_poly_46,EDIT_BY,-1,-1,structures_poly_35,EDIT_BY,-1,-1;COMMENTS "COMMENTS" true true false 150 Text 0 0 ,First,#,structures_poly_49,COMMENTS,-1,-1,structures_poly_46,COMMENTS,-1,-1,structures_poly_35,COMMENTS,-1,-1;SHAPE_AREA "SHAPE_AREA" true true false 19 Double 0 0 ,First,#,structures_poly_49,SHAPE_AREA,-1,-1,structures_poly_46,SHAPE_AREA,-1,-1,structures_poly_35,SHAPE_AREA,-1,-1;SHAPE_LEN "SHAPE_LEN" true true false 19 Double 0 0 ,First,#,structures_poly_49,SHAPE_LEN,-1,-1,structures_poly_46,SHAPE_LEN,-1,-1,structures_poly_35,SHAPE_LEN,-1,-1"</Process></lineage></DataProperties><SyncDate>20180930</SyncDate><SyncTime>22562800</SyncTime><ModDate>20180930</ModDate><ModTime>22562800</ModTime><ArcGISProfile>FGDC</ArcGISProfile><scaleRange><minScale>150000000</minScale><maxScale>5000</maxScale></scaleRange></Esri><dataIdInfo><envirDesc Sync="TRUE"> Version 6.2 (Build 9200) ; Esri ArcGIS 10.6.0.8321</envirDesc><dataLang><languageCode value="eng" country="USA"/><countryCode value="eng"/></dataLang><idCitation xmlns=""><resTitle Sync="FALSE">Building Structures (2-D, from Ortho Imagery)</resTitle><presForm xmlns=""><PresFormCd value="005"/></presForm><citRespParty xmlns=""><rpIndName>Michael Trust</rpIndName><rpOrgName>MassGIS</rpOrgName><rpPosName>Sr. GIS Database Administrator</rpPosName><rpCntInfo xmlns=""><cntAddress addressType=""><delPoint>One Ashburton Place, Room 819</delPoint><city>Boston</city><adminArea>MA</adminArea><postCode>02108</postCode><eMailAdd>michael.trust@state.ma.us</eMailAdd><country>USA</country></cntAddress><cntPhone><voiceNum tddtty="">617-619-5615</voiceNum></cntPhone></rpCntInfo><role><RoleCd value="006"/></role></citRespParty><date><pubDate>2014-05-09T00:00:00</pubDate><reviseDate>2017-05-22T00:00:00</reviseDate></date></idCitation><descKeys><thesaName uuidref="723f6998-058e-11dc-8314-0800200c9a66"/><keyword Sync="TRUE">002</keyword></descKeys><spatRpType><SpatRepTypCd value="001"/></spatRpType><dataExt xmlns=""><geoEle xmlns=""><GeoBndBox esriExtentType="search"><westBL Sync="TRUE">-73.512718</westBL><eastBL Sync="TRUE">-69.901714</eastBL><northBL Sync="TRUE">42.888192</northBL><southBL Sync="TRUE">41.233024</southBL><exTypeCode Sync="TRUE">1</exTypeCode></GeoBndBox></geoEle></dataExt><idPurp>Two-dimensional roofprints of buildings (structures) throughout Massachusetts, originally interpreted from 2011-2012 ortho imagery. The data are being updated for changes based on newer aerial imagery.</idPurp><idAbs>&lt;DIV STYLE="text-align:Left;"&gt;&lt;DIV&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;This dataset consists of 2-dimensional roof outlines ("roofprints") for all buildings larger than 150 square feet, as interpreted by a contractor (Rolta) for the whole area of the Commonwealth using DigitalGlobe ortho images obtained in 2011 and 2012, supplemented with LiDAR (Light Detection And Ranging) data collected from 2002 to 2011 for the eastern half of the state. &lt;/SPAN&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN&gt;The roofprints as delivered were enhanced by MassGIS using Normalized Digital Surface Models (NDSMs) derived from the same LiDAR data. Other layers were used, including the Level 3 Parcels, to aid in review, especially where LiDAR data were not available.&lt;/SPAN&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN&gt;This feature class is being updated using ortho imagery captured in 2013, 2014 and 2015. The newer imagery allows MassGIS staff to remove, modify and add structures to keep up with more current ground conditions. Structures from the original compilation that are removed are stored in an "archive" feature class for edit tracking and historical purposes.&lt;/SPAN&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN STYLE="font-weight:bold;"&gt;Last updated on 5/22/2017.&lt;/SPAN&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN&gt;In ArcSDE the layer is named STRUCTURES_POLY.&lt;/SPAN&gt;&lt;/P&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/DIV&gt;</idAbs><idCredit>Rolta, MassGIS</idCredit><searchKeys><keyword>Buildings</keyword><keyword>Structures</keyword><keyword>Roofprints</keyword><keyword>Footprints</keyword></searchKeys><resConst xmlns=""><Consts xmlns=""><useLimit>&lt;DIV STYLE="text-align:Left;"&gt;&lt;DIV&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;None&lt;/SPAN&gt;&lt;/P&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/DIV&gt;</useLimit></Consts></resConst><resMaint xmlns=""><maintFreq><MaintFreqCd value="012"/></maintFreq><usrDefFreq><duration>MassGIS maintains this layer. Data from municipal or other sources may replace features in this dataset as they become available.</duration></usrDefFreq><maintScp><ScopeCd value="009"/></maintScp><maintCont xmlns=""><rpIndName>Michael Trust</rpIndName><rpOrgName>MassGIS</rpOrgName><rpPosName>Sr. GIS Database Administrator</rpPosName><rpCntInfo xmlns=""><cntAddress addressType=""><delPoint>One Ashburton Place, Room 819</delPoint><city>Boston</city><adminArea>MA</adminArea><postCode>02108</postCode><eMailAdd>michael.trust@state.ma.us</eMailAdd><country>USA</country></cntAddress><cntPhone><voiceNum tddtty="">617-619-5615</voiceNum></cntPhone></rpCntInfo><role><RoleCd value="006"/></role><displayName>Michael Trust</displayName></maintCont></resMaint><dataChar><CharSetCd value="004"/></dataChar><idStatus><ProgCd value="004"/></idStatus><idPoC xmlns=""><rpIndName>Michael Trust</rpIndName><rpOrgName>MassGIS</rpOrgName><rpPosName>Sr. GIS Database Administrator</rpPosName><rpCntInfo xmlns=""><cntAddress addressType=""><delPoint>One Ashburton Place, Room 819</delPoint><city>Boston</city><adminArea>MA</adminArea><postCode>02108</postCode><eMailAdd>michael.trust@state.ma.us</eMailAdd><country>USA</country></cntAddress><cntPhone><voiceNum tddtty="">617-619-5615</voiceNum></cntPhone></rpCntInfo><role><RoleCd value="006"/></role><displayName>Michael Trust</displayName></idPoC></dataIdInfo><mdLang><languageCode value="eng"/><countryCode value="USA" Sync="TRUE"/></mdLang><distInfo xmlns=""><distFormat xmlns=""><formatName Sync="TRUE">Shapefile</formatName><formatVer>ArcGIS 10</formatVer></distFormat><distributor xmlns=""><distorCont xmlns=""><rpOrgName>MassGIS</rpOrgName><rpCntInfo xmlns=""><cntAddress addressType="both"><delPoint>One Ashburton Place, Room 1601</delPoint><city>Boston</city><adminArea>MA</adminArea><postCode>02108</postCode><country>USA</country></cntAddress><cntPhone><voiceNum tddtty="">617-619-5611</voiceNum></cntPhone></rpCntInfo><role><RoleCd value="005"/></role></distorCont><distorFormat xmlns=""><formatName>Shapefile</formatName><formatVer>ArcGIS 10</formatVer></distorFormat><distorOrdPrc xmlns=""><ordInstr>Visit http://www.mass.gov/itd/structures.html</ordInstr></distorOrdPrc></distributor><distTranOps><transSize Sync="TRUE">0.000</transSize></distTranOps></distInfo><mdHrLv><ScopeCd value="005"/></mdHrLv><mdHrLvName Sync="TRUE">dataset</mdHrLvName><refSysInfo><RefSystem><refSysID><identCode code="26986"/><idCodeSpace Sync="TRUE">EPSG</idCodeSpace><idVersion Sync="TRUE">2.1(3.0.1)</idVersion></refSysID></RefSystem></refSysInfo><spdoinfo><direct>Vector</direct><ptvctinf><esriterm Name="building_structures_subset"><efeatyp Sync="TRUE">Simple</efeatyp><efeageom code="4" Sync="TRUE"></efeageom><esritopo Sync="TRUE">FALSE</esritopo><efeacnt Sync="TRUE">0</efeacnt><spindex Sync="TRUE">FALSE</spindex><linrefer Sync="TRUE">FALSE</linrefer></esriterm></ptvctinf></spdoinfo><spatRepInfo><VectSpatRep><geometObjs Name="building_structures_subset"><geoObjTyp><GeoObjTypCd value="002" Sync="TRUE"></GeoObjTypCd></geoObjTyp><geoObjCnt Sync="TRUE">0</geoObjCnt></geometObjs><topLvl><TopoLevCd value="001" Sync="TRUE"></TopoLevCd></topLvl></VectSpatRep></spatRepInfo><eainfo><detailed Name="building_structures_subset" xmlns=""><enttyp><enttypl Sync="TRUE">building_structures_subset</enttypl><enttypt Sync="TRUE">Feature Class</enttypt><enttypc Sync="TRUE">0</enttypc><enttypd>A collection of geographic features with the same geometry type (such as point, line, or polygon), the same attributes, and the same spatial reference.</enttypd><enttypds>ESRI</enttypds></enttyp><attr><attrlabl Sync="TRUE">FID</attrlabl><attalias Sync="TRUE">FID</attalias><attrtype Sync="TRUE">OID</attrtype><attwidth Sync="TRUE">4</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef Sync="TRUE">Internal feature number.</attrdef><attrdefs Sync="TRUE">Esri</attrdefs><attrdomv><udom Sync="TRUE">Sequential unique whole numbers that are automatically generated.</udom></attrdomv></attr><attr xmlns=""><attrlabl Sync="TRUE">STRUCT_ID</attrlabl><attalias Sync="TRUE">STRUCT_ID</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">20</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef>Unique polygon identifier, based on X,Y centroid coordinate of the feature in NAD83 Mass. State Plane meters</attrdef><attrdefs>MassGIS</attrdefs><attrdomv><udom>Unique values calculated for each feature.</udom></attrdomv></attr><attr xmlns=""><attrlabl Sync="TRUE">SOURCE</attrlabl><attalias Sync="TRUE">SOURCE</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">100</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef>Polygon source. All polygons from the original compilation are coded "ROLTA". Polygons digitized by MassGIS are coded "MAGIS". Other codes (in data delivered by the town of Dedham) include "PLANIMETRY", "SCANNED_PLAN",  and "HEADSUP_DIG". "MAGIS_R" indicates a structure was found by MassGIS during review using newer imagery but the structure was also found in the imagery used by Rolta.</attrdef><attrdefs>MassGIS</attrdefs><attrdomv><edom xmlns=""><edomv>MAGIS</edomv><edomvd>Polygons digitized by MassGIS are coded</edomvd><edomvds>MassGIS</edomvds></edom></attrdomv></attr><attr xmlns=""><attrlabl Sync="TRUE">SOURCETYPE</attrlabl><attalias Sync="TRUE">SOURCETYPE</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">20</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef>Type of feature. Current codes are "ROOFPRINT", "ROOFPRINT_SHIFTED", and "FOOTPRINT".</attrdef><attrdefs>MassGIS</attrdefs><attrdomv><edom xmlns=""><edomv>ROOFPRINT</edomv><edomvd>Roofprint</edomvd><edomvds>MassGIS</edomvds></edom><edom xmlns=""><edomv>ROOFPRINT_SHIFTED</edomv><edomvd>Roofprint shifted to correct for building lean</edomvd><edomvds>MassGIS</edomvds></edom><edom xmlns=""><edomv>FOOTPRINT</edomv><edomvd>Building footprint</edomvd><edomvds>MassGIS</edomvds></edom></attrdomv></attr><attr xmlns=""><attrlabl Sync="TRUE">SOURCEDATE</attrlabl><attalias Sync="TRUE">SOURCEDATE</attalias><attrtype Sync="TRUE">Integer</attrtype><attwidth Sync="TRUE">10</attwidth><atprecis Sync="TRUE">10</atprecis><attscale Sync="TRUE">0</attscale><attrdef>Date (year) of source data used to create the structure polygon. Coded "20110000" or "20120000". See http://www.mass.gov/anf/docs/itd/services/massgis/dg-2011-2012-index.pdf. The eight-digit format is to allow for more accurately recording the date as local datasets are used to update the statewide coverage.</attrdef><attrdefs>MassGIS</attrdefs><attrdomv><udom>Various dates in YYYYMMDD format.</udom></attrdomv></attr><attr xmlns=""><attrlabl Sync="TRUE">SOURCEDATA</attrlabl><attalias Sync="TRUE">SOURCEDATA</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">50</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef>Indicates what imagery was used as a source for digitizing structure polygons</attrdef><attrdefs>MassGIS</attrdefs><attrdomv><edom xmlns=""><edomv>DG Worldview2 8-band satellite</edomv><edomvd>DigitalGlobe Worldview2 8-band satellite</edomvd><edomvds>MassGIS</edomvds></edom><edom xmlns=""><edomv>USGS 2013 30 CM AERIAL IMAGERY</edomv><edomvd>USGS 2013 30cm ortho imagery</edomvd><edomvds>MassGIS</edomvds></edom></attrdomv></attr><attr xmlns=""><attrlabl Sync="TRUE">MOVED</attrlabl><attalias Sync="TRUE">MOVED</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">1</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef>Indicates with "Y" or "N" whether or not the polygon was shifted to account for building lean in source imagery.</attrdef><attrdefs>MassGIS</attrdefs><attrdomv><edom xmlns=""><edomv>Y</edomv><edomvd>Yes, polygon was shifted</edomvd><edomvds>MassGIS</edomvds></edom><edom xmlns=""><edomv>N</edomv><edomvd>No, polygon was not shifted</edomvd><edomvds>MassGIS</edomvds></edom></attrdomv></attr><attr xmlns=""><attrlabl Sync="TRUE">AREA_SQ_FT</attrlabl><attalias Sync="TRUE">AREA_SQ_FT</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">19</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef>Area of the structure polygon in square feet, calculated with the "Calculate Geometry" tool in ArcGIS software.</attrdef><attrdefs>MassGIS</attrdefs><attrdomv><udom>Various values calculated with the "Calculate Geometry" tool in ArcGIS software.</udom></attrdomv></attr><attr xmlns=""><attrlabl Sync="TRUE">TOWN_ID</attrlabl><attalias Sync="TRUE">TOWN_ID</attalias><attrtype Sync="TRUE">Integer</attrtype><attwidth Sync="TRUE">10</attwidth><atprecis Sync="TRUE">10</atprecis><attscale Sync="TRUE">0</attscale><attrdef>Identifier (1-351) for the city/town in which the structure is located.</attrdef><attrdefs>MassGIS</attrdefs><attrdomv><rdom xmlns=""><rdommin>1</rdommin><rdommax>351</rdommax></rdom></attrdomv></attr><attr xmlns=""><attrlabl Sync="TRUE">TOWN_ID2</attrlabl><attalias Sync="TRUE">TOWN_ID2</attalias><attrtype Sync="TRUE">Integer</attrtype><attwidth Sync="TRUE">10</attwidth><atprecis Sync="TRUE">10</atprecis><attscale Sync="TRUE">0</attscale><attrdef>Second identifier (1-351) for the city/town in which the structure is located, if the structure falls within two municipalities.</attrdef><attrdefs>MassGIS</attrdefs><attrdomv><rdom xmlns=""><rdommin>1</rdommin><rdommax>351</rdommax></rdom></attrdomv></attr><attr xmlns=""><attrlabl Sync="TRUE">TOWN_ID3</attrlabl><attalias Sync="TRUE">TOWN_ID3</attalias><attrtype Sync="TRUE">Integer</attrtype><attwidth Sync="TRUE">10</attwidth><atprecis Sync="TRUE">10</atprecis><attscale Sync="TRUE">0</attscale><attrdef>Third identifier (1-351) for the city/town in which the structure is located, if the structure falls within three municipalities. </attrdef><attrdefs>MassGIS</attrdefs><attrdomv><rdom xmlns=""><rdommin>1</rdommin><rdommax>351</rdommax></rdom></attrdomv></attr><attr xmlns=""><attrlabl Sync="TRUE">LOCAL_ID</attrlabl><attalias Sync="TRUE">LOCAL_ID</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">25</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef>Identifier used by local entity. Currently not used as no local data are included in this layer.</attrdef><attrdefs>MassGIS</attrdefs><attrdomv><udom>Unique values from non-MassGIS source.</udom></attrdomv></attr><attr xmlns=""><attrlabl Sync="TRUE">SHAPE</attrlabl><attalias Sync="TRUE">Shape</attalias><attrtype Sync="TRUE">Geometry</attrtype><attwidth Sync="TRUE">0</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef Sync="TRUE">Feature geometry.</attrdef><attrdefs Sync="TRUE">ESRI</attrdefs><attrdomv><udom Sync="TRUE">Coordinates defining the features.</udom></attrdomv></attr><attr xmlns=""><attrlabl Sync="TRUE">EDIT_DATE</attrlabl><attalias Sync="TRUE">EDIT_DATE</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr xmlns=""><attrlabl Sync="TRUE">EDIT_BY</attrlabl><attalias Sync="TRUE">EDIT_BY</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">12</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr xmlns=""><attrlabl Sync="TRUE">COMMENTS</attrlabl><attalias Sync="TRUE">COMMENTS</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">150</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SHAPE_AREA</attrlabl><attalias Sync="TRUE">SHAPE_AREA</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">19</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef Sync="TRUE">Area of feature in internal units squared.</attrdef><attrdefs Sync="TRUE">Esri</attrdefs><attrdomv><udom Sync="TRUE">Positive real numbers that are automatically generated.</udom></attrdomv></attr><attr><attrlabl Sync="TRUE">SHAPE_LEN</attrlabl><attalias Sync="TRUE">SHAPE_LEN</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">19</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr></detailed></eainfo><mdDateSt Sync="FALSE">20170522</mdDateSt><Binary><Thumbnail><Data EsriPropertyType="PictureX">/9j/4AAQSkZJRgABAQEAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0a
+HBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIy
+MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCACFAMgDASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+qhV
+1nkVUJLHcGPTGO5+uePpU8Ehlj3MoU5IwDnocVJWVSnGrFJ7DTsMhj8qMJuzj/P5U+iitErKyEFF
+FFMAJABJOAO9MjlSUHaTx1yMU2eMyR4HUHIB6H2NQx7pJVZAV28MSP096xnUlGailox20LdFFFbC
+CiiigAooooAr3JYbBnEZOGI657fh/wDWpkcgtztPER+7gZwfT/P+FSzSr80QXexGCvYD3qJfkjG5
+s7RyxrzsTVdOqpRd/IuKugctPw42p/cz1+v+FLbFzLIDIzhQBz/j60LG03Jykf5Fv8B+tWVVUUKo
+AA6AVrh41ZS9pUfyE7bIWioHnLErF9C/YfT1P+fanQyFwVb769ff3roVWDlyJ6isyWgkAEk4A71D
+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</Data></Thumbnail></Binary><idinfo><ptcontac><cntinfo><cntperp><cntper>Michael Trust</cntper><cntorg>MassGIS</cntorg></cntperp><cntpos>Sr. GIS Database Administrator</cntpos><cntaddr><addrtype>mailing and physical address</addrtype><address>One Ashburton Place, Room 819</address><city>Boston</city><state>MA</state><postal>02108</postal><country>USA</country></cntaddr><cntvoice>617-619-5615</cntvoice><cntemail>michael.trust@state.ma.us</cntemail></cntinfo></ptcontac><citation><citeinfo><title>Building Structures (2-D, from Ortho Imagery)</title><origin>Rolta, MassGIS</origin><pubdate>20170203</pubdate></citeinfo></citation><keywords><theme><themekey>Buildings</themekey><themekey>Structures</themekey><themekey>Roofprints</themekey><themekt>None</themekt><themekey>Footprints</themekey></theme><place><placekey>Commonwealth of Massachusetts</placekey></place></keywords><descript><abstract>This dataset consists of 2-dimensional roof outlines ("roofprints") for all buildings larger than 150 square feet, as interpreted by a contractor (Rolta) for the whole area of the Commonwealth using DigitalGlobe ortho images obtained in 2011 and 2012, supplemented with LiDAR (Light Detection And Ranging) data collected from 2002 to 2011 for the eastern half of the state. The roofprints as delivered were enhanced by MassGIS using Normalized Digital Surface Models (NDSMs) derived from the same LiDAR data. Other layers were used, including the Level 3 Parcels, to aid in review, especially where LiDAR data were not available.This feature class is being updated using ortho imagery captured in 2013-2015. Last updated on 1/8/2016. In ArcSDE the layer is named STRUCTURES_POLY.</abstract><purpose>Two-dimensional roofprints of buildings (structures) throughout Massachusetts, interpreted from 2011-2012 ortho imagery.</purpose></descript><timeperd><timeinfo><sngdate><caldate>20170203</caldate></sngdate></timeinfo><current>publication date</current></timeperd><status><progress>Complete</progress><update>Unknown</update></status><accconst>None</accconst><useconst>None</useconst><datacred>Rolta, MassGIS</datacred></idinfo><metainfo><metd>20170203</metd><metextns><onlink>http://www.mass.gov/itd/structures</onlink><metprof>MassGIS Web Documentation</metprof></metextns><metc><cntinfo><cntperp><cntper>Michael Trust</cntper><cntorg>MassGIS</cntorg></cntperp><cntpos>Sr. GIS Database Administrator</cntpos><cntaddr><addrtype>mailing and physical address</addrtype><address>One Ashburton Place, Room 819</address><city>Boston</city><state>MA</state><postal>02108</postal><country>USA</country></cntaddr><cntvoice>617-619-5615</cntvoice><cntemail>michael.trust@state.ma.us</cntemail></cntinfo></metc></metainfo><distinfo><distrib><cntinfo><cntorgp><cntorg>MassGIS</cntorg></cntorgp><cntaddr><addrtype>mailing and physical address</addrtype><address>One Ashburton Place, Room 819</address><city>Boston</city><state>MA</state><postal>02108</postal><country>USA</country></cntaddr><cntvoice>617-619-5611</cntvoice></cntinfo></distrib><stdorder><ordering>Visit http://www.mass.gov/itd/structures.</ordering></stdorder></distinfo><dataqual><lineage><procstep><proccont><cntinfo><cntorgp><cntorg>Rolta</cntorg></cntorgp></cntinfo></proccont><procdesc>ORIGINAL ROOFPRINT PRODUCTION: 
+
+Rolta created the polygons based on the 2011 and 2012 DigitalGlobe Ortho images, the latest available orthos at the time, using LiDAR as a supplement to determine the shape of structures that were difficult to distinguish in the orthos. The data were saved in ESRI shapefile format and delivered to MassGIS for QA review, then processed to create the final deliverable.
+
+Criteria Used for Creating a Roofprint
+
+        The following is a summary of the guidelines used in creating roofprints (taken from the Request for Response for this project):
+
+        A roofprint is a map polygon, with real world coordinates, representing the perimeter outline as it appears in aerial imagery of every structure or portion of a structure which has a roof. Roofprints shall be mapped for all structures equal to or larger than 150 square feet including the following:
+
+            Residential, commercial, and industrial structures (including roof over porches and decks)
+            Trailer homes and offices
+            Mobile homes
+            Garages, sheds, and other isolated structures
+
+        Additionally:
+
+        Features that do not have a roof covering usable areas, such as an open deck, the top surface of an electrical transmission or cell tower base, platforms for utility equipment, or other structures which do not have a usable “interior” or covered volume, shall not be interpreted for mapping. Also, vehicles, including truck trailer that are parked with or without a tractor attached, boats, airplanes, etc. should not be mapped. However, as noted above, trailers with any kind of residential or business use such as temporary classrooms, construction site field offices and the like must be captured. Greenhouses were generally considered not structures, unless attached to a roofed structure. Roofed dugouts of sufficient size were also included as structures. Tanks and covered reservoirs and pools with temporary covers were not considered structures.
+
+        Polygon creation had the following guidelines:
+
+            Outlines were usually made up of orthogonal segments (all segments parallel or at right angles) unless the building is octagonal, round, triangular, etc.
+            Outlines were traced at the elevation of the eaves or lowest part of the roof adjacent to the exterior vertical walls. If there are multiple roof levels for a single structure then internal boundaries created by joining the separate roofprints must be dissolved. Any part of the structure which is covered by a roof is included, so two buildings connected by a covered walkway would be represented as one polygon.
+            Any roof offset, jog or projection for which all sides are more than 3 feet in length should be captured.
+            In the creating of the outlines, building “lean” was not to be compensated for. (MassGIS addressed this issue. See the section "Roofprint Shifting" below)
+            No attributes were included in the creation of the polygons.
+
+    Criteria for Acceptance
+
+    The interpretation error rate must be less than 0.5%, determined as follows:
+
+    For each of the six delivery areas, MassGIS selected tiles randomly (using a ‘randomizing’ spreadsheet created within MassGIS) from the 2008/2009 ortho imagery. Additional tiles were selected until the total number of structures in the selected area exceeded 15,000. The roof outlines in the selected tiles were then reviewed against the DigitalGlobe imagery. Additional layers were used to supplement the review, including the LiDAR datasets, and the Level 3 Parcel dataset, especially where LiDAR data were not available.
+
+    The error rate was defined using two statistics from the review of the sample tiles for each delivery:
+    Eo = The number of errors of omission – structures that were missed
+    Ec = The number of errors of commission – structures that are not in fact structures (as defined above).
+    The combined error rate for interpretation was calculated to be Eo + Ec.</procdesc><procdate>2011-2012</procdate></procstep><procstep><procdesc>ROOFPRINT SHIFTING: 
+
+Elevated objects such as roof outlines in aerial imagery may appear displaced with respect to the base of the structure. In order to minimize or eliminate the effects of such displacement (often referred to as "building lean"), MassGIS undertook several automated processing steps to shift roofprint polygons as delivered by Rolta.  Building lean effect may cause some buildings to cross over into adjacent parcels or overlap other features such as streets and water bodies. The shifting process was performed only in areas where MassGIS' LiDAR Terrain Data were available (Eastern Mass. inside of I-495; for details see the section "Adjustment Method" below). As a result, many of the shifted polygons better approximate building footprints.
+
+Background on Building Lean
+
+    Ortho image data layers are really mosaics made up of portions of many overlapping aerial photo frames. 
+
+The principal point of an aerial photo is the intersection of the optical axis of the camera lens and the photo image. The nadir is the point directly beneath the camera at the time of exposure. On a vertical aerial photograph (looking downward) the nadir and the principal point will be at the same location.
+
+If a building is close to the principal point, the roof and base will appear to coincide (the base and sides of the building will not be visible)
+
+If a building is far from the principal point, toward the edge of the photo, the top of the building will appear to be farther away from the principal point than the bottom of the building. The building will appear to "lean" away from the principal point.
+
+The buildings on either side of the seam line are from different photos, so the buildings seem to lean away from their respective principal points.
+
+The magnitude of lean can be determined by:
+
+  H / (D+d) = h / d
+
+Where H is the camera height, h is the building height, D is the distance of the building from the principal point.
+
+Or, since d is usually much smaller than D, D+d ~ D, so
+
+  d ~ ( D / H ) x h
+
+The average height of each building has been obtained from a LiDAR Normalized Difference Surface Model (NDSM). This raster is the difference between the LiDAR last-return elevations, and the LiDAR model of the ground.
+
+It was assumed that the location of each principal point is at the mean center of each seam polygon, and that the aircraft altitude is 5,000 meters.
+
+The lean also has a direction, so polygons representing "roofprints" have been  moved a distance d in a direction opposite to the apparent displacement in the photo.
+
+Adjustment Method
+
+    MassGIS used five Input Datasets:
+
+    1. DigitalGlobe 2011-2012 Orthoimagery (six blocks)
+
+    - Boston High Value Area
+    - Worcester High Value Area
+    - Cape Cod Refresh Area
+    - Standard Block 4171
+    - Standard Block 4172
+    - Standard Block 4272
+
+    2. NDSM Raster Images for LiDAR Project Areas (see Areas of LiDAR used in Shifting Index Map pdf format of Roofprint Shift Area at http://www.mass.gov/anf/docs/itd/services/massgis/roofprintshiftarea.pdf):
+
+    - FEMA 2010-2011:
+           Nashua
+           Concord River
+           Charles River
+           Blackstone
+           Quincy
+    - LiDAR for the Northeast
+    - 2004 SE Massachusetts Pilot
+    - Buzzards Bay (parts of Bristol and Plymouth Counties)
+
+        [Manageable processing areas were determined based on the intersections of these regions.]
+
+        For each LiDAR project area, all LiDAR returns were filtered to create two ArcGIS Terrains:
+
+            Any return classified as "Ground" was used in a "Bare-Earth" Terrain
+            The last returns classified as "Ground" or as "Unclassified" went into a "Last Return" Terrain
+
+        These Terrains were then linearly interpolated to two 1.0 meter rasters. Finally, the Bare-Earth raster was subtracted from the Last Return raster, resulting in a Normalized Difference Surface Model (NDSM).
+
+    3. Orthoimage polygon tiles (irregularly-shaped "seam polygons") corresponding to each DigitalGlobe area
+
+    NDSMs were cut into smaller subimages (tiles) using the seam polygons for the corresponding area.
+
+    4. Seam center points were determined for each seam polygon.
+
+    5. Un-recified roofprint polygons (unshifted polygons as delivered by Rolta)
+
+Processing
+
+    A model was developed in Trimble eCognition Developer 8.7.2 and run on eCognition Server that determined the distance and direction from each roofprint centroid to the tile's seam center, as well as the mean height the building. Output was a point shapefile.
+
+    An ArcGIS Toolbox script that prepared the output points and roofprints for rectification was run, followed by an ArcGIS Python script that created a dataset of shifted roofprint polygons.
+
+    The two sets of shifted roofprints in overlapping processing areas were examined, and where there were differences, the roofprints with the more accurate shift were kept.
+
+    Roofprints straddling seam lines usually contain two (or more) points with different values for angle and distance. These roofprints were generally not moved, but were coded TOUCH_SEAM = 1 so they could be tracked after processing.
+
+    Sources of possible error in the shifting process include:
+
+        The orthoimage used to determine the roofprint
+        The roofprint polygon as drawn
+        The estimated position of the principal point
+        The estimated camera altitude
+        The LiDAR NDSM raster
+        The estimate of the building height derived from the LiDAR NDSM raster
+
+    Situations which may cause the roofprint to shift more or less than it should:
+
+        The building represented by a roofprint was not built at the time of the LiDAR acquisition.
+        Trees may overhang a building, so that the elevation obtained may be higher than the building height.
+        Greenhouses may be represented in the roofprints layer, but not in the LiDAR.
+        A single roofprint representing a complex roof with different elevations may be shifted based on a single elevation value.
+
+    In a small number of cases, the shifting process caused some polygons to overlap others. These were found using ArcGIS topology and the polygons were moved manually so that no overlaps were present. Once the shifting process was complete, the shifted polygons replaced those in a copy of the original Rolta deliverable. The version of the Structures dataset distributed by MassGIS, therefore, is a hybrid of as-delivered polygons and those shifted by MassGIS. Finally, MassGIS took the hybrid layer and performed an Identity operation with the Survey-based Communities layer to populate the TOWN_ID fields.</procdesc><proccont><cntinfo><cntperp><cntper>Philip John</cntper><cntorg>MassGIS</cntorg></cntperp><cntpos>GIS Image Analyst</cntpos><cntaddr><addrtype>mailing and physical address</addrtype><address>One Ashburton Place, Room 1601</address><city>Boston</city><state>MA</state><postal>02108</postal><country>USA</country></cntaddr><cntvoice>617-619-5637</cntvoice><cntemail>philip.john@state.ma.us</cntemail></cntinfo></proccont></procstep><procstep><proccont><cntinfo><cntperp><cntper>Michael Trust</cntper><cntorg>MassGIS</cntorg></cntperp><cntpos>Sr. GIS Database Administrator</cntpos><cntaddr><addrtype>mailing and physical address</addrtype><address>One Ashburton Place, Room 1601</address><city>Boston</city><state>MA</state><postal>02108</postal><country>USA</country></cntaddr><cntvoice>617-619-5615</cntvoice><cntemail>michael.trust@state.ma.us</cntemail></cntinfo></proccont><procdesc>In April 2013 footprint data from the town of Dedham replaced the majority of polygons in that community.</procdesc><procdate>20130412</procdate></procstep><procstep><proccont><cntinfo><cntperp><cntper>Craig Austin</cntper><cntorg>MassGIS</cntorg></cntperp><cntaddr><addrtype>mailing and physical address</addrtype><address>One Ashburton Place</address><city>Boston</city><state>MA</state><postal>02108</postal><country>USA</country></cntaddr><cntvoice>617-626-4592</cntvoice><cntemail>craig.austin@state.ma.us</cntemail></cntinfo></proccont><procdesc>STRUCTURE UPDATES
+
+As MassGIS receives newer imagery, new structures were identified and added to the data layer, and structures that have since been demolished were deleted. In the case of structures that have changed significantly, the original polygon was deleted (and saved in-house to an “archive” dataset) and a new one was added. </procdesc><procsv>Ongoing from Jan. 8, 2016</procsv></procstep></lineage></dataqual><mdMaint xmlns=""><maintFreq><MaintFreqCd value="009"/></maintFreq><maintScp><ScopeCd value="005"/></maintScp></mdMaint><mdConst xmlns=""><Consts xmlns=""><useLimit>None</useLimit></Consts></mdConst><dqInfo xmlns=""><dataLineage><prcStep xmlns=""><stepDesc>ORIGINAL ROOFPRINT PRODUCTION
+
+Rolta created the polygons based on the 2011 and 2012 DigitalGlobe Ortho images (see Year of Photography Index pdf format of DigitalGlobe Ortho Imagery Index Map 2011-2012 at http://www.mass.gov/anf/docs/itd/services/massgis/dg-2011-2012-index.pdf), the latest available orthos at the time, using LiDAR as a supplement to determine the shape of structures that were difficult to distinguish in the orthos. The data were saved in ESRI shapefile format and delivered to MassGIS for QA review, then processed to create the final deliverable.
+
+    Criteria Used for Creating a Roofprint
+
+        The following is a summary of the guidelines used in creating roofprints (as described in the Request for Response for this project):
+
+        A roofprint is a map polygon, with real world coordinates, representing the perimeter outline as it appears in aerial imagery of every structure or portion of a structure which has a roof. Roofprints shall be mapped for all structures equal to or larger than 150 square feet including the following:
+
+            Residential, commercial, and industrial structures (including roof over porches and decks)
+            Trailer homes and offices
+            Mobile homes
+            Garages, sheds, and other isolated structures
+
+        Additionally:
+
+        Features that do not have a roof covering usable areas, such as an open deck, the top surface of an electrical transmission or cell tower base, platforms for utility equipment, or other structures which do not have a usable “interior” or covered volume, shall not be interpreted for mapping. Also, vehicles, including truck trailers that are parked with or without a tractor attached, boats, airplanes, etc. should not be mapped. However, trailers with any kind of residential or business use such as temporary classrooms, construction site field offices and the like must be captured. 
+
+        Greenhouses were generally considered not structures, unless attached to a roofed structure. Roofed dugouts of sufficient size were also included as structures. Tanks and covered reservoirs and pools with temporary covers were not considered structures.
+
+        Polygon creation had the following guidelines:
+
+            Outlines will usually be made up of orthogonal segments (all segments parallel or at right angles) unless the building is octagonal, round, triangular, etc.
+            Outlines are to be traced at the elevation of the eaves or lowest part of the roof adjacent to the exterior vertical walls. If there are multiple roof levels for a single structure then internal boundaries created by joining the separate roofprints must be dissolved. Any part of the structure which is covered by a roof is included, so two buildings connected by a covered walkway are to be represented as one polygon.
+            Any roof offset, jog or projection for which all sides are more than 3 feet in length should be captured.
+
+        In the creation of the outlines, building “lean” was not compensated for. (MassGIS addressed this issue for part of the state. See the section "Roofprint Shifting" below.)  No attributes were included in the creation of the polygons.
+
+    Criteria for Acceptance
+
+    The interpretation error rate was less than 0.5%, conformance to this standard was determined as follows:
+
+    For each of the six delivery areas, MassGIS selected tiles randomly (using a ‘randomizing’ spreadsheet created within MassGIS) from the 2008/2009 ortho imagery. Tiles were selected until the total number of structures in the selected area exceeded 15,000. The roof outlines in the selected tiles were then reviewed against the DigitalGlobe imagery. Additional layers were used to supplement the review, including the LiDAR datasets, and the Level 3 Parcel dataset, especially where LiDAR data were not available.
+
+    The error rate was defined using two statistics from the review of the sample tiles for each delivery:
+    Eo = The number of errors of omission – structures that were missed
+    Ec = The number of errors of commission – structures that are not in fact structures (as defined above).
+
+    The combined error rate for interpretation was calculated to be Eo + Ec.</stepDesc><stepProc xmlns=""><rpOrgName>Rolta</rpOrgName><role><RoleCd value="006"/></role></stepProc><stepDateTm>2012-10-01T00:00:00</stepDateTm></prcStep><prcStep xmlns=""><stepDesc>ROOFPRINT SHIFTING
+
+Elevated objects such as roof outlines in aerial imagery may appear displaced with respect to the base of the structure. In order to minimize or eliminate the effects of such displacement (often referred to as "building lean"), MassGIS undertook several automated processing steps to shift roofprint polygons as delivered by Rolta.  Building lean effect may cause some buildings to cross over into adjacent parcels or overlap other features such as streets and water bodies. The shifting process was performed only in areas where MassGIS' LiDAR Terrain Data were available (Eastern Mass. inside of I-495; for details see the section "Adjustment Method" below). As a result, many of the shifted polygons better approximate building footprints.
+
+Background on Building Lean
+
+    Ortho image data layers are really mosaics made up of portions of many overlapping aerial photo frames. 
+
+The principal point of an aerial photo is the intersection of the optical axis of the camera lens and the photo image. The nadir is the point directly beneath the camera at the time of exposure. On a vertical aerial photograph (looking downward) the nadir and the principal point will be at the same location.
+
+If a building is close to the principal point, the roof and base will appear to coincide (the base and sides of the building will not be visible)
+
+If a building is far from the principal point, toward the edge of the photo, the top of the building will appear to be farther away from the principal point than the bottom of the building. The building will appear to "lean" away from the principal point.
+
+The buildings on either side of the seam line are from different photos, so the buildings seem to lean away from their respective principal points.
+
+The magnitude of lean can be determined by:
+
+  H / (D+d) = h / d
+
+Where H is the camera height, h is the building height, D is the distance of the building from the principal point.
+
+Or, since d is usually much smaller than D, D+d ~ D, so
+
+  d ~ ( D / H ) x h
+
+The average height of each building has been obtained from a LiDAR Normalized Difference Surface Model (NDSM). This raster is the difference between the LiDAR last-return elevations, and the LiDAR model of the ground.
+
+It was assumed that the location of each principal point is at the mean center of each seam polygon, and that the aircraft altitude is 5,000 meters.
+
+The lean also has a direction, so polygons representing "roofprints" have been  moved a distance d in a direction opposite to the apparent displacement in the photo.
+
+Adjustment Method
+
+    MassGIS used five Input Datasets:
+
+    1. DigitalGlobe 2011-2012 Orthoimagery (six blocks)
+
+    - Boston High Value Area
+    - Worcester High Value Area
+    - Cape Cod Refresh Area
+    - Standard Block 4171
+    - Standard Block 4172
+    - Standard Block 4272
+
+    2. NDSM Raster Images for LiDAR Project Areas (see Areas of LiDAR used in Shifting Index Map pdf format of Roofprint Shift Area at http://www.mass.gov/anf/docs/itd/services/massgis/roofprintshiftarea.pdf):
+
+    - FEMA 2010-2011:
+           Nashua
+           Concord River
+           Charles River
+           Blackstone
+           Quincy
+    - LiDAR for the Northeast
+    - 2004 SE Massachusetts Pilot
+    - Buzzards Bay (parts of Bristol and Plymouth Counties)
+
+        [Manageable processing areas were determined based on the intersections of these regions.]
+
+        For each LiDAR project area, all LiDAR returns were filtered to create two ArcGIS Terrains:
+
+            Any return classified as "Ground" was used in a "Bare-Earth" Terrain
+            The last returns classified as "Ground" or as "Unclassified" went into a "Last Return" Terrain
+
+        These Terrains were then linearly interpolated to two 1.0 meter rasters. Finally, the Bare-Earth raster was subtracted from the Last Return raster, resulting in a Normalized Difference Surface Model (NDSM).
+
+    3. Orthoimage polygon tiles (irregularly-shaped "seam polygons") corresponding to each DigitalGlobe area
+
+    NDSMs were cut into smaller subimages (tiles) using the seam polygons for the corresponding area.
+
+    4. Seam center points were determined for each seam polygon.
+
+    5. Un-recified roofprint polygons (unshifted polygons as delivered by Rolta)
+
+Processing
+
+    A model was developed in Trimble eCognition Developer 8.7.2 and run on eCognition Server that determined the distance and direction from each roofprint centroid to the tile's seam center, as well as the mean height the building. Output was a point shapefile.
+
+    An ArcGIS Toolbox script that prepared the output points and roofprints for rectification was run, followed by an ArcGIS Python script that created a dataset of shifted roofprint polygons.
+
+    The two sets of shifted roofprints in overlapping processing areas were examined, and where there were differences, the roofprints with the more accurate shift were kept.
+
+    Roofprints straddling seam lines usually contain two (or more) points with different values for angle and distance. These roofprints were generally not moved, but were coded TOUCH_SEAM = 1 so they could be tracked after processing.
+
+    Sources of possible error in the shifting process include:
+
+        The orthoimage used to determine the roofprint
+        The roofprint polygon as drawn
+        The estimated position of the principal point
+        The estimated camera altitude
+        The LiDAR NDSM raster
+        The estimate of the building height derived from the LiDAR NDSM raster
+
+    Situations which may cause the roofprint to shift more or less than it should:
+
+        The building represented by a roofprint was not built at the time of the LiDAR acquisition.
+        Trees may overhang a building, so that the elevation obtained may be higher than the building height.
+        Greenhouses may be represented in the roofprints layer, but not in the LiDAR.
+        A single roofprint representing a complex roof with different elevations may be shifted based on a single elevation value.
+
+    In a small number of cases, the shifting process caused some polygons to overlap others. These were found using ArcGIS topology and the polygons were moved manually so that no overlaps were present. Once the shifting process was complete, the shifted polygons replaced those in a copy of the original Rolta deliverable. The version of the Structures dataset distributed by MassGIS, therefore, is a hybrid of as-delivered polygons and those shifted by MassGIS. Finally, MassGIS took the hybrid layer and performed an Identity operation with the Survey-based Communities layer to populate the TOWN_ID fields.</stepDesc><stepProc xmlns=""><rpIndName>Philip John</rpIndName><rpOrgName>MassGIS</rpOrgName><rpPosName>GIS Image Analyst</rpPosName><rpCntInfo xmlns=""><cntAddress><delPoint>One Ashburton Place, Room 1601</delPoint><city>Boston</city><adminArea>MA</adminArea><postCode>02108</postCode><eMailAdd>philip.john@state.ma.us</eMailAdd><country>USA</country></cntAddress><cntPhone><voiceNum>617-619-5637</voiceNum></cntPhone></rpCntInfo><role><RoleCd value="009"/></role></stepProc><stepDateTm>2013-12-06T00:00:00</stepDateTm></prcStep><prcStep xmlns=""><stepDesc>STRUCTURE UPDATES
+
+As MassGIS receives newer imagery, new structures were identified and added to the data layer, and structures that have since been demolished were deleted. In the case of structures that have changed significantly, the original polygon was deleted (and saved in-house to an “archive” dataset) and a new one was added. </stepDesc><stepDateTm>2016-01-08T00:00:00</stepDateTm><stepProc xmlns=""><rpIndName>Craig Austin</rpIndName><rpOrgName>MassGIS</rpOrgName><role><RoleCd value="009"/></role><rpCntInfo xmlns=""><cntAddress addressType="both"><delPoint>One Ashburton Place, Room 819</delPoint><city>Boston</city><adminArea>MA</adminArea><postCode>02108</postCode></cntAddress><cntPhone><voiceNum tddtty="">617-626-4592</voiceNum></cntPhone></rpCntInfo></stepProc></prcStep></dataLineage></dqInfo><spref><horizsys><cordsysn><projcsn>NAD83 Massachusetts State Plane Mainland</projcsn></cordsysn><geodetic><horizdn>North American Datum of 1983</horizdn><ellips>Geodetic Reference System 80</ellips></geodetic></horizsys></spref><mdChar><CharSetCd value="004"/></mdChar><mdContact xmlns=""><rpIndName>Michael Trust</rpIndName><rpOrgName>MassGIS</rpOrgName><rpPosName>Sr. GIS Database Administrator</rpPosName><rpCntInfo xmlns=""><cntAddress addressType="both"><delPoint>One Ashburton Place, Room 819</delPoint><city>Boston</city><adminArea>MA</adminArea><postCode>02108</postCode><eMailAdd>michael.trust@state.ma.us</eMailAdd><country>USA</country></cntAddress><cntPhone><voiceNum tddtty="">617-619-5615</voiceNum></cntPhone></rpCntInfo><role><RoleCd value="006"/></role><displayName>Michael Trust</displayName></mdContact></metadata>
