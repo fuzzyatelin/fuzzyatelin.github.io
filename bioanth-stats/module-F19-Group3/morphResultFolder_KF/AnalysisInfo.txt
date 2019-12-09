@@ -1,5 +1,5 @@
  Analysis Description ( R - assignPOP ver. 1.1.7 )
- Perform assign.kfold() @ 2019-12-02 10:13:03 
+ Perform assign.kfold() @ 2019-12-09 15:38:25 
 
  k.fold = 3 
  Total assignment tests = 3 
