@@ -1,0 +1,107 @@
+---
+title: "AN597: End-of-Semester Self Evaluation"
+author: "Christopher A Schmitt"
+date: "12/10/2019"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
+---
+
+***
+
+###[Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
+###[Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
+###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
+###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
+###[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+
+***
+
+<center>
+
+<font size="+2"><b>Sashay... Away.</b></font></center><br>
+
+<center><p><img src="https://media.giphy.com/media/RPdLHpiOnL2pO/giphy.gif" style="border:5px solid black"></p>
+</center><br>  
+
+<center>
+The following self evaluation is meant to guide you through a reflection on what you put into this course, and also what you got out it in return. Your self evaluation is *not* the place to criticize, evaluate, or thank the instructor (we already had a good conversation about that on the last day of class). This is about *you*. Unless otherwise noted, please answer each question in no more than *eight* sentences. At the end, I ask you to assign yourself a grade that you think is both a fair and honest reflection of your performance in the class given what was asked of you.
+
+</center>
+***
+
+##Instructions
+
+***
+
+Please download this Markdown file (`selfevaluation.Rmd`) from my GitHub site (in the `fuzzyatelin.github.io/bioanth-stats/` folder) and answer the appropriate questions in the spaces provided. Once you've knitted the final file, please *email* the **html** version of that file to me. I must receive this file by **Midnight of December 17, 2019**.
+
+***
+
+###Overall Impression
+
+***
+
+In place of my name as author on this Markdown file, please insert your own, along with the date on which you completed this self-assessment. In place of the RuPaul GIF, above, please choose a GIF of a drag queen that best exemplifies your overall feelings about what you learned/accomplished in this course. Additionally, replace the `The following self evaluation...` text above with a three sentence summary of your experience in the class and what you take away from it to accompany that GIF.
+
+***
+
+###What were you asked to do?
+
+***
+
+Please give me a bulleted/numbered list of each task you were asked to do for this course. Where relevant, please also link the file representing each task in your appropriate repo, to the bulleted entry for that task.<br><br><br><br><br><br>
+
+***
+
+###What did you accomplish?
+
+***
+
+Please let me know how many of the above tasks you accomplished. If any of them were accomplished later than stipulated, please note that. If you contacted me about them being late (and we discussed it and I said it was ok), please note that, too. You may provide a bulleted/numbered list matching the one above.<br><br><br><br><br><br>
+
+***
+
+###How well did you accomplish them?
+
+***
+
+Please let me know how well you feel you accomplished your tasks, in a general sense. What do you feel you did the best, and what did you do the least well? What was the hardest part for you? Did your work/understanding/ease improve over the course of the semester?<br><br><br><br><br><br>
+
+***
+
+###How has your understanding of and approach to statistics and project design changed since taking this course?
+
+***
+
+This may be in relation to previous knowledge, or in relation to future/planned work.<br><br><br><br><br><br><br><br>
+
+***
+
+###What did you learn from all this?
+
+***
+
+Please name at least three things you feel you learned in this course.<br><br><br><br><br><br><br><br>
+
+***
+
+###What, if anything, of lasting value do you take away from this experience? If nothing, what would you do differently if you were to start over in this course? 
+
+***
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+***
+
+###Taking this self-assessment into account (and with **A** being the highest), if you were the instructor, what grade would you give yourself given your evaluation of your own performance this semester? Please be honest.
+
+***
+
+<br><center>[insert letter grade here]</center><br>
+
+***
+
+
+
+
