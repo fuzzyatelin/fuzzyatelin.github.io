@@ -1,0 +1,257 @@
+---
+title: "Lab 3 - Linkage Disequilibrium (LD) in *UCP1*"
+author: "Becca DeCamp & Christopher Schmitt"
+date: "10/09/2018"
+output: html_document
+---
+
+```{r,echo=F}
+library(knitr)
+```
+
+```{css,echo=F}
+.sccCode {
+background-color: black;
+color: white;
+}
+```
+
+## Introduction to Linkage Disequilibrium (LD)
+
+***
+
+###[Homework for Lab 3: DUE Friday, October 19th](https://fuzzyatelin.github.io/AN333_Fall18/Lab3_Homework.html)
+
+***
+
+**Readings**:<ul> 
+<li>[Ramos AV, Bastos-Rodriguez L, Resende BA, Friedman E, Campanha-Versiani L, Miranda DM, Sarquis M, De Marco L. 2012. The contribution of *FTO* and *UCP-1* SNPs to extreme obesity, diabetes and cardiovascular risk in Brazilian individuals. *BMC Med Genet* 13:101.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3526455/)</li><br>
+<li>[Slatkin M. 2008. Linkage disequilibrium – understanding the evolutionary past and mapping the medical future. *Nat Rev Genet* 9: 477-485.](https://www.nature.com/articles/nrg2361)</li><br>
+<li>[Claiborne Stephens J, Schneider JA, Tanguay DA, Choi J, Acharya Y, Stanley SE, Jiang R, *et al*. 2001. Haplotype variation and linkage disequilibrium in 313 human genes. *Science* 293: 489-93.](http://science.sciencemag.org/content/293/5529/489)</li></ul>
+
+***
+
+As we learned in class, ***LD*** is the non-random assortment of alleles at different loci across the genome. Linked alleles will frequently travel with each other during crossover events during meiosis, and if we know LD is high between two alleles is present in a population we can even use the frequency of one allele to predict the frequency of the other allele. Today, we will look at LD within *UCP1* in our own populations to get both a sense of the amount of linkage present within the gene, and what that linkage can tell us about our assigned population's history.
+<br>
+
+### Our Focal SNPs
+
+In the [Ramos *et al*. (2012)](://www.ncbi.nlm.nih.gov/pmc/articles/PMC3526455/) paper that you read for homework, they looked at 3 SNPs within *UCP1* that were thought to be associated with obesity:  *rs6536991*, *rs22705565* and *rs1250257*. The results of their analyses suggested that only *rs6536991* was directly associated with obesity in the Brazilian population under investigation. The other two alleles, however -  *rs22705565* and *rs1250257* - were found to be in various levels of linkage with *rs6536991*. We will take a closer look at these three SNPs in our own populations, as well as another SNP in *UCP1* called *rs35243591*, which is also associated with obesity according to *Ensembl*. 
+<br>
+
+### A Note On *D'* and *R<sup>2</sup>*
+
+We will be using two statistics to gauge LD in our populations: ***D'*** (pronounced 'D prime') and ***R^2^*** (pronounced 'R-squared'). Both of these are useful for determining the amount of linkage between two SNPs, but each statistic tells us something slightly different.<br> 
+
+* *D'* is slightly easier to understand, as it simply is a measure of the predictability of one SNP's genotype based on the other. When *D'* = 1, the two SNPs are in perfect LD (meaning that they will *always* co-segregate, or be inherited together as a unit), and when *D'* = 0 the two SNPs are in Linkage Equilibrium (meaning that co-segregation is random, or around 50%).<br> 
+
+* *R^2^* is a little bit different. This statistic will also take into account the *frequency* of the allele in question. If one SNP genotype is linked to another, but the linked genotype of one SNP is the *minor* allele (less common than the other genotype), the *R^2^* value will be *lower* than the *D'* value. This does not make the SNPs any less linked, but is rather taking into account the (lower) allele frequency. 
+
+### Learning Outcomes
+
+* Learn about the SNPs *rs6536991*, *rs35243591*, *rs2270565*, and *rs12502572* and their roles in obesity.
+
+* Learn how to use the *R* package *SNPStats* to perform LD analysis in a population, including constructing LD matrices and LD heatmaps.
+
+* Learn about the two statistics *D'* and *R<sup>2</sup>*, which are the most commonly used statistics to evaluate LD between SNPs. Learn what each can tell us about a population, and apply the two statistics to our own populations.
+
+* Learn how to use *Ensembl* to look at long-distance LD between SNPs in *UCP1*, as well as for SNPs in other genes.
+<br>
+
+## Step 1: Getting to *R Studio* and Preparing your Data
+
+Log in to the *SCC* and bring up the *R Studio* window [like we did in the last lab](https://fuzzyatelin.github.io/AN333_Fall18/Lab_2_-_HWE.html): 
+```{bash, eval = F, echo = T, class.source="sccCode"}
+module load gcc
+module load R
+rstudio &
+```
+
+Now that we're in *R*, we can prepare our data for analysis. The functions we will use today require our data to be in a special format called a *SNPMatrix*, so we'll convert our data in to a *SNPMatrix* now. As usual, I will use the population YRI again as an example; change all YRI code to *your* population code! 
+<br>
+
+First, we'll install one package:
+```{r,eval=F,echo=T}
+install.packages("LDheatmap")
+```
+
+And then we'll load that and the other packages we will be using, which should already be installed in the *SCC* version of *R*:
+```{r, results='hide', message=F, warning=F}
+library(snpStats)
+library(VariantAnnotation)
+library(LDheatmap)
+```
+<br>
+Next, we will load in our data. Not only will we load in our VCF file of all the SNPs in *UCP1* (called ***YRI.vcf***, in my case), we will load in the smaller slice that we took in [Lab 1](https://fuzzyatelin.github.io/AN333_Fall18/Lab_1_-_1KG_and_Ensembl_Tutorial.html), as well (for me, called ***YRIsmall.vcf***). We will load the VCF files in to our *R* space first, and then use another function to transform them into *SNPMatrices*.<br>
+
+We'll start with the full *UCP1* file. Copy this code with the name of your VCF file. The *hg19* option is telling the function to align our data with the 'hg19' human reference genome, which comes with the package *VariantAnnotation*:
+```{r}
+vcfbig <- readVcf("YRI.vcf", "hg19")
+```
+
+Next, we'll convert it to a *SNPMatrix*. Remember to replace "YRI" with the acronym for *your* population:
+
+```{r}
+YRImatrix <- genotypeToSnpMatrix(vcfbig)
+YRImatrix #repeating the file name will show you what it looks like
+```
+<br>
+One error message you might notice is "*variants with >1 ALT allele are set to NA non-single nucleotide variations are set to NA*". This means that loci with 3 or more alleles are *not* included in any of these analyses. Because of this, you will notice a lot of what *appears* to be linkage equilibrium when making your charts, but this is merely due to the functions' inability to process LD between SNPs with more than 2 alleles. <br>
+
+You may also notice that the output of the *YRImatrix* gives us some information about our data. Under "*$genotypes*" you'll see that our *SNPMatrix* has a column and row count, and that our columns ("Col") are comprised of *dbSNP* names, while our rows ("Row") are comprised of the individual codes from the 1000 Genomes Project. You can use this information to count both how many SNPs and how many individuals are in your database. In my case, I've got 108 individuals in the YRI population, typed at 207 variants.<br>
+
+Repeat this process with your smaller slice of *UCP1*: 
+
+```{r}
+vcfsmall <- readVcf("YRIsmall.vcf", "hg19")
+
+YRIsmallmatrix <- genotypeToSnpMatrix(vcfsmall)
+head(YRIsmallmatrix)
+```
+<br>
+Notice, here, that the small file has many fewer SNPs: 84 columns rather than 207. This is because this represents a smaller slice of the *UCP1* gene region.<br>
+
+As you may have already noticed from the output, as well, the *SNPMatrix* files we made are actually two separate files under one file name, and only one of them is the actual *SNPMatrix*. In order to call only the *SNPMatrix* in our functions, we will modify the name with "*$genotypes*" after our *SNPMatrix* name. You will see this in our following analyses. 
+<br> 
+
+## Step 2: Using the "ld" Function 
+
+Next, we will be using a function from the *snpStats* package to look at LD across the whole *UCP1* gene. To do this, we will use the "ld" function to create an LD matrix, which we will then graph to comprehend better. First, we'll use the "ld" function, like so: 
+<br>
+```{r}
+#For "Stats," use "R.squared" for now. We will explore D' later. Make sure to substitute "YRImatrix" for what you called your larger SNPMatrix
+
+LD <- ld(YRImatrix$genotypes, depth = 200, stats = "R.squared")
+head(LD)
+```
+<br>
+This will give you a large matrix of LD values, which is probably fairly confusing on first look. An LD analysis output like this can be hard to interpret without a visual aid, so we will build one. The output of this function (our "LD" object) is what we'll use as an input to make sense of what this table means. 
+
+```{r}
+#sets color scale for the graph
+cols = colorRampPalette(c("yellow", "red"))(10)
+#building the image 
+image(LD, lwd = 0, cuts= 9, col.regions=cols, colorkey=TRUE)
+```
+
+You can see that much of this gene in the YRI population shows very *low* LD (again, meaning that these regions are segregating randomly), but there are several blips where *high* LD is observed. What could this mean? 
+
+## Step 3: Measuring LD in our SNPs of Interest
+
+Now, we will look at our smaller dataset so we can focus on four SNPs in particular: *rs6536991*, *rs35243591*, *rs2270565*, and *rs12502572*. Now, three of these you read about in the homework as being either SNPs related to obesity, or in moderate linkage with obesity-related SNPs. The one that was not in the reading, *rs35243591*, is another obesity-related SNP that has been shown in the *Ensembl* data to be in high LD with obesity-related SNPs within some populations. 
+<br>
+<br>
+What we will be doing now is creating *two* LD heatmaps, one that displays the *R<sup>2</sup>* LD statistics and one that displays the *D'* (pronounced "D prime") LD statistics. As we discussed in the introduction, these two statistics don't tell us quite the same things about our data, so comparing the two statistics can be useful in making conclusions about LD in your populations. 
+<br>
+<br>
+The first thing you should do is copy and paste (use 'ctrl C' and 'ctrl V') this block of code into your *R* console. This will create a vector of numbers that is saved as a value called "*positions*". These numbers are the positions of all the SNPs that we will be using in our LD heatmap. 
+<br>
+```{r}
+positions <- c(140560308,140560366,140560427,140560458,140560532,140560579,140560607,140560687,140560748,140560792,140560808,140560884,140560983,140561026,140561062,140561074,140561152,140561173,140561182,140561318,140561330,140561357,140561373,140561510,140561527,140561537,140561614,140561631,140561692,140561713,140561725,140561743,140561866,140561976,140562117,140562176,140562184,140562235,140562317,140562322,140562327,140562349,140562385,140562386,140562397,140562521,140562531,140562581,140562627,140562660,140562739,140562843,140562887,140562892,140562921,140562990,140563028,140563046,140563138,140563155,140563197,140563209,140563215,140563218,140563262,140563338,140563379,140563382,140563386,140563423,140563478,140563530,140563580,140563648,140563722,140563754,140563850,140563911,140563934,140563944,140563980,140564018,140564023,140564106)
+```
+
+Now, here is the code to create the LD heatmap showing the *R^2^* statistic. The only thing you have to change in this code is to replace the *YRIsmallmatrix* value with the name that you gave your smaller *SNPMatrix*. Leave the "*$genotypes*" part of the command though, just like in the {ld} function earlier. Run the rest of the code as normal. 
+<br>
+```{r}
+smallheatmapr <- LDheatmap(YRIsmallmatrix$genotypes,
+                           genetic.distances=positions,
+                           distances="physical",
+                           LDmeasure="r",
+                           title="Pairwise LD with R^2",
+                           add.map=TRUE, add.key=TRUE,
+                           geneMapLocation=0.15,
+                           SNP.name=c("rs6536991", "rs35243591", "rs2270565",
+                                      "rs12502572"),
+                           color=NULL, newpage=TRUE,
+                           name="ldheatmap")
+```
+<br><br>
+
+Next, we'll make the graph displaying the *D'* statistic. Again, all you have to replace in this code is the "*YRIsmallmatrix*" with the name you gave your smaller matrix. 
+<br>
+
+```{r}
+smallheatmapD <- LDheatmap(YRIsmallmatrix$genotype,
+                           genetic.distances=positions,
+                           distances="physical",
+                           LDmeasure="D",
+                           title="Pairwise LD with D'",
+                           add.map=TRUE, add.key=TRUE,
+                           geneMapLocation=0.15,
+                           SNP.name=c("rs6536991", "rs35243591", "rs2270565",
+                                      "rs12502572"),
+                           color=NULL, newpage=TRUE,
+                           name="ldheatmap")
+```
+<br><br> 
+Now you've got two graphs that you can use! You can see specifically whether or not the SNPs of interest (the labelled SNPs) by finding where on the graph their paths intersect. Or, for the purpose of reporting your results, we can look at something called an *LD matrix* that was generated by the *LDheatmap* function. This is a matrix where the row and columnn names are SNP ID numbers, and the cell at the intersection of a row and a column will tell you the LD statistic for those two particular SNPs. For our purposes, you do not need to look at the whole chart, you just need to find the intersections of our four SNPs of interest to see if any of them are in LD, and what that LD value is for each respective statistical test. 
+<br>
+<br>
+To view your LD matrices, run these two lines of code separately: 
+<br>
+
+```{r,eval=F,echo=T}
+#for R squared LD heatmap: 
+View(smallheatmapr$LDmatrix)
+```
+
+```{r,eval=F,echo=T}
+#for D prime LD matrix
+View(smallheatmapD$LDmatrix)
+```
+<br>
+
+## Step 4: Using *Ensembl* to Look for More SNPs in LD 
+
+The last thing we'll do in this lab is look at look at *Ensembl*'s information on LD for each of the SNPs we studied today in your populations. <br>
+To do this: 
+<br>
+
+* Go to [*Ensembl*](https://useast.ensembl.org/Homo_sapiens/Info/Index) and search for *UCP1* in the Human searchbar as we have done before
+
+* Use the left sidebar to navigate to the *Variant Table*:
+<br>
+
+![](variantpage.png)
+<br><br>
+
+* Pick one of the variants we looked at today (*rs6536991*, *rs35243591*, *rs2270565*, and *rs12502572*) and enter it in the *Variant Table* search bar. Make note of what kind of consequence each SNP has. What does the consequence mean, and how might the consequence of a SNP affect its LD?
+
+![](variantsearch.png)
+
+* Click on the Variant ID of the SNP you searched to get the SNP page. Click on the "*Linkage Disequilibrium*" tab under "*Explore This Variant*"
+<br>
+
+![](snppageLD.png)
+<br>
+
+* You will get this page. This should look familiar, because we visited it briefly in our introductory lab. You will get a page like this that has LD plots of the SNP for all of the 1000 Genomes populations. 
+<br>
+
+![](LDBlock.png)
+<br>
+
+* You can play around with the LD calculator and the LD plots, but the first thing you should do is find *your* population in the table and click on the "*show*" button for "*Variants in High LD*". You will get this: 
+<br>
+
+![](highLD.png)
+<br>
+
+* Some populations will have more SNPs in high LD than others. Look specifically at the SNPs in high LD that are *not* in *UCP1*. In the example above, there is a SNP listed that is in the gene *ELMOD2*. 
+
+* Repeat this process for all four SNPs we looked at in today's lab. Where are the high LD SNPs that aren't in *UCP1* located? Are any of them located in other gene regions? 
+
+## Step 5: What Do Your Results Mean? Discuss with a partner from class: 
+
+Think about the results you produced today in the context of your population. Here are some guiding questions to help you: 
+<br>
+
+* What does it mean for two SNPs in your population to be in LD? How would two obesity SNPs being in LD reflect selection in that population? 
+
+* Would you expect a high level of LD in *UCP1* in your population based on its environment? Why or why not? 
+
+* What would LD between two obesity-related SNPs tell you about the evolutionary history of your population? 
+
+* If you found any SNPs in high LD with our *UCP1* SNPs during the *Ensembl* exercise that are in a different gene, do a quick [OMIM](http://omim.org/) search on the gene(s). What does that gene code for? How might it be connected to *UCP1*? 
+<br>
+<br>

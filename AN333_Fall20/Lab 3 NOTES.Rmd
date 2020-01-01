@@ -1,0 +1,21 @@
+---
+title: "Lab 3 NOTES"
+author: "Becca DeCamp"
+date: "6/20/2018"
+output: html_document
+---
+### Possible Paper To Read? Possible site to look at? 
+<br>
+
+<https://bmcmedgenet.biomedcentral.com/articles/10.1186/1471-2350-13-101>
+
+Talks at length about SNPs that are in LD in UCP1, which I may base analyses off of. It's not so interesting to look at linkage of SNPs that are IN UCP1 as it is to look at linkage of SNPs between UCP1 and another gene or important regulatory region. 
+<br>
+<br>
+Also- <https://estrip.org/articles/read/tinypliny/44920/Linkage_Disequilibrium_Blocks_Triangles.html>. They might need some help reading an LD heatmap. Here's a helpful website that helped me, and will maybe help them?
+
+### Possible Homework Questions:  
+<br> 
+
+* 
+
