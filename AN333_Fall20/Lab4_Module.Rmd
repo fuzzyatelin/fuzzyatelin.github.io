@@ -1,0 +1,214 @@
+---
+title: "Lab 4 - Nearest-Neighbor Joining and Intro to Phylogeny"
+author: "Becca DeCamp & Christopher Schmitt"
+date: "10/18/2018"
+output: html_document
+---
+
+```{r,echo=F}
+library(knitr)
+```
+
+```{css,echo=F}
+.sccCode {
+background-color: black;
+color: white;
+}
+```
+
+## Introduction to Nearest-Neighbor Joining and Phylogenetics
+
+***
+
+###[Homework for Lab 4: DUE Friday, November 2nd](https://fuzzyatelin.github.io/AN333_Fall18/Lab4_Homework.html)
+
+***
+
+**Readings**:<ul> 
+<li>[Kimura M. 1980. A simple method for estimating evolutionary rates of base substitutions through comparative studies of nucleotide sequences. *J Mol Evol* 16: 111–120.](http://www.nematodes.org/teaching/tutorials/phylogenetics/Bayesian_Workshop/PDFs/Kimura%20J%20Mol%20Evol%201980.pdf)</li><br>
+<li>[Saitou N, Nei M. 1987. The neighbor-joining method: a new method for reconstructing phylogenetic trees. *Mol Biol Evol* 4: 406–425.](https://academic.oup.com/mbe/article/4/4/406/1029664)</li></ul>
+
+***
+
+Today we will be looking at not just our populations as a group to be quantified, but the individuals *within* our populations and how they relate to one another. We will do this by constructing *phylogenetic trees*, which illustrate the genetic distance between individuals, using the *Nearest-Neighbor Joining* method of tree-making. This simple method of tree-making identifies which individuals are closest together (i.e., have the smalled genetic distance between them) and groups them together to the exclusion of the others. It is one of the simplest ways of making a phylogenetic tree, even though it does not always follow the law of Maximum Parsimony (minimal evolution). However, as stated by Saitou and Nei, the tree with maximum parsimony is not always the *correct* tree for recovering the true relationships between individuals. 
+<br>
+
+### Kimura's Neutral Theory of Evolution
+
+Another important method we will be using today to try to reconstruct relatedness between the individuals in our populations is ***Kimura's Neutral Theory***. This theory argues that most of the mutations that occur during a species' evolutionary history are *neutral* mutations that don't have any visible impact on the gene in which they occur. As such, most of the mutations that *stay* in a population should be *neutral* with respect to evolution rather than being either beneficial or harmful. We will use this theory as a model when calculating the pairwise distances between the people in our populations. The model will also help us compute a timescale for our tree - in other words, to construct a ***molecular clock*** - as we can assume that neutral mutations happen at a particular rate. 
+<br>
+
+### Learning Outcomes: 
+
+* Learn how to apply Kimura's Neutral Theory to our populations to create a matrix of genetic distances between individuals in a population.
+
+* Learn how to use the *ape* package's Nearest Neighbor Joining algorithm to create a Nearest Neighbor Joining tree.
+
+* Learn how to interpret a phylogenetic tree, and learn what it can tell us about molecular diversity within our populations.
+<br>
+
+## Step 1: Getting to *R Studio* and Preparing your Data
+
+Log in to the *SCC* and bring up the *R Studio* window [like we did in previous labs](https://fuzzyatelin.github.io/AN333_Fall18/Lab_2_-_HWE.html): 
+```{bash, eval = F, echo = T, class.source="sccCode"}
+module load gcc
+module load R
+rstudio &
+```
+
+Now, that we're in *R*, we'll prepare our data for analysis. The main package we will be using is called *ape* (Analyses of Phylogenetics and Evolution), which uses a file format called a *DNAbin*. We will load in our data with the package *vcfR*, just like in [Lab 2](https://fuzzyatelin.github.io/AN333_Fall18/Lab_2_-_HWE.html), after which we will convert our vcfR object to a DNAbin.<br>
+
+First, we'll load our packages:
+
+```{r, results='hide', message=F, warning=F}
+library(vcfR)
+library(ape)
+library(phangorn)
+library(ade4)
+```
+
+Now, let's prepare our data! As usual, I will be using the population **YRI** as an example. Remember to name your data according to your own population!
+
+```{r}
+#read in data
+YRI <- read.vcfR("YRI.vcf",verbose=T,nrows=206)
+
+#create DNAbin
+YRIdna <- vcfR2DNAbin(YRI)
+YRIdna
+```
+
+Notice that the output messages tell us that the DNAbin format is ignoring all *indel* variants. This is important to our genetic distance estimates because we need our sequences to be identical in length so that nucleotide positions can be read a single point mutation.<br><br>
+If you want to actually take a look at the variation in your population's *UCP1* sequence, you can do so using this code:
+```{r,fig.height=25}
+par(mar=c(5,8,4,2))
+ape::image.DNAbin(YRIdna[,ape::seg.sites(YRIdna)],cex.lab=0.5)
+```
+
+Notice, here, that each individual has *two* sequences under their name (one with a '0' at the end, and one with a '1')? That's because our genotype data has genotypes for each of two alleles per person at every site, with the alleles on one copy of each chromosome phased into *haplotypes*. In simpler terms, think of it as one (maybe the '0') sequence being what was inherited from the mother, and the other (maybe the '1') being inherited from the father. Because of this, when we construct our tree, below, we'll actually be constructing it based on haplotypes rather than a single sequence per individual. So DNA from the same individual *could* fall into *two* places on the tree, depending on how much heterozygosity there is in each individual's *UCP1* gene. You may also notice that we have 207 variants in our total *UCP1* file, but there are only 38 represented here... that's because the YRI population only has 38 *segregating sites* (or sites that are variable) out of those 207 in the *UCP1* region (that means the other 169 variant sites documented for *UCP1* are all variant in other, non-YRI populations).
+
+## Part 2: Creating a Distance Matrix using Kimura's Evolutionary Model
+
+As we learned in the introduction, Kimura's Neutral Theory is a popular model of molecular evolution. We will tell the function we're using to create our genetic distance matrix that we would like it to use Kimura's Neutral Theory to determine how far the members of our population are from each other (in other words, how many actual base-pair differences do we see, modified slightly by how many of those our mutation model deems true and countable). Ultimately, this genetic distance matrix is what we will use to build our tree.<br>
+
+Here, we create our genetic distance matrix from our DNAbin. The `model = K80` in this function is us telling the function to use the Kimura (1980) model to construct our distances:
+
+```{r}
+#creating distance matrix from our DNAbin. "K80" signifies the Kimura model
+dist <- dist.dna(YRIdna, model = "K80")
+length(dist)
+```
+
+Notice the length of our `dist` file... what do you think that might represent?<br>
+
+Now, we'll create a data frame from this genetic distance matrix so we can make a heatmap to visualize our genetic distances between individuals in our population. You may have to pop out the window (press 'Zoom' in your Plot window) to view the plot properly. As you can see from this module output, it's a pretty big plot!
+
+```{r,fig.height=12,fig.width=12}
+heatmap <- as.data.frame(as.matrix(dist))
+table.paint(heatmap, cleg=0, clabel.row=.5, clabel.col=.5)
+```
+
+The darker the color is, the higher the genetic distance between the two individuals. However, we aren't quite ready to draw conclusions from this yet... there's a better way to visualize these differences between individuals. Let's make our phylogenetic tree. 
+<br>
+
+## Part 3: Creating and Exploring A Neighbor Joining Tree
+
+Now we'll use the Nearest-Neighbor algorithm make our tree. We learned in the introduction how Nearest-Neighbor Joining trees work, so now we can apply this method to our own data to see what patterns of relatedness are suggested by the diversity within *UCP1* in our populations. 
+<br>
+
+To do this, we'll simply plug our genetic distance matrix into the neighbor joining algorithm and voila! We have our tree! As always, please make sure to name the tree after your own population!
+```{r}
+YRItree <- nj(dist)
+class(YRItree) #tree should be class "phylo"
+#Just a quick sneak peek at our tree before we plot it
+summary.phylo(YRItree)
+```
+<br>
+Ok, our tree is ready to be plotted! Before we do this, think about your population... Would you expect there to be a lot of molecular variation within this population, or only a little? Given our distance matrix is based on *genetic* distance, which is a count of how many differences you see between individuals, how do you think a lot or a little molecular variation will present itself in the context of your tree? 
+<br><br>
+Here is our tree! Remember when running this tutorial on your to plot *your own* tree and not mine!
+```{r,fig.height=28,fig.width=12}
+plot(YRItree, cex=1)
+```
+
+As you can see from the example, YRI is a very molecularly diverse population in the context of *UCP1*, and there are many different nodes on the tree. To interpret this tree, think of every node (or splitting point) as a point at which two sub-populations differ by at least one variant. Everyone to the right of a node along one particular branch shares the same difference. The *length* of the line from left-to-right corresponds to the number of base-pair differences in the sequence (this means that longer lines from left-to-right imply more changes in the sequence, or more mutations; if we assume a constant mutations rate, this also implies more time).
+<br><br>
+How does *your* tree compare to the example tree from the YRI population? Is it more or less diverse than YRI? Do you think there might be an adaptive explanation for the amount of diversity in your population, or might what you see be a product of human migration out of Africa? Think about these questions as we move in to the next part of the lab... 
+<br>
+
+## Part 4: Comparing Phylogenetic Trees
+
+In the next part of the lab, we'll make two more trees of populations from the same larger geographic region as your study population, and compare the tree from *your* population to these other two trees. In this way, we'll be able to qualitatively compare the amount of diversity in *your* population to the diversity in populations of the same region. Refer to [Lab 1](https://fuzzyatelin.github.io/AN333_Fall18/Lab_1_-_1KG_and_Ensembl_Tutorial.html) for population names and regions and pick TWO other populations that are from the same region (i.e., Africa, Europe, East Asia, etc.) as your study population. 
+<br>
+<br>
+The first step for this part of the lab will be to download the *UCP1* data from these other two populations in your region. Instead of downloading more data from Ensembl, you can get the data from the */project/anth333/* directory called "*DeCamp*" (HINT: this is the same directory where you did your Midterm 1 work. This directory contains downloads of *UCP1* data from all of the 1000 Genomes populations. This process will be similar to what we did in [Lab 1](https://fuzzyatelin.github.io/AN333_Fall18/Lab_1_-_1KG_and_Ensembl_Tutorial.html) to get our data in to our *SCC* folders. Just in case, here's how you would copy this files from the "*DeCamp*" folder to your working directory:
+
+```{bash, eval = F, echo = T, class.source="sccCode"}
+cp /project/anth333/DeCamp/filename.vcf /usr4/anth333/login/filename.vcf
+```
+
+In the above instructions, [filename] should be replaced by the three-letter acronym for the population whose data you'd like to download, and [login] should be replaced by your BUID that you use to log in to the *SCC*.<br><br>
+
+Now you have the data for two new populations in your working directory! You can now return to your *R Studio* screen, where you should see the new files in your directory in the bottom right screen (click on the "Files" tab). We will now use these files to create trees that we can compare to our original population. 
+<br><br>
+
+First, we will create our new trees with the same code we used before. Remember to name your *R* files after each separate population to keep everything in order! In my case, since my focal population is the Yoruba in Ibadan (YRI), I copied the files for the LWK and ASW populations, which are both also African (AFR) populations:
+```{r}
+#Tree 1
+LWK <- read.vcfR("LWK.vcf")
+
+LWKdna <- vcfR2DNAbin(LWK)
+LWKdna
+
+D <- dist.dna(LWKdna, model = "K80")
+length(D)
+
+LWKtree <- nj(D)
+class(LWKtree) 
+
+#Tree 2
+ASW <- read.vcfR("ASW.vcf")
+
+ASWdna <- vcfR2DNAbin(ASW)
+ASWdna
+
+D <- dist.dna(ASWdna, model = "K80")
+length(D)
+
+ASWtree <- nj(D)
+class(ASWtree) 
+
+```
+<br>
+Next, let's make a *multiPhylo* object, which we can use to combine our populations into one handy visual. For a name, use your populations' larger-scale geographic location; I'm using 'Africa': 
+
+```{r}
+africa <- c(YRItree, LWKtree, ASWtree)
+class(africa)
+```
+<br>
+Finally, plot all the trees on the same axis. It will probably take some time to render the plots because there are a *lot* of tips (each representing an individual in your populations) on the tree: 
+
+```{r,fig.height=16,fig.width=12}
+densitree <- densiTree(africa, type="phylogram", col=c("red", "green", "blue"), tip.color=c("red", "green", "blue"), cex = 0.5, width=2, jitter=list(amount=.3, random=FALSE), alpha=1)
+```
+
+This might look confusing at first, especially without a legend. Unfortunately, this function isn't programmed to make a legend for us, so we have to figure out which tree is which based on their order in the *multiPhylo* object. The *red* tree represents the first tree you named in the *multiPhylo* object (in my case, the YRI tree), the *green* tree represents the second tree in the *multiPhylo* object (in my case, the LWK tree), and the *blue* tree represents the last tree in the *multiPhylo* object (in my case, the ASW tree). In this case, if you put *your* population's tree as the first tree in the *multiPhylo* object, the red tree represents *your* population. 
+<br>
+<br>
+Now that you can tell which tree is which, let's take a closer look at your trees. How does your tree compare with the other two? Does it have more diversity, a similar amount of diversity, or less diversity (and how can you tell)? Look at the shape of each tree. Is there a similar number of larger clusters in each tree, or not? Does any one tree have the *oldest* genotypes according to the timescale listed below the trees (typically, older branches on a phylogeny belong to extinct species, but in the context of our data they represent older genotypes)? 
+<br><br>
+
+## Part 5: What Do Your Results Mean? Discuss with a partner from class: 
+
+Now that we've assessed the molecular diversity of our populations, we can talk about what this means in the context of the *UCP1* gene. Here are some guiding questions to help you: 
+<br>
+
+* Based on what you know about human migration during our evolutionary history, did you expect the amount of diversity that was present in your population? If not, was there more or less diversity than you expected? 
+
+* Think about the diversity you see in terms of *UCP1*. If there was an unexpected amount of diversity in your population, what would that mean for *UCP1*? For example, if there is *a lot* of diversity in your population, does that mean there is selection occurring? 
+
+* Do you think that the genetic variation within *UCP1* is representative of the genetic variation you would see across the whole genome for your population? Why or why not?
+<br>
+<br> 
+

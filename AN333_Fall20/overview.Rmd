@@ -8,7 +8,7 @@ output:
 ---
 ***
 <center><p>
-![](1kGP.png)
+![](img/1kGP.png)
 </p></center>
 
 ***
@@ -37,7 +37,7 @@ output:
 ###Course Description
 ***
 <p>
-<img src=https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/ADMIXTURE_analysis_of_Horn_of_Africa_populations_in_a_broad_context.png/640px-ADMIXTURE_analysis_of_Horn_of_Africa_populations_in_a_broad_context.png style="float:right" width="360" hspace="40">
+<img src=https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/ADMIXTURE_analysis_of_Horn_of_Africa_populations_in_a_broad_context.png/640px-ADMIXTURE_analysis_of_Horn_of_Africa_populations_in_a_broad_context.png style="float:right" width="365" hspace="40">
 This course uses human genomic and population variation as a framework within which to better understand human evolutionary history. We do this by familiarizing ourselves with the methods, techniques, and biology that allow us to understand human variation at its most basic level: the genome. Throughout the course, we will download, analyze, and draw conclusions about human evolutionary and population history from open-source human genomic datasets derived from the [1000 Genomes Project](http://www.internationalgenome.org). From there, we expand our view to better grasp human diversity and what it can tell us about our evolutionary history from our last common ancestor with other apes to how modern human populations have diverged, specialized and then interacted during our spread from East Africa to every part of the globe. Finally, we take a close look at the biological underpinnings of contemporary human variation and what impact our knowledge of these systems can have on our conceptions of public policy, health and disease. 
 </p>  
 

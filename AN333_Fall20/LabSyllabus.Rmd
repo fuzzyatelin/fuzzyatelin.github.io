@@ -1,8 +1,10 @@
 ---
-title: 'AN333/733: Lab Syllabus'
+title: 'AN/BI333/733: Lab Syllabus'
 author: "Christopher A Schmitt"
-date: "November 04, 2018"
-output: html_document
+date: "January 1, 2020"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
 ---
 
 ***
@@ -28,7 +30,7 @@ life population genetic analyses.</li>
 
 ***
 
-###[*Lab 1: Accessing Human Candidate Gene Region Data* – *UCP1*](https://fuzzyatelin.github.io/AN333_Fall18/Lab_1_-_1KG_and_Ensembl_Tutorial.html)
+###[*Lab 1: Accessing Human Candidate Gene Region Data* – *UCP1*](https://fuzzyatelin.github.io/AN333_Fall20/Lab1_Module.html)
 **September 28**<br>
 
 ***
@@ -38,7 +40,7 @@ life population genetic analyses.</li>
 <li>[The 1000 Genomes Project Consortium. 2015. A global reference for human genetic variation. *Nature* 526: 68-74.](https://www.nature.com/articles/nature15393)</li><br>
 <li>[Danecek P, Auton A, Abecasis G, Albers CA, Banks E, DePristo MA, Handsaker RE, Lunter G, Marth GT, Sherry ST, McVean G, Durbin R, 1000 Genomes Project Analysis Group. 2011. The variant call format and VCFtools. *Bioinformatics App Note* 27: 2156-2158.](https://academic.oup.com/bioinformatics/article/27/15/2156/402296)</li><br>
 <li>[Gonzalez-Barroso MDM, Ricquier D, Cassard-Doulcier AM. 2000. The human uncoupling protein-1 gene (UCP1): present status and perspectives in obesity research. *Obesity Rev* 1: 61-72.](https://onlinelibrary.wiley.com/doi/full/10.1046/j.1467-789x.2000.00009.x)</li></ul><br>
-**Activities**: We’ll learn how to use the *Ensembl* database to navigate our candidate gene, *UCP1*, and find more information about it. [**Each student will be assigned a single 1000 Genomes sub-population**](https://fuzzyatelin.github.io/AN333_Fall18/1KG_SubPop_Fall2018.html) that they will look at over the course of the labs, and we will use the *Data Slicer* within *Ensembl* to download data for those populations into our *SCC* accounts.<br><br>
+**Activities**: We’ll learn how to use the *Ensembl* database to navigate our candidate gene, *UCP1*, and find more information about it. [**Each student will be assigned a single 1000 Genomes sub-population**](https://fuzzyatelin.github.io/AN333_Fall20/1KG_SubPop_Fall2020.html) that they will look at over the course of the labs, and we will use the *Data Slicer* within *Ensembl* to download data for those populations into our *SCC* accounts.<br><br>
 **Assignment**: Students must turn in a worksheet – with questions related to *UCP1* variation in humans and related to the downloaded dataset –  in class the following Monday. **Pre-Lab Homework Assignment is due today.**<br><br>
 **Learning Outcomes**:<ul>
 <li>Learn about the basics of bioinformatics and how genetic data is transformed from raw sequencing reads in to a VCF file, which is the file type we will be working with.</li>
@@ -48,11 +50,11 @@ life population genetic analyses.</li>
 
 ***
 
-###[Homework for Lab 1: DUE Friday, October 5th](https://fuzzyatelin.github.io/AN333_Fall18/Lab1_Homework.html)
+###[Homework for Lab 1: DUE Friday, October 5th](https://fuzzyatelin.github.io/AN333_Fall20/Lab1_Homework.html)
 
 ***
 
-###[*Lab 2: UCP1 Variants and Hardy-Weinberg Equilibrium*](https://fuzzyatelin.github.io/AN333_Fall18/Lab_2_-_HWE.html)
+###[*Lab 2: UCP1 Variants and Hardy-Weinberg Equilibrium*](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Module.html)
 **October 05**<br>
 
 ***
@@ -73,11 +75,11 @@ life population genetic analyses.</li>
 
 ***
 
-###[Homework for Lab 2: DUE Friday, October 12th](https://fuzzyatelin.github.io/AN333_Fall18/Lab2_Homework.html)
+###[Homework for Lab 2: DUE Friday, October 12th](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Homework.html)
 
 ***
 
-###[*Lab 3: Linkage Disequilibrium (LD) in UCP1*](https://fuzzyatelin.github.io/AN333_Fall18/Lab3-LD.html)
+###[*Lab 3: Linkage Disequilibrium (LD) in UCP1*](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Module.html)
 **October 12**<br>
 
 ***
@@ -98,11 +100,11 @@ life population genetic analyses.</li>
 
 ***
 
-###[Homework for Lab 3: DUE Friday, October 19th](https://fuzzyatelin.github.io/AN333_Fall18/Lab3_Homework.html)
+###[Homework for Lab 3: DUE Friday, October 19th](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Homework.html)
 
 ***
 
-###[*Lab 4: Introduction to Nearest-Neighbor Joining and Phylogenetics*](https://fuzzyatelin.github.io/AN333_Fall18/Lab4-Phylogeny.html)
+###[*Lab 4: Introduction to Nearest-Neighbor Joining and Phylogenetics*](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Module.html)
 **October 26**<br>
 
 ***
@@ -122,11 +124,11 @@ life population genetic analyses.</li>
 
 ***
 
-###[Homework for Lab 4: DUE Friday, November 2nd](https://fuzzyatelin.github.io/AN333_Fall18/Lab4_Homework.html)
+###[Homework for Lab 4: DUE Friday, November 2nd](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Homework.html)
 
 ***
 
-###[*Lab 5: Introduction to Neutrality Statistics and Signs of Selection*](https://fuzzyatelin.github.io/AN333_Fall18/Lab5-neutrality.html)
+###[*Lab 5: Introduction to Neutrality Statistics and Signs of Selection*](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Module.html)
 **November 02**<br>
 
 ***
@@ -150,11 +152,11 @@ life population genetic analyses.</li>
 
 ***
 
-###[Homework for Lab 5: DUE Friday, November 16th](https://fuzzyatelin.github.io/AN333_Fall18/Lab5_Homework.html)
+###[Homework for Lab 5: DUE Friday, November 16th](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Homework.html)
 
 ***
 
-###[*Lab 6: A Brief Digression from UCP1 for Quantitative Genetics*](https://fuzzyatelin.github.io/AN333_Fall18/Lab6_quantgen.html)
+###[*Lab 6: A Brief Digression from UCP1 for Quantitative Genetics*](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Module.html)
 **November 09**<br>
 
 ***
@@ -178,11 +180,11 @@ life population genetic analyses.</li>
 
 ***
 
-###[Homework for Lab 6: DUE Friday, November 16th](https://fuzzyatelin.github.io/AN333_Fall18/Lab6_Homework.html)
+###[Homework for Lab 6: DUE Friday, November 16th](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Homework.html)
 
 ***
 
-###[*Lab 7: Finding a New Locus…*](https://fuzzyatelin.github.io/AN333_Fall18/Lab7-newlocus.html)
+###[*Lab 7: Finding a New Locus…*](https://fuzzyatelin.github.io/AN333_Fall20/Lab7_Module.html)
 **November 09**<br>
 
 ***
