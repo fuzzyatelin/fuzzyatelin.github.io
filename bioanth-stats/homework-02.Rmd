@@ -1,5 +1,5 @@
 ---
-title: "AN597: Homework 02"
+title: "AN/BI588: Homework 02"
 date: "September 18, 2019"
 output:
   html_document:
@@ -20,12 +20,12 @@ knitr::opts_chunk$set(
 
 ***
 
-###[Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
-###[Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
-###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
-###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
-###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
-###[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+### [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
+### [Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
+### [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
+### [Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
+### [Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
+### [Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
 
 ***
 
@@ -64,7 +64,7 @@ Every Saturday morning, at the same time, a primatologist goes and sits in the f
 
 ***
 
-###**Your Final Assignment for Homework 02**
+### **Your Final Assignment for Homework 02**
 
 Your final assignment, due to me by 5:00 pm on September 29th, is to have in your *AN597-Week-3-BUlogin* repo only the following files:
 <ol>
@@ -75,7 +75,7 @@ Your final assignment, due to me by 5:00 pm on September 29th, is to have in you
 
 ***
 
-###[Homework 02 Solutions](https://fuzzyatelin.github.io/bioanth-stats/homework-02-key.html) will be posted on September 30th.
+### [Homework 02 Solutions](https://fuzzyatelin.github.io/bioanth-stats/homework-02-key.html) will be posted on September 30th.
 
 ***
 

@@ -8,11 +8,11 @@ output:
 ---
 ***
 
-###[Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
-###[Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
-###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
-###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
-###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
+### [Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
+### [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
+### [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
+### [Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
+### [Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
 
 ***
 
@@ -36,7 +36,7 @@ But always remember your most effective and important resource:
 
 So you want to contribute to the **AN597_InsurmountableProblems** repository? OK, here we go...
 
-##I will add you as a collaborator to the *AN597_InsurmountableProblems* repository.
+## I will add you as a collaborator to the *AN597_InsurmountableProblems* repository.
 
 That actually should be sufficient. You'll receive an email from me inviting you to collaborate. Accept it, and you should be able to work with the repository as you like.
 

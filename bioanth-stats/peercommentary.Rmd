@@ -1,5 +1,5 @@
 ---
-title: "AN597: Peer Commentary Assignments"
+title: "AN/BI588: Peer Commentary Assignments"
 author: "Christopher A Schmitt"
 date: "September 18, 2019"
 output: 
@@ -8,12 +8,12 @@ output:
 ---
 ***
 
-###[Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
-###[Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
-###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
-###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
-###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
-###[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+### [Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
+### [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
+### [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
+### [Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
+### [Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
+### [Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
 
 ***
 
@@ -33,11 +33,11 @@ The Peer Commentary assignment is one of the most important exercises in this cl
 
 ***
 
-###**How it works...**
+### **How it works...**
 
 Every week, once finished working on your Original Homework Code associated with your assigned [Module](https://fuzzyatelin.github.io/bioanth-stats/modules.html) (links to Homework can be found in the weekly entries on the [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)), you will be required to share your annoted/commented code as an ***R Markdown*** file with your weekly assigned Peer Group. At the end of your Original Homework Code, in a section labeled **CHALLENGES**, you will share a list of the five most difficult challenges you faced in writing your code, and what you did to overcome them. The Peer Group you share this code with will typically be a group of three, although depending on final class size it may be a group of two, and this group will change on a weekly basis (see below for your assigned groups). **You must push your commented/annotated Original Homework Code to your homework repository, which you must share with your Peer Group and instructor, by 8:00 pm on Thursday night**. It is up to your group whether one or both of the other members work together to respectfully critique the others' code, and groups are encouraged to meet over the weekend to discuss their code in person.
 
-###**How you share your code**
+### **How you share your code**
 
 You will be creating a new repo on ***GitHub***, and cloning that repo to your computer so that you can make a git-referenced ***Rstudio*** project, for each individual homework assignment (instructions for each assignment on what to name that repo will be on the specific Homework webpage). Your homework code should be entered (and commented/annotated!) in an ***R Markdown*** file created and saved in your homework project, which can then be shared by '[pushing](https://fuzzyatelin.github.io/bioanth-stats/homework-01.html)' it to ***GitHub***. 
 
@@ -47,7 +47,7 @@ Please keep an eye out for, and Accept, your Peer Group's invitations each week!
 
 Once you're an active collaborator, you can clone your *Peer's* repository to your computer, create a git-referenced Project from *that* repo in ***Rstudio***, and then write and push a new R Markdown file with your comments/changes/recommendations on how to improve their code directly to *their* homework repo.
 
-###**What you're critiquing...**
+### **What you're critiquing...**
 
 As noted in the homework instructions, while completing your homework each of you will compile a list of the five most impactful challenges faced while coding it, along with how you overcame them (or what you attempted if you couldn't overcome them). You, as a peer commenter, must spend *at least an hour* reviewing and testing your peer's code with an eye towards understanding the challenges they faced, and in the process write down the following:
 <br><ol>
@@ -68,7 +68,7 @@ We will then take 30 minutes of each class to address these challenges together,
 
 Although grades will not be assigned for Peer Commentaries, if it comes to my attention that particular students are not actively participating in this process, it will be considered when negotiating their argument for their final grade.
 
-###**Who you're working with...**
+### **Who you're working with...**
 
 The students currently enrolled in Fall 2019 (and their associated GitHub accounts) include:
 
@@ -94,16 +94,18 @@ And my own GitHub account is:
 * Christopher Schmitt: [fuzzyatelin](https://github.com/fuzzyatelin)
 
 
-###**Assigned Peer Groups**
+### **Assigned Peer Groups**
 
-####**Week 01 (2019-09-02)**
+#### **Week 01 (2019-09-02)**
+
 ***
 
 No formal class meeting, and no Peer Commentary due.
 
 ***
 
-####**Homework 01: [Push It!](https://fuzzyatelin.github.io/bioanth-stats/homework-01.html) (Assigned 09SEP, Due 15SEP)**
+#### **Homework 01: [Push It!](https://fuzzyatelin.github.io/bioanth-stats/homework-01.html) (Assigned 09SEP, Due 15SEP)**
+
 ***
 
 Peer Group 1: Laura Angley, Gianna Grob
@@ -120,7 +122,8 @@ Peer Group 6: Maria Salazar Nicholls, Brenna Stallings, C Vega
 
 ***
 
-####**Homework 02: [Titis in the Mist](https://fuzzyatelin.github.io/bioanth-stats/homework-02.html) (Assigned 16SEP, Due 29SEP)**
+#### **Homework 02: [Titis in the Mist](https://fuzzyatelin.github.io/bioanth-stats/homework-02.html) (Assigned 16SEP, Due 29SEP)**
+
 ***
 
 Peer Group 1: Laura Angley, Frank Azorza Salazar, Lara Hakam
@@ -137,7 +140,8 @@ Peer Group 6: Brenna Stallings, Ishrat Chowdhury
 
 ***
 
-####**Homework 03: [Some of My Best Friends are Zombies](https://fuzzyatelin.github.io/bioanth-stats/homework-03.html) (Assigned 30SEP, Due 13OCT)**
+#### **Homework 03: [Some of My Best Friends are Zombies](https://fuzzyatelin.github.io/bioanth-stats/homework-03.html) (Assigned 30SEP, Due 13OCT)**
+
 ***
 
 Peer Group 1: Frank Azorza Salazar, Christian Gagnon, Clint Lockwood
@@ -155,7 +159,8 @@ Peer Group 6: Mel Zarate, Lara Hakam
 
 ***
 
-####**Homework 04: [What's Your Malfunction?](https://fuzzyatelin.github.io/bioanth-stats/homework-04.html) (Assigned 15OCT, Due 27OCT)**
+#### **Homework 04: [What's Your Malfunction?](https://fuzzyatelin.github.io/bioanth-stats/homework-04.html) (Assigned 15OCT, Due 27OCT)**
+
 ***
 
 Peer Group 1: Christian Gagnon, Nicola Kriefall, Ishrat Chowdhury
@@ -173,7 +178,8 @@ Peer Group 6: Mel Zarate, Gianna Grob, Gregory Pelose
 
 ***
 
-####**Homework 05: [Boots for Days!](https://fuzzyatelin.github.io/bioanth-stats/homework-05.html) (Assigned 28OCT, Due 04NOV)**
+#### **Homework 05: [Boots for Days!](https://fuzzyatelin.github.io/bioanth-stats/homework-05.html) (Assigned 28OCT, Due 04NOV)**
+
 ***
 
 Peer Group 1: Christian Gagnon, C Vega, Feiya Wang
@@ -190,9 +196,7 @@ Peer Group 6: Mel Zarate, Maria Salazar Nicholls
 
 ***
 
-```{r,eval=F,echo=F}
-
-####**Week 07 (2019-10-15)**
+#### **Week 07 (2019-10-15)**
 (Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day)
 
 ***
@@ -211,7 +215,8 @@ Peer Group 6: Clint Lockwood, Gregory Pelose, Christian Gagnon
 
 ***
 
-####**Week 08 (2019-10-21)**
+#### **Week 08 (2019-10-21)**
+
 ***
 
 Peer Group 1: Nicola Kriefall, , Ena Miculinic
@@ -228,7 +233,8 @@ Peer Group 6: Clint Lockwood, Mel Zarate
 
 ***
 
-####**Week 09 (2019-10-28)**
+#### **Week 09 (2019-10-28)**
+
 ***
 
 Peer Group 1: Laura Brubaker-Wittman, Clint Lockwood, Lara Hakam
@@ -245,7 +251,8 @@ Peer Group 6: Feiya Wang, Gregory Pelose, Laura Angley
 
 ***
 
-####**Week 10 (2019-11-04)**
+#### **Week 10 (2019-11-04)**
+
 ***
 
 Peer Group 1: Gregory Pelose, Brenna Stallings
@@ -262,7 +269,8 @@ Peer Group 6: Ena Miculinic, Gianna Grob, Maria Salazar Nicholls
 
 ***
 
-####**Week 11 (2019-11-11)**
+#### **Week 11 (2019-11-11)**
+
 ***
 
 Peer Group 1: Ena Miculinic, Laura Brubaker-Wittman
@@ -279,7 +287,8 @@ Peer Group 6: Laura Angley, Christian Gagnon, Lara Hakam
 
 ***
 
-####**Week 12 (2019-11-18)**
+#### **Week 12 (2019-11-18)**
+
 ***
 
 Peer Group 1: C Vega, Christian Gagnon, Brenna Stallings
@@ -296,7 +305,8 @@ Peer Group 6: Mel Zarate, Feiya Wang
 
 ***
 
-####**Week 13 (2019-11-25)**
+#### **Week 13 (2019-11-25)**
+
 ***
 
 Peer Group 1: Laura Angley, Maria Salazar Nicholls, Lara Hakam
@@ -313,18 +323,20 @@ Peer Group 6: Ena Miculinic, Clint Lockwood, Laura Brubaker-Wittman
 
 ***
 
-####**Week 14 (2019-12-02)**
+#### **Week 14 (2019-12-02)**
+
 ***
 
 Student Module presentations, no peer commentary due.
 
 ***
 
-####**Week 15 (2019-12-09)**
+#### **Week 15 (2019-12-09)**
+
 ***
 
 Student Module presentations, no peer commentary due.
 
 ***
-```
+
 

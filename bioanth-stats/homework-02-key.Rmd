@@ -1,5 +1,5 @@
 ---
-title: "AN597: Homework 02 Solution"
+title: "AN/BI588: Homework 02 Solution"
 date: "September 30, 2019"
 output:
   html_document:

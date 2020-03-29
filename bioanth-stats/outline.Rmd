@@ -1,5 +1,5 @@
 ---
-title: "AN597: Course Outline"
+title: "AN/BI588: Course Outline"
 date: "September 2, 2019"
 output: 
   rmarkdown::html_document:
@@ -7,20 +7,20 @@ output:
 ---
 ***
 
-###[Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
-###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
-###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
-###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
-###[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+### [Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
+### [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
+### [Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
+### [Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
+### [Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
 
 ***
 
-###Week 01 (2019-09-02)
+### Week 01 (2019-09-02)
 ***
 
-###An Introduction to R
+### An Introduction to R
 
-#####Topics
+##### Topics
 <ul>
 <li>History of <b><i>R</b></i></li>
   <ul>
@@ -48,12 +48,12 @@ output:
   <li>Interfacing between <b><i>R</b></i> and <i><b>GitHub</i></b></li></ul>
 </ul>
 
-#####{swirl} Tutorials
+##### {swirl} Tutorials
 <ul>
 <li>R Programming</li>
 </ul>
 
-#####Required Readings
+##### Required Readings
 *The Book of R*
 <ul>
 <li>Chapter 1 - Getting Started</li>
@@ -69,7 +69,7 @@ output:
 <li>Chapter 1 - Fundamentals</li>
 </ul>
 
-#####Useful But Optional Readings
+##### Useful But Optional Readings
 *R Programming for Data Science*
 <ul>
 <li>Chapter 3 - History and Overview of R</li>
@@ -82,14 +82,14 @@ output:
 
 ***
 
-###Week 02 (2019-09-09)
+### Week 02 (2019-09-09)
 ***
 
 [Homework 1 assigned - DUE 5pm 2019-09-15](http://fuzzyatelin.github.io/bioanth-stats/homework-01.html)
 
-###Data Science Preliminaries
+### Data Science Preliminaries
 
-####Topics
+#### Topics
 <ul>
 <li>Good programming practices</li>
 <ul>
@@ -116,7 +116,7 @@ output:
 <li>Simple plotting (boxplots, histograms, scatterplots) - {ggplot2} and others</li></ul>
 </ul>
 
-####{swirl} Tutorials
+#### {swirl} Tutorials
 <ul>
 <li>Getting and Cleaning Data:
 <ol>
@@ -125,7 +125,7 @@ output:
 <li>Tidying Data with {tidyr}</li></li>
 </ol></ul>
 
-####Required Readings
+#### Required Readings
 
 *The Book of R*
 <ul>
@@ -143,7 +143,7 @@ output:
 <li>Chapter 7 - Using the {readr} Package</li>
 </ul>
 
-####Useful But Optional Readings
+#### Useful But Optional Readings
 
 *The Book of R*
 <ul>
@@ -157,14 +157,14 @@ output:
 </ul>
 ***
 
-###Week 03 (2019-09-16)
+### Week 03 (2019-09-16)
 ***
 
 [Homework 2 assigned - DUE 5pm 2019-09-29](http://fuzzyatelin.github.io/bioanth-stats/homework-02.html)
 
-###Statistics Fundamentals - Exploratory Data Analysis, Central Tendency, and Variance
+### Statistics Fundamentals - Exploratory Data Analysis, Central Tendency, and Variance
 
-####Topics
+#### Topics
 <ul>
 <li>Populations and samples</li>
 <li>More on summarizing data</li>
@@ -180,11 +180,11 @@ output:
 <li>Loops</li>
 <li>Conditional statements and flow control</li></ul>
 
-####{swirl} Tutorials
+#### {swirl} Tutorials
 <ul>
 <li>Getting and Cleaning Data (all exercises)</li></ul>
 
-####Required Readings
+#### Required Readings
 
 *The Book of R*
 <ul>
@@ -205,19 +205,19 @@ output:
 <li>Chapter 3 - Central Tendency</li>
 <li>Chapter 4 - Variance</li></ul>
 
-####Useful but Optional Readings
+#### Useful but Optional Readings
 *The Book of R*
 <ul>
 <li>Chapter 13 - Elementary Statistics</li>
 <li>Chapter 14 - Basic Data Visualization</li></ul>
 ***
 
-###Week 04 (2019-09-23)
+### Week 04 (2019-09-23)
 ***
 
-###Statistics Fundamentals - Probability and Distributions
+### Statistics Fundamentals - Probability and Distributions
 
-####Topics
+#### Topics
 <ul>
 <li>Probability and conditional probability</li>
 <li>Random variables - dicrete and continuous</li>
@@ -239,20 +239,20 @@ output:
 <li>Q-Q Plots</li>
 <li>Standard errors and confidence intervals</li></ul>
 
-####Required Readings
+#### Required Readings
 *The Book of R*
 <ul>
 <li>Chapter 15 - Probability</li>
 <li>Chapter 16 - Common Probability Distributions</li></ul>
 
-###Useful but Optional Readings
+### Useful but Optional Readings
 *R Programming for Data Science*
 <ul>
 <li>Chapter 22 - Simulation</li></ul>
 
 ***
 
-###Week 05 (2019-09-30)
+### Week 05 (2019-09-30)
 ***
 
 [Homework 3 assigned - DUE 5pm 2019-10-13](http://fuzzyatelin.github.io/bioanth-stats/homework-03.html)
@@ -261,9 +261,9 @@ output:
 
 [You can find instructions for the replication assignment here!](http://fuzzyatelin.github.io/bioanth-stats/data-reanalysis-assignment.html)
 
-###Statistical Inference and Basic Hypothesis Testing
+### Statistical Inference and Basic Hypothesis Testing
 
-####Topics
+#### Topics
 <ul>
 <li>Significance and p values</li>
 <li>Classic hypothesis testing</li>
@@ -272,7 +272,7 @@ output:
 <li>Type I and Type II error</li>
 <li>Statistical power, effect sizes</li></ul>
 
-####Required Readings
+#### Required Readings
 *The Book of R*
 <ul>
 <li>Chapter 17 - Sampling Distributions and Confidence</li>
@@ -281,7 +281,7 @@ output:
 <ul>
 <li>Chapter 1 - An Introduction to Statistical Significance</li></ul>
 
-####Useful but Optional Readings
+#### Useful but Optional Readings
 *Statistics: An Introduction Using R*
 <ul>
 <li>Chapter 5 - Single Samples</li>
@@ -289,12 +289,12 @@ output:
 
 ***
 
-###Week 06 (2019-10-07)
+### Week 06 (2019-10-07)
 ***
 
-###Introduction to Linear Regression
+### Introduction to Linear Regression
 
-####Topics
+#### Topics
 
 - Correlation and covariation
 - Introduction to linear modeling
@@ -307,7 +307,7 @@ output:
 		- Confidence intervals and prediction intervals
 	- Residuals
 
-####{swirl} Tutorials
+#### {swirl} Tutorials
 <ul>
 <li>Regression Models (all exercises)</li></ul>
 
@@ -332,7 +332,7 @@ output:
 
 ***
 
-###Week 07 (2019-10-15)
+### Week 07 (2019-10-15)
 ***
 
 [Homework 4 assigned - DUE 5pm 2017-10-27](http://fuzzyatelin.github.io/bioanth-stats/homework-04.html)
@@ -361,7 +361,7 @@ Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day.
 
 ***
 
-###Week 08 (2019-10-21)
+### Week 08 (2019-10-21)
 ***
 
 ### Basic Categorical Data Analysis and ANOVA
@@ -375,7 +375,7 @@ Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day.
 	- Chi-Square tests of goodness-of-fit and independence
 - Interaction plots to visualize changes across groups
 
-####{swirl} Tutorials
+#### {swirl} Tutorials
 <ul>
 <li>ANOVA</li></ul>
 
@@ -398,7 +398,7 @@ Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day.
 
 ***
 
-###Week 09 (2019-10-28)
+### Week 09 (2019-10-28)
 ***
 
 ### Multiple Regression and ANCOVA
@@ -426,7 +426,7 @@ Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day.
 
 ***
 
-###Week 10 (2019-11-04)
+### Week 10 (2019-11-04)
 ***
 
 [Homework 5 assigned - DUE 5pm 2019-11-10](http://fuzzyatelin.github.io/bioanth-stats/homework-05.html)
@@ -463,7 +463,7 @@ Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day.
 
 ***
 
-###Week 11 (2019-11-11)
+### Week 11 (2019-11-11)
 ***
 
 **IMPORTANT! Deadline for choosing topic for group statistical methods presentation and vignette**
@@ -474,12 +474,12 @@ Same readings as last week, plus:
 
 ***
 
-###Week 12 (2019-11-18)
+### Week 12 (2019-11-18)
 ***
 
-###A Very Brief Introduction to Bayesian Methods
+### A Very Brief Introduction to Bayesian Methods
 
-####Topics
+#### Topics
 - Bayesian vs. frequentist statistics
     - Basics and Bayes' Theorem
     - Priors (when they matter and when they don't)
@@ -502,7 +502,7 @@ More details coming soon!
 
 ***
 
-###Week 13 (2019-11-25)
+### Week 13 (2019-11-25)
 ***
 
 ### Using APIs and Basics of Text Mining
@@ -532,24 +532,24 @@ More details coming soon!
 
 ***
 
-###Week 14 (2019-12-02)
+### Week 14 (2019-12-02)
 ***
 
 Group Presentations and Vignettes
 
-###[Module 22 - **TBA**]() 
+### [Module 22 - **TBA**]() 
 
-###[Module 23 - **TBA**]()
+### [Module 23 - **TBA**]()
 
 ***
 
-###Week 15 (2017-12-09)
+### Week 15 (2017-12-09)
 ***
 
 Group Presentations and Vignettes
 
-###[Module 24 - **TBA**]()
+### [Module 24 - **TBA**]()
 
-###[Module 25 - **TBA**]() 
+### [Module 25 - **TBA**]() 
 
 ***

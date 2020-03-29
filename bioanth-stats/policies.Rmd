@@ -1,16 +1,16 @@
 ---
-title: "AN597: Course Policies"
+title: "AN/BI588: Course Policies"
 output: 
   rmarkdown::html_document:
     theme: cosmo
 ---
 ***
 
-###[Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
-###[Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
-###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
-###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
-###[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+### [Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
+### [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
+### [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
+### [Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
+### [Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
 
 ***
 

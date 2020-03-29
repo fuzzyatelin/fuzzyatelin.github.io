@@ -1,5 +1,5 @@
 ---
-title: "AN597: Homework 05"
+title: "AN/BI588: Homework 05"
 date: "September 18, 2019"
 output:
   html_document:
@@ -20,12 +20,12 @@ knitr::opts_chunk$set(
 
 ***
 
-###[Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
-###[Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
-###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
-###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
-###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
-###[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+### [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
+### [Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
+### [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
+### [Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
+### [Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
+### [Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
 
 ***
 <center>
@@ -82,7 +82,7 @@ Graph each beta value from the linear model and its corresponding mean value, lo
 
 ***
 
-###**Your Final Assignment for Homework 03**
+### **Your Final Assignment for Homework 03**
 
 Your final assignment, due to me by 5:00 pm on November 4th, is to have in your *AN597_Zombies_BUlogin* repo only the following files:
 <ol>
@@ -93,7 +93,7 @@ Your final assignment, due to me by 5:00 pm on November 4th, is to have in your 
 
 ***
 
-###[Homework 05 Solutions]() will be posted on November 5th.
+### [Homework 05 Solutions]() will be posted on November 5th.
 
 ***
 

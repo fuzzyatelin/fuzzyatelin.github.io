@@ -1,5 +1,5 @@
 ---
-title: "AN597: Homework 01"
+title: "AN/BI588: Homework 01"
 date: "September 13, 2019"
 output:
   html_document:
@@ -20,12 +20,12 @@ knitr::opts_chunk$set(
 
 ***
 
-###[Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
-###[Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
-###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
-###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
-###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
-###[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+### [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
+### [Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
+### [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
+### [Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
+### [Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
+### [Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
 
 ***
 <center>
@@ -51,19 +51,19 @@ knitr::opts_chunk$set(
 
 ***
 
-###Create, Clone, and Access a New Repo in *RStudio*
+### Create, Clone, and Access a New Repo in *RStudio*
 
 Create a repository in your ***GitHub*** account called ***AN597-Week-2-BUlogin*** (where *BUlogin* is *your* BU login name; for example, mine would be *AN597-Week-2-caschmit*), and clone it to your computer. Once there, create a git-referenced Project in ***RStudio*** with the same name and connect it to your cloned repository. 
 
-###Write Some Code
+### Write Some Code
 
 In that Project on ***RStudio***, create a new **R Markdown** (Rmd) file - you can create one using the 'new file' button on the editor in ***RStudio*** - and use that to write and run your *well-annotated/commented* Original Homework Code, which will include all of the **CHALLENGES** from [Module 04](http://fuzzyatelin.github.io/bioanth-stats/module-04/module-04.html). When you save this file, name it ***BUlogin_OriginalHomeworkCode_01*** (i.e., for me, it would be *caschmit_OriginalHomeworkCode_01*).
 
-###Push It!
+### Push It!
 
 Once you've finished (or even better: as you save along the way), you must PUSH that file up to ***GitHub*** directly from ***RStudio*** (i.e., once pushed, it should be accessible in your *AN597-Week-2-BUlogin* repo on your ***GitHub*** account's website). Notes in [Module 03](http://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html) should help you accomplish this - and, of course, feel free to come see me for additional help during my office hours if you're having problems.
 
-###Peer Commentary for Homework 01
+### Peer Commentary for Homework 01
 
 Peer Commentary for this week should focus on the code for the [Module 04](http://fuzzyatelin.github.io/bioanth-stats/module-04/module-04.html) **CHALLENGES**, and should also be pushed directly to your *AN597-Week-2-BUlogin* repo by the member of your Peer Group responsible for commenting on your Original Homework Code. Share your Original Homework Code by [adding your Peer Group (and your instructor) as 'Collaborators'](https://help.github.com/en/articles/inviting-collaborators-to-a-personal-repository) by 8:00 pm on Thursday, September 12th.
 
@@ -73,13 +73,13 @@ For working with peer code on your personal computer in ***RStudio***, I recomme
 
 Please make your **FINAL PUSH** of comments/suggestions with enough time so that your peer can incorporate them into their Final Homework Code. To create your Final Homework Code (an Rmd file named ***BUlogin_FinalHomeworkCode_01***), I recommend you duplicate and rename your Original Homework Code in your own homework repo, and then refer to the Peer Comments when trying out and running changes. This must be pushed to ***GitHub*** by 5:00 pm on Sunday, September 15th.
 
-###Don't Cheat!
+### Don't Cheat!
 
 Some of you will no doubt realize that you will be able to see your colleagues' **Rmd** documents on ***GitHub*** each time they push them up, if you check out their accounts... during the Peer Commentary stage, I encourage you to troubleshoot code together, but during the first phase of your homework, while writing your original code, please refrain from copying each others' work - in person or from repositories - it is critically important that you **make your original work your own**!
 
 ***
 
-###**Your Final Assignment for Homework 01**
+### **Your Final Assignment for Homework 01**
 
 Your final assignment, due to me by 5:00 pm on September 15th, is to have in your *AN597-Week-2-BUlogin* repo only the following files:
 <ol>

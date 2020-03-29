@@ -1,5 +1,5 @@
 ---
-title: "AN597: End-of-Semester Self Evaluation"
+title: "AN/BI588: End-of-Semester Self Evaluation"
 author: "Christopher A Schmitt"
 date: "12/10/2019"
 output: 
@@ -9,11 +9,11 @@ output:
 
 ***
 
-###[Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
-###[Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
-###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
-###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
-###[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+### [Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
+### [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
+### [Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
+### [Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
+### [Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
 
 ***
 
@@ -30,7 +30,7 @@ The following self evaluation is meant to guide you through a reflection on what
 </center>
 ***
 
-##Instructions
+## Instructions
 
 ***
 
@@ -38,7 +38,7 @@ Please download this Markdown file (`selfevaluation.Rmd`) from my GitHub site (i
 
 ***
 
-###Overall Impression
+### Overall Impression
 
 ***
 
@@ -46,7 +46,7 @@ In place of my name as author on this Markdown file, please insert your own, alo
 
 ***
 
-###What were you asked to do?
+### What were you asked to do?
 
 ***
 
@@ -54,7 +54,7 @@ Please give me a bulleted/numbered list of each task you were asked to do for th
 
 ***
 
-###What did you accomplish?
+### What did you accomplish?
 
 ***
 
@@ -62,7 +62,7 @@ Please let me know how many of the above tasks you accomplished. If any of them 
 
 ***
 
-###How well did you accomplish them?
+### How well did you accomplish them?
 
 ***
 
@@ -70,7 +70,7 @@ Please let me know how well you feel you accomplished your tasks, in a general s
 
 ***
 
-###How has your understanding of and approach to statistics and project design changed since taking this course?
+### How has your understanding of and approach to statistics and project design changed since taking this course?
 
 ***
 
@@ -78,7 +78,7 @@ This may be in relation to previous knowledge, or in relation to future/planned 
 
 ***
 
-###What did you learn from all this?
+### What did you learn from all this?
 
 ***
 
@@ -86,7 +86,7 @@ Please name at least three things you feel you learned in this course.<br><br><b
 
 ***
 
-###How did the Peer Commentary process and Group Project relate, if at all, to what you view as your successes or difficulties in this course?
+### How did the Peer Commentary process and Group Project relate, if at all, to what you view as your successes or difficulties in this course?
 
 ***
 
@@ -94,7 +94,7 @@ Please name at least three things you feel you learned in this course.<br><br><b
 
 ***
 
-###What, if anything, of lasting value do you take away from this experience? If nothing, what would you do differently if you were to start over in this course? 
+### What, if anything, of lasting value do you take away from this experience? If nothing, what would you do differently if you were to start over in this course? 
 
 ***
 
@@ -102,7 +102,7 @@ Please name at least three things you feel you learned in this course.<br><br><b
 
 ***
 
-###Taking this self-assessment into account (and with **A** being the highest), if you were the instructor, what grade would you give yourself given your evaluation of your own performance this semester? Please be honest.
+### Taking this self-assessment into account (and with **A** being the highest), if you were the instructor, what grade would you give yourself given your evaluation of your own performance this semester? Please be honest.
 
 ***
 

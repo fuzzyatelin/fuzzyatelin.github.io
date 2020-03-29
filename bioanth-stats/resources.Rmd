@@ -1,15 +1,15 @@
 ---
-title: "AN597: Useful Data Science Resources"
+title: "AN/BI588: Useful Data Science Resources"
 output: 
   rmarkdown::html_document:
     theme: cosmo
 ---
 
-###[Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
-###[Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
-###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
-###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
-###[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+### [Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
+### [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
+### [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
+### [Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
+### [Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
 ***
 
 
@@ -22,16 +22,16 @@ output:
 
 ***
 
-###Software Tools
+### Software Tools
 ***
 
-####Programming Languages
+#### Programming Languages
 <ul>
 <li>[R](https://cran.r-project.org) (MacOS, Windows, Linux)</li>
 <li>[Python](http://www.python.org) (MacOS, Windows, Linux)</li>
 </ul>
 
-####Text Editors
+#### Text Editors
 <ul>
 <li>[Atom](https://atom.io) (MacOS, Windows)</li>
 <li>[TextWrangler](http://www.barebones.com/products/textwrangler/download.html) (MacOS)</li>
@@ -40,25 +40,25 @@ output:
 <li>[Vim](https://vim.sourceforge.io) (MacOS, Windows)</li>
 </ul>
 
-####Markdown Editors
+#### Markdown Editors
 <ul>
 <li>[MacDown](http://macdown.uranusjr.com/) (MacOS)</li>
 <li>[MarkdownPad2](http://markdownpad.com/) (Windows)</li>
 </ul>
 
-####IDEs
+#### IDEs
 <ul>
 <li>[RStudio](https://www.rstudio.com/) for **R** (current version is 1.0.136) (MacOS, Windows)</li>
 <li>[y-hat Rodeo](https://www.yhat.com/products/rodeo) for **Python** (current version is 2.4.10) (MacOS, Windows, Linux)</li>
 </ul>
 
-####Version Control Tools
+#### Version Control Tools
 <ul>
 <li>[GitHub](https://github.com/) (Website)</li>
 <li>[GitHub Desktop](https://desktop.github.com/) (MacOS, Windows)</li>
 </ul>
 
-###Web Resources
+### Web Resources
 ***
 <ul>
 <li>[CRAN (Comprehensive R Archive Network)](https://cran.r-project.org/)</li>
@@ -73,17 +73,17 @@ output:
 <li>[Mockaroo](https://mockaroo.com/)</li>
 </ul>
 
-###Books
+### Books
 ***
 
-####Statistical Modeling in Biology
+#### Statistical Modeling in Biology
 <ul>
 <li>Bolker BM. 2008. *Ecological Models and Data in R*. Princeton, NJ: Princeton University Press.</li>
 <li>Irizarry RA, Love MI. 2015. *Data Analysis for the Life Sciences*. Lean Publishing.</li>
 <li>Quinn GP, Keough MJ. 2002. *Experimental Design and Data Analysis for Biologists*. Cambridge, UK: Cambridge University Press.</li>
 </ul>
 
-####R and Basic Statistics
+#### R and Basic Statistics
 <ul>
 <li>Caffo B. 2015. *Statistical Inference for Data Science*. Lean Publishing.</li>
 <li>Caffo B. 2016. *Regression Models for Data Science in R*. Lean Publishing.</li>
@@ -91,7 +91,7 @@ output:
 <li>Shahbaba B. 2012. *Biostatistics with R*. New York: Springer.</li>
 </ul>
 
-####R Programming
+#### R Programming
 <ul>
 <li>Adler J. 2009. *R in a Nutshell*. Sebastopol, CA: O’Reilly Media.</li>
 <li>Kabacoff RI. 2011. *R in Action: Data Analysis and Graphics with R*. Shelter Island, NY: Manning Publications Co.</li>
@@ -101,20 +101,20 @@ output:
 <li>Zuur AF, Ieno EN, Meesters EHWG. 2009. *A Beginner’s Guide to R*. New York: Springer.</li>
 </ul>
 
-####R Reference
+#### R Reference
 <ul>
 <li>Crawley MJ. 2012. *The R Book (Second Edition)*. Chichester, UK: John Wiley & Sons Ltd.</li>
 <li>Gardener M. 2012. *The Essential R Reference*. Indianapolis, IN: John Wiley & Sons, Inc.</li>
 <li>Teetor P. 2011. *R Cookbook*. Sebastopol, CA: O’Reilly Media.</li>
 </ul>
 
-####R Graphics
+#### R Graphics
 <ul>
 <li>Chang W. 2013. *R Graphics Cookbook*. Sebastopol, CA: O’Reilly Media.</li>
 <li>Wickham H. 2016. *ggplot2: Elegant Graphics for Data Analysis (Second Edition)*. Springer International Publishing.</li>
 </ul>
 
-####Data Science and Visualization
+#### Data Science and Visualization
 <ul>
 <li>Dale K. 2016. *Data Visualization with Python and JavaScript*. Sebastopol, CA: O’Reilly Media.</li>
 <li>Grus J. 2015. *Data Science from Scratch*. Sebastopol, CA: O’Reilly.</li>
@@ -123,27 +123,27 @@ output:
 <li>Zumel N, Mount J. 2014. *Practical Data Science with R*. Shelter Island, NY: Manning Publications Co.</li>
 </ul>
 
-####Spatial Analysis
+#### Spatial Analysis
 <ul>
 <li>Bivand RS, Pebesma E, Gómez-Rubio V. 2013. *Applied Spatial Data Analysis with R (Second Edition)*. New York: Springer.</li>
 <li>Brundson C, Comber L. 2015. *An Introduction to R for Spatial Analysis and Mapping*. London: SAGE Publications, Ltd.</li>
 </ul>
 
-####Mixed Effects Models
+#### Mixed Effects Models
 <ul>
 <li>Garamszegi LZ. 2014. *Modern Phylogenetic Comparative Methods and Their Application in Evolutionary Biology*. Berlin: Springer.</li>
 <li>Pinheiro JC, Bates DM. 2000. *Mixed-Effects Models in S and S-Plus*. New York: Springer.</li> 
 <li>Zuur AF, Ieno EN, Walker NJ, Savaliev AA, Smith GM. 2009. *Mixed Effects Models and Extensions in Ecology with R*. New York: Springer.</li>
 </ul>
 
-####Web Scraping and Text Mining
+#### Web Scraping and Text Mining
 <ul>
 <li>Friedl JEF. 2000. Mastering Regular Expressions (Third Edition). Sebastopol, CA: O’Reilly Media.</li>
 <li>Mitchell R. 2015. Web Scraping with Python. Sebastopol, CA: O’Reilly Media.</li>
 <li>Nolan D, Temple Lang D. 2014. XML and Web Technologies for Data Sciences with R. New York: Springer.</li>
 </ul>
 
-####Statistics and Programming in Python
+#### Statistics and Programming in Python
 <ul>
 <li>Downey A. 2014. Think Stats (Second Edition). Sebastopol, CA: O’Reilly Media.</li>
 <li>Lubanovic B. 2014. Introducing Python. Sebastopol, CA: O’Reilly Media.</li>

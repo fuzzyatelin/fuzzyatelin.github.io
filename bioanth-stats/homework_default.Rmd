@@ -1,22 +1,22 @@
 ---
-title: "AN597: Homework"
+title: "AN/BI588: Homework"
 output: 
   rmarkdown::html_document:
     theme: cosmo
 ---
 ***
 
-###[Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
-###[Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
-###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
-###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
-###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
+### [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
+### [Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
+### [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
+### [Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
+### [Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
 
 ***
 
 <br>
 <center><p><img src="https://s-media-cache-ak0.pinimg.com/originals/cc/df/4c/ccdf4c1ee649861696572202587de65e.gif"></p>
 
-#**This homework assignment isn't available yet, but check in again soon!**
+# **This homework assignment isn't available yet, but check in again soon!**
 </center>
 ***
