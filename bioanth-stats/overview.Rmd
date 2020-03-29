@@ -1,9 +1,9 @@
 ---
-title: "AN597: Project Design and Statistics</br> in Biological Anthopology"
+title: "AN/BI588: Project Design and Statistics</br> in Biological Anthopology"
 author: "Christopher A Schmitt</br>Boston University"
 date: "December 10, 2019"
 output: 
-  rmarkdown::html_document:
+  html_document:
     theme: cosmo
 ---
 ***
@@ -14,7 +14,8 @@ output:
 <b>Fall 2019, Seminar will be held on Mondays, 2:30 - 5:15pm in <i>CAS 335</i></b>
 </center>
 ***
-###Faculty Instructor:
+
+### Faculty Instructor:
   **Christopher A. Schmitt**  
   Assistant Professor of Anthropology and Biology  
   Office: Stone Science Building (STO), 675 Commonwealth Ave, Rm 247E  
@@ -25,14 +26,14 @@ output:
   
 ***
 
-###[Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
-###[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
-###[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
-###[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
-###[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+### [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
+### [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
+### [Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
+### [Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
+### [Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
 
 ***
-###Course Description
+### Course Description
 ***
 <p>
 <img src=https://imgs.xkcd.com/comics/p_values.png style="float:right" width="180" hspace="20">
@@ -44,20 +45,20 @@ This course is open to students outside of Anthropology willing to learn the met
 </p>  
 
 ***
-###[BU HUB](http://www.bu.edu/hub/about-the-hub/) Learning Outcomes
+### [BU HUB](http://www.bu.edu/hub/about-the-hub/) Learning Outcomes
 ***
 
-This course has been proposed as an addition to the **BU HUB** General Education Curriculum as **CAS AN 512**. Associated with this proposal are several proposed Learning Outcomes for this course, including:
+This course has been proposed as an addition to the **BU HUB** General Education Curriculum as **CAS AN/BI 588**. Associated with this proposal are several proposed Learning Outcomes for this course, including:
 
 
 ***
-####*Scientific Inquiry II (SI2)*
+#### *Scientific Inquiry II (SI2)*
 ***
 
 * **Learning Outcome 1**: Students in this course will learn to identify and apply appropriate methods of statistical inference to test hypotheses related to biological anthropology. This will de done in the R programming framework using published or simulated datasets from a number of scientific literatures, primarily from primate morphology and behavior. Throughout the semester, students will use these tests to appropriately frame and address established hypotheses in biological anthropology using increasingly complex statistical methods, including using t-tests to assess differences in body size between wild and anthropogenically impacted vervet monkey groups, testing hypothesized correlations between female body size and various life history traits across primates using multiple regression, and assessing shifts in male grooming attention towards periovulatory female chimpanzees using generalized linear mixed modeling, among others. This will culminate in a more advanced application of these methods by engaging in the R-based replication of a published paper with open access data in the student's field of interest, and the development of their own teaching module demonstrating a novel statistical method and how it may be used to test a novel hypothesis in a new dataset. The replication assignment will facilitate a hands-on, critical assessment of how these authors used data processing, manipulation, analyses, and figures to reach their published conclusions. The teaching module will allow students to reflect critically on a novel method and how it might be used (or may be misused) to inform a hypothetical framework of their choosing in a novel dataset.
 
 ***
-####*Quantitative Reasoning II (QR2)*
+#### *Quantitative Reasoning II (QR2)*
 ***
 
 * **Learning Outcome 1**: In this courses, students will learn how to frame questions germane to biological anthropology through the explicit testing of hypotheses using statistical inference. Using the R statistical programming framework, students will explore the underlying logic and mathematics of probability, hypothesis testing, linear modeling and regression, ANOVA, multiple regression, generalized linear modeling and mixed effects modeling, and then use these methods to solve complex problems in biological anthropology with both real and simulated data.
@@ -67,7 +68,7 @@ This course has been proposed as an addition to the **BU HUB** General Education
 * **Learning Outcome 5**: Through an emphasis on testing the assumptions underlying the statistical tests learned in class, students will learn to recognize and articulate both the capacity and limitations of these methods. This includes modules and discussions testing data distributions and model residuals for normality, using power tests to assess the effects of sample size and variance on parameter estimation, assessing the appropriateness of link functions for different data distributions in GLMMs, and more, complete with demonstrations of what poorly analyzed data looks like, and how that may negatively influence scientific inference.
 
 ***
-####*Intellectual Toolkit: Teamwork/Collaboration (TWC)*
+#### *Intellectual Toolkit: Teamwork/Collaboration (TWC)*
 ***
 
 * **Learning Outcome 1**: Students will engage in bi-weekly Peer Commentary assignments in which they must collaborate in shared GitHub repositories to share, annotate, and comment on each others' coding-based homework assignments. Students will share first drafts of homework, commented code by a Peer, and their final code. In their final code, students are encouraged to reflect on how the discussion and comments of their Peers improved their code, and what remained to be solved. Peer groups rotate throughout the course, so that students can identify and learn the traits of effective collaboration and commentary, culminating in choosing a group to develop and design an online teaching module for a novel statistical technique to be taught to the rest of the class.
@@ -75,17 +76,17 @@ This course has been proposed as an addition to the **BU HUB** General Education
 
 
 ***
-###Prerequisites
+### Prerequisites
 ***
 CAS AN 102 or CAS BI 107/108 (for undergraduates) or graduate student standing, and/or consent of instructor. At least one semester of introductory statistics is recommended, but not required. Prior experience programming is helpful, but also not required.  
 
 ***
-###Course Format
+### Course Format
 ***
 This is a 4 credit seminar course. Seminar will be held once a week for a total of 3 hours. Please bring laptops or tablets to class loaded with appropriate software for course exercises (these can be found in Resources, above; packages required for the week will be noted in the Modules). Within CAS, these credits count as NS divisional credits towards the BA. This course is not (yet) integrated into the BU Hub.
 
 ***
-###Assessment
+### Assessment
 ***
 Performance in the class will be assessed on a **gradeless** basis for the semester, with only a single final grade being assigned in consultation with each student. Assessment will entail the following assignments:
 <ol>
@@ -99,16 +100,32 @@ Performance in the class will be assessed on a **gradeless** basis for the semes
 </ol>
 
 ***
-###Required Texts
+### Required Texts
 ***
-<ul><li>Kabacoff R. 2015. <i>R in Action, 2nd Edition</i>. New York: Manning Publications.</li><br>  
-<center><p><img src="https://www.safaribooksonline.com/library/cover/9781617291388/360h/" height="168" width="140"></p></center><br>
-<li>Tillman D. 2016. <i>The Book of R: A First Course in Programming and Statistics</i>. San Francisco: No Starch Press.</li><br>  
-<center><p><img src="https://www.nostarch.com/sites/default/files/styles/uc_product_full/public/bookofR_cover-front.png?itok=CiV_iMFZ" height="168" width="140"></p></center></ul><br>
+
+::::{style="display: flex;"}
+
+:::{}
+
+  
+<center><p><img src="https://www.safaribooksonline.com/library/cover/9781617291388/360h/" height="250" width="200"></p></center><br>
+**Kabacoff R. 2015. <i>R in Action, 2nd Edition</i>. New York: Manning Publications.**
+
+:::
+
+:::{}
+  
+<center><p><img src="https://www.nostarch.com/sites/default/files/styles/uc_product_full/public/bookofR_cover-front.png?itok=CiV_iMFZ" height="250" width="200"></p></center></ul><br>
+**Tillman D. 2016. <i>The Book of R: A First Course in Programming and Statistics</i>. San Francisco: No Starch Press.**
+
+:::
+
+::::
+
 *Tillman* available in print or electronic format from [No Starch Press](https://www.nostarch.com/) and [O'Reilly Media](https://www.oreilly.com/); *Kabacoff* availble in print or electronic format from [Manning Publications](https://www.manning.com/books/r-in-action-second-edition); both texts are available at [Amazon.com](https://www.amazon.com/).  
 
 ***
-###Optional Texts Students Find Helpful
+### Optional Texts Students Find Helpful
 ***
 <ul>
 <li>[Grolemund G., Wickham H. 2017. <i>R for Data Science</i>. Boston: O'Reilly](https://r4ds.had.co.nz/)</li>
@@ -116,7 +133,7 @@ Performance in the class will be assessed on a **gradeless** basis for the semes
 <li>Crawley MJ. 2014. <i>Statistics: An Introduction Using R, 2nd Edition</i>. Chichester, UK: John Wiley & Sons, Inc.</li></ul>
 
 ***
-###Learning Objectives
+### Learning Objectives
 ***
 By the end of this course, you should:
 <ul>
