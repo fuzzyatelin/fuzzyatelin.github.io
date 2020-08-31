@@ -1,5 +1,5 @@
 ---
-title: 'AN333/733: Fall 2018 Assigned *UCP1* Sub-Populations'
+title: 'AN333/733: Fall 2020 Assigned *ACE2* Sub-Populations'
 output: html_document
 ---
 
@@ -8,19 +8,27 @@ output: html_document
 
 ***
 
-These are your assigned 1000 Genomes Project sub-populations for our investigations of *UCP1* this semester! If you have a personal interest in a particular sub-population, or there's simply another sub-population you'd rather work on, please contact me directly to discuss switching.
+These are your assigned 1000 Genomes Project sub-populations for our investigations of *ACE2* this semester! If you have a personal interest in a particular sub-population, or there's simply another sub-population you'd rather work on, please contact me directly to discuss switching.
 
 <ul>
-<li>Nilo Asgari - **PEL: Peruvians from Lima, Peru**
-<li>Mengzi Chen - **CHS: Southern Han Chinese**
-<li>Emily Cioch - **ACB: African Caribbeans in Barbados**
-<li>Eleni Constantinou - **KHV: Kinh in Hi Chi Minh City, Vietnam**
-<li>Morgan Farrar - **GWD: Gambian in Western Divisions in the Gambia**
-<li>Christian Gagnon - **ASW: Americans of African Ancestry in Southwest USA**
-<li>Melissa Hurtado - **GBR: British in England and Scotland**
-<li>Valeria Menendez - **LWK: Luhya in Webuye, Kenya**
-<li>Isaac Mocarski - **ESN: Esan in Nigeria**
-<li>Dora Modrall-Sperling - **FIN: Finnish in Finland**
-<li>Willow Yeoh - **STU: Sri Lankan Tamil in the UK**
-<li>Mel Zarate - **ITU: Indian Telugu in the UK**
+<li>Ana Barun - **ACB: African Caribbeans in Barbados**
+<li>Luke Bendix - **ASW: Americans of African Ancestry in SW USA**
+<li>Eunice Choi - **BEB:	Bengali from Bangladesh**
+<li>Emily Cobb - **CDX:	Chinese Dai in Xishuangbanna, China**
+<li>Shahaf Dan - **CEU:	Utah Residents (CEPH) with Northern and Western European Ancestry**
+<li>Emily Fried - **CHB:	Han Chinese in Beijing, China**
+<li>Emily Fusco - **CHS:	Southern Han Chinese**
+<li>Wenxin Gao - **CLM:	Colombians from Medellin, Colombia**
+<li>Nikita Joshi - **ESN:	Esan in Nigeria**
+<li>Christina Lamagna - **FIN: Finnish in Finland**
+<li>Jiaying Li - **GBR:	British in England and Scotland**
+<li>Qianyi Liu - **GIH:	Gujarati Indian from Houston, Texas**
+<li>Harjeet Malhi - **GWD:	Gambian in Western Divisions in the Gambia**
+<li>Ayna Molina - **ITU: Indian Telugu in the UK**
+<li>Priya Patel - **JPT:	Japanese in Tokyo, Japan**
+<li>Raquel Quiñones - **KHV:	Kinh in Ho Chi Minh City, Vietnam**
+<li>James Reardon - **LWK:	Luhya in Webuye, Kenya**
+<li>Dashannah St. Hubert - **MXL:	Mexican Ancestry from Los Angeles USA**
+<li>Astrid Sundberg - **PEL:	Peruvians from Lima, Peru**
+<li>Mercy Villalona - **STU:	Sri Lankan Tamil from the UK**
 </ul>
