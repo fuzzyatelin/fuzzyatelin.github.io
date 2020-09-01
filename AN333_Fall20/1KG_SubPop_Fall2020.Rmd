@@ -23,12 +23,14 @@ These are your assigned 1000 Genomes Project sub-populations for our investigati
 <li>Christina Lamagna - **FIN: Finnish in Finland**
 <li>Jiaying Li - **GBR:	British in England and Scotland**
 <li>Qianyi Liu - **GIH:	Gujarati Indian from Houston, Texas**
-<li>Harjeet Malhi - **GWD:	Gambian in Western Divisions in the Gambia**
-<li>Ayna Molina - **ITU: Indian Telugu in the UK**
-<li>Priya Patel - **JPT:	Japanese in Tokyo, Japan**
-<li>Raquel Quiñones - **KHV:	Kinh in Ho Chi Minh City, Vietnam**
-<li>James Reardon - **LWK:	Luhya in Webuye, Kenya**
-<li>Dashannah St. Hubert - **MXL:	Mexican Ancestry from Los Angeles USA**
-<li>Astrid Sundberg - **PEL:	Peruvians from Lima, Peru**
-<li>Mercy Villalona - **STU:	Sri Lankan Tamil from the UK**
+<li>Pengcheng Lu - **GWD:	Gambian in Western Divisions in the Gambia**
+<li>Harjeet Malhi - **ITU: Indian Telugu in the UK**
+<li>Ayna Molina - **JPT:	Japanese in Tokyo, Japan**
+<li>Chauncey Nicholas - **KHV:	Kinh in Ho Chi Minh City, Vietnam**
+<li>Priya Patel - **LWK:	Luhya in Webuye, Kenya**
+<li>Raquel Quiñones - **MXL:	Mexican Ancestry from Los Angeles USA**
+<li>James Reardon - **PEL:	Peruvians from Lima, Peru**
+<li>Dashannah St. Hubert - **PUR	Puerto Ricans from Puerto Rico**
+<li>Astrid Sundberg - **STU:	Sri Lankan Tamil from the UK**
+<li>Mercy Villalona - **TSI:	Toscani in Italia**
 </ul>

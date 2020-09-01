@@ -1,7 +1,7 @@
 ---
-title: 'Lab 1: Homework'
+title: 'Module 1: Homework'
 author: "Christopher A Schmitt"
-date: "September 28, 2018"
+date: "September 1, 2020"
 output: html_document
 ---
 
@@ -14,28 +14,29 @@ output: html_document
 **Readings**:<ul>
 <li>[The 1000 Genomes Project Consortium. 2015. A global reference for human genetic variation. *Nature* 526: 68-74.](https://www.nature.com/articles/nature15393)</li><br>
 <li>[Danecek P, Auton A, Abecasis G, Albers CA, Banks E, DePristo MA, Handsaker RE, Lunter G, Marth GT, Sherry ST, McVean G, Durbin R, 1000 Genomes Project Analysis Group. 2011. The variant call format and VCFtools. *Bioinformatics App Note* 27: 2156-2158.](https://academic.oup.com/bioinformatics/article/27/15/2156/402296)</li><br>
-<li>[Gonzalez-Barroso MDM, Ricquier D, Cassard-Doulcier AM. 2000. The human uncoupling protein-1 gene (UCP1): present status and perspectives in obesity research. *Obesity Rev* 1: 61-72.](https://onlinelibrary.wiley.com/doi/full/10.1046/j.1467-789x.2000.00009.x)</li></ul>
+<li>[Gheblawi M, Wang K, Viveiros A, Nguyen Q, Zhong J-C, Turner AJ, Raizada MK, Grant MB, Oudit GY. 2020. Angiotensin-Converting Enzyme 2: SARS-CoV-2 Receptor and Regulator of the Renin-Angiotensin System. *Circulation Research*, 126(10):1456-1474](https://www.ahajournals.org/doi/full/10.1161/CIRCRESAHA.120.317015)</li><br>
+<li>[Sriram K, Insel P, Loomba R. May 14, 2020. What is the ACE2 receptor, how is it connected to coronavirus and why might it be key to treating COVID-19? The experts explain. *The Conversation*.](https://theconversation.com/what-is-the-ace2-receptor-how-is-it-connected-to-coronavirus-and-why-might-it-be-key-to-treating-covid-19-the-experts-explain-136928)</li></ul><br>
 
 ***
 
-![](1KGheader.png)
+![](img/1kGP.png)
 <br>
 <br>
 
 At this point, technical difficulties aside, we've got a bit more knowledge regarding how to navigate the *SCC* and how to gather data of various kinds from *Ensembl*, so let's put that knowledge to use with some practice!<br> 
 
-This homework assignment is meant to both stretch your abilities from the past two labs, and prepare you for what's coming in the next lab. If you can't remember how to do something, check your Pre-Lab slides and the [Lab 1 module](Lab_1_-_1KG_and_Ensembl_Tutorial.html).<br>
+This homework assignment is meant to both stretch your abilities from the past two labs, and prepare you for what's coming in the next lab. If you can't remember how to do something, check your Pre-Lab slides and [Module 1 module](Lab1_Module.html).<br>
 
 To make things easier, I've also created an online interface where you can answer the questions.
 
-###[Access the online interface to submit your homework answers here.](https://docs.google.com/forms/d/e/1FAIpQLSdBdtZwHieds-oAlTCBvl86gFXak8G3Bz_O2msODBBpO1Cx4w/viewform?usp=sf_link)
+### [Access the online interface to submit your homework answers here.](https://docs.google.com/forms/d/e/1FAIpQLSdBdtZwHieds-oAlTCBvl86gFXak8G3Bz_O2msODBBpO1Cx4w/viewform?usp=sf_link)
 
-###Question 1 (25 points): 
+### Question 1 (25 points): 
 
-Go to the *Ensembl* web page for the gene *UCP1*, and look at the *variant table*.<br> 
+Go to the *Ensembl* web page for the gene *ACE2*, and look at the *variant table*.<br> 
 
-* How many variants code for an inframe deletion within the coding region of *UCP1*?
-* Sort the variants by base pair location from first to last (e.g., lowest bp number to highest on chromosome 4), and list the first *five* variants (if there are less than five, list them all).
+* How many variants code for an inframe deletion within the coding region of *ACE2*?
+* Sort the variants by base pair location from first to last (e.g., lowest bp number to highest on chromosome X), and list the first *five* variants (if there are less than five, list them all).
 * What is the average number of base pairs deleted in your list of variants?
 * Are any of these deletion variants (e.g., the minor, deleted genotype) present in *your* 1000 Genomes study population?
 * How many individuals in *your* 1000 Genomes population have the *deleted*, or minor allele at each variant site?
@@ -52,7 +53,7 @@ The average size of the deletion at these variant sites is 3 bp.
 Nobody should have the deletion allele of these variants.
 ```
 
-###Question 2 (50 points):
+### Question 2 (50 points):
 
 Go back to the variant table, and filter and sort it to find the *Stop Gained* variant with the highest *minor allele frequency (MAF)*.
 
@@ -61,7 +62,7 @@ Go back to the variant table, and filter and sort it to find the *Stop Gained* v
 * What is the MAF for the SNP with the highest MAF? And what is the *minor* allele for that SNP? 
 * What does a stop gain mutation do, and why might it be selected for or against in population?  
 * Does YOUR 1000 Genomes population have the minor allele?
-* Given the readings for Lab 1 regarding the function of *UCP1*, what might having the minor allele mean for the phenotype of individuals who have it. In your study population, what would this mean for an individual with the minor allele, given their local environment?
+* Given the readings for Lab 1 regarding the function of *ACE2*, what might having the minor allele mean for the phenotype of individuals who have it?
 
 ```{r, eval = FALSE, echo = FALSE}
 They should use Consequences, turn all off, and only turn on 'stop gain' Once that's done, there are 2 SNPs left that are part of the 1KG populations (but 15 total). The SNPs themselves are, in order from highest MAF to lowest:
@@ -72,13 +73,13 @@ rs539685692 (MAF = 0; )
 
 ```
 
-###Question 3 (25 points):
+### Question 3 (25 points):
 
 We should *probably* get a little more practice with the *tabix* and *vcftools* coding for downloading data into our *SCC* space.<br>
 
-Please download the *UCP1* data (for the whole gene) for a *second* sub-population you find interesting in the 1000 Genomes dataset. Of all the files generated, you should keep *ONLY the final VCF file*.<br>
+Please download the *ACE2* data (for the whole gene) for a *second* sub-population you find interesting in the 1000 Genomes dataset. Of all the files generated, you should keep *ONLY the final VCF file*.<br>
 
-**The file MUST be in your *SCC* working directory by the time we meet in class on Friday, October 5th!**
+**The file MUST be in your *SCC* working directory by the time we meet in class on Friday, September 25th!**
 
 
 
