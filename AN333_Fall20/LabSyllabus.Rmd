@@ -56,14 +56,14 @@ life population genetic analyses.</li>
 ***
 
 ### [*Module 2: ACE2 Variants and Hardy-Weinberg Equilibrium*](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Module.html)
-**October 02**<br>
+**September 25**<br>
 
 ***
 
 **Material covered**: Using *R* and *RStudio* via the *SCC* to run pre-written code that will perform our analyses. Assessing allelic variation in SNPs within and across populations. Testing **Hardy-Weinberg equilibrium (HWE)** and understanding what it means if violated, which involves knowing the assumptions of the model. Using downloaded candidate region data from 1000 Genomes Project to assess HWE in living human populations using a Chi-Squared test. Using *Ensembl* to obtain genotype count information in order to use the Wigginton and Cutler method of HWE calculation on selected SNPs.<br><br> 
 **Readings**:<ul> 
 <li>[Chen J. The Hardy-Weinberg Principle and Its Applications in Modern Population Genetics. *Frontiers in Biology* 5(4): 348-53.](https://link.springer.com/article/10.1007/s11515-010-0580-x)</li><br>
-<li>[Benetti E, et al. ACE2 gene variants may underlie interindividual variability and susceptibility to COVID-19 in the Italian population. *European Journal of Human Genetics* ](https://www.nature.com/articles/s41431-020-0691-z)</li><br>
+<li>[Benetti E, et al. 2020. ACE2 gene variants may underlie interindividual variability and susceptibility to COVID-19 in the Italian population. *European Journal of Human Genetics* ](https://www.nature.com/articles/s41431-020-0691-z)</li><br>
 <li>[Wigginton JE, Cutler DJ, Abecasis GR. 2005. A note on exact tests of Hardy-Weinberg equilibrium. *Am J Hum Genet* 76: 887-893.](https://www.cell.com/ajhg/fulltext/S0002-9297(07)60735-6?code=ajhg-site)</li></ul><br>
 **Activities**: We will use the *R* coding language to test HWE in the dataset on *ACE2* we downloaded from *Ensembl*. We will assess whether or not SNPs in this genomic region are in Hardy-Weinberg equilibrium based on a Chi-Squared test in assigned human populations. We will then re-test selected SNPs using the "True HWE" method described in Wigginton and Cutler. We will then discuss what our results mean, in accordance with what we know about those populations, HWE, and the effects of these *ACE2* variants on disease expression.<br><br>
 **Assignment**: Students must turn in a worksheet – with questions related to *ACE2* variation in humans and related to the downloaded dataset –  in class the following Monday. **Module 1 Homework Assignment is due today.**<br><br>
@@ -76,12 +76,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 2: DUE Friday, October 12th](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Homework.html)
+### [Homework for Module 2: DUE Friday, October 2nd](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Homework.html)
 
 ***
 
 ### [*Module 3: Linkage Disequilibrium (LD) in ACE2*](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Module.html)
-**October 12**<br>
+**October 2**<br>
 
 ***
 
@@ -101,12 +101,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 3: DUE Friday, October 19th](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Homework.html)
+### [Homework for Module 3: DUE Friday, October 16th](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Homework.html)
 
 ***
 
 ### [*Module 4: Introduction to Nearest-Neighbor Joining and Phylogenetics*](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Module.html)
-**October 26**<br>
+**October 16**<br>
 
 ***
 
@@ -125,12 +125,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 4: DUE Friday, November 2nd](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Homework.html)
+### [Homework for Module 4: DUE Friday, October 30th](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Homework.html)
 
 ***
 
 ### [*Module 5: Introduction to Neutrality Statistics and Signs of Selection*](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Module.html)
-**November 02**<br>
+**October 30**<br>
 
 ***
 
@@ -153,12 +153,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 5: DUE Friday, November 16th](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Homework.html)
+### [Homework for Module 5: DUE Friday, November 13th](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Homework.html)
 
 ***
 
 ### [*Module 6: A Brief Digression from ACE2 for Quantitative Genetics*](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Module.html)
-**November 09**<br>
+**November 13**<br>
 
 ***
 
@@ -181,12 +181,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 6: DUE Friday, November 16th](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Homework.html)
+### [Homework for Module 6: DUE Friday, November 20th](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Homework.html)
 
 ***
 
 ### [*Module 7: Finding a New Locus…*](https://fuzzyatelin.github.io/AN333_Fall20/Lab7_Module.html)
-**November 09**<br>
+**November 20**<br>
 
 ***
 
