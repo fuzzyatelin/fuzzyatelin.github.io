@@ -6,11 +6,18 @@ output:
 ---
 ***
 
-###[Course Overview](https://fuzzyatelin.github.io/AN333_Fall20/overview.html)
-###[Syllabus](https://fuzzyatelin.github.io/AN333_Fall20/Syllabus.html)
-###[Lab Syllabus](https://fuzzyatelin.github.io/AN333_Fall20/LabSyllabus.html)
-###[Exam](https://fuzzyatelin.github.io/AN333_Fall20/Midterm2.html)
-###[Final Project](https://fuzzyatelin.github.io/AN333_Fall20/FinalProject.html)
+### [Course Overview](https://fuzzyatelin.github.io/AN333_Fall20/overview.html)
+### [Syllabus](https://fuzzyatelin.github.io/AN333_Fall20/Syllabus.html)
+### [Modules](https://fuzzyatelin.github.io/AN333_Fall20/LabSyllabus.html)
+### [Exam](https://fuzzyatelin.github.io/AN333_Fall20/Midterm2.html)
+### [Final Project](https://fuzzyatelin.github.io/AN333_Fall20/FinalProject.html)
+
+***
+
+<b>Learn *from* Anywhere</b>:
+
+For the duration of the COVID-19 pandemic, courses will be taught using a hybrid in person/remote style called Learn *from* Anywhere (L*f*A). Under this system, students may attend class either in person or remotely and synchronously via Zoom. Videos of course Zoom lectures will also be recorded and posted on a course Blackboard site so that students living in different time zones for the duration of the pandemic may attend class remotely and asynchronously. Students choosing to attend class in person must keep up with their required twice-weekly COVID-19 testing by the univeristy, as well as their daily Attestation. This will be ensured by the instructor by checking Symptom Confirmation badges prior to being permitted to enter the classroom. Students without a green Symptom Confirmation badge will not be permitted to enter and must attend class remotely. Due to the digital nature of the majority of this course, it should translate well to L*f*A.
+
 
 ***
 
