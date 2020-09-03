@@ -27,7 +27,7 @@ output:
 ***
 
 ### [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
-### [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
+### [Modules](https://fuzzyatelin.github.io/bioanth-stats/LabSyllabus.html)
 ### [Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
 ### [Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
 ### [Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
