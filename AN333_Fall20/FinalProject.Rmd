@@ -1,23 +1,35 @@
 ---
-title: "AN333/733: Final Projects"
+title: "AN/BI 333/733: Final Projects"
 author: "Christopher A Schmitt"
-date: "December 4, 2018"
-output: html_document
+date: "September 3, 2020"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
 ---
 
-##Final Projects for AN333/733
+***
 
-Your final project is a critically important part of this course. Once you’ve learned population genetic methods and how to use them on human *UCP1* data, it’s time to choose a candidate gene of your own to analyze!
+### [Syllabus](https://fuzzyatelin.github.io/AN333_Fall20/Syllabus.html)
+### [Modules](https://fuzzyatelin.github.io/AN333_Fall20/LabSyllabus.html)
+### [Exam]()
+### [Policies](https://fuzzyatelin.github.io/AN333_Fall20/policies.html)
+### [Final Project](https://fuzzyatelin.github.io/AN333_Fall20/FinalProject.html)
+
+***
+
+## Final Projects for AN333/733
+
+Your final project is a critically important part of this course. Once you’ve learned population genetic methods and how to use them on human *ACE2* data, it’s time to choose a candidate gene of your own to analyze!
 
 Choose a gene that you can show is related to a trait that is integral to why you are interested in human population and evolutionary history. You will establish hypotheses, based on your knowledge of human population and evolutionary history, regarding how that gene should vary across the *1000 Genomes Project* dataset, and then test your hypotheses using the analytical methods learned in class.
 
 We will choose loci together as part of [Lab 7](https://fuzzyatelin.github.io/AN333_Fall18/Lab7-newlocus.html), but this guide is to help you through the process of preparing an writing your final paper.
 
 <center>
-##[**Please submit your Final Project paper as a single saved Google Doc file (downloaded as a Microsoft Word, or *.docx* file) at this link by 5:00pm of Monday, December 17**](https://goo.gl/forms/3WFuWsI9A2jHeE123)
+## [**Please submit your Final Project paper as a single saved Google Doc file (downloaded as a Microsoft Word, or *.docx* file) at this link by 5:00pm of Thursday, December 17**](https://goo.gl/forms/3WFuWsI9A2jHeE123)
 </center>
 
-##Final Project Paper Formatting
+## Final Project Paper Formatting
 
 The body of your paper should no less than 7 and no more than 10 pages long using 12-point font, double-spaced, with 1-inch margins (*not* including title/author lines, abstract, tables, figures, or references).
 
