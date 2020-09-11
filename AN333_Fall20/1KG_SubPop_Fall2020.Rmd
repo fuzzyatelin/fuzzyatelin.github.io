@@ -1,6 +1,8 @@
 ---
-title: 'AN333/733: Fall 2020 Assigned *ACE2* Sub-Populations'
-output: html_document
+title: 'AN/BI 333/733: Fall 2020 Assigned Sub-Populations'
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
 ---
 
 ***
@@ -8,7 +10,7 @@ output: html_document
 
 ***
 
-These are your assigned 1000 Genomes Project sub-populations for our investigations of *ACE2* this semester! I've tried my best to accommodate personal interests in a particular sub-population, but there are always some that are more popular than others. If there's another sub-population you'd rather work on, please contact me directly to discuss switching.
+These are your assigned 1000 Genomes Project sub-populations for our investigations of *ACE2* and *TMPRSS2* this semester! I've tried my best to accommodate personal interests in a particular sub-population, but there are always some that are more popular than others. If there's another sub-population you'd rather work on, please contact me directly to discuss switching.
 
 <ul>
 <li>Ana Barun - **TSI:	Toscani in Italia**
