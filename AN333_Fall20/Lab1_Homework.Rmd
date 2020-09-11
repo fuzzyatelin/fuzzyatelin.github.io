@@ -15,6 +15,8 @@ output: html_document
 <li>[The 1000 Genomes Project Consortium. 2015. A global reference for human genetic variation. *Nature* 526: 68-74.](https://www.nature.com/articles/nature15393)</li><br>
 <li>[Danecek P, Auton A, Abecasis G, Albers CA, Banks E, DePristo MA, Handsaker RE, Lunter G, Marth GT, Sherry ST, McVean G, Durbin R, 1000 Genomes Project Analysis Group. 2011. The variant call format and VCFtools. *Bioinformatics App Note* 27: 2156-2158.](https://academic.oup.com/bioinformatics/article/27/15/2156/402296)</li><br>
 <li>[Gheblawi M, Wang K, Viveiros A, Nguyen Q, Zhong J-C, Turner AJ, Raizada MK, Grant MB, Oudit GY. 2020. Angiotensin-Converting Enzyme 2: SARS-CoV-2 Receptor and Regulator of the Renin-Angiotensin System. *Circulation Research*, 126(10):1456-1474](https://www.ahajournals.org/doi/full/10.1161/CIRCRESAHA.120.317015)</li><br>
+<li>[Hoffmann M, et al. 2020. SARS-CoV-2 cell entry depends on *ACE2* and *TMPRSS2* and is blocked by a clinically proven protease inhibitor. *Cell*, 181(2):271-280.e8 ](https://www.sciencedirect.com/science/article/pii/S0092867420302294)</li><br>
+<li>[David A, Khanna T, Beykou M, Hanna G, Sternberg MJE. [Preprint]. Structure, function and variants analysis of the androgen-regulated TMPRSS2, a drug target candidate for COVID-19 infection. *bioRxiv*, accessed 10SEP20, DOI: 10.1101/2020.05.26.116608](https://www.biorxiv.org/content/10.1101/2020.05.26.116608v1)</li><br>
 <li>[Sriram K, Insel P, Loomba R. May 14, 2020. What is the ACE2 receptor, how is it connected to coronavirus and why might it be key to treating COVID-19? The experts explain. *The Conversation*.](https://theconversation.com/what-is-the-ace2-receptor-how-is-it-connected-to-coronavirus-and-why-might-it-be-key-to-treating-covid-19-the-experts-explain-136928)</li></ul><br>
 
 ***
@@ -25,21 +27,25 @@ output: html_document
 
 At this point, technical difficulties aside, we've got a bit more knowledge regarding how to navigate the *SCC* and how to gather data of various kinds from *Ensembl*, so let's put that knowledge to use with some practice!<br> 
 
-This homework assignment is meant to both stretch your abilities from the past two labs, and prepare you for what's coming in the next lab. If you can't remember how to do something, check your Pre-Lab slides and [Module 1 module](Lab1_Module.html).<br>
+This homework assignment is meant to both stretch your abilities from the past two modules, and prepare you for what's coming in the next module. If you can't remember how to do something, check your Pre-Module slides/notes and [Module 1](Lab1_Module.html).<br>
 
 To make things easier, I've also created an online interface where you can answer the questions.
 
-### [Access the online interface to submit your homework answers here.](https://docs.google.com/forms/d/e/1FAIpQLSdBdtZwHieds-oAlTCBvl86gFXak8G3Bz_O2msODBBpO1Cx4w/viewform?usp=sf_link)
+<br><br>
+<center>
+### [Access the online interface to submit your homework answers here.](https://forms.gle/sHhkCHrnJAy68QT96)
+</center>
+<br><br>
 
 ### Question 1 (25 points): 
 
-Go to the *Ensembl* web page for the gene *ACE2*, and look at the *variant table*.<br> 
+Go to the *Ensembl* web page for the human *ACE2* gene, and look at the *variant table*.<br> 
 
-* How many variants code for an inframe deletion within the coding region of *ACE2*?
+* How many variants code for a missense mutation within the coding region of *ACE2* for the 1000 Genomes population?
 * Sort the variants by base pair location from first to last (e.g., lowest bp number to highest on chromosome X), and list the first *five* variants (if there are less than five, list them all).
-* What is the average number of base pairs deleted in your list of variants?
-* Are any of these deletion variants (e.g., the minor, deleted genotype) present in *your* 1000 Genomes study population?
-* How many individuals in *your* 1000 Genomes population have the *deleted*, or minor allele at each variant site?
+* What is the highest Global MAF (minor allele frequency) among the loci listed?
+* Does *your* 1000 Genomes population have any of these missense variant minor alleles?
+* How many individuals in *your* 1000 Genomes population have the minor allele at each variant site?
 
 ```{r, eval = FALSE, echo = FALSE}
 They should use Consequences, turn all off, and only turn on 'inframe deletion' Once that's done, there are 3 SNPs left. The SNPs themselves are, in order from lowest bp location to highest:
@@ -58,11 +64,11 @@ Nobody should have the deletion allele of these variants.
 Go back to the variant table, and filter and sort it to find the *Stop Gained* variant with the highest *minor allele frequency (MAF)*.
 
 * How many SNPs that cause a stop gain are present in the 1000 Genomes populations?  
-* Name them, in order of MAF from highest to lowest.
+* Name them, using the Variant ID, in order of MAF from highest to lowest.
 * What is the MAF for the SNP with the highest MAF? And what is the *minor* allele for that SNP? 
 * What does a stop gain mutation do, and why might it be selected for or against in population?  
 * Does YOUR 1000 Genomes population have the minor allele?
-* Given the readings for Lab 1 regarding the function of *ACE2*, what might having the minor allele mean for the phenotype of individuals who have it?
+* Given the readings for Module 1 regarding the function of *ACE2*, what might having the minor allele mean for the phenotype of individuals who have it?
 
 ```{r, eval = FALSE, echo = FALSE}
 They should use Consequences, turn all off, and only turn on 'stop gain' Once that's done, there are 2 SNPs left that are part of the 1KG populations (but 15 total). The SNPs themselves are, in order from highest MAF to lowest:
@@ -77,9 +83,9 @@ rs539685692 (MAF = 0; )
 
 We should *probably* get a little more practice with the *tabix* and *vcftools* coding for downloading data into our *SCC* space.<br>
 
-Please download the *ACE2* data (for the whole gene) for a *second* sub-population you find interesting in the 1000 Genomes dataset. Of all the files generated, you should keep *ONLY the final VCF file*.<br>
+* Please download the *TMPRSS2* data (for the whole gene) for your assigned population. Of all the files generated, you should keep *ONLY the final VCF file*. Send the file to me via the homework interface.<br>
 
-**The file MUST be in your *SCC* working directory by the time we meet in class on Friday, September 25th!**
+* **Additionally, the final VCF file must be in your *SCC* working directory by the time we meet in class on Friday, September 25th!**
 
 
 

@@ -440,11 +440,11 @@ If we have time, we will begin using these tools to get a head start on Module 1
 </ul>
 <hr />
 </div>
-<div id="module-1-accessing-human-candidate-gene-region-data-ace2" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/AN333_Fall20/Lab1_Module.html"><em>Module 1: Accessing Human Candidate Gene Region Data</em> – <em>ACE2</em></a></h3>
+<div id="module-1-accessing-human-candidate-gene-region-data-ace2-and-tmprss2" class="section level3">
+<h3><a href="https://fuzzyatelin.github.io/AN333_Fall20/Lab1_Module.html"><em>Module 1: Accessing Human Candidate Gene Region Data</em> – <em>ACE2</em> and <em>TMPRSS2</em></a></h3>
 <p><strong>September 18</strong><br></p>
 <hr />
-<strong>Material covered</strong>: Introduction to the <em>1000 Genomes Project</em> dataset, and tutorial on using <em>Ensembl</em> to access the 1000 Genomes dataset. For illustrative purposes, we’ll focus on the angiotensin-converting enzyme 2 (<em>ACE2</em>) gene, which codes for the key receptor the coronavirus SARS-CoV-2 uses to enter cells, leading to the disease known as COVID-19.<br><br> <strong>Readings</strong>:
+<strong>Material covered</strong>: Introduction to the <em>1000 Genomes Project</em> dataset, and tutorial on using <em>Ensembl</em> to access the 1000 Genomes dataset. For illustrative purposes, we’ll focus on both the angiotensin-converting enzyme 2 (<em>ACE2</em>) gene and the transmembrane serine protease 2 (<em>TMPRSS2</em>) gene, each of which code for the key receptors the coronavirus SARS-CoV-2 uses to enter cells, leading to the disease known as COVID-19.<br><br> <strong>Readings</strong>:
 <ul>
 <li>
 <a href="https://www.nature.com/articles/nature15393">The 1000 Genomes Project Consortium. 2015. A global reference for human genetic variation. <em>Nature</em> 526: 68-74.</a>
@@ -457,13 +457,20 @@ If we have time, we will begin using these tools to get a head start on Module 1
 <li>
 <a href="https://www.ahajournals.org/doi/full/10.1161/CIRCRESAHA.120.317015">Gheblawi M, Wang K, Viveiros A, Nguyen Q, Zhong J-C, Turner AJ, Raizada MK, Grant MB, Oudit GY. 2020. Angiotensin-Converting Enzyme 2: SARS-CoV-2 Receptor and Regulator of the Renin-Angiotensin System. <em>Circulation Research</em>, 126(10):1456-1474</a>
 </li>
-</ul>
+<br>
+<li>
+<a href="https://www.sciencedirect.com/science/article/pii/S0092867420302294">Hoffmann M, et al. 2020. SARS-CoV-2 cell entry depends on <em>ACE2</em> and <em>TMPRSS2</em> and is blocked by a clinically proven protease inhibitor. <em>Cell</em>, 181(2):271-280.e8</a>
+</li>
+<br>
+<li>
+<a href="https://www.biorxiv.org/content/10.1101/2020.05.26.116608v1">David A, Khanna T, Beykou M, Hanna G, Sternberg MJE. [Preprint]. Structure, function and variants analysis of the androgen-regulated TMPRSS2, a drug target candidate for COVID-19 infection. <em>bioRxiv</em>, accessed 10SEP20, DOI: 10.1101/2020.05.26.116608</a>
+</li>
 <br>
 <li>
 <a href="https://theconversation.com/what-is-the-ace2-receptor-how-is-it-connected-to-coronavirus-and-why-might-it-be-key-to-treating-covid-19-the-experts-explain-136928">Sriram K, Insel P, Loomba R. May 14, 2020. What is the ACE2 receptor, how is it connected to coronavirus and why might it be key to treating COVID-19? The experts explain. <em>The Conversation</em>.</a>
 </li>
 </ul>
-<br> <strong>Activities</strong>: We’ll learn how to use the <em>Ensembl</em> database to navigate our candidate gene, <em>ACE2</em>, and find more information about it. <a href="https://fuzzyatelin.github.io/AN333_Fall20/1KG_SubPop_Fall2020.html"><strong>Each student will be assigned a single 1000 Genomes sub-population</strong></a> that they will look at over the course of the modules, and we will use the <em>Data Slicer</em> within <em>Ensembl</em> to download data for those populations into our <em>SCC</em> accounts.<br><br> <strong>Assignment</strong>: Students must turn in a worksheet – with questions related to <em>ACE2</em> variation in humans and related to the downloaded dataset – the following Friday <strong>Pre-Module Homework Assignment is due today.</strong><br><br> <strong>Learning Outcomes</strong>:
+<br> <strong>Activities</strong>: We’ll learn how to use the <em>Ensembl</em> database to navigate our candidate genes, <em>ACE2</em> and <em>TMPRSS2</em>, and find more information about them. <a href="https://fuzzyatelin.github.io/AN333_Fall20/1KG_SubPop_Fall2020.html"><strong>Each student will be assigned a single 1000 Genomes sub-population</strong></a> that they will look at over the course of the modules, and we will use the <em>Data Slicer</em> within <em>Ensembl</em> to download data for each gene from those populations into our <em>SCC</em> accounts.<br><br> <strong>Assignment</strong>: Students must turn in a homework assignment – with questions related to <em>ACE2</em> and <em>TMPRSS2</em> variation in humans and related to the downloaded dataset – the following Friday <strong>Pre-Module Homework Assignment is due today.</strong><br><br> <strong>Learning Outcomes</strong>:
 <ul>
 <li>
 Learn about the basics of bioinformatics and how genetic data is transformed from raw sequencing reads in to a VCF file, which is the file type we will be working with.
@@ -472,7 +479,7 @@ Learn about the basics of bioinformatics and how genetic data is transformed fro
 Learn about the public data on human genomes available via the 1000 Genomes Project, and how to access it via <em>Ensembl</em>.
 </li>
 <li>
-Learn about the role of <em>ACE2</em> variation in humans, and how it is implicated in SARS-CoV-2 infection, and its role in other bodily systems.
+Learn about the role of <em>ACE2</em> and <em>TMPRSS2</em> variation in humans, and how they are implicated in SARS-CoV-2 infection, and their roles in other bodily systems.
 </li>
 <li>
 Learn how to download specific regions of genomic data – or candidate gene regions – from 1000 Genome populations in VCF format using the <em>Data Slicer</em> in <em>Ensembl</em> and move them on to the <em>SCC</em>.
