@@ -79,7 +79,7 @@ life population genetic analyses.</li>
 
 ***
 
-### [*Module 2: ACE2 Variants and Hardy-Weinberg Equilibrium*](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Module.html)
+### [*Module 2: ACE2/TMPRSS2 Variants and Hardy-Weinberg Equilibrium*](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Module.html)
 **September 25**<br>
 
 ***
@@ -104,7 +104,7 @@ life population genetic analyses.</li>
 
 ***
 
-### [*Module 3: Linkage Disequilibrium (LD) in ACE2*](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Module.html)
+### [*Module 3: Linkage Disequilibrium (LD) in ACE2 and TMPRSS2*](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Module.html)
 **October 2**<br>
 
 ***

@@ -1,5 +1,5 @@
 ---
-title: '**AN/BI333 Module 1**<br>Accessing Human Candidate Gene Region Data – *ACE2*'
+title: '**AN/BI333 Module 1**<br>Accessing Human Candidate Gene Region Data – *ACE2* and *TMPRSS2*'
 author: "Becca DeCamp & Christopher Schmitt"
 output: 
   rmarkdown::html_document:
@@ -125,7 +125,7 @@ The final step in the flowchart is the **VCF** file, which is what we will be wo
 ## Overview of the Variant Call Format (VCF) 
 <br>
 
-In our labs, we will be using VCF files to look at our candidate gene, *ACE2*. The VCF file format is a computer file format in which variant genetic information can be stored. VCF files in particular are a way of formatting SNP-only information without having to deal with the rest of the sequence that the SNPs come from. Other file types, such as BAM files, have their own uses, but for the purposes of our work in class (and most population genetics studies) they simply contain way more information than we need: a single BAM file containing an entire genome can be almost a terabyte (1000 gigabytes) in size!<br>
+In our modules, we will be using VCF files to look at our candidate genes, *ACE2* and *TMPRSS2*. The VCF file format is a computer file format in which variant genetic information can be stored. VCF files in particular are a way of formatting SNP-only information without having to deal with the rest of the sequence that the SNPs come from. Other file types, such as BAM files, have their own uses, but for the purposes of our work in class (and most population genetics studies) they simply contain way more information than we need: a single BAM file containing an entire genome can be almost a terabyte (1000 gigabytes) in size!<br>
 
 VCF files are a text-file format which can be opened with a plain text editor on your computer, and can be analyzed using various softwares. Below I have included an example screenshot of what a VCF file looks like when opened in a plain text editor. This example compares what a simple representation of the sequence itself aligned to the reference ('*Alignment*') looks like in VCF format ('*VCF representation*'):
 <br>
