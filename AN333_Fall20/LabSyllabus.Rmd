@@ -34,7 +34,7 @@ output:
 life population genetic analyses.</li>
 <li>If we have time, we will begin using these tools to get a head start on Module 1!</li></ul>
 
-**Please download associated materials on Slack**
+**Please download associated materials on Blackboard**
 
 **RCS Tutorials**: Research Computing Services offers many [helpful (free) tutorials](http://www.bu.edu/tech/about/training/classroom/rcs-tutorials/) during the month of September that may make a huge difference for how well and quickly you are able to learn this material. I strongly recommend the tutorials Introduction to BU’s Shared Computing Cluster and Introduction to R (although they are *not* required for the course), and the remainder I recommend if you would like to learn more about the systems we'll be working with:
 
