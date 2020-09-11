@@ -12,16 +12,14 @@ These are your assigned 1000 Genomes Project sub-populations for our investigati
 
 <ul>
 <li>Ana Barun - **TSI:	Toscani in Italia**
-<li>Luke Bendix - **ASW: Americans of African Ancestry in SW USA**
-<li>Eunice Choi - **JPT:	Japanese in Tokyo, Japan**
 <li>Emily Cobb - **CDX:	Chinese Dai in Xishuangbanna, China**
 <li>Shahaf Dan - **PEL:	Peruvians from Lima, Peru**
+<li>Lily DeFelice - **ASW: Americans of African Ancestry in SW USA**
 <li>Emily Fried - **LWK:	Luhya in Webuye, Kenya**
 <li>Emily Fusco - **CHS:	Southern Han Chinese**
 <li>Wenxin Gao - **STU:	Sri Lankan Tamil from the UK**
 <li>Nikita Joshi - **GIH:	Gujarati Indian from Houston, Texas**
 <li>Christina Lamagna - **FIN: Finnish in Finland**
-<li>Jiaying Li - **GBR:	British in England and Scotland**
 <li>Chloe Liu - **CHB:	Han Chinese in Beijing, China**
 <li>Pengcheng Lu - **GWD:	Gambian in Western Divisions in the Gambia**
 <li>Harjeet Malhi - **ITU: Indian Telugu in the UK**
