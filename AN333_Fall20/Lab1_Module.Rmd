@@ -350,9 +350,9 @@ Usually when you are working with genomic information, you are given a whole chr
 The link to the *Data Slicer* is available here: <https://useast.ensembl.org/Homo_sapiens/Tools/DataSlicer>. 
 <br>
 <br>
-**IMPORTANT NOTE**: Sometimes *Data Slicer* sucks and forgets how to link to the Phase 3 dataset appropriately. This makes things a bit more complicated. As such, I've appended a few methods, below, to getting the data we need. The first tab - *Data Slicer WINS!* - contains instructions for when *Data Slicer* works as it is supposed to. The second tab - *Data Slicer SUCKS!* - is for when *Data Slicer* fails us. The second method isn't harder, it just involves post-download filtering of our file, which might take a wee smidge longer. The third tab - *It's TABIX time!* - uses bioinformatics tools (namely a program named *tabix*) to download and partition the data. <br>
+**IMPORTANT NOTE**: Sometimes *Data Slicer* (when run in the *SCC*) sucks and forgets how to link to the Phase 3 dataset appropriately. This makes things a bit more complicated. As such, I've appended a few methods, below, for getting the data we need. The first tab - *Data Slicer WINS!* - contains instructions for when *Data Slicer* works as it is supposed to (note: it will probably work if you run it on your home computer - in this case, the resulting zipped VCF files are each less than 1 MB; I recommend trying this and moving the files to your *SCC* space via CyberDuck) . The second tab - *Data Slicer SUCKS!* - is for when *Data Slicer* fails us (again, this is likely to happen in the *SCC* for some reason). The second method isn't harder, just a bit tedious, and might take a wee smidge longer. The third tab - *It's TABIX time!* - uses bioinformatics tools (namely a program named *tabix*) to download and partition the data. <br>
 
-Try the *Data Slicer WINS!* method first. If that fails, it's time to move on the the *Data Slicer SUCKS!* method. Folks more comfortable with coding will find the *tabix* method to be the easiest and fastest option. I encourage everyone to try it. If you'd like to be thorough, you can try all of them (but keep only *one* final VCF file)!<br>
+Try the *Data Slicer WINS!* method first in the *SCC*; if that fails, try the web browser of your own computer. If both fail, it's time to move on the the *Data Slicer SUCKS!* method. Folks more comfortable with coding will find the *tabix* method to be the easiest and fastest option. I encourage everyone to try it. If you'd like to be thorough, you can try all of them (but keep only *one* final VCF file)!<br>
 
 Now, on to the tutorial!
 
@@ -445,9 +445,7 @@ ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/integrated_call_sample
 
 * Hit the "run" button at the bottom of the page.
 
-* At the top of the page, hit "New Job" and *repeat this process*, but this time with the coordinates **X:15563893-15573495**. Let's name this one something slightly different so we don't get confused. These are the coordinates for the smaller slice that we will be taking, so I'll name mine "**YRI_UCP1_small**"
-
-* When you have clicked "Run" for both jobs, you will see this table pop up, which will eventually tell you when your job has been processed. Click "View Results" to look at your results. 
+* When you have clicked "Run", you will see this table pop up, which will eventually tell you when your job has been processed. Click "View Results" to look at your results. 
 <br>
 
 ![](img/job.png)
@@ -469,9 +467,9 @@ ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/integrated_call_sample
 We check our file to see if the body is there because sometimes the server will malfunction and give you only the head of the VCF file. If that happens, repeat the *Data Slicer* process. Check both files in this same way.  
 <br>
 
-* Once you've checked your files to make sure everything is there, click on "Download results file", which should save these files in *filename.vcf.gz* format in the 'Downloads' folder in your *anth333* workspace on the *SCC*.
+* Once you've checked your file to make sure everything is there, click on "Download results file", which should save it in *filename.vcf.gz* format in the 'Downloads' folder in your *anth333* workspace on the *SCC*.
 
-* Once in your workspace, change your filenames to make things easier. Rename the full *ACE2* file with the acronym for your population. Name the smaller file with the acronym and then "small." For example, I downloaded data from the **YRI** population, so I named the larger file "YRI.vcf.gz" and will name the smaller file "YRIsmall.vcf.gz". Remember, to rename a file in the *SCC* workspace, you use the *mv* command (e.g., '*mv oldname.vcf.gz YRI.vcf.gz*')
+* Once in your workspace, change your filenames to make things easier. Rename the *ACE2* VCF file with the acronym for your population. For example, I downloaded data from the **YRI** population, so I named the file "ACE2_YRI.vcf.gz". Remember, to rename a file in the *SCC* workspace, you use the *mv* command (e.g., '*mv oldname.vcf.gz ACE2_YRI.vcf.gz*')
 
 <br> 
 
@@ -493,9 +491,9 @@ There's a solution: ***tabix***!<br>
 module load htslib
 ```
 
-* First, we can download the data. Remember, mine is YRI, so I'll use that code. Where you see 'YRI' in my code, insert the three-letter code of *your* population. Use the following command:
+* First, we can download the data. Remember, mine is YRI, so I'll use that code. Where you see 'YRI' in my code, insert the three-letter code of *your* population. Use the following command, making sure that your positions are correct for ACE2 (X:15561033-15602148), and that the chromosome designation is correct (e.g., `ALL.chrX...`):
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/GRCh38_positions/ALL.chr4_GRCh38.genotypes.20170504.vcf.gz X:15561033-15602148 > YRI_ACE2_all.vcf
+tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/GRCh38_positions/ALL.chrX_GRCh38.genotypes.20170504.vcf.gz X:15561033-15602148 > ACE2_YRI_all.vcf
 ```
 
 * Notice the syntax in that command? It's basically:
@@ -507,7 +505,7 @@ tabix -h [data URL] [region lookup] > [filename].vcf
 
 * If you want to take a look at the file, and see that it's all there, you can use the '*less*' command and scroll with the 'down arrow' key to see the file itself. The screenshot below is of the first look, before you start scrolling. Notice there are A LOT of individuals (over 2,500), with names starting with '*HG*' or '*NA*'. To leave the scrolling and go back to the prompt, press '*q*':
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-less YRI_ACE2_all.vcf
+less ACE2_YRI_all.vcf
 ```
 
 ![](img/YRI_all_view.png)
@@ -546,17 +544,17 @@ module load vcftools
 
 * Now we can use *vcftools* to subset our dataset:
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-vcftools --vcf YRI_ACE2_all.vcf --keep YRI.samples.list --recode --out YRI_ACE2
+vcftools --vcf ACE2_YRI_all.vcf --keep YRI.samples.list --recode --out ACE2_YRI
 ```
 
 * My *new* VCF file is called ***YRI_ACE2.recode.vcf***. Again, yours should be similar but with *your* population three-letter name. Rename this, as follows:
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-mv YRI_ACE2.recode.vcf YRI_ACE2.vcf
+mv ACE2_YRI.recode.vcf ACE2_YRI.vcf
 ```
 
-* Great! You now have your *ACE2* data file for just your population, which should be named ***YRI_ACE2.vcf*** (but with your population name)! If you take a look at the VCF file and scroll, you should see a list of IDs that match your samples list, meaning that the only genotypes included are those from your sample population:
+* Great! You now have your *ACE2* data file for just your population, which should be named ***ACE2_YRI.vcf*** (but with your population name)! If you take a look at the VCF file and scroll, you should see a list of IDs that match your samples list, meaning that the only genotypes included are those from your sample population:
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-less YRI_ACE2.vcf
+less ACE2_YRI.vcf
 ```
 
 ![](img/YRIvcf.png)
