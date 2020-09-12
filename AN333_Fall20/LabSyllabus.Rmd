@@ -1,7 +1,7 @@
 ---
 title: 'AN/BI 333/733: Modules'
 author: "Christopher A Schmitt"
-date: "September 3, 2020"
+date: "September 12, 2020"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -112,15 +112,16 @@ life population genetic analyses.</li>
 **Material covered**: In this module, we'll be assessing linkage disequilibrium (LD) in the *ACE2* genomic regions of the 1000 Genomes populations using *R* coding language. We'll also work on calculating LD by hand between two known loci in *ACE2*. All of this will help us work towards understanding factors that increase LD in the human genome.<br><br> 
 **Readings**:<ul> 
 <li>[Wooster L, Nicholson CJ, Sigurslid HH, Lino Cardenas CL, Malhotra R. *Preprint accessed 31AUG20*. Polymorphisms in the ACE2 locus associate with severity of COVID-19 infection. *medRxiv* doi:10.1101/2020.06.18.20135152](https://www.medrxiv.org/content/10.1101/2020.06.18.20135152v1.full.pdf)</li><br>
+<li>[Cheng Z., et al. 2015. Identification of *TMPRSS2* as a susceptibility gene for severe 2009 pandemic A(H1N1) influenza and A(H7N9) influenza. *The Journal of Infectious Diseases*, 212(8):1214–1221.](https://academic.oup.com/jid/article/212/8/1214/2193475)</li><br>
 <li>[Slatkin M. 2008. Linkage disequilibrium – understanding the evolutionary past and mapping the medical future. *Nat Rev Genet* 9: 477-485.](https://www.nature.com/articles/nrg2361)</li><br>
 <li>[Claiborne Stephens J, Schneider JA, Tanguay DA, Choi J, Acharya Y, Stanley SE, Jiang R, *et al*. 2001. Haplotype variation and linkage disequilibrium in 313 human genes. *Science* 293: 489-93.](http://science.sciencemag.org/content/293/5529/489)</li></ul><br>
-**Activities**: We'll assess linkage disequilibrium across the *ACE2* locus using our datasets downloaded from *Ensembl*, with a focus on the SNPs that are defined in Ramos *et al*. (2012). We will then discuss what high linkage disequilibrium in our populations could mean regarding potential for selection having occurred within our populations.<br><br>
-**Assignment**: Students must turn in a worksheet – with questions related to *ACE2* variation in humans and related to the downloaded dataset –  in class the following Friday. **Module 2 Homework Assignment is due today.**<br><br>
+**Activities**: We'll assess linkage disequilibrium across the *ACE2* and *TMPRSS2* loci using our datasets downloaded from *Ensembl*, with a focus on the SNPs that are defined in Wooster *et al*. (2020) and Cheng *et al*. (2015). We will then discuss what high linkage disequilibrium in our populations could mean regarding potential for selection having occurred within our populations.<br><br>
+**Assignment**: Students must turn in homeowork – with questions related to *ACE2* and *TMPRSS2* variation in humans and related to the downloaded dataset –  online by the following Friday. **Module 2 Homework Assignment is due today.**<br><br>
 **Learning Outcomes**:<ul>
-<li>Learn about the SNPs *rs4240157*, *rs6632680*, *rs1548474*, and *rs2048683* and their roles in COVID-19 severity.</li>
+<li>Learn about the SNPs *rs1548474* and *rs4240157* for *ACE2*, and *rs383510* and *rs2070788* for *TMPRSS2*, and their roles in viral susceptibility.</li>
 <li>Learn how to use the *R* package *SNPStats* to perform LD analysis in a population, including constructing LD matrices and LD heatmaps.</li> 
 <li>Learn about the two statistics *D'* and *R<sup>2</sup>*, which are the most commonly used statistics to evaluate LD between SNPs. Learn what each can tell us about a population, and apply the two statistics to our own populations</li> 
-<li>Learn how to use *Ensembl* to look at long-distance LD between SNPs in *ACE2*, as well as for SNPs in other genes. 
+<li>Learn how to use *Ensembl* to look at long-distance LD between SNPs in *ACE2* and *TMPRSS2*, as well as for SNPs in other genes. 
 </li>
 
 ***
@@ -138,7 +139,9 @@ life population genetic analyses.</li>
 <br><br> 
 **Readings**:<ul> 
 <li>[Kimura M. 1980. A simple method for estimating evolutionary rates of base substitutions through comparative studies of nucleotide sequences. *J Mol Evol* 16: 111–120.](http://www.nematodes.org/teaching/tutorials/phylogenetics/Bayesian_Workshop/PDFs/Kimura%20J%20Mol%20Evol%201980.pdf)</li><br>
-<li>[Saitou N, Nei M. 1987. The neighbor-joining method: a new method for reconstructing phylogenetic trees. *Mol Biol Evol* 4: 406–425.](https://academic.oup.com/mbe/article/4/4/406/1029664)</li></ul><br>
+<li>[Saitou N, Nei M. 1987. The neighbor-joining method: a new method for reconstructing phylogenetic trees. *Mol Biol Evol* 4: 406–425.](https://academic.oup.com/mbe/article/4/4/406/1029664)</li><br>
+<li>[Liu Z, et al. 2020. Composition and divergence of coronavirus spike proteins and host *ACE2* receptors predict potential intermediate hosts of SARS‐CoV‐2. *J Med Virol* 92(6): 595-601.](https://onlinelibrary.wiley.com/doi/full/10.1002/jmv.25726?casa_token=sRQv7aBlsVkAAAAA%3AXR8hCMvVMokbFW7aX9KNkBUo0wK5trNsx3KK0t0c4TRk4ORWOJ-9zyBjz9vC6_NEWRJIXlgxoRJbjw)</li></ul><br>
+
 **Activities**: We'll learn how to create a phylogenetic tree with simple neighbor-joining methods using the *ape* package in *R*. We'll then learn how to make a tree from multiple populations, which will allow us to compare those different populations’ structures in a qualitative way. We will also use these phylogenetic trees to assess the diversity of *ACE2* in each population, and discuss what that means. <br><br>
 **Assignment**: Students must turn in a worksheet – with questions related to *ACE2* variation in humans and related to the downloaded dataset –  in class the following Friday.<br><br>
 **Learning Outcomes**:<ul>
@@ -149,12 +152,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 4: DUE Friday, October 30th](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Homework.html)
+### [Homework for Module 4: DUE Friday, October 23th](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Homework.html)
 
 ***
 
 ### [*Module 5: Introduction to Neutrality Statistics and Signs of Selection*](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Module.html)
-**October 30**<br>
+**October 23**<br>
 
 ***
 
@@ -162,7 +165,8 @@ life population genetic analyses.</li>
 <br><br> 
 **Readings**:<ul> 
 <li>[Garrigan DR, Lewontin R, Wakeley J. 2010. Measuring the sensitivity of single-locus “neutrality tests” using a direct perturbation approach. *Mol Biol Evol* 27(1): 73-89.](https://academic.oup.com/mbe/article/27/1/73/1125718)</li><br>
-<li>[Southam L, Soranzo N, Montgomery SB, Frayling TM, McCarthy MI, Barroso I, Zeggini E. 2009. Is the thrifty genotype hypothesis supported by evidence based on confirmed type 2 diabetes- and obesity-susceptibility variants? *Diabetologia* 52: 1846-1851.](https://link.springer.com/article/10.1007%2Fs00125-009-1419-3)</li><br>
+<li>[Stawiski EW, et al. Preprint accessed 10APR20. Human *ACE2* receptor polymorphisms predict SARS-CoV-2 susceptibility. *bioRxiv*, DOI: 10.1101/2020.04.07.024752](https://www.biorxiv.org/content/10.1101/2020.04.07.024752v1.full.pdf)</li><br>
+<li>[Sabeti PC, et al. 2002. Detecting recent positive selection in the human genome from haplotype structure. Nature 419(6909): 832-837.](https://www.nature.com/articles/nature01140)</li><br>
 <li>[Tajima F. 1989. Statistical method for testing the neutral mutation hypothesis by DNA polymorphism. *Genetics* 123(3): 585–595.](http://www.genetics.org/content/123/3/585)</li></ul>
 <br>
 **Activities**: We'll use the packages *PopGenome* and *pegas* to cauclate Fu and Li’s D and F, as well as Tajima’s D for *ACE2* in our respective 1000 Genomes populations. We'll also look at an example of an iHS score with the example data from the *rehh* package. Finally, we will take ample time to understand what the Fu and Li’s D and F and Tajima’s D test results tell us about how our populations are evolving, and use the example of iHS to predict whether or not our populations underwent a selective sweep in the *ACE2* region. <br><br>
@@ -177,12 +181,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 5: DUE Friday, November 13th](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Homework.html)
+### [Homework for Module 5: DUE Friday, October 30th](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Homework.html)
 
 ***
 
 ### [*Module 6: A Brief Digression from ACE2 for Quantitative Genetics*](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Module.html)
-**November 13**<br>
+**October 30**<br>
 
 ***
 
@@ -205,12 +209,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 6: DUE Friday, November 20th](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Homework.html)
+### [Homework for Module 6: DUE Friday, November 6th](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Homework.html)
 
 ***
 
 ### [*Module 7: Finding a New Locus…*](https://fuzzyatelin.github.io/AN333_Fall20/Lab7_Module.html)
-**November 20**<br>
+**November 02**<br>
 
 ***
 
@@ -221,7 +225,7 @@ life population genetic analyses.</li>
 <li>[Patnala R, Clements J, Batra J. 2013. Candidate gene association studies: a comprehensive guide to useful in silico tools. *BMC Genet* 14:39.](https://bmcgenet.biomedcentral.com/articles/10.1186/1471-2156-14-39)</li><br></ul>
 <br>
 **Activities**: We will go over a brief tutorial on how to think about finding a new locus of interest to study on your own, and we will have a class discussion on final project topic ideas.<br><br>
-**Assignment**: Students must answer questions about a potential candidate gene of interest by the following Friday. **Module 5 Homework Assignment is due today.**<br><br>
+**Assignment**: Students must choose a gene of interest for their final project by the following **Friday, November 13**.
 **Learning Outcomes**:<ul>
 <li>Learn how to use the resources provided to you in this class to find a new genetic locus for study.</li>
 <li>Assess the merits/flaws of using a candidate gene approach to understand trait histories in human populations.</li><br><br> 

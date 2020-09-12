@@ -11,6 +11,7 @@
 
 <meta name="author" content="Christopher A Schmitt" />
 
+<meta name="date" content="2020-09-12" />
 
 <title>AN/BI 333/733: Modules</title>
 
@@ -179,7 +180,7 @@ summary {
 
 <h1 class="title toc-ignore">AN/BI 333/733: Modules</h1>
 <h4 class="author">Christopher A Schmitt</h4>
-<h4 class="date">September 3, 2020</h4>
+<h4 class="date">September 12, 2020</h4>
 
 </div>
 
@@ -338,6 +339,10 @@ Calculate the “true” Hardy-Weinberg Equilibrium using the Shiny App for <em>
 </li>
 <br>
 <li>
+<a href="https://academic.oup.com/jid/article/212/8/1214/2193475">Cheng Z., et al. 2015. Identification of <em>TMPRSS2</em> as a susceptibility gene for severe 2009 pandemic A(H1N1) influenza and A(H7N9) influenza. <em>The Journal of Infectious Diseases</em>, 212(8):1214–1221.</a>
+</li>
+<br>
+<li>
 <a href="https://www.nature.com/articles/nrg2361">Slatkin M. 2008. Linkage disequilibrium – understanding the evolutionary past and mapping the medical future. <em>Nat Rev Genet</em> 9: 477-485.</a>
 </li>
 <br>
@@ -345,10 +350,10 @@ Calculate the “true” Hardy-Weinberg Equilibrium using the Shiny App for <em>
 <a href="http://science.sciencemag.org/content/293/5529/489">Claiborne Stephens J, Schneider JA, Tanguay DA, Choi J, Acharya Y, Stanley SE, Jiang R, <em>et al</em>. 2001. Haplotype variation and linkage disequilibrium in 313 human genes. <em>Science</em> 293: 489-93.</a>
 </li>
 </ul>
-<br> <strong>Activities</strong>: We’ll assess linkage disequilibrium across the <em>ACE2</em> locus using our datasets downloaded from <em>Ensembl</em>, with a focus on the SNPs that are defined in Ramos <em>et al</em>. (2012). We will then discuss what high linkage disequilibrium in our populations could mean regarding potential for selection having occurred within our populations.<br><br> <strong>Assignment</strong>: Students must turn in a worksheet – with questions related to <em>ACE2</em> variation in humans and related to the downloaded dataset – in class the following Friday. <strong>Module 2 Homework Assignment is due today.</strong><br><br> <strong>Learning Outcomes</strong>:
+<br> <strong>Activities</strong>: We’ll assess linkage disequilibrium across the <em>ACE2</em> and <em>TMPRSS2</em> loci using our datasets downloaded from <em>Ensembl</em>, with a focus on the SNPs that are defined in Wooster <em>et al</em>. (2020) and Cheng <em>et al</em>. (2015). We will then discuss what high linkage disequilibrium in our populations could mean regarding potential for selection having occurred within our populations.<br><br> <strong>Assignment</strong>: Students must turn in homeowork – with questions related to <em>ACE2</em> and <em>TMPRSS2</em> variation in humans and related to the downloaded dataset – online by the following Friday. <strong>Module 2 Homework Assignment is due today.</strong><br><br> <strong>Learning Outcomes</strong>:
 <ul>
 <li>
-Learn about the SNPs <em>rs4240157</em>, <em>rs6632680</em>, <em>rs1548474</em>, and <em>rs2048683</em> and their roles in COVID-19 severity.
+Learn about the SNPs <em>rs1548474</em> and <em>rs4240157</em> for <em>ACE2</em>, and <em>rs383510</em> and <em>rs2070788</em> for <em>TMPRSS2</em>, and their roles in viral susceptibility.
 </li>
 <li>
 Learn how to use the <em>R</em> package <em>SNPStats</em> to perform LD analysis in a population, including constructing LD matrices and LD heatmaps.
@@ -357,7 +362,7 @@ Learn how to use the <em>R</em> package <em>SNPStats</em> to perform LD analysis
 Learn about the two statistics <em>D’</em> and <em>R<sup>2</sup></em>, which are the most commonly used statistics to evaluate LD between SNPs. Learn what each can tell us about a population, and apply the two statistics to our own populations
 </li>
 <li>
-Learn how to use <em>Ensembl</em> to look at long-distance LD between SNPs in <em>ACE2</em>, as well as for SNPs in other genes.
+Learn how to use <em>Ensembl</em> to look at long-distance LD between SNPs in <em>ACE2</em> and <em>TMPRSS2</em>, as well as for SNPs in other genes.
 </li>
 <hr />
 </div>
@@ -378,8 +383,13 @@ Learn how to use <em>Ensembl</em> to look at long-distance LD between SNPs in <e
 <li>
 <a href="https://academic.oup.com/mbe/article/4/4/406/1029664">Saitou N, Nei M. 1987. The neighbor-joining method: a new method for reconstructing phylogenetic trees. <em>Mol Biol Evol</em> 4: 406–425.</a>
 </li>
+<br>
+<li>
+<a href="https://onlinelibrary.wiley.com/doi/full/10.1002/jmv.25726?casa_token=sRQv7aBlsVkAAAAA%3AXR8hCMvVMokbFW7aX9KNkBUo0wK5trNsx3KK0t0c4TRk4ORWOJ-9zyBjz9vC6_NEWRJIXlgxoRJbjw">Liu Z, et al. 2020. Composition and divergence of coronavirus spike proteins and host <em>ACE2</em> receptors predict potential intermediate hosts of SARS‐CoV‐2. <em>J Med Virol</em> 92(6): 595-601.</a>
+</li>
 </ul>
-<br> <strong>Activities</strong>: We’ll learn how to create a phylogenetic tree with simple neighbor-joining methods using the <em>ape</em> package in <em>R</em>. We’ll then learn how to make a tree from multiple populations, which will allow us to compare those different populations’ structures in a qualitative way. We will also use these phylogenetic trees to assess the diversity of <em>ACE2</em> in each population, and discuss what that means. <br><br> <strong>Assignment</strong>: Students must turn in a worksheet – with questions related to <em>ACE2</em> variation in humans and related to the downloaded dataset – in class the following Friday.<br><br> <strong>Learning Outcomes</strong>:
+<p><br></p>
+<strong>Activities</strong>: We’ll learn how to create a phylogenetic tree with simple neighbor-joining methods using the <em>ape</em> package in <em>R</em>. We’ll then learn how to make a tree from multiple populations, which will allow us to compare those different populations’ structures in a qualitative way. We will also use these phylogenetic trees to assess the diversity of <em>ACE2</em> in each population, and discuss what that means. <br><br> <strong>Assignment</strong>: Students must turn in a worksheet – with questions related to <em>ACE2</em> variation in humans and related to the downloaded dataset – in class the following Friday.<br><br> <strong>Learning Outcomes</strong>:
 <ul>
 <li>
 Learn how to apply Kimura’s Neutral Theory to our populations to create a matrix of genetic distances between individuals in a population.
@@ -392,13 +402,13 @@ Learn how to interpret a phylogenetic tree, and learn what it can tell us about 
 </li>
 <hr />
 </div>
-<div id="homework-for-module-4-due-friday-october-30th" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Homework.html">Homework for Module 4: DUE Friday, October 30th</a></h3>
+<div id="homework-for-module-4-due-friday-october-23th" class="section level3">
+<h3><a href="https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Homework.html">Homework for Module 4: DUE Friday, October 23th</a></h3>
 <hr />
 </div>
 <div id="module-5-introduction-to-neutrality-statistics-and-signs-of-selection" class="section level3">
 <h3><a href="https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Module.html"><em>Module 5: Introduction to Neutrality Statistics and Signs of Selection</em></a></h3>
-<p><strong>October 30</strong><br></p>
+<p><strong>October 23</strong><br></p>
 <hr />
 <strong>Material covered</strong>: This module is an introduction to statistical tests of <em>neutrality</em> that can be used in genomic studies. <em>Tajima’s D</em>, <em>Fu and Li’s D and F</em>, and <em>iHS scores</em> will be covered and discussed. We’ll work towards understanding what each of these tests do to measure selection, and what these statistics can tell us about population structure and history. <br><br> <strong>Readings</strong>:
 <ul>
@@ -407,7 +417,11 @@ Learn how to interpret a phylogenetic tree, and learn what it can tell us about 
 </li>
 <br>
 <li>
-<a href="https://link.springer.com/article/10.1007%2Fs00125-009-1419-3">Southam L, Soranzo N, Montgomery SB, Frayling TM, McCarthy MI, Barroso I, Zeggini E. 2009. Is the thrifty genotype hypothesis supported by evidence based on confirmed type 2 diabetes- and obesity-susceptibility variants? <em>Diabetologia</em> 52: 1846-1851.</a>
+<a href="https://www.biorxiv.org/content/10.1101/2020.04.07.024752v1.full.pdf">Stawiski EW, et al. Preprint accessed 10APR20. Human <em>ACE2</em> receptor polymorphisms predict SARS-CoV-2 susceptibility. <em>bioRxiv</em>, DOI: 10.1101/2020.04.07.024752</a>
+</li>
+<br>
+<li>
+<a href="https://www.nature.com/articles/nature01140">Sabeti PC, et al. 2002. Detecting recent positive selection in the human genome from haplotype structure. Nature 419(6909): 832-837.</a>
 </li>
 <br>
 <li>
@@ -433,13 +447,13 @@ Learn about whether or not selection is happening in our populations based on th
 </li>
 <hr />
 </div>
-<div id="homework-for-module-5-due-friday-november-13th" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Homework.html">Homework for Module 5: DUE Friday, November 13th</a></h3>
+<div id="homework-for-module-5-due-friday-october-30th" class="section level3">
+<h3><a href="https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Homework.html">Homework for Module 5: DUE Friday, October 30th</a></h3>
 <hr />
 </div>
 <div id="module-6-a-brief-digression-from-ace2-for-quantitative-genetics" class="section level3">
 <h3><a href="https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Module.html"><em>Module 6: A Brief Digression from ACE2 for Quantitative Genetics</em></a></h3>
-<p><strong>November 13</strong><br></p>
+<p><strong>October 30</strong><br></p>
 <hr />
 <strong>Material covered</strong>: Quantitative genetics and partitioning variance in phenotypes between genetic and environmental signals. To do this, we’ll be working with some captive vervet monkey (<em>Chlorocebus sabaeus</em>) data I collected at Wake Forest College of Medicine’s Vervet Research Colony (VRC). We’ll also learn about the <em>SOLAR</em> work environment, which is a (relatively) easy interface for doing quantitative genetics analysis in the <em>SCC</em> space. Through this, we’ll learn a bit about the quantitative genetics of BMI and body mass. <br><br> <strong>Readings</strong>:
 <ul>
@@ -474,13 +488,13 @@ Learn how to appropriately interpret quantitative genetics outcomes, including n
 </li>
 <hr />
 </div>
-<div id="homework-for-module-6-due-friday-november-20th" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Homework.html">Homework for Module 6: DUE Friday, November 20th</a></h3>
+<div id="homework-for-module-6-due-friday-november-6th" class="section level3">
+<h3><a href="https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Homework.html">Homework for Module 6: DUE Friday, November 6th</a></h3>
 <hr />
 </div>
 <div id="module-7-finding-a-new-locus" class="section level3">
 <h3><a href="https://fuzzyatelin.github.io/AN333_Fall20/Lab7_Module.html"><em>Module 7: Finding a New Locus…</em></a></h3>
-<p><strong>November 20</strong><br></p>
+<p><strong>November 02</strong><br></p>
 <hr />
 <strong>Material covered</strong>: We’ll discuss the process of finding a new locus on which to conduct a population genetics study for your final project! Make sure the locus is related somehow to a trait you’re really interested in, and also preferably a trait that varies among contemporary human populations. A <em>candidate gene</em> for a particular trait would be great (i.e., a gene that’s been noted to perhaps be associated with a trait in a GWAS, but hasn’t really been tested across populations that vary in that trait). A trait that’s been noted to have been under selection previously would be great, but is by no means necessary. <br><br> <strong>Readings</strong>:
 <ul>
@@ -493,7 +507,7 @@ Learn how to appropriately interpret quantitative genetics outcomes, including n
 </li>
 <br>
 </ul>
-<br> <strong>Activities</strong>: We will go over a brief tutorial on how to think about finding a new locus of interest to study on your own, and we will have a class discussion on final project topic ideas.<br><br> <strong>Assignment</strong>: Students must answer questions about a potential candidate gene of interest by the following Friday. <strong>Module 5 Homework Assignment is due today.</strong><br><br> <strong>Learning Outcomes</strong>:
+<br> <strong>Activities</strong>: We will go over a brief tutorial on how to think about finding a new locus of interest to study on your own, and we will have a class discussion on final project topic ideas.<br><br> <strong>Assignment</strong>: Students must choose a gene of interest for their final project by the following <strong>Friday, November 13</strong>. <strong>Learning Outcomes</strong>:
 <ul>
 <li>
 Learn how to use the resources provided to you in this class to find a new genetic locus for study.
