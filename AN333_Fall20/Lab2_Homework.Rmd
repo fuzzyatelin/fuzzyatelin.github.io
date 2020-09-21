@@ -1,8 +1,10 @@
 ---
-title: 'Lab 2: Homework'
+title: 'Module 2: Homework'
 author: "Christopher A Schmitt"
-date: "October 5, 2018"
-output: html_document
+date: "September 21, 2020"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
 ---
 
 ## Homework: Introduction to Hardy-Weinberg Equilibrium
@@ -13,7 +15,8 @@ output: html_document
 
 **Readings**:<ul> 
 <li>[Chen J. The Hardy-Weinberg Principle and Its Applications in Modern Population Genetics. *Frontiers in Biology* 5(4): 348-53.](https://link.springer.com/article/10.1007/s11515-010-0580-x)</li><br>
-<li>[Rose G, Crocco O, D'Aquila P, Montesanto A, Bellizi D, Passarino G. 2011. Two variants located in the upstream enhancer region of human UCP1 gene affect gene expression and are correlated with human longevity. *Experimental Gerontology* 46(11): 897-904.](https://www.sciencedirect.com/science/article/pii/S0531556511001987?via%3Dihub)</li><br>
+<li>[Benetti E, et al. 2020. ACE2 gene variants may underlie interindividual variability and susceptibility to COVID-19 in the Italian population. *European Journal of Human Genetics* ](https://www.nature.com/articles/s41431-020-0691-z)</li><br>
+<li>[Maekawa et al. 2014. TMPRSS2 Met160Val polymorphism: Significant association with sporadic prostate cancer, but not with latend prostate cancer in Japanses men. *Int J Urology* 21(12): 1234-1238](https://onlinelibrary.wiley.com/doi/full/10.1111/iju.12578)</li><br>
 <li>[Wigginton JE, Cutler DJ, Abecasis GR. 2005. A note on exact tests of Hardy-Weinberg equilibrium. *Am J Hum Genet* 76: 887-893.](https://www.cell.com/ajhg/fulltext/S0002-9297(07)60735-6?code=ajhg-site)</li></ul>
 
 ***
@@ -23,23 +26,23 @@ Now that many of us have a little more facility with working with *Ensembl* and 
 As before, you'll be turning in your homework via an online interface.  I recommend writing your essays in a document on your laptop and only engaging with the online interface when you're ready to turn in *all* of your completed answers.
 
 <center>
-###[Access the online interface to submit your homework answers here.](https://goo.gl/forms/JTrXZDh0KaXvoOHm1)
+###[Access the online interface to submit your homework answers here.](https://forms.gle/qVF1SRj2jbDm7EAbA)
 </center><br>
 
-* What does it mean if there is a SNP in the gene *UCP1* that is not in Hardy-Weinberg equilibrium? Think not only about the phenotypic consequences, but what it says about the environment of the population.
+* What does it mean if there is a SNP in the gene *ACE2* or *TMPRSS2* that is not in Hardy-Weinberg equilibrium? Think not only about the phenotypic consequences, but what it says about the environment of the population.
 
 * How many SNPs in *your* population were *out* of Hardy-Weinberg equilibrium?
 
-* Please list each of the four SNPs you chose to check for "true" Hardy-Weinberg equilibrium using the *Shiny App* embedded in the Lab 2 tutorial. What was the P-value of each using the *R* analysis? What was the modified P-value using the *Shiny App*? Did any of them change significance? Based on the Lab 2 tutorial and the Wigginton et al. (2005) reading, what does a change in P-value mean?
+* Please list each of the four SNPs you chose to check for "true" Hardy-Weinberg equilibrium using the *Shiny App* embedded in the Lab 2 tutorial. What was the P-value of each using the *R* analysis? What was the modified P-value using the *Shiny App*? Did any of them change significance? Based on the Module 2 tutorial and the Wigginton et al. (2005) reading, what does a change in P-value mean?
 
-![](genemap.png)
+![](img/genemap.png)
 <br>
 
-* Imagine that gene map above represents *UCP1*. Based on the Rose et al. (2011) article, where on the map is the SNP A-3826G? How would the placement of this SNP affect *UCP1* phenotype?
+* Imagine that gene map above represents *ACE2*. Based on the Benetti et al. (2020) article itself, and what you know about the organization of genes and the cDNA for the transcript ACE2-201 on Ensembl, where in a gene map for ACE2 would you find the SNP **Lys26Arg** (e.g., intron 1-2, exon 3, 3'-UTR, promotor, etc)?
 
-* Where on the map above is the SNP in *your* population that most significantly deviates from Hardy-Weinberg equilibrium? How would that SNP affect *UCP1* phenotype? If you don't have any SNPs that deviate, choose one at random. 
+* Where on the map above is the SNP in *your* population that most significantly deviates from Hardy-Weinberg equilibrium? How would you predict that SNP might affect *ACE2* or *TMPRSS2* phenotype? If you don't have any SNPs that deviate, choose one at random. 
 
-* Think about your population. Would it make sense for your population's *UCP1* genotype/phenotype to be influenced by evolutionary forces in the present day? Why or why not?
+* Think about the economic, cultural, and medical context of your 1000 Genomes population. Would it make sense for your population's ACE2 or TMPRSS2 genotype/phenotype to be influenced by evolutionary forces under the current pandemic? Why or why not?
 <br>
 <br>
 <br>
