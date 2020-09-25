@@ -1,7 +1,7 @@
 ---
 title: 'Module 2: Homework'
 author: "Christopher A Schmitt"
-date: "September 21, 2020"
+date: "September 24, 2020"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -43,6 +43,8 @@ As before, you'll be turning in your homework via an online interface.  I recomm
 * Where on the map above is the SNP in *your* population that most significantly deviates from Hardy-Weinberg equilibrium? How would you predict that SNP might affect *ACE2* or *TMPRSS2* phenotype? If you don't have any SNPs that deviate, choose one at random. 
 
 * Think about the economic, cultural, and medical context of your 1000 Genomes population. Would it make sense for your population's ACE2 or TMPRSS2 genotype/phenotype to be influenced by evolutionary forces under the current pandemic? Why or why not?
+
+* **Remember**: further questions on hand-written HWE calculations from Lecture 6 will also be accessible in the homework submission interface!
 <br>
 <br>
 <br>
