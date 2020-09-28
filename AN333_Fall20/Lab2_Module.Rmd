@@ -210,10 +210,8 @@ less TMPRSS2_YRI.HWE.txt
 
 Now, on the right of your table is a list of P-values. Look over your P-values to see if any of them are significant (p < 0.05). If any of your P-values *are* significant, this means that that SNP is not in Hardy-Weinberg Equilibrium!
 
-Here's some easy code to filter out JUST those SNPs that are significant:
-```{r}
-
-
+Here's some easy ***R*** code to filter out JUST those SNPs that are significant:
+```{r,warning=FALSE,message=FALSE}
 library(tidyverse)
 HWE.sig <-
   HWE %>%
@@ -225,7 +223,7 @@ HWE.sig <-
 HWE.sig
 ```
 
-Record the SNP ID numbers that have significant P-values, because they will be important for what we do next. 
+In this case the YRI population has 13 SNPs out of HWE in *TMPRSS2*. Record the SNP ID numbers that have significant P-values for your population, because they will be important for what we do next. 
 <br>
 <br>
 Hopefully, some of you have found that there are SNPs in your population that are not in Hardy-Weinberg Equilibrium. That's exciting! But, think back to the Wigginton paper. There is a large *Type 1 Error* rate for Hardy-Weinberg tests performed using a Chi-Squared test. To account for this, we will test our significant SNPs for Type 1 Error using the Shiny App calculator Becca De Camp created for us. Here's how we will do that: 
