@@ -422,5 +422,23 @@ less TMPRSS2_YRI.hwe
 
 <br>
 Notice that the output is giving us both more and less information than our analysis in *R Studio*. Rather than the variant name, we're given just the variant position ('POS') on which chromosome ('CHR'). We're also, however, given the observed ('OBS(HOM1/HET/HOM2)') and expected ('E(HOM1/HET/HOM2)') counts of individuals under "true" HWE with each genotype, along with the "true" HWE Chi-Squared ('ChiSq_HWE') and P-values ('P_HWE'). It's also giving us P-values regarding whether there is a significant deficit ('P_HET_DEFICIT') or excess ('P_HET_EXCESS') in heterozygotes, which can tell us a bit more about *why* the population is out of Hardy-Weinberg equilibrium (we'll learn more about this in class).
+
+To see only the significant SNPs for this output, we just need to import the file into *R*:
+```{r}
+vcftools.HWE<-read.table("TMPRSS2_YRI.hwe",header=TRUE)
+vcftools.HWE
+```
+
+And then filter by `P_HWE`, which represents the HWE p-value:
+```{r,warning=FALSE,message=FALSE}
+library(tidyverse)
+vcftools.HWE.sig <-
+  vcftools.HWE %>%
+  as_tibble(vcftools.HWE) %>%
+  select(CHR,POS,ChiSq_HWE,P_HWE) %>%
+  filter(P_HWE <= 0.05)
+vcftools.HWE.sig
+```
+
 <br>
 <br>
