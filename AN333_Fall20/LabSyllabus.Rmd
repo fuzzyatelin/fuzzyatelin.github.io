@@ -1,7 +1,7 @@
 ---
 title: 'AN/BI 333/733: Modules'
 author: "Christopher A Schmitt"
-date: "September 12, 2020"
+date: "October 1, 2020"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -75,7 +75,7 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 1: DUE Friday, September 25th](https://fuzzyatelin.github.io/AN333_Fall20/Lab1_Homework.html)
+### [Homework for Module 1: DUE Friday, September 25th at 5:00 pm](https://fuzzyatelin.github.io/AN333_Fall20/Lab1_Homework.html)
 
 ***
 
@@ -100,12 +100,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 2: DUE Friday, October 2nd](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Homework.html)
+### [Homework for Module 2: DUE Friday, October 2nd at 5:00 pm](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Homework.html)
 
 ***
 
 ### [*Module 3: Linkage Disequilibrium (LD) in ACE2 and TMPRSS2*](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Module.html)
-**October 2**<br>
+**October 16**<br>
 
 ***
 
@@ -114,6 +114,7 @@ life population genetic analyses.</li>
 <li>[Wooster L, Nicholson CJ, Sigurslid HH, Lino Cardenas CL, Malhotra R. *Preprint accessed 31AUG20*. Polymorphisms in the ACE2 locus associate with severity of COVID-19 infection. *medRxiv* doi:10.1101/2020.06.18.20135152](https://www.medrxiv.org/content/10.1101/2020.06.18.20135152v1.full.pdf)</li><br>
 <li>[Cheng Z., et al. 2015. Identification of *TMPRSS2* as a susceptibility gene for severe 2009 pandemic A(H1N1) influenza and A(H7N9) influenza. *The Journal of Infectious Diseases*, 212(8):1214–1221.](https://academic.oup.com/jid/article/212/8/1214/2193475)</li><br>
 <li>[Slatkin M. 2008. Linkage disequilibrium – understanding the evolutionary past and mapping the medical future. *Nat Rev Genet* 9: 477-485.](https://www.nature.com/articles/nrg2361)</li><br>
+<li>[Zeberg H, Pääbo S. 2020. The major genetic risk factor for severe COVID-19 is inherited from Neanderthals. *Nature* 2998 ](https://www.nature.com/articles/s41586-020-2818-3)</li><br>
 <li>[Claiborne Stephens J, Schneider JA, Tanguay DA, Choi J, Acharya Y, Stanley SE, Jiang R, *et al*. 2001. Haplotype variation and linkage disequilibrium in 313 human genes. *Science* 293: 489-93.](http://science.sciencemag.org/content/293/5529/489)</li></ul><br>
 **Activities**: We'll assess linkage disequilibrium across the *ACE2* and *TMPRSS2* loci using our datasets downloaded from *Ensembl*, with a focus on the SNPs that are defined in Wooster *et al*. (2020) and Cheng *et al*. (2015). We will then discuss what high linkage disequilibrium in our populations could mean regarding potential for selection having occurred within our populations.<br><br>
 **Assignment**: Students must turn in homeowork – with questions related to *ACE2* and *TMPRSS2* variation in humans and related to the downloaded dataset –  online by the following Friday. **Module 2 Homework Assignment is due today.**<br><br>
@@ -126,12 +127,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 3: DUE Friday, October 16th](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Homework.html)
+### [Homework for Module 3: DUE Friday, October 23rd](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Homework.html)
 
 ***
 
 ### [*Module 4: Introduction to Nearest-Neighbor Joining and Phylogenetics*](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Module.html)
-**October 16**<br>
+**October 23**<br>
 
 ***
 
@@ -152,12 +153,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 4: DUE Friday, October 23th](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Homework.html)
+### [Homework for Module 4: DUE Friday, October 30th](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Homework.html)
 
 ***
 
 ### [*Module 5: Introduction to Neutrality Statistics and Signs of Selection*](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Module.html)
-**October 23**<br>
+**October 30**<br>
 
 ***
 
@@ -181,12 +182,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 5: DUE Friday, October 30th](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Homework.html)
+### [Homework for Module 5: DUE Friday, November 6th](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Homework.html)
 
 ***
 
 ### [*Module 6: A Brief Digression from ACE2 for Quantitative Genetics*](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Module.html)
-**October 30**<br>
+**November 6**<br>
 
 ***
 

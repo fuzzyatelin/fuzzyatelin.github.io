@@ -1,7 +1,7 @@
 ---
-title: "Lab 3 - Linkage Disequilibrium (LD) in *UCP1*"
+title: "Lab 3 - Linkage Disequilibrium (LD) in *TMPRSS2*"
 author: "Becca DeCamp & Christopher Schmitt"
-date: "10/09/2018"
+date: "October 1, 2020"
 output: html_document
 ---
 
@@ -20,23 +20,25 @@ color: white;
 
 ***
 
-###[Homework for Lab 3: DUE Friday, October 19th](https://fuzzyatelin.github.io/AN333_Fall18/Lab3_Homework.html)
+###[Homework for Lab 3: DUE Friday, October 23rd](https://fuzzyatelin.github.io/AN333_Fall18/Lab3_Homework.html)
 
 ***
 
 **Readings**:<ul> 
-<li>[Ramos AV, Bastos-Rodriguez L, Resende BA, Friedman E, Campanha-Versiani L, Miranda DM, Sarquis M, De Marco L. 2012. The contribution of *FTO* and *UCP-1* SNPs to extreme obesity, diabetes and cardiovascular risk in Brazilian individuals. *BMC Med Genet* 13:101.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3526455/)</li><br>
+<li>[Wooster L, Nicholson CJ, Sigurslid HH, Lino Cardenas CL, Malhotra R. *Preprint accessed 31AUG20*. Polymorphisms in the ACE2 locus associate with severity of COVID-19 infection. *medRxiv* doi:10.1101/2020.06.18.20135152](https://www.medrxiv.org/content/10.1101/2020.06.18.20135152v1.full.pdf)</li><br>
+<li>[Cheng Z., et al. 2015. Identification of *TMPRSS2* as a susceptibility gene for severe 2009 pandemic A(H1N1) influenza and A(H7N9) influenza. *The Journal of Infectious Diseases*, 212(8):1214–1221.](https://academic.oup.com/jid/article/212/8/1214/2193475)</li><br>
 <li>[Slatkin M. 2008. Linkage disequilibrium – understanding the evolutionary past and mapping the medical future. *Nat Rev Genet* 9: 477-485.](https://www.nature.com/articles/nrg2361)</li><br>
-<li>[Claiborne Stephens J, Schneider JA, Tanguay DA, Choi J, Acharya Y, Stanley SE, Jiang R, *et al*. 2001. Haplotype variation and linkage disequilibrium in 313 human genes. *Science* 293: 489-93.](http://science.sciencemag.org/content/293/5529/489)</li></ul>
+<li>[Zeberg H, Pääbo S. 2020. The major genetic risk factor for severe COVID-19 is inherited from Neanderthals. *Nature* 2998. ](https://www.nature.com/articles/s41586-020-2818-3)</li><br>
+<li>[Claiborne Stephens J, Schneider JA, Tanguay DA, Choi J, Acharya Y, Stanley SE, Jiang R, *et al*. 2001. Haplotype variation and linkage disequilibrium in 313 human genes. *Science* 293: 489-93.](http://science.sciencemag.org/content/293/5529/489)</li></ul><br>
 
 ***
 
-As we learned in class, ***LD*** is the non-random assortment of alleles at different loci across the genome. Linked alleles will frequently travel with each other during crossover events during meiosis, and if we know LD is high between two alleles is present in a population we can even use the frequency of one allele to predict the frequency of the other allele. Today, we will look at LD within *UCP1* in our own populations to get both a sense of the amount of linkage present within the gene, and what that linkage can tell us about our assigned population's history.
+As we learned in class, ***LD*** is the non-random assortment of alleles at different loci across the genome. Linked alleles will frequently travel with each other during crossover events during meiosis, and if we know LD is high between two alleles present in a population we can even use the frequency of one allele to predict the frequency of the other allele. Today, we will look at LD within *TMPRSS2* in our own populations to get both a sense of the amount of linkage present within the gene, and what that linkage can tell us about our assigned population's history.
 <br>
 
 ### Our Focal SNPs
 
-In the [Ramos *et al*. (2012)](://www.ncbi.nlm.nih.gov/pmc/articles/PMC3526455/) paper that you read for homework, they looked at 3 SNPs within *UCP1* that were thought to be associated with obesity:  *rs6536991*, *rs22705565* and *rs1250257*. The results of their analyses suggested that only *rs6536991* was directly associated with obesity in the Brazilian population under investigation. The other two alleles, however -  *rs22705565* and *rs1250257* - were found to be in various levels of linkage with *rs6536991*. We will take a closer look at these three SNPs in our own populations, as well as another SNP in *UCP1* called *rs35243591*, which is also associated with obesity according to *Ensembl*. 
+In the [Cheng *et al*. (2015)](https://academic.oup.com/jid/article/212/8/1214/2193475) paper that you read, they looked at several SNPs within *TMPRSS2* that were thought to be associated with greater susceptibility to H7N9 influenza infections: including *rs2070788*, *rs383510* and *rs461194*. The results of their analyses suggested that both *rs2070788* and *rs383510* were directly associated with flu severity in the sample under investigation. One of the other two alleles, however -  *rs461194* - was found to be inlinkage with *rs2070788*. We will take a closer look at these three SNPs in our own populations, as well as the SNP in *TMPRSS2* called *rs12329760*, associated with prostate cancer according the Maekawa et al. paper from [Module 2](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Module.html). 
 <br>
 
 ### A Note On *D'* and *R<sup>2</sup>*
@@ -49,83 +51,85 @@ We will be using two statistics to gauge LD in our populations: ***D'*** (pronou
 
 ### Learning Outcomes
 
-* Learn about the SNPs *rs6536991*, *rs35243591*, *rs2270565*, and *rs12502572* and their roles in obesity.
+* Learn about the SNPs *rs2070788*, *rs383510*, *rs461194*, and *rs12329760* and their roles in disease susceptibility.
 
 * Learn how to use the *R* package *SNPStats* to perform LD analysis in a population, including constructing LD matrices and LD heatmaps.
 
 * Learn about the two statistics *D'* and *R<sup>2</sup>*, which are the most commonly used statistics to evaluate LD between SNPs. Learn what each can tell us about a population, and apply the two statistics to our own populations.
 
-* Learn how to use *Ensembl* to look at long-distance LD between SNPs in *UCP1*, as well as for SNPs in other genes.
+* Learn how to use *Ensembl* to look at long-distance LD between SNPs in *TMPRSS2*, as well as for SNPs in other genes.
 <br>
 
 ## Step 1: Getting to *R Studio* and Preparing your Data
 
-Log in to the *SCC* and bring up the *R Studio* window [like we did in the last lab](https://fuzzyatelin.github.io/AN333_Fall18/Lab_2_-_HWE.html): 
-```{bash, eval = F, echo = T, class.source="sccCode"}
-module load gcc
-module load R
-rstudio &
-```
+Log in to the *SCC On Demand* and bring up the *R Studio* window [like we did in the last module](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Module.html): 
 
-Now that we're in *R*, we can prepare our data for analysis. The functions we will use today require our data to be in a special format called a *SNPMatrix*, so we'll convert our data in to a *SNPMatrix* now. As usual, I will use the population YRI again as an example; change all YRI code to *your* population code! 
+Now that we're in *R*, we can prepare our data for analysis. The functions we will use today require our VCF data to be in a special format called a *SNPMatrix*, so we'll convert our data in to a *SNPMatrix* now. As usual, I will use the population YRI again as an example; change all YRI code to *your* population code! 
 <br>
 
-First, we'll install one package:
+First, we'll nned to install a few packages:
 ```{r,eval=F,echo=T}
-install.packages("LDheatmap")
+install.packages("devtools")
+library(devtools)
+install.packages("BiocManager")
+library(BiocManager)
+devtools::install_github("SFUStatgen/LDheatmap")
+BiocManager::install("snpStats")
+BiocManager::install("VariantAnnotation")
+BiocManager::install("GenomicFeatures")
 ```
 
-And then we'll load that and the other packages we will be using, which should already be installed in the *SCC* version of *R*:
+And then we'll load the packages we will be using:
 ```{r, results='hide', message=F, warning=F}
 library(snpStats)
 library(VariantAnnotation)
 library(LDheatmap)
 ```
 <br>
-Next, we will load in our data. Not only will we load in our VCF file of all the SNPs in *UCP1* (called ***YRI.vcf***, in my case), we will load in the smaller slice that we took in [Lab 1](https://fuzzyatelin.github.io/AN333_Fall18/Lab_1_-_1KG_and_Ensembl_Tutorial.html), as well (for me, called ***YRIsmall.vcf***). We will load the VCF files in to our *R* space first, and then use another function to transform them into *SNPMatrices*.<br>
+Next, we will load in our data, in this case the VCF file of all the SNPs in *TMPRSS2* (for me called ***TMPRSS2_YRI.vcf***) in to our *R* space first, and then use another function to transform them into *SNPMatrices*.<br>
 
-We'll start with the full *UCP1* file. Copy this code with the name of your VCF file. The *hg19* option is telling the function to align our data with the 'hg19' human reference genome, which comes with the package *VariantAnnotation*:
+We'll start with the full *TMPRSS2* file. Copy this code with the name of your VCF file. The *hg19* option is telling the function to align our data with the 'hg19' human reference genome, which comes with the package *VariantAnnotation*:
 ```{r}
-vcfbig <- readVcf("YRI.vcf", "hg19")
+TMPRSS2vcf <- readVcf("TMPRSS2_YRI.vcf.gz", "hg19")
 ```
 
 Next, we'll convert it to a *SNPMatrix*. Remember to replace "YRI" with the acronym for *your* population:
 
 ```{r}
-YRImatrix <- genotypeToSnpMatrix(vcfbig)
-YRImatrix #repeating the file name will show you what it looks like
+TMPRSS2matrix <- genotypeToSnpMatrix(TMPRSS2vcf)
+TMPRSS2matrix #repeating the file name will show you what it looks like
 ```
 <br>
-One error message you might notice is "*variants with >1 ALT allele are set to NA non-single nucleotide variations are set to NA*". This means that loci with 3 or more alleles are *not* included in any of these analyses. Because of this, you will notice a lot of what *appears* to be linkage equilibrium when making your charts, but this is merely due to the functions' inability to process LD between SNPs with more than 2 alleles. <br>
+One error message you might notice is "*variants with >1 ALT allele are set to NA non-single nucleotide variations are set to NA*". This means that loci with 3 or more alleles are *not* included in any of these analyses. Because of this, you may notice a lot of what *appears* to be linkage *equilibrium* when making your charts, but this is merely due to the functions' inability to process LD between SNPs with more than 2 alleles. <br>
 
-You may also notice that the output of the *YRImatrix* gives us some information about our data. Under "*$genotypes*" you'll see that our *SNPMatrix* has a column and row count, and that our columns ("Col") are comprised of *dbSNP* names, while our rows ("Row") are comprised of the individual codes from the 1000 Genomes Project. You can use this information to count both how many SNPs and how many individuals are in your database. In my case, I've got 108 individuals in the YRI population, typed at 207 variants.<br>
+You may also notice that the output of the *YRImatrix* gives us some information about our data. Under "*$genotypes*" you'll see that our *SNPMatrix* has a column and row count, and that our columns ("Col") are comprised of *dbSNP* or *Variant ID* names, while our rows ("Row") are comprised of the individual sample codes from the 1000 Genomes Project. You can use this information to count both how many SNPs and how many individuals are in your database. In my case, I've got 108 individuals in the YRI population, typed at 2246 variants.<br>
 
-Repeat this process with your smaller slice of *UCP1*: 
+Repeat this process with your *ACE2* dataset: 
 
 ```{r}
-vcfsmall <- readVcf("YRIsmall.vcf", "hg19")
+ACE2vcf <- readVcf("ACE2_YRI.vcf.gz", "hg19")
 
-YRIsmallmatrix <- genotypeToSnpMatrix(vcfsmall)
-head(YRIsmallmatrix)
+ACE2matrix <- genotypeToSnpMatrix(ACE2vcf)
+head(ACE2matrix)
 ```
 <br>
-Notice, here, that the small file has many fewer SNPs: 84 columns rather than 207. This is because this represents a smaller slice of the *UCP1* gene region.<br>
+Notice, here, that the *ACE2* file has many fewer SNPs: 333 columns rather than 2246. This could mean two things: either the *ACE2* gene region is smaller than *TMPRSS2*, or the *ACE2* region simply has less variation. Which do you think is the case, and what might that mean about the evolution of each gene? <br>
 
 As you may have already noticed from the output, as well, the *SNPMatrix* files we made are actually two separate files under one file name, and only one of them is the actual *SNPMatrix*. In order to call only the *SNPMatrix* in our functions, we will modify the name with "*$genotypes*" after our *SNPMatrix* name. You will see this in our following analyses. 
 <br> 
 
 ## Step 2: Using the "ld" Function 
 
-Next, we will be using a function from the *snpStats* package to look at LD across the whole *UCP1* gene. To do this, we will use the "ld" function to create an LD matrix, which we will then graph to comprehend better. First, we'll use the "ld" function, like so: 
+Next, we will be using a function from the *snpStats* package to look at LD across the *TMPRSS2* gene. To do this, we will use the "ld" function to create an LD matrix, which we will then graph to comprehend better. First, we'll use the "ld" function, like so: 
 <br>
 ```{r}
 #For "Stats," use "R.squared" for now. We will explore D' later. Make sure to substitute "YRImatrix" for what you called your larger SNPMatrix
 
-LD <- ld(YRImatrix$genotypes, depth = 200, stats = "R.squared")
+LD <- ld(TMPRSS2matrix$genotypes, depth = 2245, stats = "R.squared")
 head(LD)
 ```
 <br>
-This will give you a large matrix of LD values, which is probably fairly confusing on first look. An LD analysis output like this can be hard to interpret without a visual aid, so we will build one. The output of this function (our "LD" object) is what we'll use as an input to make sense of what this table means. 
+This will give you a large matrix of LD values, which is probably fairly confusing on first look. An LD analysis output like this can be hard to interpret without a visual aid, so let's build one! The output of this function (our "LD" object) is what we'll use as an input to visualize these LD values. 
 
 ```{r}
 #sets color scale for the graph
@@ -134,38 +138,72 @@ cols = colorRampPalette(c("yellow", "red"))(10)
 image(LD, lwd = 0, cuts= 9, col.regions=cols, colorkey=TRUE)
 ```
 
-You can see that much of this gene in the YRI population shows very *low* LD (again, meaning that these regions are segregating randomly), but there are several blips where *high* LD is observed. What could this mean? 
+You can see from the figure here in the module that much of this gene in the YRI population shows very *low* LD (consulting the scale on the right, that would be the yellow regions), meaning that these regions are segregating randomly. White regions represent those SNPs that were excluded due to having more than 2 alleles. The regions in *red* are those regions that have very *high* LD, suggesting non-random segregation. Large, contiguous regions of red (like the one we can see in the YRI population between 1500 and 1700) are what we might call *linkage blocks*, or larger contiguous areas along the genome with consistently high linkage. What could this mean about these regions of the gene?  
 
 ## Step 3: Measuring LD in our SNPs of Interest
 
-Now, we will look at our smaller dataset so we can focus on four SNPs in particular: *rs6536991*, *rs35243591*, *rs2270565*, and *rs12502572*. Now, three of these you read about in the homework as being either SNPs related to obesity, or in moderate linkage with obesity-related SNPs. The one that was not in the reading, *rs35243591*, is another obesity-related SNP that has been shown in the *Ensembl* data to be in high LD with obesity-related SNPs within some populations. 
+Now, we will focus on four SNPs in particular: *rs2070788*, *rs383510*, *rs461194*, and *rs12329760*. Now, three of these you read about in the homework as being either SNPs related to H7N9 flu severity or prostate cancer. 
 <br>
 <br>
-What we will be doing now is creating *two* LD heatmaps, one that displays the *R<sup>2</sup>* LD statistics and one that displays the *D'* (pronounced "D prime") LD statistics. As we discussed in the introduction, these two statistics don't tell us quite the same things about our data, so comparing the two statistics can be useful in making conclusions about LD in your populations. 
+What we will be doing now is creating *two* LD heatmaps, one that displays the *R<sup>2</sup>* LD statistics and one that displays the *D'* (pronounced "D prime") LD statistics. As we discussed in the introduction, these two statistics don't tell us quite the same things about our data, so comparing the two statistics can be useful in making conclusions about LD in your populations
 <br>
 <br>
-The first thing you should do is copy and paste (use 'ctrl C' and 'ctrl V') this block of code into your *R* console. This will create a vector of numbers that is saved as a value called "*positions*". These numbers are the positions of all the SNPs that we will be using in our LD heatmap. 
-<br>
-```{r}
-positions <- c(140560308,140560366,140560427,140560458,140560532,140560579,140560607,140560687,140560748,140560792,140560808,140560884,140560983,140561026,140561062,140561074,140561152,140561173,140561182,140561318,140561330,140561357,140561373,140561510,140561527,140561537,140561614,140561631,140561692,140561713,140561725,140561743,140561866,140561976,140562117,140562176,140562184,140562235,140562317,140562322,140562327,140562349,140562385,140562386,140562397,140562521,140562531,140562581,140562627,140562660,140562739,140562843,140562887,140562892,140562921,140562990,140563028,140563046,140563138,140563155,140563197,140563209,140563215,140563218,140563262,140563338,140563379,140563382,140563386,140563423,140563478,140563530,140563580,140563648,140563722,140563754,140563850,140563911,140563934,140563944,140563980,140564018,140564023,140564106)
+First, we will need a list of all positions in our VCF files:
+```{bash, eval = F, echo = T, class.source="sccCode"}
+grep -v "^##" TMPRSS2_YRI.vcf | cut -f1-3 > TMPRSS2_loci.txt #Get list of variant sites for TMPRSS2
+grep -v "^##" ACE2_YRI.vcf | cut -f1-3 > ACE2_loci.txt #Get list of variant sites for ACE2
 ```
-
-Now, here is the code to create the LD heatmap showing the *R^2^* statistic. The only thing you have to change in this code is to replace the *YRIsmallmatrix* value with the name that you gave your smaller *SNPMatrix*. Leave the "*$genotypes*" part of the command though, just like in the {ld} function earlier. Run the rest of the code as normal. 
+<br>
+<br>
+And import them into *R*:
+```{r}
+positions_TMPRSS2<-read.table("TMPRSS2_loci.txt")
+positions_TMPRSS2<-positions_TMPRSS2$V2
+positions_ACE2<-read.table("ACE2_loci.txt")
+positions_ACE2<-positions_ACE2$V2
+```
+<br>
+<br>
+Now, here is the code to create the LD heatmap showing the *R^2^* statistic: 
 <br>
 ```{r}
-smallheatmapr <- LDheatmap(YRIsmallmatrix$genotypes,
-                           genetic.distances=positions,
+R2heatmapTMPRSS2 <- LDheatmap(TMPRSS2matrix$genotypes,
+                           genetic.distances=positions_TMPRSS2,
                            distances="physical",
                            LDmeasure="r",
                            title="Pairwise LD with R^2",
                            add.map=TRUE, add.key=TRUE,
                            geneMapLocation=0.15,
-                           SNP.name=c("rs6536991", "rs35243591", "rs2270565",
-                                      "rs12502572"),
+                           SNP.name=c("rs2070788", "rs383510", "rs461194",
+                                      "rs12329760"),
                            color=NULL, newpage=TRUE,
-                           name="ldheatmap")
+                           name="TMPRSS2 LD Heatmap (R^2)")
 ```
 <br><br>
+
+Ok, this looks good, but it's awfully difficult to read/interpret. Let's subset our *SNPmatrix* file to just include those SNPs we're interested in here:
+```{r}
+#TMPRSS2matrix$map<-TMPRSS2matrix$map[,c(100:800)]
+#TMPRSS2matrix$genotypes<-TMPRSS2matrix$genotypes[,c(100:800)]
+
+R2heatmapTMPRSS2 <- LDheatmap(TMPRSS2matrix$genotypes,
+                           genetic.distances=positions_TMPRSS2,
+                           distances="physical",
+                           LDmeasure="r",
+                           title="Pairwise LD with R^2",
+                           add.map=TRUE, add.key=TRUE,
+                           geneMapLocation=0.15,
+                           SNP.name=c("rs2070788", "rs383510", "rs461194",
+                                      "rs12329760"),
+                           color=NULL, newpage=TRUE,
+                           name="TMPRSS2 LD Heatmap (R^2)")
+```
+
+
+```{r}
+LDheatmap.highlight(R2heatmapTMPRSS2, i = 100, j = 800, col = "black", fill = "purple",flipOutline=FALSE, crissCross=FALSE)
+
+```
 
 Next, we'll make the graph displaying the *D'* statistic. Again, all you have to replace in this code is the "*YRIsmallmatrix*" with the name you gave your smaller matrix. 
 <br>

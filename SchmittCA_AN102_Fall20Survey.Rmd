@@ -1,0 +1,194 @@
+---
+title: "CAS AN 102 PreClass Survey"
+author: "Christopher A. Schmitt"
+date: "9/29/2020"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
+---
+
+# About the Survey
+
+I sent out this survey about two weeks before the beginning of class (September 19, 2020) for the Fall 2020 semester primarily to get information directly from students regarding their intent to either attend class in person or remotely, but then realized this survey could also set the stage for the course (indirectly discussing course motivations and learning outcomes), while also gathering information on students' motivations for taking it.  I'm hoping that the latter might give us some insight into how we're attracting students to the course and what students are hoping to get in the course, to inform us both about where the course is succeeding and maybe to reveal gaps in the reach of the course. 
+
+In total, 76 students completed the survey, of 86 respondents. There are currently 95 students enrolled, so this covers about 80% of this semester's students. Notably, it will not pick up any students who add or drop the course. Although I can figure out the responses of those who dropped post hoc, I can't say anything about why students add the course once the semester has begun.
+
+NOTE: the grey "chunks" below are the *R* code I'm using to bring in and analyze the results of the survey. If you have *R*, you can use this as a template for getting data from your own course surveys.
+
+```{r}
+survey <- read.csv("~/Desktop/AN102surveyFall2020.csv", sep=",", header=TRUE)
+```
+
+In the survey, the first line contains information on the data gathered, including each question the students are responding to (a LOT more data is gathered than intended, including the GPS location from where the survey was filled out!), the second line is a descriptor variable, and the third line is a "preview" survey I filled out, and starting in line 4 we get student responses.
+
+We can summarize some statistics about sruvey use with these data. For example, how long it took students, in minutes, to respond to the survey:
+```{r,warning=FALSE}
+summary((as.numeric(survey$Duration..in.seconds.))/60)
+```
+
+The most common length of time it took to complete the survey was 8 minutes, but the average was 68 minutes (brought up, no doubt, by one student who clearly started the survey and left it open in a tab for about 2.5 days).  We can also graph this, if we like (limiting what we see to those responses that took less than 100 minutes):
+```{r,warning=FALSE}
+library(ggplot2)
+duration<-ggplot(survey,aes(x=as.numeric(Duration..in.seconds.)/60))+geom_histogram(binwidth = 4)+theme_bw()+xlim(0,100)+xlab("Duration (min)")
+print(duration)
+```
+
+# Survey Response Table
+
+So now I'm going to filter out my own responses, and also get rid of some of the columns I'm not currently interested in (note that this will only happen in the *R* space; the original data file remains complete). For example, I also collected names and preferred pronouns, but filtered them out for anonymity. Note that, in using the {DT} package's *datatable* command, I've created a more flexible, and searchable, table for you to interact with in this file.
+```{r,warning=FALSE,message=FALSE}
+library(tidyverse)
+library(DT)
+surveyq <-
+  survey %>%
+  filter(DistributionChannel != "preview") %>%
+  select(Q2,Q1:Q14)
+datatable(surveyq)
+```
+
+Now, there are some questions I asked that are summarizable, and some that aren't. I'll summarize with figures those questions that I can.
+
+# Attendance Preferences under L*f*A
+
+## Lecture
+
+For example, Q1 asks their preferred mode of attending lecture. The responses were:
+```{r,fig.height=6,fig.width=6}
+lecture<-ggplot(surveyq[c(3:91),],aes(x=Q1))+geom_bar()+theme_bw()+scale_x_discrete("Lecture",labels = c('No answer','Asynchronous','In Person','Remote/Synchronous'))
+print(lecture)
+```
+
+## Labs
+
+For labs (question Q5), the outcome was pretty similar (albeit, interestingly, with more students preferring asynchronous labs):
+```{r,fig.height=6,fig.width=6}
+labs<-ggplot(surveyq[c(3:91),],aes(x=Q5))+geom_bar()+theme_bw()+scale_x_discrete("Lab",labels = c('No answer','Asynchronous','In Person','Remote/Synchronous'))
+print(labs)
+```
+
+I wondered if those who have early morning labs were the ones who would have preferred asynchronous lab attendance... we can see if this choice corresponds to their lab section using the following graph:
+
+```{r,fig.height=6,fig.width=10}
+labs<-ggplot(surveyq[c(3:91),],aes(x=Q5,fill=Q6))+geom_bar()+theme_bw()+scale_x_discrete("Lab",labels = c('No answer','Asynchronous','In Person','Remote/Synchronous'))
+print(labs)
+```
+
+As the graph shows, early morning sections appear not to be a factor.
+
+When asked if students would be interested and willing to change their section time, if it meant more students attending in person:
+```{r,fig.height=6,fig.width=10}
+labs<-ggplot(surveyq[c(3:91),],aes(x=Q7,fill=Q6))+geom_bar()+theme_bw()+scale_x_discrete("Change Lab Section?")
+print(labs)
+```
+
+No big differences based on currently enrolled section, although it would appear that, based on willingness to change, the A2 lab (Mondays 12:20-2:05pm) is the most desirable, and the 9:00am labs (A5, A9) are perhaps the least desirable.
+
+Let's dig into this more with the results when asked which lab section they would prefer to change in to given the option of making a change. The answers are mixed, no doubt based on individual schedules. Note that Q7 asks if they would change given the option:
+```{r,warning=FALSE,fig.height=6,fig.width=10}
+surveyq.long <- 
+  surveyq[c(3:91),] %>%
+  as_tibble() %>%
+  select(Q6,Q7,Q10) %>%
+  mutate(Q6 = str_replace_all(Q6, pattern = c(".*A2.*" = "A2",".*A5.*" = "A5",".*A6.*" = "A6",".*A7.*" = "A7",".*A9.*" = "A9"))) %>%
+  mutate(Q10 = str_replace_all(Q10, pattern = c("My schedule does not permit me to change my lab section due to conflicts with other courses." = "Conflict",".*A2.*" = "A2",".*A5.*" = "A5",".*A6.*" = "A6",".*A7.*" = "A7",".*A9.*" = "A9"))) %>%
+  na_if(., "") %>%
+  na.omit() %>%
+  group_by(Q7,Q6,Q10) %>% 
+  tally()
+
+library(ggalluvial)
+
+ggplot(surveyq.long,
+       aes(y = n, axis1 = Q6, axis2 = Q10)) +
+  geom_alluvium(aes(fill = Q7), width = 1/12) +
+  geom_stratum(width = 1/12, fill = "grey40", color = "grey80") +
+  geom_label(stat = "stratum", aes(label = after_stat(stratum))) +
+  scale_x_discrete(limits = c("Current", "Preferred"), expand = c(.05, .05)) +
+  scale_fill_brewer(type = "qual", palette = "Set1") + theme_bw()
+```
+
+Here we can see that about half of the students can't change sections because they have a conflict in their schedules; the majority, it appears, would rather not change their schedules either way. However, students would clearly prefer A2 and A5, although those students in already-desired sections (A2, A5) seem to admit that they could transfer to A6 or A9. Nobody wants to transfer to A7, which is at 8:00 am on Fridays (go figure), and the majority of students in that section are there due to conflicts in their schedule, although some clearly registered too late for the more highly desired sections.
+
+# Why are Fall2020 students taking AN 102?
+
+Here's the important part! The overwhelming primary answer appears to be: **graduation or major requirements**.
+
+```{r,fig.height=6,fig.width=10}
+surveyq.why <- 
+  surveyq[c(3:91),] %>%
+  as_tibble() %>%
+  select(Q11) %>%
+  na_if(., "") %>%
+  na.omit() %>%
+  droplevels() %>%
+  group_by(Q11) %>%
+  tally() %>%
+  arrange(desc(Q11)) %>%
+  mutate(prop = n/sum(n)*100) %>%
+  mutate(ypos = cumsum(prop) - 0.5*prop)
+
+percent <- function(x, digits = 0, format = "f", ...) {
+  paste0(formatC(100 * x, format = format, digits = digits, ...), "%")
+}
+
+bp <- ggplot(surveyq.why, aes(x="", y=prop, fill=Q11))+
+geom_bar(width = 1, stat = "identity")
+
+pieQ11 <- bp + coord_polar("y", start=0) + scale_fill_brewer(palette="Dark2") + theme_void() + theme(axis.text.x=element_blank()) + labs(fill = "Are you taking AN 102\nto fulfill a requirement?") + geom_text(aes(y = ypos,label = percent(n/76))) 
+pieQ11 
+```
+
+So ok... the majority of our students are fulfilling a requirement... but which ones (students were allowed to choose more than one)?
+
+```{r,fig.height=6,fig.width=10}
+surveyq.why2 <- 
+  surveyq[c(3:91),] %>%
+  as_tibble() %>%
+  select(Q12) %>%
+  na_if(., "") %>%
+  na.omit() %>%
+  mutate(Q12 = strsplit(as.character(Q12), ",")) %>%
+  unnest(Q12) %>%
+  droplevels()
+
+requirements <- ggplot(surveyq.why2,aes(x=Q12,fill=Q12)) + geom_bar()+theme_bw() + scale_x_discrete("Requirement") + theme(axis.text.y = element_text(size=12)) + theme(legend.position = "none") + coord_flip()
+print(requirements)
+```
+
+By far the most important requirements are associated with the Hub, underscoring the importance of these requirements to enrollments in future. The most important by far is Scientific Inquiry 1 (about 50% of students are taking the course to fulfill this requirement), followed by Critical Thinking, followed by Social Inquiry 1. If we did decide to change the Hublets for this course to stimulate enrollment, it should be either Critical Thinking or Social Inquiry 1... although these hublets still represent roughly 20% of enrollments
+
+Among senior enrollments, it would appear the NS and NS Lab requirements are alive and well, and account for the next two most important requirements. These are followed by Anthropology departmental requirements, including for majors and pre-requisites. There appear to be some requirements I hadn't thought of, but overall, very few students are taking the course without requirements in mind. I unfortunately did not ask for their year in school or their major (I can't believe I neglected to ask this, silly oversight), but could reconstruct these by matching student records with the survey based on student ID number if we think those data would be important.
+
+I also asked how students heard about or found out about AN 102 prior to enrolling:
+```{r,fig.height=6,fig.width=10}
+surveyq.why3 <- 
+  surveyq[c(3:91),] %>%
+  as_tibble() %>%
+  select(Q14) %>%
+  na_if(., "") %>%
+  na.omit() %>%
+  mutate(Q14 = strsplit(as.character(Q14), ",")) %>%
+  unnest(Q14) %>%
+  droplevels()
+
+referral <- ggplot(surveyq.why3,aes(x=Q14,fill=Q14)) + geom_bar()+theme_bw() + scale_x_discrete("I heard about this course from...") + theme(axis.text.y = element_text(size=12)) + theme(legend.position = "none") + coord_flip()
+print(referral)
+```
+
+In this case, it is overwhelmingly clear that at this point our courses really *need* to be listed in the Hub to be noticed, and that students are finding courses based explicitly on the Hublets and combination of Hublets offered. A second clear takeaway is that our Bulletin text is drawing students in, and so we need that text be noticeable, appealing, and on point for all our courses. Aside from these two major factors, it would appear that the next most important ways students find AN 102 is by word of mouth, which is nice to know.
+
+Finally, I asked students what they wanted to get out of taking the class (aside from requirements). Below are the responses. My impression is that this is about what we would expect. A major theme is that the students see biological anthropology as a way of combining their interest in biology with their interests or specialties in social sciences/humanities (or a way to study biology without diving into the biology curriculum, which these students appear to find challenging); I think this is a good strength to promote (and which the Medical specialization will push even more strongly). A lot of students also appear interested in majoring or minoring, which is great, and highlights this course as a gateway to the major. We have at least one senior who chose this course because it fulfills the NS lab requirement but feels more like a social science (an echo of what we think might explain the precipitous enrollment drop under the Hub). We also have quite a few Psychology majors who are looking for something other than psychology as a blend of the social sciences and biology... Carolyn is obviously in a good position to exploit this (and perhaps these students heard about it through her presence in Psychology).
+```{r}
+hopes <- 
+  surveyq[c(3:91),c(1,9)] %>%
+  na_if(., "") %>%
+  na.omit() %>%
+  droplevels()
+datatable(hopes)
+```
+
+# Takeaways from the survey
+
+First off, problems with Qualtrics aside, this seems like a great mechanisms by which to gather good information about the state of our courses, and how students are perceiving them. I plan to incorporate this into AN 102 in future semesters, as well, to build up a database of responses (that will be anonymized upon pooling) to be used strictly for internal purposes. 
+
+This should also help with decision-making regarding course content and provides some potential directions for change, should we choose. It sounds like students primarily take AN 102 to fulfill requirements (especially SI1 in the Hub; and the NS Lab requirement for seniors), although the student comments on why they chose the course reveal an array of reasons that suggest clear areas in which to emphasize/advertise the major to perhaps get more enrollments (e.g., psychology; humanities and social science majors that might be interested in biology). Right now, the primary ways in which students are hearing about AN 102 is via the BU Hub search engine and the CAS Bulletin, followed by word of mouth. Questions this brings up are: are there other avenues by which we can advertise ourselves around campus? Also, are there ways to make these primary avenues increase enrollments further? Perhaps this can guide our discussion.
