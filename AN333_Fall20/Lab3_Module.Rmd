@@ -1,8 +1,10 @@
 ---
 title: "Lab 3 - Linkage Disequilibrium (LD) in *TMPRSS2*"
 author: "Becca DeCamp & Christopher Schmitt"
-date: "October 1, 2020"
-output: html_document
+date: "October 5, 2020"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
 ---
 
 ```{r,echo=F}
@@ -20,7 +22,7 @@ color: white;
 
 ***
 
-###[Homework for Lab 3: DUE Friday, October 23rd](https://fuzzyatelin.github.io/AN333_Fall18/Lab3_Homework.html)
+### [Homework for Lab 3: DUE Friday, October 23rd](https://fuzzyatelin.github.io/AN333_Fall18/Lab3_Homework.html)
 
 ***
 
@@ -38,7 +40,7 @@ As we learned in class, ***LD*** is the non-random assortment of alleles at diff
 
 ### Our Focal SNPs
 
-In the [Cheng *et al*. (2015)](https://academic.oup.com/jid/article/212/8/1214/2193475) paper that you read, they looked at several SNPs within *TMPRSS2* that were thought to be associated with greater susceptibility to H7N9 influenza infections: including *rs2070788*, *rs383510* and *rs461194*. The results of their analyses suggested that both *rs2070788* and *rs383510* were directly associated with flu severity in the sample under investigation. One of the other two alleles, however -  *rs461194* - was found to be inlinkage with *rs2070788*. We will take a closer look at these three SNPs in our own populations, as well as the SNP in *TMPRSS2* called *rs12329760*, associated with prostate cancer according the Maekawa et al. paper from [Module 2](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Module.html). 
+In the [Cheng *et al*. (2015)](https://academic.oup.com/jid/article/212/8/1214/2193475) paper that you read, they looked at several SNPs within *TMPRSS2* that were thought to be associated with greater susceptibility to H7N9 influenza infections: including *rs2070788*, *rs383510* and *rs4816720*. The results of their analyses suggested that both *rs2070788* and *rs383510* were directly associated with flu severity in the sample under investigation. One of the other two alleles, however -  *rs4816720* - was found to be inlinkage with *rs2070788*. We will take a closer look at these three SNPs in our own populations, as well as the SNP in *TMPRSS2* called *rs12329760*, associated with prostate cancer according the Maekawa et al. paper from [Module 2](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Module.html). 
 <br>
 
 ### A Note On *D'* and *R<sup>2</sup>*
@@ -47,11 +49,11 @@ We will be using two statistics to gauge LD in our populations: ***D'*** (pronou
 
 * *D'* is slightly easier to understand, as it simply is a measure of the predictability of one SNP's genotype based on the other. When *D'* = 1, the two SNPs are in perfect LD (meaning that they will *always* co-segregate, or be inherited together as a unit), and when *D'* = 0 the two SNPs are in Linkage Equilibrium (meaning that co-segregation is random, or around 50%).<br> 
 
-* *R^2^* is a little bit different. This statistic will also take into account the *frequency* of the allele in question. If one SNP genotype is linked to another, but the linked genotype of one SNP is the *minor* allele (less common than the other genotype), the *R^2^* value will be *lower* than the *D'* value. This does not make the SNPs any less linked, but is rather taking into account the (lower) allele frequency. 
+* *R^2* is a little bit different. This statistic will also take into account the *frequency* of the allele in question. If one SNP genotype is linked to another, but the linked genotype of one SNP is the *minor* allele (less common than the other genotype), the *R^2^* value will be *lower* than the *D'* value. This does not make the SNPs any less linked, but is rather taking into account the (lower) allele frequency. 
 
 ### Learning Outcomes
 
-* Learn about the SNPs *rs2070788*, *rs383510*, *rs461194*, and *rs12329760* and their roles in disease susceptibility.
+* Learn about the SNPs *rs2070788*, *rs383510*, *rs4816720*, and *rs12329760* and their roles in disease susceptibility.
 
 * Learn how to use the *R* package *SNPStats* to perform LD analysis in a population, including constructing LD matrices and LD heatmaps.
 
@@ -77,10 +79,12 @@ devtools::install_github("SFUStatgen/LDheatmap")
 BiocManager::install("snpStats")
 BiocManager::install("VariantAnnotation")
 BiocManager::install("GenomicFeatures")
+BiocManager::install("gpart")
 ```
 
 And then we'll load the packages we will be using:
 ```{r, results='hide', message=F, warning=F}
+library(tidyverse)
 library(snpStats)
 library(VariantAnnotation)
 library(LDheatmap)
@@ -123,13 +127,11 @@ As you may have already noticed from the output, as well, the *SNPMatrix* files 
 Next, we will be using a function from the *snpStats* package to look at LD across the *TMPRSS2* gene. To do this, we will use the "ld" function to create an LD matrix, which we will then graph to comprehend better. First, we'll use the "ld" function, like so: 
 <br>
 ```{r}
-#For "Stats," use "R.squared" for now. We will explore D' later. Make sure to substitute "YRImatrix" for what you called your larger SNPMatrix
-
+#For "Stats," use "R.squared" for now. We will explore D' later.
 LD <- ld(TMPRSS2matrix$genotypes, depth = 2245, stats = "R.squared")
-head(LD)
 ```
 <br>
-This will give you a large matrix of LD values, which is probably fairly confusing on first look. An LD analysis output like this can be hard to interpret without a visual aid, so let's build one! The output of this function (our "LD" object) is what we'll use as an input to visualize these LD values. 
+If you type `LD` into your console, you'll see the  large matrix of R^2 LD values you've just created, which is probably fairly confusing on first look. An LD analysis output like this can be hard to interpret without a visual aid, so let's build one! The output of this function (our "LD" object) is what we'll use as an input to visualize these LD values. 
 
 ```{r}
 #sets color scale for the graph
@@ -142,7 +144,7 @@ You can see from the figure here in the module that much of this gene in the YRI
 
 ## Step 3: Measuring LD in our SNPs of Interest
 
-Now, we will focus on four SNPs in particular: *rs2070788*, *rs383510*, *rs461194*, and *rs12329760*. Now, three of these you read about in the homework as being either SNPs related to H7N9 flu severity or prostate cancer. 
+Now, we will focus on four SNPs in particular: *rs2070788*, *rs383510*, *rs4816720*, and *rs12329760*. Now, three of these you read about in the homework as being either SNPs related to H7N9 flu severity or prostate cancer. 
 <br>
 <br>
 What we will be doing now is creating *two* LD heatmaps, one that displays the *R<sup>2</sup>* LD statistics and one that displays the *D'* (pronounced "D prime") LD statistics. As we discussed in the introduction, these two statistics don't tell us quite the same things about our data, so comparing the two statistics can be useful in making conclusions about LD in your populations
@@ -164,7 +166,7 @@ positions_ACE2<-positions_ACE2$V2
 ```
 <br>
 <br>
-Now, here is the code to create the LD heatmap showing the *R^2^* statistic: 
+Now, here is the code to create the LD heatmap showing the *R^2^* statistic (notice where I've entered the names of our SNPs of interest, to note their locations on the heatmap): 
 <br>
 ```{r}
 R2heatmapTMPRSS2 <- LDheatmap(TMPRSS2matrix$genotypes,
@@ -174,110 +176,150 @@ R2heatmapTMPRSS2 <- LDheatmap(TMPRSS2matrix$genotypes,
                            title="Pairwise LD with R^2",
                            add.map=TRUE, add.key=TRUE,
                            geneMapLocation=0.15,
-                           SNP.name=c("rs2070788", "rs383510", "rs461194",
+                           SNP.name=c("rs2070788", "rs383510", "rs4816720",
                                       "rs12329760"),
                            color=NULL, newpage=TRUE,
                            name="TMPRSS2 LD Heatmap (R^2)")
 ```
 <br><br>
 
-Ok, this looks good, but it's awfully difficult to read/interpret. Let's subset our *SNPmatrix* file to just include those SNPs we're interested in here:
-```{r}
-#TMPRSS2matrix$map<-TMPRSS2matrix$map[,c(100:800)]
-#TMPRSS2matrix$genotypes<-TMPRSS2matrix$genotypes[,c(100:800)]
+This looks nice, but it's still pretty difficult to see LD blocks... there's an even better visualization tool in the {gpart} package for clearly seeing independent linkage blocks.
+```{r,message=F,warning=F}
+library(gpart)
 
-R2heatmapTMPRSS2 <- LDheatmap(TMPRSS2matrix$genotypes,
+tmprss2_res1 = BigLD(genofile = "TMPRSS2_YRI.vcf",LD="r2")
+tmprss2_res1
+```
+
+Here, we can see that the *BigLD* algorithm has divided the YRI genomic region into 20 distinct linkage blocks, giving us both starting and ending positions for each.  Using the row number (1-20) to name them, which linkage block(s) contain our SNPs of interest?
+
+Now, let's visualize these linkage blocks produced by {gpart}. This code will create a helpful LD heatmap figure in your working directory called `heatmap_tmprss2_r2.png`. You'll need to import it to your desktop using *CyberDuck* or *MobaXTerm* to open it. Let's take a look:
+```{r,message=F,warning=F}
+nowcex=0.5
+LDblockHeatmap(genofile = "TMPRSS2_YRI.vcf", chrN = 21, geneDB = "ensembl", assembly = "GRCh38", geneid = "hgnc_symbol", blocktype="bigld", LD="r2", type="png", filename = "heatmap_tmprss2_r2", CLQmode = "density", res = 600)
+```
+
+![](heatmap_tmprss2_r2.png)
+This image is a LOT more helpful! It allows us to visualize distinct blocks of LD that are statistically partitioned by the package, and also gives us a range of SNP IDs and positions into which we might map SNPs of interest not explicitly listed.
+
+Next, we'll make the graph displaying the *D'* statistic: 
+<br>
+
+```{r}
+DheatmapTMPRSS2 <- LDheatmap(TMPRSS2matrix$genotypes,
                            genetic.distances=positions_TMPRSS2,
                            distances="physical",
                            LDmeasure="r",
-                           title="Pairwise LD with R^2",
-                           add.map=TRUE, add.key=TRUE,
-                           geneMapLocation=0.15,
-                           SNP.name=c("rs2070788", "rs383510", "rs461194",
-                                      "rs12329760"),
-                           color=NULL, newpage=TRUE,
-                           name="TMPRSS2 LD Heatmap (R^2)")
-```
-
-
-```{r}
-LDheatmap.highlight(R2heatmapTMPRSS2, i = 100, j = 800, col = "black", fill = "purple",flipOutline=FALSE, crissCross=FALSE)
-
-```
-
-Next, we'll make the graph displaying the *D'* statistic. Again, all you have to replace in this code is the "*YRIsmallmatrix*" with the name you gave your smaller matrix. 
-<br>
-
-```{r}
-smallheatmapD <- LDheatmap(YRIsmallmatrix$genotype,
-                           genetic.distances=positions,
-                           distances="physical",
-                           LDmeasure="D",
                            title="Pairwise LD with D'",
                            add.map=TRUE, add.key=TRUE,
                            geneMapLocation=0.15,
-                           SNP.name=c("rs6536991", "rs35243591", "rs2270565",
-                                      "rs12502572"),
+                           SNP.name=c("rs2070788", "rs383510", "rs4816720",
+                                      "rs12329760"),
                            color=NULL, newpage=TRUE,
-                           name="ldheatmap")
+                           name="TMPRSS2 LD Heatmap (D')")
 ```
 <br><br> 
-Now you've got two graphs that you can use! You can see specifically whether or not the SNPs of interest (the labelled SNPs) by finding where on the graph their paths intersect. Or, for the purpose of reporting your results, we can look at something called an *LD matrix* that was generated by the *LDheatmap* function. This is a matrix where the row and columnn names are SNP ID numbers, and the cell at the intersection of a row and a column will tell you the LD statistic for those two particular SNPs. For our purposes, you do not need to look at the whole chart, you just need to find the intersections of our four SNPs of interest to see if any of them are in LD, and what that LD value is for each respective statistical test. 
+
+Again, this mode of visualization isn't particularly helpful... let's take a look using {gpart}:
+
+```{r,message=F,warning=F}
+library(gpart)
+
+tmprss2_res1 = BigLD(genofile = "TMPRSS2_YRI.vcf", LD="Dprime")
+tmprss2_res1
+```
+
+Here, we can see that, using the *D'* measure, the *BigLD* algorithm has divided the YRI genomic region into 29 distinct linkage blocks, giving us both starting and ending positions for each.  Using the row number (1-29) to name them, which linkage block(s) contain our SNPs of interest? Are any of our SNPs now in different linkage blocks than before?
+
+Now, let's visualize these linkage blocks using {gpart}, which will divide them visually into strong and weak LD (this means that blocks showing only weak LD will not be explicitly visualized on the graph). This will create a file called `heatmap_tmprss2_Dp.png`. Let's take a look now:
+```{r,message=F,warning=F}
+nowcex=0.5
+LDblockHeatmap(genofile = "TMPRSS2_YRI.vcf", chrN = 21, geneDB = "ensembl", assembly = "GRCh38", geneid = "hgnc_symbol", blocktype="bigld", LD="Dp-str", type="png", filename = "heatmap_tmprss2_Dp", CLQmode = "density", res = 600)
+```
+
+![](heatmap_tmprss2_Dp.png)
+
+Once again, this is MUCH more helpful!
+
+Now you've got several graphs that you can use to investigate LD in your gene region! You can see specifically whether or not the SNPs of interest (the labelled SNPs) are in LD by finding where on the graph their paths intersect, or by looking for their linkage block by position in the LD block analysis output. For the purpose of reporting your pairwise LD results, we can look at something called an *LD matrix* that was generated by the *LDheatmap* function. This is a matrix where the row and column names are SNP ID numbers, and the cell at the intersection of a row and a column will tell you the LD statistic for those two particular SNPs. For our purposes, you do not need to look at the whole chart, you just need to find the intersections of our four SNPs of interest to see if any of them are in LD, and what that LD value is for each respective statistical test. 
 <br>
 <br>
-To view your LD matrices, run these two lines of code separately: 
+To view your reduced LD matrices, run these two chunks of code separately: 
 <br>
 
-```{r,eval=F,echo=T}
+```{r}
 #for R squared LD heatmap: 
-View(smallheatmapr$LDmatrix)
+R2LD<-as.data.frame(R2heatmapTMPRSS2$LDmatrix)
+snp<-rownames(R2LD)
+
+R2LD<-
+  R2LD %>%
+  mutate(snp = snp) %>%
+  dplyr::select(snp,rs2070788,rs383510,rs4816720,rs12329760) %>%
+  filter(snp == "rs2070788" |
+         snp == "rs383510" |
+         snp == "rs4816720" |
+         snp == "rs12329760")
+R2LD
 ```
 
-```{r,eval=F,echo=T}
-#for D prime LD matrix
-View(smallheatmapD$LDmatrix)
+```{r}
+#for D prime LD heatmap: 
+DpLD<-as.data.frame(DheatmapTMPRSS2$LDmatrix)
+snp<-rownames(DpLD)
+
+DpLD<-
+  DpLD %>%
+  mutate(snp = snp) %>%
+  dplyr::select(snp,rs2070788,rs383510,rs4816720,rs12329760) %>%
+  filter(snp == "rs2070788" |
+         snp == "rs383510" |
+         snp == "rs4816720" |
+         snp == "rs12329760")
+DpLD
 ```
-<br>
+
+Does LD appear to correlate with physical distance among these SNPs, according to your LDheatmap images?
 
 ## Step 4: Using *Ensembl* to Look for More SNPs in LD 
 
-The last thing we'll do in this lab is look at look at *Ensembl*'s information on LD for each of the SNPs we studied today in your populations. <br>
+The last thing we'll do in this lab is look at *Ensembl*'s information on LD for each of the SNPs we studied today in your populations. <br>
 To do this: 
 <br>
 
-* Go to [*Ensembl*](https://useast.ensembl.org/Homo_sapiens/Info/Index) and search for *UCP1* in the Human searchbar as we have done before
+* Go to [*Ensembl*](https://useast.ensembl.org/Homo_sapiens/Info/Index) and search for *TMPRSS2* in the Human search bar as we have done before
 
 * Use the left sidebar to navigate to the *Variant Table*:
 <br>
 
-![](variantpage.png)
+![](img/variantpage.png)
 <br><br>
 
-* Pick one of the variants we looked at today (*rs6536991*, *rs35243591*, *rs2270565*, and *rs12502572*) and enter it in the *Variant Table* search bar. Make note of what kind of consequence each SNP has. What does the consequence mean, and how might the consequence of a SNP affect its LD?
+* Pick one of the variants we looked at today (*rs2070788*, *rs383510*, *rs461194*, and *rs12329760*) and enter it in the *Variant Table* search bar. Make note of what kind of consequence each SNP has. What does the consequence mean, and how might the consequence of a SNP affect its LD?
 
-![](variantsearch.png)
+![](img/variantsearch.png)
 
 * Click on the Variant ID of the SNP you searched to get the SNP page. Click on the "*Linkage Disequilibrium*" tab under "*Explore This Variant*"
 <br>
 
-![](snppageLD.png)
+![](img/snppageLD.png)
 <br>
 
 * You will get this page. This should look familiar, because we visited it briefly in our introductory lab. You will get a page like this that has LD plots of the SNP for all of the 1000 Genomes populations. 
 <br>
 
-![](LDBlock.png)
+![](img/LDBlock.png)
 <br>
 
 * You can play around with the LD calculator and the LD plots, but the first thing you should do is find *your* population in the table and click on the "*show*" button for "*Variants in High LD*". You will get this: 
 <br>
 
-![](highLD.png)
+![](img/highLD.png)
 <br>
 
-* Some populations will have more SNPs in high LD than others. Look specifically at the SNPs in high LD that are *not* in *UCP1*. In the example above, there is a SNP listed that is in the gene *ELMOD2*. 
+* Some populations will have more SNPs in high LD than others. Look specifically at the SNPs in high LD that are *not* in *TMPRSS2*. In the example above, there are SNPs listed in the gene *BMX* in high linkage with several variants in *ACE2*. 
 
-* Repeat this process for all four SNPs we looked at in today's lab. Where are the high LD SNPs that aren't in *UCP1* located? Are any of them located in other gene regions? 
+* Repeat this process for all four SNPs we looked at in today's lab. Where are the high LD SNPs that aren't in *TMPRSS2* located? Are any of them located in other gene regions? 
 
 ## Step 5: What Do Your Results Mean? Discuss with a partner from class: 
 
@@ -286,10 +328,10 @@ Think about the results you produced today in the context of your population. He
 
 * What does it mean for two SNPs in your population to be in LD? How would two obesity SNPs being in LD reflect selection in that population? 
 
-* Would you expect a high level of LD in *UCP1* in your population based on its environment? Why or why not? 
+* Would you expect a high level of LD to develop in *TMPRSS2* in your population based on its pandemic context? Why or why not? 
 
-* What would LD between two obesity-related SNPs tell you about the evolutionary history of your population? 
+* What would LD between two COVID-19-related SNPs tell you about the evolutionary history of your population? 
 
-* If you found any SNPs in high LD with our *UCP1* SNPs during the *Ensembl* exercise that are in a different gene, do a quick [OMIM](http://omim.org/) search on the gene(s). What does that gene code for? How might it be connected to *UCP1*? 
+* If you found any SNPs in high LD with our *TMPRSS2* SNPs during the *Ensembl* exercise that are in a different gene, do a quick [OMIM](http://omim.org/) search on the gene(s). What does that gene code for? How might it be connected to *TMPRSS2*? 
 <br>
 <br>
