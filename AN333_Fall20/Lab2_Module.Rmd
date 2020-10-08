@@ -426,7 +426,7 @@ Notice that the output is giving us both more and less information than our anal
 To see only the significant SNPs for this output, we just need to import the file into *R*:
 ```{r}
 vcftools.HWE<-read.table("TMPRSS2_YRI.hwe",header=TRUE)
-vcftools.HWE
+head(vcftools.HWE)
 ```
 
 And then filter by `P_HWE`, which represents the HWE p-value:
