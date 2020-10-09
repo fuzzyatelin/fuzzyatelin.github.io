@@ -29,7 +29,7 @@ output:
 
 ### [Syllabus](https://fuzzyatelin.github.io/AN333_Fall20/Syllabus.html)
 ### [Modules](https://fuzzyatelin.github.io/AN333_Fall20/LabSyllabus.html)
-### [Exam]()
+### [Exam](https://forms.gle/mfm6PcG2F4WqaxNT9)
 ### [Policies](https://fuzzyatelin.github.io/AN333_Fall20/policies.html)
 ### [Final Project](https://fuzzyatelin.github.io/AN333_Fall20/FinalProject.html)
 
