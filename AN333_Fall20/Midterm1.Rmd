@@ -35,7 +35,7 @@ Once there, enter the following code:
 
 ```{bash, eval = F, echo = T}
 #this gives you access to a shared project space on the SCC that I can access.
-cd /projectnb/anth333/
+cd /project/anth333/
 ```
 </ol><br>
 <ol>2. Create a new directory in this *anth333* shared project space named after your BU login. For example, my directory would be called *caschmit*, which is both my BUID and my *SCC* login name. **(2 points)**</ol><br>
