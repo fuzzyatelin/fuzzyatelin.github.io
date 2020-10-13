@@ -10,7 +10,7 @@ output:
 ### [Course Overview](https://fuzzyatelin.github.io/AN333_Fall20/overview.html)
 ### [Syllabus](https://fuzzyatelin.github.io/AN333_Fall20/Syllabus.html)
 ### [Modules](https://fuzzyatelin.github.io/AN333_Fall20/LabSyllabus.html)
-### [Exam](https://forms.gle/mfm6PcG2F4WqaxNT9)
+### [Exam](https://fuzzyatelin.github.io/AN333_Fall20/Midterm1.html)
 ### [Final Project](https://fuzzyatelin.github.io/AN333_Fall20/FinalProject.html)
 
 ***
