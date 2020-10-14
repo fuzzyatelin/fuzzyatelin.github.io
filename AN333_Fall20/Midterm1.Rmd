@@ -297,7 +297,7 @@ Imagine you meet a small population of Finns on an island in the Barents Sea, wh
 
 <ol>20. Under the Modern Synthesis definition of evolution, has this relict population *evolved* since it first split from the Finnish population? **(2 points)**</ol><br><br>
 
-<ol>21. If a functional *SLC6A20* protein is necessary to stop a 'cytokine storm' from developing when infected with SARS-CoV-2, what kind of consequence does the minor allele code for? What does this mean for those that possess the minor allele during the COVID-19 pandemic? **(2 points)**</ol><br>
+<ol>21. If a functional *SLC6A20* protein is necessary to stop a 'cytokine storm' from developing when infected with SARS-CoV-2, what kind of consequence does the minor allele of rs202158371 code for? What does this mean for those that possess the minor allele during the COVID-19 pandemic? **(2 points)**</ol><br>
 
 <ol>22. A Finnish woman living in London, Valda, has two parents who do NOT express *SLC6A20*. She has fallen in love with Aadavan, her neighbor, who is Telugu. The two have expressed a desire to have children. If they do, what is the probability that their child will express *SLC6A20*? In your answer, give the predicted genotype/phenotype frequencies. **(2 points)**</ol><br><br>
 <center>
