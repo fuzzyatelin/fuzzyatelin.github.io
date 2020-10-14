@@ -128,7 +128,7 @@ So far in our labs, we've been focusing on the human mitochondrial uncoupling pr
 
 </ol><br>
 
-<ol>7. The basic equation for a *regression* line is ***y = mx + b***. If we were to use regression to discover the relationship between variation at a SNP in *UCP1* and body mass, what would each component of that equation represent?  Use one term each to match the parameter to what it represents:  **(4 points)**
+<ol>7. The basic equation for a *regression* line is ***y = mx + b***. If we were to use regression to discover the relationship between variation at a SNP in *ACE2* and COVID-19 severity, what would each component of that equation represent?  Use one term each to match the parameter to what it represents:  **(4 points)**
 <br><br>
 <ol><ol>Body mass    |    SNP error    |    SNP alleles    |    The intercept    |    Mean mass    |    The slope </ol></ol>
 <br><br>
@@ -211,7 +211,7 @@ The 1000 Genomes Project is a comprehensive dataset of variation that we've been
 
 <center>*IGHA2*  |  *CMYA5*  |  *LILRB2*  |  *IGHE*  |  *TRBV9*  |  *FADS1*  |  None of the above</center>   <br></ol> 
 
-Now, we're going to download the *UCP3* data just for the **Chinese Dai in Xishuangbanna, China** from the 1000 Genomes project dataset.<br><br> 
+Now, we're going to download the *SLC6A20* data just for the **Indian Telugu in the UK** from the 1000 Genomes project dataset.<br><br> 
 
 <ol>17. What is the three-letter code for the Indian Telugu in the United Kingdom population in the 1000 Genome project dataset? **(1 point)**</ol><br>
 
