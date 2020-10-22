@@ -46,7 +46,7 @@ As before, you'll be turning in your homework via an online interface.  I recomm
 
 * Take a look at the LD matrix you created in the last portion of Module 3. List the linkage block that each SNP of interest is a part of, and which SNPs are in LD with each other among our four SNPs of interest.
 
-* In the Zeberg & Pääbo (2020) paper, they focus on a linkage block around the SNP *rs11385942*, the minor allele of which has been found to be [associated with severe COVID-19 symptoms](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7315890/). Which genomic region is associated with increased severity of COVID-19 (please give a range in Mb)?  Name the genes found in this region.
+* In the Zeberg & Pääbo (2020) paper, they focus on a linkage block around an index SNP *rs35044562*, the minor allele of which has been found to be associated with severe COVID-19 symptoms. Which genomic region is associated with increased severity of COVID-19 (please give a range in Mb)?  Name the genes found in this region.
 
 * According to Zeberg & Pääbo (2020), what is evolutionarily interesting about 1) the haplotype (or linkage block) containing the risk allele, and 2) the populations that have this particular haplotype?
 
@@ -64,4 +64,4 @@ The following questions are for those students registered for ***AN 733***. Stud
 
 * What effect does selection have on LD? How might you use LD to detect natural selection in a genomic locus?
 
-* Create a VCF file of *SLC6A20* for *your* 1000 Genomes population, and re-run the linkage analysis from Module 3 with the COVID-19 risk SNP *rs11385942* in mind, using *D'*. Is it in linkage with our SNP of interest from the exam, *rs202158371*? How about the index allele chosen by Zeberg & Pääbo (2020), *rs35044562*? <br><br><br>
+* Create a VCF file of *SLC6A20* for *your* 1000 Genomes population, and re-run the linkage analysis from Module 3 with the index SNP *rs35044562* in mind, using *D'*. Is it in linkage with our SNP of interest from the midterm, *rs202158371*? How about [the risk allele for severe COVID-19 in Italian and Spanish populations, *rs11385942*](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7315890/)? <br><br><br>
