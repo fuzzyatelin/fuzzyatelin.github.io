@@ -1,8 +1,10 @@
 ---
-title: 'Lab 3: Homework'
+title: 'Module 3: Homework'
 author: "Christopher A Schmitt"
-date: "October 1, 2020"
-output: html_document
+date: "October 22, 2020"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
 ---
 
 ## Introduction to Linkage Disequilibrium (LD)
@@ -40,15 +42,13 @@ As before, you'll be turning in your homework via an online interface.  I recomm
 
 * According to the readings, are loci that are physically close to each other (i.e., only a few base pairs away) more likely to be in LD than loci that are further away from each other on the chromosome? Why might this be?
 
-* Based on the *small* **D'** LD heatmap you created in Lab 3 for *your* 1000 Genomes population, which SNPs are linked? Please take a screenshot or save a PNG or PDF file of your heatmap and upload it as part of your answer. *NOTE: If you're having trouble interpreting the LD heatmaps, [this link can help](https://estrip.org/articles/read/tinypliny/44920/Linkage_Disequilibrium_Blocks_Triangles.html)!*<br>
+* Based on the **D'** LD heatmap you created in Module 3 for *your* 1000 Genomes population, which SNPs are linked? Please take a screenshot or save a PNG or PDF file of your heatmap and upload it as part of your answer. *NOTE: If you're having trouble interpreting the LD heatmaps, [this link can help](https://estrip.org/articles/read/tinypliny/44920/Linkage_Disequilibrium_Blocks_Triangles.html)!*<br>
 
-* Take a look at the LD matrix you created in the last portion of Lab 3. List the SNPs that are in LD with each of our four SNPs of interest for Lab 3.
+* Take a look at the LD matrix you created in the last portion of Module 3. List the linkage block that each SNP of interest is a part of, and which SNPs are in LD with each other among our four SNPs of interest.
 
-* In the Ramos et al. (2012) paper, which SNP was found to be associated with obesity in a Brazilian population?
+* In the Zeberg & Pääbo (2020) paper, they focus on a linkage block around the SNP *rs11385942*, the minor allele of which has been found to be [associated with severe COVID-19 symptoms](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7315890/). Which genomic region is associated with increased severity of COVID-19 (please give a range in Mb)?  Name the genes found in this region.
 
-* Did they find that SNP to be in linkage disequilibrium with the other SNPs of interest? Did you find the same results in your population?
-
-* According to Ramos et al. (2012), why is it important to know that those SNPs are *not* in linkage disequilibrium?  HINT: read the Discussion!
+* According to Zeberg & Pääbo (2020), what is evolutionarily interesting about 1) the haplotype (or linkage block) containing the risk allele, and 2) the populations that have this particular haplotype?
 
 ***
 
@@ -64,4 +64,4 @@ The following questions are for those students registered for ***AN 733***. Stud
 
 * What effect does selection have on LD? How might you use LD to detect natural selection in a genomic locus?
 
-* Use the *UCP3* data you downloaded for Midterm 1 to create an LD heatmap for this gene region. Which, if any, SNPs in *UCP3* among the Chinese Dai in Xishuangbanna, China are in perfect LD according to the *D'* statistic (i.e., LD = 1)? If there are none, name three pairs of SNPs that are the closest to being in perfect LD.<br><br><br>
+* Create a VCF file of *SLC6A20* for *your* 1000 Genomes population, and re-run the linkage analysis from Module 3 with the COVID-19 risk SNP *rs11385942* in mind, using *D'*. Is it in linkage with our SNP of interest from the exam, *rs202158371*? How about the index allele chosen by Zeberg & Pääbo (2020), *rs35044562*? <br><br><br>
