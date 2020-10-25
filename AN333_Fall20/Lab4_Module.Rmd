@@ -1,8 +1,10 @@
 ---
-title: "Lab 4 - Nearest-Neighbor Joining and Intro to Phylogeny"
+title: "Module 4 - Introduction to Phylogenomics"
 author: "Becca DeCamp & Christopher Schmitt"
-date: "10/18/2018"
-output: html_document
+date: "10/23/2020"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
 ---
 
 ```{r,echo=F}
@@ -16,7 +18,7 @@ color: white;
 }
 ```
 
-## Introduction to Nearest-Neighbor Joining and Phylogenetics
+## Introduction to Phylogenomics
 
 ***
 
@@ -49,14 +51,9 @@ Another important method we will be using today to try to reconstruct relatednes
 
 ## Step 1: Getting to *R Studio* and Preparing your Data
 
-Log in to the *SCC* and bring up the *R Studio* window [like we did in previous labs](https://fuzzyatelin.github.io/AN333_Fall18/Lab_2_-_HWE.html): 
-```{bash, eval = F, echo = T, class.source="sccCode"}
-module load gcc
-module load R
-rstudio &
-```
+Log in to the *SCC* and bring up the *R Studio* window [like we did in previous labs](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Module.html).
 
-Now, that we're in *R*, we'll prepare our data for analysis. The main package we will be using is called *ape* (Analyses of Phylogenetics and Evolution), which uses a file format called a *DNAbin*. We will load in our data with the package *vcfR*, just like in [Lab 2](https://fuzzyatelin.github.io/AN333_Fall18/Lab_2_-_HWE.html), after which we will convert our vcfR object to a DNAbin.<br>
+Now, that we're in *R*, we'll prepare our data for analysis. The main package we will be using is called *ape* (Analyses of Phylogenetics and Evolution), which uses a file format called a *DNAbin*. We will load in our data with the package *vcfR*, just like in [Lab 2](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Module.html), after which we will convert our vcfR object to a DNAbin.<br>
 
 First, we'll load our packages:
 

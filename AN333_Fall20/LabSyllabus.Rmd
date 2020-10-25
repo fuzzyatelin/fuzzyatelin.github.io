@@ -127,12 +127,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 3: DUE Friday, October 23rd](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Homework.html)
+### [Homework for Module 3: DUE Monday, October 26th](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Homework.html)
 
 ***
 
 ### [*Module 4: Introduction to Nearest-Neighbor Joining and Phylogenetics*](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Module.html)
-**October 23**<br>
+**October 30th**<br>
 
 ***
 
@@ -153,12 +153,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 4: DUE Friday, October 30th](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Homework.html)
+### [Homework for Module 4: DUE Friday, November 6th](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Homework.html)
 
 ***
 
 ### [*Module 5: Introduction to Neutrality Statistics and Signs of Selection*](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Module.html)
-**October 30**<br>
+**November 6th**<br>
 
 ***
 
@@ -182,12 +182,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 5: DUE Friday, November 6th](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Homework.html)
+### [Homework for Module 5: DUE Friday, November 13th](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Homework.html)
 
 ***
 
 ### [*Module 6: A Brief Digression from ACE2 for Quantitative Genetics*](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Module.html)
-**November 6**<br>
+**November 20**<br>
 
 ***
 
@@ -210,7 +210,7 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 6: DUE Friday, November 6th](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Homework.html)
+### [Homework for Module 6: DUE Friday, November 27th](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Homework.html)
 
 ***
 

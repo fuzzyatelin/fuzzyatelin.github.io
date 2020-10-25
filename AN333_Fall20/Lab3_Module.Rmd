@@ -22,7 +22,7 @@ color: white;
 
 ***
 
-### [Homework for Lab 3: DUE Friday, October 23rd](https://fuzzyatelin.github.io/AN333_Fall18/Lab3_Homework.html)
+### [Homework for Lab 3: DUE Monday, October 26th](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Homework.html)
 
 ***
 

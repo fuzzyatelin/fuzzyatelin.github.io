@@ -1,11 +1,13 @@
 ---
-title: 'Lab 4: Homework'
+title: 'Module 4: Homework'
 author: "Christopher A Schmitt"
-date: "10/30/2018"
-output: html_document
+date: "10/23/2020"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
 ---
 
-## Introduction to Nearest-Neighbor Joining and Phylogenetics
+## Introduction to Phylogenomics
 
 ***
 
