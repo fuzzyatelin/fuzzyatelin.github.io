@@ -1,5 +1,5 @@
 ---
-title: "AN/BI588: Useful Data Science Resources"
+title: "AN/BI 588: Useful Data Science Resources"
 output: 
   rmarkdown::html_document:
     theme: cosmo

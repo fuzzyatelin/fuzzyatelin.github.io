@@ -1,5 +1,5 @@
 ---
-title: "Insurmountable Student Coding Problems"
+title: "AN/BI 588: Insurmountable Student Coding Problems"
 author: "Christopher A Schmitt"
 date: "October 23, 2020"
 output: 

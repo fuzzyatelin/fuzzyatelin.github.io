@@ -1,5 +1,5 @@
 ---
-title: "AN/BI588: Course Policies"
+title: "AN/BI 588: Course Policies"
 output: 
   rmarkdown::html_document:
     theme: cosmo

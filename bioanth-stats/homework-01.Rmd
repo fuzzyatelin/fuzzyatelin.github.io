@@ -1,6 +1,6 @@
 ---
-title: "AN/BI588: Homework 01"
-date: "September 13, 2019"
+title: "AN/BI 588: Homework 01"
+date: "October 23, 2020"
 output:
   html_document:
     theme: cosmo
@@ -53,7 +53,7 @@ knitr::opts_chunk$set(
 
 ### Create, Clone, and Access a New Repo in *RStudio*
 
-Create a repository in your ***GitHub*** account called ***AN597-Week-2-BUlogin*** (where *BUlogin* is *your* BU login name; for example, mine would be *AN597-Week-2-caschmit*), and clone it to your computer. Once there, create a git-referenced Project in ***RStudio*** with the same name and connect it to your cloned repository. 
+Create a repository in your ***GitHub*** account called ***AN588-Week-2-BUlogin*** (where *BUlogin* is *your* BU login name; for example, mine would be *AN588-Week-2-caschmit*), and clone it to your computer. Once there, create a git-referenced Project in ***RStudio*** with the same name and connect it to your cloned repository. 
 
 ### Write Some Code
 
@@ -61,11 +61,11 @@ In that Project on ***RStudio***, create a new **R Markdown** (Rmd) file - you c
 
 ### Push It!
 
-Once you've finished (or even better: as you save along the way), you must PUSH that file up to ***GitHub*** directly from ***RStudio*** (i.e., once pushed, it should be accessible in your *AN597-Week-2-BUlogin* repo on your ***GitHub*** account's website). Notes in [Module 03](http://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html) should help you accomplish this - and, of course, feel free to come see me for additional help during my office hours if you're having problems.
+Once you've finished (or even better: as you save along the way), you must PUSH that file up to ***GitHub*** directly from ***RStudio*** (i.e., once pushed, it should be accessible in your *AN588-Week-2-BUlogin* repo on your ***GitHub*** account's website). Notes in [Module 03](http://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html) should help you accomplish this - and, of course, feel free to come see me for additional help during my office hours if you're having problems.
 
 ### Peer Commentary for Homework 01
 
-Peer Commentary for this week should focus on the code for the [Module 04](http://fuzzyatelin.github.io/bioanth-stats/module-04/module-04.html) **CHALLENGES**, and should also be pushed directly to your *AN597-Week-2-BUlogin* repo by the member of your Peer Group responsible for commenting on your Original Homework Code. Share your Original Homework Code by [adding your Peer Group (and your instructor) as 'Collaborators'](https://help.github.com/en/articles/inviting-collaborators-to-a-personal-repository) by 8:00 pm on Thursday, September 12th.
+Peer Commentary for this week should focus on the code for the [Module 04](http://fuzzyatelin.github.io/bioanth-stats/module-04/module-04.html) **CHALLENGES**, and should also be pushed directly to your *AN588-Week-2-BUlogin* repo by the member of your Peer Group responsible for commenting on your Original Homework Code. Share your Original Homework Code by [adding your Peer Group (and your instructor) as 'Collaborators'](https://help.github.com/en/articles/inviting-collaborators-to-a-personal-repository) by 8:00 pm on Thursday, September 12th.
 
 Once this process is complete, you have a number of options for reading over and commenting on your peer's code. Options for Peer Commentary include each of you making comments on one other person's code (e.g., Laura on Christian's, Christian on Gianna's, Gianna on Laura's), or each of you commenting together as a group on each others' code (Peer Group 1 on Laura's, Peer Group 1 on Christian's, Peer Group 1 on Gianna's).  The latter option should only be used if your peer group meets in person to discuss code together as a group.  The former option is the only option if you do not meet in person to discuss.
 
@@ -81,7 +81,7 @@ Some of you will no doubt realize that you will be able to see your colleagues' 
 
 ### **Your Final Assignment for Homework 01**
 
-Your final assignment, due to me by 5:00 pm on September 15th, is to have in your *AN597-Week-2-BUlogin* repo only the following files:
+Your final assignment, due to me by 5:00 pm on September 15th, is to have in your *AN588-Week-2-BUlogin* repo only the following files:
 <ol>
 1. Your Original Homework Code, including the five challenges you faced, as pushed to your repo by 8:00 pm on Thursday, an R Markdown file named *BUlogin_OriginalHomeworkCode_01*.
 2. The *FINAL PUSH* of the Peer Commentary made on *your* code, an R Markdown file named *Peerlogin_PeerCommentary_BUlogin_01* or *PeerGroupX_PeerCommentary_BUlogin_01*.

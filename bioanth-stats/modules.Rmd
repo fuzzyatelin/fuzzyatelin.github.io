@@ -1,6 +1,6 @@
 ---
-title: 'AN/BI588: Course Modules'
-date: "November 11, 2019"
+title: 'AN/BI 588: Course Modules'
+date: "October 23, 2020"
 output: 
   rmarkdown::html_document:
     theme: cosmo

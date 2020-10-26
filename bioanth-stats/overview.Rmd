@@ -1,7 +1,7 @@
 ---
-title: "AN/BI588: Project Design and Statistics</br> in Biological Anthopology"
+title: "AN/BI 588: Project Design and Statistics</br> in Biological Anthopology"
 author: "Christopher A Schmitt</br>Boston University"
-date: "December 10, 2019"
+date: "October 23, 2020"
 output: 
   html_document:
     theme: cosmo
@@ -71,8 +71,8 @@ This course has been proposed as an addition to the **BU HUB** General Education
 #### *Intellectual Toolkit: Teamwork/Collaboration (TWC)*
 ***
 
-* **Learning Outcome 1**: Students will engage in bi-weekly Peer Commentary assignments in which they must collaborate in shared GitHub repositories to share, annotate, and comment on each others' coding-based homework assignments. Students will share first drafts of homework, commented code by a Peer, and their final code. In their final code, students are encouraged to reflect on how the discussion and comments of their Peers improved their code, and what remained to be solved. Peer groups rotate throughout the course, so that students can identify and learn the traits of effective collaboration and commentary, culminating in choosing a group to develop and design an online teaching module for a novel statistical technique to be taught to the rest of the class.
-* **Learning Outcome 2**: In both the biweekly Peer Commentary and the final group Module assignment, students will develop and demonstrate an ability to use the tools and strategies of working successfully with a diverse group. In the Module assignment, students will explicitly assign roles and responsibilities to specific group members based on strengths identified in the Peer Commentary process. Upon presentation of the Module, the class will assess the effectiveness and clarity of the module in teaching the method in question. Both Peer Commentary and final Module assignment asks students to reflect on their role in the collaborative process.
+* **Learning Outcome 1**: Students will engage in bi-weekly Peer Commentary assignments in which they must collaborate in shared GitHub repositories to share, annotate, and comment on each others' coding-based homework assignments. These experiences will be supplemented by readings and small tutorials on productive peer coding and annotation practices. Students will share first drafts of homework, commented code by a Peer, and their final code. In their final code, students are encouraged to reflect on how the discussion and comments of their Peers improved their code, and what remained to be solved. Peer groups rotate throughout the course, so that students can identify and learn the traits of effective collaboration and commentary, culminating in choosing a group to develop and design an online teaching module for a novel statistical technique to be taught to the rest of the class. These comments will be critiqued and overseen in each bi-weekly session by the instructor to ensure productive teamwork.
+* **Learning Outcome 2**: In both the biweekly Peer Commentary and the final group Module assignment, students will develop and demonstrate an ability to use the tools and strategies of working successfully with a diverse group, based on course readings meant to foster productive peer review and coding practives. In each Module assignment, students will guided towards explicitly assigning roles and responsibilities to individual group members based on strengths identified in the Peer Commentary process. Upon presentation of the Module, in dialogue with the instructor, the class will assess the effectiveness and clarity of the module in teaching the method in question and offer productive suggestions for revision, making the course itself an exercise in teamwork. Both Peer Commentary and final Module assignment asks students to reflect on their role in the collaborative process and what were effective practices using the readings to guide these reflections.
 
 
 ***
@@ -93,9 +93,9 @@ Performance in the class will be assessed on a **gradeless** basis for the semes
 1. Regular attendance and class participation.  
 2. On-time completion of assigned [**Modules**](https://fuzzyatelin.github.io/bioanth-stats/modules.html) prior to seminar meetings.
 3. Programming homework sets associated with each [Module](https://fuzzyatelin.github.io/bioanth-stats/modules.html), **due Thursday at 8:00 pm to your assigned [peer commentary partner(s)](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html)**.
-4. Respectful [**Peer Commentary**](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) on homework coding, **to be submitted to me by 5:00pm Sunday**.
+4. Respectful [**Peer Commentary**](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) on homework coding, that puts into practice teamwork and pair programming practices discussed in class and in readings, **to be submitted to me by 5:00pm Sunday**.
 5. One individual [**Analysis Replication Assignment**](https://fuzzyatelin.github.io/bioanth-stats/data_reanalysis_assignment.html) based on a published paper with a publicly available dataset, chosen in consultation with the instructor.  
-6. One <b>group presentation and written R vignette</b> demonstrating the use of a particular statistical method chosen in consultation with the instructor (past examples available in the [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)).
+6. One <b>group presentation and written R vignette</b> demonstrating the use of a particular statistical method chosen in consultation with the instructor (past examples available in the [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)). Group participation will be a large part of evaluation, and must also put into practice teamwork methods discussed in readings and class.
 7. A final [**Self Evaluation**](https://fuzzyatelin.github.io/bioanth-stats/selfevaluation.html) written by *you* arguing for the grade you have earned through your progress and the quality of your work in the class.
 </ol>
 
@@ -115,7 +115,7 @@ Performance in the class will be assessed on a **gradeless** basis for the semes
 
 :::{}
   
-<center><p><img src="https://www.nostarch.com/sites/default/files/styles/uc_product_full/public/bookofR_cover-front.png?itok=CiV_iMFZ" height="250" width="200"></p></center></ul><br>
+<center><p><img src="https://prodimage.images-bn.com/pimages/9781593276515_p0_v3_s550x406.jpg" height="250" width="200"></p></center></ul><br>
 **Tillman D. 2016. <i>The Book of R: A First Course in Programming and Statistics</i>. San Francisco: No Starch Press.**
 
 :::
@@ -148,5 +148,7 @@ By the end of this course, you should:
 <li>know how to design and implement <b>reproducible data science workflows</b> that take a project from data acquisition to analysis to presentation and be able to organize your work using a version control system;</li>
 
 <li>be able to <b>accurately assess, critique, and reproduce existing published works</b> utilizing public and open source data repositories and analytical techniques;</li>
+
+<li>be able to <b>work as part of an effective team</b> to problem solve and implement effective coding practices towards a group analytical goal;</li>
 
 <li>and be able to apply all of these tools to <b>questions of interest in the natural and social sciences</b>.</li></ul><br><br>

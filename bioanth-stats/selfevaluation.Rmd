@@ -1,7 +1,7 @@
 ---
-title: "AN/BI588: End-of-Semester Self Evaluation"
+title: "AN/BI 588: End-of-Semester Self Evaluation"
 author: "Christopher A Schmitt"
-date: "12/10/2019"
+date: "October 23, 2020"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -25,7 +25,9 @@ output:
 </center><br>  
 
 <center>
-The following self evaluation is meant to guide you through a reflection on what you put into this course, and also what you got out of it in return. Your self evaluation is *not* the place to criticize, evaluate, or thank the instructor (we already had a good conversation about that, and formal evaluations, on the last day of class). This is about *you*. Unless otherwise noted, please answer each question in no more than *eight* sentences. At the end, I ask you to assign yourself a grade that you think is both a fair and honest reflection of your performance in the class given what was asked of you.
+The following self evaluation is meant to guide you through a reflection on what you put into this course, and also what you got out of it in return. Your self evaluation is *not* the place to criticize, evaluate, or thank the instructor (we will have had many thorough conversations about that in class, and formal evaluations on the last day of class). This is about *you*. Unless otherwise noted, please answer each question in no more than *eight* sentences. At the end, I ask you to assign yourself a grade that you think is both a fair and honest reflection of your performance in the class given what was asked of you.
+<br><br>
+Whether I agree with your assessment or not, I will schedule a time for us to discuss your self-assessment. In this discussion, we will come to an agreement regarding your final grade reflecting the criteria in the [Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html) and as outlined below. 
 
 </center>
 ***
@@ -34,7 +36,7 @@ The following self evaluation is meant to guide you through a reflection on what
 
 ***
 
-Please download this Markdown file (`selfevaluation.Rmd`) from my GitHub site (in the `fuzzyatelin.github.io/bioanth-stats/` folder) and answer the appropriate questions in the spaces provided. Once you've knitted the final file, please *email* the **html** version of that file to me with the name `[LastF]_F19_SelfEvaluation.html` (with `LastF` meaning your last name followed by your first initial, i.e., mine would be called `SchmittC_F19_SelfEvaluation.html`). I must receive this file by **Midnight of December 17, 2019**.
+Please download this Markdown file (`selfevaluation.Rmd`) from my GitHub site (in the `fuzzyatelin.github.io/bioanth-stats/` folder) and answer the appropriate questions in the spaces provided. Once you've knitted the final file, please *email* the **html** version of that file to me with the name `[LastF]_F19_SelfEvaluation.html` (with `LastF` meaning your last name followed by your first initial, i.e., mine would be called `SchmittC_F19_SelfEvaluation.html`). I must receive this file by **Midnight of the Final Exam Date**.
 
 ***
 
@@ -83,6 +85,14 @@ This may be in relation to previous knowledge, or in relation to future/planned 
 ***
 
 Please name at least three things you feel you learned in this course.<br><br><br><br><br><br><br><br>
+
+***
+
+### What did your learn about teamwork in this course? How did the readings on teamwork foster this understanding? How did the teamwork experiences?
+
+***
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 ***
 

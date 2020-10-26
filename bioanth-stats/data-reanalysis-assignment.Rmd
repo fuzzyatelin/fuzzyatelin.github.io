@@ -1,5 +1,5 @@
 ---
-title: "AN/BI588: Data Replication Assignment"
+title: "AN/BI 588: Data Replication Assignment"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -40,7 +40,7 @@ knitr::opts_chunk$set(
 ***
 <center><br>
 
-<font size="+2"><b>Final Homework DUE at 5:00 pm Monday, December 11th (Last Day of Classes).</b></font>
+<font size="+2"><b>Final Homework DUE at 5:00 pm of the Last Day of Classes.</b></font>
 
 </center><br>
 
@@ -48,9 +48,9 @@ knitr::opts_chunk$set(
 
 Replication is meant to be one of the keystones of scientific inquiry. Every experiment, observation, or analysis *should* be replicable by any other scientist, if we've all done our jobs right. The objective of this assignment is to use your skills in ***R*** to replicate as closely as you can a set of statistical analyses and results reported in a published paper of your choosing. 
 
-You should select and confirm with me a paper and dataset you will replicate by **September 30, 2019**!
+You should select and confirm with me a paper and dataset you will replicate by **September 30, 2020**!
 
-You do not need to replicate ALL of the analyses presented in the paper, *but at minimum you must replicate at least 3 analyses*, including at least one *descriptive* statistical analysis and one *inferential* statistical analysis. As part of this assignment, you must also replicate to best of your abililties at least one figure.
+You do not need to replicate ALL of the analyses presented in the paper, *but at minimum you must replicate at least 3 analyses*, including at least one *descriptive* statistical analysis and one *inferential* statistical analysis. As part of this assignment, you must also replicate to the best of your abilities at least one figure.
 
 For this assignment, you should prepare several files to share with me via ***GitHub*** in a new repo, shared with me as a collaborator, called "**BUlogin-data-replication-assignment**":
 <ol><li>A PDF copy of the paper from which you are replicating analyses.</li> 
@@ -63,7 +63,11 @@ You should also embed in your `.Rmd` file, near your own results, any images or 
 
 Where you replace *imagename.filetype* with the name of your file, e.g., "figure-1.png" and *###* with a integer number of pixels, e.g., width="200px".
 
-If you include the following chunk at the beginning of your Rmd document with the headline `{r setup, include=FALSE}` (which lays out for ***R*** a particular set of instructions for knitting), it will ensure that all of the figures associated with your chunks of code will be put into the "img" folder:
+A simpler option with fewer formatting possibilities is to include the picture using this markdown code:
+
+`![]("img/imagename.filetype")`
+
+If you include the following chunk at the beginning of your Rmd document with the headline `{r setup, include=FALSE}` (which lays out for ***R*** a particular set of instructions for knitting), it will ensure that all of the figures created by your chunks of code when it knits will be put directly into the "img" folder:
 
 ```{r,echo=T, eval=FALSE}
 knitr::opts_chunk$set(echo = TRUE,warning = FALSE,comment = "##",prompt = TRUE,tidy = TRUE,tidy.opts = list(width.cutoff = 75),fig.path = "img/")
