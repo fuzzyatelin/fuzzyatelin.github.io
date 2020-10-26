@@ -1,7 +1,7 @@
 ---
 title: "Insurmountable Student Coding Problems"
 author: "Christopher A Schmitt"
-date: "September 1, 2019"
+date: "October 23, 2020"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -23,20 +23,29 @@ output:
 <center><p><img src="https://media1.tenor.com/images/f1d9eaec5df614bec8bbd3daae0564a7/tenor.gif?itemid=5097096" style="border:5px solid black"></p>
 </center><br>  
 
-<center>
-We won't have time to work together on *every* problem that crops up in class, but we can help each other out!  If you ever run into a road block in a Module or Challenge, the first thing you should do is check your syntax or spelling (this is usually the problem if you're a beginner). The next step is to **consult the textbooks**! Nine times out of ten they've got the solution, or can help you get to it. The next step is to *google* the problem. I suggest starting by throwing quotation marks around the error message, pasting it into your search engine of choice with the name of the package, and searching that way. If, after a few unproductive hours, you feel like tearing your hair out, then create an ***R Markdown*** file and completely describe the problem, complete with reproducible R code blocks, knitting it together as an html file, and uploade it to the **AN597_StudentProblems** repository on my ***GitHub*** account, **fuzzatelin**. See the instructions below for more details.
+We won't have time to work together on *every* problem that crops up in class, but we can help each other out!  If you ever run into a road block in a Module or Challenge take these steps:
+
+* The first thing you should do is check your syntax or spelling (this is usually the problem if you're a beginner).
+
+* The next step is to **consult the textbooks**! Nine times out of ten they've got the solution, or can help you get to it. 
+
+* The next step is to *google* the problem. I suggest starting by throwing quotation marks around the error message, pasting it into your search engine of choice with the name of the package, and searching that way.
+
+* The next step is to consult your fellow students! We have varying levels of expertise in this course, which can lead to differing methods of our working together. With Peer Commentary, we're more or less relying on a [Ping-Pong paired programming](http://wiki.c2.com/?PairProgrammingPingPongPattern) technique (although there are [many other options](https://stackify.com/pair-programming-styles/) for how we interact with each other to code)
+
+* If, after a few unproductive hours, you and your Peer Commentary team feel like tearing your hair out, then create an ***R Markdown*** file and completely describe the problem, complete with reproducible R code blocks, knitting it together as an html file, and uploade it to the **AN588_InsurmountableProblems** repository on my ***GitHub*** account, **fuzzatelin**. See the instructions below for more details.
 
 But always remember your most effective and important resource:
 
-<br>
+<br><center>
 <center><p><img src=https://jules32.github.io/rmarkdown-website-tutorial/images/practicalDev_googleErrorMessage.jpg width="300px" style="border:5px solid black"></p>
 </center>
 
 ***
 
-So you want to contribute to the **AN597_InsurmountableProblems** repository? OK, here we go...
+So you want to contribute to the **AN588_InsurmountableProblems** repository? OK, here we go...
 
-## I will add you as a collaborator to the *AN597_InsurmountableProblems* repository.
+## I will add you as a collaborator to the *AN588_InsurmountableProblems* repository.
 
 That actually should be sufficient. You'll receive an email from me inviting you to collaborate. Accept it, and you should be able to work with the repository as you like.
 
@@ -44,28 +53,28 @@ That actually should be sufficient. You'll receive an email from me inviting you
 
 ***IF*** that doesn't work, you'll have to do the following steps:
 
-* Go to the repository on ***GitHub***, you'll find it [here](https://github.com/fuzzyatelin/AN597_StudentProblems) (make sure you're signed in to your account!).
+* Go to the repository on ***GitHub***, you'll find it [here](https://github.com/fuzzyatelin/AN588_InsurmountableProblems) (make sure you're signed in to your account!).
 * Click the "Fork" button at the top right.
 * You should now have your own copy of that repository in your own ***GitHub*** account.
 * Open a terminal/shell.
 * Type:
 ```{bash,eval=FALSE}
-git clone git@github.com:username/AN597_StudentProblems
+git clone git@github.com:username/AN588_InsurmountableProblems
 ```
 (In this case, the 'username' is *your* ***GitHub*** username)
 * You'll now have a local copy of *your version* of that repository.
-* Change into that project directory (AN597_StudentProblems):
+* Change into that project directory (AN588_InsurmountableProblems):
 ```{bash,eval=FALSE}
-cd AN597_StudentProblems
+cd AN588_InsurmountableProblems
 ```
 * Add a connection to the original owner's (my) repository:
 ```{bash,eval=FALSE}
-git remote add fuzzyatelin git://github.com/fuzzyatelin/AN597_StudentProblems
+git remote add fuzzyatelin git://github.com/fuzzyatelin/AN588_InsurmountableProblems
 ```
 * Note the distinction between `git@github.com:` in the first case and `git://github.com/` in the second case. I’m not sure why these need to be the way they are, but that’s what works for me.
 * Also note the first myfriend does not need to be the same as the username of myfriend. You could very well choose:
 ```{bash,eval=FALSE}
-git remote add REPO_nickname git://github.com/fuzzyatelin/AN597_StudentProblems
+git remote add REPO_nickname git://github.com/fuzzyatelin/AN588_InsurmountableProblems
 ```
 * To check this remote add set up:
 ```{bash,eval=FALSE}
