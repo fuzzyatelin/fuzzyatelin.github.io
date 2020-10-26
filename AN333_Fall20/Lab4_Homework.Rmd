@@ -12,7 +12,8 @@ output:
 ***
 
 **Readings**:<ul> 
-<li>[Kimura M. 1980. A simple method for estimating evolutionary rates of base substitutions through comparative studies of nucleotide sequences. *J Mol Evol* 16: 111–120.](http://www.nematodes.org/teaching/tutorials/phylogenetics/Bayesian_Workshop/PDFs/Kimura%20J%20Mol%20Evol%201980.pdf)</li><br>
+<li>[Kimura M. 1980. A simple method for estimating evolutionary rates of base substitutions through comparative studies of nucleotide sequences. *J Mol Evol* 16: 111–120.](http://www.nematodes.org/teaching/tutorials/phylogenetics/Bayesian_Workshop/PDFs/Kimura%20J%20Mol%20Evol%201980.pdf)</li>
+<li>[NextStrain (SARS-CoV-2): Genomic epidemiology of novel coronavirus - Global subsampling](https://nextstrain.org/ncov/global)</li>
 <li>[Saitou N, Nei M. 1987. The neighbor-joining method: a new method for reconstructing phylogenetic trees. *Mol Biol Evol* 4: 406–425.](https://academic.oup.com/mbe/article/4/4/406/1029664)</li></ul>
 
 ***
@@ -22,7 +23,7 @@ For our homework, we'll be digging a little further into Kimura's neutral theory
 As before, you'll be turning in your homework via an online interface.  I recommend writing your essays in a document on your laptop and only engaging with the online interface when you're ready to turn in *all* of your completed answers in a single submission.<br>
 
 <center>
-###[Access the online interface to submit your homework answers here.](https://goo.gl/forms/aRFIlvKaPmXvQTJ12)
+### [Access the online interface to submit your homework answers here.](https://goo.gl/forms/aRFIlvKaPmXvQTJ12)
 </center><br>
 
 * According to Kimura (1980), what are the two basic types of changes a base can undergo when it mutates? In other words, what potential homologues are there for a particular allele?
@@ -43,15 +44,17 @@ As before, you'll be turning in your homework via an online interface.  I recomm
 
 * Under what principle does the Neighbor-Joining method operate for building a phylogenetic tree? What does this mean for the construction of OTUs?
 
-* List the individuals comprising one OTU from the Yoruba (YRI) population data using the tree visible in the online module for [Lab 4](https://fuzzyatelin.github.io/AN333_Fall18/Lab4-Phylogeny.html).
+* List the individuals comprising one OTU from the Yoruba (YRI) population data using the tree visible in the online [Module 4](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Module.html).
 
 * Does the neighbor-joining method always give you the evolutionarily 'correct' tree? Meaning does it show you exactly how these OTUs are related to each other biologically?
 
 * According to Saitou & Nei (1987), when the rate of nucleotide substitution (i.e., mutation) differs from lineage to lineage,  how does that influence the probability of obtaining the correct tree?
 
-* Please take a screenshot or save a PNG or PDF file of the neighbor-joining tree for your population and upload it as part of your answer. Your file size must not exceed 10 MB. Think about the diversity you see in terms of *UCP1*. If there was an unexpected amount of diversity in your population, what would that mean for *UCP1*? For example, if there is a lot of diversity in your population, does that mean there is selection occurring?
+* Please take a screenshot or save a PNG or PDF file of the neighbor-joining tree for your population and upload it as part of your answer. Your file size must not exceed 10 MB. Think about the diversity you see in terms of *TMPRSS2*. If there was an unexpected amount of diversity in your population, what would that mean for *TMPRSS2*? For example, if there is a lot of diversity in your population, does that mean there is selection occurring?
 
 * What two populations did you choose to compare to your own? Please take a screenshot or save a PNG or PDF file of your small final comparative tree of the three populations and upload it as part of your answer. Your file size must not exceed 10 MB. What do you think your trees are telling you about the comparative variation of these three populations? Which is the most variable? Why might that be?
-<br>
-<br>
+
+## Extra Credit
+
+* Take a look at the interactive phylogenetic trees on the Next Strain website for SARS-CoV-2. Explore the tree. What is the most deviated/changed viral sample? How many mutations from the original virus does it have? What country was it sampled in? When was it collected?
 
