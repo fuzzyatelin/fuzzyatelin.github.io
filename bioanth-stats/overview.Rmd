@@ -88,15 +88,15 @@ This is a 4 credit seminar course. Seminar will be held once a week for a total 
 ***
 ### Assessment
 ***
-Performance in the class will be assessed on a **gradeless** basis for the semester, with only a single final grade being assigned in consultation with each student. Assessment will entail the following assignments:
+Performance in the class will be assessed on a **gradeless** basis for the semester, with only a single final grade being assigned in consultation with each student. Assessment will entail the following assignments and considerations:
 <ol>
-1. Regular attendance and class participation.  
-2. On-time completion of assigned [**Modules**](https://fuzzyatelin.github.io/bioanth-stats/modules.html) prior to seminar meetings.
-3. Programming homework sets associated with each [Module](https://fuzzyatelin.github.io/bioanth-stats/modules.html), **due Thursday at 8:00 pm to your assigned [peer commentary partner(s)](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html)**.
-4. Respectful [**Peer Commentary**](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) on homework coding, that puts into practice teamwork and pair programming practices discussed in class and in readings, **to be submitted to me by 5:00pm Sunday**.
-5. One individual [**Analysis Replication Assignment**](https://fuzzyatelin.github.io/bioanth-stats/data-reanalysis-assignment.html) based on a published paper with a publicly available dataset, chosen in consultation with the instructor.  
-6. One <b>group presentation and written R vignette</b> demonstrating the use of a particular statistical method chosen in consultation with the instructor (past examples available in the [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)). Group participation will be a large part of evaluation, and must also put into practice teamwork methods discussed in readings and class.
-7. A final [**Self Evaluation**](https://fuzzyatelin.github.io/bioanth-stats/selfevaluation.html) written by *you* arguing for the grade you have earned through your progress and the quality of your work in the class.
+1. Regular attendance and class participation (10%).  
+2. On-time completion of assigned [**Modules**](https://fuzzyatelin.github.io/bioanth-stats/modules.html) prior to seminar meetings (10%).
+3. Programming homework sets associated with each [Module](https://fuzzyatelin.github.io/bioanth-stats/modules.html), **due Thursday at 8:00 pm to your assigned [peer commentary partner(s)](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html)** (20%).
+4. Respectful [**Peer Commentary**](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) on homework coding, that puts into practice teamwork and pair programming practices discussed in class and in readings, **to be submitted to me by 5:00pm Sunday** (10%).
+5. One individual [**Analysis Replication Assignment**](https://fuzzyatelin.github.io/bioanth-stats/data-reanalysis-assignment.html) based on a published paper with a publicly available dataset, chosen in consultation with the instructor (20%).  
+6. One <b>group presentation and written R vignette</b> demonstrating the use of a particular statistical method chosen in consultation with the instructor (past examples available in the [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)). Group participation will be a large part of evaluation, and must also put into practice teamwork methods discussed in readings and class (20%).
+7. A final [**Self Evaluation**](https://fuzzyatelin.github.io/bioanth-stats/selfevaluation.html) written by *you* arguing for the grade you have earned through your progress and the quality of your work in the class (5%).
 </ol>
 
 ***
