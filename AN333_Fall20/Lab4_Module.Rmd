@@ -22,7 +22,7 @@ color: white;
 
 ***
 
-### [Homework for Lab 4: DUE Friday, November 2nd](https://fuzzyatelin.github.io/AN333_Fall18/Lab4_Homework.html)
+### [Homework for Lab 4: DUE Friday, November 6th](https://fuzzyatelin.github.io/AN333_Fall18/Lab4_Homework.html)
 
 ***
 
@@ -83,7 +83,7 @@ par(mar=c(5,8,4,2))
 ape::image.DNAbin(YRIdna[,ape::seg.sites(YRIdna)],cex.lab=0.5)
 ```
 
-Notice, here, that each individual has *two* sequences under their name (one with a '0' at the end, and one with a '1')? That's because our genotype data has genotypes for each of *two* alleles per person at every site, with the alleles on one copy of each chromosome phased into *haplotypes*. In simpler terms, think of it as one (maybe the '0') sequence being what was inherited from the mother, and the other (maybe the '1') being inherited from the father. Because of this, when we construct our tree, below, we'll actually be constructing it based on haplotypes rather than a single sequence per individual. So DNA from the same individual *could* fall into *two* places on the tree, depending on how much heterozygosity there is in each individual's *UCP1* gene. You may also notice that we have 207 variants in our total *UCP1* file, but there are only 38 represented here... that's because the YRI population only has 38 *segregating sites* (or sites that are variable) out of those 207 in the *UCP1* region (that means the other 169 variant sites documented for *UCP1* are all variant in other, non-YRI populations).
+Notice, here, that each individual has *two* sequences under their name (one with a '0' at the end, and one with a '1')? That's because our genotype data has genotypes for each of *two* alleles per person at every site, with the alleles on one copy of each chromosome phased into *haplotypes*. In simpler terms, think of it as one (maybe the '0') sequence being what was inherited from the mother, and the other (maybe the '1') being inherited from the father. Because of this, when we construct our tree, below, we'll actually be constructing it based on haplotypes rather than a single sequence per individual. So DNA from the same individual *could* fall into *two* places on the tree, depending on how much heterozygosity there is in each individual's *UCP1* gene. You may also notice that we have 2246 variants in our total *TMPRSS2* file, but there are many fewer represented here... that's because the YRI population only has a certain number of *segregating sites* (or sites that are variable) out of those 2246 in the *TMPRSS2* region (that means the other variant sites documented for *TMPRSS2* are all variant in other, non-YRI populations).
 
 ## Part 2: Creating a Distance Matrix using Kimura's Evolutionary Model
 
@@ -126,7 +126,7 @@ Ok, our tree is ready to be plotted! Before we do this, think about your populat
 <br><br>
 Here is our tree! Remember when running this tutorial on your to plot *your own* tree and not mine!
 ```{r,fig.height=28,fig.width=12}
-plot(YRItree, cex=1)
+plot(YRItree, cex=0.5)
 ```
 
 As you can see from the example, YRI is a very molecularly diverse population in the context of *TMPRSS2*, and there are many different nodes on the tree. To interpret this tree, think of every node (or splitting point) as a point at which two sub-populations differ by at least one variant. Everyone to the right of a node along one particular branch shares the same difference. The *length* of the line from left-to-right corresponds to the number of base-pair differences in the sequence (this means that longer lines from left-to-right imply more changes in the sequence, or more mutations; if we assume a constant mutations rate, this also implies more time).
