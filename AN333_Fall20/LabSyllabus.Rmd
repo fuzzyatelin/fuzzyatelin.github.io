@@ -166,17 +166,18 @@ life population genetic analyses.</li>
 <br><br> 
 **Readings**:<ul> 
 <li>[Garrigan DR, Lewontin R, Wakeley J. 2010. Measuring the sensitivity of single-locus “neutrality tests” using a direct perturbation approach. *Mol Biol Evol* 27(1): 73-89.](https://academic.oup.com/mbe/article/27/1/73/1125718)</li><br>
-<li>[Stawiski EW, et al. Preprint accessed 10APR20. Human *ACE2* receptor polymorphisms predict SARS-CoV-2 susceptibility. *bioRxiv*, DOI: 10.1101/2020.04.07.024752](https://www.biorxiv.org/content/10.1101/2020.04.07.024752v1.full.pdf)</li><br>
+<li>[The Severe COVID-19 GWAS Group. 2020. Genomewide Association Study of Severe Covid-19 with Respiratory Failure. *New England Journal of Medicine*, 383, 1522-1534.](https://www.nejm.org/doi/full/10.1056/NEJMoa2020283)</li><br>
+<li>[Genetics and COVID-19 Pandemic. 2020. The American Society of Human Genetics.](https://medicalxpress.com/news/2020-10-genetics-covid-pandemic.html)</li><br>
 <li>[Sabeti PC, et al. 2002. Detecting recent positive selection in the human genome from haplotype structure. Nature 419(6909): 832-837.](https://www.nature.com/articles/nature01140)</li><br>
 <li>[Tajima F. 1989. Statistical method for testing the neutral mutation hypothesis by DNA polymorphism. *Genetics* 123(3): 585–595.](http://www.genetics.org/content/123/3/585)</li></ul>
 <br>
-**Activities**: We'll use the packages *PopGenome* and *pegas* to cauclate Fu and Li’s D and F, as well as Tajima’s D for *ACE2* in our respective 1000 Genomes populations. We'll also look at an example of an iHS score with the example data from the *rehh* package. Finally, we will take ample time to understand what the Fu and Li’s D and F and Tajima’s D test results tell us about how our populations are evolving, and use the example of iHS to predict whether or not our populations underwent a selective sweep in the *ACE2* region. <br><br>
-**Assignment**: Students must turn in a worksheet – with questions related to *ACE2* variation in humans and related to the downloaded dataset – in class the following Friday. **Module 4 Homework Assignment is due today.**<br><br>
+**Activities**: We'll use the packages *PopGenome* and *pegas* to cauclate Fu and Li’s D and F, as well as Tajima’s D for the severe COVID-19 susceptibility region (3p21.3) identified by The Severe COVID-19 GWAS Group in our respective 1000 Genomes populations. We'll also look for positive selective sweeps in each of our 1000 Genomes populations using iHS score and EHH using the *rehh* package. Finally, we will take ample time to understand what the Fu and Li’s D and F and Tajima’s D test results tell us about how our populations are evolving, and use the example of iHS to predict whether or not our populations underwent a selective sweep in this susceptibility region. <br><br>
+**Assignment**: Students must turn in a homework assignment – with questions related to this module and associated readings in humans and related to the downloaded dataset – in class the following Friday. **Module 4 Homework Assignment is due today.**<br><br>
 **Learning Outcomes**:<ul>
-<li>Learn what Fu and Li's D and F, Tajima's D, and iHS scores mean, and how to interpret them.</li>
+<li>Learn what Fu and Li's D and F, Tajima's D, and iHS scores and EHH means, and how to interpret them.</li>
 <li>Learn to use the *PopGenome* package to calculate neutrality statistics like Fu and Li's D and F, and Tajima's D.</li> 
 <li>Learn to use the *pegas* package to explore our Tajima's D statistic further.</li>
-<li>Learn about iHS by looking at an example of how to calculate iHS in *R*, and reflect on what the iHS score for our population's *ACE2* haplotype might look like.</li>
+<li>Learn about iHS and how to calculate iHS in *R*, and reflect on what the iHS score for our populations.</li>
 <li>Learn about whether or not selection is happening in our populations based on these statistics, and relate it to what may be happening in the local environment to cause these alleles to be selected for/against.
 </li> 
 
@@ -186,7 +187,7 @@ life population genetic analyses.</li>
 
 ***
 
-### [*Module 6: A Brief Digression from ACE2 for Quantitative Genetics*](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Module.html)
+### [*Module 6: A Brief Digression from COVID-19 for Quantitative Genetics*](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Module.html)
 **November 20**<br>
 
 ***

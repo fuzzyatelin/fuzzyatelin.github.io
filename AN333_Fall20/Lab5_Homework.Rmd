@@ -1,8 +1,10 @@
 ---
-title: 'Lab 5: Homework'
+title: 'Module 5: Homework'
 author: "Christopher A Schmitt"
-date: "November 9, 2018"
-output: html_document
+date: "November 1, 2020"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
 ---
 
 ## Introduction to Neutrality Statistics and Signs of Selection
@@ -11,7 +13,9 @@ output: html_document
 
 **Readings**:<ul> 
 <li>[Garrigan DR, Lewontin R, Wakeley J. 2010. Measuring the sensitivity of single-locus “neutrality tests” using a direct perturbation approach. *Mol Biol Evol* 27(1): 73-89.](https://academic.oup.com/mbe/article/27/1/73/1125718)</li><br>
-<li>[Southam L, Soranzo N, Montgomery SB, Frayling TM, McCarthy MI, Barroso I, Zeggini E. 2009. Is the thrifty genotype hypothesis supported by evidence based on confirmed type 2 diabetes- and obesity-susceptibility variants? *Diabetologia* 52: 1846-1851.](https://link.springer.com/article/10.1007%2Fs00125-009-1419-3)</li><br>
+<li>[The Severe COVID-19 GWAS Group. 2020. Genomewide Association Study of Severe Covid-19 with Respiratory Failure. *New England Journal of Medicine*, 383, 1522-1534.](https://www.nejm.org/doi/full/10.1056/NEJMoa2020283)</li><br>
+<li>[Genetics and COVID-19 Pandemic. 2020. The American Society of Human Genetics.](https://medicalxpress.com/news/2020-10-genetics-covid-pandemic.html)</li><br>
+<li>[Sabeti PC, et al. 2002. Detecting recent positive selection in the human genome from haplotype structure. Nature 419(6909): 832-837.](https://www.nature.com/articles/nature01140)</li><br>
 <li>[Tajima F. 1989. Statistical method for testing the neutral mutation hypothesis by DNA polymorphism. *Genetics* 123(3): 585–595.](http://www.genetics.org/content/123/3/585)</li></ul>
 
 ***
@@ -21,7 +25,7 @@ For our homework, we'll be doing a little more work with neutrality statistics a
 As before, you'll be turning in your homework via an online interface.  I recommend writing your essays in a document on your laptop and only engaging with the online interface when you're ready to turn in *all* of your completed answers in a single submission.<br>
 
 <center>
-###[Access the online interface to submit your homework answers here.](https://goo.gl/forms/xzBw46KxoNSrOiBO2)
+### [Access the online interface to submit your homework answers here.](https://goo.gl/forms/xzBw46KxoNSrOiBO2)
 </center><br>
 
 * What is a segregating site?
@@ -54,8 +58,12 @@ As before, you'll be turning in your homework via an online interface.  I recomm
 
 * Match the kind of selective sweep (hard, soft, partial) to the kind of variant under selection. Ancestral, novel, or one of several involved in a polygenic trait?
 
-* In Southam et al. (2009), the authors tried to find Type 2 diabetes and obesity genes under selection (based on the *Thrifty Genotype hypothesis*). They used well-replicated candidate loci from genome-wide association studies associated with those traits. As part of their analysis, the assessed whether the disease allele (the allele associated with a higher likelihood of developing T2D or obesity) was *novel* or *ancestral* by comparing the disease allele to the chimpanzee allele at that locus. What did they find?
+* In the Severe COVID-19 GWAS Group paper (2020), the authors tried to find regions of the genome associated with severe COVID-19 symptoms in Italian and Spanish populations, and found two candidate regions. One on chromosome 3 (which we studied here), and one on chromosome 9. Which showed a stronger association with severe COVID-19?
 
-* Which potential 'thrifty gene(s)' did they found evidence of a selective sweep for using iHS?
+* What made the authors focus on *rs11385942* as a focal risk allele? Can you find out on Ensembl what gene this variant actually resides in?
 
-* The only tests Southam et al. (2009) used to assess selection was F-statistics (to compare across populations) and iHS. They hypothesized that they would see signs of selection, as indicated by iHS, around these alleles/loci. Given what *you* know about iHS and how it assesses selection in the genome, would *you* expect to see signs of selection around all of the alleles/loci they test? Why or why not?
+* Why do the authors focus on *SLC6A20* as a potential candidate gene in this region that might be affecting suceptibility?
+
+* Upload the image of your 1) EHH and 2) Bifurcation diagram for the best (highest p<sub>iHS</sub> value) candidate for a selective sweep in your population in the severe COVID-19 GWAS region.
+
+* Given what *you* know about your study population, iHS, and how it assesses selection in the genome, would *you* expect to see signs of selection in the severe COVID-19 GWAS region? Why or why not?
