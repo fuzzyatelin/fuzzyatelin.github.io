@@ -67,3 +67,23 @@ As before, you'll be turning in your homework via an online interface.  I recomm
 * Upload the image of your 1) EHH and 2) Bifurcation diagram for the best (highest p<sub>iHS</sub> value) candidate for a selective sweep in your population in the severe COVID-19 GWAS region.
 
 * Given what *you* know about your study population, iHS, and how it assesses selection in the genome, would *you* expect to see signs of selection in the severe COVID-19 GWAS region? Why or why not?
+<br>
+<br>
+<br>
+
+## Extra Credit (required for students taking CAS AN 733)
+
+* What is the 500-bp window of the severe COVID-19 risk region that has the highest value for Tajima's D in your population?
+
+* What is the functional annotation for the SNPs in this window?
+
+* Does any of your significance windows contain any of the SNPs identified as potential selective sweeps via significant p<sub>iHS</sub> score from your previous analysis?
+
+* Upload the image of your 1) EHH and 2) Bifurcation diagram for a representative SNP from this window, or for a particularly interesting SNP in one of your significance windows based on potential functionality.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
