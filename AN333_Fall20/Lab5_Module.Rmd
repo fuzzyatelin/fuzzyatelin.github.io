@@ -41,7 +41,7 @@ In this module, we we'll take our first look at *neutrality statistics*, which a
 First, let's get an understanding of what each of these statistics might mean when calculated for our populations...
 
 ### Tajima's D
-This is a fairly common neutrality statistic. For this lab, we've read the [original paper by Tajima](), which details the development of his D statistic as a way of testing for the *neutral mutation hypothesis* (or Kimura's theory of neutral mutation, as we've discussed it in class). Tajima's D tests whether the pattern of mutations found in a particular region of the genome in a population is following the assumptions of neutrality models; in other words, if there has been selection for or against a particular allele in the population, the pattern seen will *violate* the assumptions of the neutral model.
+This is a fairly common neutrality statistic. For this lab, we've read the [original paper by Tajima](http://www.genetics.org/content/123/3/585), which details the development of his D statistic as a way of testing for the *neutral mutation hypothesis* (or Kimura's theory of neutral mutation, as we've discussed it in class). Tajima's D tests whether the pattern of mutations found in a particular region of the genome in a population is following the assumptions of neutrality models; in other words, if there has been selection for or against a particular allele in the population, the pattern seen will *violate* the assumptions of the neutral model.
 <br>
 <br>
 With Tajima's D, the closer to 0 the D statistic is, the closer the locus being tested is to meeting the assumptions of neutrality. In other words, when D is close to 0 there are no alleles over- or under-represented at that locus across the population, suggesting that selection is *not* acting on that locus in the population. If the D statistic is a negative number, this means the population is experiencing *purifying* or *negative* selection against an allele at that locus. Conversely, if the D statistic is positive, this means that the population is experiencing *positive* selection at the locus.<br><br> Today, we'll calculate Tajima's D values for *our* populations in order to determine if any directional selection is happening in the severe COVID-19 association region. 
@@ -370,6 +370,69 @@ As we wrap up this lab, think about the results you've generated. You have alrea
 * What is the Tajima's D statistic and accompanying P-value for your population, and what does that mean regarding potential selection happening on your population?
 
 * What do you think of the iHS scores in the COVID-19 risk region in your data? Does this fit with your results based on Tajima's D or Fu & Li's D and F? Based on what we've discovered today about selection happening in our populations, do you think that a selective sweep may have happened in the severe COVID-19 risk region for you population? Is there anything that you know about the disease ecology and history of your population that you can use to aid in understanding why there may or may not have been a recent positive selective sweep in your population in this region?
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+# Extra Credit: Sliding window Tajima's D!
+
+A perhaps more helpful method for assessing Tajima’s D can be done using {vcftools} in the SCC/Terminal workspace. This version analyses Tajima’s D in small sliding windows (here, I've chosen 500 bp windows) along the gene region of interest, allowing us to better pinpoint exactly where in the gene region selection may be occurring:
+```{bash, eval = F, echo = T, class.source="sccCode"}
+module load vcftools
+vcftools --vcf COVIDRISK_YRI.vcf --TajimaD 500 # We chose 500 as the window size
+mv out.Tajima.D COVIDRISK_YRI.Tajima.D #rename the output file 
+mv out.log COVIDRISK_YRITD.log #rename log file 
+less COVIDRISK_YRI.Tajima.D 
+```
+
+With this sliding window, we can see that certain sections of our severe COVID-19 risk region have very different values for Tajima’s D. A good rule of thumb is that a Tajima's D value above 2 or below -2 is significant. For example, the 500 bp windows starting at position 45823000 has 4 SNPs in it and is negative but not quite significant (D = -1.56823000).
+
+Let’s take a closer look by bringing the output from this analysis into *R* so that we can filter it according to this significance threshold:
+```{r}
+slide.covid<-read.table("COVIDRISK_YRI.Tajima.D",header=TRUE)
+head(slide.covid)
+```
+
+Now we can filter it by our significance threshold using the {tidyverse} package:
+```{r,warning=F,message=F}
+library(tidyverse)
+slide.covid.sig<-
+  slide.covid %>%
+  filter(TajimaD >= 2 | TajimaD <= -2)
+slide.covid.sig
+```
+
+Here, we can see that we have 12 500-bp windows in the severe COVID-19 risk region that have significant Tajima's D values for the Yoruban population. All of these values are positive, suggesting positive selection on at least one of the SNPs in each of these regions. The most significant region is **3:46101500-46102000** (row 9 in our table), and there are 5 SNPs in that region that could be the potential focus for selection. Going back to *Ensembl*, it looks like this 500 bp window is in an *intergenic* region (between genes), so if it is experiencing positive selection, it is most likely on an as-yet-unannotated regulatory region for a gene (although, of course, it may also simply be in high LD with a functional region elsewhere). I found this functional information by searching for the 500 bp window, 3:46101500-46102000, in the human reference genome on *Ensembl* and looking at the Variant Table. Remember, if your population had no variants at certain SNPs, then those SNPs were dropped from your VCF file; this means there may be more SNPs listed on *Ensembl* than are actually in your sliding window for your population.
+
+The remaining windows listed in our table include intronic variants in the gene *LZTFL1* (row 1), intronic variants in the gene *FYCO1* (row 2), known regulatory region variants (part of a [CTCF](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1894-x) binding domain) and transcription factor binding sites (*rs535236997*, *rs553123352*, and *rs374572137*) for the gene *NFATC1* (this plays a role in cytokine expression in T-cells) (row 10), an intergenic region containing a variant (*rs13063635*) known to significantly decrease the eosinophil percentage among granulocytes (these are white blood cells important to modulating inflammatory processes) (row 12), and more functionally unknown intergenic variants (rows 3, 4, 5, 6, 7, 8, 9, 11).
+
+These are some very interesting phenotypes, with potential importance to COVID-19 response (severe COVID-19 has, after all, been characterized as a 'cytokine storm', and in part a disease of inflammation)! Because of this, it might be interesting to see if there is, indeed, haplotype homozygosity at the loci found within these windows to bolster support for a positive selective sweep. 
+
+Let's check out *rs6772051* (3:46101567), which is an intergenic variant in our window (row 9; 3:46101500-46102000) that shows the highest value for Tajima's D:
+```{r}
+ehh_46101567<-calc_ehh(hap,mrk="3-46101567")
+plot(ehh_46101567,
+     main="EHH at 3:46101567",
+     col=c("blue2","gold2"))
+```
+
+Definitely looks like the *ancestral* allele has some more extensive haplotype homozygosity than the derived allele (e.g., the blue line is higher than the gold line across most of the region). Let's look at the bifurcation diagram:
+```{r}
+furcation_46101567<-calc_furcation(hap,mrk="3-46101567")
+plot(furcation_46101567,
+     lwd=0.1,
+     col=c("blue2","gold2"),
+     cex.lab=0.3,
+     main="Bifurcation Diagram\nrs6772051 in YRI",
+     legend.xy.coords="none")
+```
+
+And yes, we can see some very clear extended haplotype homozygosity for the haplotype containing the ancestral allele! Particularly downstream of the variant.
+
+What regions show significantly positive Tajima's D in your population?  Are they the same as in the YRI population? Are they implicated in similar traits or genomic functions?
 <br>
 <br>
 <br>
