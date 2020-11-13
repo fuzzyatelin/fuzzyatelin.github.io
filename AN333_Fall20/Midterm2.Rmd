@@ -1,25 +1,27 @@
 ---
 title: "Midterm 2"
 author: "Christopher A Schmitt"
-date: "November 18, 2018"
-output: html_document
+date: "November 13, 2020"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
 ---
 
 ## Midterm 2 (150 points)
 
 This midterm is **open notes, open textbook, open Lab tutorial** and will cover genetics review concepts (insofar as they are relevant to our newer work), linkage disequilibrium, genetic drift, heterozygosity, and detecting and measuring selection in the genome. <br>
 
-You may begin the exam when the submission link (below) becomes active at class time on **Monday, November 19**, and work on the exam until the link closes at midnight of the exam due date, **Wednesday, November 28**.<br>
+You may begin the exam when the submission link (below) becomes active at class time on **Friday, November 13**, and work on the exam until the link closes at midnight of the exam due date, **Friday, November 20**.<br>
 
 *No late responses will be accepted!*<br><br>
 
 <center>
-###[Access the online interface to submit your Midterm 2 answers here.](https://goo.gl/forms/y4I1lOaDjlIUD4yy2)
+### [Access the online interface to submit your Midterm 2 answers here.](https://forms.gle/roGNmMGmjMp8hoRP6)
 </center><br>
 
-Parts of this exam will require downloading, processing, and analyzing data from *Ensembl* in ways that should, by now, be familiar to you; these may involve interfacing with *R/R Studio*, *tabix*, *vcftools*, and other modules in the *SCC*. If you've forgotten how to use these modules, you should use your online Lab tutorials as guides (this is an open notes exam, after all).<br>
+Parts of this exam will require downloading, processing, and analyzing data from *Ensembl* in ways that should, by now, be familiar to you; these may involve interfacing with *R/R Studio*, *tabix*, *vcftools*, and other modules in the *SCC*. If you've forgotten how to use these modules, you should use your online module tutorials as guides (this is an open notes exam, after all).<br>
 
-All *SCC*-based files associated with exam analyses should be uploaded to a folder in the general *anth333* project space. Doing this will be part of the exam, and involves commands you've already learned and used in the context of class.<br>
+All *SCC*-based files associated with exam analyses should be uploaded to your named a folder in the general *anth333* project space. Doing this will be part of the exam, and involves commands you've already learned and used in the context of class.<br>
 
 NOTE: I will *not* help you directly with exam questions in office hours. However, I *will* help you with exercises already present on Lab tutorials or previous homework assignments. *Please do not ask for help on exam questions*. Also, although you are encouraged to do your homework in cooperation with other students, you should be doing your take-home exam *alone*.<br>
 
@@ -27,22 +29,21 @@ NOTE: I will *not* help you directly with exam questions in office hours. Howeve
 
 ###Part 1: Preparing your Workspace for Midterm 2 (5 points)
 
-<ol>1. Log in to your *SCC* working directory. **(1 point)**<br><br>
+<ol>1. Log in to your *SCC* working directory in the `anth333` project space. **(1 point)**<br><br>
 
-Once there, enter the following code:
-```{bash, eval = F, echo = T}
-#this gives you access to a shared project space on the SCC that I can access.
-cd /project/anth333/
-```
-</ol><br>
-<ol>2. Create a new directory in this *anth333* shared project space named after your BU login, followed by the number '**2**'. For example, my directory would be called *caschmit2*, which is both my BUID and my *SCC* login name wiht the number 2 after it. **(2 points)**</ol><br>
+<ol>2. In the directory *anth333*, you should already have a shared project space named after your BU login. In that directory, create a new directory named '**Midterm2**'. **(2 points)**</ol><br>
 
-<ol>3. Now, navigate to your newly named directory so that it's your current directory (i.e., where all of the files you download from *Ensembl* will be deposited and saved). *Conduct all work for the midterm from this directory*. At the end of the exam, all your newly created or saved files associated with Midterm 2 *must* be in this folder. **(2 points)**<br><br>
+<ol>3. Now, navigate to your newly named directory so that it's your current directory (i.e., where all of the files you process in *R* will be deposited and saved). *Conduct all work for the midterm from this directory*. At the end of the exam, all your newly created or saved files associated with Midterm 2 *must* be in this folder. **(2 points)**<br><br>
 
 HINT: Given you answered these first questions correctly, your *SCC* prompt will look like this for all midterm analyses:
 
 ```{bash, eval = F, echo = T}
-[username@scc1 username2]$
+[username@scc1 Midterm2]$
+```
+
+And your *SCC On Demand* file pane and console pathways should look like this:
+```{r,eval=F}
+~/project/anth333/BUlogin/Midterm2/
 ```
 
 Now, all of the analyses and processing you do will be done *within* this single named directory, allowing me to grade your individual progress.</ol>
@@ -51,13 +52,13 @@ Now, all of the analyses and processing you do will be done *within* this single
 
 ###Part 2: Linkage in a New Population (40 points)
 
-So far in our labs, we've been focusing on the human mitochondrial uncoupling protein 1 (*UCP1*) gene in our own assigned *1000 Genomes Project* populations. To better demostrate what we've learned, let's take a look at a novel population.<br><br>
+So far in our labs, we've been focusing on the human *TMPRSS2* gene in our own assigned *1000 Genomes Project* populations. To better demonstrate what we've learned, let's take a look at this gene in a novel population.<br><br>
 
-Now, I'm already convinced that we all know how to properly download a dataset from *Ensembl*, so for this exam, please copy the data for the **Bengali in Bangladesh** population from the *caschmit2* folder into your Midterm 2 folder. **(5 points)**<br><br>
+Now, I'm already convinced that we all know how to properly download a dataset from *Ensembl*, so for this exam, please copy the data for the **Bengali in Bangladesh** population from the *SampleVCF* folder into your *Midterm2* folder. **(5 points)**<br><br>
 
-HINT: We last did something like this in [Lab 4](https://fuzzyatelin.github.io/AN333_Fall18/Lab4-Phylogeny.html)
+HINT: We last did something like this in [Module 4](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Module.html)
 
-The next few questions will have do with the concept of *linkage*.
+The next few questions will have to do with the concept of *linkage*.
 
 <ol>1. Which process in the genome is responsible for driving linkage between any two loci towards equilibrium, and when does it happen? **(5 points)**
 
@@ -137,16 +138,11 @@ The next few questions will have do with the concept of *linkage*.
 
 <ol>8. What is *D*, the measure of LD, for the problem above? **(2 points)**</ol><br>
 
-For the next few questions, we'll interrogate the dataset we copied for the Bengali from Bangladesh population from the *1000 Genomes Project* dataset. Using the methods in [Lab 3](https://fuzzyatelin.github.io/AN333_Fall18/Lab3-LD.html), create an LD heatmap for the Bengali from Bangladesh using the **D'** test statistic. You will need the following positions to make your heatmap work:
-
-```{r}
-positions <- c(140559446,140559490,140559521,140559713,140559846,140559894,140559997,140560031,140560063,140560064,140560092,140560119,140560134,140560308,140560366,140560427,140560458,140560532,140560579,140560607,140560687,140560748,140560792,140560808,140560884,140560983,140561026,140561062,140561074,140561152,140561173,140561182,140561318,140561330,140561357,140561373,140561510,140561527,140561537,140561614,140561631,140561692,140561713,140561725,140561743,140561866,140561976,140562117,140562176,140562184,140562235,140562317,140562322,140562327,140562349,140562385,140562386,140562397,140562521,140562531,140562581,140562627,140562660,140562739,140562843,140562887,140562892,140562921,140562990,140563028,140563046,140563138,140563155,140563197,140563209,140563215,140563218,140563262,140563338,140563379,140563382,140563386,140563423,140563478,140563530,140563580,140563648,140563722,140563754,140563850,140563911,140563934,140563944,140563980,140564018,140564023,140564106,140564169,140564191,140564305,140564332,140564384,140564388,140564390,140564441,140564594,140564609,140564773,140564784,140564793,140564853,140564886,140564890,140564891,140564982,140565006,140565178,140565370,140565377,140565390,140565556,140565595,140565655,140565830,140565846,140566008,140566056,140566170,140566174,140566179,140566215,140566246,140566260,140566455,140566466,140566542,140566586,140566594,140566595,140566635,140566676,140566737,140566801,140566811,140566819,140566828,140566832,140566892,140566918,140566923,140567029,140567084,140567141,140567205,140567343,140567429,140567462,140567567,140567572,140567578,140567586,140567641,140567662,140567679,140567681,140567735,140567738,140567754,140567765,140567773,140567806,140567811,140567837,140567840,140567862,140567864,140567899,140567914,140567935,140567951,140567973,140567981,140568011,140568016,140568045,140568046,140568052,140568067,140568074,140568108,140568208,140568214,140568279,140568326,140568333,140568366,140568389,140568473,140568517,140568575,140568607,140568610,140568612,140568694,140568724,140568763,140568792)
-```
-<br>
+For the next few questions, we'll interrogate the dataset we copied for the Bengali from Bangladesh population from the *1000 Genomes Project* dataset. Using the methods in [Module 3](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Module.html), create an LD heatmap for the Bengali from Bangladesh using the **D'** test statistic. <br>
 
 <ol>9. Upload your *D'* heatmap for the Bengali from Bangladesh population **(10 points)**</ol><br>
 
-<ol>10. Which of the three other SNPs of interest from the Ramos et al. (2012) paper and Lab 3 are in LD with SNP of interest **rs6536991** in the Bengali from Bangladesh population? **(6 points)**</ol><br>
+<ol>10. Which of the SNPs of interest from the LD module (*rs2070788*, *rs383510*, *rs4816720*, *rs12329760*) are in linkage disequilibrium (LD > 0.8) in the Bengali from Bangladesh population? **(6 points)**</ol><br>
 
 ###Part 3: Genetic Drift (10 points)
 
@@ -196,7 +192,7 @@ positions <- c(140559446,140559490,140559521,140559713,140559846,140559894,14055
 
 </ol><br>
 
-<ol>18. In Lab 4, we used the Neighbor-Joining method to construct a tree based on an infinite alleles mutation model. Does the neighbor-joining method always give you the evolutionarily 'correct' tree? Why or why not? **(5 points)**</ol><br>
+<ol>18. In Module 4, we used the Neighbor-Joining method to construct a tree based on an infinite alleles mutation model. Does the neighbor-joining method always give you the evolutionarily 'correct' tree? Why or why not? **(5 points)**</ol><br>
 
 <ol>19. Please take a screenshot or save a PNG or PDF file of the neighbor-joining tree for the Bengali in Bangladesh population (as done in Lab 4) and upload it here. Your file size must not exceed 10 MB. **(10 points)**</ol><br>
 
@@ -212,10 +208,10 @@ positions <- c(140559446,140559490,140559521,140559713,140559846,140559894,14055
 
 </ol><br>
 
-Imagine that we all, as a class, submitted samples to the Sensory Morphology and Genomic Anthropology Lab for sequencing of our individual *UCP1* genes. For a 20-bp sequence, we get the following information regarding *segregating sites* in that region:<br><br> 
+Imagine that we all, as a class, submitted samples to the Sensory Morphology and Anthropological Genomics Lab for sequencing of our individual *TMPRSS2* genes. For a 20-bp sequence, we get the following information regarding *segregating sites* in that region:<br><br> 
 
 <center>
-![](hetsel.png)
+![](img/hetsel.png)
 </center><br>
 
 <ol>21. What is the *observed heterozygosity* (Ѳ<sub>π</sub>) of this sample?  **(2 points)**</ol><br>
@@ -242,7 +238,7 @@ Imagine that we all, as a class, submitted samples to the Sensory Morphology and
 
 </ol><br>
 
-<ol>24. We also calculated Tajima's D, in a different and much faster way, in [Lab 5](https://fuzzyatelin.github.io/AN333_Fall18/Lab5-neutrality.html). Calculate Tajima's D for the Bengali in Bangladesh population. **(5 points)**</ol><br>
+<ol>24. We also calculated Tajima's D, in a different and much faster way, in [Module 5](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Module.html). Calculate Tajima's D for the Bengali in Bangladesh population. **(5 points)**</ol><br>
 
 <ol>25. Is this value for Tajima's D statistically significant? **(2 points)**
 
@@ -252,7 +248,7 @@ Imagine that we all, as a class, submitted samples to the Sensory Morphology and
 
 </ol><br>
 
-<ol>26. Given the value of Tajima's D for the Bengali in Bangladesh, what kind of selection might be occurring around *UCP1* in this population? **(2 points)**
+<ol>26. Given the value of Tajima's D for the Bengali in Bangladesh, what kind of selection might be occurring around *TMPRSS2* in this population? **(2 points)**
 
 <ol>a) No selection</ol>
 
@@ -265,7 +261,7 @@ Imagine that we all, as a class, submitted samples to the Sensory Morphology and
 When working in South Africa, you collect genomic data on three populations of vervet monkey (Pop1, Pop2, and Pop3). Each individual is genotyped at a particular SNP, the genotypes for which are summarized in the following table:<br><br>
 
 <center>
-![](fst.png)
+![](img/fst.png)
 </center><br>
 
 Answer the following questions based on these genotype results.
@@ -290,7 +286,7 @@ Answer the following questions based on these genotype results.
 
 </ol><br>
 
-<ol>32. The *EDAR* gene, which was discussed in class, is implicated in numerous phenotypes including hair thickness, sweat gland output, tooth morphology, and mammary duct proliferation. What is this phenomenon called, where one gene is implicated in multiple seemingly unrelated phenotypes? **(2 points)**
+<ol>32. The *EDAR* gene is a gene implicated in numerous phenotypes including hair thickness, sweat gland output, tooth morphology, and mammary duct proliferation. What is this phenomenon called, where one gene is implicated in multiple seemingly unrelated phenotypes? **(2 points)**
 
 <ol>a) Epistasis</ol>
 
