@@ -1,8 +1,10 @@
 ---
 title: "Lab 6 - Quantitative Genetics"
 author: "Christopher A Schmitt"
-date: "November 16, 2018"
-output: html_document
+date: "November 18, 2020"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
 ---
 
 ```{r,echo=F}
@@ -16,7 +18,7 @@ color: white;
 }
 ```
 
-##A Brief Digression from *UCP1* for Quantitative Genetics
+## A Brief Digression from *COVID-19* for Quantitative Genetics
 
 ***
 
@@ -27,33 +29,33 @@ color: white;
 
 ***
 
-###[Homework for Lab 6: DUE Friday, December 7th](https://fuzzyatelin.github.io/AN333_Fall18/Lab6_Homework.html)
+### [Homework for Lab 6: DUE Friday, November 27th](https://fuzzyatelin.github.io/AN333_Fall18/Lab6_Homework.html)
 
 ***
 
 In this lab, we'll take a VERY brief look at the practicalities of running a quantitative genetics analysis of *variance decomposition*. In other words, we'll look at a quantitative trait and figure out how much of the variation in that trait can be attributed to *narrow sense* heritability, and how much from environmental factors.  We'll also take a look at a few important environmental *covariates* and see how including them can change our estimates.
 
-##Part 1: Vervets of the Caribbean
+## Part 1: Vervets of the Caribbean
 
 For today's lab, metrics of obesity like body mass and BMI will be from simulated measurements from a wild population of vervet monkeys (*Chlorocebus sabaeus*):<br><br>
 <center>
-![](vervet.jpg)
+![](img/vervet.jpg)
 </center><br><br>
 Imagine you are a primatologist, and we're collaborators working with a wild population of vervet monkeys that's been studied for the past 50 years on the Caribbean island of St. Kitts.
 <br><br>
-![](StKitts.jpg)
+![](img/StKitts.jpg)
 <br><br>
 These Caribbean monkeys were brought over the Atlantic about 400 years ago from West Africa as either pets or food. A small amount of vervets were either set free or escaped, found the island to be fairly hospitable, and reproduced. A lot. There are now thousands of vervets running around on the island, where they're perhaps most famous for stealing the alcoholic beverages of tourists. <br><br>
 
 <center>
-![](drunkmonkey.gif)
+![](img/drunkmonkey.gif)
 </center><br><br>
 
 Our study population has been living on a sugar cane farm further north on the island, in a group numbering anywhere from 100 to 200 animals at any given time. In that population, researchers have been trapping and measuring vervet monkeys every 5 years since the project began in 1968, leading to a comprehensive dataset of almost 1500 animals! While trapped, researchers have been consistently measuring both the monkeys' body weight (BW) and body-mass index (BMI), two clinical traits that are strongly associated with obesity.
 
 According to the [Schmitt et al. (2018)](https://www.nature.com/articles/ijo2017301) study you've been assigned, are BW and BMI strongly heritable in vervets? How high is the *narrow sense* heritability for these traits in the captive vervet population? How much environmental variance is there?
 
-##Part 2: Understanding the Vervet Data
+## Part 2: Understanding the Vervet Data
 
 We researchers on the farm have been collecting excellent breeding and genetic data on the vervets, as well as behavioral data. All mothers for the past 50 years have been successfully associated with their offspring, and all fathers established by microsatellite-based paternity assessment. From this data, our group have been able to put together a comprehensive pedigree.
 
@@ -61,14 +63,14 @@ Now, in high school and university biology courses, we're used to seeing simple 
 
 <br>
 <center>
-![](simpleped.png)
+![](img/simpleped.png)
 </center><br>
 
 Now, here's the pedigree we're able to build for the nearly 1500 wild vervets we've sampled (in which blue individuals are males, and blue lines indicate male descent; and gold individuals are females and gold lines indicate female descent):
 
 <br>
 <center>
-![](vervsimped.png)
+![](img/vervsimped.png)
 </center>
 <br>
 A little more complicated looking, no?  Even given this complex pedigree, we can still use the relatedness values as a proxy for shared genetic ancestry, or IBD (instead of sequencing the whole genome directly), and in so doing use the pedigree to estimate the amount of additive genetic variance contributing to the heritability of the traits of interest we've measured over the years.
@@ -77,7 +79,7 @@ As we know, however, genetic variance isn't all we need to be concerned about in
 
 In our St. Kitts population there are three potential covariates for diet. Some monkeys were clever and figured out how to sneak through a guarded area of the farm where the farmers store harvested maize and sugar cane, and also where the dump is for food scraps, all of which which is very calorie-rich (these monkeys are coded in the *Diet* variable as '2'). Most of the monkeys were able to occasionally raid the farm and had occasional access to human foods (coded as '1' in the *Diet* covariate). Finally, there are some monkeys who, because of their place in the social hierarchy of the group, are kept at the outskirts of the population. These monkeys are forced to forage only on the forested slopes of the mountain near the farm, and eat only natural forage without any crops (coded as '0' in the *Diet* covariate). These are coded on an increasing basis with the increased availability of human foods because increased access to these foods is very often associated with obesity in humans.
 
-##Part 3: Setting Up *SOLAR-Eclipse* for the Vervet Analysis
+## Part 3: Setting Up *SOLAR-Eclipse* for the Vervet Analysis
 
 How much of the variation in body weight and BMI for the monkeys on St. Kitts genetic?  How much is based on environmental covariates like diet?
 
@@ -102,7 +104,7 @@ less vervped.csv
 ```
 <br><br>
 <center>
-![](vervpedhead.png)
+![](img/vervpedhead.png)
 </center>
 <br><br>
 As you can see, we have a few different columns here. *FamID* is to identify separate family structures; in this case, it's all one interbreeding population, so there's only one family ID. *ID* is the unique identifier for each individual in the population. *Fa* stands for 'father', or 'sire', and is the male parent, while 'Mo' stands for 'mother', or 'dam', and is the female parent. You'll notice that these first ten individuals don't have any sires or dams listed (Fa = '0', Mo = '0'); this is because when we started following this population in 1968, we only knew the adults already in the group... we couldn't find out who their parents were. If you scroll down, you'll see that subsequent generations *do* have known sires and dams.  Finally, we have *Sex*, with '1' indicating males, and '0' indicating females. This looks really simple, but from this file we're able to both construct the complex-looking pedigree diagram you see above, and we can calculate approximate amounts of IBD (all it takes in this case are the individual ID, the the mother's ID, and the father's ID to estimate relatedness and thus estimated proportions of IBD).
@@ -113,7 +115,7 @@ less vervdat.csv
 ```
 <br><br>
 <center>
-![](vervdathead.png)
+![](img/vervdathead.png)
 </center>
 <br><br>
 Here, we can see all the phenotypes and environmental factors measured for each individual. We have *ID* and *Sex*, as in the pedigree (indeed, the phenotypes are matched to the pedigree values through *ID*), the phenotypes *BW* (weight measured in kilograms), and *BMI* (body-mass index, which is the weight in kilograms divided by the square of their crown-to-rump length - or the length from their head to their tail). Finally, there's also the *Diet* covariate mentioned earlier (as you can see, *ID2* was one of the monkeys who was able to sneak access to the high-quality human foods, while *ID7* was relegated to the outskirts of the population and was only able to forage on wild foods). The other two variables listed, *TBV_BW* and *TBV_BMI*, are measures of variance in each trait (you don't need to worry about these).
@@ -141,7 +143,7 @@ load phenotypes vervdat.csv
 
 Once your data is loaded you're ready to run your first variance components-based quantitative genetic analysis! 
 
-##Part 4: An Example of Variance Decomposition in *SOLAR-Eclipse* using Body Weight 
+## Part 4: An Example of Variance Decomposition in *SOLAR-Eclipse* using Body Weight 
 
 The *SOLAR* package was written by Laura Almasy and John Blangero, who wrote [this week's reading on variance component analyses](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3064490/pdf/nihms253587.pdf). You can review their paper (or the related lecture slides on *Blackboard*) to better understand what's going on under the hood of *SOLAR-Eclipse*. As it is, *SOLAR* makes variance decomposition almost startlingly simple to implement...
 
@@ -165,7 +167,7 @@ polygenic
 Once you enter this command, the analysis will take off on its own. Given the complexity of the pedigree, it may take a few minutes to run completely, but as it runs it will show you various outputs indicating the progress of the analysis. It will estimate a *sporadic model*, which models the variance in BW on its own; *SOLAR* does this because it will then run the model with the IBD estimates from the pedigree and then will see if the inclusion of genetic data *better* explains the variance seen in BW. If it does, it will give you the output of the polygenic model, which will look like this:
 <br><br>
 <center>
-![](solarBWresults.png)
+![](img/solarBWresults.png)
 </center>
 <br><br>
 As you can see, *SOLAR* will show you which 'Pedigree' and 'Phenotype' file you're using, as well as which 'Trait' and how many individuals were included in the analysis. 'H2r' is the estimate of the narrow-sense heritability for this trait given the relatedness/IBD estimates based on the pedigree. For BW, the heritability is **0.6007670**, meaning that about **60%** of the variance seen in BW in the vervet population can be explained by allelic variation! That's a lot, and is in the range observed for human body weight (which is typically between 40% and 70%). This estimate is also highly significantly different (6.14 x 10<sup>-62</sup>) from a null model in which there is no additive genetic variance contributing to the population variance in BW. You can also see that the standard error around our heritability estimate is small (plus or minus 0.0424, or 4.24%). This leaves about **40%** of the variance in BW explained by variation in the environment.
@@ -187,7 +189,7 @@ polygenic
 ```
 <br><br>
 <center>
-![](solarnBWresults.png)
+![](img/solarnBWresults.png)
 </center>
 <br><br>
 As you can see, normalizing our trait hasn't changed our model much, but has allowed us to assign a bit more variance to the additive genetic component (which is up to almost 63%). This means that now only about 37% of the variance in BW is due to environmental effects.
@@ -203,7 +205,7 @@ polygenic -screen -all
 ```
 <br><br>
 <center>
-![](solarnBWcovresults.png)
+![](img/solarnBWcovresults.png)
 </center>
 <br><br>
 As you can see, our *Diet* variable *is* significantly contributing to the variance in BW! The inclusion of *Diet* has also not much changed our heritability estimate, which has dropped about 1%, suggesting that variance was absorbed by our dietary covariate. Indeed, only about 3.84% of the variance in BW is due to the variation seen in diet, and since the heritability didn't change much, that variance must have primarily been absorbed from the random environmental variance.
