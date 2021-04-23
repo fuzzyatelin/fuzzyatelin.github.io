@@ -1,6 +1,6 @@
 ---
 title: '**AN/BI 333/733 Module 1**<br>Accessing Human Candidate Gene Region Data'
-author: "Becca DeCamp & Christopher Schmitt"
+author: "Becca DeCamp & Christopher A. Schmitt"
 output: 
   rmarkdown::html_document:
     theme: cosmo
