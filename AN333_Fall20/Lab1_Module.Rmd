@@ -410,7 +410,7 @@ We check our file to see if the body is there because sometimes the server will 
 
 * Once you've checked your files to make sure everything is there, click on "Download results file", which should save these files in *filename.vcf.gz* format in the 'Downloads' folder in your *anth333* workspace on the *SCC*.
 
-* Once in your workspace, change your filenames to make things easier. Rename the full *UCP1* file with the acronym for your population. Name the smaller file with the acronym and then "small." For example, I downloaded data from the **YRI** population, so I named the larger file "YRI.vcf.gz" and will name the smaller file "YRIsmall.vcf.gz". Remember, to rename a file in the *SCC* workspace, you use the *mv* command (e.g., '*mv oldname.vcf.gz YRI.vcf.gz*')
+* Once in your workspace, change your filenames to make things easier. Rename the full *TMPRSS2* file with the acronym for your population. Remember, to rename a file in the *SCC* workspace, you use the *mv* command (e.g., '*mv oldname.vcf.gz YRI.vcf.gz*')
 
 <br> 
 
@@ -491,21 +491,21 @@ There's a solution: ***tabix***!<br>
 module load htslib
 ```
 
-* First, we can download the data. Remember, mine is YRI, so I'll use that code. Where you see 'YRI' in my code, insert the three-letter code of *your* population. Use the following command, making sure that your positions are correct for ACE2 (X:15561033-15602148), and that the chromosome designation is correct (e.g., `ALL.chrX...`):
+* First, we can download the data from an online repository. In this case, let's download *TMPRSS2*. Remember, my population of interest is YRI, so I'll use that abbreviation in my code. Where you see 'YRI' in my code, insert the three-letter code of *your* population instead. Use the following command, *making sure that your positions are correct* for TMPRSS2 (21:41464300-41531116), and that the *chromosome* designation is correct, both in the filename *and* in the positions (for example, if you were downloading a gene region on chromosome 8, you would replace all occurrences of `chr21` in the code below - there are two of them - with `chr8`):
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/GRCh38_positions/ALL.chrX_GRCh38.genotypes.20170504.vcf.gz X:15561033-15602148 > ACE2_YRI_all.vcf
+tabix -h http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr21.filtered.shapeit2-duohmm-phased.vcf.gz chr21:41464300-41531116 > TMPRSS2_YRI_all.vcf
 ```
 
 * Notice the syntax in that command? It's basically:
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-tabix -h [data URL] [region lookup] > [filename].vcf
+tabix -h [VCF file URL] [desired region] > [filename].vcf
 ```
 
-* This has saved the *ACE2* region as a VCF formatted file into your working directory!
+* This has saved the *TMPRSS2* region as a VCF formatted file into your working directory!
 
 * If you want to take a look at the file, and see that it's all there, you can use the '*less*' command and scroll with the 'down arrow' key to see the file itself. The screenshot below is of the first look, before you start scrolling. Notice there are A LOT of individuals (over 2,500), with names starting with '*HG*' or '*NA*'. To leave the scrolling and go back to the prompt, press '*q*':
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-less ACE2_YRI_all.vcf
+less TMPRSS2_YRI_all.vcf
 ```
 
 ![](img/YRI_all_view.png)
@@ -514,6 +514,9 @@ less ACE2_YRI_all.vcf
 * Next, let's download the *ID Panel* from 1000 Genomes. This is a list of IDs associated with each genome, including their gender and population of origin:
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
 wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/integrated_call_samples_v3.20130502.ALL.panel
+```
+```{bash, eval = FALSE, echo = F, class.source="sccCode"}
+wget http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/20130606_g1k_3202_samples_ped_population.txt
 ```
 
 * Let's take a look at this file, as well. Notice that each sample has it's sub-population ('*pop*'), population ('*super_pop*'), and gender noted here. Scroll down and take a look at what sample ID numbers are associated with your population. To leave the scrolling and go back to the prompt, press '*q*':
@@ -544,17 +547,17 @@ module load vcftools
 
 * Now we can use *vcftools* to subset our dataset:
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-vcftools --vcf ACE2_YRI_all.vcf --keep YRI.samples.list --recode --out ACE2_YRI
+vcftools --vcf TMPRSS2_YRI_all.vcf --keep YRI.samples.list --recode --out TMPRSS2_YRI
 ```
 
-* My *new* VCF file is called ***YRI_ACE2.recode.vcf***. Again, yours should be similar but with *your* population three-letter name. Rename this, as follows:
+* My *new* VCF file is called ***YRI_TMPRSS2.recode.vcf***. Again, yours should be similar but with *your* population three-letter name. Rename this, as follows:
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-mv ACE2_YRI.recode.vcf ACE2_YRI.vcf
+mv TMPRSS2_YRI.recode.vcf TMPRSS2_YRI.vcf
 ```
 
-* Great! You now have your *ACE2* data file for just your population, which should be named ***ACE2_YRI.vcf*** (but with your population name)! If you take a look at the VCF file and scroll, you should see a list of IDs that match your samples list, meaning that the only genotypes included are those from your sample population:
+* Great! You now have your *TMPRSS2* data file for just your population, which should be named ***TMPRSS2_YRI.vcf*** (but with your population name)! If you take a look at the VCF file and scroll, you should see a list of IDs that match your samples list, meaning that the only genotypes included are those from your sample population:
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-less ACE2_YRI.vcf
+less TMPRSS2_YRI.vcf
 ```
 
 ![](img/YRIvcf.png)
@@ -564,7 +567,7 @@ less ACE2_YRI.vcf
 <br>
 <br> 
 
-# Congratulations, you now have your genetic data for *ACE2*!
+# Congratulations, you now have your genetic data for *TMPRSS2*!
 
 <br>
 <br>
