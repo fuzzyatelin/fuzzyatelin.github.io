@@ -1,5 +1,5 @@
 ---
-title: '**AN/BI 333/733 Module 1**<br>Accessing Human Candidate Gene Region Data – *ACE2* and *TMPRSS2*'
+title: '**AN/BI 333/733 Module 1**<br>Accessing Human Candidate Gene Region Data'
 author: "Becca DeCamp & Christopher Schmitt"
 output: 
   rmarkdown::html_document:
