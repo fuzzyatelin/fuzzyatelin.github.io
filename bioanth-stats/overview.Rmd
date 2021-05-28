@@ -1,7 +1,7 @@
 ---
 title: "AN/BI 588: Project Design and Statistics</br> in Biological Anthopology"
 author: "Christopher A Schmitt</br>Boston University"
-date: "October 23, 2020"
+date: "May 27, 2021"
 output: 
   html_document:
     theme: cosmo
@@ -11,7 +11,7 @@ output:
 
 ***
 <center>
-<b>Fall 2019, Seminar will be held on Mondays, 2:30 - 5:15pm in <i>CAS 335</i></b>
+**Fall 2021, Seminar will be held on Fridays, 2:30 - 5:15pm in *WED 206* <br>(that's Weelock College of Education, 2 Silber Way)**
 </center>
 ***
 
@@ -19,7 +19,7 @@ output:
   **Christopher A. Schmitt**  
   Assistant Professor of Anthropology and Biology  
   Office: Stone Science Building (STO), 675 Commonwealth Ave, Rm 247E  
-  Office Hours: Wednesday 2:00 - 3:30pm, Friday 2:00 - 3:30pm  
+  Office Hours: Monday/Wednesday 1:30 - 3:00pm  
   Web: http://www.evopropinquitous.net  
   Email: caschmit[at]bu[dot]edu  
   Twitter: http://www.twitter.com/fuzzyatelin  
@@ -48,7 +48,7 @@ This course is open to students outside of Anthropology willing to learn the met
 ### [BU HUB](http://www.bu.edu/hub/about-the-hub/) Learning Outcomes
 ***
 
-This course has been proposed as an addition to the **BU HUB** General Education Curriculum as **CAS AN/BI 588**. Associated with this proposal are several proposed Learning Outcomes for this course, including:
+This course has been accepted to the **BU HUB** Undergraduate General Education Curriculum as **CAS AN/BI 588**. It has several proposed Learning Outcomes related to its assigned Hub Capacities, including:
 
 
 ***
@@ -83,7 +83,7 @@ CAS AN 102 or CAS BI 107/108 (for undergraduates) or graduate student standing, 
 ***
 ### Course Format
 ***
-This is a 4 credit seminar course. Seminar will be held once a week for a total of 3 hours. Please bring laptops or tablets to class loaded with appropriate software for course exercises (these can be found in Resources, above; packages required for the week will be noted in the Modules). Within CAS, these credits count as NS divisional credits towards the BA. This course is not (yet) integrated into the BU Hub.
+This is a 4 credit seminar course. Seminar will be held once a week for a total of 3 hours. Please bring laptops or tablets to class loaded with appropriate software for course exercises (these can be found in Resources, above; packages required for the week will be noted in the Modules).
 
 ***
 ### Assessment
@@ -92,10 +92,10 @@ Performance in the class will be assessed on a **gradeless** basis for the semes
 <ol>
 1. Regular attendance and class participation (10%).  
 2. On-time completion of assigned [**Modules**](https://fuzzyatelin.github.io/bioanth-stats/modules.html) prior to seminar meetings (10%).
-3. Programming homework sets associated with each [Module](https://fuzzyatelin.github.io/bioanth-stats/modules.html), **due Thursday at 8:00 pm to your assigned [peer commentary partner(s)](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html)** (20%).
-4. Respectful [**Peer Commentary**](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) on homework coding, that puts into practice teamwork and pair programming practices discussed in class and in readings, **to be submitted to me by 5:00pm Sunday** (10%).
+3. Programming homework sets associated with each [Module](https://fuzzyatelin.github.io/bioanth-stats/modules.html), **due Tuesday at 8:00 pm to your assigned [peer commentary partner(s)](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html)** (20%).
+4. Respectful [**Peer Commentary**](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) on homework coding, that puts into practice teamwork and pair programming practices discussed in class and in readings, **to be submitted to me by 5:00pm Thursday** (10%).
 5. One individual [**Analysis Replication Assignment**](https://fuzzyatelin.github.io/bioanth-stats/data-reanalysis-assignment.html) based on a published paper with a publicly available dataset, chosen in consultation with the instructor (20%).  
-6. One <b>group presentation and written R vignette</b> demonstrating the use of a particular statistical method chosen in consultation with the instructor (past examples available in the [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)). Group participation will be a large part of evaluation, and must also put into practice teamwork methods discussed in readings and class (20%).
+6. One **group presentation and written R vignette** demonstrating the use of a particular statistical method chosen in consultation with the instructor (past examples available in the [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)). Group participation will be a large part of evaluation, and must also put into practice teamwork methods discussed in readings and class (20%).
 7. A final [**Self Evaluation**](https://fuzzyatelin.github.io/bioanth-stats/selfevaluation.html) written by *you* arguing for the grade you have earned through your progress and the quality of your work in the class (5%).
 </ol>
 
@@ -108,21 +108,21 @@ Performance in the class will be assessed on a **gradeless** basis for the semes
 :::{}
 
   
-<center><p><img src="https://www.safaribooksonline.com/library/cover/9781617291388/360h/" height="250" width="200"></p></center><br>
-**Kabacoff R. 2015. <i>R in Action, 2nd Edition</i>. New York: Manning Publications.**
+<center><p><img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781617291388/r-in-action-9781617291388_lg.jpg" height="250" width="200"></p></center><br>
+Kabacoff R. 2011. <i>R in Action, 2nd Edition</i>. New York: Manning Publications.
 
 :::
 
 :::{}
   
 <center><p><img src="https://prodimage.images-bn.com/pimages/9781593276515_p0_v3_s550x406.jpg" height="250" width="200"></p></center></ul><br>
-**Tillman D. 2016. <i>The Book of R: A First Course in Programming and Statistics</i>. San Francisco: No Starch Press.**
+Tillman D. 2016. <i>The Book of R: A First Course in Programming and Statistics</i>. San Francisco: No Starch Press.
 
 :::
 
 ::::
 
-*Tillman* available in print or electronic format from [No Starch Press](https://www.nostarch.com/) and [O'Reilly Media](https://www.oreilly.com/); *Kabacoff* availble in print or electronic format from [Manning Publications](https://www.manning.com/books/r-in-action-second-edition); both texts are available at [Amazon.com](https://www.amazon.com/).  
+*Tillman* available in print or electronic format from [No Starch Press](https://www.nostarch.com/) and [O'Reilly Media](https://www.oreilly.com/); *Kabacoff* available in print or electronic format from [Manning Publications](https://www.manning.com/books/r-in-action-second-edition), where the third edition is almost complete and is available - I recommend using the third edition if you can (you can also find the second edition as a PDF [here](http://www.cs.uni.edu/~jacobson/4772/week11/R_in_Action.pdf)); both texts are available at [Amazon.com](https://www.amazon.com/).
 
 ***
 ### Optional Texts Students Find Helpful
