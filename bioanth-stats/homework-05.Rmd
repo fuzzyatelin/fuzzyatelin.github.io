@@ -1,6 +1,6 @@
 ---
 title: "AN/BI588: Homework 05"
-date: "September 18, 2019"
+date: "May 27, 2021"
 output:
   html_document:
     theme: cosmo
@@ -42,19 +42,19 @@ knitr::opts_chunk$set(
 
 <center>
 
-<font size="+2"><b>Must be submitted for Peer Commentary by 8:00 pm Thursday, October 31st.</b></font>
+<font size="+2"><b>Must be submitted for Peer Commentary by 8:00 pm Tuesday, November 9th.</b></font>
 
 </center><br>
 
 <center>
 
-<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Sunday, November 4th.</b></font>
+<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Thursday, November 11th.</b></font>
 
 </center><br>
 
 ***
 
-Create a new ***GitHub*** repo and git-referenced ***Rstudio*** Project called "**AN597_Boots_BUlogin**". Within that repo, create a new `.Rmd` file called "**BUlogin_OriginalHomeworkCode_04**". Don't forget to add your [Peer Group](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) and instructor as collaborators, and to accept their invitations to you. Making sure to push both the markdown and knitted `.html` files to your repository, do the following:
+Create a new ***GitHub*** repo and git-referenced ***Rstudio*** Project called "**AN588_Boots_BUlogin**". Within that repo, create a new `.Rmd` file called "**BUlogin_OriginalHomeworkCode_04**". Don't forget to add your [Peer Group](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) and instructor as collaborators, and to accept their invitations to you. Making sure to push both the markdown and knitted `.html` files to your repository, do the following:
 
 You are welcome to work *with your Peer Group together* on this homework assignment or on your own. If you work with someone else, please include all of your names in the header information for your `.Rmd` file.
 
@@ -84,7 +84,7 @@ Graph each beta value from the linear model and its corresponding mean value, lo
 
 ### **Your Final Assignment for Homework 03**
 
-Your final assignment, due to me by 5:00 pm on November 4th, is to have in your *AN597_Zombies_BUlogin* repo only the following files:
+Your final assignment, due to me by 5:00 pm on November 11th, is to have in your *AN588_Zombies_BUlogin* repo only the following files:
 <ol>
 1. The *FINAL PUSH* of your Original Homework Code, including the five challenges you faced, as pushed to your repo by 8:00 pm on Thursday, an R Markdown file named *BUlogin_OriginalHomeworkCode_05*.
 2. The *FINAL PUSH* of the [Peer Commentary](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) made on *your* code, an R Markdown file named *Peerlogin_PeerCommentary_BUlogin_05* or *PeerGroupX_PeerCommentary_BUlogin_05*.
