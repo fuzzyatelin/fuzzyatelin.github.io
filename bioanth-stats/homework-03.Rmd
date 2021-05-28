@@ -1,6 +1,6 @@
 ---
-title: "AN/NI588: Homework 03"
-date: "September 18, 2019"
+title: "AN/BI588: Homework 03"
+date: "May 27, 2021"
 output:
   html_document:
     theme: cosmo
@@ -42,19 +42,19 @@ knitr::opts_chunk$set(
 
 <center>
 
-<font size="+2"><b>Must be submitted for Peer Commentary by 8:00 pm Thursday, October 10th.</b></font>
+<font size="+2"><b>Must be submitted for Peer Commentary by 8:00 pm Thursday, October 7th.</b></font>
 
 </center><br>
 
 <center>
 
-<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Sunday, October 13th.</b></font>
+<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Thursday, October 14th.</b></font>
 
 </center><br>
 
 ***
 
-Create a new ***GitHub*** repo and git-referenced ***Rstudio*** Project called "**AN597_Zombies_BUlogin**". Within that repo, create a new `.Rmd` file called "**BUlogin_OriginalHomeworkCode_03**". [Modules 03-08](https://fuzzyatelin.github.io/bioanth-stats/modules.html) will each have concepts and example code that will help you complete this assignment. Don't forget to add your [Peer Group](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) and instructor as collaborators, and to accept their invitations to you. Making sure to push both the markdown and knitted `.html` files to your repository, do the following:
+Create a new ***GitHub*** repo and git-referenced ***Rstudio*** Project called "**AN588_Zombies_BUlogin**". Within that repo, create a new `.Rmd` file called "**BUlogin_OriginalHomeworkCode_03**". [Modules 03-08](https://fuzzyatelin.github.io/bioanth-stats/modules.html) will each have concepts and example code that will help you complete this assignment. Don't forget to add your [Peer Group](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) and instructor as collaborators, and to accept their invitations to you. Making sure to push both the markdown and knitted `.html` files to your repository, do the following:
 
 Load in the dataset "zombies.csv" from [my ***GitHub*** repo](https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN597_Fall19/). This data includes the first name, last name, and gender of the entire population of 1000 people who have *survived* the zombie apocalypse and are now ekeing out an existence somewhere on the East Coast, along with several other variables (height, weight, age, number of years of education, number of zombies they have killed, and college major; [see here for info on important post-zombie apocalypse majors](http://www.thebestschools.org/magazine/best-majors-surviving-zombie-apocalypse/)).
 
@@ -74,7 +74,7 @@ Load in the dataset "zombies.csv" from [my ***GitHub*** repo](https://github.com
 
 ### **Your Final Assignment for Homework 03**
 
-Your final assignment, due to me by 5:00 pm on October 10th, is to have in your *AN597_Zombies_BUlogin* repo only the following files:
+Your final assignment, due to me by 5:00 pm on October 14th, is to have in your *AN588_Zombies_BUlogin* repo only the following files:
 <ol>
 1. The *FINAL PUSH* of your Original Homework Code, including the five challenges you faced, as pushed to your repo by 8:00 pm on Thursday, an R Markdown file named *BUlogin_OriginalHomeworkCode_03*.
 2. The *FINAL PUSH* of the [Peer Commentary](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) made on *your* code, an R Markdown file named *Peerlogin_PeerCommentary_BUlogin_03* or *PeerGroupX_PeerCommentary_BUlogin_03*.
@@ -83,11 +83,11 @@ Your final assignment, due to me by 5:00 pm on October 10th, is to have in your 
 
 ***
 
-### [Homework 03 Solutions]() will be posted on October 13th.
+### [Homework 03 Solutions]() will be posted on October 15th.
 
 ***
 
-NOTE: If you want your homework code to look nice (beyond being *very* well annotated and commented), and be easy to use by others, you can check out the relatively simply example **R Markdown** templates in the [AN597_Week_3_caschmit](https://github.com/fuzzyatelin/AN597_Week_3_caschmit) repo.
+NOTE: If you want your homework code to look nice (beyond being *very* well annotated and commented), and be easy to use by others, you can check out the relatively simply example **R Markdown** templates in the [AN588_Week_3_caschmit](https://github.com/fuzzyatelin/AN588_Week_3_caschmit) repo.
 
 Please also consider consulting the following helpful guidelines on how to write effective **R Markdown** documents (also available at the end of [Module 03](https://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html)), which go well beyond the simple formatting of the templates.
 <ul>
