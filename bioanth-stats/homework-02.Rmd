@@ -1,6 +1,6 @@
 ---
 title: "AN/BI588: Homework 02"
-date: "September 18, 2019"
+date: "May 27, 2021"
 output:
   html_document:
     theme: cosmo
@@ -41,13 +41,13 @@ knitr::opts_chunk$set(
 
 <center>
 
-<font size="+2"><b>Must be submitted for Peer Commentary by 8:00 pm Thursday, September 26th.</b></font>
+<font size="+2"><b>Must be submitted for Peer Commentary by 8:00 pm Thursday, September 23rd.</b></font>
 
 </center><br>
 
 <center>
 
-<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Sunday, September 29th.</b></font>
+<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Thursday, September 30th.</b></font>
 
 </center><br>
 
@@ -66,20 +66,20 @@ Every Saturday morning, at the same time, a primatologist goes and sits in the f
 
 ### **Your Final Assignment for Homework 02**
 
-Your final assignment, due to me by 5:00 pm on September 29th, is to have in your *AN597-Week-3-BUlogin* repo only the following files:
+Your final assignment, due to me by 5:00 pm on September 30th, is to have in your *AN588-Week-3-BUlogin* repo only the following files:
 <ol>
-1. The *FINAL PUSH* of your Original Homework Code, including the five challenges you faced, as pushed to your repo by 8:00 pm on Thursday, an R Markdown file named *BUlogin_OriginalHomeworkCode_02*.
+1. The *FINAL PUSH* of your Original Homework Code, including the five challenges you faced, as pushed to your repo by 8:00 pm on Thursday September 23rd, an R Markdown file named *BUlogin_OriginalHomeworkCode_02*.
 2. The *FINAL PUSH* of the [Peer Commentary](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) made on *your* code, an R Markdown file named *Peerlogin_PeerCommentary_BUlogin_02* or *PeerGroupX_PeerCommentary_BUlogin_02*.
 3. The *FINAL PUSH* of your Final Homework Code, which has taken into account any changes recommended from the Peer Commentary and notes, an R Markdown file named *BUlogin_FinalHomeworkCode_02*.
 </ol>
 
 ***
 
-### [Homework 02 Solutions](https://fuzzyatelin.github.io/bioanth-stats/homework-02-key.html) will be posted on September 30th.
+### [Homework 02 Solutions](https://fuzzyatelin.github.io/bioanth-stats/homework-02-key.html) will be posted on October 1st.
 
 ***
 
-NOTE: If you want your homework code to look nice (beyond being *very* well annotated and commented), and be easy to use by others, you can check out the relatively simply example **R Markdown** templates in the [AN597_Week_3_caschmit](https://github.com/fuzzyatelin/AN597_Week_3_caschmit) repo.
+NOTE: If you want your homework code to look nice (beyond being *very* well annotated and commented), and be easy to use by others, you can check out the relatively simply example **R Markdown** templates in the [AN588_Week_3_caschmit](https://github.com/fuzzyatelin/AN588_Week_3_caschmit) repo.
 
 Please also consider consulting the following helpful guidelines on how to write effective **R Markdown** documents (also available at the end of [Module 03](https://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html)), which go well beyond the simple formatting of the templates.
 <ul>

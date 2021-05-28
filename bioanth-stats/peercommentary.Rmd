@@ -1,7 +1,7 @@
 ---
 title: "AN/BI 588: Peer Commentary Assignments"
 author: "Christopher A Schmitt"
-date: "October 23, 2020"
+date: "May 27, 2021"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -35,7 +35,7 @@ The Peer Commentary assignment is one of the most important exercises in this cl
 
 ### **How it works...**
 
-Every week, once finished working on your Original Homework Code associated with your assigned [Module](https://fuzzyatelin.github.io/bioanth-stats/modules.html) (links to Homework can be found in the weekly entries on the [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)), you will be required to share your annoted/commented code as an [***R Markdown***](https://rmarkdown.rstudio.com/articles_intro.html) file with your weekly assigned Peer Group. At the end of your Original Homework Code, in a section labeled **CHALLENGES**, you will share a list of the three most difficult challenges you faced in writing your code, and what you did to overcome them. The Peer Group you share this code with will typically be a group of three, although depending on final class size it may be a group of two, and this group will change on a weekly basis (see below for your assigned groups). **You must push your commented/annotated Original Homework Code to your homework repository, which you must share with your Peer Group and instructor, by 8:00 pm on Thursday night**. It is up to your group whether one or both of the other members work together to respectfully critique the others' code, and groups are encouraged to meet over the weekend to discuss their code in person.
+Every week, once finished working on your Original Homework Code associated with your assigned [Module](https://fuzzyatelin.github.io/bioanth-stats/modules.html) (links to Homework can be found in the weekly entries on the [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)), you will be required to share your annoted/commented code as an [***R Markdown***](https://rmarkdown.rstudio.com/articles_intro.html) file with your weekly assigned Peer Group. At the end of your Original Homework Code, in a section labeled **CHALLENGES**, you will share a list of the three most difficult challenges you faced in writing your code, and what you did to overcome them. The Peer Group you share this code with will typically be a group of three, although depending on final class size it may be a group of two, and this group will change on a weekly basis (see below for your assigned groups). **You must push your commented/annotated Original Homework Code to your homework repository, which you must share with your Peer Group and instructor, by 8:00 pm on Monday night**. It is up to your group whether one or both of the other members work together to respectfully critique the others' code, and groups are encouraged to meet over the weekend to discuss their code in person.
 
 ### **Things to keep in mind**
 
@@ -80,7 +80,7 @@ Although grades will not be assigned for Peer Commentaries, if it comes to my at
 
 ### **Who you're working with...**
 
-The students currently enrolled in Fall 2019 (and their associated GitHub accounts) include:
+The students currently enrolled in Fall 2021 (and their associated GitHub accounts) include:
 
 * Zoe Albert: [zealbert](https://github.com/)
 * Diego Alonso Larre: [alarre](https://github.com/)
