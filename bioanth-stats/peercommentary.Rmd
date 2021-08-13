@@ -1,7 +1,7 @@
 ---
 title: "AN/BI 588: Peer Commentary Assignments"
 author: "Christopher A Schmitt"
-date: "May 27, 2021"
+date: "August 13, 2021"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -82,21 +82,23 @@ Although grades will not be assigned for Peer Commentaries, if it comes to my at
 
 The students currently enrolled in Fall 2021 (and their associated GitHub accounts) include:
 
-* Zoe Albert: [zealbert](https://github.com/)
-* Diego Alonso Larre: [alarre](https://github.com/)
-* Nicholas Beebe: [nbeebe](https://github.com/)
-* Victoria French: [vfrench3](https://github.com/)
-* Cecelia Gerstenbacher: [cecg27](https://github.com/)
-* Marta Hammers: [martah](https://github.com/)
-* Natalia Kelley: [nkelley](https://github.com/)
-* Hlib Maidanik: [maydanik](https://github.com/)
-* Nirmiti Naik: [nirmitin](https://github.com/)
-* Lila Norris: [lpnorris](https://github.com/)
-* Isabel Novick: [gpelose](https://github.com/)
-* Abigail Robinson: [aer13](https://github.com/)
-* Miguel Rubio Garcia: [mrubiog](https://github.com/)
-* Maya Weidman: [mayaw9](https://github.com/)
-* Victoria Zdanowicz: [vrz](https://github.com/)
+* Zoe Albert: [](https://github.com/)
+* Diego Alonso Larre: [](https://github.com/)
+* Nicholas Beebe: [](https://github.com/)
+* Kenny Cho: [](https://github.com/)
+* Victoria French: [](https://github.com/)
+* Cecelia Gerstenbacher: [](https://github.com/)
+* Marta Hammers: [](https://github.com/)
+* Warrenkevin Henderson: [](https://github.com/)
+* Natalia Kelley: [](https://github.com/)
+* Nirmiti Naik: [](https://github.com/)
+* Lila Norris: [](https://github.com/)
+* Isabel Novick: [](https://github.com/)
+* Abigail Robinson: [](https://github.com/)
+* Miguel Rubio Garcia: [](https://github.com/)
+* Francis Short: [](https://github.com/)
+* Gabriel Vincencio Castellanos: [](https://github.com/)
+* Victoria Zdanowicz: [](https://github.com/)
 
 And my own GitHub account is:
 
@@ -121,11 +123,13 @@ Peer Group 1: Zoe Albert, Nicholas Beebe, Victoria French
 
 Peer Group 2: Diego Alonso Larre, Cecelia Gerstenbacher, Marta Hammers
 
-Peer Group 3: Natalia Kelley, Hlib Maidanik, Nirmiti Naik
+Peer Group 3: Natalia Kelley, Warrenkevin Henderson, Nirmiti Naik
 
-Peer Group 4: Lila Norris, Isabel Novick, Abigail Robinson
+Peer Group 4: Lila Norris, Isabel Novick, Miguel Rubio Garcia
 
-Peer Group 5: Miguel Rubio Garcia, Maya Weidman, Victoria Zdanowicz 
+Peer Group 5: Kenny Cho, Gabriel Vincencio Castellanos, Victoria Zdanowicz 
+
+Peer Group 6: Abigail Robinson, Francis Short
 
 ***
 
@@ -133,15 +137,17 @@ Peer Group 5: Miguel Rubio Garcia, Maya Weidman, Victoria Zdanowicz
 
 ***
 
-Peer Group 1: Zoe Albert, Diego Alonso Larre, Nirmiti Naik
+Peer Group 1: Kenny Cho, Diego Alonso Larre, Nirmiti Naik
 
 Peer Group 2: Cecelia Gerstenbacher, Natalia Kelley, Isabel Novick
 
-Peer Group 3: Hlib Maidanik, Victoria Zdanowicz, Victoria French
+Peer Group 3: Warrenkevin Henderson, Victoria Zdanowicz, Victoria French
 
-Peer Group 4: Lila Norris, Miguel Rubio Garcia, Marta Hammers
+Peer Group 4: Lila Norris, Francis Short, Marta Hammers
 
-Peer Group 5: Maya Weidman, Abigail Robinson, Nicholas Beebe
+Peer Group 5: Gabriel Vincencio Castellanos, Abigail Robinson, Nicholas Beebe
+
+Peer Group 6: Zoe Albert, Miguel Rubio Garcia
 
 ***
 
@@ -149,15 +155,17 @@ Peer Group 5: Maya Weidman, Abigail Robinson, Nicholas Beebe
 
 ***
 
-Peer Group 1: Diego Alonso Larre, Hlib Maidanik, Isabel Novick
+Peer Group 1: Francis Short, Warrenkevin Henderson, Isabel Novick
 
-Peer Group 2: Natalia Kelley, Lila Norris, Victoria Zdanowicz
+Peer Group 2: Natalia Kelley, Lila Norris, Kenny Cho
 
-Peer Group 3: Maya Weidman, Cecelia Gerstenbacher, Nirmiti Naik
+Peer Group 3: Gabriel Vincencio Castellanos, Cecelia Gerstenbacher, Nirmiti Naik
 
-Peer Group 4: Miguel Rubio Garcia, Victoria French, Nicholas Beebe
+Peer Group 4: Miguel Rubio Garcia, Victoria Zdanowicz, Nicholas Beebe
 
 Peer Group 5: Abigail Robinson, Zoe Albert, Marta Hammers
+
+Peer Group 6: Diego Alonso Larre, Victoria French
 
 ***
 
@@ -165,9 +173,9 @@ Peer Group 5: Abigail Robinson, Zoe Albert, Marta Hammers
 
 ***
 
-Peer Group 1: Hlib Maidanik, Miguel Rubio Garcia, Marta Hammers
+Peer Group 1: Kenny Cho, Miguel Rubio Garcia, Marta Hammers
 
-Peer Group 2: Lila Norris, Maya Weidman, Nirmiti Naik
+Peer Group 2: Lila Norris, Gabriel Vincencio Castellanos, Nirmiti Naik
 
 Peer Group 3: Isabel Novick, Abigail Robinson, Zoe Albert
 
@@ -175,21 +183,25 @@ Peer Group 4: Victoria French, Diego Alonso Larre, Natalia Kelley
 
 Peer Group 5: Cecelia Gerstenbacher, Nicholas Beebe, Victoria Zdanowicz
 
+Peer Group 6: Warrenkevin Henderson, Francis Short
+
 ***
 
 #### **Homework 05: [Boots for Days!](https://fuzzyatelin.github.io/bioanth-stats/homework-05.html) (Assigned 05NOV, Due 11NOV)**
 
 ***
 
-Peer Group 1: Hlib Maidanik, Lila Norris, Abigail Robinson
+Peer Group 1: Warrenkevin Henderson, Lila Norris, Abigail Robinson
 
 Peer Group 2: Miguel Rubio Garcia, Diego Alonso Larre, Nicholas Beebe
 
-Peer Group 3: Maya Weidman, Natalia Kelley, Marta Hammers
+Peer Group 3: Gabriel Vincencio Castellanos, Natalia Kelley, Marta Hammers
 
-Peer Group 4: Victoria French, Nirmiti Naik, Victoria Zdanowicz
+Peer Group 4: Francis Short, Nirmiti Naik, Victoria Zdanowicz
 
-Peer Group 5: Zoe Albert, Isabel Novick, Cecelia Gerstenbacher
+Peer Group 5: Victoria French, Cecelia Gerstenbacher, Kenny Cho
+
+Peer Group 6: Zoe Albert, Isabel Novick
 
 ***
 
