@@ -39,16 +39,16 @@ The name ***R*** is a nod to the statistical programming language ***S*** (for "
 Here are a few of the main ones, in a nutshell:
 
 - ***R*** is high quality software. It is actively developed by an international community of statisticians and software developers with multiple releases and bug fixes every year.
-- ***R*** is FREE (as in thought). The source code is openly avaialable under the GNU General Public License, which allows others to easily evaluate the quality of the code, contribute new functionality, and quickly fix bugs.
+- ***R*** is FREE (as in thought). The source code is openly available under the GNU General Public License, which allows others to easily evaluate the quality of the code, contribute new functionality, and quickly fix bugs.
 - ***R*** is FREE (as in lunch). Whereas licenses for other statistical software such as ***SAS***, ***SPSS***, or ***Stata*** may cost thousands of dollars, ***R*** is available free of charge.
-- ***R*** is available for multiple platforms. Installers are available for Windows, Mac OS, and other Unix based systems and most package are OS agnostic.
+- ***R*** is available for multiple platforms. Installers are available for Windows, Mac OS, and other Unix-based systems and most package are OS agnostic.
 - ***R*** is very extensible. If there is a procedure you want to run that is not included in one of the standard packages, it is likely available in one of the thousands of extensions packages that have been developed and are also freely available. You can also use ***R*** to control or interface with external applications, including other programming languages (like ***Python***, ***SQL***, ***C++***, ***NetLogo***), other analysis tools (like GIS software), and databases (like ***MySQL***, ***PostgreSQL***, ***SQLite***, etc). It is also always possible for you to improve ***R*** yourself. You can **literally** do just about anything in ***R***.
 - ***R*** has a vibrant, intelligent, and generous user community. LOTS of resources are available online for learning and troubleshooting (see, for example, the section on ***R*** at the [**Stack Overflow**](http://stackoverflow.com/tags/r/info) website.
 
 ***R*** can be run in several ways:
 - Interactively from the command line in a terminal window.
 - In batch mode, by sourcing commands from an ***R*** script file (which is a simple text file).
-- From within an ***R*** graphical user interface (or GUI) or integrated development envrionment (or IDE), which accommodates both of the above.
+- From within an ***R*** graphical user interface (or GUI) or integrated development environment (or IDE), which accommodates both of the above.
 
 We are going to introduce several of these ways of working with ***R***, but the easiest and most convenient is to use an IDE.
 
@@ -389,7 +389,7 @@ If you save a script, you can then use the `source()` function (with the path to
 Try writing a script containing a function.
 
 - Open a new blank document in ***RStudio***
-	- **File > New > R Script**
+	- **File > New File > R Script**
 - Type in the code below to create the `sayhi()` function, which adds a name to a greeting:
 
 ``` {r}
@@ -399,7 +399,7 @@ sayhi <- function(x) {
   return(hi)
 }
 ```
-Now, send this function to ***R*** by highlighting it and hitting `⌘-RETURN` (Mac) or `control-R` (PC) to it to the console.
+Now, send this function to ***R*** by highlighting it and hitting `⌘-RETURN` (Mac) or `control-R` (PC) to automatically paste it to the console.
 
 <br><center>
 <img src="img/sayhi.png" width="500px"/>
@@ -430,12 +430,19 @@ When you go to quit ***R*** (by using the `q()` function or by trying to close *
 
 Saying "yes" will store all of the contents of your workspace in a single *hidden* file, **.Rdata**. The leading "." makes this invisible to most operating systems, unless you deliberately make it possible to see hidden files. The next time you start ***R***, this workspace will be loaded again automatically, provided you have not changed your working directory.
 
-A second hidden file, **.Rhistory**, will also be stored in the same directory, which will contain a log of all commands you sent to the console.
+A second hidden file, **.Rhistory**, will also be stored in the same directory, which will contain a log of all commands you sent to the console during your ***R*** session.
 
 ## Updating ***R***
-***R*** has been under continuous and active development since its inception in the late 1990s, and several updates are made available each year. These update help to fix bugs, improve speed and computational efficiency, and add new functionality to the software. The following information on how to update ***R*** is based on [**this post from Stack Overflow**](http://stackoverflow.com/questions/13656699/update-r-using-rstudio)
+***R*** has been under continuous and active development since its inception in the late 1990s, and several updates are made available each year. These updates help to fix bugs, improve speed and computational efficiency, and add new functionality to the software. The following information on how to update ***R*** is based on [**this post from R Bloggers**](https://www.r-bloggers.com/2017/05/upgrade-r-without-losing-your-packages/):
 
-### Step 1: Get the latest version of ***R***
+### Step 1: Before upgrading, build a temporary file that contains all your package locations:
+```{r,eval=F,echo=T}
+tmp <- installed.packages()
+installedpkgs <- as.vector(tmp[is.na(tmp[,"Priority"]), 1])
+save(installedpkgs, file="installed_old.rda")
+```
+
+### Step 2: Get the latest version of ***R***
 
 - Go to the [**R Project**](http://www.r-project.org) website
 - Click on **CRAN** in the sidebar on the left
@@ -444,28 +451,36 @@ A second hidden file, **.Rhistory**, will also be stored in the same directory, 
 - Follow the installation procedures for your system
 - Restart ***RStudio***
 
-### Step 2: Relocate your packages 
+### Step 3: Reload, reinstall, and update your packages: 
+```{r,eval=F,echo=T}
+tmp <- installed.packages()
+installedpkgs.new <- as.vector(tmp[is.na(tmp[,"Priority"]), 1])
+missing <- setdiff(installedpkgs, installedpkgs.new)
+install.packages(missing)
+update.packages()
+```
 
-- To ensure that your packages work with your shiny new version of ***R***, you need to:
-	
-	- Move the packages from your old ***R*** installation into the new one
-	- On Mac OSX, this typically means moving all library folders from ```/Library/Frameworks/R.framework/Versions/2.15/Resources/library``` to ```/Library/Frameworks/R.framework/Versions/3.0/Resources/library```
+- if you have any packages from [{BioConductor}](https://bioconductor.org/) (a popular bioinformatics repository for specialized R-packages), you may need to also run this code:
+```{r,eval=F,echo=T}
+chooseBioCmirror()
+BiocManager::install()
+load("installed_old.rda")
+tmp <- installed.packages()
+installedpkgs.new <- as.vector(tmp[is.na(tmp[,"Priority"]), 1])
+missing <- setdiff(installedpkgs, installedpkgs.new)
+for (i in 1:length(missing)) BiocManager::install(missing[i])
+```
 
-	where you'll replace "2.15" and "3.0" with whatever versions you are upgrading from and to, respectively.
+### Potentially easier ways to update and carry over packages:
 
-	- On Windows, this typically means moving all library folders from `C:\Program Files\R\R-2.15\library` to `C:\Program Files\R\R-3.0\library`
-	
-- **NOTE:** You only need to copy whatever packages are not already in the destination directory. i.e., you do not need to overwrite your new {base} package, etc., with your old one.
-
-- If those paths do not work for you, try using `installed.packages()` to find the proper path names. These may vary on your system, depending on where you installed ***R***
-
-- Now you can update your packages by typing `update.packages()` in your ***RStudio*** console, and answering "y" to all of the prompts.
+- If you're using a Windows computer, you can use the package [{installr}](https://www.r-statistics.com/2013/03/updating-r-from-r-on-windows-using-the-installr-package/) to update R and all your packages.
+- If you're using a Mac, you can use the package [{updateR}](https://github.com/AndreaCirilloAC/updateR), but only from base ***R*** (not within ***RStudio***).
 
 - Finally, to reassure yourself that you have done everything correctly, type these two commands in the ***RStudio*** console to see what you've got in terms of what version of ***R*** you are running and what packages you have installed:
 
-``` {r eval=FALSE}
+``` {r,eval=F}
 version
 ```
-``` {r eval=FALSE}
+``` {r,eval=F}
 packageStatus()
 ```

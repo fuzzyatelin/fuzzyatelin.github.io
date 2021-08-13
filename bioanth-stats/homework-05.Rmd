@@ -97,7 +97,7 @@ Your final assignment, due to me by 5:00 pm on November 11th, is to have in your
 
 ***
 
-NOTE: If you want your homework code to look nice (beyond being *very* well annotated and commented), and be easy to use by others, you can check out the relatively simply example **R Markdown** templates in the [AN597_Week_3_caschmit](https://github.com/fuzzyatelin/AN597_Week_3_caschmit) repo.
+NOTE: If you want your homework code to look nice (beyond being *very* well annotated and commented), and be easy to use by others, you can check out the relatively simply example **R Markdown** templates in the [AN588_Week_3_caschmit](https://github.com/fuzzyatelin/AN597_Week_3_caschmit) repo.
 
 Please also consider consulting the following helpful guidelines on how to write effective **R Markdown** documents (also available at the end of [Module 03](https://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html)), which go well beyond the simple formatting of the templates.
 <ul>
