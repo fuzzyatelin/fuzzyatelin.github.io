@@ -1,7 +1,7 @@
 ---
 title: "AN/BI 588: Project Design and Statistics</br> in Biological Anthopology"
 author: "Christopher A Schmitt</br>Boston University"
-date: "May 27, 2021"
+date: "August 13, 2021"
 output: 
   html_document:
     theme: cosmo
@@ -11,7 +11,7 @@ output:
 
 ***
 <center>
-**Fall 2021, Seminar will be held on Fridays, 2:30 - 5:15pm in *WED 206* <br>(that's Weelock College of Education, 2 Silber Way)**
+**Fall 2021, Seminar will be held on Fridays, 2:30 - 5:15pm in *WED 206* <br>(that's Wheelock College of Education, 2 Silber Way)**
 </center>
 ***
 
