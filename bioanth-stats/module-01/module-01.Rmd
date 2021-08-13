@@ -80,6 +80,8 @@ We are going to introduce several of these ways of working with ***R***, but the
 <img src="img/RGui-windows.png" width="500px"/>
 </center><br>
 
+- NOTE: I am currently running ***R*** version *4.1.1 "Kick Things"* in ***RStudio*** version *1.4.1717* on a Mac. If you're running different versions, you may have a slightly different experience with the code!
+
 ## Taking Our First Steps in ***R***
 - ***R*** can be used as an interactive calculator from the console line
 	- Standard mathematic order of operations applies (PEMDAS - parentheses, exponents, multiplication/division, addition/subtraction)
