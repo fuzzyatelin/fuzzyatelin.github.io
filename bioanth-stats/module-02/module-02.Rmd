@@ -43,7 +43,7 @@ One of the most popular and frequently used VCSs is ***git***.
 <img src="img/install-git.png" width=500px/>
 </center><br>
 
-- A good text editor is also an important tool for programmers, web developers, and data analysts. While we're at it, let's grab one! Download and install the [**Atom**](https://atom.io) text editor. [Other text editors, such as [**TextWrangler**](http://www.barebones.com/products/textwrangler/download.html), for MacOS, or [**Notepad++**](https://notepad-plus-plus.org/), for Windows, are also very good. **Atom**, however, is available for multiple platforms and is created by the folks resposible for ***GitHub*** (see below).]
+- A good text editor is also an important tool for programmers, web developers, and data analysts. While we're at it, let's grab one! Download and install the [**Atom**](https://atom.io) text editor. [Other text editors, such as [**TextWrangler**](http://www.barebones.com/products/textwrangler/download.html), for MacOS, or [**Notepad++**](https://notepad-plus-plus.org/), for Windows, are also very good. **Atom**, however, is available for multiple platforms and is created by the folks resposible for ***GitHub*** (see below).
 
 <br><center>
 <img src="img/install-atom.png" width=500px/>
