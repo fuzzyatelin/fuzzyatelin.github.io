@@ -21,6 +21,9 @@ knitr::opts_chunk$set(
 	fig.path = "img/"
 )
 ```
+```{r,include=F}
+setwd("~")
+```
 # Working with Other Data Structures
 
 ***
@@ -30,7 +33,7 @@ knitr::opts_chunk$set(
 
 ## Preliminaries
 
-- GO TO: https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN597_Fall19/, select the **random-people.csv** file, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally.
+- GO TO: https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall21/, select the **random-people.csv** file, then press the `RAW` button, highlight, and copy the text to a text editor and save it to your Desktop.
 
 - Install this package in ***R***: [{stringr}](https://cran.r-project.org/web/packages/stringr/stringr.pdf)
 
@@ -120,7 +123,7 @@ You can select elements from vectors, matrices, and arrays by *subsetting* them 
 For example, suppose you have the following vector:
 
 ``` {r}
-v <- 1:100
+v <- 1:100 #This creates a vector containing all integers from 1 to 100
 v
 ```
 
@@ -151,13 +154,21 @@ v[seq(from = 1, to = 100, by = 2)]
 
 ***
 
-- First, create a vector of 1 word character strings comprising the first line of the novel *Ulysses*, by James Joyce: "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
+- First, create a vector of 1, word character strings comprising the first line of the novel *Ulysses*, by James Joyce: "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
 
 - Then, extract every third element of this vector.
 
 	- **HINT 1:** Take a look at the {stringr} package and the function `str_split()` to see if you can easily divide a single string into a vector of substrings.
+```{r,eval=F,echo=F}
+stringr::str_split(ulysses,pattern=" ",n=22)
+```
 
-	- **HINT 2:** If you're ambitious, the following function, `gsub("[[:punct:]]","",*string*)`, applied to `*string*`, will remove punction and special characters from that string.
+	- **HINT 2:** If you're ambitious, the following function, `gsub("[[:punct:]]","",*string*)`, applied to `*string*`, will remove punctuation and special characters from that string.
+```{r,eval=F,echo=F}
+stringr::str_split(string=(gsub("[[:punct:]]","",ulysses)),pattern=" ",n=22)
+```
+
+***
 
 As an example for a matrix, suppose you have the following:
 
@@ -184,10 +195,22 @@ You can also extract an entire row or an entire column (or set of rows or set of
 ***
 
 - Given the matrix, **m**, above, extract the 2nd, 3rd, and 6th columns and assign them to the variable **x**
+```{r,eval=F,echo=F}
+x<-m[,c(2,3,6)]
+x
+```
 
 - Given the matrix, **m**, above, extract the 6th to 8th row and assign them to the variable **x**
+```{r,eval=F,echo=F}
+x<-m[c(6,8),]
+x
+```
 
 - Given the matrix, **m**, above, extract the elements from row 2, column 2 to row 6, column 9 and assign them to the variable **x**
+```{r,eval=F,echo=F}
+x<-m[c(2:6),c(2:9)]
+x
+```
 
 <br>
 
@@ -198,14 +221,27 @@ You can also extract an entire row or an entire column (or set of rows or set of
 ***
 
 - Construct a 4-dimensional, 400 element array (5 x 5 x 4 x 4) named **a** consisting of the numbers 400 to 1 (i.e., a descending series)
+```{r,eval=F,echo=F}
+a <- array(data=400:1,dim=c(5,5,4,4))
+a
+```
 
 - Given this matrix, what would the following return?
 
 	- a[1, 1, 1, 2]
+```{r,eval=F,echo=F}
+a[1, 1, 1, 2]
+```
 
 	- a[2, 3, 2, ]
+```{r,eval=F,echo=F}
+a[2, 3, 2, ]
+```
 
 	- a[1:5, 1:5, 3, 3]
+```{r,eval=F,echo=F}
+a[1:5, 1:5, 3, 3]
+```
 
 ## Overwriting
 
@@ -236,7 +272,7 @@ l <- list(s, m, b) # this puts them all together as a list
 l
 ```
 
-You can extract elements from a list similarly to how you would from other data structure, except that you use **double brackets** to reference a single element in the list.
+You can extract elements from a list similarly to how you would from other data structures, except that you use **double brackets** to reference a single element in the list.
 
 ``` {r}
 l[[2]] #let's take another look at our matrix
@@ -319,25 +355,25 @@ Create a **list** representing this (simplified) primate taxonomy:
 
 I'll get you started with the Strepsirhini:
 ```{r}
-Lemuroidea<-list("Cheirogaleidae","Lepilemuridae","Indriidae","Lemuridae","Daubentoniidae")
-names(Lemuroidea)<-c("Cheirogaleidae","Lepilemuridae","Indriidae","Lemuridae","Daubentoniidae")
-Lorisoidea<-list("Lorisidae","Galagidae")
-names(Lorisoidea)<-c("Lorisidae","Galagidae")
+Lemuroidea<-c("Cheirogaleidae","Lepilemuridae","Indriidae","Lemuridae","Daubentoniidae")
+Lorisoidea<-c("Lorisidae","Galagidae")
 Strepsirhini<-list(Lemuroidea,Lorisoidea)
-names(Strepsirhini)<-c("Lemuroidea","Lorisoidea")
+names(Strepsirhini)<-list("Lemuroidea","Lorisoidea")
 Strepsirhini
 ```
 
-A **data frame** is the perhaps the most useful (and most familiar) data structure that we can operate with in ***R*** as it most closely aligns with how we tend to represent tabular data, with rows as *cases* or *observations* and columns as *variables* describing those observations (e.g., a measurement of a particular type). Variables tend to be measured using the same units and thus fall into the same data class and can be thought of as analogous to vectors.
+***
 
-The `data.frame()` command can be used to create dataframes from scratch.
+A **data frame** is perhaps the most useful (and most familiar) data structure that we can operate with in ***R*** as it most closely aligns with how we tend to represent tabular data, with rows as *cases* or *observations* and columns as *variables* describing those observations (e.g., a measurement of a particular type). Variables tend to be measured using the same units and thus fall into the same data class and can be thought of as analogous to vectors.
+
+The `data.frame()` command can be used to create dataframes from scratch, like this dataframe representing data on some (fictional) BU undergrads:
 
 ``` {r}
-df <- data.frame(firstName=c("Nitin","Silvy","Ingrid","Claire"), program=c("iSchool","Anthro","Anthro","EEB"), sex=c("M","F","F","F"), yearInProgram=c(1,2,2,3))
+df <- data.frame(firstName=c("Nitin","Silvy","Ingrid","Claire"), major=c("Biology (CM)","Anthropology (Bio)","Anthropology (Medical)","Biology (EEB)"), sex=c("M","F","F","F"), yearInProgram=c(1,2,2,3))
 df
 ```
 
-More commonly we read tabular data into ***R***, which typically results in the table being represented as a data frame. This will read from the file "random-people.csv" stored on a user's desktop.
+Rather than creating one from scratch, we more commonly read tabular data into ***R*** from a pre-existing data file (i.e., a spreadsheet), which typically results in the table being represented as a dataframe. The following code will read from the file "random-people.csv", currently stored on a user's Desktop:
 
 ``` {r}
 df <- read.csv("~/Desktop/random-people.csv", sep =",", header = TRUE, stringsAsFactors = FALSE)
@@ -414,7 +450,7 @@ new_df
 ## Factors, Conversion and Coercion, and Special Data Values
 We were introduced to the **factor** data class above. Again, factors are numeric codes that ***R*** can use internally that correspond to character value "levels".
 
-When we load in data from an external source (as we will do in our next module), ***R*** tends to import character string data as factors, assigning to each unique string to an integer numeric code and assigning the string as a "label" for that code. Using factors can make some code run much more quickly (e.g., ANOVA, ANCOVA, and other forms of regression using categorical variables).
+When we load in data from an external source (as we will do in our next module), ***R*** tends to import character string data as factors, assigning to each unique string an integer numeric code, and assigning the string as a "label" for that code. Using factors can make some code run much more quickly (e.g., in ANOVA, ANCOVA, and other forms of regression using categorical variables).
 
 You can convert *factor* to *character* data (and vice versa) using the `as.character()` or `as.factor()` commands. You can also convert/coerce any vector to a different class using similar constructs (e.g., `as.numeric()`), although not all such conversions are really meaningful. Converting *factor* data to *numeric* results in the the converted data having the value of ***R***'s internal numeric code for the factor level, while converting *character* data to *numeric* results in the data being coerced into the special data value of `NA` (see below) for missing data.
 
@@ -432,12 +468,31 @@ Finally, ***R*** has three special data values that it uses in a variety of situ
 
 ***
 
-- Store the following numbers as a 5 x 3 matrix: 3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2. Be sure to fill the matrix ROWWISE.
+- Store the following numbers as a 5 x 3 matrix, called "m3": 3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2. Be sure to fill the matrix ROW-WISE.
+```{r,eval=F,echo=F}
+m3<-matrix(data=c(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2),nrow=5,ncol=3,byrow=TRUE)
+m3
+```
 
 - Then, do the following:
 
 	- Coerce the matrix to a data frame.
+```{r,eval=F,echo=F}
+m3<-as.data.frame(m3)
+m3
+```
 	- As a data frame, coerce the second column to be *logical-valued*
+```{r,eval=F,echo=F}
+m3$V2<-as.logical(m3$V2)
+m3
+```
 	- As a data frame, coerce the third column to be *factor-valued*
+```{r,eval=F,echo=F}
+m3$V3<-as.factor(m3$V3)
+m3
+```
 
 When you are done, use the `str()` command to show the data type for each variable in your dataframe.
+```{r,eval=F,echo=F}
+str(m3)
+```
