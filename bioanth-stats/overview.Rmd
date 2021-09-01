@@ -23,6 +23,13 @@ output:
   Web: http://www.evopropinquitous.net  
   Email: caschmit[at]bu[dot]edu  
   Twitter: http://www.twitter.com/fuzzyatelin  
+
+### Course Assistant:
+  **Mel Zarate**<br>
+  Graduate Student, Department of Anthropology<br>
+  Office: Stone Science Building (STO), 675 Commonwealth Ave, Rm 251<br>
+  Office Hours: Thursdays 11am - Noon (with [Zoom option]())<br>
+  Email: mazarate[at]bu[dot]edu
   
 ***
 
