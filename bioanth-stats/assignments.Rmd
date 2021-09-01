@@ -1,0 +1,53 @@
+---
+title: 'AN/BI 588: Course Assignments'
+author: "Christopher A Schmitt"
+date: "September 1, 2021"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
+---
+***
+
+### [Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
+### [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
+### [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
+### [Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
+### [Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
+### [Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+
+***
+
+<center>
+
+<font size="+2"><b>Overview of Course Assignments</b></font></center><br>
+
+<center><p><img src="https://c.tenor.com/U9nCkEtT4LcAAAAC/drag-drag-queen.gif" style="border:5px solid black"></p>
+</center><br>  
+
+<center>
+Each assignment listed is linked to another page containing instructions (you can also find these links elsewhere on the website, where relevant). Don't forget that there are two to three [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html) to perform each week aside from these assignments, to be completed at your own pace. You will find assignments much easier to master in a timely fashion if you keep up with the Modules using the schedule listed, and the readings associated with the [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html). Remember: these assignments will *not* be given a grade, although your peers, the course assistant, and instructor may all provide feedback. Your final grade will be decided in conversation between you and the instructor after your wholistic consideration of your effort and progress in the course using the [Self Evaluation](https://fuzzyatelin.github.io/bioanth-stats/selfevaluation.html). 
+
+</center>
+***
+
+## Homework Assignments
+
+* [Homework 1: Push It!](http://fuzzyatelin.github.io/bioanth-stats/homework-01.html) final due 5pm **September 16, 2021**
+* [Homework 2: Titis in the Mist...](http://fuzzyatelin.github.io/bioanth-stats/homework-02.html) final due 5pm **September 30, 2021**
+* [Homework 3: Some of my Best Friends are Zombies...](http://fuzzyatelin.github.io/bioanth-stats/homework-03.html) final due 5pm **October 14, 2021**
+* [Homework 4: What's Your Malfunction?](http://fuzzyatelin.github.io/bioanth-stats/homework-04.html) final due 5pm **October 28, 2021**
+* [Homework 5: Boots for Days!](http://fuzzyatelin.github.io/bioanth-stats/homework-05.html) final due 5pm **November 11, 2021**
+
+## [Peer Commentary](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) due with *each Homework assignment!*
+
+***
+
+## [Analysis Replication Assignment](https://fuzzyatelin.github.io/bioanth-stats/data-reanalysis-assignment.html) due **December 10, 2021**
+
+***
+
+## [Group Presentation and R Vignette]() due **December 3, 2021**
+
+***
+
+## [Self Evaluation](https://fuzzyatelin.github.io/bioanth-stats/selfevaluation.html) due **December 10, 2021**
