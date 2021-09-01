@@ -1,5 +1,5 @@
 ---
-title: "AN/BI588: Homework 02"
+title: "AN/BI 588: Homework 02"
 date: "May 27, 2021"
 output:
   html_document:
@@ -23,6 +23,7 @@ knitr::opts_chunk$set(
 ### [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
 ### [Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
 ### [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
+### [Assignments](https://fuzzyatelin.github.io/bioanth-stats/assignments.html)
 ### [Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
 ### [Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
 ### [Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)

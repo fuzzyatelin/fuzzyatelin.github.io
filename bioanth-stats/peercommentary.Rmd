@@ -11,6 +11,7 @@ output:
 ### [Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
 ### [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html)
 ### [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
+### [Assignments](https://fuzzyatelin.github.io/bioanth-stats/assignments.html)
 ### [Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
 ### [Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
 ### [Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)

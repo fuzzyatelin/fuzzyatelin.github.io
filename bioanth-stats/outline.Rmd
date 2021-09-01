@@ -1,6 +1,6 @@
 ---
 title: "AN/BI 588: Course Outline"
-date: "August 13, 2021"
+date: "September 1, 2021"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -9,6 +9,7 @@ output:
 
 ### [Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
 ### [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
+### [Assignments](https://fuzzyatelin.github.io/bioanth-stats/assignments.html)
 ### [Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
 ### [Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
 ### [Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
