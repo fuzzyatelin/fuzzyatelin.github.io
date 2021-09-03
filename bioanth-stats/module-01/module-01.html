@@ -685,9 +685,12 @@ save(installedpkgs, file = &quot;installed_old.rda&quot;)</code></pre>
 </div>
 <div id="step-3-reload-reinstall-and-update-your-packages" class="section level3">
 <h3>Step 3: Reload, reinstall, and update your packages:</h3>
-<pre class="r"><code>tmp &lt;- installed.packages()
+<pre class="r"><code>load(&quot;installed_old.rda&quot;)
+tmp &lt;- installed.packages()
 installedpkgs.new &lt;- as.vector(tmp[is.na(tmp[, &quot;Priority&quot;]), 1])
-missing &lt;- setdiff(installedpkgs, installedpkgs.new)
+missing &lt;- setdiff(installedpkgs, installedpkgs.new)</code></pre>
+<pre class="r"><code># Run these last two lines separately... sometimes they require
+# interactive commands:
 install.packages(missing)
 update.packages()</code></pre>
 <ul>

@@ -455,9 +455,13 @@ save(installedpkgs, file="installed_old.rda")
 
 ### Step 3: Reload, reinstall, and update your packages: 
 ```{r,eval=F,echo=T}
+load("installed_old.rda")
 tmp <- installed.packages()
 installedpkgs.new <- as.vector(tmp[is.na(tmp[,"Priority"]), 1])
 missing <- setdiff(installedpkgs, installedpkgs.new)
+```
+```{r,eval=F,echo=T}
+#Run these last two lines separately... sometimes they require interactive commands:
 install.packages(missing)
 update.packages()
 ```
