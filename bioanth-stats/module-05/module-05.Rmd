@@ -30,7 +30,7 @@ knitr::opts_chunk$set(
 
 ## Preliminaries
 
-- GO TO: https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN597_Fall19/, select the `.txt` version of *Country-Data-2016*, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally. Do the same for the `.csv` version.
+- GO TO: https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall21/, select the `.txt` version of *Country-Data-2016*, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally. Do the same for the `.csv` version.
 
 This data set consists of basic statistics (area, current population size, birth rate, death rate, life expectancy, and form of government) for 249 countries taken from [WorldData.info](https://www.worlddata.info) that I have combined with data from the International Union for the Conservation of Nature (IUCN)'s [Red List Summary Statistics](http://www.iucnredlist.org/about/summary-statistics) about the number of threatened animal species by country. *Note*: the IUCN dataset has generally not been updated since 2008!
 
@@ -85,7 +85,7 @@ The file paths below refer to where I have saved the downloaded data, on my **De
 
 ``` {r}
 f <- "~/Desktop/CPDS-1960-2014-reduced.txt"
-d <- read.table(f, header = TRUE, sep ="\t", stringsAsFactors = FALSE)
+d <- read.table(f, header = TRUE, sep ="\t", stringsAsFactors = FALSE, fill=T)
 head(d) # lists the first 6 lines of data
 ```
 **NOTE:** With bracket notation, you can modify how many lines the `head()` function will return: e.g., `head(d)[1:10])`
@@ -193,14 +193,14 @@ GO TO: https://github.com/fuzzyatelin/AN597_Fall17/, select the `.csv` version o
 For a comma-separated value (`.csv`) text file...
 ``` {r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/CPDS-1960-2014-reduced.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/CPDS-1960-2014-reduced.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 head(d)
 # returns a data frame
 ```
 For a tab-delimited (`.tsv` or `txt`) text file...
 ``` {r}
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/CPDS-1960-2014-reduced.txt")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/CPDS-1960-2014-reduced.txt")
 d <- read.table(f, header = TRUE, sep="\t", stringsAsFactors = FALSE)
 head(d)
 # returns a data frame
@@ -208,14 +208,15 @@ head(d)
 
 ### Importing data from a file on a remote server using {readr}
 ``` {r}
+Sys.setenv("VROOM_CONNECTION_SIZE" = 131072 * 2)
 library(readr)
-f <- "https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/CPDS-1960-2014-reduced.csv"
+f <- "https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/CPDS-1960-2014-reduced.csv"
 d <- read_csv(f, col_names = TRUE)
 head(d)
 # returns a "tibble", a new version of a data frame
 ```
 ``` {r}
-f <- "https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/CPDS-1960-2014-reduced.txt"
+f <- "https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/CPDS-1960-2014-reduced.txt"
 d <- read_tsv(f, col_names = TRUE)
 head(d)
 # returns a "tibble", a new version of a data frame

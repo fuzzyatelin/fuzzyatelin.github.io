@@ -172,7 +172,7 @@ stringr::str_split(string=(gsub("[[:punct:]]","",ulysses)),pattern=" ",n=22)
 
 As an example for a matrix, suppose you have the following:
 
-``` {r}
+```{r}
 m <- matrix(data=1:80,nrow=8,ncol=10,byrow=FALSE)
 m
 ```
