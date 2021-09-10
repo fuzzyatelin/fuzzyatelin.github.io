@@ -94,7 +94,6 @@ The students currently enrolled in Fall 2021 (and their associated GitHub accoun
 * Warrenkevin Henderson: [](https://github.com/)
 * Natalia Kelley: [](https://github.com/)
 * Nirmiti Naik: [](https://github.com/)
-* Lila Norris: [](https://github.com/)
 * Isabel Novick: [inovick](https://github.com/inovick)
 * Abigail Robinson: [butterfliesrcool](https://github.com/butterfliesrcool)
 * Miguel Rubio Garcia: [mrubiog2000](https://github.com/mrubiog2000)
@@ -123,7 +122,7 @@ No Peer Commentary due.
 
 ***
 
-Peer Group 1: Lila Norris, Abigail Robinson, Marta Hammers, Victoria French
+Peer Group 1: Abigail Robinson, Marta Hammers, Victoria French
 
 Peer Group 2: Miguel Rubio Garcia, Diego Alonso Larre, Zoe Albert
 
@@ -141,7 +140,7 @@ Peer Group 6: Gabriel Vincencio Castellanos, Francis Short, Warrenkevin Henderso
 
 ***
 
-Peer Group 1: Lila Norris, Francis Short, Victoria Zdanowicz, Nirmiti Naik
+Peer Group 1: Francis Short, Victoria Zdanowicz, Nirmiti Naik
 
 Peer Group 2: Warrenkevin Henderson, Isabel Novick, Gabriel Vincencio Castellanos
 
@@ -159,9 +158,9 @@ Peer Group 6: Nicholas Beebe, Marta Hammers, Zoe Albert
 
 ***
 
-Peer Group 1: Max Dippel, Abigail Robinson, Natalia Kelley, Miguel Rubio Garcia
+Peer Group 1: Abigail Robinson, Natalia Kelley, Miguel Rubio Garcia
 
-Peer Group 2: Diego Alonso Larre, Lila Norris, Isabel Novick
+Peer Group 2: Diego Alonso Larre, Max Dippel, Isabel Novick
 
 Peer Group 3: Nirmiti Naik, Elizabeth Varghese, Warrenkevin Henderson
 
@@ -177,7 +176,7 @@ Peer Group 6: Francis Short, Victoria Zdanowicz, Nicholas Beebe
 
 ***
 
-Peer Group 1: Elizabeth Varghese, Natalia Kelley, Nicholas Beebe, Victoria French
+Peer Group 1: Elizabeth Varghese, Natalia Kelley, Nicholas Beebe
 
 Peer Group 2: Nirmiti Naik, Isabel Novick, Francis Short
 
@@ -185,7 +184,7 @@ Peer Group 3: Diego Alonso Larre, Zoe Albert, Gabriel Vincencio Castellanos
 
 Peer Group 4: Kenny Cho, Warrenkevin Henderson, Abigail Robinson
 
-Peer Group 5: Lila Norris, Miguel Rubio Garcia, Cecelia Gerstenbacher
+Peer Group 5: Victoria French, Miguel Rubio Garcia, Cecelia Gerstenbacher
 
 Peer Group 6: Max Dippel, Marta Hammers, Victoria Zdanowicz
 
@@ -195,9 +194,9 @@ Peer Group 6: Max Dippel, Marta Hammers, Victoria Zdanowicz
 
 ***
 
-Peer Group 1: Diego Alonso Larre, Max Dippel, Isabel Novick, Warrenkevin Henderson
+Peer Group 1: Diego Alonso Larre, Max Dippel, Isabel Novick
 
-Peer Group 2: Zoe Albert, Lila Norris, Nicholas Beebe
+Peer Group 2: Zoe Albert, Warrenkevin Henderson, Nicholas Beebe
 
 Peer Group 3: Elizabeth Varghese, Miguel Rubio Garcia, Gabriel Vincencio Castellanos
 
