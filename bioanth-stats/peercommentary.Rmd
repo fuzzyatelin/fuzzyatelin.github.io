@@ -86,21 +86,22 @@ The students currently enrolled in Fall 2021 (and their associated GitHub accoun
 * Zoe Albert: [ZoeEAlbert](https://github.com/ZoeEAlbert)
 * Diego Alonso Larre: [dalarre](https://github.com/dalarre)
 * Nicholas Beebe: [nsbeebe](https://github.com/nsbeebe)
-* Kenny Cho: [](https://github.com/)
-* Max Dippel: [](https://github.com/)
+* Kenny Cho: [Kenboru](https://github.com/Kenboru)
+* Jordan Cox: [jlcx0723](https://github.com/jlcx0723)
+* Max Dippel: [dippelmax](https://github.com/dippelmax)
 * Victoria French: [vfrench-397](https://github.com/vfrench-397)
-* Cecelia Gerstenbacher: [](https://github.com/)
-* Marta Hammers: [](https://github.com/)
-* Warrenkevin Henderson: [](https://github.com/)
-* Natalia Kelley: [](https://github.com/)
-* Nirmiti Naik: [](https://github.com/)
+* Cecelia Gerstenbacher: [ceceg27](https://github.com/ceceg27)
+* Marta Hammers: [sinnabunbun](https://github.com/sinnabunbun)
+* Warrenkevin Henderson: [warrenkevin](https://github.com/warrenkevin)
+* Natalia Kelley: [maekell98](https://github.com/maekell98)
+* Nirmiti Naik: [nirmitin](https://github.com/nirmitin)
 * Isabel Novick: [inovick](https://github.com/inovick)
 * Abigail Robinson: [butterfliesrcool](https://github.com/butterfliesrcool)
 * Miguel Rubio Garcia: [mrubiog2000](https://github.com/mrubiog2000)
-* Francis Short: [](https://github.com/)
-* Elizabeth Varghese: [](https://github.com/)
-* Gabriel Vincencio Castellanos: [](https://github.com/)
-* Victoria Zdanowicz: [](https://github.com/)
+* Francis Short: [fshortIV](https://github.com/fshortIV)
+* Elizabeth Varghese: [ejv98](https://github.com/ejv98)
+* Gabriel Vincencio Castellanos: [gabovicen](https://github.com/gabovicen)
+* Victoria Zdanowicz: [vzdanowicz](https://github.com/vzdanowicz)
 
 And mine and Mel's GitHub accounts are:
 
@@ -126,7 +127,7 @@ Peer Group 1: Abigail Robinson, Marta Hammers, Victoria French
 
 Peer Group 2: Miguel Rubio Garcia, Diego Alonso Larre, Zoe Albert
 
-Peer Group 3: Kenny Cho, Natalia Kelley, Isabel Novick
+Peer Group 3: Kenny Cho, Natalia Kelley, Isabel Novick, Jordan Cox
 
 Peer Group 4: Victoria Zdanowicz, Nirmiti Naik, Nicholas Beebe
 
