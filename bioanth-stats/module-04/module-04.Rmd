@@ -160,12 +160,14 @@ v[seq(from = 1, to = 100, by = 2)]
 
 	- **HINT 1:** Take a look at the {stringr} package and the function `str_split()` to see if you can easily divide a single string into a vector of substrings.
 ```{r,eval=F,echo=F}
+ulysses<-c("Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed.")
 stringr::str_split(ulysses,pattern=" ",n=22)
 ```
 
 	- **HINT 2:** If you're ambitious, the following function, `gsub("[[:punct:]]","",*string*)`, applied to `*string*`, will remove punctuation and special characters from that string.
 ```{r,eval=F,echo=F}
-stringr::str_split(string=(gsub("[[:punct:]]","",ulysses)),pattern=" ",n=22)
+u2<-stringr::str_split(string=(gsub("[[:punct:]]","",ulysses)),pattern=" ",n=22)
+u2[seq(from=1,to=22,by=3)]
 ```
 
 ***
