@@ -186,7 +186,7 @@ We can also load files stored on a server elsewhere on the web, e.g., ***Dropbox
 
 To read `.csv` or `.txt` files directly from ***GitHub***, use the {curl} or {readr} packages.
 
-GO TO: https://github.com/fuzzyatelin/AN597_Fall17/, select the `.csv` version of the **CPDS-1960-2014-reduced** file, then press `RAW` and copy the URL from the address box of your browser window... this is what you need to use as an argument for the functions below (you will repeat this for the `.txt` version later on)
+GO TO: https://github.com/fuzzyatelin/AN588_Fall21/, select the `.csv` version of the **CPDS-1960-2014-reduced** file, then press `RAW` and copy the URL from the address box of your browser window... this is what you need to use as an argument for the functions below (you will repeat this for the `.txt` version later on)
 
 ### Importing data from a file on a remote server using {curl}
 

@@ -603,7 +603,7 @@ writeWorksheetToFile(f, d, sheet = &quot;myData&quot;, clearSheets = TRUE)</code
 <h2>Loading Files Stored on a Remote Server</h2>
 <p>We can also load files stored on a server elsewhere on the web, e.g., <strong><em>Dropbox</em></strong> or <strong><em>GitHub</em></strong>.</p>
 <p>To read <code>.csv</code> or <code>.txt</code> files directly from <strong><em>GitHub</em></strong>, use the {curl} or {readr} packages.</p>
-<p>GO TO: <a href="https://github.com/fuzzyatelin/AN597_Fall17/" class="uri">https://github.com/fuzzyatelin/AN597_Fall17/</a>, select the <code>.csv</code> version of the <strong>CPDS-1960-2014-reduced</strong> file, then press <code>RAW</code> and copy the URL from the address box of your browser window… this is what you need to use as an argument for the functions below (you will repeat this for the <code>.txt</code> version later on)</p>
+<p>GO TO: <a href="https://github.com/fuzzyatelin/AN588_Fall21/" class="uri">https://github.com/fuzzyatelin/AN588_Fall21/</a>, select the <code>.csv</code> version of the <strong>CPDS-1960-2014-reduced</strong> file, then press <code>RAW</code> and copy the URL from the address box of your browser window… this is what you need to use as an argument for the functions below (you will repeat this for the <code>.txt</code> version later on)</p>
 <div id="importing-data-from-a-file-on-a-remote-server-using-curl" class="section level3">
 <h3>Importing data from a file on a remote server using {curl}</h3>
 <p>For a comma-separated value (<code>.csv</code>) text file…</p>
@@ -752,7 +752,7 @@ str(d)</code></pre>
 <pre class="r"><code>d &lt;- source_data(link, header = TRUE, sep = &quot;,&quot;)  # use the same updated link to the raw data as above</code></pre>
 <pre><code>## Downloading data from: https://www.dropbox.com/s/hft09jnpjepy1a1/CPDS-1960-2014-reduced.csv?dl=0</code></pre>
 <pre><code>## SHA-1 hash of the downloaded data file is:
-## 5fb838a58e9227a7996c53b865bcad2f2a34ac89</code></pre>
+## 620a9adaea52fcc8d109fc934001cd7183349d79</code></pre>
 <pre class="r"><code>head(d)</code></pre>
 <pre><code>##                 button::-moz-focus-inner V2
 ## 1 input[type=&#39;button&#39;]::-moz-focus-inner NA

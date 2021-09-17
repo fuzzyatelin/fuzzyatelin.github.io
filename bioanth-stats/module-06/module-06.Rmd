@@ -29,7 +29,7 @@ knitr::opts_chunk$set(
 > The objective of this module to begin exploring data using the summary functions and graphing abilities of ***R***.
 
 ## Preliminaries
-- GO TO: https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN597_Fall19/, select the `.csv` version of the *Country-Data-2016* file, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally. Do the same for the *KamilarAndCooperData* file.
+- GO TO: https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall21/, select the `.csv` version of the *Country-Data-2016* file, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally. Do the same for the *KamilarAndCooperData* file.
 
 - Install these packages in ***R***: [{dplyr}](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html), [{ggplot2}](http://ggplot2.tidyverse.org/reference/). These are part of the [{tidyverse}](https://www.tidyverse.org/), which you can install as a shorthand for them.
 
@@ -56,7 +56,7 @@ Load the **Country-Data-2016** dataset into a data frame variable, **d**, and su
 
 ``` {r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/Country-Data-2016.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/Country-Data-2016.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 head(d)
 summary(d)
@@ -169,7 +169,7 @@ Read in the dataset **KamilarAndCooperData**, which contains a host of summary i
 Spend some time exploring the data and then make boxplots of **log(female body mass) ~ family**. Try doing this with {base} graphics and then look at how we might do in in {ggplot2}, which provides a standard "grammar of graphics" (see the [{ggplot2} documentation](http://docs.ggplot2.org/current/))
 
 ``` {r}
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/KamilarAndCooperData.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/KamilarAndCooperData.csv")
 d <- read.csv(f, header = TRUE, stringsAsFactors = FALSE)
 attach(d)
 head(d)
