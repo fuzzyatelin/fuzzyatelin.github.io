@@ -94,7 +94,40 @@ We now need to set up ***RStudio*** to interface with ***git***.
 <img src="img/create-rsa-key.png" width=500px/>
 </center><br>
 
-Now, there are a couple of different routes we can take to get ***RStudio***, ***git***, and ***GitHub*** to work together. 
+We also need to enable the use of a *Personal Access Token* in order to interface with ***GitHub*** via ***RStudio***. A Personal Access Token is essentially a password established on ***GitHub*** that ***RStudio*** will send to identify itself as a permitted user.
+
+To set up your Personal Access Token, log in to your ***GitHub*** account and go to *Settings*. In the *Settings* menu, scroll down and click on *Developer Settings*. Once there, use the menu to click on *Personal Access Token*.
+
+Click on the button to *Generate new token*.
+
+<br><center>
+<img src="img/generate-new-token.png" width=500px/>
+</center><br>
+
+When you do, ***GitHub*** will give you the option of naming the token's purpose in your *Note*, to give an expiration date for the token (I recommend setting it to expire only after the course ends... otherwise ***GitHub*** integration will stop midway through the course and you'll have to set up a new token), and to select the *scope* of the token. I recommend, at a minimum, granting `repo`, `user`, and `delete_repo` access by ticking off the boxes next to those scopes.
+
+<br><center>
+<img src="img/token-scope.png" width=500px/>
+</center><br>
+
+Once you've selected your scopes, click on the green *Generate token* button.
+
+<br><center>
+<img src="img/token-generated.png" width=500px/>
+</center><br>
+
+Once your token is generated, copy it.
+
+Open ***RStudio***, and in your ***R*** console, enter the following code:
+```{r,eval=F,echo=T}
+install.packages("gitcreds")
+library(gitcreds)
+gitcreds_set()
+```
+
+When prompted, paste your Personal Access Token into the console and press Enter. This should save your Personal Access Token into your ***RStudio*** git workflow.
+
+Now that we have integrated them, there are a couple of different routes we can take to get ***RStudio***, ***git***, and ***GitHub*** to work together. 
 
 RStudio's version control features are tied to the use of **Projects** (which are a way of dividing work into multiple contexts, each with their own working directory). The steps required to use version control with a project vary depending on whether the project is new or existing as well as whether it is already under version control.
 
