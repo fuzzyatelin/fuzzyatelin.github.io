@@ -85,9 +85,7 @@ The students currently enrolled in Fall 2021 (and their associated GitHub accoun
 
 * Zoe Albert: [ZoeEAlbert](https://github.com/ZoeEAlbert)
 * Diego Alonso Larre: [dalarre](https://github.com/dalarre)
-* Nicholas Beebe: [nsbeebe](https://github.com/nsbeebe)
 * Kenny Cho: [Kenboru](https://github.com/Kenboru)
-* Jordan Cox: [jlcx0723](https://github.com/jlcx0723)
 * Max Dippel: [dippelmax](https://github.com/dippelmax)
 * Victoria French: [vfrench-397](https://github.com/vfrench-397)
 * Cecelia Gerstenbacher: [ceceg27](https://github.com/ceceg27)
@@ -169,7 +167,7 @@ Peer Group 4: Kenny Cho, Cecelia Gerstenbacher, Gabriel Vincencio Castellanos
 
 Peer Group 5: Zoe Albert, Marta Hammers, Victoria French
 
-Peer Group 6: Francis Short, Victoria Zdanowicz, Nicholas Beebe
+Peer Group 6: Francis Short, Victoria Zdanowicz
 
 ***
 
@@ -177,7 +175,7 @@ Peer Group 6: Francis Short, Victoria Zdanowicz, Nicholas Beebe
 
 ***
 
-Peer Group 1: Elizabeth Varghese, Natalia Kelley, Nicholas Beebe
+Peer Group 1: Elizabeth Varghese, Natalia Kelley
 
 Peer Group 2: Nirmiti Naik, Isabel Novick, Francis Short
 
@@ -197,7 +195,7 @@ Peer Group 6: Max Dippel, Marta Hammers, Victoria Zdanowicz
 
 Peer Group 1: Diego Alonso Larre, Max Dippel, Isabel Novick
 
-Peer Group 2: Zoe Albert, Warrenkevin Henderson, Nicholas Beebe
+Peer Group 2: Zoe Albert, Warrenkevin Henderson
 
 Peer Group 3: Elizabeth Varghese, Miguel Rubio Garcia, Gabriel Vincencio Castellanos
 

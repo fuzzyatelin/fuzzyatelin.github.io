@@ -1,6 +1,6 @@
 ---
-title: "AN/BI588: Homework 02 Solution"
-date: "September 30, 2019"
+title: "AN/BI 588: Homework 02 Solution"
+date: "September 27, 2021"
 output:
   html_document:
     theme: cosmo
@@ -68,7 +68,7 @@ Note that for any distribution function (e.g., Poisson, Binomial, Beta, etc), th
 * `qpois`: the quantile function, this will give the value of `x` for which a particular *cumulative* probability is associated.
 * `rpois`: draws `n` random observations from a specified Poisson distribution.
 
-- What is the probability that she will hear more than 8 calls during any given session?
+- **What is the probability that she will hear more than 8 calls during any given session?**
 
 In this case, counting from 9 through infinity might be daunting, but remember that probabilities are bounded from 0 to 1, which means that the *cumulative probability* of 0 to 8 calls will be the *complement* of our desired solution. Let's start by finding the probability of hearing 0 to 8 calls (or, x=8 for cumulative probability) using the `ppois` function, which will calculate the cumulative probability:
 ```{r}
@@ -77,12 +77,12 @@ l<-15
 1-ppois(q=x,lambda=l) #subtracting from 1 to get the complement
 ```
 
-We can also do it the way Lara recommended in class:
+In a previous class, student Lara Hakam did it this way, which is a little more efficient:
 ```{r}
 ppois(8,15,lower.tail=F)
 ```
 
-- What is the probability that she will hear no calls in a session?
+- **What is the probability that she will hear no calls in a session?**
 
 In this case, we'll use `dpois` to get the probability of a single outcome (0, because she heard no calls) for &lambda; = 15, rather than the cumulative probability.
 
@@ -90,16 +90,16 @@ In this case, we'll use `dpois` to get the probability of a single outcome (0, b
 dpois(0,15)
 ```
 
-- What is the probability that she will hear exactly 3 calls in a session?
+- **What is the probability that she will hear exactly 3 calls in a session?**
 
 We'll use the same method here, but instead of 0, we'll enter 3:
 ```{r}
 dpois(3,15)
 ```
 
-- Plot the relevant Poisson mass function over the values in range 0 ≤ x ≤ 30.
+- **Plot the relevant Poisson mass function over the values in range 0 ≤ x ≤ 30.**
 
-Ok, so in this case, we'll need to plot a range (0 through 30) over the Poisson mass function where &lambda; is 15 (so we'll use `dpois`, rather than `ppois` )
+Ok, so in this case, we'll need to plot a range (0 through 30) over the Poisson mass function where &lambda; is 15 (so we'll use `dpois`, rather than `ppois` ):
 
 ```{r}
 x<-0:30
@@ -108,20 +108,25 @@ barplot(dpois(x,l))
 ```
 
 
-- Simulate 104 results from this distribution (i.e., 2 years of Saturday monitoring sessions).
+- **Simulate 104 results from this distribution (i.e., 2 years of Saturday monitoring sessions).**
 
-As Lara suggested in class, we'll use `rpois` for this:
+As Lara also suggested in a previous class, we'll use `rpois` for this:
 ```{r}
 rpois(104,15)
 ```
 
-- Plot the simulated results using hist() and use xlim() to set the horizontal limits to be from 0 to 30. How does your histogram compare to the shape of the probability mass function you plotted above?
+- **Plot the simulated results using hist() and use xlim() to set the horizontal limits to be from 0 to 30. How does your histogram compare to the shape of the probability mass function you plotted above?**
 
-We'll nest our `rpois` results in a histogram using the base R graphics suggested by Christian (which I'll make pretty using the `col` command:
+We'll nest our `rpois` results in a histogram using the base R graphics, as suggested in a previous class by Christian Gagnon (which I'll make pretty using the `col` command):
 ```{r}
 y<-rpois(104,15)
 hist(y,xlim=c(0,30),xlab="Number of Calls",main="Call Monitoring Histogram",breaks=30,col="forestgreen")
 ```
 
+As you can see, our histogram is roughly the same shape as the PMF, but not quite. Our random sampling doesn't perfectly fit the ideal (or population) distribution, but with a large enough sample (maybe 10 years of Saturdays?), it would!
 
-As you can see, our histogram is roughly the same shape as the PMF, but not quite. Our random sampling doesn't perfectly fit the ideal (or population) distribution.
+***
+
+<center><p><img style="border:1px solid black;" src="https://pbs.twimg.com/profile_images/3672905145/3065c656ada21d5a9baea96a2acd9565_400x400.jpeg" width="215" height="215"></p></center>
+
+This homework was lovingly inspired by the wonderful, brilliant (and dearly departed) Brazilian primatologist Anand Dacier, based on work she published in the journal [*Biotropica* (2011)](https://www.jstor.org/stable/41057989?seq=1#metadata_info_tab_contents).
