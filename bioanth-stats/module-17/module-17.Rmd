@@ -96,7 +96,7 @@ Load in the "graddata.csv" dataset, which comes from `http://www.ats.ucla.edu/`,
 
 ```{r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/graddata.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/graddata.csv")
 d <- read.csv(f, header = TRUE, sep = ",")
 head(d)
 summary(d)
@@ -379,8 +379,8 @@ Researchers studied the reproductive success of a set of male woolly monkeys ove
 
 ```{r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/woollydata.csv")
-d <- read.csv(f, header = TRUE, sep = ",")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/woollydata.csv")
+d <- read.csv(f, header = TRUE, sep = ",",stringsAsFactors = TRUE)
 head(d)
 summary(d)
 # first, some exploratory visualization
