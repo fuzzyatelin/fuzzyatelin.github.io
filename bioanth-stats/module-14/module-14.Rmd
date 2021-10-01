@@ -38,7 +38,7 @@ Thus far we have used simple linear regression models involving continuous expla
 
 ``` {r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/zombies.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/zombies.csv")
 z <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = TRUE)
 class(z$gender)
 summary(z$gender)
@@ -173,7 +173,7 @@ Is the omnibus test of the relationship between age category and femur length si
 ``` {r}
 library(curl)
 library(dplyr)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/gibbon-femurs.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/gibbon-femurs.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = TRUE)
 d$age <- factor(d$age, levels = c("inf", "juv", "subadult", "adult")) #this reorders the age levels so that they're in order
 head(d)

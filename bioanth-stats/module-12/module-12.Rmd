@@ -38,7 +38,7 @@ So far, we have looked principally at single variables, but one of the main thin
 ``` {r}
 library(curl)
 library(ggplot2)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/zombies.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/zombies.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 head(d)
 plot(data=d,height~weight)
