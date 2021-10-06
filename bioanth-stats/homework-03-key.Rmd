@@ -1,0 +1,145 @@
+---
+title: "Homework 03 Solutions"
+author: "Christopher A. Schmitt"
+date: "10/6/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	warning = FALSE,
+	comment = "##",
+	prompt = TRUE,
+	tidy = TRUE,
+	tidy.opts = list(width.cutoff = 75),
+	fig.path = "img/"
+)
+```
+
+***
+
+<center>
+<font size="+2"><b>Some of my best friends are Zombies...</b></font></center><br>
+
+***
+
+<center>
+
+<font size="+2"><b>Homework Solutions!</b></font>
+
+</center>
+
+***
+
+Create a new ***GitHub*** repo and git-referenced ***Rstudio*** Project called "**AN588_Zombies_BUlogin**". Within that repo, create a new `.Rmd` file called "**BUlogin_OriginalHomeworkCode_03**". [Modules 03-08](https://fuzzyatelin.github.io/bioanth-stats/modules.html) will each have concepts and example code that will help you complete this assignment. Don't forget to add your [Peer Group](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) and instructor as collaborators, and to accept their invitations to you. Making sure to push both the markdown and knitted `.html` files to your repository, do the following:
+
+Load in the dataset "zombies.csv" from [my ***GitHub*** repo](https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall21/). This data includes the first name, last name, and gender of the entire population of 1000 people who have *survived* the zombie apocalypse and are now ekeing out an existence somewhere on the East Coast, along with several other variables (height, weight, age, number of years of education, number of zombies they have killed, and college major; [see here for info on important post-zombie apocalypse majors](http://www.thebestschools.org/magazine/best-majors-surviving-zombie-apocalypse/)).
+
+<ol><li>Calculate the *population* mean and standard deviation for each quantitative random variable (height, weight, age, number of zombies killed, and years of education). NOTE: You will not want to use the built in `var()` and `sd()` commands as these are for *samples*.</li>
+
+<li>Use {ggplot} to make boxplots of each of these variables by gender.</li>
+
+<li>Use {ggplot} to make scatterplots of height and weight in relation to age. Do these variables seem to be related? In what way?</li>
+
+<li>Using histograms and Q-Q plots, check whether the quantitative variables seem to be drawn from a normal distribution. Which seem to be and which do not (hint: not all are drawn from the normal distribution)? For those that are not normal, can you determine from which common distribution they are drawn?</li>
+
+<li>Now use the `sample()` function to sample ONE subset of 30 zombie survivors (without replacement) from this population and calculate the mean and sample standard deviation for each variable. Also estimate the standard error for each variable, and construct the 95% confidence interval for each mean. Note that for the variables that are not drawn from the normal distribution, you may need to base your estimate of the CIs on slightly different code than for the normal...</li>
+
+<li>Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate the mean for each variable for each of these samples. Together with the first sample you drew, you now have a set of 100 means for each variable (each based on 30 observations), which constitutes a *sampling* distribution for each variable. What are the means and standard deviations of this distribution of means for each variable? How do the standard deviations of means compare to the standard errors estimated in [5]? What do these sampling distributions look like (a graph might help here)? Are they normally distributed? What about for those variables that you concluded were *not* originally drawn from a normal distribution?</li></ol>
+
+***
+
+- **Load in the dataset "zombies.csv" from [my ***GitHub*** repo](https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall21/).**
+
+The first element of this assignment is loading in the dataset. As always in ***R***, there are many many ways to do this, and we have examples for a few of them in previous modules (particularly [Module 05](https://fuzzyatelin.github.io/bioanth-stats/module-05/module-05.html)). My preferred way, when I've got a clear online location for the dataset (in this case, the ***GitHub*** repo link provided above), is to use a {curl} command just because that's usually the most efficient. As always, though, if you have another way to do it that's great; the point is to get the data in, doesn't necessarily matter how for a dataset this small:
+```{r}
+library(curl)
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/zombies.csv")
+z <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
+head(z)
+```
+
+Great! Now we can get started characterizing this population of zombie apocalypse survivors, including taking the *population* mean and standard deviation for each quantitative random variable. 
+
+- **Calculate the *population* mean and standard deviation for each quantitative random variable (height, weight, age, number of zombies killed, and years of education).**
+
+Remember, this is *different* from sample statistics, as outlined in [Module 08](https://fuzzyatelin.github.io/bioanth-stats/module-08/module-08.html), where you can find helpful code for calculating them. In that module, we learned that while the *population* variance is the sum of squares divided by **N** (our population size), the *sample* variance is the sum of squares divided by **n-1** (our sample size minus one degree of freedom).
+
+We can use the `mean()` function to calculate the mean of, for example, `weight`:
+```{r}
+mean(z$weight)
+```
+
+And let's use the `pop_sd` function we created in Module 08 to get the *population* standard deviation (we also need the `pop_v` function to make it work properly):
+```{r}
+pop_v <- function(x) {
+    sum((x - mean(x))^2)/(length(x))
+}
+pop_sd <- function(x) {
+    sqrt(pop_v(x))
+}
+pop_sd(z$weight)
+```
+
+If you compare it to the `sd()` function, designed for *samples*, you'll see it's slightly different due to the accommodation for the degrees of freedom:
+```{r}
+sd(z$weight)
+```
+
+Now, you *can* just run each of these one by one, simply plugging in the different variables, but the {tidyverse} has given us some fancier (and faster) options. You can use the [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html) function (or *verb* as the {tidyverse} calls them) to run all of them in a single [pipe](https://www.datacamp.com/community/tutorials/pipe-r-tutorial):
+```{r}
+library(tidyverse)
+zparams<-
+  z %>%
+  select(height,weight,age,zombies_killed,years_of_education) %>%
+  summarise(across(everything(), list(mean=mean,sd=pop_sd)))
+zparams
+```
+
+- **Use {ggplot} to make boxplots of each of these variables by gender.**
+
+The easiest way to learn how to use {ggplot2} is to just dive in and start experimenting. You can get started by checking out the {tidyverse} [webpage for {ggplot2}](https://ggplot2.tidyverse.org/). There's a really helpful [cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf) there taht will walk you through basic {ggplot2} grammar.
+
+To build a boxplot, we first need to use the `ggplot` function, which will set up our dataset, followed by a `geom` call that defines the kind of figure we want to make from that dataset. Here's a first try making a boxplot if `height` by `gender`. It's a very basic plot in which I'm calling in my dataset (`data = z`), defining my x- and y-axis variables (there are named in the `aes()` or aesthetics command within `ggplot()`), and then defining my figure output as a boxplot using the `geom_boxplot()` command. Notice that separate commands that modify the figure outside our `ggplot()` command are added using the `+` character:
+```{r}
+genplot <- ggplot(data = z, aes(x=gender,y=height)) + geom_boxplot()
+genplot
+```
+
+The really nice thing about {ggplot2} is the added capabilities to *prettify* your work. Here's a small example... see if you can figure out which bit of code makes which change to the graphic:
+```{r}
+genplot <- ggplot(data = z, aes(x=gender,y=height,fill=gender)) + geom_boxplot() + ggtitle("Height by Gender in Survivors") + theme_bw()
+genplot
+```
+
+You can easily run all of the required plots by copying and pasting each individual variable name into the chunk, like so:
+```{r}
+genplot <- ggplot(data = z, aes(x=gender,y=height,fill=gender)) + geom_boxplot() + ggtitle("Height by Gender in Survivors") + theme_bw()
+genplot
+
+genplot <- ggplot(data = z, aes(x=gender,y=weight,fill=gender)) + geom_boxplot() + ggtitle("Weight by Gender in Survivors") + theme_bw()
+genplot
+
+genplot <- ggplot(data = z, aes(x=gender,y=zombies_killed,fill=gender)) + geom_boxplot() + ggtitle("Zombies Killed by Gender in Survivors") + theme_bw()
+genplot
+
+genplot <- ggplot(data = z, aes(x=gender,y=years_of_education,fill=gender)) + geom_boxplot() + ggtitle("Years of Education by Gender in Survivors") + theme_bw()
+genplot
+
+genplot <- ggplot(data = z, aes(x=gender,y=age,fill=gender)) + geom_boxplot() + ggtitle("Age by Gender in Survivors") + theme_bw()
+genplot
+```
+
+Now, as with the previous example, there are ways to simplify our work so that we don't have to write a separate line of code for each figure. Remembering the value of looping to save time, I leaned on the package [{ggloop}](https://cran.r-project.org/web/packages/ggloop/vignettes/intro.html) to run all my plots at once. *I would not expect you to be able to figure this out on your own*, but I thought it might be nice to show you:
+```{r}
+library(ggloop)
+traits <- z %>% select(gender,height,weight,zombies_killed,years_of_education,age) 
+#here I've used piping to select the names of only those columns in 'z' that have numeric entries (plus the 'gender' column)
+
+genplots <- ggloop(traits, aes_loop(x=gender,y=height:age))
+genplots[1:5] <- genplots[1:5] %L+% geom_boxplot(aes(fill=gender))
+genplots
+```
+
+- **Use {ggplot} to make scatterplots of height and weight in relation to age. Do these variables seem to be related? In what way?**

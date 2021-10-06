@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Christopher A. Schmitt" />
+
+
+<title>Homework 03 Solutions</title>
+
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Homework 03 Solutions</h1>
+<h4 class="author">Christopher A. Schmitt</h4>
+<h4 class="date">10/6/2021</h4>
+
+</div>
+
+
+<hr />
+<center>
+<font size="+2"><b>Some of my best friends are Zombies…</b></font>
+</center>
+<p><br></p>
+<hr />
+<center>
+<p><font size="+2"><b>Homework Solutions!</b></font></p>
+</center>
+<hr />
+<p>Create a new <strong><em>GitHub</em></strong> repo and git-referenced <strong><em>Rstudio</em></strong> Project called “<strong>AN588_Zombies_BUlogin</strong>”. Within that repo, create a new <code>.Rmd</code> file called “<strong>BUlogin_OriginalHomeworkCode_03</strong>”. <a href="https://fuzzyatelin.github.io/bioanth-stats/modules.html">Modules 03-08</a> will each have concepts and example code that will help you complete this assignment. Don’t forget to add your <a href="https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html">Peer Group</a> and instructor as collaborators, and to accept their invitations to you. Making sure to push both the markdown and knitted <code>.html</code> files to your repository, do the following:</p>
+<p>Load in the dataset “zombies.csv” from <a href="https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall21/">my <strong><em>GitHub</em></strong> repo</a>. This data includes the first name, last name, and gender of the entire population of 1000 people who have <em>survived</em> the zombie apocalypse and are now ekeing out an existence somewhere on the East Coast, along with several other variables (height, weight, age, number of years of education, number of zombies they have killed, and college major; <a href="http://www.thebestschools.org/magazine/best-majors-surviving-zombie-apocalypse/">see here for info on important post-zombie apocalypse majors</a>).</p>
+<ol>
+<li>
+Calculate the <em>population</em> mean and standard deviation for each quantitative random variable (height, weight, age, number of zombies killed, and years of education). NOTE: You will not want to use the built in <code>var()</code> and <code>sd()</code> commands as these are for <em>samples</em>.
+</li>
+<li>
+Use {ggplot} to make boxplots of each of these variables by gender.
+</li>
+<li>
+Use {ggplot} to make scatterplots of height and weight in relation to age. Do these variables seem to be related? In what way?
+</li>
+<li>
+Using histograms and Q-Q plots, check whether the quantitative variables seem to be drawn from a normal distribution. Which seem to be and which do not (hint: not all are drawn from the normal distribution)? For those that are not normal, can you determine from which common distribution they are drawn?
+</li>
+<li>
+Now use the <code>sample()</code> function to sample ONE subset of 30 zombie survivors (without replacement) from this population and calculate the mean and sample standard deviation for each variable. Also estimate the standard error for each variable, and construct the 95% confidence interval for each mean. Note that for the variables that are not drawn from the normal distribution, you may need to base your estimate of the CIs on slightly different code than for the normal…
+</li>
+<li>
+Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate the mean for each variable for each of these samples. Together with the first sample you drew, you now have a set of 100 means for each variable (each based on 30 observations), which constitutes a <em>sampling</em> distribution for each variable. What are the means and standard deviations of this distribution of means for each variable? How do the standard deviations of means compare to the standard errors estimated in [5]? What do these sampling distributions look like (a graph might help here)? Are they normally distributed? What about for those variables that you concluded were <em>not</em> originally drawn from a normal distribution?
+</li>
+</ol>
+<hr />
+<ul>
+<li><strong>Load in the dataset “zombies.csv” from <a href="https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall21/">my <strong><em>GitHub</em></strong> repo</a>.</strong></li>
+</ul>
+<p>The first element of this assignment is loading in the dataset. As always in <strong><em>R</em></strong>, there are many many ways to do this, and we have examples for a few of them in previous modules (particularly <a href="https://fuzzyatelin.github.io/bioanth-stats/module-05/module-05.html">Module 05</a>). My preferred way, when I’ve got a clear online location for the dataset (in this case, the <strong><em>GitHub</em></strong> repo link provided above), is to use a {curl} command just because that’s usually the most efficient. As always, though, if you have another way to do it that’s great; the point is to get the data in, doesn’t necessarily matter how for a dataset this small:</p>
+<pre class="r"><code>&gt; library(curl)</code></pre>
+<pre><code>## Using libcurl 7.54.0 with LibreSSL/2.6.5</code></pre>
+<pre class="r"><code>&gt; f &lt;- curl(&quot;https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/zombies.csv&quot;)
+&gt; z &lt;- read.csv(f, header = TRUE, sep = &quot;,&quot;, stringsAsFactors = FALSE)
+&gt; head(z)</code></pre>
+<pre><code>##   id first_name last_name gender   height   weight zombies_killed
+## 1  1      Sarah    Little Female 62.88951 132.0872              2
+## 2  2       Mark    Duncan   Male 67.80277 146.3753              5
+## 3  3    Brandon     Perez   Male 72.12908 152.9370              1
+## 4  4      Roger   Coleman   Male 66.78484 129.7418              5
+## 5  5      Tammy    Powell Female 64.71832 132.4265              4
+## 6  6    Anthony     Green   Male 71.24326 152.5246              1
+##   years_of_education                           major      age
+## 1                  1                medicine/nursing 17.64275
+## 2                  3 criminal justice administration 22.58951
+## 3                  1                       education 21.91276
+## 4                  6                  energy studies 18.19058
+## 5                  3                       logistics 21.10399
+## 6                  4                  energy studies 21.48355</code></pre>
+<p>Great! Now we can get started characterizing this population of zombie apocalypse survivors, including taking the <em>population</em> mean and standard deviation for each quantitative random variable.</p>
+<ul>
+<li><strong>Calculate the <em>population</em> mean and standard deviation for each quantitative random variable (height, weight, age, number of zombies killed, and years of education).</strong></li>
+</ul>
+<p>Remember, this is <em>different</em> from sample statistics, as outlined in <a href="https://fuzzyatelin.github.io/bioanth-stats/module-08/module-08.html">Module 08</a>, where you can find helpful code for calculating them. In that module, we learned that while the <em>population</em> variance is the sum of squares divided by <strong>N</strong> (our population size), the <em>sample</em> variance is the sum of squares divided by <strong>n-1</strong> (our sample size minus one degree of freedom).</p>
+<p>We can use the <code>mean()</code> function to calculate the mean of, for example, <code>weight</code>:</p>
+<pre class="r"><code>&gt; mean(z$weight)</code></pre>
+<pre><code>## [1] 143.9075</code></pre>
+<p>And let’s use the <code>pop_sd</code> function we created in Module 08 to get the <em>population</em> standard deviation (we also need the <code>pop_v</code> function to make it work properly):</p>
+<pre class="r"><code>&gt; pop_v &lt;- function(x) {
++     sum((x - mean(x))^2)/(length(x))
++ }
+&gt; pop_sd &lt;- function(x) {
++     sqrt(pop_v(x))
++ }
+&gt; pop_sd(z$weight)</code></pre>
+<pre><code>## [1] 18.39186</code></pre>
+<p>If you compare it to the <code>sd()</code> function, designed for <em>samples</em>, you’ll see it’s slightly different due to the accommodation for the degrees of freedom:</p>
+<pre class="r"><code>&gt; sd(z$weight)</code></pre>
+<pre><code>## [1] 18.40106</code></pre>
+<p>Now, you <em>can</em> just run each of these one by one, simply plugging in the different variables, but the {tidyverse} has given us some fancier (and faster) options. You can use the <a href="https://dplyr.tidyverse.org/reference/summarise.html"><code>summarise()</code></a> function (or <em>verb</em> as the {tidyverse} calls them) to run all of them in a single <a href="https://www.datacamp.com/community/tutorials/pipe-r-tutorial">pipe</a>:</p>
+<pre class="r"><code>&gt; library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.3     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   2.0.1     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter()     masks stats::filter()
+## x dplyr::lag()        masks stats::lag()
+## x readr::parse_date() masks curl::parse_date()</code></pre>
+<pre class="r"><code>&gt; zparams &lt;- z %&gt;%
++     select(height, weight, age, zombies_killed, years_of_education) %&gt;%
++     summarise(across(everything(), list(mean = mean, sd = pop_sd)))
+&gt; zparams</code></pre>
+<pre><code>##   height_mean height_sd weight_mean weight_sd age_mean   age_sd
+## 1     67.6301   4.30797    143.9075  18.39186 20.04696 2.963583
+##   zombies_killed_mean zombies_killed_sd years_of_education_mean
+## 1               2.992          1.747551                   2.996
+##   years_of_education_sd
+## 1              1.675704</code></pre>
+<ul>
+<li><strong>Use {ggplot} to make boxplots of each of these variables by gender.</strong></li>
+</ul>
+<p>The easiest way to learn how to use {ggplot2} is to just dive in and start experimenting. You can get started by checking out the {tidyverse} <a href="https://ggplot2.tidyverse.org/">webpage for {ggplot2}</a>. There’s a really helpful <a href="https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf">cheat sheet</a> there taht will walk you through basic {ggplot2} grammar.</p>
+<p>To build a boxplot, we first need to use the <code>ggplot</code> function, which will set up our dataset, followed by a <code>geom</code> call that defines the kind of figure we want to make from that dataset. Here’s a first try making a boxplot if <code>height</code> by <code>gender</code>. It’s a very basic plot in which I’m calling in my dataset (<code>data = z</code>), defining my x- and y-axis variables (there are named in the <code>aes()</code> or aesthetics command within <code>ggplot()</code>), and then defining my figure output as a boxplot using the <code>geom_boxplot()</code> command. Notice that separate commands that modify the figure outside our <code>ggplot()</code> command are added using the <code>+</code> character:</p>
+<pre class="r"><code>&gt; genplot &lt;- ggplot(data = z, aes(x = gender, y = height)) + geom_boxplot()
+&gt; genplot</code></pre>
+<p><img src="img/unnamed-chunk-6-1.png" width="672" /></p>
+<p>The really nice thing about {ggplot2} is the added capabilities to <em>prettify</em> your work. Here’s a small example… see if you can figure out which bit of code makes which change to the graphic:</p>
+<pre class="r"><code>&gt; genplot &lt;- ggplot(data = z, aes(x = gender, y = height, fill = gender)) + geom_boxplot() +
++     ggtitle(&quot;Height by Gender in Survivors&quot;) + theme_bw()
+&gt; genplot</code></pre>
+<p><img src="img/unnamed-chunk-7-1.png" width="672" /></p>
+<p>You can easily run all of the required plots by copying and pasting each individual variable name into the chunk, like so:</p>
+<pre class="r"><code>&gt; genplot &lt;- ggplot(data = z, aes(x = gender, y = height, fill = gender)) + geom_boxplot() +
++     ggtitle(&quot;Height by Gender in Survivors&quot;) + theme_bw()
+&gt; genplot</code></pre>
+<p><img src="img/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>&gt; genplot &lt;- ggplot(data = z, aes(x = gender, y = weight, fill = gender)) + geom_boxplot() +
++     ggtitle(&quot;Weight by Gender in Survivors&quot;) + theme_bw()
+&gt; genplot</code></pre>
+<p><img src="img/unnamed-chunk-8-2.png" width="672" /></p>
+<pre class="r"><code>&gt; genplot &lt;- ggplot(data = z, aes(x = gender, y = zombies_killed, fill = gender)) +
++     geom_boxplot() + ggtitle(&quot;Zombies Killed by Gender in Survivors&quot;) + theme_bw()
+&gt; genplot</code></pre>
+<p><img src="img/unnamed-chunk-8-3.png" width="672" /></p>
+<pre class="r"><code>&gt; genplot &lt;- ggplot(data = z, aes(x = gender, y = years_of_education, fill = gender)) +
++     geom_boxplot() + ggtitle(&quot;Years of Education by Gender in Survivors&quot;) +
++     theme_bw()
+&gt; genplot</code></pre>
+<p><img src="img/unnamed-chunk-8-4.png" width="672" /></p>
+<pre class="r"><code>&gt; genplot &lt;- ggplot(data = z, aes(x = gender, y = age, fill = gender)) + geom_boxplot() +
++     ggtitle(&quot;Age by Gender in Survivors&quot;) + theme_bw()
+&gt; genplot</code></pre>
+<p><img src="img/unnamed-chunk-8-5.png" width="672" /></p>
+<p>Now, as with the previous example, there are ways to simplify our work so that we don’t have to write a separate line of code for each figure. Remembering the value of looping to save time, I leaned on the package <a href="https://cran.r-project.org/web/packages/ggloop/vignettes/intro.html">{ggloop}</a> to run all my plots at once. <em>I would not expect you to be able to figure this out on your own</em>, but I thought it might be nice to show you:</p>
+<pre class="r"><code>&gt; library(ggloop)
+&gt; traits &lt;- z %&gt;%
++     select(gender, height, weight, zombies_killed, years_of_education, age)
+&gt; # here I&#39;ve used piping to select the names of only those columns in &#39;z&#39;
+&gt; # that have numeric entries (plus the &#39;gender&#39; column)
+&gt; 
+&gt; genplots &lt;- ggloop(traits, aes_loop(x = gender, y = height:age))
+&gt; genplots[1:5] &lt;- genplots[1:5] %L+% geom_boxplot(aes(fill = gender))
+&gt; genplots</code></pre>
+<pre><code>## $x.gender_y.height</code></pre>
+<p><img src="img/unnamed-chunk-9-1.png" width="672" /></p>
+<pre><code>## 
+## $x.gender_y.weight</code></pre>
+<p><img src="img/unnamed-chunk-9-2.png" width="672" /></p>
+<pre><code>## 
+## $x.gender_y.zombies_killed</code></pre>
+<p><img src="img/unnamed-chunk-9-3.png" width="672" /></p>
+<pre><code>## 
+## $x.gender_y.years_of_education</code></pre>
+<p><img src="img/unnamed-chunk-9-4.png" width="672" /></p>
+<pre><code>## 
+## $x.gender_y.age</code></pre>
+<p><img src="img/unnamed-chunk-9-5.png" width="672" /></p>
+<ul>
+<li><strong>Use {ggplot} to make scatterplots of height and weight in relation to age. Do these variables seem to be related? In what way?</strong></li>
+</ul>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
