@@ -204,7 +204,7 @@ Load up the "zombies.csv" dataset again and run a linear model of height as a fu
 
 ``` {r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/zombies.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/zombies.csv")
 z <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = TRUE)
 head(z)
 m <- lm(data=z, height~weight+age)
@@ -335,7 +335,7 @@ grid.arrange(p1,p2,ncol=2)
 
 ``` {r}
 library(dplyr)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/KamilarAndCooperData.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/KamilarAndCooperData.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = TRUE)
 head(d)
 d <- select(d, Brain_Size_Female_Mean,Family,Body_mass_female_mean,MeanGroupSize,DayLength_km,HomeRange_km2,Move)

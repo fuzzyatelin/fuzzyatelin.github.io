@@ -85,7 +85,7 @@ Let's explore these idea using some actual data. First, load in the dataset "chi
 
 ```{r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/chimpgrooming.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/chimpgrooming.csv")
 d <- read.csv(f, header = TRUE, sep = ",")
 head(d)
 summary(d)

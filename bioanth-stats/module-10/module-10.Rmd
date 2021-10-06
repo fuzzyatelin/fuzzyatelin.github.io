@@ -86,7 +86,7 @@ Suppose we have a vector describing the adult weights of vervet monkeys trapped 
 
 ``` {r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/vervet-weights.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/vervet-weights.csv")
 d <- read.csv(f, header=TRUE, sep=",", stringsAsFactors=FALSE)
 head(d)
 mean(d$weight)
@@ -193,7 +193,7 @@ Adult lowland woolly monkeys are reported to have an average body weight of 7.2 
 Perform a hypothesis test of whether body weights in your population are different from the reported average for lowland woolly monkeys by setting up a "two-tailed" hypothesis, carrying out the analysis, and interpreting the p value (assume the significance level is $\alpha$=0.05). Your sample is < 30, so you should use the t distribution and do a t test. Do your calculations both by hand and using the `t.test()` function and confirm that they match.
 
 ``` {r}
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/woolly-weights.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/woolly-weights.csv")
 d <- read.csv(f, header=TRUE, sep=",", stringsAsFactors=FALSE)
 head(d)
 x <- d$weight
@@ -246,7 +246,7 @@ where:
 Let's do an example. Load in a file of black-and-white colobus weights and examine the `str()` of the file. Then, create 2 vectors, x and y, for male and female weights. Plot these in boxplots side by side and then calculate the mean, sd, and sample size for both males and females.
 
 ``` {r}
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/colobus-weights.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/colobus-weights.csv")
 d <- read.csv(f, header=TRUE, sep=",", stringsAsFactors=FALSE)
 head(d)
 x <- d$weight[d$sex =="male"]
@@ -366,7 +366,7 @@ Again, note that $\mu$ here is the expected difference between the means under t
 Let's play with a sample... IQs of individuals taking a certain statistics course pre and post a lecture on significance testing. Load in the `iqs.csv` data file, look at it, plot a barchart of values before and after and construct a paired t test to evaluate the means before and after.
 
 ``` {r}
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall19/iqs.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/iqs.csv")
 d <- read.csv(f, header=TRUE, sep=",", stringsAsFactors=FALSE)
 head(d)
 x <- d$IQ.before-d$IQ.after
