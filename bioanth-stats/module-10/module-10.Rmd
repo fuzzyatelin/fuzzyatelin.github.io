@@ -240,7 +240,7 @@ where:
 
 ***
 
-<center><p><img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Black_and_white_colobus_monkey_%2813945312952%29.jpg" style="border:5px solid black"></p>
+<center><p><img src="https://africageographic.com/wp-content/uploads/2020/03/4-Black-and-white-colobus-monkeys-in-Kibale-Forest-National-Park-%C2%A9-Patrick-Shah.jpg" style="border:5px solid black"></p>
 </center>
 
 Let's do an example. Load in a file of black-and-white colobus weights and examine the `str()` of the file. Then, create 2 vectors, x and y, for male and female weights. Plot these in boxplots side by side and then calculate the mean, sd, and sample size for both males and females.

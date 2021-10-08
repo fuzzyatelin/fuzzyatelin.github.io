@@ -17,7 +17,7 @@
 <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -208,9 +208,8 @@ Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate
 <li><strong>Load in the dataset “zombies.csv” from <a href="https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall21/">my <strong><em>GitHub</em></strong> repo</a>.</strong></li>
 </ul>
 <p>The first element of this assignment is loading in the dataset. As always in <strong><em>R</em></strong>, there are many many ways to do this, and we have examples for a few of them in previous modules (particularly <a href="https://fuzzyatelin.github.io/bioanth-stats/module-05/module-05.html">Module 05</a>). My preferred way, when I’ve got a clear online location for the dataset (in this case, the <strong><em>GitHub</em></strong> repo link provided above), is to use a {curl} command just because that’s usually the most efficient. As always, though, if you have another way to do it that’s great; the point is to get the data in, doesn’t necessarily matter how for a dataset this small:</p>
-<pre class="r"><code>&gt; library(curl)</code></pre>
-<pre><code>## Using libcurl 7.54.0 with LibreSSL/2.6.5</code></pre>
-<pre class="r"><code>&gt; f &lt;- curl(&quot;https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/zombies.csv&quot;)
+<pre class="r"><code>&gt; library(curl)
+&gt; f &lt;- curl(&quot;https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/zombies.csv&quot;)
 &gt; z &lt;- read.csv(f, header = TRUE, sep = &quot;,&quot;, stringsAsFactors = FALSE)
 &gt; head(z)</code></pre>
 <pre><code>##   id first_name last_name gender   height   weight zombies_killed
@@ -248,17 +247,8 @@ Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate
 <pre class="r"><code>&gt; sd(z$weight)</code></pre>
 <pre><code>## [1] 18.40106</code></pre>
 <p>Now, you <em>can</em> just run each of these one by one, simply plugging in the different variables, but the {tidyverse} has given us some fancier (and faster) options. You can use the <a href="https://dplyr.tidyverse.org/reference/summarise.html"><code>summarise()</code></a> function (or <em>verb</em> as the {tidyverse} calls them) to run all of them in a single <a href="https://www.datacamp.com/community/tutorials/pipe-r-tutorial">pipe</a>:</p>
-<pre class="r"><code>&gt; library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
-<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-## ✓ tibble  3.1.3     ✓ dplyr   1.0.7
-## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
-## ✓ readr   2.0.1     ✓ forcats 0.5.1</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::filter()     masks stats::filter()
-## x dplyr::lag()        masks stats::lag()
-## x readr::parse_date() masks curl::parse_date()</code></pre>
-<pre class="r"><code>&gt; zparams &lt;- z %&gt;%
+<pre class="r"><code>&gt; library(tidyverse)
+&gt; zparams &lt;- z %&gt;%
 +     select(height, weight, age, zombies_killed, years_of_education) %&gt;%
 +     summarise(across(everything(), list(mean = mean, sd = pop_sd)))
 &gt; zparams</code></pre>
@@ -271,47 +261,59 @@ Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate
 <ul>
 <li><strong>Use {ggplot} to make boxplots of each of these variables by gender.</strong></li>
 </ul>
-<p>The easiest way to learn how to use {ggplot2} is to just dive in and start experimenting. You can get started by checking out the {tidyverse} <a href="https://ggplot2.tidyverse.org/">webpage for {ggplot2}</a>. There’s a really helpful <a href="https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf">cheat sheet</a> there taht will walk you through basic {ggplot2} grammar.</p>
-<p>To build a boxplot, we first need to use the <code>ggplot</code> function, which will set up our dataset, followed by a <code>geom</code> call that defines the kind of figure we want to make from that dataset. Here’s a first try making a boxplot if <code>height</code> by <code>gender</code>. It’s a very basic plot in which I’m calling in my dataset (<code>data = z</code>), defining my x- and y-axis variables (there are named in the <code>aes()</code> or aesthetics command within <code>ggplot()</code>), and then defining my figure output as a boxplot using the <code>geom_boxplot()</code> command. Notice that separate commands that modify the figure outside our <code>ggplot()</code> command are added using the <code>+</code> character:</p>
-<pre class="r"><code>&gt; genplot &lt;- ggplot(data = z, aes(x = gender, y = height)) + geom_boxplot()
-&gt; genplot</code></pre>
+<p>The easiest way to learn how to use {ggplot2} is to just dive in and start experimenting. You can get started by checking out the {tidyverse} <a href="https://ggplot2.tidyverse.org/">webpage for {ggplot2}</a>. There’s a really helpful <a href="https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf">cheat sheet</a> there that will walk you through basic {ggplot2} grammar.</p>
+<p>For a shortcut to drawing these plots, we can also go back and copy code used in <a href="https://fuzzyatelin.github.io/bioanth-stats/module-06/module-06.html">Module 06</a></p>
+<p>Now, to build a boxplot, we first need to use the <code>ggplot</code> function, which will set up our dataset, followed by a <code>geom</code> call that defines the kind of figure we want to make from that dataset. Here’s a first try making a boxplot if <code>height</code> by <code>gender</code>. It’s a very basic plot in which I’m calling in my dataset (<code>data = z</code>), defining my x- and y-axis variables (there are named in the <code>aes()</code> or aesthetics command within <code>ggplot()</code>), and then defining my figure output as a boxplot using the <code>geom_boxplot()</code> command. Notice that separate commands that modify the figure outside our <code>ggplot()</code> command are added using the <code>+</code> character:</p>
+<pre class="r"><code>&gt; p &lt;- ggplot(data = z, aes(x = gender, y = height))
+&gt; 
+&gt; p &lt;- p + geom_boxplot()
+&gt; 
+&gt; p</code></pre>
 <p><img src="img/unnamed-chunk-6-1.png" width="672" /></p>
-<p>The really nice thing about {ggplot2} is the added capabilities to <em>prettify</em> your work. Here’s a small example… see if you can figure out which bit of code makes which change to the graphic:</p>
-<pre class="r"><code>&gt; genplot &lt;- ggplot(data = z, aes(x = gender, y = height, fill = gender)) + geom_boxplot() +
-+     ggtitle(&quot;Height by Gender in Survivors&quot;) + theme_bw()
-&gt; genplot</code></pre>
+<p>The really nice thing about {ggplot2} is the added capabilities to <em>prettify</em> your work. Here’s a small example… see if you can figure out which bit of code makes which change to the graphic (also, notice how I’ve broken up my code to make it clearly readable each time I modify the figure; this kind of syntax might be helpful to use while you’re learning {ggplot2}):</p>
+<pre class="r"><code>&gt; p &lt;- ggplot(data = z, aes(x = gender, y = height))
+&gt; 
+&gt; p &lt;- p + geom_boxplot(aes(fill = gender))
+&gt; 
+&gt; p &lt;- p + ggtitle(&quot;Height by Gender in Survivors&quot;)
+&gt; 
+&gt; p &lt;- p + theme_bw()
+&gt; 
+&gt; p</code></pre>
 <p><img src="img/unnamed-chunk-7-1.png" width="672" /></p>
-<p>You can easily run all of the required plots by copying and pasting each individual variable name into the chunk, like so:</p>
-<pre class="r"><code>&gt; genplot &lt;- ggplot(data = z, aes(x = gender, y = height, fill = gender)) + geom_boxplot() +
+<p>You can easily run all of the required plots by copying and pasting each individual variable name into the chunk, like so (notice I’ve used a more compact syntax here… one line of code per plot; convenient, but also maybe confusing):</p>
+<pre class="r"><code>&gt; p &lt;- ggplot(data = z, aes(x = gender, y = height)) + geom_boxplot(aes(fill = gender)) +
 +     ggtitle(&quot;Height by Gender in Survivors&quot;) + theme_bw()
-&gt; genplot</code></pre>
+&gt; p</code></pre>
 <p><img src="img/unnamed-chunk-8-1.png" width="672" /></p>
-<pre class="r"><code>&gt; genplot &lt;- ggplot(data = z, aes(x = gender, y = weight, fill = gender)) + geom_boxplot() +
+<pre class="r"><code>&gt; p &lt;- ggplot(data = z, aes(x = gender, y = weight)) + geom_boxplot(aes(fill = gender)) +
 +     ggtitle(&quot;Weight by Gender in Survivors&quot;) + theme_bw()
-&gt; genplot</code></pre>
+&gt; p</code></pre>
 <p><img src="img/unnamed-chunk-8-2.png" width="672" /></p>
-<pre class="r"><code>&gt; genplot &lt;- ggplot(data = z, aes(x = gender, y = zombies_killed, fill = gender)) +
-+     geom_boxplot() + ggtitle(&quot;Zombies Killed by Gender in Survivors&quot;) + theme_bw()
-&gt; genplot</code></pre>
+<pre class="r"><code>&gt; p &lt;- ggplot(data = z, aes(x = gender, y = zombies_killed)) + geom_boxplot(aes(fill = gender)) +
++     ggtitle(&quot;Zombies Killed by Gender in Survivors&quot;) + theme_bw()
+&gt; p</code></pre>
 <p><img src="img/unnamed-chunk-8-3.png" width="672" /></p>
-<pre class="r"><code>&gt; genplot &lt;- ggplot(data = z, aes(x = gender, y = years_of_education, fill = gender)) +
-+     geom_boxplot() + ggtitle(&quot;Years of Education by Gender in Survivors&quot;) +
-+     theme_bw()
-&gt; genplot</code></pre>
+<pre class="r"><code>&gt; p &lt;- ggplot(data = z, aes(x = gender, y = years_of_education)) + geom_boxplot(aes(fill = gender)) +
++     ggtitle(&quot;Years of Education by Gender in Survivors&quot;) + theme_bw()
+&gt; p</code></pre>
 <p><img src="img/unnamed-chunk-8-4.png" width="672" /></p>
-<pre class="r"><code>&gt; genplot &lt;- ggplot(data = z, aes(x = gender, y = age, fill = gender)) + geom_boxplot() +
+<pre class="r"><code>&gt; p &lt;- ggplot(data = z, aes(x = gender, y = age)) + geom_boxplot(aes(fill = gender)) +
 +     ggtitle(&quot;Age by Gender in Survivors&quot;) + theme_bw()
-&gt; genplot</code></pre>
+&gt; p</code></pre>
 <p><img src="img/unnamed-chunk-8-5.png" width="672" /></p>
 <p>Now, as with the previous example, there are ways to simplify our work so that we don’t have to write a separate line of code for each figure. Remembering the value of looping to save time, I leaned on the package <a href="https://cran.r-project.org/web/packages/ggloop/vignettes/intro.html">{ggloop}</a> to run all my plots at once. <em>I would not expect you to be able to figure this out on your own</em>, but I thought it might be nice to show you:</p>
 <pre class="r"><code>&gt; library(ggloop)
+&gt; # Here I use piping to select the names of only those columns in &#39;z&#39; that
+&gt; # have numeric entries (plus the &#39;gender&#39; column)
 &gt; traits &lt;- z %&gt;%
 +     select(gender, height, weight, zombies_killed, years_of_education, age)
-&gt; # here I&#39;ve used piping to select the names of only those columns in &#39;z&#39;
-&gt; # that have numeric entries (plus the &#39;gender&#39; column)
 &gt; 
+&gt; # Below is the code for using the {ggloop} package to make all the plots
+&gt; # at once. Can you see how the syntax for this package differs from
+&gt; # regular {ggplot2}?
 &gt; genplots &lt;- ggloop(traits, aes_loop(x = gender, y = height:age))
-&gt; genplots[1:5] &lt;- genplots[1:5] %L+% geom_boxplot(aes(fill = gender))
+&gt; genplots[1:5] &lt;- genplots[1:5] %L+% geom_boxplot(aes(fill = gender)) %L+% theme_bw()
 &gt; genplots</code></pre>
 <pre><code>## $x.gender_y.height</code></pre>
 <p><img src="img/unnamed-chunk-9-1.png" width="672" /></p>
@@ -330,6 +332,214 @@ Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate
 <ul>
 <li><strong>Use {ggplot} to make scatterplots of height and weight in relation to age. Do these variables seem to be related? In what way?</strong></li>
 </ul>
+<p>The easiest way to make a scatterplot from these data, given that we’ve already made a boxplot, is to simply copy and paste our boxplot code and 1) swap out our variables, and 2) change our <code>geom_boxplot</code> for <code>geom</code> for a scatterplot, like <code>geom_point</code>, and finally 3) we should also rename the object we save the plot to, so we can keep versions of both plots in our <strong><em>R</em></strong> space:</p>
+<pre class="r"><code>&gt; haplot &lt;- ggplot(data = z, aes(x = age, y = height))
+&gt; 
+&gt; haplot &lt;- haplot + geom_point()
+&gt; 
+&gt; haplot &lt;- haplot + ggtitle(&quot;Height by Age in Survivors&quot;)
+&gt; 
+&gt; haplot &lt;- haplot + theme_bw()
+&gt; 
+&gt; haplot</code></pre>
+<p><img src="img/unnamed-chunk-10-1.png" width="672" /></p>
+<pre class="r"><code>&gt; waplot &lt;- ggplot(data = z, aes(x = age, y = weight))
+&gt; 
+&gt; waplot &lt;- waplot + geom_point()
+&gt; 
+&gt; waplot &lt;- waplot + ggtitle(&quot;Weight by Age in Survivors&quot;)
+&gt; 
+&gt; waplot &lt;- waplot + theme_bw()
+&gt; 
+&gt; waplot</code></pre>
+<p><img src="img/unnamed-chunk-11-1.png" width="672" /> Based on the plots in Module 06, we can also add a trendline that really clearly illustrates the relationship between the two variables:</p>
+<pre class="r"><code>&gt; haplot &lt;- haplot + geom_smooth(method = &quot;lm&quot;)
+&gt; 
+&gt; haplot</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="img/unnamed-chunk-12-1.png" width="672" /></p>
+<pre class="r"><code>&gt; waplot &lt;- waplot + geom_smooth(method = &quot;lm&quot;)
+&gt; 
+&gt; waplot</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="img/unnamed-chunk-12-2.png" width="672" /></p>
+<p>In this case, both variables appear to be positively related to age, with both height and, to a lesser extent, weight increasing as age increases. The addition of the regression lines really highlights these relationships, no?</p>
+<ul>
+<li><strong>Using histograms and Q-Q plots, check whether the quantitative variables seem to be drawn from a normal distribution. Which seem to be and which do not (hint: not all are drawn from the normal distribution)? For those that are not normal, can you determine from which common distribution they are drawn?</strong></li>
+</ul>
+<p>Let’s go back to base <strong><em>R</em></strong> plotting to look at these all together using the <code>par()</code> command:</p>
+<pre class="r"><code>&gt; par(mfrow = c(2, 3))  # gives us three panels in two rows
+&gt; attach(z)
+&gt; hist(height, freq = FALSE, main = &quot;height&quot;, xlab = &quot;height&quot;, ylab = &quot;density&quot;,
++     ylim = c(0, 0.3))
+&gt; hist(weight, freq = FALSE, main = &quot;weight&quot;, xlab = &quot;weight&quot;, ylab = &quot;density&quot;,
++     ylim = c(0, 0.3))
+&gt; hist(age, freq = FALSE, main = &quot;age&quot;, xlab = &quot;age&quot;, ylab = &quot;density&quot;, ylim = c(0,
++     0.3))
+&gt; hist(zombies_killed, freq = FALSE, main = &quot;zombies killed&quot;, xlab = &quot;zombies killed&quot;,
++     ylab = &quot;density&quot;, ylim = c(0, 0.3))
+&gt; hist(years_of_education, freq = FALSE, main = &quot;years of education&quot;, xlab = &quot;years of education&quot;,
++     ylab = &quot;density&quot;, ylim = c(0, 0.3))</code></pre>
+<p><img src="img/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Just eye-balling it, I’d say that height and age look normal, and maybe weight (which looks a bit skewed), but zombies killed and years of education both look very non-normal (maybe more Poisson-ish or Bernoulli-ish).</p>
+<p>Let’s look at the QQ plots. We’ll use the method from earlier in Module 08:</p>
+<pre class="r"><code>&gt; par(mfrow = c(2, 3))  # gives us three panels in two rows
+&gt; 
+&gt; qqnorm(z$height, main = &quot;Normal QQ plot height&quot;)
+&gt; qqline(z$height, col = &quot;gray&quot;)
+&gt; 
+&gt; qqnorm(z$weight, main = &quot;Normal QQ plot weight&quot;)
+&gt; qqline(z$weight, col = &quot;gray&quot;)
+&gt; 
+&gt; qqnorm(z$age, main = &quot;Normal QQ plot age&quot;)
+&gt; qqline(z$age, col = &quot;gray&quot;)
+&gt; 
+&gt; qqnorm(z$zombies_killed, main = &quot;Normal QQ plot zombies killed&quot;)
+&gt; qqline(z$zombies_killed, col = &quot;gray&quot;)
+&gt; 
+&gt; qqnorm(z$years_of_education, main = &quot;Normal QQ plot education&quot;)
+&gt; qqline(z$years_of_education, col = &quot;gray&quot;)</code></pre>
+<p><img src="img/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Well, weight looks ok, but sure enough it looks like zombies killed and years of education don’t easily fit a normal distribution!</p>
+<p>Now, to assess whether these two are more Bernoulli-ish, we can do what we did in <a href="https://fuzzyatelin.github.io/bioanth-stats/homework-02.html">Homework-02</a> and compare these distributions to the hypothetical Bernoulli distribution of the data and see if they match.</p>
+<p>Let’s experiment… our x should be no greater than the maximum number of kills (in this case, 11), size is 1000 (that’s how many outcomes we’ve got), and from there we can experiment with the probability of a kill. Let’s also use <code>par()</code> again to make this visually easier:</p>
+<pre class="r"><code>&gt; par(mfrow = c(1, 2))  # gives us two panels in one row
+&gt; 
+&gt; hist(zombies_killed, freq = FALSE, main = &quot;zombies killed&quot;, xlab = &quot;zombies killed&quot;,
++     ylab = &quot;density&quot;, ylim = c(0, 0.3), xlim = c(0, 11))
+&gt; 
+&gt; probset2 &lt;- dbinom(x = 0:11, size = 1000, prob = 1/550)
+&gt; barplot(probset2, names.arg = 0:11, space = 0, xlab = &quot;kills&quot;, ylab = &quot;Pr(X=outcome)&quot;,
++     ylim = c(0, 0.3), xlim = c(0, 11))</code></pre>
+<p><img src="img/unnamed-chunk-15-1.png" width="672" /></p>
+<p>Ok… these look pretty similar to the data distributions, actually. Looks like these come from our old friend the Bernoulli distribution.</p>
+<ul>
+<li><strong>Now use the <code>sample()</code> function to sample ONE subset of 30 zombie survivors (without replacement) from this population and calculate the mean and sample standard deviation for each variable. Also estimate the standard error for each variable and construct the 95% confidence interval for each mean. Note that for the variables that are not drawn from the normal distribution, you will need to base your estimate of the CIs on some different distribution.</strong></li>
+</ul>
+<p>Code for <code>sample()</code> we can get from <a href="https://fuzzyatelin.github.io/bioanth-stats/module-08/module-08.htm">Module 08</a>, while code for confidence intervals we can get from <a href="https://fuzzyatelin.github.io/bioanth-stats/module-07/module-07.htm">Module 07</a>. Don’t forget to define <code>se()</code>, which isn’t in the native <strong><em>R</em></strong> environment (you can either write your own function, as in the module, or load the <code>sciplot</code> package as a shortcut)!</p>
+<pre class="r"><code>&gt; library(sciplot)
+&gt; 
+&gt; # For height:
+&gt; s_height &lt;- sample(z$height, size = 30, replace = FALSE)
+&gt; mean(s_height)</code></pre>
+<pre><code>## [1] 67.0406</code></pre>
+<pre class="r"><code>&gt; sd(s_height)</code></pre>
+<pre><code>## [1] 4.389133</code></pre>
+<pre class="r"><code>&gt; upper_h &lt;- mean(s_height) + qnorm(0.975, mean = 0, sd = 1) * se(s_height)
+&gt; lower_h &lt;- mean(s_height) + qnorm(0.025, mean = 0, sd = 1) * se(s_height)
+&gt; ci_h &lt;- c(lower_h, upper_h)
+&gt; ci_h</code></pre>
+<pre><code>## [1] 65.4700 68.6112</code></pre>
+<pre class="r"><code>&gt; # For weight:
+&gt; s_weight &lt;- sample(z$weight, size = 30, replace = FALSE)
+&gt; mean(s_weight)</code></pre>
+<pre><code>## [1] 142.4408</code></pre>
+<pre class="r"><code>&gt; sd(s_weight)</code></pre>
+<pre><code>## [1] 17.42315</code></pre>
+<pre class="r"><code>&gt; upper_w &lt;- mean(s_weight) + qnorm(0.975, mean = 0, sd = 1) * se(s_weight)
+&gt; lower_w &lt;- mean(s_weight) + qnorm(0.025, mean = 0, sd = 1) * se(s_weight)
+&gt; ci_w &lt;- c(lower_w, upper_w)
+&gt; ci_w</code></pre>
+<pre><code>## [1] 136.2061 148.6754</code></pre>
+<pre class="r"><code>&gt; # For age:
+&gt; s_age &lt;- sample(z$age, size = 30, replace = FALSE)
+&gt; mean(s_age)</code></pre>
+<pre><code>## [1] 19.60284</code></pre>
+<pre class="r"><code>&gt; sd(s_age)</code></pre>
+<pre><code>## [1] 3.596391</code></pre>
+<pre class="r"><code>&gt; upper_a &lt;- mean(s_age) + qnorm(0.975, mean = 0, sd = 1) * se(s_age)
+&gt; lower_a &lt;- mean(s_age) + qnorm(0.025, mean = 0, sd = 1) * se(s_age)
+&gt; ci_a &lt;- c(lower_a, upper_a)
+&gt; ci_a</code></pre>
+<pre><code>## [1] 18.31591 20.88977</code></pre>
+<p>Now, for the non-normal samples, we can’t rely on the above code because it assumes normality and we already know these aren’t normally distributed! Here, we’ll have to use bootstrapping, as also done in <a href="https://fuzzyatelin.github.io/bioanth-stats/module-07/module-07.html">Module 07</a>:</p>
+<pre class="r"><code>&gt; # For zombies_killed:
+&gt; s_zombies_killed &lt;- sample(z$zombies_killed, size = 30, replace = FALSE)
+&gt; mean(s_zombies_killed)</code></pre>
+<pre><code>## [1] 3.166667</code></pre>
+<pre class="r"><code>&gt; sd(s_zombies_killed)</code></pre>
+<pre><code>## [1] 1.895245</code></pre>
+<pre class="r"><code>&gt; set &lt;- NULL  # sets up a dummy variable to hold our simulations
+&gt; n &lt;- 15
+&gt; for (i in 1:10000) {
++     set[i] &lt;- mean(sample(s_zombies_killed, n, replace = TRUE))
++ }
+&gt; quantile(set, c(0.025, 0.975))</code></pre>
+<pre><code>##     2.5%    97.5% 
+## 2.266667 4.133333</code></pre>
+<pre class="r"><code>&gt; # For years_of_education:
+&gt; s_years_of_education &lt;- sample(z$years_of_education, size = 30, replace = FALSE)
+&gt; mean(s_years_of_education)</code></pre>
+<pre><code>## [1] 2.966667</code></pre>
+<pre class="r"><code>&gt; sd(s_years_of_education)</code></pre>
+<pre><code>## [1] 1.42595</code></pre>
+<pre class="r"><code>&gt; set &lt;- NULL  # sets up a dummy variable to hold our simulations
+&gt; n &lt;- 15
+&gt; for (i in 1:10000) {
++     set[i] &lt;- mean(sample(s_years_of_education, n, replace = TRUE))
++ }
+&gt; quantile(set, c(0.025, 0.975))</code></pre>
+<pre><code>##     2.5%    97.5% 
+## 2.266667 3.733333</code></pre>
+<ul>
+<li><strong>Now draw 99 more random samples of 30 zombie survivors out and calculate the mean for each of the these samples. Together with the first sample you drew out, you now have a set of 100 means for each variable (each based on 30 observations), which constitutes a sampling distribution for each variable. What are the means and standard deviations of this distribution for each variable? How do the standard deviations compare to the standard errors estimated in the last exercise? What do these sampling distributions look like? Are they normally distributed? What about for those variables that you concluded were not originally drawn from a normal distribution?</strong></li>
+</ul>
+<pre class="r"><code>&gt; x_m_height &lt;- NULL
+&gt; for (i in 1:100) {
++     x_m_height[i] &lt;- mean(sample(z$height, 30))
++ }
+&gt; 
+&gt; hist(x_m_height, probability = TRUE)</code></pre>
+<p><img src="img/unnamed-chunk-21-1.png" width="672" /></p>
+<pre class="r"><code>&gt; mean(x_m_height)</code></pre>
+<pre><code>## [1] 67.5662</code></pre>
+<pre class="r"><code>&gt; sd(x_m_height)</code></pre>
+<pre><code>## [1] 0.7615556</code></pre>
+<pre class="r"><code>&gt; x_m_weight &lt;- NULL
+&gt; for (i in 1:100) {
++     x_m_weight[i] &lt;- mean(sample(z$weight, 30))
++ }
+&gt; 
+&gt; hist(x_m_weight, probability = TRUE)</code></pre>
+<p><img src="img/unnamed-chunk-23-1.png" width="672" /></p>
+<pre class="r"><code>&gt; mean(x_m_weight)</code></pre>
+<pre><code>## [1] 144.0496</code></pre>
+<pre class="r"><code>&gt; sd(x_m_weight)</code></pre>
+<pre><code>## [1] 3.326334</code></pre>
+<pre class="r"><code>&gt; x_m_age &lt;- NULL
+&gt; for (i in 1:100) {
++     x_m_age[i] &lt;- mean(sample(z$age, 30))
++ }
+&gt; 
+&gt; hist(x_m_age, probability = TRUE)</code></pre>
+<p><img src="img/unnamed-chunk-25-1.png" width="672" /></p>
+<pre class="r"><code>&gt; mean(x_m_age)</code></pre>
+<pre><code>## [1] 20.0469</code></pre>
+<pre class="r"><code>&gt; sd(x_m_age)</code></pre>
+<pre><code>## [1] 0.5313019</code></pre>
+<pre class="r"><code>&gt; x_m_kill &lt;- NULL
+&gt; for (i in 1:100) {
++     x_m_kill[i] &lt;- mean(sample(z$zombies_killed, 30))
++ }
+&gt; 
+&gt; hist(x_m_kill, probability = TRUE)</code></pre>
+<p><img src="img/unnamed-chunk-27-1.png" width="672" /></p>
+<pre class="r"><code>&gt; mean(x_m_kill)</code></pre>
+<pre><code>## [1] 3.016667</code></pre>
+<pre class="r"><code>&gt; sd(x_m_kill)</code></pre>
+<pre><code>## [1] 0.3056336</code></pre>
+<pre class="r"><code>&gt; x_m_edu &lt;- NULL
+&gt; for (i in 1:100) {
++     x_m_edu[i] &lt;- mean(sample(z$years_of_education, 30))
++ }
+&gt; 
+&gt; hist(x_m_edu, probability = TRUE)</code></pre>
+<p><img src="img/unnamed-chunk-29-1.png" width="672" /></p>
+<pre class="r"><code>&gt; mean(x_m_edu)</code></pre>
+<pre><code>## [1] 2.988</code></pre>
+<pre class="r"><code>&gt; sd(x_m_edu)</code></pre>
+<pre><code>## [1] 0.2923077</code></pre>
+<p>Well, I have to say that the histograms here all look normally distributed, including those derived from data with non-normal distributions (ok, so they may randomly look a bit wonkier than normal)… of course, that’s <em>exactly</em> what we’d expect in accordance with the CLT (yes, this was another way to illustrating the importance of this concept)! Also in accordance with the CLT, it looks like the SE’s estimated in the previous exercise the SDs are not quite the same, but are closer to each other than the SD of each as estimated in the previous exercise.</p>
 
 
 
