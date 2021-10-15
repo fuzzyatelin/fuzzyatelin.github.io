@@ -14,8 +14,8 @@
 
 <title>Homework 03 Solutions</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -258,6 +258,17 @@ Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate
 ## 1               2.992          1.747551                   2.996
 ##   years_of_education_sd
 ## 1              1.675704</code></pre>
+<p>Alternatively (and, I think, much more elegantly), Natalia Kelley came up with this solution, which gives a much nicer and more readable output:</p>
+<pre class="r"><code>&gt; s &lt;- z %&gt;%
++     select(height, weight, age, zombies_killed, years_of_education)
+&gt; 
+&gt; cbind(mean = apply(s, 2, mean), sd = apply(s, 2, pop_sd))</code></pre>
+<pre><code>##                         mean        sd
+## height              67.63010  4.307970
+## weight             143.90748 18.391857
+## age                 20.04696  2.963583
+## zombies_killed       2.99200  1.747551
+## years_of_education   2.99600  1.675704</code></pre>
 <ul>
 <li><strong>Use {ggplot} to make boxplots of each of these variables by gender.</strong></li>
 </ul>
@@ -269,7 +280,7 @@ Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate
 &gt; p &lt;- p + geom_boxplot()
 &gt; 
 &gt; p</code></pre>
-<p><img src="img/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-7-1.png" width="672" /></p>
 <p>The really nice thing about {ggplot2} is the added capabilities to <em>prettify</em> your work. Here’s a small example… see if you can figure out which bit of code makes which change to the graphic (also, notice how I’ve broken up my code to make it clearly readable each time I modify the figure; this kind of syntax might be helpful to use while you’re learning {ggplot2}):</p>
 <pre class="r"><code>&gt; p &lt;- ggplot(data = z, aes(x = gender, y = height))
 &gt; 
@@ -280,28 +291,28 @@ Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate
 &gt; p &lt;- p + theme_bw()
 &gt; 
 &gt; p</code></pre>
-<p><img src="img/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-8-1.png" width="672" /></p>
 <p>You can easily run all of the required plots by copying and pasting each individual variable name into the chunk, like so (notice I’ve used a more compact syntax here… one line of code per plot; convenient, but also maybe confusing):</p>
 <pre class="r"><code>&gt; p &lt;- ggplot(data = z, aes(x = gender, y = height)) + geom_boxplot(aes(fill = gender)) +
 +     ggtitle(&quot;Height by Gender in Survivors&quot;) + theme_bw()
 &gt; p</code></pre>
-<p><img src="img/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-9-1.png" width="672" /></p>
 <pre class="r"><code>&gt; p &lt;- ggplot(data = z, aes(x = gender, y = weight)) + geom_boxplot(aes(fill = gender)) +
 +     ggtitle(&quot;Weight by Gender in Survivors&quot;) + theme_bw()
 &gt; p</code></pre>
-<p><img src="img/unnamed-chunk-8-2.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-9-2.png" width="672" /></p>
 <pre class="r"><code>&gt; p &lt;- ggplot(data = z, aes(x = gender, y = zombies_killed)) + geom_boxplot(aes(fill = gender)) +
 +     ggtitle(&quot;Zombies Killed by Gender in Survivors&quot;) + theme_bw()
 &gt; p</code></pre>
-<p><img src="img/unnamed-chunk-8-3.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-9-3.png" width="672" /></p>
 <pre class="r"><code>&gt; p &lt;- ggplot(data = z, aes(x = gender, y = years_of_education)) + geom_boxplot(aes(fill = gender)) +
 +     ggtitle(&quot;Years of Education by Gender in Survivors&quot;) + theme_bw()
 &gt; p</code></pre>
-<p><img src="img/unnamed-chunk-8-4.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-9-4.png" width="672" /></p>
 <pre class="r"><code>&gt; p &lt;- ggplot(data = z, aes(x = gender, y = age)) + geom_boxplot(aes(fill = gender)) +
 +     ggtitle(&quot;Age by Gender in Survivors&quot;) + theme_bw()
 &gt; p</code></pre>
-<p><img src="img/unnamed-chunk-8-5.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-9-5.png" width="672" /></p>
 <p>Now, as with the previous example, there are ways to simplify our work so that we don’t have to write a separate line of code for each figure. Remembering the value of looping to save time, I leaned on the package <a href="https://cran.r-project.org/web/packages/ggloop/vignettes/intro.html">{ggloop}</a> to run all my plots at once. <em>I would not expect you to be able to figure this out on your own</em>, but I thought it might be nice to show you:</p>
 <pre class="r"><code>&gt; library(ggloop)
 &gt; # Here I use piping to select the names of only those columns in &#39;z&#39; that
@@ -316,19 +327,19 @@ Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate
 &gt; genplots[1:5] &lt;- genplots[1:5] %L+% geom_boxplot(aes(fill = gender)) %L+% theme_bw()
 &gt; genplots</code></pre>
 <pre><code>## $x.gender_y.height</code></pre>
-<p><img src="img/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-10-1.png" width="672" /></p>
 <pre><code>## 
 ## $x.gender_y.weight</code></pre>
-<p><img src="img/unnamed-chunk-9-2.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-10-2.png" width="672" /></p>
 <pre><code>## 
 ## $x.gender_y.zombies_killed</code></pre>
-<p><img src="img/unnamed-chunk-9-3.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-10-3.png" width="672" /></p>
 <pre><code>## 
 ## $x.gender_y.years_of_education</code></pre>
-<p><img src="img/unnamed-chunk-9-4.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-10-4.png" width="672" /></p>
 <pre><code>## 
 ## $x.gender_y.age</code></pre>
-<p><img src="img/unnamed-chunk-9-5.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-10-5.png" width="672" /></p>
 <ul>
 <li><strong>Use {ggplot} to make scatterplots of height and weight in relation to age. Do these variables seem to be related? In what way?</strong></li>
 </ul>
@@ -342,7 +353,7 @@ Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate
 &gt; haplot &lt;- haplot + theme_bw()
 &gt; 
 &gt; haplot</code></pre>
-<p><img src="img/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-11-1.png" width="672" /></p>
 <pre class="r"><code>&gt; waplot &lt;- ggplot(data = z, aes(x = age, y = weight))
 &gt; 
 &gt; waplot &lt;- waplot + geom_point()
@@ -352,17 +363,17 @@ Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate
 &gt; waplot &lt;- waplot + theme_bw()
 &gt; 
 &gt; waplot</code></pre>
-<p><img src="img/unnamed-chunk-11-1.png" width="672" /> Based on the plots in Module 06, we can also add a trendline that really clearly illustrates the relationship between the two variables:</p>
+<p><img src="img/unnamed-chunk-12-1.png" width="672" /> Based on the plots in Module 06, we can also add a trendline that really clearly illustrates the relationship between the two variables:</p>
 <pre class="r"><code>&gt; haplot &lt;- haplot + geom_smooth(method = &quot;lm&quot;)
 &gt; 
 &gt; haplot</code></pre>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="img/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-13-1.png" width="672" /></p>
 <pre class="r"><code>&gt; waplot &lt;- waplot + geom_smooth(method = &quot;lm&quot;)
 &gt; 
 &gt; waplot</code></pre>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="img/unnamed-chunk-12-2.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-13-2.png" width="672" /></p>
 <p>In this case, both variables appear to be positively related to age, with both height and, to a lesser extent, weight increasing as age increases. The addition of the regression lines really highlights these relationships, no?</p>
 <ul>
 <li><strong>Using histograms and Q-Q plots, check whether the quantitative variables seem to be drawn from a normal distribution. Which seem to be and which do not (hint: not all are drawn from the normal distribution)? For those that are not normal, can you determine from which common distribution they are drawn?</strong></li>
@@ -380,8 +391,8 @@ Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate
 +     ylab = &quot;density&quot;, ylim = c(0, 0.3))
 &gt; hist(years_of_education, freq = FALSE, main = &quot;years of education&quot;, xlab = &quot;years of education&quot;,
 +     ylab = &quot;density&quot;, ylim = c(0, 0.3))</code></pre>
-<p><img src="img/unnamed-chunk-13-1.png" width="672" /></p>
-<p>Just eye-balling it, I’d say that height and age look normal, and maybe weight (which looks a bit skewed), but zombies killed and years of education both look very non-normal (maybe more Poisson-ish or Bernoulli-ish).</p>
+<p><img src="img/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Just eye-balling it, I’d say that height and age look normal, and maybe weight (which looks a bit skewed), but zombies killed and years of education both look very non-normal (given that we would be counting the number of zombies killed and the number of years of school, I’d guess they’re probably Poisson-ish).</p>
 <p>Let’s look at the QQ plots. We’ll use the method from earlier in Module 08:</p>
 <pre class="r"><code>&gt; par(mfrow = c(2, 3))  # gives us three panels in two rows
 &gt; 
@@ -399,10 +410,19 @@ Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate
 &gt; 
 &gt; qqnorm(z$years_of_education, main = &quot;Normal QQ plot education&quot;)
 &gt; qqline(z$years_of_education, col = &quot;gray&quot;)</code></pre>
-<p><img src="img/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-15-1.png" width="672" /></p>
 <p>Well, weight looks ok, but sure enough it looks like zombies killed and years of education don’t easily fit a normal distribution!</p>
-<p>Now, to assess whether these two are more Bernoulli-ish, we can do what we did in <a href="https://fuzzyatelin.github.io/bioanth-stats/homework-02.html">Homework-02</a> and compare these distributions to the hypothetical Bernoulli distribution of the data and see if they match.</p>
-<p>Let’s experiment… our x should be no greater than the maximum number of kills (in this case, 11), size is 1000 (that’s how many outcomes we’ve got), and from there we can experiment with the probability of a kill. Let’s also use <code>par()</code> again to make this visually easier:</p>
+<p>Now, to assess whether these two are more Poisson-ish, we can do what we did in <a href="https://fuzzyatelin.github.io/bioanth-stats/homework-02.html">Homework-02</a> and compare these distributions to the hypothetical Poisson distribution of the data and see if they match.</p>
+<p>Let’s experiment with <code>zombies_killed</code>… our x should be no greater than the maximum number of kills (in this case, 11), and our lambda would be roughly the average probability of a kill (or the mean). Let’s also use <code>par()</code> again to make this visually easier (and with thanks to Diego Alonso Larre for the simple code for making the second figure):</p>
+<pre class="r"><code>&gt; par(mfrow = c(1, 2))  # gives us two panels in one row
+&gt; 
+&gt; hist(zombies_killed, freq = FALSE, main = &quot;zombies killed&quot;, xlab = &quot;zombies killed&quot;,
++     ylab = &quot;density&quot;, ylim = c(0, 0.3), xlim = c(0, 11))
+&gt; 
+&gt; hist(rpois(1000, 3), probability = T)</code></pre>
+<p><img src="img/unnamed-chunk-16-1.png" width="672" /></p>
+<p>Hmmm… that doesn’t quite look right, does it? Let’s try another distribution. Maybe the Bernoulli?</p>
+<p>To assess whether this is more Bernoulli-ish, we can do what we did in <a href="https://fuzzyatelin.github.io/bioanth-stats/homework-02.html">Homework-02</a> and compare these distributions to the hypothetical Bernoulli distribution of the data and see if they match. Let’s experiment… our x should be no greater than the maximum number of kills (in this case, 11), size is 1000 (that’s how many outcomes we’ve got), and from there we can experiment with the probability of a kill. As before, we’ll use <code>par()</code> again to make this visually easier:</p>
 <pre class="r"><code>&gt; par(mfrow = c(1, 2))  # gives us two panels in one row
 &gt; 
 &gt; hist(zombies_killed, freq = FALSE, main = &quot;zombies killed&quot;, xlab = &quot;zombies killed&quot;,
@@ -411,8 +431,8 @@ Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate
 &gt; probset2 &lt;- dbinom(x = 0:11, size = 1000, prob = 1/550)
 &gt; barplot(probset2, names.arg = 0:11, space = 0, xlab = &quot;kills&quot;, ylab = &quot;Pr(X=outcome)&quot;,
 +     ylim = c(0, 0.3), xlim = c(0, 11))</code></pre>
-<p><img src="img/unnamed-chunk-15-1.png" width="672" /></p>
-<p>Ok… these look pretty similar to the data distributions, actually. Looks like these come from our old friend the Bernoulli distribution.</p>
+<p><img src="img/unnamed-chunk-17-1.png" width="672" /></p>
+<p>Ok… these look pretty similar to the data distributions, actually. Looks like the number of zombes killed come from our old friend the Bernoulli distribution.</p>
 <ul>
 <li><strong>Now use the <code>sample()</code> function to sample ONE subset of 30 zombie survivors (without replacement) from this population and calculate the mean and sample standard deviation for each variable. Also estimate the standard error for each variable and construct the 95% confidence interval for each mean. Note that for the variables that are not drawn from the normal distribution, you will need to base your estimate of the CIs on some different distribution.</strong></li>
 </ul>
@@ -422,43 +442,43 @@ Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate
 &gt; # For height:
 &gt; s_height &lt;- sample(z$height, size = 30, replace = FALSE)
 &gt; mean(s_height)</code></pre>
-<pre><code>## [1] 67.0406</code></pre>
+<pre><code>## [1] 68.37108</code></pre>
 <pre class="r"><code>&gt; sd(s_height)</code></pre>
-<pre><code>## [1] 4.389133</code></pre>
+<pre><code>## [1] 4.475344</code></pre>
 <pre class="r"><code>&gt; upper_h &lt;- mean(s_height) + qnorm(0.975, mean = 0, sd = 1) * se(s_height)
 &gt; lower_h &lt;- mean(s_height) + qnorm(0.025, mean = 0, sd = 1) * se(s_height)
 &gt; ci_h &lt;- c(lower_h, upper_h)
 &gt; ci_h</code></pre>
-<pre><code>## [1] 65.4700 68.6112</code></pre>
+<pre><code>## [1] 66.76963 69.97253</code></pre>
 <pre class="r"><code>&gt; # For weight:
 &gt; s_weight &lt;- sample(z$weight, size = 30, replace = FALSE)
 &gt; mean(s_weight)</code></pre>
-<pre><code>## [1] 142.4408</code></pre>
+<pre><code>## [1] 139.8511</code></pre>
 <pre class="r"><code>&gt; sd(s_weight)</code></pre>
-<pre><code>## [1] 17.42315</code></pre>
+<pre><code>## [1] 18.41881</code></pre>
 <pre class="r"><code>&gt; upper_w &lt;- mean(s_weight) + qnorm(0.975, mean = 0, sd = 1) * se(s_weight)
 &gt; lower_w &lt;- mean(s_weight) + qnorm(0.025, mean = 0, sd = 1) * se(s_weight)
 &gt; ci_w &lt;- c(lower_w, upper_w)
 &gt; ci_w</code></pre>
-<pre><code>## [1] 136.2061 148.6754</code></pre>
+<pre><code>## [1] 133.2602 146.4421</code></pre>
 <pre class="r"><code>&gt; # For age:
 &gt; s_age &lt;- sample(z$age, size = 30, replace = FALSE)
 &gt; mean(s_age)</code></pre>
-<pre><code>## [1] 19.60284</code></pre>
+<pre><code>## [1] 20.46912</code></pre>
 <pre class="r"><code>&gt; sd(s_age)</code></pre>
-<pre><code>## [1] 3.596391</code></pre>
+<pre><code>## [1] 2.843854</code></pre>
 <pre class="r"><code>&gt; upper_a &lt;- mean(s_age) + qnorm(0.975, mean = 0, sd = 1) * se(s_age)
 &gt; lower_a &lt;- mean(s_age) + qnorm(0.025, mean = 0, sd = 1) * se(s_age)
 &gt; ci_a &lt;- c(lower_a, upper_a)
 &gt; ci_a</code></pre>
-<pre><code>## [1] 18.31591 20.88977</code></pre>
+<pre><code>## [1] 19.45148 21.48676</code></pre>
 <p>Now, for the non-normal samples, we can’t rely on the above code because it assumes normality and we already know these aren’t normally distributed! Here, we’ll have to use bootstrapping, as also done in <a href="https://fuzzyatelin.github.io/bioanth-stats/module-07/module-07.html">Module 07</a>:</p>
 <pre class="r"><code>&gt; # For zombies_killed:
 &gt; s_zombies_killed &lt;- sample(z$zombies_killed, size = 30, replace = FALSE)
 &gt; mean(s_zombies_killed)</code></pre>
-<pre><code>## [1] 3.166667</code></pre>
+<pre><code>## [1] 3.3</code></pre>
 <pre class="r"><code>&gt; sd(s_zombies_killed)</code></pre>
-<pre><code>## [1] 1.895245</code></pre>
+<pre><code>## [1] 1.512021</code></pre>
 <pre class="r"><code>&gt; set &lt;- NULL  # sets up a dummy variable to hold our simulations
 &gt; n &lt;- 15
 &gt; for (i in 1:10000) {
@@ -466,13 +486,13 @@ Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate
 + }
 &gt; quantile(set, c(0.025, 0.975))</code></pre>
 <pre><code>##     2.5%    97.5% 
-## 2.266667 4.133333</code></pre>
+## 2.600000 4.133333</code></pre>
 <pre class="r"><code>&gt; # For years_of_education:
 &gt; s_years_of_education &lt;- sample(z$years_of_education, size = 30, replace = FALSE)
 &gt; mean(s_years_of_education)</code></pre>
-<pre><code>## [1] 2.966667</code></pre>
+<pre><code>## [1] 2.633333</code></pre>
 <pre class="r"><code>&gt; sd(s_years_of_education)</code></pre>
-<pre><code>## [1] 1.42595</code></pre>
+<pre><code>## [1] 1.670914</code></pre>
 <pre class="r"><code>&gt; set &lt;- NULL  # sets up a dummy variable to hold our simulations
 &gt; n &lt;- 15
 &gt; for (i in 1:10000) {
@@ -480,7 +500,7 @@ Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate
 + }
 &gt; quantile(set, c(0.025, 0.975))</code></pre>
 <pre><code>##     2.5%    97.5% 
-## 2.266667 3.733333</code></pre>
+## 1.866667 3.466667</code></pre>
 <ul>
 <li><strong>Now draw 99 more random samples of 30 zombie survivors out and calculate the mean for each of the these samples. Together with the first sample you drew out, you now have a set of 100 means for each variable (each based on 30 observations), which constitutes a sampling distribution for each variable. What are the means and standard deviations of this distribution for each variable? How do the standard deviations compare to the standard errors estimated in the last exercise? What do these sampling distributions look like? Are they normally distributed? What about for those variables that you concluded were not originally drawn from a normal distribution?</strong></li>
 </ul>
@@ -490,55 +510,55 @@ Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate
 + }
 &gt; 
 &gt; hist(x_m_height, probability = TRUE)</code></pre>
-<p><img src="img/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-23-1.png" width="672" /></p>
 <pre class="r"><code>&gt; mean(x_m_height)</code></pre>
-<pre><code>## [1] 67.5662</code></pre>
+<pre><code>## [1] 67.56188</code></pre>
 <pre class="r"><code>&gt; sd(x_m_height)</code></pre>
-<pre><code>## [1] 0.7615556</code></pre>
+<pre><code>## [1] 0.8947722</code></pre>
 <pre class="r"><code>&gt; x_m_weight &lt;- NULL
 &gt; for (i in 1:100) {
 +     x_m_weight[i] &lt;- mean(sample(z$weight, 30))
 + }
 &gt; 
 &gt; hist(x_m_weight, probability = TRUE)</code></pre>
-<p><img src="img/unnamed-chunk-23-1.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-25-1.png" width="672" /></p>
 <pre class="r"><code>&gt; mean(x_m_weight)</code></pre>
-<pre><code>## [1] 144.0496</code></pre>
+<pre><code>## [1] 143.9155</code></pre>
 <pre class="r"><code>&gt; sd(x_m_weight)</code></pre>
-<pre><code>## [1] 3.326334</code></pre>
+<pre><code>## [1] 3.274274</code></pre>
 <pre class="r"><code>&gt; x_m_age &lt;- NULL
 &gt; for (i in 1:100) {
 +     x_m_age[i] &lt;- mean(sample(z$age, 30))
 + }
 &gt; 
 &gt; hist(x_m_age, probability = TRUE)</code></pre>
-<p><img src="img/unnamed-chunk-25-1.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-27-1.png" width="672" /></p>
 <pre class="r"><code>&gt; mean(x_m_age)</code></pre>
-<pre><code>## [1] 20.0469</code></pre>
+<pre><code>## [1] 20.05259</code></pre>
 <pre class="r"><code>&gt; sd(x_m_age)</code></pre>
-<pre><code>## [1] 0.5313019</code></pre>
+<pre><code>## [1] 0.6220443</code></pre>
 <pre class="r"><code>&gt; x_m_kill &lt;- NULL
 &gt; for (i in 1:100) {
 +     x_m_kill[i] &lt;- mean(sample(z$zombies_killed, 30))
 + }
 &gt; 
 &gt; hist(x_m_kill, probability = TRUE)</code></pre>
-<p><img src="img/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-29-1.png" width="672" /></p>
 <pre class="r"><code>&gt; mean(x_m_kill)</code></pre>
-<pre><code>## [1] 3.016667</code></pre>
+<pre><code>## [1] 2.999</code></pre>
 <pre class="r"><code>&gt; sd(x_m_kill)</code></pre>
-<pre><code>## [1] 0.3056336</code></pre>
+<pre><code>## [1] 0.3455166</code></pre>
 <pre class="r"><code>&gt; x_m_edu &lt;- NULL
 &gt; for (i in 1:100) {
 +     x_m_edu[i] &lt;- mean(sample(z$years_of_education, 30))
 + }
 &gt; 
 &gt; hist(x_m_edu, probability = TRUE)</code></pre>
-<p><img src="img/unnamed-chunk-29-1.png" width="672" /></p>
+<p><img src="img/unnamed-chunk-31-1.png" width="672" /></p>
 <pre class="r"><code>&gt; mean(x_m_edu)</code></pre>
-<pre><code>## [1] 2.988</code></pre>
+<pre><code>## [1] 3.004667</code></pre>
 <pre class="r"><code>&gt; sd(x_m_edu)</code></pre>
-<pre><code>## [1] 0.2923077</code></pre>
+<pre><code>## [1] 0.3196526</code></pre>
 <p>Well, I have to say that the histograms here all look normally distributed, including those derived from data with non-normal distributions (ok, so they may randomly look a bit wonkier than normal)… of course, that’s <em>exactly</em> what we’d expect in accordance with the CLT (yes, this was another way to illustrating the importance of this concept)! Also in accordance with the CLT, it looks like the SE’s estimated in the previous exercise the SDs are not quite the same, but are closer to each other than the SD of each as estimated in the previous exercise.</p>
 
 

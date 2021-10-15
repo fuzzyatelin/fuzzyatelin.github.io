@@ -99,6 +99,14 @@ zparams<-
 zparams
 ```
 
+Alternatively (and, I think, much more elegantly), Natalia Kelley came up with this solution, which gives a much nicer and more readable output:
+```{r}
+s<- z %>%
+  select(height,weight,age,zombies_killed,years_of_education)
+
+cbind(mean = apply(s, 2, mean), sd = apply(s, 2, pop_sd))
+```
+
 - **Use {ggplot} to make boxplots of each of these variables by gender.**
 
 The easiest way to learn how to use {ggplot2} is to just dive in and start experimenting. You can get started by checking out the {tidyverse} [webpage for {ggplot2}](https://ggplot2.tidyverse.org/). There's a really helpful [cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf) there that will walk you through basic {ggplot2} grammar.
@@ -239,7 +247,7 @@ Well, weight looks ok, but sure enough it looks like zombies killed and years of
 
 Now, to assess whether these two are more Poisson-ish, we can do what we did in [Homework-02](https://fuzzyatelin.github.io/bioanth-stats/homework-02.html) and compare these distributions to the hypothetical Poisson distribution of the data and see if they match. 
 
-Let's experiment with `zombies_killed`... our x should be no greater than the maximum number of kills (in this case, 11), and our lambda would be roughly the average probability of a kill (or the mean). Let's also use `par()` again to make this visually easier:
+Let's experiment with `zombies_killed`... our x should be no greater than the maximum number of kills (in this case, 11), and our lambda would be roughly the average probability of a kill (or the mean). Let's also use `par()` again to make this visually easier (and with thanks to Diego Alonso Larre for the simple code for making the second figure):
 
 ```{r}
 par(mfrow = c(1, 2)) # gives us two panels in one row
@@ -247,8 +255,7 @@ par(mfrow = c(1, 2)) # gives us two panels in one row
 hist(zombies_killed, freq = FALSE, main = "zombies killed", xlab = "zombies killed", 
     ylab = "density", ylim = c(0,0.3),xlim=c(0,11))
 
-probset2<-dpois(x=0:11,lambda=mean(z$zombies_killed))
-barplot(probset2,names.arg=0:11,space=0,xlab="kills",ylab="Pr(X=outcome)",ylim=c(0,0.3),xlim=c(0,11))
+hist(rpois(1000,3), probability = T)
 ```
 
 Hmmm... that doesn't quite look right, does it? Let's try another distribution. Maybe the Bernoulli?
