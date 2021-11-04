@@ -19,12 +19,14 @@ Z.prop.test<-function(p1,n1,p2=NULL,n2=NULL,p0,alternative="two.sided",conf.leve
         conf.level < 0 || conf.level > 1))
     stop("'conf.level' must be a single number between 0 and 1")
   if(is.null(p2) || is.null(n2)) {
-    phat<-p1
+    phat1<-p1
     pi<-p0
     n<-n1
-    z<-(phat-pi)/sqrt(pi*((1-pi)/n1))
+    z<-(phat1-pi)/sqrt(pi*((1-pi)/n1))
       names(z)<-"Z score"
-  }
+    if(alternative=="two.sided") {
+      stop("You must choose alternative = 'upper' or 'lower'")}
+      }
   else {
     phat1<-p1
     phat2<-p2
@@ -32,40 +34,51 @@ Z.prop.test<-function(p1,n1,p2=NULL,n2=NULL,p0,alternative="two.sided",conf.leve
     n1<-n1
     n2<-n2
     z<-(phat2-phat1)/sqrt((p0*(1-p0))*(1/n1+1/n2))
-        names(z)<-"Z score"
-  }
+        names(z)<-"Z score"}
   
-if(alternative=="two.sided") {p<-1-pnorm(z,lower.tail=TRUE)+pnorm(z,lower.tail=FALSE)
-                        names(p)<-"P-value"
-                        lower<-sqrt(((phat1*(1-phat1))/n1)+((phat2*(1-phat2))/n2))
-                        upper<-pi+qnorm(1-conf.level/2)*sqrt(pi*(1-pi)/n1)
-                        ci<-c(lower,upper)
-                        names(ci)<-"CI"
-                        crit<-qnorm(conf.level/2)
-                        test<-p<-crit || p>crit}
-if(alternative=="lower") {p<-pnorm(z,lower.tail=TRUE)
-                          names(p)<-"P-value"
-                          lower<-phat-qnorm(1-conf.level/2)*sqrt(phat*(1-phat)/n1)
-                          upper<-phat+qnorm(1-conf.level/2)*sqrt(phat*(1-phat)/n1)
-                          ci<-c(lower,upper)
-                          names(ci)<-"CI"
-                          crit<-qnorm(conf.level/2)
-                          test<-p<-crit || p>crit}
-if(alternative=="upper") {p<-pnorm(z,lower.tail=FALSE)
-                          names(p)<-"P-value"
-                          lower<-phat-qnorm(1-conf.level/2)*sqrt(phat*(1-phat)/n1)
-                          upper<-phat+qnorm(1-conf.level/2)*sqrt(phat*(1-phat)/n1)
-                          ci<-c(lower,upper)
-                          names(ci)<-"CI"
-                          crit<-qnorm(conf.level/2)
-                          test<-p<-crit || p>crit}
+  if(alternative=="two.sided"){
+    p<-1-pnorm(z,lower.tail=TRUE)+pnorm(z,lower.tail=FALSE)
+    names(p)<-"P-value"
+    lower<-sqrt(((phat1*(1-phat1))/n1)+((phat2*(1-phat2))/n2))
+    upper<-pi+qnorm(1-conf.level/2)*sqrt(pi*(1-pi)/n1)
+    ci<-c(lower,upper)
+    names(ci)<-"CI"
+    crit<-qnorm(conf.level/2)
+    test<-p<-crit || p>crit}
   
-RVAL <- list(statistic = z, 
+  if(alternative=="lower") {
+    p<-pnorm(z,lower.tail=TRUE)
+    names(p)<-"P-value"
+    lower<-phat1-qnorm(1-conf.level/2)*sqrt(phat1*(1-phat1)/n1)
+    upper<-phat1+qnorm(1-conf.level/2)*sqrt(phat1*(1-phat1)/n1)
+    ci<-c(lower,upper)
+    names(ci)<-"CI"
+    crit<-qnorm(conf.level/2)
+    test<-p<-crit || p>crit}
+  
+  if(alternative=="upper") {
+    p<-pnorm(z,lower.tail=FALSE)
+    names(p)<-"P-value"
+    lower<-phat1-qnorm(1-conf.level/2)*sqrt(phat1*(1-phat1)/n1)
+    upper<-phat1+qnorm(1-conf.level/2)*sqrt(phat1*(1-phat1)/n1)
+    ci<-c(lower,upper)
+    names(ci)<-"CI"
+    crit<-qnorm(conf.level/2)
+    test<-p<-crit || p>crit}
+
+  names(p0)<-"p0"
+  names(p1)<-"p1"
+  names(n1)<-"n1"
+  attr(ci,"conf.level") <- conf.level
+RVAL <- list(method = "Z Test of Proportions",
+        sample.size=n1,
+        null.value=p0,
+        estimate=p1,
+        statistic = z, 
         p.value = as.numeric(p), 
-        conf.int = ci, 
+        conf.int = ci,
         alternative = alternative)
     class(RVAL) <- "htest"
     return(RVAL)
 }
-
 ```
