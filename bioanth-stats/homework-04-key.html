@@ -192,7 +192,7 @@ pre code {
     z&lt;-(phat1-pi)/sqrt(pi*((1-pi)/n1))
       names(z)&lt;-&quot;Z score&quot;
     if(alternative==&quot;two.sided&quot;) {
-      stop(&quot;You must choose alternative = &#39;upper&#39; or &#39;lower&#39;&quot;)}
+    stop(&quot;You must choose alternative = &#39;upper&#39; or &#39;lower&#39;&quot;)}
       }
   else {
     phat1&lt;-p1
@@ -210,18 +210,20 @@ pre code {
     upper&lt;-pi+qnorm(1-conf.level/2)*sqrt(pi*(1-pi)/n1)
     ci&lt;-c(lower,upper)
     names(ci)&lt;-&quot;CI&quot;
-    crit&lt;-qnorm(conf.level/2)
-    test&lt;-p&lt;-crit || p&gt;crit}
+    #crit&lt;-qnorm(conf.level/2)
+    #test&lt;-p&lt;-crit || p&gt;crit
+    }
   
   if(alternative==&quot;lower&quot;) {
     p&lt;-pnorm(z,lower.tail=TRUE)
     names(p)&lt;-&quot;P-value&quot;
-    lower&lt;-phat1-qnorm(1-conf.level/2)*sqrt(phat1*(1-phat1)/n1)
-    upper&lt;-phat1+qnorm(1-conf.level/2)*sqrt(phat1*(1-phat1)/n1)
+    lower&lt;-phat1-qnorm(1-conf.level/2) * sqrt(phat1 * (1-phat1)/n1)
+    upper&lt;-phat1+qnorm(1-conf.level/2) * sqrt (phat1 * (1-phat1)/n1)
     ci&lt;-c(lower,upper)
     names(ci)&lt;-&quot;CI&quot;
-    crit&lt;-qnorm(conf.level/2)
-    test&lt;-p&lt;-crit || p&gt;crit}
+    #crit&lt;-qnorm(conf.level/2)
+    #test&lt;-p&lt;-crit || p&gt;crit
+    }
   
   if(alternative==&quot;upper&quot;) {
     p&lt;-pnorm(z,lower.tail=FALSE)
@@ -230,43 +232,83 @@ pre code {
     upper&lt;-phat1+qnorm(1-conf.level/2)*sqrt(phat1*(1-phat1)/n1)
     ci&lt;-c(lower,upper)
     names(ci)&lt;-&quot;CI&quot;
-    crit&lt;-qnorm(conf.level/2)
-    test&lt;-p&lt;-crit || p&gt;crit}
+    #crit&lt;-qnorm(conf.level/2)
+    #test&lt;-p&lt;-crit || p&gt;crit
+    }
 
   names(p0)&lt;-&quot;p0&quot;
   names(p1)&lt;-&quot;p1&quot;
   names(n1)&lt;-&quot;n1&quot;
   attr(ci,&quot;conf.level&quot;) &lt;- conf.level
-RVAL &lt;- list(method = &quot;Z Test of Proportions&quot;,
-        sample.size=n1,
-        null.value=p0,
-        estimate=p1,
-        statistic = z, 
-        p.value = as.numeric(p), 
-        conf.int = ci,
-        alternative = alternative)
+  if(is.null(p2) || is.null(n2)) {
+RVAL &lt;- list(method = &quot;One-Sample Z Test of Proportions&quot;,
+             data.name = paste0((p1), &quot; success rate in mist nets&quot;),
+             null.value = p0,
+             estimate = p1,
+             statistic = z, 
+             p.value = as.numeric(p), 
+             conf.int = ci,
+             alternative = alternative)
+    class(RVAL) &lt;- &quot;htest&quot;
+    return(RVAL)}
+  
+  else {
+  names(p2)&lt;-&quot;p2&quot;
+  names(n2)&lt;-&quot;n2&quot;
+RVAL &lt;- list(method = &quot;Two-Sample Z Test of Proportions&quot;,
+             data.name = paste0((p1), &quot; lactation rate vs. &quot;, (p2), &quot; lactation rate in bats&quot;),
+             null.value = p0,
+             estimate = c(p1,p2),
+             statistic = z, 
+             p.value = as.numeric(p), 
+             conf.int = ci,
+             alternative = alternative)
     class(RVAL) &lt;- &quot;htest&quot;
     return(RVAL)
+  }
 }</code></pre>
 <p>Here’s a test of it on the one-sample test example using the mist-netted birds data example:</p>
-<pre class="r"><code>v &lt;- c(0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0,
+<pre class="r"><code>v1 &lt;- c(0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0,
     1, 1, 0, 1, 0, 1, 1)
-p1&lt;-mean(v)
-n1&lt;-length(v)
+p1&lt;-mean(v1)
+n1&lt;-length(v1)
 p0&lt;-0.8
 
 Z.prop.test(p1=p1,n1=n1,p0=p0,alternative=&#39;lower&#39;)</code></pre>
 <pre><code>## 
-##  Z Test of Proportions
+##  One-Sample Z Test of Proportions
 ## 
-## data:  
-## Z score = -2.7386, p-value = 1
+## data:  0.6 success rate in mist nets
+## Z score = -2.7386, p-value = 0.003085
 ## alternative hypothesis: true p0 is  0.8
 ## 95 percent confidence interval:
 ##  0.5943913 0.6056087
 ## sample estimates:
 ##  p1 
 ## 0.6</code></pre>
+<p>And here’s a two-sample test example using the mist-netted bats:</p>
+<pre class="r"><code>v1 &lt;- c(1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0,
+    1, 0)
+v2 &lt;- c(1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0,
+    0, 1, 1, 0, 1, 1, 1)
+p1&lt;-mean(v1)
+n1&lt;-length(v1)
+p2&lt;-mean(v2)
+n2&lt;-length(v2)
+p0&lt;-(sum(v1) + sum(v2))/(length(v1) + length(v2))
+
+Z.prop.test(p1=p1,n1=n1,p2=p2,n2=n2,p0=p0)</code></pre>
+<pre><code>## 
+##  Two-Sample Z Test of Proportions
+## 
+## data:  0.56 lactation rate vs. 0.7 lactation rate in bats
+## Z score = 1.0747, p-value = 0.2825
+## alternative hypothesis: true p0 is not equal to 0.6363636
+## 95 percent confidence interval:
+##  0.1298307 0.6423966
+## sample estimates:
+##   p1   p2 
+## 0.56 0.70</code></pre>
 
 
 

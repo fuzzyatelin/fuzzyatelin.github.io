@@ -1,9 +1,13 @@
 ---
-title: "Z.prop.test"
+title: "Z.prop.test Function"
 author: "Christopher A Schmitt"
-date: "October 23, 2017"
-output: html_document
+date: "October 29, 2021"
+output: 
+  html_document:
+    theme: cosmo
 ---
+
+Ok, here's my own take on what this function should look like! To test it out, I used the data on mist-netting birds and bats from the "Comparing Sample Proportions: Two Sample Z-Tests" section of [Module 10](https://fuzzyatelin.github.io/bioanth-stats/module-10/module-10.html#Testing_Sample_Proportions:_Two_Sample_Z_Tests).
 
 ```{r}
 Z.prop.test<-function(p1,n1,p2=NULL,n2=NULL,p0,alternative="two.sided",conf.level=0.95)
@@ -25,7 +29,7 @@ Z.prop.test<-function(p1,n1,p2=NULL,n2=NULL,p0,alternative="two.sided",conf.leve
     z<-(phat1-pi)/sqrt(pi*((1-pi)/n1))
       names(z)<-"Z score"
     if(alternative=="two.sided") {
-      stop("You must choose alternative = 'upper' or 'lower'")}
+    stop("You must choose alternative = 'upper' or 'lower'")}
       }
   else {
     phat1<-p1
@@ -43,18 +47,20 @@ Z.prop.test<-function(p1,n1,p2=NULL,n2=NULL,p0,alternative="two.sided",conf.leve
     upper<-pi+qnorm(1-conf.level/2)*sqrt(pi*(1-pi)/n1)
     ci<-c(lower,upper)
     names(ci)<-"CI"
-    crit<-qnorm(conf.level/2)
-    test<-p<-crit || p>crit}
+    #crit<-qnorm(conf.level/2)
+    #test<-p<-crit || p>crit
+    }
   
   if(alternative=="lower") {
     p<-pnorm(z,lower.tail=TRUE)
     names(p)<-"P-value"
-    lower<-phat1-qnorm(1-conf.level/2)*sqrt(phat1*(1-phat1)/n1)
-    upper<-phat1+qnorm(1-conf.level/2)*sqrt(phat1*(1-phat1)/n1)
+    lower<-phat1-qnorm(1-conf.level/2) * sqrt(phat1 * (1-phat1)/n1)
+    upper<-phat1+qnorm(1-conf.level/2) * sqrt (phat1 * (1-phat1)/n1)
     ci<-c(lower,upper)
     names(ci)<-"CI"
-    crit<-qnorm(conf.level/2)
-    test<-p<-crit || p>crit}
+    #crit<-qnorm(conf.level/2)
+    #test<-p<-crit || p>crit
+    }
   
   if(alternative=="upper") {
     p<-pnorm(z,lower.tail=FALSE)
@@ -63,22 +69,65 @@ Z.prop.test<-function(p1,n1,p2=NULL,n2=NULL,p0,alternative="two.sided",conf.leve
     upper<-phat1+qnorm(1-conf.level/2)*sqrt(phat1*(1-phat1)/n1)
     ci<-c(lower,upper)
     names(ci)<-"CI"
-    crit<-qnorm(conf.level/2)
-    test<-p<-crit || p>crit}
+    #crit<-qnorm(conf.level/2)
+    #test<-p<-crit || p>crit
+    }
 
   names(p0)<-"p0"
   names(p1)<-"p1"
   names(n1)<-"n1"
   attr(ci,"conf.level") <- conf.level
-RVAL <- list(method = "Z Test of Proportions",
-        sample.size=n1,
-        null.value=p0,
-        estimate=p1,
-        statistic = z, 
-        p.value = as.numeric(p), 
-        conf.int = ci,
-        alternative = alternative)
+  if(is.null(p2) || is.null(n2)) {
+RVAL <- list(method = "One-Sample Z Test of Proportions",
+             data.name = paste0((p1), " success rate in mist nets"),
+             null.value = p0,
+             estimate = p1,
+             statistic = z, 
+             p.value = as.numeric(p), 
+             conf.int = ci,
+             alternative = alternative)
+    class(RVAL) <- "htest"
+    return(RVAL)}
+  
+  else {
+  names(p2)<-"p2"
+  names(n2)<-"n2"
+RVAL <- list(method = "Two-Sample Z Test of Proportions",
+             data.name = paste0((p1), " lactation rate vs. ", (p2), " lactation rate in bats"),
+             null.value = p0,
+             estimate = c(p1,p2),
+             statistic = z, 
+             p.value = as.numeric(p), 
+             conf.int = ci,
+             alternative = alternative)
     class(RVAL) <- "htest"
     return(RVAL)
+  }
 }
+```
+
+Here's a test of it on the one-sample test example using the mist-netted birds data example:
+```{r}
+v1 <- c(0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0,
+    1, 1, 0, 1, 0, 1, 1)
+p1<-mean(v1)
+n1<-length(v1)
+p0<-0.8
+
+Z.prop.test(p1=p1,n1=n1,p0=p0,alternative='lower')
+```
+
+And here's a two-sample test example using the mist-netted bats:
+```{r}
+v1 <- c(1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0,
+    1, 0)
+v2 <- c(1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0,
+    0, 1, 1, 0, 1, 1, 1)
+p1<-mean(v1)
+n1<-length(v1)
+p2<-mean(v2)
+n2<-length(v2)
+p0<-(sum(v1) + sum(v2))/(length(v1) + length(v2))
+
+Z.prop.test(p1=p1,n1=n1,p2=p2,n2=n2,p0=p0)
 ```
