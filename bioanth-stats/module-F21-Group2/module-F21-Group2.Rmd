@@ -1,0 +1,370 @@
+---
+title: "Time Series Analysis"
+author: "Gabriel Vicencio, Max Dippel, Diego Alonso Larre and Miguel Rubio Garcia"
+date: "11/29/2021"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br>
+
+<center> <img src = "https://memegenerator.net/img/instances/71458205.jpg"> </center>
+
+<br>
+
+### **Introduction:**
+
+##### Time-Series analysis is a mathematical analysis that can predict future outputs from previous past measurements. We use time-series analysis when we have **only one variable to measure** (sales of a product for example) + timing variable. Ex: If last month I sold 20 cars and this month I have sold 25 cars, how many cars will I sell next month? My only variables are car sales and time, measured by months.
+
+##### Thus, time-series is a series of data points organized by time order (commonly a sequence of successive equally spaced events in time). We use these time series algorithms to **create a model**, and once we have our model we can use it to predict future values.
+
+<br>
+
+<center> **Look for the best model -> introduce the “past” inputs -> predict future values** </center>
+
+<br>
+
+##### We don’t use time series analysis when the values are constant (if I sold 20 cars last month, 20 cars this month, it makes no sense to do an analysis for next month). Moreover, we can only use it **when the data is stationary**. When is the data stationary? There are some conditions:
+
+* The **mean** should be constant according to the time.
+* The **variance** should be equal at different time intervals from the mean: each point’s distance to the mean should be equal at equal intervals of time.
+
+
+##### If these 3 conditions are fulfilled that means that my series is stationary and that we can use time-series analysis
+
+<br>
+
+#### **Components of time-series analysis:**
+
+* **General trend:** The “behavior” of our values (how are they going); are they increasing (upwards) or decreasing (downwards).
+* **Seasonal component:** How many peaks do we see? Example: *We have a flying company. We know that at some times of the year when there are celebrations, more people will take a plane like on Christmas, Thanksgiving or summer. So, in a year, how many peaks do we have? If there are 3 important celebrations per year, we are going to see 3 peaks. This is called the seasonal component of the time-series analysis.*
+* **Irregular fluctuation:** Random component (uncontrolled circumstances). Example: *during winter there is snow and strong winds in Boston and some flights will need to be concealed. However, these conditions are not the same every year (one year there might be a lot of and another there might be quite less). This factor can make our analysis useless because is not under our control (hard or impossible to predict)*
+
+<br>
+
+#### **How do we transform our data into stationary?**
+
+* If we apply the **log function** ( log(variable) ) we will obtain equal variance.
+* The mean: If we apply the command “diff” (used to **differentiate**) the mean will become constant according to time. 
+It is possible that the data needs no transformation (already stationary) or that there is only need to apply one of these functions!
+
+<br>
+
+##### Let's see what does this mean using the R dataset "AirPassengers" from the "datasets" package  that contains the information about the number of people who took the plane per month from 1949 to 1960. To do so and future analysis, make sure you have downloaded the following packages: **nlme**, **MuMIn**, **MASS**, **ggplot2** and **curl**.
+
+<br>
+
+#### Loading libraries
+```{r}
+library(nlme) # gls (generalized least squares)
+library(MuMIn) #AICc
+library(MASS) # acf(), pacf(), ARIMA()
+library(ggplot2) # for graphing
+library(curl) # for loading the data
+library(forecast) # for choosing arima coefficients
+```
+
+<br>
+
+##### First let's take a look to our data:
+
+```{r}
+AirPassengers #Each value represents the number of people ("Air Passengers") that took the plane the month indicated by the column and the year indicated by the row.
+```
+
+<br>
+
+##### Now let's plot the data:
+```{r}
+plot(AirPassengers)
+abline(reg=lm(AirPassengers~time(AirPassengers)))
+```
+
+##### With the previous line of code we can see the mean ploted as a line.
+
+##### We see the mean is increasing every year. In addition, dispersion is increasing with time, which means the variance is not equal at different time points. Thus, our data **is not stationary**. Let's transform our data using "log" and "dif" as we learnt before so we can apply on it a time-series analysis!
+
+```{r}
+plot(log(AirPassengers)) #Using "log" function to change the variance.
+abline(reg=lm(log(AirPassengers)~time(log(AirPassengers)))) 
+```
+
+
+##### Now the variance is constant according to time (we can see that the distance from each peak to the line is similar).
+
+<br>
+
+```{r}
+plot(diff(log(AirPassengers))) #Using "diff" function to change the mean.
+abline(reg=lm(diff(log(AirPassengers))~time(diff(log(AirPassengers))))) 
+```
+
+##### We can see that the mean is constant according to time.
+
+<br>
+
+##### Now that the data is stationary and we could apply different models for time series analysis like the ArIMa model (Autoregressive Integrated Moving average). We can apply the ARIMA model to make predictions based on our **stationary** data.
+##### We will do so at the end of the module, but before we will learn how we can also use the ARIMA model to eliminate the autocorrelation of one data set.
+
+<br>
+
+### **ARIMA Model:**
+
+<br>
+
+##### Now, we are going to use ARIMA models to get rid of autocorrelation in the residuals of models of a given dataset, to make our errors random and independent from each other. For this exercise, we are going to use the hypothetical case of an obsidian analysis by portable X-ray fluorescence. The samples were taken from one archaeological site that was active from AD 120 to 1520 (Classic to Postclassic) in Central Mexico. 
+
+##### The values are presented in parts per million (ppm) and represent the mean of different obsidians analyzed with XRFp from the same site with very well-dated contexts. Each value represents the mean of all obsidians analyzed with pXRF that were recovered from various contexts dating ten-year terms.
+
+<br>
+
+#### Loading the dataset:
+```{r}
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/bioanth-stats/module-F21-Group2/Dataset_R_2.csv")
+d <- read.csv(f, header = TRUE)
+head(d)
+```
+```{r}
+names(d)
+```
+
+<br>
+
+#### Graphing the dataset
+```{r}
+plot(Rb ~ Year_AD, data=d, type="l", pch=16, 
+     ylab="ppm", xlab="Year")
+ggplot(data = d, aes(x=Year_AD, y= Rb)) + geom_line()
+
+#If you obtain an error "object 'Year_AD' not found" try to write "X.U.FEFF.Year_AD" instead. We think it has to do with mac / windows.
+
+```
+
+<br>
+
+#### **Analysis of the autocorrelation in the data**
+##### This is the pacf() function. This stands for partial auto-correlation function which is used to find auto-correlation in the data
+```{r}
+pacf1 <- pacf(d$Rb, main="PACF")
+```
+
+##### As you can see, there is auto correlation present in the data. It is shown by the data points which go beyond the blue confidence interval. Specifically the auto-correlation is outside the confidence interval at a lag of 1 and 2. This will guide later analysis. 
+
+#### **Creating a simple linear model of the data**
+##### The next step in the analysis is to make a simple linear model of the data. We know this model does not accurately capture the variation in the data. However, it is helpful to look at the error present in this model to confirm that auto-correlation is present. 
+```{r}
+lm1 <- lm(Rb ~ Year_AD, data=d)
+summary (lm1)
+```
+
+<br>
+
+#### **Analyzing autocorrelation in the residuals** 
+##### After that, we will extract the residuals (error) from this model and see if this error is auto-correlated as well
+```{r}
+
+
+d$mod.resid <- residuals(lm1)
+pacf2 <- pacf(d$mod.resid, main="PACF - Rb residuals")
+pacf2
+
+```
+
+##### Residuals should be random. The values in this graph which are outside the confidence interval tell us that the residuals are not random. The goal of this analysis will be to correct for these non-random residuals.
+
+<br>
+
+#### **Creating ARIMA Models**
+##### ARIMA stands for autoregressive intergrated moving average models. The values p, d and q are different values which help describe the data we are trying to fit to the ARIMA model. 
+##### p is the number of auto-regressive terms. This is the number of lag observations in the model; also known as the lag order. Lag is defined as Lag is defined as the shift of a time series back by a given number of observations. Mathmatically lag means the current value is predicted from a linear combination of the previous values. 
+
+##### AR(p): Yt = u + B(1) x Y(t-1) + B(2) x Y (t-2) + ... + B(p) x Y(t-p) + e
+
+##### u = the mean of the time series, Y = a given value in the time series, B = a weight given to each value in the time series, e = the error
+
+##### d is the number of non-seasonal differences. The number of times that the raw observations are differenced, also called the degree of differencing. (The use of differencing of raw observations (e.g. subtracting an observation from an observation at the previous time step) in order to make the time series stationary).
+
+##### q is the number of moving average terms. Mathmatically this means each value in a time series is predicted by the a linear combination of q previous errors. 
+
+##### MA(q): Yt = u + B(1) x e(t-1) + B(2) x e(t-2) + ... + B(p) x e(t-q) + e
+
+##### u = the mean of the time series, Y = a given value in the time series, B = a weight given to each value in the time series, e = the error
+
+###### Source: R in Action by Rob Kabacoff 
+
+##### The arima() function in r is the model we will use to fit the data based on the parameters predicted by the pacf(). Specifically, since the values outside the confidence interval were a lag term of 1 and 2 we will use auto-regressive terms and moving average terms near 1-2. In general, it is good to expand a little beyond what is beyond the confidence interval because pacf() is not perfect. 
+
+<br>
+
+```{r}
+
+#AR
+ar.1 <- arima(d$mod.resid, order=c(1,0,0)) 
+ar.2 <- arima(d$mod.resid, order=c(2,0,0))
+ar.3 <- arima(d$mod.resid, order=c(3,0,0))
+ar.4 <- arima(d$mod.resid, order=c(4,0,0))
+
+# MA
+ma.1 <- arima(d$mod.resid, order=c(0,0,1)) 
+ma.2 <- arima(d$mod.resid, order=c(0,0,2)) 
+ma.3 <- arima(d$mod.resid, order=c(0,0,3)) 
+ma.4 <- arima(d$mod.resid, order=c(0,0,4)) 
+
+```
+
+<br>
+
+#### **Challenge 1:** rank the ARIMA models using AICc
+##### After fitting multiple ARIMAs we will use AICc() to rank the models from best to worst. The lower the AICc value the better it is.
+
+<br>
+
+```{r}
+
+
+AICc(ar.1)
+AICc(ar.2)
+AICc(ar.3)
+AICc(ar.4)
+AICc(ma.1)
+AICc(ma.2)
+AICc(ma.3)
+AICc(ma.4)
+```
+
+<br>
+
+##### After running the AICc() we found that the models with 2 autoregressive terms and 3 moving average terms are the best fitted to the data. 
+
+<br>
+
+#### **Creating linear models which account for non-random error**
+##### We will now use the gls() function to model these two best fitting parameters into a linear model. gls stands for generalized least squares model. This type of linear model allows us to incorporate ARIMA terms into the modeling. 
+
+<br>
+
+```{r}
+
+
+gls.mod1 <- gls(Rb ~ Year_AD, data=d, correlation = corARMA(p=2, q=0))
+gls.mod2 <- gls(Rb ~ Year_AD, data=d, correlation = corARMA(p=0, q=3))
+```
+
+#### **Challenge 2:** rank the models using AICc
+```{r}
+AICc(gls.mod1)
+AICc(gls.mod2)
+```
+
+<br>
+
+##### While the AICc value for model 1 is less than the model 2, they are so close we can consider than equivanlent. This means the data is either best modeled with 2 autoregressive terms or 3 moving average terms.  
+
+
+#### **Checking our work**  
+##### Let's make a summary for the first linear model and see if the residuals still have auto-correlation using pacf()
+```{r}
+summary(gls.mod1)
+confint(gls.mod1)
+
+d$new.residuals <- resid(gls.mod1, type="normalized")
+
+pacf3 <- pacf(d$new.residuals, main="PACF - GLS model residuals")
+```
+
+#####  Poof! The auto-correlation is gone! Notice how there is now no values outside the confidence intervals. That means the data has been modeled in such a way that there is no autocorrelation error that we are not accounting for in the way we model the data. 
+
+#####  To make sure that the model is appropriate, we check if the residuals are normally distributed using a qq-plot
+
+<br>
+
+```{r}
+qqnorm(d$new.residuals)
+qqline(d$new.residuals)
+```
+
+
+#####  The residuals adjust pretty well to the line in the Q-Q plot, which means they are normally distributed.
+
+<br>
+
+### **Forecasting with ARIMA**
+
+##### In this last part of the module we are going learn to predict future values of a time series. For this task, we are going to use a dataset from the package "datasets" called "LakeHuron", that has information about the level of Lake Huron from 1875 to 1972.
+
+<br>
+
+<center> <img src="https://fishingbooker.com/blog/media/Lake-Huron.jpg" width=600 height=500> </center>
+
+<br>
+
+#### Loading the dataset
+```{r}
+LakeHuron
+```
+
+<br>
+
+#### Plotting it
+```{r}
+plot(LakeHuron)
+```
+
+#### After plotting the time series, we can see that the data isn't stationary, so we differentiate it 1 time to make it stationary. 
+```{r}
+plot(diff(LakeHuron))
+h <- diff(LakeHuron)
+```
+
+<br>
+
+#### Now we are going to define the p, d and q coefficients for our ARIMA model. Auto.arima() is a function from the "forecast" package that estimates the best coefficients for building a fitting ARIMA model for your data.
+```{r}
+auto.arima(LakeHuron) 
+```
+
+<br>
+
+#### It returns (0,1,0). d = 1 means that the data is differentiated once, as we noticed we had to do before to make the data stationary.
+
+<br>
+
+#### Now we are going to do the predictions using the predict() function:
+```{r}
+a <- arima(LakeHuron, c(0, 1, 0), list(order = c(0, 1, 0))) # We make our arima model with the coefficients obtained before
+
+pred <- predict(a, n.ahead = 10) # We predict the levels of the next 10 years.
+
+pred
+
+
+#In case you had a data set with different time subsets (month and years or days and weeks) you can select them by using "*" between the numbers in "n.ahead". Ex: 5*12 would be predict for the next 5 years the 12 months.
+```
+
+<br>
+
+#### **Challenge 3:** 
+##### Using the "AirPassengers" dataset, predict the number of people that is going to take the plane in the following 3 years.
+
+##### Hint: Make sure your data is stationary before applying the model!
+
+```{r}
+stat_air <- log(AirPassengers)
+
+#We are not using "diff" here because with "auto.arima" we will obtain "d" aka the number of times we need to apply "diff".
+
+auto.arima(stat_air)
+```
+
+```{r}
+a2 <- arima(AirPassengers, c(0, 1, 1), seasonal = list(order = c(0, 1, 1))) #We make our ARIMA model with the coefficients obtained above.
+
+pred2 <- predict(a2, n.ahead = 3*12) #Prediction of the number of passengers that will take the plane in the following 3 years.
+
+pred2
+
+```

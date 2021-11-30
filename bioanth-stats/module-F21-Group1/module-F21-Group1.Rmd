@@ -57,7 +57,7 @@ The data set used in this analysis is available from the authors of the WGCNA pa
 For this tutorial you can read in the data set from our github page. 
 
 ```{r}
-d <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/module-F21-Group1/FemaleLiver-Data/LiverFemale3600.csv")
+d <- curl('https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/bioanth-stats/module-F21-Group1/FemaleLiver-Data/LiverFemale3600.csv')
 liver.data <- read.csv(file = d, stringsAsFactors = FALSE, header = TRUE)
 head(liver.data)
 ```
@@ -270,7 +270,7 @@ You can determine the soft power threshold should be set to 6 as it is the spt t
 Using the following data set, find the appropriate soft threshold parameter.
 
 ```{r}
-f <- curl('https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/module-F21-Group1/FemaleLiver-Data/LiverMale3600.csv')
+f <- curl('https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/bioanth-stats/module-F21-Group1/FemaleLiver-Data/LiverMale3600.csv')
 male.liver.data <- read.csv(file = f, stringsAsFactors = FALSE, header = TRUE)
 male.expression.data <- male.liver.data[,-c(1:8)]
 male.expression.data <- as.data.frame(t(male.expression.data))
@@ -483,7 +483,7 @@ external traits.
 Start by reading in Trait Data Table
 
 ```{r}
-t <- curl('https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/module-F21-Group1/FemaleLiver-Data/ClinicalTraits.csv')
+t <- curl('https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/bioanth-stats/module-F21-Group1/FemaleLiver-Data/ClinicalTraits.csv')
 traitData <- read.csv(t, header = TRUE, stringsAsFactors = FALSE)
 head(traitData)
 ```

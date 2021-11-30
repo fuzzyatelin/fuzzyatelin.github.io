@@ -142,31 +142,41 @@ Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day
 ### Week 14 (2019-12-02)
 ***
 
-### [Module 24 - **Discriminant Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-F19-Group1/module-F19-Group1.html)
-(Laura Angley, Laura Brubaker-Whitman, Christian Gagnon, Melissa Zarate)
+### [Module 23 - **Weighted Gene Correlation Network Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-F21-Group1/module-F21-Group1.html)
+(Victoria French, CeCe Gerstenbacher, Warrenkevin Henderson, Elizabeth Varghese)
 
-### [Module 25 - **Spatial Autocorrelation**](http://fuzzyatelin.github.io/bioanth-stats/module-F19-Group2/module-F19-Group2.html)
-(Lara Hakam, Greg Pelose, Brenna Stallings)
+### [Module 24 - **Time Series Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-F21-Group2/module-F21-Group2.html)
+(Gabriel Vicencio, Max Dippel, Diego Alonso Larre and Miguel Rubio Garcia)
 
 ***
 
 ### Week 15 (2019-12-09)
 ***
 
-### [Module 26 - **Population Assignment for Genetic and Morphological Data**](http://fuzzyatelin.github.io/bioanth-stats/module-F19-Group3/module-F19-Group3.html)
-(Ish Chowdhury, Gianna Grob, C Vega)
+### [Module 25 - **TBD**](http://fuzzyatelin.github.io/bioanth-stats/module-F21-Group3/module-F21-Group3.html)
 
-### [Module 27 - **Using LIDAR Data in R**](http://fuzzyatelin.github.io/bioanth-stats/module-F19-Group4/module-F19-Group4.html)
-(Nicola Kriefall, Clint Lockwood, Ena Miculinic)
-
-### [Module 28 - **Species Distribution Modeling in R**](http://fuzzyatelin.github.io/bioanth-stats/module-F19-Group5/module-F19-Group5.html)
-(Frank Azorsa Salazar, MaJo Salazar Nicholls, Feiya Wang)
+### [Module 26 - **TBD**](http://fuzzyatelin.github.io/bioanth-stats/module-F21-Group4/module-F21-Group4.html)
 
 ***
 
 ## Previous Student Modules
 
 ***
+
+### [**Discriminant Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-F19-Group1/module-F19-Group1.html)
+(Laura Angley, Laura Brubaker-Whitman, Christian Gagnon, Melissa Zarate; Fall 2019)
+
+### [**Spatial Autocorrelation**](http://fuzzyatelin.github.io/bioanth-stats/module-F19-Group2/module-F19-Group2.html)
+(Lara Hakam, Greg Pelose, Brenna Stallings; Fall 2019)
+
+### [**Population Assignment for Genetic and Morphological Data**](http://fuzzyatelin.github.io/bioanth-stats/module-F19-Group3/module-F19-Group3.html)
+(Ish Chowdhury, Gianna Grob, C Vega; Fall 2019)
+
+### [**Using LIDAR Data in R**](http://fuzzyatelin.github.io/bioanth-stats/module-F19-Group4/module-F19-Group4.html)
+(Nicola Kriefall, Clint Lockwood, Ena Miculinic; Fall 2019)
+
+### [**Species Distribution Modeling in R**](http://fuzzyatelin.github.io/bioanth-stats/module-F19-Group5/module-F19-Group5.html)
+(Frank Azorsa Salazar, MaJo Salazar Nicholls, Feiya Wang; Fall 2019)
 
 ### [**Introduction to Spatial Data Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-22/module-22.html)
 
