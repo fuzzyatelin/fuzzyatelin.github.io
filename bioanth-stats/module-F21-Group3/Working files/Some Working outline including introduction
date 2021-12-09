@@ -1,0 +1,64 @@
+**A guy *walks* into a…**
+
+By: Zoe Albert, Natalia Kelley, Frank Short and Victoria Zdanowicz
+
+**Before we start, please download the following**
+1.
+2.
+
+**Introduction**
+	
+	**What is a random walk model?**
+
+		You are at the bar, and you just got you and your friends a third round of drinks.  You turn around and the dance floor is packed like sardines, and your friends are at the very front next to the DJ booth.  How do you get from where you are to where you’re going?  Maybe you take a step to the left, two steps forward, another back and to the right.  Each step you take is independent from the last, as the dance floor is moving, grooving and no one is staying still.  This goes on (and on and on) until you have made your way back to your friends. 
+
+		This is an example of a random walk model.  Random walk models assume that in a time period, an individual will take random and independent steps that are identically distributed in size and away from their previous position (Nau, 2014).  These steps do however depend on the location of the previous step in that that is their unchanging starting point in each two step sequence.
+
+	**What is a correlated random walk model?**
+	
+	Now, imagine it's the morning after your night out and you decide you need to run off the yucky post-drinking feelings.  You lace up your tennis shoes and start running along the charles. 
+	
+	This may be an example of a correlated random walk model.  This type of model is directionally **persistent**.  This means that there is a directional bias to travel.  Each step is in relatively the same direction as the last and is relatively uniformly distributed (Codling et al., 2018).  This is a great model to use for animal movement, as animals tend to move in one direction- forward (Codling et al., 2018).
+
+	**What is a continuous-time stochastic process (CTSP) Model?**
+
+	Okay. Now, you’ve made it home from your run and you want to see the data on your fitness tracker app.  But, OH NO!  You must have accidentally turned it on last night when you were leaving the bar.  It tracked your uber ride home, when you got out of bed to get a glass of water, when you laid on the bathroom floor for a while, and then the run.  That is a lot of movement data!
+
+	This, like any GPS monitoring system, is an example of continuous-time stochastic process modeling. That is, this is a model that accounts for finely sampled and continuous modern data collection (Calabrese et al., 2016).
+
+
+**Objectives**
+
+	In this module we will look at the above models first as they relate to data on 
+
+
+**Let's code!**
+
+	1. Recall the packages we downloaded before?  These are going to come into play now.
+
+	2. Now, lets load in the movebank GPS data
+	
+	3. Produce variograms for individuals
+		
+What is a variogram? 
+Assess variograms
+
+4.  Produce guess and fit for individuals
+
+Compare fit to variogram
+
+5.  Calculate autocorrelated kernel density estimates (AKDE)
+
+6.  Calculate overlap (Gaussian and AKDE) of each individual
+
+**Challenge**
+
+
+
+
+**Literature Cited**
+
+C, J. M., Fleming, C. H., & Gurarie, E. (2016). ctmm: an r package for analyzing animal relocation data as a continuous-time stochastic process. Methods in Ecology and Evolution, 7(9), 1124–1132.
+
+Codling, E. A., Plank, M. J., & Benhamou, S. (2008). Random walk models in biology. Journal of The Royal Society Interface, 5(25), 813–834. https://doi.org/10.1098/rsif.2008.0014 
+Nau, R. (2014, November 4). Notes on the random walk model - people.duke.edu. Notes on the random walk model. Retrieved 2021, from https://people.duke.edu/~rnau/Notes_on_the_random_walk_model--Robert_Nau.pdf 

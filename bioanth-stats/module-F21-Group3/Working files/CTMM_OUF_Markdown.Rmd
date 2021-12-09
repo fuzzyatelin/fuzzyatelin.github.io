@@ -1,0 +1,156 @@
+---
+title: "Continuous-Time Movement Modeling"
+author: "Zoe Albert, Natalia Kelley, Frank Short & Victoria"
+output:
+  html_document:
+    toc: TRUE
+    toc_depth: 3
+    toc_float: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# **A guy *walks* into a.... ctmm?**
+
+![](https://i.giphy.com/media/3o6MbrkU5vJroyqMUw/200w.gif)
+---
+
+## Preliminaries
+- Install these packages in R: {ctmm}, {curl}, {rlist}, {dplyr}.
+```{r - packages}
+library(ctmm)
+library(dplyr)
+library(rlist)
+library(curl)
+```
+
+## Objectives
+
+>The objective of this module is to discuss the application and function of animal movement models, specifically, Contiuous-Time Movement Models (ctmm), and explore measures of overlap.
+
+
+## Introduction
+
+### What is a random walk model?
+
+![](https://c.tenor.com/I9ZWYFwud1EAAAAM/white-chicks-white.gif)
+
+You are at the bar, and you just got you and your friends a third round of drinks. You turn around and the dance floor is packed like sardines, and your friends are at the very front next to the DJ booth. How do you get from where you are to where you’re going? Maybe you take a step to the left, two steps forward, another back and to the right. Each step you take is independent from the last, as the dance floor is moving, grooving and no one is staying still. This goes on (and on and on) until you have made your way back to your friends.
+
+This is an example of a **random walk model**. Random walk models assume that in a time period, an individual will take *random* and *independent* steps that are identically distributed in size and away from their previous position (Nau 2014). However, these steps **do** depend on the location of the previous step in that that is their unchanging starting point in each two step sequence.
+
+	**What is a correlated random walk model?**
+
+	Now, imagine it's the morning after your night out and you decide you need to run off the yucky post-drinking feelings.  You lace up your tennis shoes and start running along the charles.
+
+![](https://c.tenor.com/vYEKTvwBHooAAAAC/puke-retch.gif)
+
+	This may be an example of a correlated random walk model.  This type of model is directionally **persistent**.  This means that there is a directional bias to travel.  Each step is in relatively the same direction as the last and is relatively uniformly distributed (Codling et al., 2018).  This is a great model to use for animal movement, as animals tend to move in one direction- forward (Codling et al., 2018).
+
+	**What is a continuous-time stochastic process (CTSP) Model?**
+
+	Okay. Now, you’ve made it home from your run and you want to see the data on your fitness tracker app.  But, OH NO!  You must have accidentally turned it on last night when you were leaving the bar.  It tracked your uber ride home, when you got out of bed to get a glass of water, when you laid on the bathroom floor for a while, and then the run.  That is a lot of movement data!
+
+	This, like any GPS monitoring system, is an example of continuous-time stochastic process modeling. That is, this is a model that accounts for finely sampled and continuous modern data collection (Calabrese et al., 2016).
+
+
+
+
+
+**Let's code!**
+
+*Continuous-Time Movement Modeling - Coyotes and Cougars of Idaho*
+
+  As shown in the background literature, advancements in movement modelling have allowed for more accurate home range estimates that account for both the time dimension and autocorrelation in global position system (GPS) data. Below is an example of the implementation of the R package ctmm (Contnuous-Time Movement Modeling) to calculate the autocorrelated kernel density estimates (AKDE) of cougars (*Puma concolor*) and coyotes (*Canis latrans*) from public available movement data (Mahoney & Young, 2017). The data from this study was collected via Lotek GPS collars (Model GPS3300S; Lotek, Newmarket, ON, Canada) on cougars and coyotes in Utah and Idaho respectively. We will begin by loading in a subset of our data.
+  
+![](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a30c089d-87d7-435e-a76b-99588a063bf7/d996mkc-26eebae7-500b-4f8b-8537-d51ea347d34d.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2EzMGMwODlkLTg3ZDctNDM1ZS1hNzZiLTk5NTg4YTA2M2JmN1wvZDk5Nm1rYy0yNmVlYmFlNy01MDBiLTRmOGItODUzNy1kNTFlYTM0N2QzNGQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.XU_TcgBtq1jLBTmiOcqANgp4mFK59ddEXSuUZqYzRcA)
+
+**Step 1: Load Packages**
+  Recall the packages we downloaded before?  These are going to come into play now.
+
+**Step 2: Load Data**
+  Now, lets load in the movebank GPS data:    
+
+```{r Loading}
+
+# Loading in data
+f <- curl("https://raw.githubusercontent.com/vzdanowicz/AN588_ctmm/main/thisisit.csv")
+data <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
+```
+
+```{r Telemtry}
+# Creating ctmm telemetry object
+data=as.telemetry(data)
+
+data=data[c("IdCoy_P4_2","IdCoy_P1_2")]
+```
+
+  Creating a raw plot of our points demonstrates the wide area occupied by this individual coyote. 	
+
+**Step 3: Produce Variograms**
+
+  The next step of our workflow is to create variograms from the GPS data for our individuals. Variograms represent autocorrelated data as the semi-variance between positions with varying time-lags. The structure of the variogram presents important information on the movement of an animal, as well as what method of movement modeling is best suited to the data. Arguably the most crucial element of a variogram is if the semi-variance reaches an asymptote. This indicates that an animal is range-resident, which allows our range calculation to be meaningful. Below I will create variograms for each of our individuals.
+
+```{r variogram}
+dt=c(3600,10800,14400)
+control=list(method="pNewton",cores=2)
+proto=ctmm(error=5,circle=FALSE)
+variograms=lapply(1:2,function(i) variogram(data[[i]]))
+plot(variograms[[1]],fraction = 0.5)
+
+plot(variograms[[2]],fraction = 0.5)
+
+```
+
+  Dt represents an optional addition that delineates structural time lags in the data by seconds. Almost all of our coyote data is taken at 4 hour (14400 second) intervals, but other intervals occur. (Add something explaining control=list and the optimizer). Proto allows us to incorporate our estimation of the possible error present in the data, which we have included as 5 meters (I am unsure if this is the actual error for this GPS collar). We then use the ctmm function "variogram" to create a variograms for our individuals. As you can see from individual CO28's variogram, we have a good candidate for fitting a model. First, we have a long term dataset lasting from 6/2013 - 6/2014, which gives us a solid understanding of the ranging behavior of this individual. Second, our variogram reaches an asymptote at a semi-variance of about 3 square kilometers indicating range residency.
+
+**Step 4: Model Fitting**
+
+  In order to use autocorrelated kernel density estimation (AKDE) to perform accurate home range analyses, we have to ensure that our data indicates range residency and then choose the best model to represent the data. The first step as discussed above is to use a variogram to visualize whether movement is confined to a given space or home range. Then, a movement model is chosen.
+    The independent identically distributed (IID) process assumes each data point is independent and random. However, animal movement is automatically correlated since one's location in space is dependent on where one was before. This means the IID model is not a good model for our purposes despite it's use in older kernel density estimation metrics. The brownian motion (BM) process assumes random movement and diffusion in unlimited space and is good for data not comprehensive enough to demonstrate home range or velocity autocorrelation. Typically, BM processes are not suitable for our purposes. The Ohrnstein-Uhlenbeck (OU) process uses BM but assumes fidelity to a general location and is suitable for data which shows signs of residency. What this model lacks is the ability to incorporate autocorrelated velocities. The integrated OU (IOU) process solves this problem for data with high resolution but is unable to demonstrate range residency. All of these shortcomings are solved in the Ohrnstein-Uhlenbeck Foraging (OUF) process which combines OU and IOU processes to enable analysis of data demonstrating both velocity autocorrelation and range residency.
+    This is especially relevant for improved data sampling methods which are able to combine long sampling periods and high resolution of sampling points. Given our extensive cougar and coyote data, we can expect that our best fit movement model might be the OUF model. We also have to differentiate between the accuracy of isotropic versus anisotropic models for each movement model. By running ctmm.fit and ctmm.select, we can produce data to determine the best fit model. Once we have decided between isotropic and anisotropic, we can proceed to visualize that version of the IID, OU, and OUF models to confirm the results of the initial model guess.
+
+```{r model}
+guess=lapply(1:2,function(i) ctmm.guess(data[[i]], CTMM=proto,variogram=variograms[[i]],interactive=FALSE))
+fits=lapply(1:2,function(i) ctmm.fit(data[[i]],guess[[i]],control=control))
+summary(fits)
+
+#plotting variogram and fit to see accuracy
+plot(variograms[[2]],CTMM=fits,col.CTMM=c("red","purple","blue"),fraction=0.65,level=0.5)
+```
+
+Our fitted model accurately represents the data when plotted over the variogram.
+
+**Step 5: Autocorrelated Kernel Density Estimate Calculation**
+
+  After confirming our fitted continuous-time movement model, we use this as the input for the AKDE. We use the AKDE estimator to produce ecologically relevant metrics, such as home range size, range overlap, and occurrence distributions. It is essential to select the best fitting movement model to produce accurate AKDE metric estimates. Plotting the AKDE estimate defaults to show the 95% home range contour and corresponding 95% confidence intervals. The summary produces point estimates and confidence intervals. Other confidence intervals can be specified if desired.
+
+```{r AKDE}
+#Creating monthly AKDE from fitted model
+uds=lapply(1:2,function(i) akde(data[[i]], fits[[i]]))
+
+#Plotting AKDE for CO28 (coyote)
+plot(uds[[2]])
+
+#AKDE area for CO28 (coyote)
+summary(uds[[2]])
+
+```
+
+  AKDE is an important advancement in animal habitat analysis. The previously popular method, kernel density estimation (KDE) utilized the IID model which led to underestimation of home range area due to its failure to consider movement data autocorrelation. The AKDE estimator more accurately estimates home range size which can aid in wildlife habitat protection. Here we can see the plotted AKDE for CO28, as well as the estimated home range size.
+
+**Step 6: Calculate overlap (Gaussian and AKDE) of each individual**
+
+
+**Challenge**
+
+
+
+
+**Literature Cited**
+
+C, J. M., Fleming, C. H., & Gurarie, E. (2016). ctmm: an r package for analyzing animal relocation data as a continuous-time stochastic process. Methods in Ecology and Evolution, 7(9), 1124–1132.
+
+Codling, E. A., Plank, M. J., & Benhamou, S. (2008). Random walk models in biology. Journal of The Royal Society Interface, 5(25), 813–834. https://doi.org/10.1098/rsif.2008.0014
+Nau, R. (2014, November 4). Notes on the random walk model - people.duke.edu. Notes on the random walk model. Retrieved 2021, from https://people.duke.edu/~rnau/Notes_on_the_random_walk_model--Robert_Nau.pdf

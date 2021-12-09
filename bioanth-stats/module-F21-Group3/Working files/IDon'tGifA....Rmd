@@ -1,0 +1,20 @@
+---
+title: "GIF!!!!!!!"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Source of Information:
+https://stackoverflow.com/questions/34341808/is-there-a-way-to-add-a-gif-to-a-markdown-file
+
+![](https://c.tenor.com/I9ZWYFwud1EAAAAM/white-chicks-white.gif)
+
+![](https://i.giphy.com/media/3o6MbrkU5vJroyqMUw/200w.gif)
+
+![](https://c.tenor.com/vYEKTvwBHooAAAAC/puke-retch.gif)
+![](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a30c089d-87d7-435e-a76b-99588a063bf7/d996mkc-26eebae7-500b-4f8b-8537-d51ea347d34d.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2EzMGMwODlkLTg3ZDctNDM1ZS1hNzZiLTk5NTg4YTA2M2JmN1wvZDk5Nm1rYy0yNmVlYmFlNy01MDBiLTRmOGItODUzNy1kNTFlYTM0N2QzNGQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.XU_TcgBtq1jLBTmiOcqANgp4mFK59ddEXSuUZqYzRcA)
+
+![](https://github.com/vzdanowicz/AN588_ctmm/blob/1d283b875c05d94493f9b99f31d99d18584545b6/248FF361-AEEA-42AE-9BBD-75EF01D4CB7D.png)
