@@ -1,0 +1,289 @@
+---
+title: "Abby"
+author: "Abby"
+date: "11/5/2021"
+output: html_document
+---
+
+```{r}
+library(ape)
+library(fastmatch)
+library(quadprog)
+library(phangorn)
+library(phytools)
+library(geiger)
+library(ggplot2)
+library(ggtree)
+```
+
+```{r}
+mol.tree<-read.nexus(file="NJst.tre")
+mol.tree
+```
+
+Once the tree is loaded, we can try plotting it! 
+
+```{r}
+par(mfrow = c(2, 3))
+phy <- plot(mol.tree, type = "phylogram",  edge.color = "purple", font = 1, show.tip.label = FALSE)
+phy
+
+unroot <- plot(unroot(mol.tree),type="unrooted",cex=0.6,
+    use.edge.length=FALSE,lab4ut="axial",
+    no.margin=TRUE, show.tip.label = FALSE, edge.color = "red")
+unroot
+
+radial <- plot(mol.tree, type = "radial",  edge.color = "green", tip.color = "black", font = 1, show.tip.label = FALSE)
+radial
+
+fan <- plot(mol.tree, type = "fan",  edge.color = "blue", tip.color = "black", font = 1, show.tip.label = FALSE)
+fan
+
+clade <- plot(mol.tree, type = "cladogram",  edge.color = "orange", tip.color = "black", font = 1, show.tip.label = FALSE)
+clade
+```
+
+the Ntip() function will tell you how many different species (or tips) are represented in your tree 
+
+```{r}
+Ntip(mol.tree) ##66 species in this tree
+```
+
+To generate a list of species names, use mol.tree$tip.label
+
+```{r}
+##all the species names 
+mol.tree$tip.label
+```
+
+##CHALLENGE 4 
+A great way to draw attention to a specific species in a tree plot is to add an arrow pointing to a specific species. Now that you can see all the species names, pick a species and use add.arrow() to draw an arrow to it! 
+
+###SOLUTION 4
+```{r}
+##add an arrow on a specific branch tip 
+plot(mol.tree)
+add.arrow(mol.tree,tip="A_saundersii_saundersii",arrl=4)
+```
+With nexus trees, you can also create node labels. This is especially useful if you want to highlight a specific node. 
+
+```{r}
+plot(mol.tree,no.margin=TRUE,edge.width=2)
+nodelabels(text=1:mol.tree$Nnode,node=1:mol.tree$Nnode+Ntip(mol.tree))
+```
+
+```{r}
+plot(mol.tree, "fan", main="Molecular Tree", edge.width = 3, edge.color = "pink", show.tip.label = FALSE)
+arc.cladelabels(tree=mol.tree, "A. rothschildi", node = 4, cex=1, orientation="curved")
+```
+
+
+#Morphological Tree
+
+In order to compare molecular and morphological trees of the Adelpha lineage, we needed to build a tree in R from a phylogeny constructed based on morphological data, like the one reported in Keith Wilmott's paper. However, because this tree was created in 2003 and is therefore not in a format that is easily compatible with current R software, we ended up transcribing the tree into R in Newick format based on the phylogenetic relationships presented in Wilmott's Figure 8. 
+
+```{r}
+string <- "((A_alala_negra, A_corcyra_aretina, A_tracta, A_pithys, A_donysa_donysa), ((A_serpacelerio, A_seriphiaaquillia, A_seriphiatherasia), (A_melonaleucocoma, A_salmoneus_colada, A_cytherea_cytherea, A_cythereadaguana, A_epioneagilla, A_etheldaethelda, A_thessaliathessalia, A_iphicleolathessalita, A_iphiclusiphiclus, A_shuara, A_plesaurephliassa, A_basiloides, A_atticaattica, A_leucerioides, A_saundersiisaundersii, A_boreasboreas, A_rothschildi, A_sichaeus, A_cocalacocala, A_leucophthalmairminella, A_irminatumida, A_pollina, A_lycoriaslara, A_lycoriasspruceana, A_erotia_erotia, A_mesentina, A_phylaca_pseudaethalia, A_capucinus_capucinus, A_heraclea_heraclea, A_naxia_naxia, A_justina_valentina, A_olynthia, A_jordani, A_zinazina, A_zinairma, A_delinita_delinita, A_boeotia_boeotia, A_maleaaethalia)));"
+
+morph.tree<-read.tree(text=string)
+plot(morph.tree,no.margin=TRUE,edge.width=2)
+```
+```{r}
+par(mfrow = c(2, 3))
+phy2 <- plot(morph.tree, type = "phylogram",  edge.color = "purple", font = 1, show.tip.label = FALSE)
+phy2
+
+unroot2 <- plot(unroot(morph.tree),type="unrooted",cex=0.6,
+    use.edge.length=FALSE,lab4ut="axial",
+    no.margin=TRUE, show.tip.label = FALSE, edge.color = "red")
+unroot2
+
+radial2 <- plot(morph.tree, type = "radial",  edge.color = "green", tip.color = "black", font = 1, show.tip.label = FALSE)
+radial2
+
+fan2 <- plot(morph.tree, type = "fan",  edge.color = "blue", tip.color = "black", font = 1, show.tip.label = FALSE)
+fan2
+
+clade2 <- plot(morph.tree, type = "cladogram",  edge.color = "orange", tip.color = "black", font = 1, show.tip.label = FALSE)
+clade2
+```
+
+
+#ggtree
+
+You can also plot these trees using the ggplot2 and ggtree packages 
+
+```{r}
+#Morphological tree plot
+library(ggtree)
+p <- ggtree(morph.tree, color="purple", size=0.5)
+p <- p + geom_tiplab(size=2)
+p
+```
+
+```{r}
+#Molecular tree plot 
+g <- ggtree(mol.tree, color="green", size=0.5)
+g <- g + geom_tiplab(size=2)
+g
+```
+
+```{r}
+library("gridExtra")
+grid.arrange(
+    ggtree(mol.tree, color="red") + theme_tree("steelblue"),
+    ggtree(morph.tree, color="white") + theme_tree("black"),
+    ncol=2)
+edit this a bit more and try to create highlights 
+```
+do some modifying of the visualization of the last figure 
+
+why you want to make this comparison 
+bring in external literature 
+what are the limits of this comparison 
+we are going a qualitative analysis 
+emphasize that there is not a lot of imformation about how to compare trees that don't have attached dna data 
+
+super impose trees onto each other and heat map 
+tree concordance graph r 
+
+```{r}
+library(ape)
+library(phytools)
+library(dendextend)
+library(viridis)
+library(dplyr)
+library(phylogram)
+
+tree1 <- mol.tree
+tree1 <- midpoint.root(tree1)
+tree2 <- morph.tree
+##tree2 <- midpoint.root(tree2)
+tree1 <- compute.brlen(tree1)
+tree2 <- compute.brlen(tree2)
+tree1<- as.dendrogram(tree1)
+tree1
+tree2<- as.dendrogram(tree2)
+
+dndlist <- dendextend::dendlist(tree1, tree2)
+dendlist %>% tanglegram(common_subtrees_color_branches = TRUE,
+                      lab.cex = .5, margin_inner = 1.3)
+prunedplot <- dendextend::tanglegram(dndlist, fast = TRUE, margin_inner = 1.8, lab.cex = 0.3, lwd = 
+0.5, edge.lwd = 0.5, type = "r")
+
+plot(prunedplot)
+```
+
+```{r}
+tree1 <- mol.tree
+tree1 <- midpoint.root(tree1)
+tree2 <- morph.tree
+##tree2 <- midpoint.root(tree2)
+tree1 <- compute.brlen(tree1)
+tree2 <- compute.brlen(tree2)
+tree1<- as.dendrogram(tree1)
+tree1
+tree2<- as.dendrogram(tree2)
+
+dndlist <- dendextend::dendlist(tree1, tree2)
+## order based on tips
+colours = data.frame(tip = tree1$tip.label, colours = rep("", length(tree1$tip.label)))
+colours$colours[colours$tip %in% c("t1","t2","t3","t4","t5")] = "red"
+colours$colours[colours$tip %in% c("t6","t7","t8","t9","t10")] = "blue"
+colours$colours[colours$tip %in% c("t11","t12","t13","t14","t15")] = "purple"
+colours$colours[colours$tip %in% c("t16","t17","t18","t19","t20")] = "orange"
+
+
+
+## this is wrong, you expect 1-5 to have the same colout, 6-10, 11-15 and 16-20, but this isn't the case
+tanglegram(tree1, tree2, intersecting  = F,
+           axes = F,highlight_branches_lwd = F, color_lines = colours$colours,
+           dLeaf = 0.01)
+
+correct_order = order.dendrogram(x = as.dendrogram(tree1))
+colours = colours[correct_order,]
+
+
+tanglegram(tree1, tree2, intersecting  = F,
+           axes = F,highlight_branches_lwd = F, color_lines = colours$colours,
+           dLeaf = 0.01)
+```
+
+```{r}
+########
+## Nice example of some colored trees
+# see the coloring of common sub trees:
+set.seed(23235)
+dend1 <- mol.tree %>%
+  dist() %>%
+  hclust("com") %>%
+  as.dendrogram()
+dend2 <- iris[morph.tree, -5] %>%
+  dist() %>%
+  hclust("sin") %>%
+  as.dendrogram()
+dend12 <- dendlist(dend1, dend2)
+# dend12 %>% untangle %>% tanglegram
+dev.new(width=5, height=4)
+
+dend12 %>% tanglegram(common_subtrees_color_branches = TRUE,
+                      lab.cex = .5, margin_inner = 1.3)
+```
+
+
+compute.brlen() function converts branch lengths for our two trees and as.dendrogram converts our trees into dendrograms
+
+```{r}
+tree1 <- mol.tree
+tree1 <- midpoint.root(tree1)
+tree2 <- morph.tree
+tree1 <- compute.brlen(tree1)
+tree2 <- compute.brlen(tree2)
+tree1<- as.dendrogram(tree1)
+tree2<- as.dendrogram(tree2)
+```
+
+Create a phylogram tanglegram 
+```{r}
+dndlist <- dendextend::dendlist(tree1, tree2)
+prunedplotog <- dendextend::tanglegram(dndlist, fast = TRUE, margin_inner = 5, lab.cex = 1, lwd = 0.5, edge.lwd = .1, type = "r")
+#original tanglegram
+```
+
+We can also format this as a cladogram by changing the type to "t"
+```{r}
+dndlist <- dendextend::dendlist(tree1, tree2)
+prunedplotog <- dendextend::tanglegram(dndlist, fast = TRUE, margin_inner = 8, lab.cex = 1, lwd = 0.8, edge.lwd = 1, type = "t")
+#original tanglegram
+```
+
+```{r}
+labels(tree1)
+tree1 <- color_labels(tree1, col = "darkgreen", labels = labels(tree1)[c(19, 38)])
+labels(tree2)
+tree2 <- color_labels(tree2, col = "darkgreen", labels = labels(tree2)[c(3, 41)])
+#highlighting certain taxa in each tree manually
+```
+
+##CHALLENGE ##?
+Use the margin_inner, lwd, and edge.lwd functions to experiment with adjusting the inner margin size and line widths in the tanglegram plot. 
+```{r}
+dndlist <- dendextend::dendlist(tree1, tree2)
+prunedplotog <- dendextend::tanglegram(dndlist, fast = TRUE, margin_inner = 5, lab.cex = 1, lwd = 0.5, edge.lwd = 1, type = "r")
+
+prunedplot <- dendextend::tanglegram(dndlist, faster = TRUE, margin_inner = 7, lab.cex = .88, lwd =0.5, edge.lwd = 0.5, type = "r", main_left = "Molecular", main_right = "Morphological", highlight_branches_col = TRUE, highlight_branches_lwd = TRUE, k_branches = 5, center=TRUE) #k_labels=2 overides the color for unique labels if you want the whole group
+#color coded tanglegram
+
+prunedplot %>% untangle(method = "step1side") %>% tanglegram(common_subtrees_color_lines = TRUE,  faster = TRUE, margin_inner = 5, lab.cex = .88, lwd =1, edge.lwd = 1, type = "r", main_left = "Molecular", main_right = "Morphological", highlight_branches_col = TRUE, highlight_branches_lwd = TRUE, k_labels = 2, k_branches = 5, center=TRUE)
+#untangled color coded tanglegram
+#The reason the lines aren't color coded is the difference in edge length between the dendrograms i think a_corcyra_aretina is the answer but aggggggg prunedtree1[[1]][[2]] prunedtree2[[1]][[2]]
+```
+
+We can use the untangle function to improve the quality of alignment between two trees. When both trees are arranged in their most untangled state, we can then assess the quality of the alignment between these two trees using "entanglement". Entanglement is a measure of similarity between two phylogenetic trees and ranges from 0 to 1. An entanglement score of 0 would mean that the trees on either side of the tanglegram are identical. 
+```{r}
+x <- prunedplot
+x %>% plot(main = paste("entanglement =", round(entanglement(x), 2)))
+```
+
+
+##Source: https://cran.r-project.org/web/packages/dendextend/vignettes/dendextend.html#tanglegram

@@ -1,0 +1,390 @@
+---
+title: "Isabel"
+author: "Isabel"
+date: "11/5/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE, error = TRUE, cache=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#install packages
+```{r}
+install.packages("expm")
+install.packages("gee")
+install.packages("igraph")
+install.packages("ape")
+```
+
+```{r}
+library(ggplot2)
+library(Rcpp)
+library(expm)
+library(gee)
+library(igraph)
+library(ape)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ape)
+library(phytools)
+```
+
+# Phylogentic Tree Comparison
+
+<p class="text-primary">In our module we want to break down phylogentic tress and understand how R coding can help us compare them.</p>
+
+## Packages
+
+>For starters, you will need to install [{ape}](https://www.rdocumentation.org/packages/ape/versions/5.5), [{phytools}](https://www.rdocumentation.org/packages/phytools/versions/0.7-90)
+
+## Objectives
+
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
+
+Objectives
+
+</div>
+
+## Introduction 
+
+Evolutionary biologists study the ways organisms change over time. This is often done by comparing several species to one another and analyzing the differences between them. These differences can then be used to build a graphical representation of species’ relationships to one another, called a phylogenetic tree. Originally, these trees were constructed based solely on organism morphology using shared derived traits, or __synapomorphies__, often in the form of character matrices. By focusing on these physical traits, biologists could hypothesize different life histories, like species divergence or common descent. However, using morphological data to determine taxonomic relationships is not foolproof. Some shared, analogous traits may be due to convergent evolution. Homoplasy can be difficult to detect through morphological analysis alone, and has historically resulted in phylogenetic trees that have since been disproved through the use of molecular data.
+	
+Modern biologists can now build phylogenetic trees based on the DNA of the organisms in question. By focusing on a few specific genes, evolutionary relationships can be hypothesized with greater accuracy. Examining the polymorphism at different loci can provide information on how distantly related organisms are to one another, and can reduce errors commonly associated with comparing or identifying cryptic species. Molecular data can help resolve unclear phylogenies that were created before genomic methods were available. Biologists can now revisit unresolved trees built from morphological data and revise them using DNA, allowing us to better hypothesize evolutionary relationships.
+	
+In order to assess any changes between these hypothesized evolutionary relationships, we can compare the topologies of phylogenetic trees. The topology refers to the branching pattern displayed, which represents the measure of relatedness among taxa. To understand the importance of topology, we must familiarize ourselves with the anatomy of a phylogenetic tree. 
+
+<h4><p class="text-primary">Anatomy of a tree:</p></h4> 
+
+![__Why would we compare tree topologies?__](https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs12052-008-0035-x/MediaObjects/12052_2008_35_Fig2_HTML.gif?as=webp)
+
+## Methods
+
+There are several different ways to estimate phylogenies, each with their own strengths, weaknesses, and appropriate situations in which to apply them. While we won’t go over them in detail, familiarize yourselves by looking at <a href="https://fuzzyatelin.github.io/bioanth-stats/module-24/module-24.html)">Module 24</a>  
+There are MANY different phylogenetics software that we can use to employ these methods of estimation, but some of the most common are PAUP, BEAST, MrBayes, and PHYLIP. These can take genetic data (alignments) in the form of fastq files, fasta files, or NEXUS files.  
+
+<h4><p class="text-primary">Types of Tree Formats: Newick, Nexus</p></h4>
+
+There are several different formats that a graphical tree can be built from.    
+_Newick_: A collection of data formatted using specific syntax that includes parentheses, commas, and semicolons to delineate weight, time, and evolutionary distance. “Newick files are simply text files that consist of one or more tree descriptions in the Newick notation. In contrast to Nexus files they contain no further syntax elements or other information than the trees.”
+
+### Comparing Trees
+
+We will be comparing two graphical hypotheses of the genus _adelpha_, a group of butterflies.
+![image](https://onlinelibrary.wiley.com/cms/asset/1d72eca6-ecb9-4b23-8230-868514c2fa01/mec13168-fig-0001-m.jpg)
+
+One tree is morphologically based, from Keith Wilmott’s 2003 paper [“Cladistic analysis of the Neotropical butterfly genus Adelpha (Lepidoptera: Nymphalidae), with comments on the subtribal classification of Limenitidini.”](https://onlinelibrary.wiley.com/doi/abs/10.1046/j.1365-3113.2003.00209.x) Our molecular tree is from Emily Ebel’s 2015 paper [“Rapid diversification associated with ecological specialization in Neotropical Adelpha butterflies.”](https://onlinelibrary.wiley.com/doi/10.1111/mec.13168)
+
+### Example
+
+To start off, we want to understand how a tree is created. For this example we will be making our own tree using Newick format.
+
+Here is a great explanation of Newick format: __"Put simply, monophyletic clades are surrounded by parentheses and sister clades are separated by commas. For example, a simple tree could be written as (((A,B),C),(D,E))."__ Let's try making that!
+
+You can check that you have the most up-to-date version of R by running the command "R.Version"
+```{r}
+R.version
+```
+
+Once you know you have the correct version of R, install and load the following packages 
+```{r}
+library(ape)
+library(fastmatch)
+library(quadprog)
+library(phangorn)
+library(phytools)
+library(geiger)
+```
+
+You can make sure you have the most up-to-date version of each package by using the command "packageVersion("package-name")
+```{r}
+packageVersion("ape")
+```
+
+Once we have all the necessary packages loaded into our markdown file, we can start playing around with building some phylogenetic trees! If you already know the relationships between the groups of species that you want to plot, and these the clade you are plotting isn't too complex, you can simply write out the tree as a text string in Newick format! Let's try it first with letters 
+```{r set-up}
+text.string<-
+    "(((A,B),C),(D,E));"
+example.tree<-read.tree(text=text.string)#this command reads trees in Newick format like we did above
+plot(example.tree,no.margin=TRUE,edge.width=2) 
+```  
+
+Looks good! Now we can try it plotting a clade of whale species 
+
+```{r animals}
+text.string<-
+    "((((humpback wahle, fin whale), (Antarctic minke whale, common minke whale)), bowhead whale), sperm whale);"
+whale.tree<-read.tree(text=text.string)
+plot(whale.tree,no.margin=TRUE,edge.width=2)
+``` 
+
+There are many different commands that will allow you to visualize your tree in many different ways. Let's try a few! 
+
+```{r}
+roundPhylogram(whale.tree) #creates rounded branches in tree 
+```
+
+```{r}
+plot(unroot(whale.tree),type="unrooted",no.margin=TRUE,lab4ut="axial",
+    edge.width=2) #creates an unrooted tree 
+```
+
+```{r}
+plotTree(whale.tree,type="fan",fsize=0.7,lwd=1,
+    ftype="i") #creates a fan tree 
+```
+
+
+### Method
+
+1. <p class="text-primary">__Load the tree files into R__</p> 
+  - Morphological data is in a NEXUS (.nex) file, and molecular data is in a .tre file in Newick format.
+  
+2. <p class="text-primary">Adjust and manipulate tree using ggtree package to make graphics more readable</p>
+
+3. <p class="text-primary">__Comparing Trees__</p>  
+  - Check to see if the trees are equal using all.equal(morphtree, moleculartreel) phytools package
+
+## Loading the Tree Files
+
+### Molecular Tree
+
+Now that we are a little more comfortable working with phylogenetic trees in R, we can load our first tree! 
+
+First, Use this link ("https://github.com/sinnabunbun/Super-Fly-Group-Module") to go to the Super Fly Group Module repo. From there, click on the "NJst.tre" file. Copy this data using the little pencil icon. Then go to your own working repo, select the "Create New File" option and paste the tree data into that file.  
+
+Once you have the tree file saved in your repo, you can load the tree into your R markdown file using the "read.nexus" command 
+```{r}
+mol.tree<-read.nexus(file="NJst.tre")
+mol.tree
+```
+
+Once the tree is loaded, we can try plotting it! 
+```{r}
+plotTree(mol.tree,ftype="i",fsize=0.6,lwd=2, no.margin = TRUE)
+```
+
+the Ntip() function will tell you how many different species (or tips) are represented in your tree 
+```{r}
+Ntip(mol.tree) ##66 species in this tree
+```
+
+Just like with the whale tree above, we can use "unroot" to create an unrooted tree 
+```{r}
+plot(unroot(mol.tree),type="unrooted",cex=0.6,
+    use.edge.length=FALSE,lab4ut="axial",
+    no.margin=TRUE)
+##unrooted tree 
+```
+
+we can also make a fan tree 
+```{r}
+plotTree(mol.tree,type="fan",fsize=0.7,lwd=2,
+    ftype="i") 
+```
+
+If you want to see all the species names, use the code mol.tree$tip.label
+```{r}
+##all the species names 
+mol.tree$tip.label
+```
+You can also add arrows to draw attention to specific species! 
+```{r}
+##add an arrow on a specific branch tip 
+plotTree(mol.tree,type="fan",fsize=0.7,lwd=1,
+    ftype="i")
+add.arrow(mol.tree,tip="A_saundersii_saundersii",arrl=1)
+```
+
+
+### Morphological Tree
+
+We will follow a similar process as with the molecular tree  to get the morphological tree loaded into our R markdown file. Go to the Super Fly Group Module repo, copy the data from "matrix_from_app2_xl_file.nex" and save it as a file in your working repo. 
+
+Because the morphological tree is from 2003, we need to do a little more work to get it into a format that can be read by R. Once you have the data loaded, we need to convert the matrix file into a PhyDat file by running the following code 
+```{r}
+library(TreeTools)
+as_phydat <- ReadAsPhyDat("matrix_from_app2_xl_file.nex")
+as_phydat
+summary(as_phydat)
+raw_data <- ReadCharacters("matrix_from_app2_xl_file.nex")
+raw_data
+my_data <- MatrixToPhyDat(raw_data)
+my_data
+```
+
+Once we have the data written in a format that can be read by R, we can use the function "dist.ml" from the package ape to compute distances. Once we've done that, we can write a phylogenetic tree using Neighbor Joining (NJ) methods and plot it as a phylogram 
+```{r}
+morph  <- dist.ml(my_data)
+treeNJ  <- NJ(morph)
+tree <- pratchet(my_data) 
+morph.tree <- plot(tree, "phylogram", main="Morphological Tree")
+morph.tree
+```
+
+we can also make a fan tree 
+```{r}
+morph.tree2 <- plot(tree, "fan", main="Morphological Tree")
+morph.tree2
+```
+
+or an unrooted tree 
+```{r}
+morph.tree3 <- plot(tree, "unrooted", main="Morphological Tree")
+morph.tree3
+```
+
+## GGTree
+
+https://guangchuangyu.github.io/ggtree-book/chapter-ggtree.html#fig:viewClade
+
+```{r, include=FALSE}
+ if (!requireNamespace("BiocManager", quietly = TRUE))
++     install.packages("BiocManager")
+ BiocManager::install("ggtree")
+library(ggtree)
+```
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+p<- ggtree(mol.tree) + geom_tree() + theme_tree() + geom_tiplab()
+p2 <- p %>% collapse(node=21) + 
+  geom_point2(aes(subset=(node==21)), shape=21, size=5, fill='green')
+p2 <- collapse(p2, node=23) + 
+  geom_point2(aes(subset=(node==23)), shape=23, size=5, fill='red')
+print(p2)
+expand(p2, node=23) %>% expand(node=21)
+```
+
+## Comparison
+
+#Loading morph tree
+```{r}
+morph_tree_3 <- read.nexus.data(file = "matrix_from_app2_xl_file.nex")
+
+
+```
+#Converting object in class list to object class phylo
+```{r}
+class(morph_tree_3) #see what class the object is in
+
+
+install.packages("phylobase")
+library(phylobase)
+
+morph_tree_3 <- read.nexus.data(file = "matrix_from_app2_xl_file.nex")
+morph <- as.data.frame(morph_tree_3) #putting the morph data in a dataframe
+as.dendrogram(as_phydat)
+
+example <- read.nexus.splits("matrix_from_app2_xl_file.nex") #trying to read tree as class phylo
+
+
+x <- ~Family/Genus/Species
+as.phylo(x, data = morph_tree_3, collapse = FALSE)
+
+```
+
+
+#Comparing
+```{r}
+comparePhylo(morph.tree, mol.tree, plot = FALSE, force.rooted = FALSE,
+             use.edge.length = FALSE)
+             
+string <- "((A_alala_negra, A_corcyra_aretina, A_tracta, A_pithys, A_donysa_donysa), ((A_serpacelerio, A_seriphiaaquillia, A_seriphiatherasia), (A_melonaleucocoma, A_salmoneus_colada, A_cytherea_cytherea, A_cythereadaguana, A_epioneagilla, A_etheldaethelda, A_thessaliathessalia, A_iphicleolathessalita, A_iphiclusiphiclus, A_shuara, A_plesaurephliassa, A_basiloides, A_atticaattica, A_leucerioides, A_saundersiisaundersii, A_boreasboreas, A_rothschildi, A_sichaeus, A_cocalacocala, A_leucophthalmairminella, A_irminatumida, A_pollina, A_lycoriaslara, A_lycoriasspruceana, A_erotia_erotia, A_mesentina, A_phylaca_pseudaethalia, A_capucinus_capucinus, A_heraclea_heraclea, A_naxia_naxia, A_justina_valentina, A_olynthia, A_jordani, A_zinazina, A_zinairma, A_delinita_delinita, A_boeotia_boeotia, A_maleaaethalia)));"
+
+morph.tree<-read.tree(text=string)
+plot(morph.tree,no.margin=TRUE,edge.width=2)
+
+```
+
+First we will use the function all.equal from the APE package. This is a good place to start when comparing trees because it will tell you the basics: are these trees the same? It's a good exploratory function, but after we learn that they are not the same, we have to dig deeper.
+```{r}            
+all.equal(mol.tree, morph.tree, use.edge.length = TRUE,
+                   use.tip.label = TRUE)
+```
+#Let's see if the trees are ultrametric.
+```{r}
+is.ultrametric(mol.tree)
+is.ultrametric(morph.tree)
+```
+
+This will tell you that the molecular tree is __NOT ultrametric__, which means the tips of the tree are not equally distant from the root of their respective tree. We get an error about the morphological tree's lack of branch lengths, so let's try a different function that will give us more information.
+
+When both trees are non-ultrametric, we are limited to the number of analyses that we can perform.
+
+Next we'll try comparing phylogenetic tree topographies using the comparePhylo function from the APE package.
+
+#Challenge: Which tree has the least amount of nodes? Which tree has the most amount of tips?
+```{r}
+comparePhylo(morph.tree, mol.tree, plot = FALSE, force.rooted = FALSE,
+             use.edge.length = FALSE)
+```
+#The morphological tree is also non-ultrametric. Essentially, both trees have structure and are not one big polytomy, and branch lengths differ, although one phylogeny is more structured than the other. Can you tell which one it is? 
+
+It also tells us that they have different numbers of tips (46 and 66) which makes sense because they aren't looking at the same number of individuals. Naturally because of this, these trees will inherently be different from each other structurally. The morph tree has fewer nodes not only because it's hypothesizing the relationships among fewer individuals, but also because there is more uncertainty. This tree is comb like, and we can interpret this as an unresolved phylogeny. 
+
+#When both trees are non-ultrametric, the number of analyses that we can perform is limited. Let's explore what more we can learn about these trees.
+
+#We can also see that the morphological tree is rooted and the molecular tree is unrooted. We can either go back and adjust the molecular tree to root it, or we can adjust our code to force root both trees and analyze the molecular tree as if it were rooted.
+
+```{r}
+comparePhylo(morph.tree, mol.tree, plot = FALSE, force.rooted = TRUE, use.edge.length = FALSE)
+```
+#This shows the number of clades that are different in each tree. As we can see, there are a lot more clades in the molecular tree than the morphological tree.
+
+#Check to see if they are binary. According to the APE package, "The test differs whether the tree is rooted or not. An urooted tree is considered binary if all its nodes are of degree three (i.e., three edges connect to each node). A rooted tree is considered binary if all nodes (including the root node) have exactly two descendant nodes, so that they are of degree three expect the root which is of degree 2." Our molecular tree is unrooted and our morphological tree is rooted, so keep that in mind.
+```{r}
+is.binary(mol.tree)
+is.binary(morph.tree)
+```
+
+#Now, let's try to plot these trees and view the characters that they have in common. Let's use the package dendextend. You will get some errors about the mol.tree being non-ultrametric and the morph.tree having a branch length of zero, but keep going through to plot(prunedplot).
+```{r}
+library(ape)
+library(phytools)
+library(dendextend)
+library(viridis)
+library(dplyr)
+library(phylogram)
+
+tree1 <- mol.tree
+tree1 <- midpoint.root(tree1)
+tree2 <- morph.tree
+tree2 <- midpoint.root(tree2)
+tree1 <- compute.brlen(tree1)
+tree2 <- compute.brlen(tree2)
+tree1<- as.dendrogram(tree1)
+tree1
+tree2<- as.dendrogram(tree2)
+
+dndlist <- dendextend::dendlist(tree1, tree2)
+prunedplot <- dendextend::tanglegram(dndlist, fast = TRUE, margin_inner = 1.8, lab.cex = 0.3, lwd = 
+0.5, edge.lwd = 0.5, type = "r")
+
+plot(prunedplot)
+```
+
+#Now we can clearly see the associations between these trees and the individuals and how they were rearranged. You can go branch by branch and follow the shaded lines to view where they are on the opposite tree. Interestingly, Wilmott's 2003 tree, while based entirely on morphology, successfully delineates between the lowland Adelpha lineages (large top grouping) and the montane lineages (small bottom grouping). Even though this phylogeny is not resolved to the level of the molecular phylogeny, there are apparently sufficient morphological differences between montane and lowland populations. 
+
+#apTreeshape for trying to get statistical analysis between trees
+```{r}
+install.packages("apTreeshape")
+library(apTreeshape)
+
+tree <- as.treeshape(morph.tree, "yule") #use either pda or yule, convert into a treeshape object
+tree1 <- as.treeshape(mol.tree, "yule")
+colless(tree, norm = "yule") #The number it gives is a measure of the balance of tree, sum of absolute values at each node of the tree
+colless(tree1, norm = "yule")
+
+```
+
+
+

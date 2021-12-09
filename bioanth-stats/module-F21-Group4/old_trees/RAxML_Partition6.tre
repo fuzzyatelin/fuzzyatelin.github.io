@@ -1,0 +1,160 @@
+#NEXUS
+begin taxa;
+	dimensions ntax=66;
+	taxlabels
+	'A.alala.negra'
+	'A.attica.attica'
+	'A.basiloides'
+	'A.boeotia.boeotia'
+	'A.boreas.boreas'
+	'A.capucinus.capucinus'
+	'A.cocala.cocala'
+	'A.corcyra.aretina'
+	'A.cytherea.cytherea'
+	'A.cytherea.daguana'
+	'A.delinita'
+	'A.donysa.donysa'
+	'A.epione.agilla'
+	'A.erotia.erotia'
+	'A.ethelda.ethelda'
+	'A.heraclea'
+	'A.iphicleola.thessalita'
+	'A.iphiclus.iphiclus'
+	'A.irmina.tumida'
+	'A.jordani'
+	'A.justina.valentina'
+	'A.leuceroides'
+	'A.leucophthalma.irminella'
+	'A.lycorias.lara'
+	'A.lycorias.spruceana'
+	'A.malea.aethalia'
+	'A.melona.leucocoma'
+	'A.mesentina'
+	'A.naxia'
+	'A.olynthia'
+	'A.phylaca.pseudaethalia'
+	'A.pithys'
+	'A.plesaure.phliassa'
+	'A.pollina'
+	'A.rothschildi'
+	'A.salmoneus.colada'
+	'A.saundersii.saundersii'
+	'A.seriphia.aquillia'
+	'A.seriphia.therasia'
+	'A.serpa.celerio'
+	'A.shuara'
+	'A.sichaeus'
+	'A.thessalia.thessalia'
+	'A.tracta'
+	'A.zina.irma'
+	'A.zina.zina'
+	'Athyma.selenophora'
+	'L.amphyssa'
+	'L.archippus.floridanensis'
+	'L.arthemis.arizonensis'
+	'L.arthemis.arthemis'
+	'L.camilla'
+	'L.doerriesi'
+	'L.glorifica'
+	'L.helmanni'
+	'L.homeyeri'
+	'L.lorquini'
+	'L.moltrechti'
+	'L.populi'
+	'L.reducta'
+	'L.sydyi'
+	'L.weidemeyerii'
+	'Moduza.urdaneta'
+	'Pandita.sinope'
+	'Parasarpa.zayla'
+	'Sumalia.daraxa'
+;
+end;
+
+begin trees;
+	tree tree_1 = [&R] (('L.amphyssa':0.022985,('L.glorifica':0.010717,(('L.doerriesi':0.001722,('L.camilla':0.001212,'L.helmanni':0.002048)[&label=78]:0.00116)[&label=100]:0.00966,'L.homeyeri':0.010395)[&label=100,!rotate=true]:0.003983)[&label=100]:0.016192)[&label=98]:0.002198,('L.reducta':0.041271,((('L.populi':0.034316,('L.archippus.floridanensis':0.007571,(('L.lorquini':0.003772,'L.weidemeyerii':0.003305)[&label=100,!rotate=true]:0.00219,('L.arthemis.arthemis':0.003443,'L.arthemis.arizonensis':0.005085)[&label=100,!rotate=true]:0.00183)[&label=8]:0.001542)[&label=100]:0.034017)[&label=53]:0.00127,'L.sydyi':0.033207)[&label=25]:0.0013,(('Parasarpa.zayla':0.043595,('Moduza.urdaneta':0.057292,('Sumalia.daraxa':0.047444,('Pandita.sinope':0.033509,'Athyma.selenophora':0.035993)[&label=90,!rotate=true]:0.004387)[&label=100]:0.00573)[&label=76,!rotate=false]:6.72E-4)[&label=100,!rotate=true]:0.013805,((('A.serpa.celerio':0.011015,('A.seriphia.aquillia':0.006553,'A.seriphia.therasia':0.009102)[&label=90]:0.002387)[&label=100]:0.046577,(((('A.ethelda.ethelda':0.004124,'A.epione.agilla':0.003867)[&label=100,!rotate=true]:0.023346,('A.thessalia.thessalia':0.0218,('A.iphiclus.iphiclus':0.012857,'A.iphicleola.thessalita':0.017767)[&label=100,!rotate=true]:0.006463)[&label=100]:0.006973)[&label=100]:0.016859,(((('A.plesaure.phliassa':0.011487,'A.basiloides':0.011589)[&label=100,!rotate=true]:0.021462,'A.shuara':0.037979)[&label=100,!rotate=true]:0.00639,(('A.cocala.cocala':0.019662,('A.irmina.tumida':0.013715,'A.leucophthalma.irminella':0.01384)[&label=100,!rotate=true]:0.003678)[&label=100]:0.015033,(((('A.mesentina':0.008584,'A.phylaca.pseudaethalia':0.01108)[&label=100]:0.004379,('A.erotia.erotia':0.008061,('A.lycorias.lara':0.002896,'A.lycorias.spruceana':0.003474)[&label=100]:0.003601)[&label=100,!rotate=true]:0.006019)[&label=100,!rotate=true]:0.019794,('A.pollina':0.033387,('A.capucinus.capucinus':0.033498,((('A.olynthia':0.009468,'A.justina.valentina':0.010326)[&label=100,!rotate=true]:0.014159,('A.jordani':0.009757,('A.zina.zina':0.008075,'A.zina.irma':0.004849)[&label=100]:0.004165)[&label=100]:0.016972)[&label=100]:0.004716,(('A.naxia':0.019293,'A.heraclea':0.019431)[&label=100,!rotate=true]:0.013619,(('A.boeotia.boeotia':0.022311,'A.malea.aethalia':0.029827)[&label=100]:0.002562,'A.delinita':0.030222)[&label=100,!rotate=true]:0.005052)[&label=55]:0.001245)[&label=92]:0.00163)[&label=97]:0.00145)[&label=91]:0.00117)[&label=100]:0.005275,(('A.attica.attica':0.034397,'A.leuceroides':0.029403)[&label=99]:0.002877,('A.saundersii.saundersii':0.020004,('A.boreas.boreas':0.017478,('A.rothschildi':0.008134,'A.sichaeus':0.008051)[&label=100]:0.008036)[&label=100]:0.006837)[&label=100]:0.007688)[&label=87]:0.001848)[&label=29,!rotate=true]:0.001125)[&label=94]:0.001887)[&label=100]:0.002181,('A.salmoneus.colada':0.023672,('A.cytherea.daguana':0.007588,'A.cytherea.cytherea':0.004772)[&label=100,!rotate=true]:0.020886)[&label=100]:0.020335)[&label=88,!rotate=true]:0.00169)[&label=100]:0.005536,'A.melona.leucocoma':0.041986)[&label=100,!rotate=true]:0.006797)[&label=100]:0.004267,('A.corcyra.aretina':0.01684,('A.alala.negra':0.021741,('A.tracta':0.01185,('A.pithys':0.012358,'A.donysa.donysa':0.009675)[&label=100]:0.004508)[&label=99]:0.004227)[&label=86]:0.00284)[&label=100]:0.023093)[&label=56,!rotate=true]:0.001241)[&label=91]:0.001835)[&label=100]:0.003544)[&label=100,!rotate=true]:0.004611,'L.moltrechti':0.02269);
+end;
+
+begin figtree;
+	set appearance.backgroundColorAttribute="Default";
+	set appearance.backgroundColour=#ffffff;
+	set appearance.branchColorAttribute="User selection";
+	set appearance.branchColorGradient=false;
+	set appearance.branchLineWidth=1.0;
+	set appearance.branchMinLineWidth=0.0;
+	set appearance.branchWidthAttribute="Fixed";
+	set appearance.foregroundColour=#000000;
+	set appearance.hilightingGradient=false;
+	set appearance.selectionColour=#2d3680;
+	set branchLabels.colorAttribute="User selection";
+	set branchLabels.displayAttribute="Branch times";
+	set branchLabels.fontName="sansserif";
+	set branchLabels.fontSize=8;
+	set branchLabels.fontStyle=0;
+	set branchLabels.isShown=false;
+	set branchLabels.significantDigits=4;
+	set layout.expansion=208;
+	set layout.layoutType="RECTILINEAR";
+	set layout.zoom=0;
+	set legend.attribute="label";
+	set legend.fontSize=10.0;
+	set legend.isShown=false;
+	set legend.significantDigits=4;
+	set nodeBars.barWidth=4.0;
+	set nodeBars.displayAttribute=null;
+	set nodeBars.isShown=false;
+	set nodeLabels.colorAttribute="User selection";
+	set nodeLabels.displayAttribute="label";
+	set nodeLabels.fontName="sansserif";
+	set nodeLabels.fontSize=10;
+	set nodeLabels.fontStyle=0;
+	set nodeLabels.isShown=true;
+	set nodeLabels.significantDigits=4;
+	set nodeShape.colourAttribute="User selection";
+	set nodeShape.isShown=false;
+	set nodeShape.minSize=10.0;
+	set nodeShape.scaleType=Width;
+	set nodeShape.shapeType=Circle;
+	set nodeShape.size=4.0;
+	set nodeShape.sizeAttribute="Fixed";
+	set polarLayout.alignTipLabels=false;
+	set polarLayout.angularRange=0;
+	set polarLayout.rootAngle=0;
+	set polarLayout.rootLength=100;
+	set polarLayout.showRoot=true;
+	set radialLayout.spread=0.0;
+	set rectilinearLayout.alignTipLabels=false;
+	set rectilinearLayout.curvature=0;
+	set rectilinearLayout.rootLength=100;
+	set scale.offsetAge=0.0;
+	set scale.rootAge=1.0;
+	set scale.scaleFactor=1.0;
+	set scale.scaleRoot=false;
+	set scaleAxis.automaticScale=true;
+	set scaleAxis.fontSize=8.0;
+	set scaleAxis.isShown=false;
+	set scaleAxis.lineWidth=1.0;
+	set scaleAxis.majorTicks=1.0;
+	set scaleAxis.origin=0.0;
+	set scaleAxis.reverseAxis=false;
+	set scaleAxis.showGrid=true;
+	set scaleBar.automaticScale=true;
+	set scaleBar.fontSize=10.0;
+	set scaleBar.isShown=false;
+	set scaleBar.lineWidth=1.0;
+	set scaleBar.scaleRange=0.0080;
+	set tipLabels.colorAttribute="User selection";
+	set tipLabels.displayAttribute="Names";
+	set tipLabels.fontName="sansserif";
+	set tipLabels.fontSize=12;
+	set tipLabels.fontStyle=0;
+	set tipLabels.isShown=true;
+	set tipLabels.significantDigits=4;
+	set trees.order=false;
+	set trees.orderType="increasing";
+	set trees.rooting=true;
+	set trees.rootingType="User Selection";
+	set trees.transform=false;
+	set trees.transformType="cladogram";
+end;
+

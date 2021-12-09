@@ -1,0 +1,36 @@
+---
+title: "morphological tree"
+author: "Abby_Robinson"
+date: "11/29/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Morphological Tree
+
+```{r}
+library(ape)
+library(fastmatch)
+library(quadprog)
+library(phangorn)
+library(phytools)
+library(geiger)
+library(ggplot2)
+library(ggtree)
+```
+
+```{r}
+library(TreeTools)
+as_phydat <- ReadAsPhyDat("matrix_from_app2_xl_file.nex")
+as_phydat
+summary(as_phydat)
+raw_data <- ReadCharacters("matrix_from_app2_xl_file.nex")
+raw_data
+my_data <- MatrixToPhyDat(raw_data)#i think these are important
+my_data
+
+morph.tree <- ReadTntTree('my_data.tre')
+```

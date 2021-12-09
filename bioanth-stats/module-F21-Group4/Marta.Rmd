@@ -1,0 +1,248 @@
+---
+title: "Marta"
+author: "Marta"
+date: "11/5/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+understanding packages
+
+```{r packages}
+install.packages("expm")
+install.packages("gee")
+install.packages("igraph")
+install.packages("ape")
+install.packages("fastmatch")
+install.packages("quadprog")
+install.packages("phangorn")
+install.packages("phytools")
+install.packages("geiger")
+```
+
+```{r}
+library(ape)
+library(fastmatch)
+library(quadprog)
+library(phangorn)
+library(phytools)
+library(geiger)
+library(dendextend)
+library(phylogram)
+```
+
+thats a mess but i'm trying to get colored dendrogram lines this code is the stuff i actually want to keep
+```{r}
+tree1 <- mol.tree
+tree1 <- midpoint.root(tree1)
+tree2 <- morph.tree
+tree1 <- compute.brlen(tree1)
+tree2 <- compute.brlen(tree2)
+tree1<- as.dendrogram(tree1)
+tree2<- as.dendrogram.phylo(tree2)
+
+par(mfrow = c(2, 2))
+dndlist <- dendextend::dendlist(tree1, tree2)
+prunedplotog <- dendextend::tanglegram(dndlist, fast = TRUE, margin_inner = 5, lab.cex = 1, lwd = 0.5, edge.lwd = .1, type = "t")
+#original tanglegram
+
+labels(tree1)
+tree1 <- color_labels(tree1, col = "darkgreen", labels = labels(tree1)[c(19, 38)])
+labels(tree2)
+tree2 <- color_labels(tree2, col = "darkgreen", labels = labels(tree2)[c(3, 41)])
+#highlighting certain taxa in each tree manually
+
+dndlist <- dendextend::dendlist(tree1, tree2)
+prunedplottaxa <- dendextend::tanglegram(dndlist, fast = TRUE, margin_inner = 5, lab.cex = 1, lwd = 0.5, edge.lwd = .1, type = "r")
+
+prunedplotcolor <- dendextend::tanglegram(dndlist, faster = TRUE, margin_inner = 7, lab.cex = .88, lwd =0.5, edge.lwd = 0.5, type = "r", main_left = "Molecular", main_right = "Morphological", highlight_branches_col = TRUE, highlight_branches_lwd = TRUE, k_branches = 5, k_labels=2, center=TRUE) #k_labels=2 overides the color for unique species labels if you want the whole group
+#color coded tanglegram
+
+prunedplotuntangle<-prunedplot %>% untangle(method = "step1side") %>% tanglegram(common_subtrees_color_lines = TRUE,  faster = TRUE, margin_inner = 7, lab.cex = .88, lwd =0.5, edge.lwd = 0.5, type = "r", main_left = "Molecular", main_right = "Morphological", highlight_branches_col = TRUE, highlight_branches_lwd = TRUE, k_branches = 5, center=TRUE)
+#untangled color coded tanglegram
+#The reason the lines aren't color coded is the difference in edge length between the dendrograms i think a_corcyra_aretina is the answer but aggggggg prunedtree1[[1]][[2]] prunedtree2[[1]][[2]]
+```
+
+Additional reduction section but idk if we need it anymore
+```{r}
+reduced.species<-c("A.alalanegra", "A.atticaattica", "A.basiloides", "A.boeotiaboeotia", "A.boreasboreas", "A.capucinuscapucinus", "A.cocalacocala", "A.corcyraaretina", "A.cythereacytherea", "A.cythereadaguana", "A.delinitadelinita", "A.donysadonysa", "A.epioneagilla", "A.erotiaerotia", "A.heracleaheraclea", "A.iphicleolathessalita", "A.iphiclusiphiclus", "A.irminatumida", "A.jordani", "A.justinavalentina", "A.seriphiatherasia")
+morph.reduced<-sapply(reduced.species,grep,morph.tree$tip.label)
+morph.reduced
+reduced.species<-morph.tree$tip.label[morph.reduced]
+reduced.species
+plotTree(morph.tree,type="fan",fsize=0.7,lwd=1,
+    ftype="i")
+add.arrow(morph.tree,tip=reduced.species,arrl=.5)
+morph.tree.reduced<-drop.tip(morph.tree,
+    setdiff(morph.tree$tip.label,reduced.species))
+plotTree(morph.tree.reduced,ftype="i")
+reduced.species.mol<-c("A_alala_negra", "A_attica_attica", "A_basiloides", "A_boeotia_boeotia", "A_boreas_boreas", "A_capucinus_capucinus", "A_cocala_cocala", "A_corcyra_aretina", "A_cytherea_cytherea", "A_cytherea_daguana", "A_delinita", "A_donysa_donysa", "A_epione_agilla", "A_erotia_erotia", "A_ethelda_ethelda", "A_heraclea", "A_iphicleola_thessalita", "A_iphiclus_iphiclus", "A_irmina_tumida", "A_jordani", "A_justina_valentina", "A_seriphia_therasia")
+mol.reduced<-sapply(reduced.species.mol,grep,mol.tree$tip.label)
+mol.reduced
+reduced.species.mol<-mol.tree$tip.label[mol.reduced]
+reduced.species.mol
+plotTree(mol.tree,type="fan",fsize=0.7,lwd=1,
+    ftype="i")
+add.arrow(mol.tree,tip=reduced.species.mol,arrl=1)
+mol.tree.reduced<-drop.tip(mol.tree,
+    setdiff(mol.tree$tip.label,reduced.species.mol))
+plotTree(mol.tree.reduced,ftype="i")
+```
+```
+
+```{r so i don't lose it}
+labels(prunedtree1)
+colorCodes <- c(color="darkgreen")
+#groupCodes <- c(rep("Cont",25), rep("Tre1",25), rep("Tre2",25), rep("Tre3",25))
+labels_colors(prunedtree1) <- colorCodes[order.dendrogram(prunedtree1)]
+labels_colors(prunedtree2) <- colorCodes[order.dendrogram(prunedtree2)]
+plot(prunedtree2)
+#i'm close to highlighting a name
+
+
+tree1 <- color_labels(tree1, col = "darkgreen", labels = labels(tree1)[c("A_tracta", "A_jordani")])#YESSSSSSS
+
+
+which_node(tree2, c(38, 19), max_id = FALSE)
+```
+
+```{r figured it out to late}
+as_phydat <- ReadAsPhyDat("matrix_from_app2_xl_file.nex")
+as_phydat
+summary(as_phydat)
+phylo.morph<-NJTree(as_phydat)
+class(NJTree(as_phydat))
+plot(phylo.morph,no.margin=TRUE,edge.width=2)
+
+library(ape)
+library(phytools)
+library(dendextend)
+library(viridis)
+library(dplyr)
+library(phylogram)
+
+tree1 <- mol.tree
+tree1 <- midpoint.root(tree1)
+tree2 <- myTree
+tree1 <- compute.brlen(tree1)
+tree2 <- compute.brlen(tree2)
+tree1<- as.dendrogram(tree1)
+tree1
+tree2<- as.dendrogram(tree2)
+
+dndlist <- dendextend::dendlist(tree1, tree2)
+prunedplot <- dendextend::tanglegram(dndlist, faster = TRUE, margin_inner = 7, lab.cex = .88, lwd =0.5, edge.lwd = 0.5, type = "r", main_left = "Molecular", main_right = "Morphological", highlight_branches_col = TRUE, highlight_branches_lwd = TRUE, k_labels = 2, k_branches = 5, center=TRUE, use.edge.length=FALSE)
+
+prunedtree1<-prunedplot[[1]]
+prunedtree2<-prunedplot[[2]]
+pruneddndlist<- dendextend::dendlist(prunedtree1, prunedtree2)
+pruneddndlist %>% untangle(method = "step1side", common_subtrees_color_branches=TRUE) %>%
+  tanglegram(common_subtrees_color_branches = TRUE)
+class(prunedtree1)
+
+prunedplot %>% untangle(method = "step1side") %>%  assign_values_to_leaves_edgePar(dend=prunedtree1, value = col_aa_red, edgePar = "col") %>% tanglegram(common_subtrees_color_lines = TRUE, common_subtrees_color_lines_default_single_leaf_color = "darkblue",  faster = TRUE, margin_inner = 7, lab.cex = .88, lwd =0.5, edge.lwd = 0.5, type = "r", main_left = "Molecular", main_right = "Morphological", highlight_branches_col = TRUE, highlight_branches_lwd = TRUE, k_labels = 2, k_branches = 5, center=TRUE)
+
+labels(prunedtree1)
+colorCodes <- c(color="darkgreen")
+#groupCodes <- c(rep("Cont",25), rep("Tre1",25), rep("Tre2",25), rep("Tre3",25))
+labels_colors(prunedtree1) <- colorCodes[order.dendrogram(prunedtree1)]
+labels_colors(prunedtree2) <- colorCodes[order.dendrogram(prunedtree2)]
+plot(prunedtree2)
+
+#tree 1 0.5538462 
+#tree 2 0.8222222
+hree1<-highlight_branches_col(tree1, values = rev(viridis(1000, end = 0.9)))
+plot(hree1)
+
+prunedplotog <- dendextend::tanglegram(dndlist, fast = TRUE, margin_inner = 5, lab.cex = 1, lwd = 
+0.5, edge.lwd = .1, type = "r")
+
+tree2 <- midpoint.root(tree2)
+
+plot(prunedplot)
+
+cut1<-cutree(tree1, k = 66, h = 5, dend_heights_per_k = NULL, use_labels_not_values = TRUE, order_clusters_as_data = TRUE, warn = dendextend_options("warn"), try_cutree_hclust = TRUE, NA_to_0L = TRUE)
+plot(cut1)
+cut1<-cutree_1k.dendrogram(tree1, 66)
+
+flatten.dendrogram(prunedtree2, new_height = 0.06153846) #this messed stuff up
+```
+
+```{r nex}
+nex.tree<-read.nexus.data(file="matrix_from_app2_xl_file.nex")
+nexus2DNAbin(nex.tree)
+plot.phylo(nex.tree)
+```
+ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh ok i'm sleeping now but i think the answer is converting this xl file to readable tre
+```{r}
+as.phylo.formula(~Order/Family/Genus/Species, data =  (file="matrix_from_app2_xl_file.nex"))
+```
+
+```{r}
+nex2.tree<-read.newick("matrix_from_app2_xl_file.nex")
+plotTree(nex2.tree)
+```
+
+```{r}
+install.packages("TreeTools")
+library(TreeTools)
+```
+```{r}
+as_phydat <- ReadAsPhyDat("matrix_from_app2_xl_file.nex")
+as_phydat
+summary(as_phydat)
+
+as.multiPhylo(as_phydat)
+View(as_phydat)
+class(as_phydat)
+
+NJTree(as_phydat)
+class(NJTree(as_phydat))
+
+raw_data <- ReadCharacters("matrix_from_app2_xl_file.nex")
+my_data <- MatrixToPhyDat(raw_data)#i think these are important
+```
+```{r}
+library(ggtree)
+p <- ggtree(as.phylo(as_phydat), color="purple", size=0.5)
+p <- p + geom_tiplab(size=2)
+p
+```
+
+```{r}
+read.nexus.data("matrix_from_app2_xl_file.nex")
+```
+
+```{r}
+library(help = geiger)
+library(geiger)
+```
+```{r}
+string <- "((A_alala_negra, A_corcyra_aretina, A_tracta, A_pithys, A_donysa_donysa), ((A_serpacelerio, A_seriphiaaquillia, A_seriphiatherasia), (A_melonaleucocoma, A_salmoneus_colada, A_cytherea_cytherea, A_cythereadaguana, A_epioneagilla, A_etheldaethelda, A_thessaliathessalia, A_iphicleolathessalita, A_iphiclusiphiclus, A_shuara, A_plesaurephliassa, A_basiloides, A_atticaattica, A_leucerioides, A_saundersiisaundersii, A_boreasboreas, A_rothschildi, A_sichaeus, A_cocalacocala, A_leucophthalmairminella, A_irminatumida, A_pollina, A_lycoriaslara, A_lycoriasspruceana, A_erotia_erotia, A_mesentina, A_phylaca_pseudaethalia, A_capucinus_capucinus, A_heraclea_heraclea, A_naxia_naxia, A_justina_valentina, A_olynthia, A_jordani, A_zinazina, A_zinairma, A_delinita_delinita, A_boeotia_boeotia, A_maleaaethalia)));"
+
+morph.tree<-read.tree(text=string)
+plot(morph.tree,no.margin=TRUE,edge.width=2)
+```
+```{r}
+#attempt
+#text='((A:1, B:1):2, ((C:1, D:1):2, (E:1, F:1):2):4);')
+mol.tree<-read.nexus(file="NJst.tre")
+mol.tree
+
+myTree <- ape::read.tree(text= '((A_alala_negra:0, A_corcyra_aretina:0, A_tracta:0, A_pithys:0, A_donysa_donysa:0):.06153846, ((A_serpacelerio:0, A_seriphiaaquillia:0, A_seriphiatherasia:0):0.06153846, (A_melonaleucocoma:0, A_salmoneus_colada:0, A_cytherea_cytherea:0, A_cythereadaguana:0, A_epioneagilla:0, A_etheldaethelda:0, A_thessaliathessalia:0, A_iphicleolathessalita:0, A_iphiclusiphiclus:0, A_shuara:0, A_plesaurephliassa:0, A_basiloides:0, A_atticaattica:0, A_leucerioides:0, A_saundersiisaundersii:0, A_boreasboreas:0, A_rothschildi:0, A_sichaeus:0, A_cocalacocala:0, A_leucophthalmairminella:0, A_irminatumida:0, A_pollina:0, A_lycoriaslara:0, A_lycoriasspruceana:0, A_erotia_erotia:0, A_mesentina:0, A_phylaca_pseudaethalia:0, A_capucinus_capucinus:0, A_heraclea_heraclea:0, A_naxia_naxia:0, A_justina_valentina:0, A_olynthia:0, A_jordani:0, A_zinazina:0, A_zinairma:0, A_delinita_delinita:0, A_boeotia_boeotia:0, A_maleaaethalia:0):0.07):0.8222222):4;')
+plot(myTree)
+
+comparePhylo(myTree, mol.tree, plot = FALSE, force.rooted = FALSE, use.edge.length = FALSE)
+
+comparePhylo(myTree, mol.tree, plot = FALSE, force.rooted = TRUE,
+             use.edge.length = FALSE)
+```
+
+```{r}
+```
+
+Comparison Final Essay
+In the end the major take away is that, while useful, tree comparison between two different types of trees can be incredibly difficult. Morphological trees have their benefits but often do not have the material necessary to stand up to arduous statistical analysis, as we have seen here today. As genomic research advances, we have more access to molecular data 

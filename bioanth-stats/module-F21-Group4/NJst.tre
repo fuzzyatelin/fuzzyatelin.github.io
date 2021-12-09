@@ -1,0 +1,158 @@
+#NEXUS
+begin taxa;
+	dimensions ntax=66;
+	taxlabels
+	A_rothschildi
+	A_sichaeus
+	A_boreas_boreas
+	A_saundersii_saundersii
+	A_attica_attica
+	A_leuceroides
+	A_zina_irma
+	A_zina_zina
+	A_jordani
+	A_justina_valentina
+	A_olynthia
+	A_boeotia_boeotia
+	A_malea_aethalia
+	A_delinita
+	A_heraclea
+	A_naxia
+	A_capucinus_capucinus
+	A_mesentina
+	A_phylaca_pseudaethalia
+	A_lycorias_lara
+	A_lycorias_spruceana
+	A_erotia_erotia
+	A_pollina
+	A_irmina_tumida
+	A_leucophthalma_irminella
+	A_cocala_cocala
+	L_lorquini
+	L_weidemeyerii
+	L_arthemis_arizonensis
+	L_arthemis_arthemis
+	L_archippus_floridanensis
+	L_populi
+	L_sydyi
+	L_amphyssa
+	L_moltrechti
+	L_doerriesi
+	L_helmanni
+	L_camilla
+	L_homeyeri
+	L_glorifica
+	L_reducta
+	A_donysa_donysa
+	A_pithys
+	A_alala_negra
+	A_tracta
+	A_corcyra_aretina
+	Athyma_selenophora
+	Pandita_sinope
+	Sumalia_daraxa
+	Parasarpa_zayla
+	Moduza_urdaneta
+	A_seriphia_aquillia
+	A_seriphia_therasia
+	A_serpa_celerio
+	A_melona_leucocoma
+	A_cytherea_cytherea
+	A_cytherea_daguana
+	A_salmoneus_colada
+	A_iphicleola_thessalita
+	A_iphiclus_iphiclus
+	A_thessalia_thessalia
+	A_epione_agilla
+	A_ethelda_ethelda
+	A_basiloides
+	A_plesaure_phliassa
+	A_shuara
+;
+end;
+
+begin trees;
+	tree tree_1 = [&R] ((((A_rothschildi:1.174521414,A_sichaeus:1.087115826):0.5980107099,A_boreas_boreas:1.38724984):0.5912911602,A_saundersii_saundersii:1.766248615):0.9038036116,(A_attica_attica:2.278697022,A_leuceroides:2.219639638):0.2518932209,((((((((((A_zina_irma:1.202667477,A_zina_zina:1.686733443):0.185866652,A_jordani:1.264083233):1.101173404,(A_justina_valentina:1.160142832,A_olynthia:1.142650928):1.158951719):0.3840469377,((A_boeotia_boeotia:1.724915986,A_malea_aethalia:1.857149234):0.2070138534,A_delinita:1.916042517):0.5036397348):0.07115446498,(A_heraclea:1.413623227,A_naxia:1.487221843):1.072428423):0.2053579435,A_capucinus_capucinus:2.582794175):0.1468607499,((A_mesentina:1.33849023,A_phylaca_pseudaethalia:1.46533752):0.2175381981,((A_lycorias_lara:1.278437066,A_lycorias_spruceana:1.020082674):0.2904421905,A_erotia_erotia:1.25742486):0.5406045344):1.730058053):0.0876314502,A_pollina:2.372612769):0.6961181011,((A_irmina_tumida:1.306935777,A_leucophthalma_irminella:1.342991793):0.2076530515,A_cocala_cocala:1.586520343):1.430353719)[&!rotate=true]:0.07690531697,(((((((((((((L_lorquini:1.086933844,L_weidemeyerii:1.233812286):0.07409826974,(L_arthemis_arizonensis:1.218199295,L_arthemis_arthemis:1.242151955):0.2477806153):0.1473871322,L_archippus_floridanensis:1.239256828):2.222588611,L_populi:1.771138509):0.1462736234,L_sydyi:1.924645685):0.07182435075,(((L_amphyssa:1.549503856,L_moltrechti:1.546132724):0.06460592424,((((L_doerriesi:1.13050187,L_helmanni:1.02463742):0.03358146639,L_camilla:1.007423064):0.766897812,L_homeyeri:1.049030343):0.09781437947,L_glorifica:1.781574917):1.164006044):0.4731047438,L_reducta:1.717466333):0.3658124074):0.3574409212,((((A_donysa_donysa:0.9835784789,A_pithys:0.8609356311):0.2934745464,A_alala_negra:1.117091739):0.2473623894,A_tracta:2.050356716):0.2347500181,A_corcyra_aretina:1.935644596):1.430825498):0.4770269927,((((Athyma_selenophora:1.566540671,Pandita_sinope:1.452939849):0.1432033594,Sumalia_daraxa:1.743772611):0.3728421938,Parasarpa_zayla:1.940732749):0.4262406926,Moduza_urdaneta:2.06555724):0.8575329521):0.2783124761,((A_seriphia_aquillia:0.8004269629,A_seriphia_therasia:0.9416511471):0.1484783515,A_serpa_celerio:0.8414704835):2.536152327):0.8912021689,A_melona_leucocoma:2.700416635):0.7436607684,((A_cytherea_cytherea:0.7947442862,A_cytherea_daguana:0.9020333138):0.9687528283,A_salmoneus_colada:1.450170547):1.528798886):0.0908617428,(((A_iphicleola_thessalita:1.183635772,A_iphiclus_iphiclus:1.174007988):0.367245134,A_thessalia_thessalia:1.440086541):0.4519181113,(A_epione_agilla:0.751556736,A_ethelda_ethelda:0.793731464):1.310547377):1.5080402):0.3350630015,((A_basiloides:1.138824755,A_plesaure_phliassa:1.140400365):1.303193499,A_shuara:2.065843861):0.5552342949)[&!rotate=true]:0.2404846394):0.04882325132);
+end;
+
+begin figtree;
+	set appearance.backgroundColorAttribute="Default";
+	set appearance.backgroundColour=#-1;
+	set appearance.branchColorAttribute="User selection";
+	set appearance.branchLineWidth=1.0;
+	set appearance.branchMinLineWidth=0.0;
+	set appearance.branchWidthAttribute="Fixed";
+	set appearance.foregroundColour=#-16777216;
+	set appearance.selectionColour=#-2144520576;
+	set branchLabels.colorAttribute="User selection";
+	set branchLabels.displayAttribute="Branch times";
+	set branchLabels.fontName="sansserif";
+	set branchLabels.fontSize=8;
+	set branchLabels.fontStyle=0;
+	set branchLabels.isShown=false;
+	set branchLabels.significantDigits=4;
+	set layout.expansion=0;
+	set layout.layoutType="RECTILINEAR";
+	set layout.zoom=0;
+	set legend.attribute=null;
+	set legend.fontSize=10.0;
+	set legend.isShown=false;
+	set legend.significantDigits=4;
+	set nodeBars.barWidth=4.0;
+	set nodeBars.displayAttribute=null;
+	set nodeBars.isShown=false;
+	set nodeLabels.colorAttribute="User selection";
+	set nodeLabels.displayAttribute="Node ages";
+	set nodeLabels.fontName="sansserif";
+	set nodeLabels.fontSize=8;
+	set nodeLabels.fontStyle=0;
+	set nodeLabels.isShown=false;
+	set nodeLabels.significantDigits=4;
+	set nodeShape.colourAttribute=null;
+	set nodeShape.isShown=false;
+	set nodeShape.minSize=10.0;
+	set nodeShape.scaleType=Width;
+	set nodeShape.shapeType=Circle;
+	set nodeShape.size=4.0;
+	set nodeShape.sizeAttribute=null;
+	set polarLayout.alignTipLabels=false;
+	set polarLayout.angularRange=0;
+	set polarLayout.rootAngle=0;
+	set polarLayout.rootLength=100;
+	set polarLayout.showRoot=true;
+	set radialLayout.spread=0.0;
+	set rectilinearLayout.alignTipLabels=false;
+	set rectilinearLayout.curvature=0;
+	set rectilinearLayout.rootLength=100;
+	set scale.offsetAge=0.0;
+	set scale.rootAge=1.0;
+	set scale.scaleFactor=1.0;
+	set scale.scaleRoot=false;
+	set scaleAxis.automaticScale=true;
+	set scaleAxis.fontSize=8.0;
+	set scaleAxis.isShown=false;
+	set scaleAxis.lineWidth=1.0;
+	set scaleAxis.majorTicks=1.0;
+	set scaleAxis.origin=0.0;
+	set scaleAxis.reverseAxis=false;
+	set scaleAxis.showGrid=true;
+	set scaleBar.automaticScale=true;
+	set scaleBar.fontSize=10.0;
+	set scaleBar.isShown=true;
+	set scaleBar.lineWidth=1.0;
+	set scaleBar.scaleRange=0.0;
+	set tipLabels.colorAttribute="User selection";
+	set tipLabels.displayAttribute="Names";
+	set tipLabels.fontName="sansserif";
+	set tipLabels.fontSize=8;
+	set tipLabels.fontStyle=0;
+	set tipLabels.isShown=true;
+	set tipLabels.significantDigits=4;
+	set trees.order=false;
+	set trees.orderType="increasing";
+	set trees.rooting=true;
+	set trees.rootingType="User Selection";
+	set trees.transform=false;
+	set trees.transformType="cladogram";
+end;
+
