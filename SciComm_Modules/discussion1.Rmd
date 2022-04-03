@@ -1,0 +1,146 @@
+---
+title: 'Discussion 1: Science Communication'
+author: "Christopher A Schmitt"
+date: "April 2, 2022"
+output: 
+  html_document:
+    theme: cosmo
+---
+
+***
+
+<center>
+
+<font size="+2"><b>Getting Started...</b></font></center><br>
+
+<center><p><img src="https://static.wikia.nocookie.net/rupauls-parody-shows/images/6/6e/The_library_is_open.gif/revision/latest/scale-to-width-down/500?cb=20180318233402" style="border:5px solid black"></p></center><br>
+
+***
+
+**Learning Objectives**
+
+* Know the difference between the primary scientific literature and what is *not* the primary scientific literature.
+* Recognize the benefits and drawbacks of different forms of science communication.
+* Explore methods to access primary scientific resources, both at the library and online.
+* Discuss a selected review article and a primary research articles ont eh same topic; compare/contrast the differences.
+
+**Material Covered**
+
+* Practice: Science Communication Discussion
+* Library Resources
+* Guided Discussion: Primary Literature and Review Literature
+
+***
+
+# Creating Your Own Science Communication Project
+
+***
+
+Now that you've started thinking critically about science communication, we are going to pivot the way discussion sections will work through the end of the semester. We are now entering the creative discovery project. Over the next 5 weeks, you will be working in small groups to create your own piece of science communication!
+
+More specifically:
+
+1. You will learn how to access and read primary scientific literature in order to find scientific information that you want to communicate to a non-scientific audience. The topic you will cover for this exercise is: genetic influences on skin pigmentation. Your TF will lead you to the articles to use and help you pull out the salient information.
+
+2. You will work with 2-3 other students in your discussion section to develop a *small* SciComm project, such as a TikTok video, a Twitter thread, Instagram posts, a short Adobe Spark presentation, or science-themed webcomic, etc. This is *not* meant to be a huge project. This is a *small* SciComm project aimed at being scientifically accurate, entertaining/captivating, and accessible.
+
+3. You will have time in discussion sections to work on this, but should also plan to spend 2-3 hours outside of section working with your group.
+
+4. You will learn how to provide productive peer-review for your classmates and how to incorporate the peer-review of others into your own project.
+
+5. You will be assessed in Discussion on the *process* of creating your SciComm piece and on helping other groups improve their projects. 
+
+   * If you are enrolled in *CAS AN/WS 233*, you will *not* be graded on the final product specifically. 
+   * If you are enrolled in *CAS AN 551*, your final project will be graded in lieu of a final exam.
+<br><br>
+   
+6. You will write a reflective essay on the process. 
+
+   * If you are enrolled in *CAS AN/WS 233*, this essay will be a component of your final exam (you may write this *before* the final and copy/paste it into the final exam interface). 
+   * If you are enrolled in *CAS AN 551*, this essay, in tandem with your project itself, serves as your final for the class. It is due on the final exam date, along with your presentation of the project.
+
+Let's begin by looking at the different forms of science communication.
+
+***
+
+## Part 1: Science Communication
+
+***
+
+In this section, your TF will lead a discussion on the various forms of science communication.
+
+Coming into discussion today, you've (hopefully) completed an assignment that asked you to analyze a few pieces of science communication, considering any strengths and drawbacks you may have noticed.
+
+**Some points to consider:**
+
+* What are the different types of science communication we encounter every day?
+* How does the general public make sense of and participate in scientific discussion?
+* What role do different forms of science communication have?
+* What have we learned about how science communication can build up or break down trust in science for the general public?
+
+What about scientific literature, such as academic journal articles?
+
+Some helpful terms to know:
+
+*Journal Article*: A report of recent research or a review compiling research, written by those conducting or otherwise overseeing research in a given field of study. These articles undergo a peer-review process. Also known as research literature, research article, research paper, or a journal article; journal articles can be primary research or a review of previous research.
+
+*Peer-Review*: A process by which research is reviewed by a group of experts in a given field, usually two or three people, managed by a peer-review editor who oversees the peer-review process. Based on peer-review, a journal article may be accepted for publication, provisionally accepted with minor revisions, provisionally accepted with major revisions, or rejected for publication.
+
+**Reliable sources include**:
+
+* Peer-reviewed academic journal article describing original research in science
+* Peer-reviewed academic journal article compiling other science research into a primary review article
+* Why are these reliable?
+
+**What is not a reliable source**:
+ 
+* Journal that is not peer-reviewed 
+* Journal that has many articles written by members of the editorial board
+* *Why are these unreliable?*
+
+What is a non-primary source? Have we seen or discussed some examples in this class already? How do we know?
+
+***
+
+## Part 2: The Library (and Other Sources)
+
+***
+
+Your TF will lead you through some of the Boston University campus library resources, along with some online resources, which is where we will find our primary research sources.
+
+For reference, you can start at the [BU Library website](https://www.bu.edu/library/), and its [How-to-Guides](https://www.bu.edu/library/help/how-to/).
+
+Other excellent resources for finding primary literature:
+
+* [Google Scholar](https://scholar.google.com)
+* [PubMed](https://pubmed.ncbi.nlm.nih.gov/)
+
+***
+
+## Part 3: Practice
+
+***
+
+For next week's Discussion, you will each complete the assignment worksheet that guides you through selected research articles on the genetics of skin color. These will include:
+
+One primary review article:
+
+* [Quillen et al. 2018: Shades of complexity: New perspectives on the evolution and genetic architecture of human skin.](https://onlinelibrary.wiley.com/doi/epdf/10.1002/ajpa.23737)
+
+Two primary research articles:
+
+* [Martin et al. 2017: An Unexpectedly Complex Architecture for Skin Pigmentation in Africans.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5884124/)
+* [Adhikari et al. 2019: A GWAS in Latin Americans highlights the convergent evolution of lighter skin pigmentation in Eurasia.](https://www.nature.com/articles/s41467-018-08147-0.pdf)
+
+To get a head start on your homework, your TF will encourage you to split into groups and circulate between them while you discuss one or two of these articles. By next week, you will be expected to have independently read and reflected upon all three.
+
+***
+
+## Part 4: Assignment
+
+***
+
+
+
+
+

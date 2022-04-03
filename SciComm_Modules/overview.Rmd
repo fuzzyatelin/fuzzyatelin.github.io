@@ -1,0 +1,95 @@
+---
+title: "AN 233/551: Inclusive Design Project"
+author: "Christopher A Schmitt</br>Boston University"
+date: "April 2, 2022"
+output: 
+  html_document:
+    theme: cosmo
+---
+
+***
+
+<center>
+# Science Communication Modules
+</center>
+
+***
+
+<center><p><img src=https://thumbs.gfycat.com/AnotherParchedBinturong-size_restricted.gif style="border:5px solid black"></p></center>
+
+***
+
+## An Introduction to Science Communication
+
+***
+
+There are many different forms of science communication. These range from primary sources of scientific information - such as primary literature reviews, and of course primate research itself - to works we typically think of as science communication (often shortened to SciComm), which communicate and *translate* the primary scientific literature to audiences who may not be scientists. These latter forms of science communcation may include podcasts, documentaries, short videos (TikTok, YouTube), infographics, interviews, newspaper articles, magazine articles, Instagram posts, books, and more. 
+
+In preparation for the CAS AN/WS 233 Discussion Sections for the month of April, please take some time to engage with four different types of SciComm that we’ve pulled together for you. There are links to each, below:
+
+<br>
+
+1. **Infographic** (3-5 minutes to read)
+
+<br>
+
+<center>
+
+[**CDC, "Racial and Ethnic Disparities in Heart Disease"**](https://www.cdc.gov/nchs/hus/spotlight/2019-heart-disease-disparities.htm)
+
+</center>
+
+<br>
+
+2. **Magazine Article** (5-10 minutes to read)
+
+<br>
+
+<center>
+
+[**Ed Yong, *The Atlantic*, "No, Scientists Have Not Found the ‘Gay Gene’"**](https://www.theatlantic.com/science/archive/2015/10/no-scientists-have-not-found-the-gay-gene/410059/)
+
+</center>
+
+<br>
+
+3. **Podcast** (31 minutes to listen)
+
+<br>
+
+<center>
+
+[**Janina M. Jeff, *In Those Genes*, Episode: "Up in Dem Genes"**](https://inthosegenes.com/listen-1)
+
+</center>
+
+<br>
+
+4. **Popular SciComm** (20 mintues)
+
+<br>
+
+<center>
+
+[**John Oliver, *Last Week Tonight*, Episode: "Gene Editing"**](https://youtu.be/AJm8PeWkiEU)
+
+</center>
+
+<br>
+
+Before you engage with each of these media types, please go to the course [Blackboard](https://learn.bu.edu) and download the SciComm Worksheet. Fill it out while you're reading/watching the media.
+
+In the SciComm worksheet, you'll note *one strength* and *one drawback* for each particular type of media. Aim to write just 2-3 sentences for each strength and each drawback (this assignment need not be an essay; just give us your critical impression). These strengths and drawbacks could relate to any aspect of the science communication piece that struck you, such as: the way the information is portrayed, the biases (or lack thereof) of the information, any political or personal slant detected, accessibility aspects, and more that may have influenced how the SciComm affected what you took from it.
+
+We anticipate that it will take you no more than 70 minutes to complete this assignment, including engaging with the different media formats.
+
+You can find the remaining discussion section assignments related to the SciComm project below!
+
+***
+
+### [Discussion 1: Science Communication (CAS AN/WS 233: April 4,5)](https://fuzzyatelin.github.io/SciComm_Modules/discussion1.html)
+### [Discussion 2: Primary Literature to Target Audience (CAS AN/WS 233: April 11,12)](https://fuzzyatelin.github.io/SciComm_Modules/discussion2.html)
+### [Discussion 3: Creating a Narrative (CAS AN/WS 233: April 18,19)](https://fuzzyatelin.github.io/SciComm_Modules/discussion3.html)
+### [Discussion 4: Peer Review (CAS AN/WS 233: April 25,26)](https://fuzzyatelin.github.io/SciComm_Modules/discussion4.html)
+
+***
