@@ -1,0 +1,40 @@
+---
+title: "Copyright and Fair Use"
+author: "Christopher A. Schmitt"
+date: "April 5, 2022"
+output: 
+  html_document:
+    theme: cosmo
+---
+
+***
+
+<center>
+
+<font size="+2"><b>Watch Yourself...</b></font></center><br>
+
+<center><p><img src="https://c.tenor.com/a6st6TA6zgIAAAAC/sue-copyright.gif" style="border:5px solid black"></p></center><br>
+
+***
+
+None of us want to get sued, actually... Lucky for us, lots of organizations and institutions, including the University of California, have pulled together resources aimed at helping us not make mistakes when it comes to copyright and fair use. Start your journey by watching [this 5-minute video](https://www.commonsense.org/education/videos/creativity-copyright-and-fair-use).
+
+The University of California developed [this Copyright website](https://copyright.universityofcalifornia.edu/use/fair-use.html). As you look that over, comparing the four factors to consider in fair use presented on the University's website with how they were presented in the video, be sure to also visit this linked ["Copyright in the classroom"](https://copyright.universityofcalifornia.edu/use/teaching.html#p=in_the_classroom) page with some examples of fair use. 
+
+Would it be acceptable to make a parody of someone else's work as part of your SciComm project, or does that violate copyright? What about the use of a quotation? Could you reproduce the abstract of a journal article in full?
+
+Finding images for your SciComm project might be task that makes you nervous, now that you are thinking of copyright laws and codes-of-conduct. One way to avoid the possibility of making a mistake is to go straight to sources that are open-access. Learn about Creative Commons by watching this 7-minute video: [Creative Commons: Get Creative!](https://youtu.be/BlhJUJ9DC4A) 
+
+A few good places to start when you are looking for visuals are:
+
+* [Digital Public Library of America](https://dp.la/)
+* [Wikimedia](https://www.wikimedia.org/) 
+* [Wikimedia Commons](https://commons.wikimedia.org/wiki/Main_Page)
+
+Sometimes though, you will have found the absolutely perfect image through a Google search. A good way to figure out where that image came from is though a Google reverse image search. Learn more about that here in [this 3-minute video](https://www.commonsense.org/education/videos/how-to-use-google-reverse-image-search-to-fact-check-images).
+
+<br><br>
+
+
+
+
