@@ -46,7 +46,7 @@ As you debrief with your discussion group, start by sharing a conversation on th
 
 ***
 
-## Part 2: Target Audience and Accessibility
+# Part 2: Target Audience and Accessibility
 
 ***
 
@@ -129,7 +129,7 @@ Decide early in your planning process - by next week's Discussion section - whic
 
 Decide whether you will create:
 
-* An Adobe Spark presentation (i.e., an infographic)
+* An [Adobe Creative Cloud](https://www.adobe.com/express/?sdid=K7SLVNP3&mv=search&ef_id=CjwKCAjw0a-SBhBkEiwApljU0jRqkWSXp3nFrw0UJBUu-_yEM19fPkvcFFyjgT42e9HAGWovjrq2ZxoC0s0QAvD_BwE:G:s&s_kwcid=AL!3085!3!569345525684!e!!g!!adobe%20spark!15557590691!136734402171) presentation (i.e., an infographic) - [you can access it for free at BU](https://www.bu.edu/tech/services/teaching/digital-multimedia-production/adobe-creative-cloud/).
 * A short, less-than-5-minutes, documentary-style video
 * A series of mock social media posts (5-10 Tweets in a thread)
 * A science-based webcomic 
@@ -143,7 +143,17 @@ Ensure you are communicating with one another and ensuring each group member has
 
 ***
 
-## For Next Week...
+# Part 3: Copyright Considerations
+
+***
+
+Given that we will probably want our presentations to have beautiful images or visualizations, it's necessary for us to learn about the United States' policies on copyright & fair use. It's best to think of these things before you start creating your SciComm project, so that you are never at risk of violating the law or [BU's Copyright Violation Policy](https://www.bu.edu/tech/support/information-security/docs/dmca-and-copyright-infringement/copyright-violation-policy/).
+
+Visit this [Info Page on Copyright & Fair Use](https://fuzzyatelin.github.io/scicomm/copyright.html) for various resources to watch, look over, and become familiar with. The resources for images linked to at the bottom of that page will be particularly useful when you start to build your SciComm project.
+
+***
+
+# For Next Week...
 
 ***
 
