@@ -1,0 +1,155 @@
+---
+title: 'Discussion 2: Primary Literature to Target Audience'
+author: "Christopher A Schmitt"
+date: "April 11, 2022"
+output: 
+  html_document:
+    theme: cosmo
+---
+
+***
+
+<center>
+
+<font size="+2"><b>Speaking to Your Audience...</b></font></center><br>
+
+<center><p><img src="https://c.tenor.com/A6REms8pMPMAAAAC/gia-gunn.gif" style="border:5px solid black"></p></center><br>
+
+***
+
+## Learning Objectives
+
+* Debrief: Compare and contrast peer-reviewed primary research and review articles: Which are the best sources for your SciComm project? Why?
+* Identify your target audience for your SciComm project and form working groups
+* Start thinking about media, accessibility, target audience best-practices, to ensure these are built in throughout
+* Learn how to create your science communication (SciComm) project in accordance with the United States' copyright and fair use laws
+* Understand what universal design and accessibility are, concepts that you will need to include in your SciComm project
+
+***
+
+# Part 1: The Two Types of Peer-Reviewed Science Articles
+
+***
+
+> "Science is a search for evidence. Science communication is a search for meaning." ([ElShafie, 2018]( https://academic.oup.com/icb/article/58/6/1213/5061516))
+
+
+**How do we incorporate our evidence into a form of communication that has meaning for an audience?**
+
+Coming into this Discussion Section, you have completed a literature search investigating two papers from the primary research literature and one primary review literature.
+
+As you debrief with your discussion group, start by sharing a conversation on the following questions:
+
+* What did we learn from our literature search?
+* Can we identify at least one strength and at least one drawback of primary research articles and primary literature review articles?
+* In your groups, compile a short list of 3-4 scientific facts/evidence, insights, and data from each paper that you feel will be important to share with the general public. This will help you generate discussion and outline the science you wish to communicate.
+
+***
+
+## Part 2: Target Audience and Accessibility
+
+***
+
+Think about the difference between a nature show for children ([like *Wild Kratts*](https://www.pbs.org/parents/shows/wild-kratts)) and a science program aimed at adults ([like *Green Porno*](https://www.sundancetv.com/shows/green-porno--1001041) or [like *Nature*](https://www.pbs.org/show/nature/)).
+
+Naturally, there will be some differences in how science is communicated based on the intended audience.
+
+**Science communication**, therefore, is framed specifically around the needs, desires, and interests of a target audience. Target audiences can be very broad, such as the general public (like PBS' *Nature*), or they can be narrower, such as a specific group of learners (who is *Green Porno*'s target audience?).
+
+**What are some examples of target audiences that partake in science communication media, based on some of the examples you've already seen in these modules? Brainstorm with your groups.**
+
+Each target audience will have a certain combination of *demographics* and *psychographics*.
+
+**Demographics** are quantifiable categories which target audiences identify with or share. Examples of *Target Audience Demographics* may include (and this list is not exhaustive):
+
+* Age groups
+* Socioeconomic backgrounds
+* Education stage (elementary, middle school, high school, college, lifelong learner)
+* Learning abilities - Attention Deficit (Hyperactive) Disorder (ADD/ADHD), Dyslexia, Dyscalculia
+* Sensory needs (blind, low vision)
+* Deaf and Hard of Hearing (HoH) communities
+* Neurodiversity (autism spectrum, Down syndrome, other special learning needs)
+* Ethnic/cultural background
+* Sexuality- and/or gender-based groups
+* Country of origin
+* Rural/urban audiences
+
+**Psychographics** are how the target audience may think or feel, and includes audience aspirations, preconceived ideas, or attitudes about a topic. 
+
+**For example**: Your target audience may be students and teachers within a Boston-area, 1st grade, urban school class (*demographic*); when talking with teachers, you may discover they feel anxious about teaching students in a remote environment, and the students themselves want fun and engaging cartoon material (*psychographics*).
+
+***
+
+## What is *Accessibility*?
+
+**Accessibility** = *a concept that results in accommodating a resource or physical environment so that it is equitably reached, entered into, and utilized by people with disabilities.*
+
+**All target audiences deserve equitable, quality science communication**. For the purposes of this Inclusive Design Project, accessibility may refer most specifically to audiences with disabilities, as well as the Deaf and Hard of Hearing communities (which have strong pride in Deaf and Hard of Hearing culture, language, and values; please note that individuals in this culture may not self-identify as disabled).
+
+To ensure our science communication is equitable and fair to all audiences, we must consider this kind of accessibility specifically in our work.
+
+*What are some examples of implementing accessibility best practices?*
+
+*How do we know we have achieved our accessibility goals?*
+
+***
+
+## SciComm and Accessibility Resources
+
+***
+
+Once you've identified your desired target audience, give some thought to what methods of science communication might work best for them. This might involve  finding other forms of science communication that targets the same audience, talking to members of that audience, or reading literature that investigates the needs of that audience specifically.
+
+The following resources will help guide your science communication and accessibility implementation as it aligns with your target audience:
+
+**Science Communication Resources**
+
+* [University of Oregon Center for Science Communication Research](https://scr.uoregon.edu/)
+* [Core Skills for Science Communication (Mercer-Mapstone & Kuchel, 2017)](https://www.tandfonline.com/doi/pdf/10.1080/21548455.2015.1113573)
+* [American Association for the Advancement of Science (AAAS) Communication Toolkit](https://www.aaas.org/resources/communication-toolkit)
+* [National Center for Science Education DIYSci Resources](https://ncse.ngo/breaking-down-barriers/diysci-resources)
+
+**Accessibility Resources**
+
+* [BU Disability & Access Services](https://www.bu.edu/disability/about/)
+* [UC Berkeley Web Accessibility Guidelines](https://webaccess.berkeley.edu/home)
+* [UC Berkeley Introduction to Course Accessibility](https://bcourses.berkeley.edu/courses/1456326)
+* [*American Anthropologist* Guidelines for Creating Image Descriptions](https://www.americananthro.org/ImageDescriptions?navItemNumber=25126#:~:text=Image%20descriptions%20provide%20a%20textual,users%20of%20all%20AAA%20products)
+* [Making PDFs Accessible for Screen Readers](https://webaim.org/techniques/acrobat/acrobat)
+
+***
+
+## Media Resources
+
+***
+
+**When Considering Which Medium to Choose...**
+
+Decide early in your planning process - by next week's Discussion section - which media type you wish to use. While this particular component is not graded, your TF will be checking to see progress towards project completion is being made each week.
+
+Decide whether you will create:
+
+* An Adobe Spark presentation (i.e., an infographic)
+* A short, less-than-5-minutes, documentary-style video
+* A series of mock social media posts (5-10 Tweets in a thread)
+* A science-based webcomic 
+* A TikTok video
+* A short, less-than-5-minutes, podcast
+* Another creative option of your choosing (please communicate ideas to your TF)
+
+How will you and your teammates delegate your work?
+
+Ensure you are communicating with one another and ensuring each group member has a role to play in making progress towards project completion, each week!
+
+***
+
+## For Next Week...
+
+***
+
+Please make sure to have your group, target audience, and media type decided upon. You should begin outlining and constructing your science communication piece.
+
+Throughout your project, read and utilize this document [Expectations for the Creative Discovery Project](https://fuzzyatelin.github.io/scicomm/expectations.html) to get a sense of what your end goals should be.
+
+
+

@@ -1,0 +1,19 @@
+---
+title: "Inclusive Design Project Rubric"
+author: "Christopher A. Schmitt"
+date: "April 5, 2022"
+output: 
+  html_document:
+    theme: cosmo
+---
+
+```{r,echo=F}
+library(knitr)
+Level<-c("","Adequate","Pretty Good","Excellent")
+Audience<-c("Is the audience clearly identified and spoken to, or an attempt to contact made?","target audience is unclear","target audience is clear but the piece wasn’t really speaking to them","target audience is clear and their needs are perfectly addressed")
+Format<-c("How effectively was the technology utilized?","technology feels like a mismatch", "it works","technology/format really enhances the message")
+Science<-c("Is the piece scientifically accurate?","the science seemed easy to misunderstand or misinterpret","the science was accurate but it might be misunderstood by some members of the target audience","it would be really hard to misunderstand the science")
+rubric<-rbind(Level,Audience,Format,Science)
+
+kable(rubric, caption="Assessment Rubric for Inclusive Design Project")
+```

@@ -1,0 +1,140 @@
+---
+title: "Expectations for the Inclusive Design Project"
+author: "Christopher A. Schmitt"
+date: "April 5, 2022"
+output: 
+  html_document:
+    theme: cosmo
+---
+
+***
+
+# Inclusive Design Project Outline
+
+***
+
+<center><p><img src="https://i.pinimg.com/originals/0e/27/fe/0e27fe9a85a554479d43cb97904ea5b8.gif" style="border:5px solid black"></p></center>
+
+***
+
+The aim of this project is for you to gain experience in communicating scientific evidence to a public audience. For example, how is it that science journalists, museum experts, podcasters, and documentarians educate the public about scientific discoveries in an engaging but also accurate way? To learn how to do this, you will be creating your own media-based presentation or product -- an Inclusive Design Project -- that reflects the key points outlined in this introduction document.
+
+We will need you to focus on the scientific evidence in your Inclusive Design Project...
+
+**We are looking for**:
+
+1. Scientific accuracy
+2. A frame for understanding the science that does not rely on the scientifically incorrect idea of there being human races
+3. Consideration of your target audience:
+    a. Making an effort to reach out to your target audience through the framing process
+    b. Choosing a media-type that is appropriate for your target audience and the message you are conveying
+    c. Considering audience accessibility and inclusion of those with sensory needs
+
+*Have you included each of these criteria above in your final product?*
+
+**Things to avoid**:
+  
+1. Ranting for or against what others have done
+2. Making a political argument the focus *rather than* the science
+3. Justifying a personal opinion by cherry-picking scientific evidence
+4. Allowing any one team member to complete the bulk of the work 
+
+*Have you avoided each of these above in your final product?*
+
+This project is forward-thinking. Instead of using this as a critique of the past or of how other people are conveying science, this is *your* opportunity to show how to do it better.
+
+In doing so, you will frame your explanation of the science without falling into the fallacy of using racial categories. Personal perspectives are not what we are looking for here. We are crafting stories based firmly in scientific evidence.
+
+***
+
+**Learning Objectives**
+
+The Inclusive Design Project is an opportunity to:
+
+* Learn how to effectively communicate science, as well as the difficulties in doing so effectively;
+* Gain a critical eye of science presentations, in particular those on human biological variation;
+* Practice talking about human variation in a way that explicitly rejects the framework of racial variation. This will keep your science communication scientifically accurate, and consequently, antiracist.
+
+***
+
+Utilize the timing & grading schema below to keep track of your assignment progress throughout the second half of the semester:
+
+**Assignment Timing & Grading Schema**
+
+1. **Preliminary Science Communication Assignment** (each student does this individually).
+    - Due: 4 Types of SciComm Assignment (not graded)
+    - [ ] Completed?
+    - *Thinking Checkpoint*: Begin to think about which type of scientific communication appeals to you the most.
+
+2. **Science Communication** (April 4, 5)
+    - Due: Primary Literature Assignment - Value: 10 pts
+    - [ ] Completed?
+    - *Thinking Checkpoint*: How will you share this scientific information without relying on the trope, and social and power construct, of race?
+
+3. **Primary Literature to Target Audience** (April 11, 12) - Synthesize information from primary research literature and primary review literature, connecting it to target audience and other SciComm media (group delegation of research).
+    - Due: Decide on your target audience, media type, group members, and accessibility feature(s); Discussion attendance: 10 pts
+    - [ ] Completed?
+    - *Thinking Checkpoint*: How are you tailoring your message so that it reaches your target audience?
+
+4. **Creating a Narrative** (April 18, 19)
+    - Discussion attendance: 10 pts
+    - [ ] Attended?
+    - *Thinking Checkpoint*: How will you structure your science story, based in evidence? Who is undertaking which tasks in your group?
+
+5. **Peer Review** (April 25, 26) - Come prepared with peer-review feedback for your partner
+group
+    - Attend Section & Peer-Review Completion on bCourses: 10 pts
+    - [ ] Completed?
+    - *Thinking Checkpoint*: How will you respectfully give and receive feedback?
+
+6. **Project Presentations** (April 28) - Work on final essay reflection
+    - Incorporate peer-review feedback
+    - *Final presentations in lecture on April 28*
+    - [ ] Completed?
+    - *Thinking Checkpoint*: How did the feedback you received improve your project?
+
+7. **Final Essay Reflection** (for Final Exam, May 3)
+    - Final reflection on the project
+    - You may write this ahead of time and copy/paste it into the exam interface on Blackboard
+    - Value: 30 points of the final exam score
+
+***
+
+# Teamwork Practice and Skills: Best Practices
+
+***
+
+It’s important to get a sense of what you and your team members can do to create a collaborative,
+communicative environment for everyone, from the very start of this Inclusive Design Project.
+
+When the whole team succeeds, we all succeed.
+
+**Things to start doing as soon as you know who will be on your Inclusive Design Project team**:
+
+*Start building productive collaboration between team members.*
+
+* Try to choose meeting times that accommodate everyone’s schedules. Use a scheduler or calendar to ensure everyone is on the same page
+* Respect and recognize that everyone has their own schedule and different obligations outside of class/etc
+* How will you help hold one another accountable on an ongoing basis, so that everyone is sharing the workload evenly?
+
+*Understand how to work together with a mixture of learning abilities, approaches, and backgrounds*
+
+* Be open to new ideas
+* Be accepting that compromises may be necessary to move the project forward
+* Make sure that everyone is given the space to voice their thoughts
+
+*How will you resolve any issues and celebrate successes?*
+
+* Communicate with one another in a timely fashion when any scheduling or interpersonal issues arise
+* Share things that could be better, but also share ways in which your group is working well together
+* Discuss any ongoing issues or any concerns that need immediate attention with your TF, or Prof. Schmitt
+* Take care of one another as a group, this project discusses issues that may be distressing
+
+***
+
+# [Rubric for Inclusive Design Project](https://fuzzyatelin.github.io/scicomm/rubric.html)
+
+***
+
+Utilize this throughout your project planning process, as early and as often as possible, so you have a good idea of what we are looking for -- and what your peer-review assignment will ask you to look for!
+<br><br>
