@@ -13,7 +13,7 @@ output:
 
 <font size="+2"><b>Be nice...</b></font></center><br>
 
-<center><p><img src="https://c.tenor.com/5qLdHlKC3egAAAAC/bianca-del-rio-juding-you.gif" style="border:5px solid black"></p></center><br>
+<center><p><img src="https://c.tenor.com/5qLdHlKC3egAAAAC/bianca-del-rio-juding-you.gif" style="border:5px solid black" alt="Bianca Del Rio sipping her tea and looking very judgmental"></p></center><br>
 
 ***
 

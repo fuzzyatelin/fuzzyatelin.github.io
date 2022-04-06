@@ -1,0 +1,55 @@
+---
+title: "Final Essay Prompts"
+author: "Christopher A. Schmitt"
+date: "April 6, 2022"
+output: 
+  html_document:
+    theme: cosmo
+---
+
+***
+
+<center>
+
+<font size="+2"><b>Wrapping Up the SciComm Journey</b></font></center><br>
+
+<center><p><img src="https://static.wikia.nocookie.net/justdance/images/d/df/Sashay_away_BYFAS.gif/revision/latest?cb=20200622225036" style="border:5px solid black" alt="RuPaul says Sashay Away"></p></center><br>
+
+***
+
+As part of the final exam for CAS AN/WS 233, we ask you to write responses to three questions (you *must* answer all three) related to your SciComm project. These are open-ended questions with no right or wrong answers. We are looking for thoughtfulness, to see that you participated in all of the steps of the SciComm project and that you have opinions and thoughts about the process and the product.
+
+Please create a text document and copy/paste the three questions, below into it. You should begin working on these essays as soon as you are finished presenting your SciComm on the last day of class, in preparation for entering them into your final exam on Blackboard during our exam time on Tuesday, May 10. 
+
+**You will, for the final exam, copy and paste your answers into the exam's essay interfaces; there will be one for each Question.** Each will be worth 10 points towards your final exam score, for a total of 30 points of your final exam score.
+
+***
+
+**QUESTION 1**: What were some of the unforeseen challenges in communicating your science (i.e., creating the SciComm)? What defied your expectations for this project? (respond in 2-3 paragraphs/~250-300 words)
+
+***
+
+**QUESTION 2**: What are the pros and cons of using the biological system you presented on as part of the SciComm project? If you used your SciComm to use science to deconstruct a social aspect of human variation, how did that go? (respond in 2-3 paragraphs/~250-300 words)
+
+***
+
+**QUESTION 3**: Reflecting on the process of how the SciComm project unfolded, discuss your specific contributions to the project, what specific skills you may have gained from the process, what you are proud of, and what you feel like you could have done differently/better. (respond in 2-3 paragraphs/~250-300 words)
+
+***
+
+**Please type your responses to these three questions in black 12pt Serif or Sans Serif font** (i.e., Times New Roman, Arial, Calibri, etc.). Your TF will be reading all of the essays on her computer screen. Simplicity in formatting will make your TF's life easier and be much appreciated. A happy TF is much more likely to feel generous when scoring responses!
+
+**Aim to write about 250-300 words in response to each question**.  It is ok if you go *a little* over, but please don't go over by more than about 20 words at maximum. We don't want you to take the time to write volumes; we would strongly prefer short, succinct, well-written responses to longer, more convoluted replies. But that said, if you write less than 250 words for each essay, you will not have explored the topic in as much depth as we are looking for. Keep in mind that your TF is really smart. If you just write the same thing over and over again in slightly different ways, as a way to pad the word count, your TF is going to notice!
+
+And speaking of making life easier for your TF, please submit your *best* writing. Proofread your essay responses. This means that **you should write a draft of your responses by May 3** and then put it away for a couple of days. Come back to your responses towards the end of that week with a clear mind and read through your words critically. Read out loud. Does one sentence flow to the next? Is there a logical point for each paragraph and are all of the sentences feeding into the same topic/point? Did you use good grammar and spelling? Adjust as needed. There is nothing quite like a misspelled word or a non sequitur to distract the reader from the message you are trying to convey. If grammatical and spelling mistakes obfuscate your point, you'll get a lower score; our TF is an amazing scholar, but sadly, she still can't read minds or intent if the words don't make them clear. 
+
+Remember, the assignment is worth up to 30 points of your final exam (on **May 10 from noon to 2 pm**), 10 points for each question's response. **Your responses *must* be turned in as part of the final exam on Blackboard.**
+
+Best of luck with this assignment! We look forward to hearing your reflections on the SciComm project!
+
+
+***
+
+**Please note**: the SciComm aspects of this course are based closely on a similar course at UC Berkeley, IB35ac, designed by Leslea Hlusko (&copy; 2020). These materials have been accessed and adapted with her permission as part of the BRIDGE Project, developed by her student, Ph.D. Candidate Taormina Lepore.
+
+***

@@ -13,7 +13,7 @@ output:
 
 <font size="+2"><b>Story time!</b></font></center><br>
 
-<center><p><img src="https://c.tenor.com/-YH4v3aKsbYAAAAC/let-me-tell-you-the-story-let-me-explain.gif" style="border:5px solid black"></p></center><br>
+<center><p><img src="https://c.tenor.com/-YH4v3aKsbYAAAAC/let-me-tell-you-the-story-let-me-explain.gif" style="border:5px solid black" alt="sasha velour says let me tell you the story while a man laughs hysterically"></p></center><br>
 
 ***
 
@@ -69,7 +69,7 @@ For more detail, please check out these resources:
 
 **Storyboarding Your Project**
 
-<center><<a href="http://www.trainingforgold.eu/2016/01/storyboarding-tutorial/"><img src="http://pont-mooc.eu/wp-content/uploads/2014/08/kenneth_chan_storyboard001.png" style="border:5px solid black"></a></center><br>
+<center><<a href="http://www.trainingforgold.eu/2016/01/storyboarding-tutorial/"><img src="http://pont-mooc.eu/wp-content/uploads/2014/08/kenneth_chan_storyboard001.png" style="border:5px solid black" alt="this image presents an example storyboard of a student preparing a storyboard, and is also a link to a blog with instructions for storyboarding"></a></center><br>
 
 In Discussion today, once you've thought through what you want your narrative to be, you should spend some time trying to storyboard your SciComm. Click on the image above to get some clear and easy tips about how to successfully develop a helpful storyboard that will make putting together your final SciComm project a lot easier.
 

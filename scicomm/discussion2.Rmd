@@ -13,7 +13,7 @@ output:
 
 <font size="+2"><b>Speaking to Your Audience...</b></font></center><br>
 
-<center><p><img src="https://c.tenor.com/A6REms8pMPMAAAAC/gia-gunn.gif" style="border:5px solid black"></p></center><br>
+<center><p><img src="https://c.tenor.com/A6REms8pMPMAAAAC/gia-gunn.gif" style="border:5px solid black" alt="Gia Gunn looking skeptical says well what you wanna do is not necessarily what you're gonna do"></p></center><br>
 
 ***
 

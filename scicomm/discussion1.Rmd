@@ -13,7 +13,7 @@ output:
 
 <font size="+2"><b>Getting Started...</b></font></center><br>
 
-<center><p><img src="https://static.wikia.nocookie.net/rupauls-parody-shows/images/6/6e/The_library_is_open.gif/revision/latest/scale-to-width-down/500?cb=20180318233402" style="border:5px solid black"></p></center><br>
+<center><p><img src="https://static.wikia.nocookie.net/rupauls-parody-shows/images/6/6e/The_library_is_open.gif/revision/latest/scale-to-width-down/500?cb=20180318233402" style="border:5px solid black" alt="RuPaul says the library is open!"></p></center><br>
 
 ***
 
