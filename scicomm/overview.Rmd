@@ -7,6 +7,13 @@ output:
     theme: cosmo
 ---
 
+```{r, echo=F}
+htmltools::img(src = "buhub.png", 
+               alt = 'BU Hub logo', 
+               style = 'position:absolute; top:0; right:0; padding:20px;',
+               height="70")
+```
+
 ***
 
 <center>
