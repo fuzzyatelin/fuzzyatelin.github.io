@@ -1,0 +1,71 @@
+---
+title: 'Discussion 4: Peer Review'
+author: "Christopher A. Schmitt"
+date: "April 4, 2022"
+output: 
+  html_document:
+    theme: cosmo
+---
+
+***
+
+<center>
+
+<font size="+2"><b>Be nice...</b></font></center><br>
+
+<center><p><img src="https://c.tenor.com/5qLdHlKC3egAAAAC/bianca-del-rio-juding-you.gif" style="border:5px solid black"></p></center><br>
+
+***
+
+**Learning Objectives**
+
+* Be able to *give* productive and respectful peer review comments
+* Be able to *respectfully receive* peer-reviewed feedback
+
+***
+
+# Part 1: Providing Useful and Respectful Peer-Review
+
+
+***
+
+**By now, all draft SciComm projects should be uploaded to the Discussion on Blackboard and available for Peer Review during Discussion sections on April 25 and 26!**
+
+If you're in CAS AN/WS 233, your TF (Ana) will be out writing her comprehensive exam for her Ph.D. (good luck, Ana!). The comprehensive exam is a peer-review process in which she will write 6 essays digging deeply into anthropology/archaeology - both broadly in the discipline and in her own particular field of study - which will then be critiqued by three professors who are specialists in her field, after which she will have an oral exam in which she will discuss feedback on her essays with them. As you can imagine, it can be pretty intense!  As such, Ana will not be in discussion those days, and so **discussions for April 25 and 26 will be done remotely**.
+
+We recommend you conduct your Discussion time at home, in a comfortable setting. There will be no zoom meeting, so *you are responsible for partaking in Discussion activities yourself during the appropriate time*. You'll spend your Discussion time on Blackboard, in a Discussion room providing written feedback on your peers' uploaded SciComm projects.  Ana will assign you a particular presentation to provide feedback on, but you are encouraged to spend your Discussion time providing feedback to as many of your peers' projects as you can.
+
+**It is crucial that you provide your feedback to your assigned peers during your formal Discussion time so that they have time to process and act on your feedback before in-class presentations.**
+
+Reviewing the work of your peers and colleagues can be challenging, but here are some helpful tips to encourage peer-review critiques that are both *useful* and, above all, *respectful*:
+
+* Utilize the [overview page](https://fuzzyatelin.github.io/scicomm/overview.html), [expectations](https://fuzzyatelin.github.io/scicomm/expectations.html), and the [peer review rubric](https://fuzzyatelin.github.io/scicomm/rubric.html) to guide your peer-reviews. This will help you to be specific regarding what would improve your peers' scicomm projects in your review.
+* Provide at least one *positive statement* about the project you are reviewing, and *more than one* would be ideal (try for a one-to-one ratio of positive to constructive feedback). What about the SciComm project do you think works well? Is the imagery nice? Is the message clear? Is the target audience well-communicated to? Perhaps the format the group used is particularly effective? 
+* Provide at least one point of *constructive feedback*. This should be specific. For example, you might find that the image used is out of focus, or perhaps the authors used an image of colorful butterfly wings to reflect variation in human skin color and you think that parellel might be a bit confusing for the audience. Maybe they forgot to include an alt-text or caption for an image? Or the text/background color combo is not ideal for accessibility? 
+* Be sure to consider the scientific accuracy of the SciComm piece. For example, did the authors stray from the science of human pigmentation too far and compromise their accuracy? Did the authors rely on racial terms when we are trying to find other, more accurate ways to frame human biological variation?
+* *Do not be judgmental or personal*. For example, avoid saying things like, "Your writing is terrible." Instead, frame critiques around the *content itself*. If you found the text confusing, say, "The phrasing is very wordy and I worry that you might lose your audience. I suggest re-phrasing the third bullet point in your list especially." Constructive criticism can be applied politely, and is better given with clear goals for improvement in mind. *Use respectful language*. Remember, it is the *project* that is getting reviewed, not the people who created those projects. Assume the best of your classmates. Assume that mistakes are honest goof-ups; we all make those, especially when we are busy and juggling lots of different things. Thankfully, we have colleagues who will point out our goofs so we can fix them and make our SciComm projects better!
+
+**Please note that your reviews need to be completed on Blackboard within 24 hours of your discussion section so that groups have time to work with the revisions before presenting in class!**
+
+***
+
+# Part 2: Respectfully Receiving Feedback
+
+
+***
+
+* Reading a review of your SciComm project might give you an uneasy feeling. Did the person like what you did? What do they think of *you* as the creator of that content? This may be particularly nerve-wracking when writing about science that engages with identities that your peers may hold very personal thoughts and feelings about.
+* Our recommendation is to read through the reviews of your SciComm project with an open mind and a strong internal voice reminding you that *this process is meant to help you make the best SciComm project possible*. Remember, these are reviews of a *project* you were involved with, not a review of *you*. No project is *ever* perfect, especially not in its first iteration. 
+* In science, we write up our research into manuscript form. That manuscript circles through all the coauthors. Once we are happy with it, we then share the manuscript with a wider set of colleagues who we trust to give us sincere and honest feedback. The hope is that this second circle of colleagues will catch if we have made a big mistake without realizing it, or perhaps they'll see something that we couldn't see because we are too familiar with our own work. This kind of out-of-group peer-review is essential to catching mistakes and improving the quality of a manuscript.
+* We want you to benefit from this peer-review process, as well, for your SciComm project. It's all aimed at making a much better project in the end. So, *embrace the constructive feedback* as an opportunity to improve your work!
+* It often happens that some of the advice/recommendation you receive will be contradictory, and that there is no way to address everything that will be suggested. Pick and choose what feels like good advice that meshes with your SciComm project mission. Make those adjustments as you revise your project. We do not expect you to address or include *every* suggestion your classmates provide. But, we do expect that you *will* make revisions.
+* To be clear, we expect there to be *some* revision between your first version of the SciComm project and the final version you present in class. Remember, *no first draft of a project is perfect*. There is *always* something that can be improved!
+
+
+**Remember that there is a tight turnaround between when you receive your peer review, and when you'll be presenting your SciComm in class, so plan accordingly! I recommend budgeting some time to take into account your peers' comments as soon as you've received them, so that you have time to work with the revisions before presenting in class!**
+
+***
+
+**Please note**: the SciComm aspects of this course are based closely on a similar course at UC Berkeley, IB35ac, designed by Leslea Hlusko (&copy; 2020). These materials have been accessed and adapted with her permission as part of the BRIDGE Project, developed by her student, Ph.D. Candidate Taormina Lepore.
+
+***
