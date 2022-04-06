@@ -19,7 +19,7 @@ Audience<-c("Is the audience clearly identified and spoken to, or an attempt to 
 Format<-c("How effectively was the technology utilized?","technology feels like a mismatch", "it works","technology/format really enhances the message")
 Science<-c("Is the piece scientifically accurate?","the science seemed easy to misunderstand or misinterpret","the science was accurate but it might be misunderstood by some members of the target audience","it would be really hard to misunderstand the science")
 Accessibility<-c("Is the project considering an aspect of accessibility?","there were opportunities for accommodation that were overlooked","some attention to accessibility but could be improved (i.e., like the alt- text was too brief, colors and contrast are less than ideal, etc.)","presentation was clearly and easily accessible for at least one accommodation (e.g., closed captions, descriptive narration, alt text, etc.)")
-Creativity<-c("Write a sentence about your thoughts on the effectiveness and creativity of the project. How engaging or attention capturing was the project?","","","")
+Creativity<-c("Rather than rating it on a scale, write a sentence about your thoughts on the effectiveness and creativity of the project. How engaging or attention capturing was it?","","","")
 
 rubric<-rbind(Level,Audience,Format,Science,Accessibility,Creativity)
 
