@@ -1,6 +1,6 @@
 ---
 title: 'Discussion 1:<br>Science Communication'
-author: "Christopher A Schmitt"
+author: "Christopher A Schmitt</br>Departments of Anthropology & Biology<br>Boston University"
 date: "April 2, 2022"
 output: 
   prettydoc::html_pretty:
@@ -140,6 +140,10 @@ To get a head start on your homework, your TF will encourage you to split into g
 
 Please check [Blackboard](https://learn.bu.edu) for your assignment sheet!
 
+
+***
+
+# [Back to SciComm Home](https://fuzzyatelin.github.io/scicomm/overview.html)
 
 ***
 

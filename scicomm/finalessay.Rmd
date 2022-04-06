@@ -1,6 +1,6 @@
 ---
 title: "Final Essay Prompts"
-author: "Christopher A. Schmitt"
+author: "Christopher A Schmitt</br>Departments of Anthropology & Biology<br>Boston University"
 date: "April 6, 2022"
 output: 
   prettydoc::html_pretty:
@@ -47,6 +47,10 @@ Remember, the assignment is worth up to 30 points of your final exam (on **May 1
 
 Best of luck with this assignment! We look forward to hearing your reflections on the SciComm project!
 
+
+***
+
+# [Back to SciComm Home](https://fuzzyatelin.github.io/scicomm/overview.html)
 
 ***
 

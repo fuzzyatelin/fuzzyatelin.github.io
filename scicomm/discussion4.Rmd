@@ -1,6 +1,6 @@
 ---
 title: 'Discussion 4:<br>Peer Review'
-author: "Christopher A. Schmitt"
+author: "Christopher A Schmitt</br>Departments of Anthropology & Biology<br>Boston University"
 date: "April 4, 2022"
 output: 
   prettydoc::html_pretty:
@@ -61,6 +61,10 @@ Reviewing the work of your peers and colleagues can be challenging, but here are
 
 
 **Remember that there is a tight turnaround between when you receive your peer review, and when you'll be presenting your SciComm in class, so plan accordingly! I recommend budgeting some time to take into account your peers' comments as soon as you've received them, so that you have time to work with the revisions before presenting in class!**
+
+***
+
+# [Back to SciComm Home](https://fuzzyatelin.github.io/scicomm/overview.html)
 
 ***
 

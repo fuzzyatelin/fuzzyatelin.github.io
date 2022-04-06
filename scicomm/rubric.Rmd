@@ -1,6 +1,6 @@
 ---
 title: "Inclusive Design Project Rubric"
-author: "Christopher A. Schmitt"
+author: "Christopher A Schmitt</br>Departments of Anthropology & Biology<br>Boston University"
 date: "April 5, 2022"
 output: 
   prettydoc::html_pretty:
@@ -22,6 +22,10 @@ rubric<-rbind(Level,Audience,Format,Science)
 
 kable(rubric)
 ```
+
+***
+
+# [Back to SciComm Home](https://fuzzyatelin.github.io/scicomm/overview.html)
 
 ***
 

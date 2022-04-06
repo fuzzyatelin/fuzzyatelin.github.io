@@ -1,6 +1,6 @@
 ---
 title: "Expectations for the Inclusive Design Project"
-author: "Christopher A. Schmitt"
+author: "Christopher A Schmitt</br>Departments of Anthropology & Biology<br>Boston University"
 date: "April 5, 2022"
 output: 
   prettydoc::html_pretty:
@@ -138,6 +138,10 @@ When the whole team succeeds, we all succeed.
 
 Utilize this throughout your project planning process, as early and as often as possible, so you have a good idea of what we are looking for -- and what your peer-review assignment will ask you to look for!
 <br><br>
+
+***
+
+# [Back to SciComm Home](https://fuzzyatelin.github.io/scicomm/overview.html)
 
 ***
 

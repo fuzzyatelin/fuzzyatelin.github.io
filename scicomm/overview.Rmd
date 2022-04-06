@@ -1,6 +1,6 @@
 ---
 title: "CAS AN/WS 233:<br>Inclusive Design Project"
-author: "Christopher A Schmitt</br>Boston University"
+author: "Christopher A Schmitt</br>Departments of Anthropology & Biology<br>Boston University"
 date: "April 2, 2022"
 output: 
   prettydoc::html_pretty:

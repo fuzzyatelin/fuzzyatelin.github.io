@@ -1,6 +1,6 @@
 ---
 title: 'Discussion 3:<br>Creating a Narrative'
-author: "Christopher A. Schmitt"
+author: "Christopher A Schmitt</br>Departments of Anthropology & Biology<br>Boston University"
 date: "April 6, 2022"
 output: 
   prettydoc::html_pretty:
@@ -87,6 +87,10 @@ Continue your science storytelling journey! We have just 1 week until you presen
 Familiarize yourself with the [Project Peer-Review](https://fuzzyatelin.github.io/scicomm/discussion4.html) / [Final Rubric](https://fuzzyatelin.github.io/scicomm/rubric.html), which you will use to give feedback to to other groups in the peer-review process on Blackboard (https://learn.bu.edu)!
 
 **Your draft SciComm project should be uploaded to the Discussion on Blackboard by *Midnight of April 24* so that they are available for Peer Review during Discussion sections on April 25 and 26!**
+
+***
+
+# [Back to SciComm Home](https://fuzzyatelin.github.io/scicomm/overview.html)
 
 ***
 

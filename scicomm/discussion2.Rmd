@@ -1,6 +1,6 @@
 ---
 title: 'Discussion 2:<br>Primary Literature to Target Audience'
-author: "Christopher A Schmitt"
+author: "Christopher A Schmitt</br>Departments of Anthropology & Biology<br>Boston University"
 date: "April 11, 2022"
 output: 
   prettydoc::html_pretty:
@@ -160,6 +160,10 @@ Visit this [Info Page on Copyright & Fair Use](https://fuzzyatelin.github.io/sci
 Please make sure to have your group, target audience, and media type decided upon. You should begin outlining and constructing your science communication piece.
 
 Throughout your project, read and utilize this document [Expectations for the Creative Discovery Project](https://fuzzyatelin.github.io/scicomm/expectations.html) to get a sense of what your end goals should be.
+
+***
+
+# [Back to SciComm Home](https://fuzzyatelin.github.io/scicomm/overview.html)
 
 ***
 
