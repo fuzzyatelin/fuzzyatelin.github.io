@@ -1,0 +1,95 @@
+---
+title: 'Discussion 3: Creating a Narrative'
+author: "Christopher A. Schmitt"
+date: "April 6, 2022"
+output: 
+  html_document:
+    theme: cosmo
+---
+
+***
+
+<center>
+
+<font size="+2"><b>Story time!</b></font></center><br>
+
+<center><p><img src="https://c.tenor.com/-YH4v3aKsbYAAAAC/let-me-tell-you-the-story-let-me-explain.gif" style="border:5px solid black"></p></center><br>
+
+***
+
+**Learning Objectives**
+
+* Students will be able to define the role of framing and context as it relates to conveying scientific information and evidence
+* Students will be able to communicate science without framing the science around race
+* Students will be able to specify roles within their group collaboration (communicating author, scientific content eye, audience eye, creative eye)
+
+***
+
+# Science Story Framing: Narrative
+
+***
+
+What does it mean to construct a science story?
+
+Science stories are not (often) fantastical. In contrast to confabulations and pure storytelling, they must be based in clear evidence (preferentially with citations!).
+
+Despite this need for a basis in empirical evidence, science narratives can still use common elements of story structure to better engage an audience. This is the same kind of technique you may have seen or experienced through a news broadcast, a nature documentary, or narrative book, or in a well-crafted podcast. Think about how the various science communciation examples you've seen so far use story telling and narrative to nest empirical data or results in a broader/more accessible narrative to make the science more compelling...
+
+There are several examples of the standard elements of story structure. As BU students, you've likely encountered these in your [First-Year Writing Seminar](https://www.bu.edu/writingprogram/writing-program-curriculum/), and may want to review these elements to help with this exercise. These are not universal across the world - different cultures may find different story structures compelling, and this may be a consideration for your Target Audience - but they can provide a starting point for framing a story’s narrative, based in scientific evidence.
+
+Keep in mind, the [elements we discuss in class](https://williamkowalski.com/creative-writing-tips/articles/how-aristotle-can-help-you-become-a-better-writer/) are not exhaustive or definitive, and can be seen as based largely in a European-centric narrative structure, in fact tracing to much of the work of the Greek philosopher [Aristotle](https://medium.com/@odile_sullivan/narrative-insights-what-aristotle-can-teach-us-about-storytelling-239d1b878e74).
+
+We encourage you to think broadly about elements of storytelling from across the world, and to research these methods if you desire.
+
+***
+
+**Remember**:
+
+* What are the main points you want to get across? (Key pieces of evidence)
+* Who is your target audience? What are their *demographics* and *psychographics* (from last [Discussion](https://fuzzyatelin.github.io/scicomm/discussion2.html))?
+* How will you communicate to them?
+    * How will you tell the story you want to tell?
+    * What is your media type / platform?
+    
+***
+
+For more detail, please check out these resources:
+
+* [Dahlstrom, Michael F. 2014. Storytelling in science: Using narratives and storytelling to communicate science with nonexpert audiences. *Proceedings of the National Academy of Sciences*, 111 (Supplement 4) 13614-13620](https://doi.org/10.1073/pnas.1320645111)
+
+* [ElShafie, Sara J. 2018. Making Science Meaningful for Broad Audiences through Stories. Integrative and *Comparative Biology*, Vol. 58(6): 1213–1223](https://doi.org/10.1093/icb/icy103)
+
+* [Riedlinger, M., Metcalfe, J., Baram-Tsabari, A., Entradas, M., Joubert, M. and Massarani, L. 2019. Telling stories in science communication: case studies of scholar-practitioner collaboration. *Journal of Science Communication*, 18 (05), N01](https://doi.org/10.22323/2.18050801)
+
+***
+
+# Crafting Your Own Narrative
+
+***
+
+**Storyboarding Your Project**
+
+<center><<a href="http://www.trainingforgold.eu/2016/01/storyboarding-tutorial/"><img src="http://pont-mooc.eu/wp-content/uploads/2014/08/kenneth_chan_storyboard001.png" style="border:5px solid black"></a></center><br>
+
+In Discussion today, once you've thought through what you want your narrative to be, you should spend some time trying to storyboard your SciComm. Click on the image above to get some clear and easy tips about how to successfully develop a helpful storyboard that will make putting together your final SciComm project a lot easier.
+
+This will look slightly different depending on your media type (for example, a documentary video vs. an Adobe Creative Cloud presentation), but the general idea is the same - to craft narrative "beats" or points in your science communication.
+
+By next week's Discussion (which will be held remotely), *you should have already completed a **draft** of your SciComm*, which you will upload to a Blackboard Discussion group for the Peer Review process!
+
+
+***
+
+# For Next Week
+
+***
+
+Continue your science storytelling journey! We have just 1 week until you present your draft SciComm for peer-review (in the next Discussion). Use your storyboarding to create your first draft!
+
+Familiarize yourself with the [Project Peer-Review](https://fuzzyatelin.github.io/scicomm/discussion4.html) / [Final Rubric](https://fuzzyatelin.github.io/scicomm/rubric.html), which you will use to give feedback to to other groups in the peer-review process on Blackboard (https://learn.bu.edu)!
+
+***
+
+**Please note**: the SciComm aspects of this course are based closely on a similar course at UC Berkeley, IB35ac, designed by Leslea Hlusko (&copy; 2020). These materials have been accessed and adapted with her permission as part of the BRIDGE Project, developed by her student, Ph.D. Candidate Taormina Lepore.
+
+***

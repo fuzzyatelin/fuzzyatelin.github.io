@@ -44,6 +44,8 @@ As you debrief with your discussion group, start by sharing a conversation on th
 * Can we identify at least one strength and at least one drawback of primary research articles and primary literature review articles?
 * In your groups, compile a short list of 3-4 scientific facts/evidence, insights, and data from each paper that you feel will be important to share with the general public. This will help you generate discussion and outline the science you wish to communicate.
 
+**Your next step is to conduct a similar search in the primary literature for your own SciComm topic, based on a topic or presentation you learned about in class!** Keep in mind that this doesn't have to be a whole thesis - a few well-chosen articles from the primary literature will serve you well.
+
 ***
 
 # Part 2: Target Audience and Accessibility
@@ -60,7 +62,7 @@ Naturally, there will be some differences in how science is communicated based o
 
 Each target audience will have a certain combination of *demographics* and *psychographics*.
 
-**Demographics** are quantifiable categories which target audiences identify with or share. Examples of *Target Audience Demographics* may include (and this list is not exhaustive):
+***Demographics*** are quantifiable categories which target audiences identify with or share. Examples of *Target Audience Demographics* may include (and this list is not exhaustive):
 
 * Age groups
 * Socioeconomic backgrounds
@@ -74,7 +76,7 @@ Each target audience will have a certain combination of *demographics* and *psyc
 * Country of origin
 * Rural/urban audiences
 
-**Psychographics** are how the target audience may think or feel, and includes audience aspirations, preconceived ideas, or attitudes about a topic. 
+***Psychographics*** are how the target audience may think or feel, and includes audience aspirations, preconceived ideas, or attitudes about a topic. 
 
 **For example**: Your target audience may be students and teachers within a Boston-area, 1st grade, urban school class (*demographic*); when talking with teachers, you may discover they feel anxious about teaching students in a remote environment, and the students themselves want fun and engaging cartoon material (*psychographics*).
 
