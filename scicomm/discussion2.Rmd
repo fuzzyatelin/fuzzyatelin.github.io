@@ -161,5 +161,9 @@ Please make sure to have your group, target audience, and media type decided upo
 
 Throughout your project, read and utilize this document [Expectations for the Creative Discovery Project](https://fuzzyatelin.github.io/scicomm/expectations.html) to get a sense of what your end goals should be.
 
+***
 
+**Please note**: the SciComm aspects of this course are based closely on a similar course at UC Berkeley, IB35ac, designed by Leslea Hlusko (&copy; 2020). These materials have been accessed and adapted with her permission as part of the BRIDGE Project, developed by her student, Ph.D. Candidate Taormina Lepore.
+
+***
 
