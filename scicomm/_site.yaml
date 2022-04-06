@@ -1,0 +1,28 @@
+name: "CAS AN/WS 233: SciComm"
+navbar:
+  title: "CAS AN/WS 233: SciComm Discussions"
+  left:
+    - text: "Home"
+      href: overview.html
+    - text: "Discussion 1: Science Communication"
+      href: discussion1.html
+    - text: "Discussion 2: Primary Literature to Target Audience"
+      href: discussion2.html
+    - text: "Discussion 3: Creating a Narrative"
+      href: discussion3.html
+    - text: "Discussion 4: Peer Review"
+      href: discussion4.html
+    - text: "Final Essays"
+      href: finalessay.html
+    - text: "More"
+      menu:
+        - text: "Project Expectations"
+        href: expectations.html
+        - text: "Info on Copyright"
+        href: copyright.html
+        - text: "Assessment Rubric"
+        href: rubric.html
+output:
+  html_document:
+    theme: cosmo
+    highlight: textmate
