@@ -1,19 +1,17 @@
 ---
-title: 'Discussion 2: Primary Literature to Target Audience'
+title: 'Discussion 2:<br>Primary Literature to Target Audience'
 author: "Christopher A Schmitt"
 date: "April 11, 2022"
 output: 
-  html_document:
-    theme: cosmo
+  prettydoc::html_pretty:
+    theme: cayman
 ---
-
-***
 
 <center>
 
 <font size="+2"><b>Speaking to Your Audience...</b></font></center><br>
 
-<center><p><img src="https://c.tenor.com/A6REms8pMPMAAAAC/gia-gunn.gif" style="border:5px solid black" alt="Gia Gunn looking skeptical says well what you wanna do is not necessarily what you're gonna do"></p></center><br>
+<center><p><img src="https://c.tenor.com/A6REms8pMPMAAAAC/gia-gunn.gif" style="border:5px solid lightseagreen" alt="Gia Gunn looking skeptical says well what you wanna do is not necessarily what you're gonna do"></p></center><br>
 
 ***
 

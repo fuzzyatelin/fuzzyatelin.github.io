@@ -3,8 +3,8 @@ title: "Final Essay Prompts"
 author: "Christopher A. Schmitt"
 date: "April 6, 2022"
 output: 
-  html_document:
-    theme: cosmo
+  prettydoc::html_pretty:
+    theme: cayman
 ---
 
 ***
@@ -13,7 +13,7 @@ output:
 
 <font size="+2"><b>Wrapping Up the SciComm Journey</b></font></center><br>
 
-<center><p><img src="https://static.wikia.nocookie.net/justdance/images/d/df/Sashay_away_BYFAS.gif/revision/latest?cb=20200622225036" style="border:5px solid black" alt="RuPaul says Sashay Away"></p></center><br>
+<center><p><img src="https://static.wikia.nocookie.net/justdance/images/d/df/Sashay_away_BYFAS.gif/revision/latest?cb=20200622225036" style="border:5px solid lightseagreen" alt="RuPaul says Sashay Away"></p></center><br>
 
 ***
 

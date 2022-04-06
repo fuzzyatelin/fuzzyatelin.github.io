@@ -3,17 +3,17 @@ title: "Expectations for the Inclusive Design Project"
 author: "Christopher A. Schmitt"
 date: "April 5, 2022"
 output: 
-  html_document:
-    theme: cosmo
+  prettydoc::html_pretty:
+    theme: cayman
 ---
 
 ***
 
-# Inclusive Design Project Outline
+<center>
+# Your Inclusive Design Project Outline
+</center>
 
-***
-
-<center><p><img src="https://i.pinimg.com/originals/0e/27/fe/0e27fe9a85a554479d43cb97904ea5b8.gif" style="border:5px solid black" alt="RuPaul is all business saying you better work b"></p></center>
+<center><p><img src="https://i.pinimg.com/originals/0e/27/fe/0e27fe9a85a554479d43cb97904ea5b8.gif" style="border:5px solid lightseagreen" alt="RuPaul is all business saying you better work b"></p></center>
 
 ***
 
@@ -21,7 +21,7 @@ The aim of this project is for you to gain experience in communicating scientifi
 
 We will need you to focus on the scientific evidence in your Inclusive Design Project...
 
-**We are looking for**:
+## We are looking for:
 
 1. Scientific accuracy
 2. A frame for understanding the science that does not rely on the scientifically incorrect idea of there being human races
@@ -32,7 +32,7 @@ We will need you to focus on the scientific evidence in your Inclusive Design Pr
 
 *Have you included each of these criteria above in your final product?*
 
-**Things to avoid**:
+## Things to avoid:
   
 1. Ranting for or against what others have done
 2. Making a political argument the focus *rather than* the science
@@ -47,7 +47,7 @@ In doing so, you will frame your explanation of the science without falling into
 
 ***
 
-**Learning Objectives**
+## Learning Objectives
 
 The Inclusive Design Project is an opportunity to:
 

@@ -3,9 +3,14 @@ title: "Inclusive Design Project Rubric"
 author: "Christopher A. Schmitt"
 date: "April 5, 2022"
 output: 
-  html_document:
-    theme: cosmo
+  prettydoc::html_pretty:
+    theme: cayman
 ---
+<center>
+
+# Assessment Rubric for Inclusive Design Project
+
+</center>
 
 ```{r,echo=F}
 library(knitr)
@@ -15,7 +20,7 @@ Format<-c("How effectively was the technology utilized?","technology feels like 
 Science<-c("Is the piece scientifically accurate?","the science seemed easy to misunderstand or misinterpret","the science was accurate but it might be misunderstood by some members of the target audience","it would be really hard to misunderstand the science")
 rubric<-rbind(Level,Audience,Format,Science)
 
-kable(rubric, caption="Assessment Rubric for Inclusive Design Project")
+kable(rubric)
 ```
 
 ***

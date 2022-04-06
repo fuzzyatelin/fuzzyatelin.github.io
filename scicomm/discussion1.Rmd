@@ -1,30 +1,28 @@
 ---
-title: 'Discussion 1: Science Communication'
+title: 'Discussion 1:<br>Science Communication'
 author: "Christopher A Schmitt"
 date: "April 2, 2022"
 output: 
-  html_document:
-    theme: cosmo
+  prettydoc::html_pretty:
+    theme: cayman
 ---
-
-***
 
 <center>
 
 <font size="+2"><b>Getting Started...</b></font></center><br>
 
-<center><p><img src="https://static.wikia.nocookie.net/rupauls-parody-shows/images/6/6e/The_library_is_open.gif/revision/latest/scale-to-width-down/500?cb=20180318233402" style="border:5px solid black" alt="RuPaul says the library is open!"></p></center><br>
+<center><p><img src="https://static.wikia.nocookie.net/rupauls-parody-shows/images/6/6e/The_library_is_open.gif/revision/latest/scale-to-width-down/500?cb=20180318233402" style="border:5px solid lightseagreen" alt="RuPaul says the library is open!"></p></center><br>
 
 ***
 
-**Learning Objectives**
+## Learning Objectives
 
 * Know the difference between the primary scientific literature and what is *not* the primary scientific literature.
 * Recognize the benefits and drawbacks of different forms of science communication.
 * Explore methods to access primary scientific resources, both at the library and online.
 * Discuss a selected review article and a primary research articles ont eh same topic; compare/contrast the differences.
 
-**Material Covered**
+## Material Covered
 
 * Practice: Science Communication Discussion
 * Library Resources

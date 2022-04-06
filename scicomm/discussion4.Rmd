@@ -1,23 +1,21 @@
 ---
-title: 'Discussion 4: Peer Review'
+title: 'Discussion 4:<br>Peer Review'
 author: "Christopher A. Schmitt"
 date: "April 4, 2022"
 output: 
-  html_document:
-    theme: cosmo
+  prettydoc::html_pretty:
+    theme: cayman
 ---
-
-***
 
 <center>
 
 <font size="+2"><b>Be nice...</b></font></center><br>
 
-<center><p><img src="https://c.tenor.com/5qLdHlKC3egAAAAC/bianca-del-rio-juding-you.gif" style="border:5px solid black" alt="Bianca Del Rio sipping her tea and looking very judgmental"></p></center><br>
+<center><p><img src="https://c.tenor.com/5qLdHlKC3egAAAAC/bianca-del-rio-juding-you.gif" style="border:5px solid lightseagreen" alt="Bianca Del Rio sipping her tea and looking very judgmental"></p></center><br>
 
 ***
 
-**Learning Objectives**
+## Learning Objectives
 
 * Be able to *give* productive and respectful peer review comments
 * Be able to *respectfully receive* peer-reviewed feedback

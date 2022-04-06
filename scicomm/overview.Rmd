@@ -1,28 +1,26 @@
 ---
-title: "AN 233/551: Inclusive Design Project"
+title: "CAS AN/WS 233:<br>Inclusive Design Project"
 author: "Christopher A Schmitt</br>Boston University"
 date: "April 2, 2022"
 output: 
-  html_document:
-    theme: cosmo
+  prettydoc::html_pretty:
+    theme: cayman
 ---
 
-```{r, echo=F}
+```{r, echo=F,eval=F}
 htmltools::img(src = "buhub.png", 
                alt = 'BU Hub logo', 
                style = 'position:absolute; top:0; right:0; padding:20px;',
                height="70")
 ```
 
-***
 
 <center>
-# Science Communication Modules
+<font size="+2"><b>Science Communication Modules</b></font></center><br>
 </center>
 
-***
 
-<center><p><img src=https://thumbs.gfycat.com/AnotherParchedBinturong-size_restricted.gif style="border:5px solid black" alt="extravagant drag queen against a background of floating red blood cells says I don't know anything about science other than its really good for you"></p></center>
+<center><p><img src=https://thumbs.gfycat.com/AnotherParchedBinturong-size_restricted.gif style="border:5px solid lightseagreen" alt="extravagant drag queen against a background of floating red blood cells says I don't know anything about science other than its really good for you"></p></center>
 
 ***
 

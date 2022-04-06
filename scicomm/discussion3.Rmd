@@ -1,23 +1,21 @@
 ---
-title: 'Discussion 3: Creating a Narrative'
+title: 'Discussion 3:<br>Creating a Narrative'
 author: "Christopher A. Schmitt"
 date: "April 6, 2022"
 output: 
-  html_document:
-    theme: cosmo
+  prettydoc::html_pretty:
+    theme: cayman
 ---
-
-***
 
 <center>
 
 <font size="+2"><b>Story time!</b></font></center><br>
 
-<center><p><img src="https://c.tenor.com/-YH4v3aKsbYAAAAC/let-me-tell-you-the-story-let-me-explain.gif" style="border:5px solid black" alt="sasha velour says let me tell you the story while a man laughs hysterically"></p></center><br>
+<center><p><img src="https://c.tenor.com/-YH4v3aKsbYAAAAC/let-me-tell-you-the-story-let-me-explain.gif" style="border:5px solid lightseagreen" alt="sasha velour says let me tell you the story while a man laughs hysterically"></p></center><br>
 
 ***
 
-**Learning Objectives**
+## Learning Objectives
 
 * Students will be able to define the role of framing and context as it relates to conveying scientific information and evidence
 * Students will be able to communicate science without framing the science around race

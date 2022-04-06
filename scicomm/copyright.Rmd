@@ -3,8 +3,8 @@ title: "Copyright and Fair Use"
 author: "Christopher A. Schmitt"
 date: "April 5, 2022"
 output: 
-  html_document:
-    theme: cosmo
+  prettydoc::html_pretty:
+    theme: cayman
 ---
 
 ***
@@ -13,7 +13,7 @@ output:
 
 <font size="+2"><b>Watch Yourself...</b></font></center><br>
 
-<center><p><img src="https://c.tenor.com/a6st6TA6zgIAAAAC/sue-copyright.gif" style="border:5px solid black" alt="Nina Bonina Brown in drag as a bunny saucily challenges the audience to sue her"></p></center><br>
+<center><p><img src="https://c.tenor.com/a6st6TA6zgIAAAAC/sue-copyright.gif" style="border:5px solid lightseagreen" alt="Nina Bonina Brown in drag as a bunny saucily challenges the audience to sue her"></p></center><br>
 
 ***
 
