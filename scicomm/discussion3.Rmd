@@ -65,6 +65,33 @@ For more detail, please check out these resources:
 
 ***
 
+**Are *You* Part of the Narrative?**
+
+We've already talked about how important it is that the medium you use for communicating science be appropriate to your goals. One crucial piece anyone communicating science has to remember is that *you, the communicator, are part of the medium*.
+
+Depending on what medium you choose, this may be more or less important. 
+
+If you're making an *infographic*, for example, your identity may be masked from the audience, and so your identity may provide little, if any, context to the communication aside from how you choose to frame or portray the science you discuss.
+
+The identity of who makes and delivers a message, though, can be *very* powerful.
+
+<br>
+
+```{r, echo=F}
+library(tiktokrmd)
+tt_url <- "https://www.tiktok.com/@tinalasisi/video/7045389185716440325"
+tt <- tiktok_embed(tt_url)
+
+tt
+```
+
+<br>
+A great example is the work of [Dr. Tina Lasisi](https://www.tinalasisi.com/). Dr. Lasisi is an Assistant Professor of Biological Anthropology at the University of Michigan, and a very active science communicator. As a researcher, she is among the first to study the [evolutionary biology of hair texture](https://faseb.onlinelibrary.wiley.com/doi/abs/10.1096/fasebj.2020.34.s1.03166). Necessarily, as someone studying hair texture, she also focuses academically on the ways in which notions of [race and biology intersect](https://onlinelibrary.wiley.com/doi/full/10.1002/ajpa.24264). Her focus on these topics is, in part, inspired and informed by her experience as a person with both African and European ancestry. She brings this identity to her science communication, [primarily on TikTok](https://www.tiktok.com/@tinalasisi).
+
+How do you think Dr. Lasisi's identity might be important to her doing this science? More importantly, for these modules, how is her identity important to her science communication? For example, how would it affect her audience, and the effectiveness of her SciComm, if she were making these same TikToks as a white man?
+
+Keep this in mind when thinking about how you want to craft your narrative. Are you a part of the story you're telling? Should you be? What doors might your identity in the narrative open or close for your audience, and for their understanding of the science?
+
 **Storyboarding Your Project**
 
 <center><<a href="http://www.trainingforgold.eu/2016/01/storyboarding-tutorial/"><img src="http://pont-mooc.eu/wp-content/uploads/2014/08/kenneth_chan_storyboard001.png" style="border:5px solid black" alt="this image presents an example storyboard of a student preparing a storyboard, and is also a link to a blog with instructions for storyboarding"></a></center><br>
