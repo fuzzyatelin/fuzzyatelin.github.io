@@ -1,7 +1,7 @@
 ---
 title: 'Discussion 3:<br>Creating a Narrative'
 author: "Christopher A Schmitt</br>Departments of Anthropology & Biology<br>Boston University"
-date: "April 6, 2022"
+date: "April 21, 2022"
 output: 
   prettydoc::html_pretty:
     theme: cayman
@@ -85,7 +85,6 @@ tt <- tiktok_embed(tt_url)
 tt
 ```
 
-<br>
 
 A great example is the work of [Dr. Tina Lasisi](https://www.tinalasisi.com/). Dr. Lasisi is an Assistant Professor of Biological Anthropology at the University of Michigan, and a very active science communicator. As a researcher, she is among the first to study the [evolutionary biology of hair texture](https://faseb.onlinelibrary.wiley.com/doi/abs/10.1096/fasebj.2020.34.s1.03166). Necessarily, as someone studying hair texture, she also focuses academically on the ways in which notions of [race and biology intersect](https://onlinelibrary.wiley.com/doi/full/10.1002/ajpa.24264). Her focus on these topics is, in part, inspired and informed by her experience as a person with both African and European ancestry. She brings this identity to her science communication, [primarily on TikTok](https://www.tiktok.com/@tinalasisi).
 
