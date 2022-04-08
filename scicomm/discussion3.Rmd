@@ -79,7 +79,7 @@ The identity of who makes and delivers a message, though, can be *very* powerful
 
 ```{r, echo=F}
 library(tiktokrmd)
-tt_url <- "https://www.tiktok.com/@tinalasisi/video/7045389185716440325"
+tt_url <- "https://www.tiktok.com/@tinalasisi/video/7054423407437565230"
 tt <- tiktok_embed(tt_url)
 
 tt
