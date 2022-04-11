@@ -112,6 +112,8 @@ The following resources will help guide your science communication and accessibi
 **Accessibility Resources**
 
 * [BU Disability & Access Services](https://www.bu.edu/disability/about/)
+* [BU Closed Captioning Guidelines](https://www.bu.edu/disability/closedcaptions/)
+* [Free Video Editing and Captioning via VEED](https://www.veed.io/)
 * [UC Berkeley Web Accessibility Guidelines](https://webaccess.berkeley.edu/home)
 * [UC Berkeley Introduction to Course Accessibility](https://bcourses.berkeley.edu/courses/1456326)
 * [*American Anthropologist* Guidelines for Creating Image Descriptions](https://www.americananthro.org/ImageDescriptions?navItemNumber=25126#:~:text=Image%20descriptions%20provide%20a%20textual,users%20of%20all%20AAA%20products)
