@@ -120,6 +120,8 @@ The following resources will help guide your science communication and accessibi
 * [Making PDFs Accessible for Screen Readers](https://webaim.org/techniques/acrobat/acrobat)
 * [Captions via WebCaptioner](https://webcaptioner.com/)
 * [For Color Blind Friendly Palettes](https://venngage.com/blog/color-blind-friendly-palette/)
+* [BUMC on Universal Design](https://sphweb.bumc.bu.edu/otlt/mph-modules/universaldesign/universaldesign5.html)
+* [Making Good Audio Descriptions](https://digital.gov/2014/06/30/508-accessible-videos-how-to-make-audio-descriptions/)
 
 ***
 
@@ -136,8 +138,11 @@ Decide whether you will create:
 * An [Adobe Creative Cloud](https://www.adobe.com/express/?sdid=K7SLVNP3&mv=search&ef_id=CjwKCAjw0a-SBhBkEiwApljU0jRqkWSXp3nFrw0UJBUu-_yEM19fPkvcFFyjgT42e9HAGWovjrq2ZxoC0s0QAvD_BwE:G:s&s_kwcid=AL!3085!3!569345525684!e!!g!!adobe%20spark!15557590691!136734402171) presentation (i.e., an infographic) - [you can access it for free at BU](https://www.bu.edu/tech/services/teaching/digital-multimedia-production/adobe-creative-cloud/).
 * A short, less-than-5-minutes, documentary-style video
 * A series of mock social media posts (5-10 Tweets in a thread)
+    * NOTE: if you choose this option, you may mock it up without actually posting via [TweetGen](https://www.tweetgen.com/), and [DesignYourWay for Instagram](https://www.designyourway.net/blog/resources/instagram-mockup-templates/).
 * A science-based webcomic 
 * A TikTok video
+    * [Anagram for TikTok](https://www.freebiesbundles.com/mockups/freebies-mockups-2021-tik-tok-screens-interface-psd-template-free-download/) has a mockup for this format. You can also use [Adobe Rush](https://business.adobe.com/blog/the-latest/premiere-rush-tiktok-are-you-here-for-it) for mockups.
+    * Advice on [storyboarding for TikTok](https://clipchamp.com/en/blog/how-to-storyboard-tiktok-video/)
 * A short, less-than-5-minutes, podcast
 * Another creative option of your choosing (please communicate ideas to your TF)
 
