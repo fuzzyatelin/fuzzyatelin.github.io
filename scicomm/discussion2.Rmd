@@ -118,6 +118,7 @@ The following resources will help guide your science communication and accessibi
 * [UC Berkeley Introduction to Course Accessibility](https://bcourses.berkeley.edu/courses/1456326)
 * [*American Anthropologist* Guidelines for Creating Image Descriptions](https://www.americananthro.org/ImageDescriptions?navItemNumber=25126#:~:text=Image%20descriptions%20provide%20a%20textual,users%20of%20all%20AAA%20products)
 * [Making PDFs Accessible for Screen Readers](https://webaim.org/techniques/acrobat/acrobat)
+* [Captions via WebCaptioner](https://webcaptioner.com/)
 
 ***
 
