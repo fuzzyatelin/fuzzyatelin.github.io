@@ -1,7 +1,7 @@
 ---
 title: "AN/BI 588: Project Design and Statistics</br> in Biological Anthopology"
 author: "Christopher A Schmitt</br>Boston University"
-date: "September 1, 2021"
+date: "August 17, 2023"
 output: 
   html_document:
     theme: cosmo
@@ -11,7 +11,7 @@ output:
 
 ***
 <center>
-**Fall 2021, Seminar will be held on Fridays, 2:30 - 5:15pm in *WED 206* <br>(that's Wheelock College of Education, 2 Silber Way)**
+**Fall 2023, Seminar will be held on Thursdays, 3:30 - 6:15pm in *CAS 335* <br>(that's on the third floor of the CAS Building, 725 Commonwealth Ave)**
 </center>
 ***
 
@@ -19,17 +19,10 @@ output:
   **Christopher A. Schmitt**  
   Assistant Professor of Anthropology and Biology  
   Office: Stone Science Building (STO), 675 Commonwealth Ave, Rm 247E  
-  Office Hours: Mondays 1:30 - 4:00pm (with [Zoom option](https://bostonu.zoom.us/j/5889909469?pwd=N3hUYXFhZ00wR1pkNnZYb3RuZ0lidz09)) <br>
+  Office Hours: Mondays 1:00 - 3:30pm <br>
   Web: http://www.evopropinquitous.net  
   Email: caschmit[at]bu[dot]edu  
   Twitter: http://www.twitter.com/fuzzyatelin  
-
-### Course Assistant:
-  **Mel Zarate**<br>
-  Graduate Student, Department of Anthropology<br>
-  Office: Stone Science Building (STO), 675 Commonwealth Ave, Rm 251<br>
-  Office Hours: Thursdays 11am - Noon (with [Zoom option]())<br>
-  Email: mazarate[at]bu[dot]edu
   
 ***
 
@@ -51,37 +44,6 @@ Potential foci of discussion may include statistical methods for accounting for 
 
 This course is open to students outside of Anthropology willing to learn the methods involved. Past students include undergraduate and graduate students from Anthropology, Archaeology, Biology, and Economics.
 </p>  
-
-***
-### [BU HUB](http://www.bu.edu/hub/about-the-hub/) Learning Outcomes
-***
-
-This course has been accepted to the **BU HUB** Undergraduate General Education Curriculum as **CAS AN/BI 588**. It has several proposed Learning Outcomes related to its assigned Hub Capacities, including:
-
-
-***
-#### *Scientific Inquiry II (SI2)*
-***
-
-* **Learning Outcome 1**: Students in this course will learn to identify and apply appropriate methods of statistical inference to test hypotheses related to biological anthropology. This will de done in the R programming framework using published or simulated datasets from a number of scientific literatures, primarily from primate morphology and behavior. Throughout the semester, students will use these tests to appropriately frame and address established hypotheses in biological anthropology using increasingly complex statistical methods, including using t-tests to assess differences in body size between wild and anthropogenically impacted vervet monkey groups, testing hypothesized correlations between female body size and various life history traits across primates using multiple regression, and assessing shifts in male grooming attention towards periovulatory female chimpanzees using generalized linear mixed modeling, among others. This will culminate in a more advanced application of these methods by engaging in the R-based replication of a published paper with open access data in the student's field of interest, and the development of their own teaching module demonstrating a novel statistical method and how it may be used to test a novel hypothesis in a new dataset. The replication assignment will facilitate a hands-on, critical assessment of how these authors used data processing, manipulation, analyses, and figures to reach their published conclusions. The teaching module will allow students to reflect critically on a novel method and how it might be used (or may be misused) to inform a hypothetical framework of their choosing in a novel dataset.
-
-***
-#### *Quantitative Reasoning II (QR2)*
-***
-
-* **Learning Outcome 1**: In this courses, students will learn how to frame questions germane to biological anthropology through the explicit testing of hypotheses using statistical inference. Using the R statistical programming framework, students will explore the underlying logic and mathematics of probability, hypothesis testing, linear modeling and regression, ANOVA, multiple regression, generalized linear modeling and mixed effects modeling, and then use these methods to solve complex problems in biological anthropology with both real and simulated data.
-* **Learning Outcome 2**: Online, R-based statistical modules guide students through the development and use of the above methods in numerous datasets drawn from studies of wild primates and museum specimens to test hypotheses central to biological anthropology and evolutionary biology. These questions range from using the poisson distribution to predict the frequency of titi monkey morning duets, to using generalized linear modeling to assess whether male rank has an impact on fitness outcomes in a population of woolly monkeys.
-* **Learning Outcome 3**: With every statistical module students will challenged to test established hypotheses using statistical inference. They are then challenged in homework assignments to investigate data structures and formulate and test their own hypotheses using the statistical methods learned in class. This culminates in a replication assignment from the primary literature, in which students critically evaluate the methods and conclusion of a published paper from the primary literature in their field.
-* **Learning Outcome 4**: Through the use of GitHub-based shared repositories and the R Markdown language, students will learn to communicate via annotated coding chunks in data reports to explain their logic and choice of statistical coding options to address bi-weekly homework assignments and statistical module challenges. The Peer Commentary of homework assignments requires that students engage with each other to both improve their code and ensure that the symbolic, visual, numerical, and written account of their data processing and analysis are communicated effectively. The final assignments of the class, a group-based homework module teaching a novel statistical test not presented in the class and a replication of an analysis from the primary literature, both encourage students to design legible and engaging representations of the their data analysis process, and to adequately communicate these methods both verbally and visually.
-* **Learning Outcome 5**: Through an emphasis on testing the assumptions underlying the statistical tests learned in class, students will learn to recognize and articulate both the capacity and limitations of these methods. This includes modules and discussions testing data distributions and model residuals for normality, using power tests to assess the effects of sample size and variance on parameter estimation, assessing the appropriateness of link functions for different data distributions in GLMMs, and more, complete with demonstrations of what poorly analyzed data looks like, and how that may negatively influence scientific inference.
-
-***
-#### *Intellectual Toolkit: Teamwork/Collaboration (TWC)*
-***
-
-* **Learning Outcome 1**: Students will engage in bi-weekly Peer Commentary assignments in which they must collaborate in shared GitHub repositories to share, annotate, and comment on each others' coding-based homework assignments. These experiences will be supplemented by readings and small tutorials on productive peer coding and annotation practices. Students will share first drafts of homework, commented code by a Peer, and their final code. In their final code, students are encouraged to reflect on how the discussion and comments of their Peers improved their code, and what remained to be solved. Peer groups rotate throughout the course, so that students can identify and learn the traits of effective collaboration and commentary, culminating in choosing a group to develop and design an online teaching module for a novel statistical technique to be taught to the rest of the class. These comments will be critiqued and overseen in each bi-weekly session by the instructor to ensure productive teamwork.
-* **Learning Outcome 2**: In both the biweekly Peer Commentary and the final group Module assignment, students will develop and demonstrate an ability to use the tools and strategies of working successfully with a diverse group, based on course readings meant to foster productive peer review and coding practives. In each Module assignment, students will guided towards explicitly assigning roles and responsibilities to individual group members based on strengths identified in the Peer Commentary process. Upon presentation of the Module, in dialogue with the instructor, the class will assess the effectiveness and clarity of the module in teaching the method in question and offer productive suggestions for revision, making the course itself an exercise in teamwork. Both Peer Commentary and final Module assignment asks students to reflect on their role in the collaborative process and what were effective practices using the readings to guide these reflections.
-
 
 ***
 ### Prerequisites
@@ -116,8 +78,8 @@ Performance in the class will be assessed on a **gradeless** basis for the semes
 :::{}
 
   
-<center><p><img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781617291388/r-in-action-9781617291388_lg.jpg" height="250" width="200"></p></center><br>
-Kabacoff R. 2011. <i>R in Action, 2nd Edition</i>. New York: Manning Publications.
+<center><p><img src="https://images.manning.com/360/480/resize/book/f/b243764-db1c-4038-81ed-4b5292148955/Kabacoff-R-3ed-HI.png" height="250" width="200"></p></center><br>
+Kabacoff R. 2022. <i>R in Action, 3rd Edition</i>. New York: Manning Publications.
 
 :::
 
@@ -130,13 +92,16 @@ Tillman D. 2016. <i>The Book of R: A First Course in Programming and Statistics<
 
 ::::
 
-*Tillman* available in print or electronic format from [No Starch Press](https://www.nostarch.com/) and [O'Reilly Media](https://www.oreilly.com/); *Kabacoff* available in print or electronic format from [Manning Publications](https://www.manning.com/books/r-in-action-second-edition), where the third edition is almost complete and is available - I recommend using the third edition if you can (you can also find the second edition as a PDF [here](http://www.cs.uni.edu/~jacobson/4772/week11/R_in_Action.pdf)); both texts are available at [Amazon.com](https://www.amazon.com/).
+*Tillman* available in print or electronic format from [No Starch Press](https://www.nostarch.com/) and [O'Reilly Media](https://www.oreilly.com/); *Kabacoff* available in print or electronic format from [Manning Publications](https://www.manning.com/books/r-in-action-third-edition) - I recommend using the third edition if you can (you can also find the second edition as a PDF [here](http://www.cs.uni.edu/~jacobson/4772/week11/R_in_Action.pdf)); both texts are also available at [Amazon.com](https://www.amazon.com/).
 
 ***
+
 ### Optional Texts Students Find Helpful
+
 ***
 <ul>
-<li>[Grolemund G., Wickham H. 2017. <i>R for Data Science</i>. Boston: O'Reilly](https://r4ds.had.co.nz/)</li>
+<li>[Wickham H, Cetinkaya-Rundel M, & Grolemund G. 2023. <i>R for Data Science</i>. Boston: O'Reilly](https://r4ds.hadley.nz)</li>
+<li>[Kuhn M, Silge J. 2023. <i>Tidy Modeling with R</i>. Boston: O'Reilly](https://www.tmwr.org)</li>
 <li>Dalgaard P. 2008. <i>Introductory Statistics with R, 2nd Edition</i>. New York: Springer.</li>
 <li>Crawley MJ. 2014. <i>Statistics: An Introduction Using R, 2nd Edition</i>. Chichester, UK: John Wiley & Sons, Inc.</li></ul>
 
@@ -159,4 +124,34 @@ By the end of this course, you should:
 
 <li>be able to <b>work as part of an effective team</b> to problem solve and implement effective coding practices towards a group analytical goal;</li>
 
-<li>and be able to apply all of these tools to <b>questions of interest in the natural and social sciences</b>.</li></ul><br><br>
+<li>and be able to apply all of these tools to <b>questions of interest in the natural and social sciences</b>.</li></ul><br>
+
+***
+### [BU HUB](http://www.bu.edu/hub/about-the-hub/) Learning Outcomes (for enrolled undergraduates)
+***
+
+This course has been accepted to the **BU HUB** Undergraduate General Education Curriculum as **CAS AN/BI 588**. It has several proposed Learning Outcomes related to its assigned Hub Capacities, including:
+
+
+***
+#### *Scientific Inquiry II (SI2)*
+***
+
+* **Learning Outcome 1**: Students in this course will learn to identify and apply appropriate methods of statistical inference to test hypotheses related to biological anthropology. This will de done in the R programming framework using published or simulated datasets from a number of scientific literatures, primarily from primate morphology and behavior. Throughout the semester, students will use these tests to appropriately frame and address established hypotheses in biological anthropology using increasingly complex statistical methods, including using t-tests to assess differences in body size between wild and anthropogenically impacted vervet monkey groups, testing hypothesized correlations between female body size and various life history traits across primates using multiple regression, and assessing shifts in male grooming attention towards periovulatory female chimpanzees using generalized linear mixed modeling, among others. This will culminate in a more advanced application of these methods by engaging in the R-based replication of a published paper with open access data in the student's field of interest, and the development of their own teaching module demonstrating a novel statistical method and how it may be used to test a novel hypothesis in a new dataset. The replication assignment will facilitate a hands-on, critical assessment of how these authors used data processing, manipulation, analyses, and figures to reach their published conclusions. The teaching module will allow students to reflect critically on a novel method and how it might be used (or may be misused) to inform a hypothetical framework of their choosing in a novel dataset.
+
+***
+#### *Quantitative Reasoning II (QR2)*
+***
+
+* **Learning Outcome 1**: In this courses, students will learn how to frame questions germane to biological anthropology through the explicit testing of hypotheses using statistical inference. Using the R statistical programming framework, students will explore the underlying logic and mathematics of probability, hypothesis testing, linear modeling and regression, ANOVA, multiple regression, generalized linear modeling and mixed effects modeling, and then use these methods to solve complex problems in biological anthropology with both real and simulated data.
+* **Learning Outcome 2**: Online, R-based statistical modules guide students through the development and use of the above methods in numerous datasets drawn from studies of wild primates and museum specimens to test hypotheses central to biological anthropology and evolutionary biology. These questions range from using the poisson distribution to predict the frequency of titi monkey morning duets, to using generalized linear modeling to assess whether male rank has an impact on fitness outcomes in a population of woolly monkeys.
+* **Learning Outcome 3**: With every statistical module students will challenged to test established hypotheses using statistical inference. They are then challenged in homework assignments to investigate data structures and formulate and test their own hypotheses using the statistical methods learned in class. This culminates in a replication assignment from the primary literature, in which students critically evaluate the methods and conclusion of a published paper from the primary literature in their field.
+* **Learning Outcome 4**: Through the use of GitHub-based shared repositories and the R Markdown language, students will learn to communicate via annotated coding chunks in data reports to explain their logic and choice of statistical coding options to address bi-weekly homework assignments and statistical module challenges. The Peer Commentary of homework assignments requires that students engage with each other to both improve their code and ensure that the symbolic, visual, numerical, and written account of their data processing and analysis are communicated effectively. The final assignments of the class, a group-based homework module teaching a novel statistical test not presented in the class and a replication of an analysis from the primary literature, both encourage students to design legible and engaging representations of the their data analysis process, and to adequately communicate these methods both verbally and visually.
+* **Learning Outcome 5**: Through an emphasis on testing the assumptions underlying the statistical tests learned in class, students will learn to recognize and articulate both the capacity and limitations of these methods. This includes modules and discussions testing data distributions and model residuals for normality, using power tests to assess the effects of sample size and variance on parameter estimation, assessing the appropriateness of link functions for different data distributions in GLMMs, and more, complete with demonstrations of what poorly analyzed data looks like, and how that may negatively influence scientific inference.
+
+***
+#### *Intellectual Toolkit: Teamwork/Collaboration (TWC)*
+***
+
+* **Learning Outcome 1**: Students will engage in bi-weekly Peer Commentary assignments in which they must collaborate in shared GitHub repositories to share, annotate, and comment on each others' coding-based homework assignments. These experiences will be supplemented by readings and small tutorials on productive peer coding and annotation practices. Students will share first drafts of homework, commented code by a Peer, and their final code. In their final code, students are encouraged to reflect on how the discussion and comments of their Peers improved their code, and what remained to be solved. Peer groups rotate throughout the course, so that students can identify and learn the traits of effective collaboration and commentary, culminating in choosing a group to develop and design an online teaching module for a novel statistical technique to be taught to the rest of the class. These comments will be critiqued and overseen in each bi-weekly session by the instructor to ensure productive teamwork.
+* **Learning Outcome 2**: In both the biweekly Peer Commentary and the final group Module assignment, students will develop and demonstrate an ability to use the tools and strategies of working successfully with a diverse group, based on course readings meant to foster productive peer review and coding practives. In each Module assignment, students will guided towards explicitly assigning roles and responsibilities to individual group members based on strengths identified in the Peer Commentary process. Upon presentation of the Module, in dialogue with the instructor, the class will assess the effectiveness and clarity of the module in teaching the method in question and offer productive suggestions for revision, making the course itself an exercise in teamwork. Both Peer Commentary and final Module assignment asks students to reflect on their role in the collaborative process and what were effective practices using the readings to guide these reflections.
