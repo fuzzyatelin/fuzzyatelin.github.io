@@ -159,8 +159,13 @@ The remote repository will then cloned into the specified directory and ***RStud
 
 - Now, you can create one or more new scripts (*filename*.R) or **RMarkdown** (*filename*.Rmd) files and add them to your repository. Create a new **RMarkdown** file and save it.
 
+<br><center>
 <img src="img/new-R-markdown-1.png" width=500px/></center>
+</center>
+
+<center>
 <img src="img/new-R-markdown-2.png" width=500px/></center>
+</center><br>
 
 - After saving your file, it should appear in the git tab in the upper right pane of ***RStudio***, along with the **.Rproj** and **.gitignore** files.
 - Click on all of the file(s) you wish to add to your repo, and their status should turn to a green `A` (for "added").
@@ -314,7 +319,7 @@ The first line tells ***git*** the remote URL that you are going to push to, and
 
 ***
 
-- Start a new ***R*** project using one of the methods above -- call it "AN597-Week-2" -- and in it, create an **RMarkdown** document in which you will take notes and complete the coding CHALLENGES from [Module 4](http://fuzzyatelin.github.io/bioanth-stats/module-04/module-04.html). You can begin with a standard **RMarkdown** document template created by choosing **File -> New File -> R Markdown** and choosing `HTML` as the `Default Document Output`.
+- Start a new ***R*** project using one of the methods above -- call it "AN588-Week-2" -- and in it, create an **RMarkdown** document in which you will take notes and complete the coding CHALLENGES from [Module 4](http://fuzzyatelin.github.io/bioanth-stats/module-04/module-04.html). You can begin with a standard **RMarkdown** document template created by choosing **File -> New File -> R Markdown** and choosing `HTML` as the `Default Document Output`.
 
 <br><center>
 <img src="img/new-R-markdown-1.png" width=500px/>
@@ -322,7 +327,7 @@ The first line tells ***git*** the remote URL that you are going to push to, and
 
 - You should commit your document locally several times during class and as you complete the coding challenges, and you should push your updated repo to ***GitHub*** periodically as well. The instructions above should be helpful in getting you comfortable with commiting changes to your local repo and pushing changes up to ***GitHub***. Feel free to come see me during the week if you run into any problems!
 
-- By the start of next week's class, your updated **RMarkdown** document addressing all of today's CHALLENGES should be posted to ***GitHub*** and you should "knit" your document to HTML and post that to ***GitHub*** as well.
+- By the start of next week's class, your updated **RMarkdown** document addressing all of today's CHALLENGES should be posted to ***GitHub*** and you should "knit" your document to HTML and post that to ***GitHub*** as well (see below for more on what it means to "knit" your document to HTML).
 
 #### Additional Useful Info
 
@@ -349,9 +354,47 @@ To make working with `RSA` key pairs more straightforward the **RStudio Version 
 
 While Linux and Mac OSX both include SSH as part of the base system, Windows does not. As a result the standard Windows distribution of ***git*** (Msysgit, referenced above) also includes an SSH client.
 
-#Tips for **RMarkdown** Prettification
+***
 
-One of the more delightful aspects of using **RMarkdown** is knitting to a visually pleasing format that enhances your data management and sharing experience. Although we may not formally go over these tips in class, there are a number of websites and cheat sheets that can help make your **RMarkdown** experience smoother, more aesthetically rigorous, and more useful:
+# Tips for **RMarkdown** Prettification
+
+***
+
+One of the more delightful aspects of using **RMarkdown** is "knitting" your `.Rmd` file to a more useful and visually pleasing format. For this class, we will mostly be knitting to HTML (which is the document format that makes up web pages), but you can also knit your document to PDF, to a Word Doc, or to many other useful formats. 
+
+This conversion of your raw **RMarkdown** code to another - often more familiar - format is *not* a trivial pursuit: aesthetically pleasing formatting can both enhance your own data management *and* make sharing your work a more rewarding experience for those on the receiving end. Now, we will not have a formal **RMarkdwn** tutorial during class; this is best done as an experimental, trial-and-error process on your own! However, we will address **RMarkdown** coding during our troubleshooting sessions, predominantly related to formatting requests I'll be making as part of your homework assignments. 
+
+In addition to what we'll discuss in class, there are a number of websites and cheat sheets that can help make your **RMarkdown** experience smoother, more aesthetically rigorous, and more useful. I *strongly* encourage you to spend some time with them to make your **RMarkdown** as beautiful as you make your code!
+
+To get you started, here's one helpful **RMarkdown Cheatsheet**, which can help guide you through basic formatting for your **RMarkdown** documents. Remember, to see the effects of changing your formatting code in the `.Rmd` file, you need to *knit* your **RMarkdown** file to its intended final format (in our case, HTML):
+
+<br><center>
+<img src="img/RMarkdown-cheatsheet1.png" width=700px/>
+</center>
+
+<center>
+<img src="img/RMarkdown-cheatsheet2.png" width=700px/>
+</center><br>
+
+
+***
+
+#### **CHALLENGE**
+
+***
+
+- In your "AN588-Week-2" repository, you've already created an HTML-formatted **RMarkdown** document in which you've taken notes and completed the previous coding CHALLENGES from [Module 4](http://fuzzyatelin.github.io/bioanth-stats/module-04/module-04.html). *Knit* this document and take a look at the appearance of the knit document. Is it readable? Is it aesthetically pleasing? Keep this un-prettified original knitted document for future reference... 
+
+- Create a *new* HTML-formatted **RMarkdown** document that is a *copy* of your original. Name it "prettified-NAME.Rmd" with *NAME* being the original document name you gave your **RMarkdown** document for the Module 4 CHALLENGES.
+
+- Using the instructions in the **RMarkdown Cheatsheet** above, try to make your document more readable and accessible. You can experiment with different *themes* (which themselves have variable fonts and colors) in the *YAML*, add headers that are part of a hierarchical table of contents, partition your code in to different ***R*** *chunks* that allow you to illustrate to your reader what you've done once the document is knitted into HTML. As always, feel free to come see me during the week if you run into any problems!
+
+- By the start of next week's class, your updated *prettified* **RMarkdown** document addressing all of today's CHALLENGES should also be posted to ***GitHub*** along with the "knitted" version (to HTML).
+
+<br>
+
+To help with this exercise, beyond the above Cheatsheet, there are *many* more helpful and complete resources available online:
+
 <ul>
 <li>An introduction to [R Markdown](https://rmarkdown.rstudio.com/)</li>
 <li>[R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)</li>
@@ -364,3 +407,9 @@ One of the more delightful aspects of using **RMarkdown** is knitting to a visua
 <li>[Creating Pretty Documents from R Markdown](https://cran.r-project.org/web/packages/prettydoc/vignettes/architect.html)</li>
 </ul>
 <br>
+
+In addition to the above (but by no means necessary for this course), you can *also* embed actual HTML code in your **RMarkdown** document to modify the appearance of your final knitted HTML. If you're interested in trying this out, here's [a basic HTML tutorial](https://www.geeksforgeeks.org/html-basics/).
+
+Experiment to find a formatting that works for you! I'll look forward to seeing what you land on as your preferred format in your repo!
+
+Also, to help stretch these abilities, I'll be asking for specific formatting specifications in your final knitted homework assignments, to push you to experiment a bit with your **RMarkdown** skills... <br>

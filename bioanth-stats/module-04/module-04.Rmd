@@ -33,7 +33,7 @@ setwd("~")
 
 ## Preliminaries
 
-- GO TO: https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall21/, select the **random-people.csv** file, then press the `RAW` button, highlight, and copy the text to a text editor and save it to your Desktop.
+- GO TO: https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall23/, select the **random-people.csv** file, then press the `RAW` button, highlight, and copy the text to a text editor and save it to your Desktop.
 
 - Install this package in ***R***: [{stringr}](https://cran.r-project.org/web/packages/stringr/stringr.pdf)
 
