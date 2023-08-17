@@ -1,7 +1,7 @@
 ---
 title: "AN/BI 588: End-of-Semester Self Evaluation"
 author: "Christopher A Schmitt"
-date: "October 23, 2020"
+date: "August 17, 2023"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -38,7 +38,7 @@ Whether I agree with your assessment or not, I will schedule a time for us to di
 
 ***
 
-Please download this Markdown file (`selfevaluation.Rmd`) from my GitHub site (in the `fuzzyatelin.github.io/bioanth-stats/` folder) and answer the appropriate questions in the spaces provided. Once you've knitted the final file, please *email* the **html** version of that file to me with the name `[LastF]_F19_SelfEvaluation.html` (with `LastF` meaning your last name followed by your first initial, i.e., mine would be called `SchmittC_F19_SelfEvaluation.html`). I must receive this file by **Midnight of the Final Exam Date**.
+Please download this Markdown file (`selfevaluation.Rmd`) from my GitHub site (in the `fuzzyatelin.github.io/bioanth-stats/` folder) and answer the appropriate questions in the spaces provided. Once you've knitted the final file, please *email* the **html** version of that file to me with the name `[LastF]_F19_SelfEvaluation.html` (with `LastF` meaning your last name followed by your first initial, i.e., mine would be called `SchmittC_F19_SelfEvaluation.html`). I must receive this file by **December 14, 2023** at the earliest, and by **Midnight of the Final Exam Date** at the latest.
 
 ***
 

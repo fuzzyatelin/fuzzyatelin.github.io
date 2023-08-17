@@ -41,7 +41,7 @@ knitr::opts_chunk$set(
 ***
 <center><br>
 
-<font size="+2"><b>Final Homework DUE at 5:00 pm of the Last Day of Classes.</b></font>
+<font size="+2"><b>Final Homework DUE at 5:00 pm of December 14, 2023.</b></font>
 
 </center><br>
 
@@ -49,7 +49,7 @@ knitr::opts_chunk$set(
 
 Replication is meant to be one of the keystones of scientific inquiry. Every experiment, observation, or analysis *should* be replicable by any other scientist, if we've all done our jobs right. The objective of this assignment is to use your skills in ***R*** to replicate as closely as you can a set of statistical analyses and results reported in a published paper of your choosing. 
 
-You should select and confirm with me a paper and dataset you will replicate by **September 30, 2020**!
+You should select and confirm with me a paper and dataset you will replicate by **October 05, 2023**!
 
 You do not need to replicate ALL of the analyses presented in the paper, *but at minimum you must replicate at least 3 analyses*, including at least one *descriptive* statistical analysis and one *inferential* statistical analysis. As part of this assignment, you must also replicate to the best of your abilities at least one figure.
 

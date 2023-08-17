@@ -1,7 +1,7 @@
 ---
 title: 'AN/BI 588: Course Assignments'
 author: "Christopher A Schmitt"
-date: "September 1, 2021"
+date: "August 17, 2023"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -32,22 +32,22 @@ Each assignment listed is linked to another page containing instructions (you ca
 
 ## Homework Assignments
 
-* [Homework 1: Push It!](http://fuzzyatelin.github.io/bioanth-stats/homework-01.html) final due 5pm **September 16, 2021**
-* [Homework 2: Titis in the Mist...](http://fuzzyatelin.github.io/bioanth-stats/homework-02.html) final due 5pm **September 30, 2021**
-* [Homework 3: Some of my Best Friends are Zombies...](http://fuzzyatelin.github.io/bioanth-stats/homework-03.html) final due 5pm **October 14, 2021**
-* [Homework 4: What's Your Malfunction?](http://fuzzyatelin.github.io/bioanth-stats/homework-04.html) final due 5pm **October 28, 2021**
-* [Homework 5: Boots for Days!](http://fuzzyatelin.github.io/bioanth-stats/homework-05.html) final due 5pm **November 11, 2021**
+* [Homework 1: Push It!](http://fuzzyatelin.github.io/bioanth-stats/homework-01.html) final due 5pm **September 20, 2023**
+* [Homework 2: Titis in the Mist...](http://fuzzyatelin.github.io/bioanth-stats/homework-02.html) final due 5pm **October 04, 2023**
+* [Homework 3: Some of my Best Friends are Zombies...](http://fuzzyatelin.github.io/bioanth-stats/homework-03.html) final due 5pm **October 18, 2023**
+* [Homework 4: What's Your Malfunction?](http://fuzzyatelin.github.io/bioanth-stats/homework-04.html) final due 5pm **November 02, 2023**
+* [Homework 5: Boots for Days!](http://fuzzyatelin.github.io/bioanth-stats/homework-05.html) final due 5pm **November 22, 2023**
 
 ## [Peer Commentary](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) due with *each Homework assignment!*
 
 ***
 
-## [Analysis Replication Assignment](https://fuzzyatelin.github.io/bioanth-stats/data-reanalysis-assignment.html) due **December 10, 2021**
+## [Analysis Replication Assignment](https://fuzzyatelin.github.io/bioanth-stats/data-reanalysis-assignment.html) due **December 14, 2023**
 
 ***
 
-## [Group Presentation and R Vignette]() due **December 3, 2021**
+## [Group Presentation and R Vignette]() due **November 27, 2023**
 
 ***
 
-## [Self Evaluation](https://fuzzyatelin.github.io/bioanth-stats/selfevaluation.html) due **December 10, 2021**
+## [Self Evaluation](https://fuzzyatelin.github.io/bioanth-stats/selfevaluation.html) due **December 14, 2023**
