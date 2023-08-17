@@ -1,6 +1,6 @@
 ---
 title: 'AN/BI 588: Course Modules'
-date: "September 1, 2021"
+date: "August 17, 2023"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -20,7 +20,7 @@ output:
 
 <font size="+2"><b>Welcome to your interactive Modules!</b></font></center><br>
 
-<center><p><img src="http://alwaysemilyh.com/wp-content/uploads/2015/07/And-Girl-you-better-work-GIF.gif" style="border:5px solid black"></p>
+<center><p><img src="https://media4.giphy.com/media/B7YsPcMtLFE5y/giphy.gif" style="border:5px solid black"></p>
 </center><br>  
 
 <center>
@@ -29,8 +29,8 @@ Each module listed is linked to another page containing instructions and helpful
 </center>
 ***
 
-### **Week 01 (2019-09-02)**
-(No formal class meeting, and no Peer Commentary due)
+### **Week 01 (2023-09-07)**
+(No Peer Commentary due)
 
 ***
 
@@ -39,7 +39,7 @@ Each module listed is linked to another page containing instructions and helpful
 ### [Module 02 - **Basics of Version Control**](http://fuzzyatelin.github.io/bioanth-stats/module-02/module-02.html)
 ***
 
-### **Week 02 (2019-09-09)**
+### **Week 02 (2023-09-14)**
 ***
 
 ### [Module 03 - **Reproducible Research using RMarkdown**](http://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html)
@@ -49,7 +49,7 @@ Each module listed is linked to another page containing instructions and helpful
 ### [Module 05 - **Getting Data into <i>R</i>**](http://fuzzyatelin.github.io/bioanth-stats/module-05/module-05.html)
 ***
 
-### **Week 03 (2019-09-16)**
+### **Week 03 (2023-09-21)**
 ***
 
 ### [Module 06 - **Exploratory Data Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-06/module-06.html)
@@ -57,13 +57,13 @@ Each module listed is linked to another page containing instructions and helpful
 ### [Module 07 - **Central Tendency and Variance**](http://fuzzyatelin.github.io/bioanth-stats/module-07/module-07.html)
 ***
 
-### **Week 04 (2019-09-23)**
+### **Week 04 (2023-09-28)**
 ***
 
 ### [Module 08 - **Probabilities and Distributions**](http://fuzzyatelin.github.io/bioanth-stats/module-08/module-08.html)
 ***
 
-### **Week 05 (2019-09-30)**
+### **Week 05 (2023-10-05)**
 ***
 
 ### [Module 09 - **Introduction to Statistical Inference**](http://fuzzyatelin.github.io/bioanth-stats/module-09/module-09.html)
@@ -71,7 +71,7 @@ Each module listed is linked to another page containing instructions and helpful
 ### [Module 10 - **Classical Hypothesis Testing**](http://fuzzyatelin.github.io/bioanth-stats/module-10/module-10.html)
 ***
 
-### **Week 06 (2019-10-07)**
+### **Week 06 (2023-10-12)**
 ***
 
 ### [Module 11 - **Type I and Type II Error and Power**](http://fuzzyatelin.github.io/bioanth-stats/module-11/module-11.html)
@@ -80,9 +80,7 @@ Each module listed is linked to another page containing instructions and helpful
 
 ***
 
-### **Week 07 (2019-10-15)**
-
-Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day
+### **Week 07 (2023-10-19)**
 
 ***
 
@@ -90,21 +88,21 @@ Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day
 
 ***
 
-### **Week 08 (2019-10-21)**
+### **Week 08 (2023-10-26)**
 ***
 
 ### [Module 14 - **Basic Categorical Data Analysis and ANOVA**](http://fuzzyatelin.github.io/bioanth-stats/module-14/module-14.html)
 
 ***
 
-### **Week 09 (2019-10-28)**
+### **Week 09 (2023-11-02)**
 ***
 
 ### [Module 15 - **Multiple Regression and ANCOVA**](http://fuzzyatelin.github.io/bioanth-stats/module-15/module-15.html)
 
 ***
 
-### **Week 10 (2019-11-04)**
+### **Week 10 (2023-11-09)**
 ***
 
 ### [Module 16 - **Model Selection in General Linear Regression**](http://fuzzyatelin.github.io/bioanth-stats/module-16/module-16.html)
@@ -113,57 +111,56 @@ Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day
 
 ***
 
-### **Week 11 (2019-11-11)**
+### **Week 11 (2023-11-16)**
 ***
-
 
 ### [Module 18 - **Mixed Effects Modeling**](http://fuzzyatelin.github.io/bioanth-stats/module-18/module-18.html)
 
 ***
 
-### **Week 12 (2019-11-18)**
+### **Week 12 (2023-11-23)**
 ***
 
-### [Module 19 - **Introduction to GIS and Spatial Analysis in R**](http://fuzzyatelin.github.io/bioanth-stats/module-GIS/module-GIS.html)
-
-### [Module 20 - **Accessing Web APIs**](http://fuzzyatelin.github.io/bioanth-stats/module-21/module-21.html)
-
-### [Module 21 - **Basic Text Mining**](http://fuzzyatelin.github.io/bioanth-stats/module-22a/module-22.html)
+**No Class - Thanksgiving Break**
 
 ***
 
-### **Week 13 (2019-11-25)**
+### **Week 13 (2019-11-30)**
 ***
 
-### Module 22 - **An Introduction to Bayesian Methods & Models**
+### [Module 19 - **TBA**]() 
 
-***
-
-### Week 14 (2019-12-02)
-***
-
-### [Module 23 - **Weighted Gene Correlation Network Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-F21-Group1/module-F21-Group1.html)
-(Victoria French, CeCe Gerstenbacher, Warrenkevin Henderson, Elizabeth Varghese)
-
-### [Module 24 - **Time Series Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-F21-Group2/module-F21-Group2.html)
-(Gabriel Vicencio, Max Dippel, Diego Alonso Larre and Miguel Rubio Garcia)
+### [Module 20 - **TBA**]()
 
 ***
 
-### Week 15 (2019-12-09)
+### Week 14 (2023-12-07)
 ***
 
-### [Module 25 - **Continuous-Time Movement Modeling**](http://fuzzyatelin.github.io/bioanth-stats/module-F21-Group3/module-F21-Group3.html)
+### [Module 21 - **TBA**]()
+
+### [Module 22 - **TBA**]() 
+
+***
+
+## Previous Student Modules (and Other Course Modules)
+
+***
+
+### [**Introduction to GIS and Spatial Analysis in R**](http://fuzzyatelin.github.io/bioanth-stats/module-GIS/module-GIS.html)
+(Prof. Schmitt)
+
+### [**Continuous-Time Movement Modeling**](http://fuzzyatelin.github.io/bioanth-stats/module-F21-Group3/module-F21-Group3.html)
 (Zoe Albert, Natalia Kelley, Frank Short & Victoria Zdanowicz)
 
-### [Module 26 - **Phylogenetic Comparison between Molecular and Morphological Trees**](http://fuzzyatelin.github.io/bioanth-stats/module-F21-Group4/module-F21-Group4.html)
+### [**Phylogenetic Comparison between Molecular and Morphological Trees**](http://fuzzyatelin.github.io/bioanth-stats/module-F21-Group4/module-F21-Group4.html)
 (Abby Robinson, Isabel Novick, Marta Hammers, Nirmiti Naik)
 
-***
+### [**Weighted Gene Correlation Network Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-F21-Group1/module-F21-Group1.html)
+(Victoria French, CeCe Gerstenbacher, Warrenkevin Henderson, Elizabeth Varghese)
 
-## Previous Student Modules
-
-***
+### [**Time Series Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-F21-Group2/module-F21-Group2.html)
+(Gabriel Vicencio, Max Dippel, Diego Alonso Larre and Miguel Rubio Garcia)
 
 ### [**Discriminant Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-F19-Group1/module-F19-Group1.html)
 (Laura Angley, Laura Brubaker-Whitman, Christian Gagnon, Melissa Zarate; Fall 2019)

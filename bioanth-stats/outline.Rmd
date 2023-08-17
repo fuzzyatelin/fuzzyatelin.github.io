@@ -1,22 +1,29 @@
 ---
 title: "AN/BI 588: Course Outline"
-date: "September 1, 2021"
+date: "August 17, 2023"
 output: 
-  rmarkdown::html_document:
+  html_document:
     theme: cosmo
+    toc: true
+    toc_float: true
 ---
 ***
 
-### [Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
-### [Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
-### [Assignments](https://fuzzyatelin.github.io/bioanth-stats/assignments.html)
-### [Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
-### [Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
-### [Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
+[Course Overview](https://fuzzyatelin.github.io/bioanth-stats/overview.html)
+<br>
+[Modules](https://fuzzyatelin.github.io/bioanth-stats/modules.html)
+<br>
+[Assignments](https://fuzzyatelin.github.io/bioanth-stats/assignments.html)
+<br>
+[Resources](https://fuzzyatelin.github.io/bioanth-stats/resources.html)
+<br>
+[Policies](https://fuzzyatelin.github.io/bioanth-stats/policies.html)
+<br>
+[Insurmountable Coding Problems](https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html)
 
 ***
 
-### Week 01 (2021-09-03)
+### **Week 01 (2023-09-07)**
 ***
 
 ### An Introduction to R
@@ -91,10 +98,10 @@ output:
 
 ***
 
-### Week 02 (2021-09-10)
+### **Week 02 (2023-09-14)**
 ***
 
-[Homework 1 assigned - DUE 5pm 2021-09-16](http://fuzzyatelin.github.io/bioanth-stats/homework-01.html)
+[***Homework 1 assigned - DUE 5pm 2023-09-20***](http://fuzzyatelin.github.io/bioanth-stats/homework-01.html)
 
 ### Data Science Preliminaries
 
@@ -172,10 +179,10 @@ output:
 </ul>
 ***
 
-### Week 03 (2021-09-17)
+### **Week 03 (2021-09-21)**
 ***
 
-[Homework 2 assigned - DUE 5pm 2021-09-30](http://fuzzyatelin.github.io/bioanth-stats/homework-02.html)
+[***Homework 2 assigned - DUE 5pm 2023-10-04***](http://fuzzyatelin.github.io/bioanth-stats/homework-02.html)
 
 ### Statistics Fundamentals - Exploratory Data Analysis, Central Tendency, and Variance
 
@@ -234,7 +241,7 @@ output:
 <li>Chapter 14 - Basic Data Visualization</li></ul>
 ***
 
-### Week 04 (2021-09-24)
+### **Week 04 (2023-09-28)**
 ***
 
 ### Statistics Fundamentals - Probability and Distributions
@@ -279,12 +286,13 @@ output:
 
 ***
 
-### Week 05 (2021-10-01)
+### **Week 05 (2023-10-05)**
 ***
 
-[Homework 3 assigned - DUE 5pm 2021-10-14](http://fuzzyatelin.github.io/bioanth-stats/homework-03.html)
+[***Homework 3 assigned - DUE 5pm 2023-10-18***](http://fuzzyatelin.github.io/bioanth-stats/homework-03.html)
+<br><br>
 
-**IMPORTANT! Today is the deadline for choosing a paper from the primary literature to replicate analyses.**
+**IMPORTANT! Today is the deadline for choosing a paper from the primary literature from which to replicate analyses.**
 
 [You can find instructions for the replication assignment here!](http://fuzzyatelin.github.io/bioanth-stats/data-reanalysis-assignment.html)
 
@@ -320,7 +328,7 @@ output:
 
 ***
 
-### Week 06 (2021-10-08)
+### **Week 06 (2023-10-12)**
 ***
 
 ### Introduction to Linear Regression
@@ -363,12 +371,10 @@ output:
 
 ***
 
-### Week 07 (2021-10-15)
+### **Week 07 (2023-10-19)**
 ***
 
-[Homework 4 assigned - DUE 5pm 2021-10-28](http://fuzzyatelin.github.io/bioanth-stats/homework-04.html)
-
-Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day.
+[***Homework 4 assigned - DUE 5pm 2022-11-02***](http://fuzzyatelin.github.io/bioanth-stats/homework-04.html)
 
 ### Elements of Regression Analysis
 
@@ -392,7 +398,7 @@ Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day.
 
 ***
 
-### Week 08 (2021-10-22)
+### **Week 08 (2023-10-26)**
 ***
 
 ### Basic Categorical Data Analysis and ANOVA
@@ -429,7 +435,7 @@ Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day.
 
 ***
 
-### Week 09 (2021-10-29)
+### **Week 09 (2023-11-02)**
 ***
 
 ### Multiple Regression and ANCOVA
@@ -457,10 +463,10 @@ Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day.
 
 ***
 
-### Week 10 (2021-11-05)
+### **Week 10 (2023-11-09)**
 ***
 
-[Homework 5 assigned - DUE 5pm 2021-11-11](http://fuzzyatelin.github.io/bioanth-stats/homework-05.html)
+[***Homework 5 assigned - DUE 5pm 2023-11-22***](http://fuzzyatelin.github.io/bioanth-stats/homework-05.html)
 
 **IMPORTANT! Deadline for choosing your team and topic for group statistical methods presentation and vignette**
 
@@ -498,7 +504,7 @@ Seminar will be held on Tuesday, in observance of Indigenous Peoples' Day.
 
 ***
 
-### Week 11 (2021-11-12)
+### **Week 11 (2023-11-16)**
 ***
 
 Same readings as last week, plus:
@@ -507,8 +513,10 @@ Same readings as last week, plus:
 
 ***
 
-### Week 12 (2021-11-19)
+### **Week 12 (2023-11-23)**
 ***
+
+**OPTIONAL FOR THANKSGIVING BREAK**
 
 ### A Very Brief Introduction to Bayesian Methods
 
@@ -526,25 +534,18 @@ More details coming soon!
 
 - Check-in on group project team-building and development.
 
-#### Required Readings
+#### Readings
 
 - [Ellison, A.M. (1996). An introduction to Bayesian inference for ecological research and environmental decision-making. *Ecological Applications* 6(4):1036-1046.](http://byrneslab.net/classes/biol607/readings/Ellison_1996_ecol_app.pdf)
 
-#### Useful but Optional Readings
+#### Useful but (also )Optional Readings
 
 - [Hadfield, J. (2016) *MCMCglmm* Course Notes](https://cran.r-project.org/web/packages/MCMCglmm/vignettes/CourseNotes.pdf)
 - Package descriptions for [{MCMCglmm}](https://cran.r-project.org/web/packages/MCMCglmm/MCMCglmm.pdf) and [{rethinking}](http://xcelab.net/R/rethinking_package.pdf)
 
 ***
 
-### Week 13 (2021-11-26)
-***
-
-**NO CLASSES, THANKGIVING BREAK**
-
-***
-
-### Week 14 (2021-12-03)
+### **Week 13 (2023-11-30)**
 ***
 
 Group Presentations and Vignettes
@@ -555,7 +556,7 @@ Group Presentations and Vignettes
 
 ***
 
-### Week 15 (2021-12-10)
+### **Week 14 (2023-12-07)**
 ***
 
 Group Presentations and Vignettes

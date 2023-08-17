@@ -10,12 +10,12 @@
 
 
 
-<meta name="date" content="2021-09-01" />
+<meta name="date" content="2023-08-17" />
 
 <title>AN/BI 588: Course Outline</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -30,6 +30,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -61,6 +64,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -81,6 +85,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -149,6 +156,69 @@ pre code {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -158,6 +228,16 @@ pre code {
 <div class="container-fluid main-container">
 
 
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
 
 
 <div id="header">
@@ -165,33 +245,28 @@ pre code {
 
 
 <h1 class="title toc-ignore">AN/BI 588: Course Outline</h1>
-<h4 class="date">September 1, 2021</h4>
+<h4 class="date">August 17, 2023</h4>
 
 </div>
 
 
 <hr />
-<div id="course-overview" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/overview.html">Course Overview</a></h3>
-</div>
-<div id="modules" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/modules.html">Modules</a></h3>
-</div>
-<div id="assignments" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/assignments.html">Assignments</a></h3>
-</div>
-<div id="resources" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/resources.html">Resources</a></h3>
-</div>
-<div id="policies" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/policies.html">Policies</a></h3>
-</div>
-<div id="insurmountable-coding-problems" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html">Insurmountable Coding Problems</a></h3>
+<p><a
+href="https://fuzzyatelin.github.io/bioanth-stats/overview.html">Course
+Overview</a> <br> <a
+href="https://fuzzyatelin.github.io/bioanth-stats/modules.html">Modules</a>
+<br> <a
+href="https://fuzzyatelin.github.io/bioanth-stats/assignments.html">Assignments</a>
+<br> <a
+href="https://fuzzyatelin.github.io/bioanth-stats/resources.html">Resources</a>
+<br> <a
+href="https://fuzzyatelin.github.io/bioanth-stats/policies.html">Policies</a>
+<br> <a
+href="https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html">Insurmountable
+Coding Problems</a></p>
 <hr />
-</div>
-<div id="week-01-2021-09-03" class="section level3">
-<h3>Week 01 (2021-09-03)</h3>
+<div id="week-01-2023-09-07" class="section level3">
+<h3><strong>Week 01 (2023-09-07)</strong></h3>
 <hr />
 </div>
 <div id="an-introduction-to-r" class="section level3">
@@ -215,7 +290,8 @@ Setting up your workspace
 </li>
 <ul>
 <li>
-Panels: <i>Source</i>, <i>Console</i>, <i>Environment/History</i>, Other Views
+Panels: <i>Source</i>, <i>Console</i>, <i>Environment/History</i>, Other
+Views
 </li>
 <li>
 Setting the working directory
@@ -302,13 +378,18 @@ Chapter 1 - Fundamentals
 <em>Teamwork-Related Readings</em>
 <ul>
 <li>
-<a href="https://simpleprogrammer.com/working-on-a-team/">The Programmer’s Guide to Working on a Team</a>
+<a href="https://simpleprogrammer.com/working-on-a-team/">The
+Programmer’s Guide to Working on a Team</a>
 </li>
 <li>
-<a href="https://hr.mit.edu/learning-topics/teams/articles/new-team">Important Steps when Building a new Team</a>
+<a
+href="https://hr.mit.edu/learning-topics/teams/articles/new-team">Important
+Steps when Building a new Team</a>
 </li>
 <li>
-<a href="https://www.atlassian.com/blog/wp-content/uploads/HelloWorldEbook.pdf">Hello World! A new grad’s guide to coding as a team</a>
+<a
+href="https://www.atlassian.com/blog/wp-content/uploads/HelloWorldEbook.pdf">Hello
+World! A new grad’s guide to coding as a team</a>
 </li>
 </ul>
 </div>
@@ -332,10 +413,12 @@ Appendix: Essentials of the R Language
 <hr />
 </div>
 </div>
-<div id="week-02-2021-09-10" class="section level3">
-<h3>Week 02 (2021-09-10)</h3>
+<div id="week-02-2023-09-14" class="section level3">
+<h3><strong>Week 02 (2023-09-14)</strong></h3>
 <hr />
-<p><a href="http://fuzzyatelin.github.io/bioanth-stats/homework-01.html">Homework 1 assigned - DUE 5pm 2021-09-16</a></p>
+<p><a
+href="http://fuzzyatelin.github.io/bioanth-stats/homework-01.html"><strong><em>Homework
+1 assigned - DUE 5pm 2023-09-20</em></strong></a></p>
 </div>
 <div id="data-science-preliminaries" class="section level3">
 <h3>Data Science Preliminaries</h3>
@@ -404,7 +487,8 @@ Summarizing data and exploratory data analysis
 Basic descriptive statistics
 </li>
 <li>
-Simple plotting (boxplots, histograms, scatterplots) - {ggplot2} and others
+Simple plotting (boxplots, histograms, scatterplots) - {ggplot2} and
+others
 </li>
 </ul>
 </ul>
@@ -460,10 +544,13 @@ Chapter 7 - Using the {readr} Package
 <em>Teamwork-Related Readings</em>
 <ul>
 <li>
-<a href="https://blog.hubspot.com/marketing/peer-feedback-tips">8 Tips for Giving Great Peer Feedback</a>
+<a href="https://blog.hubspot.com/marketing/peer-feedback-tips">8 Tips
+for Giving Great Peer Feedback</a>
 </li>
 <li>
-<a href="https://blog.hubspot.com/marketing/giving-negative-feedback-tips">How to Give Negative Feedback Without Sounding Like a Jerk</a>
+<a
+href="https://blog.hubspot.com/marketing/giving-negative-feedback-tips">How
+to Give Negative Feedback Without Sounding Like a Jerk</a>
 </li>
 </ul>
 </div>
@@ -490,13 +577,18 @@ Chapter 9 - Interfaces to the Outside World
 <hr />
 </div>
 </div>
-<div id="week-03-2021-09-17" class="section level3">
-<h3>Week 03 (2021-09-17)</h3>
+<div id="week-03-2021-09-21" class="section level3">
+<h3><strong>Week 03 (2021-09-21)</strong></h3>
 <hr />
-<p><a href="http://fuzzyatelin.github.io/bioanth-stats/homework-02.html">Homework 2 assigned - DUE 5pm 2021-09-30</a></p>
+<p><a
+href="http://fuzzyatelin.github.io/bioanth-stats/homework-02.html"><strong><em>Homework
+2 assigned - DUE 5pm 2023-10-04</em></strong></a></p>
 </div>
-<div id="statistics-fundamentals---exploratory-data-analysis-central-tendency-and-variance" class="section level3">
-<h3>Statistics Fundamentals - Exploratory Data Analysis, Central Tendency, and Variance</h3>
+<div
+id="statistics-fundamentals---exploratory-data-analysis-central-tendency-and-variance"
+class="section level3">
+<h3>Statistics Fundamentals - Exploratory Data Analysis, Central
+Tendency, and Variance</h3>
 <div id="topics-2" class="section level4">
 <h4>Topics</h4>
 <ul>
@@ -590,10 +682,14 @@ Chapter 4 - Variance
 <em>Teamwork-Related Readings</em>
 <ul>
 <li>
-<a href="https://google.github.io/eng-practices/review/developer/handling-comments.html">How to Handle Reviewer Comments.</a>
+<a
+href="https://google.github.io/eng-practices/review/developer/handling-comments.html">How
+to Handle Reviewer Comments.</a>
 </li>
 <li>
-<a href="https://www.freecodecamp.org/news/code-comments-the-good-the-bad-and-the-ugly-be9cc65fbf83/">Putting comments in code: the good, the bad, and the ugly.</a>
+<a
+href="https://www.freecodecamp.org/news/code-comments-the-good-the-bad-and-the-ugly-be9cc65fbf83/">Putting
+comments in code: the good, the bad, and the ugly.</a>
 </li>
 </ul>
 </div>
@@ -611,11 +707,12 @@ Chapter 14 - Basic Data Visualization
 <hr />
 </div>
 </div>
-<div id="week-04-2021-09-24" class="section level3">
-<h3>Week 04 (2021-09-24)</h3>
+<div id="week-04-2023-09-28" class="section level3">
+<h3><strong>Week 04 (2023-09-28)</strong></h3>
 <hr />
 </div>
-<div id="statistics-fundamentals---probability-and-distributions" class="section level3">
+<div id="statistics-fundamentals---probability-and-distributions"
+class="section level3">
 <h3>Statistics Fundamentals - Probability and Distributions</h3>
 <div id="topics-3" class="section level4">
 <h4>Topics</h4>
@@ -637,7 +734,8 @@ Useful distributions and their properties
 </li>
 <ul>
 <li>
-density (d), cumulative probability (p), quantile (q), and random (r) functions
+density (d), cumulative probability (p), quantile (q), and random (r)
+functions
 </li>
 <li>
 Discrete
@@ -690,10 +788,18 @@ Chapter 16 - Common Probability Distributions
 <em>Project-Related Readings</em>
 <ul>
 <li>
-<a href="https://gking.harvard.edu/files/gking/files/replication.pdf">King, G. 1995. Replication, Replication. <em>PS: Political Science &amp; Politics</em>, 28, 444-452.</a>
+<a
+href="https://gking.harvard.edu/files/gking/files/replication.pdf">King,
+G. 1995. Replication, Replication. <em>PS: Political Science &amp;
+Politics</em>, 28, 444-452.</a>
 </li>
 <li>
-<a href="https://gking.harvard.edu/files/gking/files/paperspub.pdf">King, G. 2006. Publication, Publication. <em>PS: Political Science and Politics</em>, 36(1), 119-125.</a> - although our goal isn’t necessarily to publish our replication studies, please note many of the guidelines listed herein!
+<a
+href="https://gking.harvard.edu/files/gking/files/paperspub.pdf">King,
+G. 2006. Publication, Publication. <em>PS: Political Science and
+Politics</em>, 36(1), 119-125.</a> - although our goal isn’t necessarily
+to publish our replication studies, please note many of the guidelines
+listed herein!
 </li>
 </ul>
 </div>
@@ -708,14 +814,20 @@ Chapter 22 - Simulation
 </ul>
 <hr />
 </div>
-<div id="week-05-2021-10-01" class="section level3">
-<h3>Week 05 (2021-10-01)</h3>
+<div id="week-05-2023-10-05" class="section level3">
+<h3><strong>Week 05 (2023-10-05)</strong></h3>
 <hr />
-<p><a href="http://fuzzyatelin.github.io/bioanth-stats/homework-03.html">Homework 3 assigned - DUE 5pm 2021-10-14</a></p>
-<p><strong>IMPORTANT! Today is the deadline for choosing a paper from the primary literature to replicate analyses.</strong></p>
-<p><a href="http://fuzzyatelin.github.io/bioanth-stats/data-reanalysis-assignment.html">You can find instructions for the replication assignment here!</a></p>
+<p><a
+href="http://fuzzyatelin.github.io/bioanth-stats/homework-03.html"><strong><em>Homework
+3 assigned - DUE 5pm 2023-10-18</em></strong></a> <br><br></p>
+<p><strong>IMPORTANT! Today is the deadline for choosing a paper from
+the primary literature from which to replicate analyses.</strong></p>
+<p><a
+href="http://fuzzyatelin.github.io/bioanth-stats/data-reanalysis-assignment.html">You
+can find instructions for the replication assignment here!</a></p>
 </div>
-<div id="statistical-inference-and-basic-hypothesis-testing" class="section level3">
+<div id="statistical-inference-and-basic-hypothesis-testing"
+class="section level3">
 <h3>Statistical Inference and Basic Hypothesis Testing</h3>
 <div id="topics-4" class="section level4">
 <h4>Topics</h4>
@@ -750,7 +862,8 @@ Chapter 17 - Sampling Distributions and Confidence
 Chapter 18 - Hypothesis Testing (through section 18.3)
 </li>
 </ul>
-<a href="https://www.statisticsdonewrong.com/"><em>Statistics Done Wrong</em></a>
+<a href="https://www.statisticsdonewrong.com/"><em>Statistics Done
+Wrong</em></a>
 <ul>
 <li>
 Chapter 1 - An Introduction to Statistical Significance
@@ -759,7 +872,11 @@ Chapter 1 - An Introduction to Statistical Significance
 <em>Project-Related Readings</em>
 <ul>
 <li>
-<a href="https://onlinelibrary.wiley.com/doi/full/10.1002/ajpa.23909">Turner, T.R. &amp; Mulligan C.J. 2019. Data sharing in biological anthropology: Guiding principles and best practices. <em>Am J Phys Anthropol</em>, 170(1), 3-4.</a>
+<a
+href="https://onlinelibrary.wiley.com/doi/full/10.1002/ajpa.23909">Turner,
+T.R. &amp; Mulligan C.J. 2019. Data sharing in biological anthropology:
+Guiding principles and best practices. <em>Am J Phys Anthropol</em>,
+170(1), 3-4.</a>
 </li>
 </ul>
 </div>
@@ -776,8 +893,8 @@ Chapter 6 - Two Samples
 <hr />
 </div>
 </div>
-<div id="week-06-2021-10-08" class="section level3">
-<h3>Week 06 (2021-10-08)</h3>
+<div id="week-06-2023-10-12" class="section level3">
+<h3><strong>Week 06 (2023-10-12)</strong></h3>
 <hr />
 </div>
 <div id="introduction-to-linear-regression" class="section level3">
@@ -829,11 +946,12 @@ Regression Models (all exercises)
 <hr />
 </div>
 </div>
-<div id="week-07-2021-10-15" class="section level3">
-<h3>Week 07 (2021-10-15)</h3>
+<div id="week-07-2023-10-19" class="section level3">
+<h3><strong>Week 07 (2023-10-19)</strong></h3>
 <hr />
-<p><a href="http://fuzzyatelin.github.io/bioanth-stats/homework-04.html">Homework 4 assigned - DUE 5pm 2021-10-28</a></p>
-<p>Seminar will be held on Tuesday, in observance of Indigenous Peoples’ Day.</p>
+<p><a
+href="http://fuzzyatelin.github.io/bioanth-stats/homework-04.html"><strong><em>Homework
+4 assigned - DUE 5pm 2022-11-02</em></strong></a></p>
 </div>
 <div id="elements-of-regression-analysis" class="section level3">
 <h3>Elements of Regression Analysis</h3>
@@ -863,11 +981,12 @@ Regression Models (all exercises)
 <hr />
 </div>
 </div>
-<div id="week-08-2021-10-22" class="section level3">
-<h3>Week 08 (2021-10-22)</h3>
+<div id="week-08-2023-10-26" class="section level3">
+<h3><strong>Week 08 (2023-10-26)</strong></h3>
 <hr />
 </div>
-<div id="basic-categorical-data-analysis-and-anova" class="section level3">
+<div id="basic-categorical-data-analysis-and-anova"
+class="section level3">
 <h3>Basic Categorical Data Analysis and ANOVA</h3>
 <div id="topics-7" class="section level4">
 <h4>Topics</h4>
@@ -912,8 +1031,8 @@ ANOVA
 <hr />
 </div>
 </div>
-<div id="week-09-2021-10-29" class="section level3">
-<h3>Week 09 (2021-10-29)</h3>
+<div id="week-09-2023-11-02" class="section level3">
+<h3><strong>Week 09 (2023-11-02)</strong></h3>
 <hr />
 </div>
 <div id="multiple-regression-and-ancova" class="section level3">
@@ -948,14 +1067,20 @@ ANOVA
 <hr />
 </div>
 </div>
-<div id="week-10-2021-11-05" class="section level3">
-<h3>Week 10 (2021-11-05)</h3>
+<div id="week-10-2023-11-09" class="section level3">
+<h3><strong>Week 10 (2023-11-09)</strong></h3>
 <hr />
-<p><a href="http://fuzzyatelin.github.io/bioanth-stats/homework-05.html">Homework 5 assigned - DUE 5pm 2021-11-11</a></p>
-<p><strong>IMPORTANT! Deadline for choosing your team and topic for group statistical methods presentation and vignette</strong></p>
+<p><a
+href="http://fuzzyatelin.github.io/bioanth-stats/homework-05.html"><strong><em>Homework
+5 assigned - DUE 5pm 2023-11-22</em></strong></a></p>
+<p><strong>IMPORTANT! Deadline for choosing your team and topic for
+group statistical methods presentation and vignette</strong></p>
 </div>
-<div id="model-selection-generalized-linear-modeling-and-mixed-effects-modeling" class="section level3">
-<h3>Model Selection, Generalized Linear Modeling, and Mixed Effects Modeling</h3>
+<div
+id="model-selection-generalized-linear-modeling-and-mixed-effects-modeling"
+class="section level3">
+<h3>Model Selection, Generalized Linear Modeling, and Mixed Effects
+Modeling</h3>
 <div id="topics-9" class="section level4">
 <h4>Topics</h4>
 <ul>
@@ -970,7 +1095,8 @@ ANOVA
 </ul></li>
 <li>Generalized Linear Modeling
 <ul>
-<li>Dealing with other response variables types - counts, binary responses</li>
+<li>Dealing with other response variables types - counts, binary
+responses</li>
 </ul></li>
 <li>Introduction to mixed effects modeling and nonlinear models
 <ul>
@@ -994,25 +1120,42 @@ ANOVA
 <div id="useful-but-optional-readings-8" class="section level4">
 <h4>Useful but Optional Readings</h4>
 <ul>
-<li><a href="https://ms.mcmaster.ca/~bolker/emdbook/book.pdf">Bolker, B.M. (2008). Chapter 9. Standard statistics revisited. In: <em>Ecological Models and Data in R.</em> Princeton, NJ: Princeton University Press.</a></li>
-<li><a href="http://www2.ib.unicamp.br/profs/fsantos/apostilas/Quinn%20&amp;%20Keough.pdf">Quinn, G. P., &amp; Keough, M. J. (2002). Chapter 13. Generalized linear models and logistic regression. <em>Experimental Design and Data Analysis for Biologists.</em> Cambridge, UK: Cambridge University Press.</a></li>
-<li>Package descriptions for <a href="https://cran.r-project.org/web/packages/AICcmodavg/AICcmodavg.pdf">{AICcmodavg}</a> and <a href="https://cran.r-project.org/web/packages/MuMIn/MuMIn.pdf">{MuMIn}</a></li>
+<li><a href="https://ms.mcmaster.ca/~bolker/emdbook/book.pdf">Bolker,
+B.M. (2008). Chapter 9. Standard statistics revisited. In:
+<em>Ecological Models and Data in R.</em> Princeton, NJ: Princeton
+University Press.</a></li>
+<li><a
+href="http://www2.ib.unicamp.br/profs/fsantos/apostilas/Quinn%20&amp;%20Keough.pdf">Quinn,
+G. P., &amp; Keough, M. J. (2002). Chapter 13. Generalized linear models
+and logistic regression. <em>Experimental Design and Data Analysis for
+Biologists.</em> Cambridge, UK: Cambridge University Press.</a></li>
+<li>Package descriptions for <a
+href="https://cran.r-project.org/web/packages/AICcmodavg/AICcmodavg.pdf">{AICcmodavg}</a>
+and <a
+href="https://cran.r-project.org/web/packages/MuMIn/MuMIn.pdf">{MuMIn}</a></li>
 </ul>
 <hr />
 </div>
 </div>
-<div id="week-11-2021-11-12" class="section level3">
-<h3>Week 11 (2021-11-12)</h3>
+<div id="week-11-2023-11-16" class="section level3">
+<h3><strong>Week 11 (2023-11-16)</strong></h3>
 <hr />
 <p>Same readings as last week, plus:</p>
-<p><a href="http://avesbiodiv.mncn.csic.es/estadistica/curso2011/regm26.pdf">Bolker, B.M., Brooks, M.E., Clark, C.J., Geange, S.W., Poulsen, J.R., Stevens, M.H.H., White, J-S.S. (2008) Generalized linear mixed models: a practical guide for ecology and evolution. <em>Trends in Ecology and Evolution</em> 24(3):127-135.</a></p>
+<p><a
+href="http://avesbiodiv.mncn.csic.es/estadistica/curso2011/regm26.pdf">Bolker,
+B.M., Brooks, M.E., Clark, C.J., Geange, S.W., Poulsen, J.R., Stevens,
+M.H.H., White, J-S.S. (2008) Generalized linear mixed models: a
+practical guide for ecology and evolution. <em>Trends in Ecology and
+Evolution</em> 24(3):127-135.</a></p>
 <hr />
 </div>
-<div id="week-12-2021-11-19" class="section level3">
-<h3>Week 12 (2021-11-19)</h3>
+<div id="week-12-2023-11-23" class="section level3">
+<h3><strong>Week 12 (2023-11-23)</strong></h3>
 <hr />
+<p><strong>OPTIONAL FOR THANKSGIVING BREAK</strong></p>
 </div>
-<div id="a-very-brief-introduction-to-bayesian-methods" class="section level3">
+<div id="a-very-brief-introduction-to-bayesian-methods"
+class="section level3">
 <h3>A Very Brief Introduction to Bayesian Methods</h3>
 <div id="topics-10" class="section level4">
 <h4>Topics</h4>
@@ -1022,42 +1165,47 @@ ANOVA
 <li>Basics and Bayes’ Theorem</li>
 <li>Priors (when they matter and when they don’t)</li>
 </ul></li>
-<li>Implementing Bayesian (regression) models in <strong><em>R</em></strong>
+<li>Implementing Bayesian (regression) models in
+<strong><em>R</em></strong>
 <ul>
 <li>Using {MCMCglmm}</li>
 <li>Burn-in, iterations, and intervals</li>
 <li>Model assessment</li>
 </ul></li>
-<li>Implementing Bayesian models in the {rethinking} package framework</li>
+<li>Implementing Bayesian models in the {rethinking} package
+framework</li>
 </ul>
 <p>More details coming soon!</p>
 <ul>
 <li>Check-in on group project team-building and development.</li>
 </ul>
 </div>
-<div id="required-readings-10" class="section level4">
-<h4>Required Readings</h4>
+<div id="readings" class="section level4">
+<h4>Readings</h4>
 <ul>
-<li><a href="http://byrneslab.net/classes/biol607/readings/Ellison_1996_ecol_app.pdf">Ellison, A.M. (1996). An introduction to Bayesian inference for ecological research and environmental decision-making. <em>Ecological Applications</em> 6(4):1036-1046.</a></li>
+<li><a
+href="http://byrneslab.net/classes/biol607/readings/Ellison_1996_ecol_app.pdf">Ellison,
+A.M. (1996). An introduction to Bayesian inference for ecological
+research and environmental decision-making. <em>Ecological
+Applications</em> 6(4):1036-1046.</a></li>
 </ul>
 </div>
-<div id="useful-but-optional-readings-9" class="section level4">
-<h4>Useful but Optional Readings</h4>
+<div id="useful-but-also-optional-readings" class="section level4">
+<h4>Useful but (also )Optional Readings</h4>
 <ul>
-<li><a href="https://cran.r-project.org/web/packages/MCMCglmm/vignettes/CourseNotes.pdf">Hadfield, J. (2016) <em>MCMCglmm</em> Course Notes</a></li>
-<li>Package descriptions for <a href="https://cran.r-project.org/web/packages/MCMCglmm/MCMCglmm.pdf">{MCMCglmm}</a> and <a href="http://xcelab.net/R/rethinking_package.pdf">{rethinking}</a></li>
+<li><a
+href="https://cran.r-project.org/web/packages/MCMCglmm/vignettes/CourseNotes.pdf">Hadfield,
+J. (2016) <em>MCMCglmm</em> Course Notes</a></li>
+<li>Package descriptions for <a
+href="https://cran.r-project.org/web/packages/MCMCglmm/MCMCglmm.pdf">{MCMCglmm}</a>
+and <a
+href="http://xcelab.net/R/rethinking_package.pdf">{rethinking}</a></li>
 </ul>
 <hr />
 </div>
 </div>
-<div id="week-13-2021-11-26" class="section level3">
-<h3>Week 13 (2021-11-26)</h3>
-<hr />
-<p><strong>NO CLASSES, THANKGIVING BREAK</strong></p>
-<hr />
-</div>
-<div id="week-14-2021-12-03" class="section level3">
-<h3>Week 14 (2021-12-03)</h3>
+<div id="week-13-2023-11-30" class="section level3">
+<h3><strong>Week 13 (2023-11-30)</strong></h3>
 <hr />
 <p>Group Presentations and Vignettes</p>
 </div>
@@ -1068,8 +1216,8 @@ ANOVA
 <h3><a href="">Module 23 - <strong>TBA</strong></a></h3>
 <hr />
 </div>
-<div id="week-15-2021-12-10" class="section level3">
-<h3>Week 15 (2021-12-10)</h3>
+<div id="week-14-2023-12-07" class="section level3">
+<h3><strong>Week 14 (2023-12-07)</strong></h3>
 <hr />
 <p>Group Presentations and Vignettes</p>
 </div>
@@ -1083,6 +1231,8 @@ ANOVA
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -1115,6 +1265,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
