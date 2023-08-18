@@ -86,7 +86,7 @@ Suppose we have a vector describing the adult weights of vervet monkeys trapped 
 
 ``` {r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/vervet-weights.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall23/vervet-weights.csv")
 d <- read.csv(f, header=TRUE, sep=",", stringsAsFactors=FALSE)
 head(d)
 mean(d$weight)
@@ -163,7 +163,7 @@ t <- t.test(x=x, mu=mu, alternative="greater")
 t
 ```
 
-Note that we can also use the `t.test()` function to calculate t distribution based CIs for us easily!
+Note that we can also use the `t.test()` function to calculate CIs based on the t distribution for us easily!
 
 ``` {r}
 lower <- m - qt(1-0.05/2, df=n-1)*sem
@@ -211,6 +211,8 @@ test <- abs(t) > crit
 t.test(x=x, mu=mu, alternative="two.sided")
 ```
 
+Based on our conclusions for the vervet sample, what do the results of this comparison across woolly monkey populations mean?
+
 ## Comparing Sample Means: Two Sample Z and T Tests
 
 Sometimes we want to compare two groups of measurements to one another, which boils down to a hypothesis test for the difference between two means, $\mu1$ and $\mu2$. The null hypothesis is that the difference between the means is zero.
@@ -246,7 +248,7 @@ where:
 Let's do an example. Load in a file of black-and-white colobus weights and examine the `str()` of the file. Then, create 2 vectors, x and y, for male and female weights. Plot these in boxplots side by side and then calculate the mean, sd, and sample size for both males and females.
 
 ``` {r}
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/colobus-weights.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall23/colobus-weights.csv")
 d <- read.csv(f, header=TRUE, sep=",", stringsAsFactors=FALSE)
 head(d)
 x <- d$weight[d$sex =="male"]
@@ -291,6 +293,8 @@ Do the same using the `t.test()` function.
 t <- t.test(x=x, y=y, mu=0, alternative="two.sided")
 t
 ```
+
+How do we interpret these results?
 
 ### Samples with Equal Variances
 
@@ -363,10 +367,10 @@ Again, note that $\mu$ here is the expected difference between the means under t
 
 ***
 
-Let's play with a sample... IQs of individuals taking a certain statistics course pre and post a lecture on significance testing. Load in the `iqs.csv` data file, look at it, plot a barchart of values before and after and construct a paired t test to evaluate the means before and after.
+Let's play with a sample... IQs of individuals taking a certain statistics course before and after a lecture on significance testing. Load in the `iqs.csv` data file, look at it, plot a barchart of values before and after and construct a paired t test to evaluate the means before and after.
 
 ``` {r}
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/iqs.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall23/iqs.csv")
 d <- read.csv(f, header=TRUE, sep=",", stringsAsFactors=FALSE)
 head(d)
 x <- d$IQ.before-d$IQ.after
@@ -387,6 +391,8 @@ test <- t < -crit || t > crit # boolean test
 test
 t.test(x,df=n-1,alternative="two.sided")
 ```
+
+How do we interpret these results?
 
 ## Testing Sample Proportions: One Sample Z Test 
 
@@ -500,6 +506,8 @@ pt
 ```
 Note that the CI is different than we calculated based on the normal distribution... `prop.test()` implements a slightly different procedure for estimating the CI rather than basing this on the normal distribution and the CLT.
 
+How should she interpret these results? Was she right that her trapping results are off this year?
+
 ## Comparing Sample Proportions: Two Sample Z Tests
 
 The Z statistic for the two sample test comparing proportions is also very similar to that for comparing means.
@@ -531,7 +539,7 @@ v1 <- c(1,0,1,1,0,0,1,1,0,0,1,1,1,1,0,0,1,1,0,0,1,1,0,1,0)
 v2 <- c(1,1,0,0,1,1,1,1,0,1,0,1,1,1,0,1,0,1,1,1,1,1,0,0,1,1,0,1,1,1)
 ```
 
-Based on your mist netting data, do the species differ significantly in the proportion of lactating females? What are $H_0$ and $H_A$?
+Based on your mist netting data, do the species differ significantly in the proportion of lactating females during this trapping season? What are $H_0$ and $H_A$?
 
 ``` {r}
 pstar <- (sum(v1) + sum(v2))/(length(v1)+length(v2))
@@ -557,6 +565,8 @@ We can use the `prop.test()` function to do this in one line.
 pt <- prop.test(x=c(sum(v2),sum(v1)),n=c(length(v2),length(v1)),alternative="two.sided",correct=FALSE)
 pt
 ```
+
+What are her results? Are the proportions of lactating females different across species during this trapping season?
 
 ## Summary of Z and T Tests
 
