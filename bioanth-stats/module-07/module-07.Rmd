@@ -74,7 +74,7 @@ gm2(x)
 
 What happens if you have `NA`s or zeros or negative numbers in the vector? 
 
-**HINT:** The argument `na.rm = TRUE` and the function `na.omit()` may help you write more generic functions.
+**HINT:** The argument `na.rm = TRUE` and the function `na.omit()` may help you write more generic functions that exclude those pesky `NA` values.
 
 ***
 

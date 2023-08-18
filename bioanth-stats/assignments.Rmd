@@ -42,12 +42,18 @@ Each assignment listed is linked to another page containing instructions (you ca
 
 ***
 
-## [Analysis Replication Assignment](https://fuzzyatelin.github.io/bioanth-stats/data-reanalysis-assignment.html) due **December 14, 2023**
+## [Analysis Replication Assignment](https://fuzzyatelin.github.io/bioanth-stats/data-reanalysis-assignment.html) due **December 14, 2023**.
+
+You must choose the paper/dataset for the Analysis Replication Assignment by Week 5 (Thursday, October 05, 2023).
 
 ***
 
 ## [Group Presentation and R Vignette]() due **November 27, 2023**
 
+You must choose your group and analysis/vignette for the Group Presentation by Week 9 (Thursday, November 02, 2023).
+
 ***
 
 ## [Self Evaluation](https://fuzzyatelin.github.io/bioanth-stats/selfevaluation.html) due **December 14, 2023**
+
+***

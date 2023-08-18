@@ -438,6 +438,8 @@ output:
 ### **Week 09 (2023-11-02)**
 ***
 
+**IMPORTANT! Deadline for choosing your team and topic for group statistical methods presentation and vignette**
+
 ### Multiple Regression and ANCOVA
 
 #### Topics
@@ -467,8 +469,6 @@ output:
 ***
 
 [***Homework 5 assigned - DUE 5pm 2023-11-22***](http://fuzzyatelin.github.io/bioanth-stats/homework-05.html)
-
-**IMPORTANT! Deadline for choosing your team and topic for group statistical methods presentation and vignette**
 
 ### Model Selection, Generalized Linear Modeling, and Mixed Effects Modeling
 

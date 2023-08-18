@@ -770,8 +770,10 @@ Despite their similarities, the standard error of the mean calculated for a give
 
 ***
 
-<h3 style="color:blue";> [HOMEWORK PROBLEM](https://fuzzyatelin.github.io/bioanth-stats/homework-03.html)</h3>
->
+### [HOMEWORK PROBLEM](https://fuzzyatelin.github.io/bioanth-stats/homework-03.html)
+
+***
+
 >Load in the dataset "zombies.csv" from my ***GitHub*** repo at https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall21/. This data includes the first and last name and gender of the entire population of 1000 people who have survived the zombie apocalypse and are now ekeing out an existence somewhere on the East Coast, along with several other variables (height, weight, age, number of years of education, number of zombies they have killed, and college major [see here for info on important post-zombie apocalypse majors](http://www.thebestschools.org/magazine/best-majors-surviving-zombie-apocalypse/)
 >
 ``` {r}
