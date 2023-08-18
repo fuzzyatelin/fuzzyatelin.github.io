@@ -29,9 +29,9 @@ knitr::opts_chunk$set(
 > The objective of this module to begin exploring data using the summary functions and graphing abilities of ***R***.
 
 ## Preliminaries
-- GO TO: https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall21/, select the `.csv` version of the *Country-Data-2016* file, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally. Do the same for the *KamilarAndCooperData* file.
+- GO TO: https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall23/, select the `.csv` version of the *Country-Data-2016* file, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally. Do the same for the *KamilarAndCooperData* file.
 
-- Install these packages in ***R***: [{dplyr}](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html), [{ggplot2}](http://ggplot2.tidyverse.org/reference/). These are part of the [{tidyverse}](https://www.tidyverse.org/), which you can install as a shorthand for them.
+- Install these packages in ***R***: [{dplyr}](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html), [{ggplot2}](http://ggplot2.tidyverse.org/reference/). These are part of the [{tidyverse}](https://www.tidyverse.org/), which you can also install as a shorthand for them.
 
 ## The Backstory
 ***R*** has some very easy to use functions for taking a quick tour of your data. We have seen some of these already (e.g., `head()`, `tail()`, and `str()`), and you should always use these right after loading in a dataset to work with. Also useful are `dim()` to return the number of rows and columns in a data frame, `names()`, `colnames()`, and sometimes `rownames()`.
@@ -56,7 +56,7 @@ Load the **Country-Data-2016** dataset into a data frame variable, **d**, and su
 
 ``` {r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/Country-Data-2016.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall23/Country-Data-2016.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 head(d)
 summary(d)
@@ -164,12 +164,12 @@ sort(table(d$govt_form),decreasing=TRUE)
 
 Multiple boxplots or histograms can be laid out side-by-side or overlaid. For boxplots, the **~** operator can be read as "by".
 
-Read in the dataset **KamilarAndCooperData**, which contains a host of summary information about 213 primate species.
+Read in the dataset **KamilarAndCooperData**, which contains a host of information from about 213 living primate species.
 
-Spend some time exploring the data and then make boxplots of **log(female body mass) ~ family**. Try doing this with {base} graphics and then look at how we might do in in {ggplot2}, which provides a standard "grammar of graphics" (see the [{ggplot2} documentation](http://docs.ggplot2.org/current/))
+Spend some time exploring the data and then make boxplots of **log(female body mass) ~ family**. Try doing this with {base} graphics and then look at how we might do in in {ggplot2}, which provides a standard "grammar of graphics" (see the [{ggplot2} documentation](https://ggplot2.tidyverse.org))
 
 ``` {r}
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/KamilarAndCooperData.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall23/KamilarAndCooperData.csv")
 d <- read.csv(f, header = TRUE, stringsAsFactors = FALSE)
 attach(d)
 head(d)
@@ -181,14 +181,14 @@ Plotting using {base} graphics...
 boxplot(log(Body_mass_female_mean)~Family,d)
 detach(d)
 ```
-Alternatively, plotting using {ggplot2}...
+Alternatively, plotting using {ggplot2}... notice how each novel command is being added to the already-saved initial command? This is for ease of reading and understanding how we're building the figure. All of this could also go on one line (and is read by the computer as such in the final version of the object `p`), but to make it easier to understand what each component it doing, we often build graphs in {ggplot2} using the below method:
 ``` {r}
 library(ggplot2)
-p <- ggplot(data=d, aes(x=Family, y=log(Body_mass_female_mean)))
-p <- p + geom_boxplot()
-p <- p + theme(axis.text.x=element_text(angle=90))
-p <- p + ylab("log(Female Body Mass)")
-p
+p <- ggplot(data=d, aes(x=Family, y=log(Body_mass_female_mean)))    #define the variables
+p <- p + geom_boxplot()                                             #graph them in a boxplot
+p <- p + theme(axis.text.x=element_text(angle=90))                  #put x-axis names at 90deg
+p <- p + ylab("log(Female Body Mass)")                              #rename y-axis title
+p                                                                   #show me the graph
 ```
 
 ***
@@ -294,7 +294,22 @@ s
 ```
 ### Piping
 
-One other cool thing about the {dplyr} package is that it provides a convenient way to pipe together operations on a data frame using the `%>%` operator. Althought his may at fist seem cumbersome, it qill quickly become one of the best ways to make your code simpler and more readable.
+One other cool thing about the {dplyr} package is that it provides a convenient way to "pipe" together operations on a data frame using the `%>%` operator. This means that each line of code *after* the operator is implemented on the product of the line of code *before* the operator.In this way, you can use piping to build, step by step, a more complicated output. 
+
+As an example, the line of code, below, accomplishes the same as the multiple line of code in the previous chunk (although it *is* only one line of code, I've separated it by pipes for ease of reading and understanding (see hashes for a descriptor of what each pipe section accomplishes)... it could also be written as one continuous line):
+
+```{r}
+s <-                                                             #to create dataframe "s"
+  d %>%                                                          #take dataframe "d"
+  group_by(Family) %>%                                           #Group it by Family
+  summarise(avgF = mean(Body_mass_female_mean, na.rm=TRUE),      #And calculate mean male BM
+            avgM = mean(Body_mass_male_mean, na.rm=TRUE))        #And mean female BM
+s
+```
+
+Piping allows us to keep a clean and readable workflow without having to create numerous intermediate dataframes, as well as offering us a shorthand that accomplishes one complicated process with one simple-to-breakdown command.
+
+Although this may at first seem cumbersome (many students despise piping at first!), it will quickly become one of the *best* ways to make your code more readable and simpler to implement.
 
 ***
 
@@ -306,18 +321,47 @@ In one line of code, do the following:
 
 - Add a variable, *Binomial* to our data frame **d**, which is a concatenation of the *Genus* and *Species*...
 - Trim the data frame to only include the variables *Binomial*, *Family*, *Body_mass_female_mean*, *Body_mass_male_mean* and *Mass_Dimorphism*...
-- Group these by *Family*...
+- Group these by *Binomial* (in other words, by species but with full binomial nomenclature)...
 - And calculate the average value for female body mass, male body mass, and mass dimorphism.
 
 ``` {r}
-s <- d %>% 
+s <- 
+  d %>% 
   mutate(Binomial = paste(Genus, Species, sep=" ")) %>%
-	select(Binomial, Family, Body_mass_female_mean, Body_mass_male_mean, Mass_Dimorphism) %>%
-	group_by(Family) %>%
+	select(Binomial, Body_mass_female_mean, Body_mass_male_mean, Mass_Dimorphism) %>%
+	group_by(Binomial) %>%
 	summarise(avgF = mean(Body_mass_female_mean, na.rm=TRUE),
 						avgM = mean(Body_mass_male_mean, na.rm=TRUE),
 						avgBMD = mean(Mass_Dimorphism, na.rm=TRUE))
 s
+```
+
+* Acccording to Kamilar & Cooper's (2013) dataset, what is the average male and female size, and body mass dimorphism of my two main study species (vervet monkeys, *Chlorocebus pygerythrus*; and woolly monkeys, *Lagothrix lagotricha*)? Which has a larger average female body mass? Which is more sexually dimorphic?
+
+* Compare the body size of my two main study taxa at the *Family* level (i.e., Cercopithecidae vs. Atelidae) by plotting (using {ggplot2}) the body mass of males and females and sexual dimorphism. If you can, make the Cercopithecid boxes green, and the Atelid boxes purple.
+
+```{r,eval=F,echo=F}
+p <-
+  d %>%
+  filter(Family == "Cercopithecidae" | Family == "Atelidae") %>%
+  select(Family,Genus,Body_mass_female_mean,Body_mass_male_mean,Mass_Dimorphism) %>%
+  na.omit()
+  
+  
+g1 <- ggplot(data = p, aes(x=Family, y=Body_mass_female_mean, fill=factor(Family)))
+g1 <- g1 + geom_boxplot()
+g1 <- g1 + scale_fill_manual(name = "Family", values=c("purple4","darkgreen"))
+g1
+
+g2 <- ggplot(data = p, aes(x=Family, y=Body_mass_male_mean, fill=factor(Family)))
+g2 <- g2 + geom_boxplot()
+g2 <- g2 + scale_fill_manual(name = "Family", values=c("purple4","darkgreen"))
+g2
+
+g3 <- ggplot(data = p, aes(x=Family, y=Mass_Dimorphism, fill=factor(Family)))
+g3 <- g3 + geom_boxplot()
+g3 <- g3 + scale_fill_manual(name = "Family", values=c("purple4","darkgreen"))
+g3
 ```
 
 ***
