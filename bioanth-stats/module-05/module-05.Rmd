@@ -30,7 +30,7 @@ knitr::opts_chunk$set(
 
 ## Preliminaries
 
-- GO TO: https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall21/, select the `.txt` version of *Country-Data-2016*, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally. Do the same for the `.csv` version.
+- GO TO: https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall23/, select the `.txt` version of *Country-Data-2016*, then press the `RAW` button, highlight, and copy the text to a text editor and save it locally. Do the same for the `.csv` version.
 
 This data set consists of basic statistics (area, current population size, birth rate, death rate, life expectancy, and form of government) for 249 countries taken from [WorldData.info](https://www.worlddata.info) that I have combined with data from the International Union for the Conservation of Nature (IUCN)'s [Red List Summary Statistics](http://www.iucnredlist.org/about/summary-statistics) about the number of threatened animal species by country. *Note*: the IUCN dataset has generally not been updated since 2008!
 
@@ -40,7 +40,7 @@ This is a version of the [*Comparative Political Data Set (CPDS)*](http://www.cp
 
 > **CITATION:** Armingeon K, Isler C, Knöpfel L, Weisstanner D, and Engler S. 2016. Comparative Political Data Set 1960-2014. Bern: Institute of Political Science, University of Berne.
 
-- Install these packages in ***R***: [{readr}](https://cran.r-project.org/web/packages/readr/readr.pdf), [{curl}](https://cran.r-project.org/web/packages/curl/curl.pdf), [{readxl}](https://cran.r-project.org/web/packages/readxl/readxl.pdf), [{XLConnect}](https://cran.r-project.org/web/packages/XLConnect/vignettes/XLConnect.pdf), [{rdrop2}](https://cran.r-project.org/web/packages/rdrop2/rdrop2.pdf), [{repmis}](https://cran.r-project.org/web/packages/repmis/repmis.pdf), [{googledrive}](https://cloud.r-project.org/package=googledrive), [{googlesheets}](https://cran.r-project.org/web/packages/googlesheets/googlesheets.pdf)
+- Install these packages in ***R***: [{readr}](https://cran.r-project.org/web/packages/readr/readr.pdf), [{curl}](https://cran.r-project.org/web/packages/curl/curl.pdf), [{readxl}](https://cran.r-project.org/web/packages/readxl/readxl.pdf), [{XLConnect}](https://cran.r-project.org/web/packages/XLConnect/vignettes/XLConnect.pdf), [{rdrop2}](https://cran.r-project.org/web/packages/rdrop2/rdrop2.pdf), [{repmis}](https://cran.r-project.org/web/packages/repmis/repmis.pdf), [{googledrive}](https://googledrive.tidyverse.org), [{googlesheets4}](https://googlesheets4.tidyverse.org)
 
 ## The Backstory
 So far, we have seen how to create a variety of data structures by hand (e.g., using the `c()` function), but for larger data sets we will need mechanisms to import data into ***R***. There are many methods for importing tabular data, stored in various formats (like text files, spreadsheets, and databases).
@@ -63,7 +63,7 @@ Plain text files are, arguably, the best way to store data (and scripts and othe
 
 In ***R***, we can load a data set from a plain text file using the `read.table()` function from the {base} package, with the path to the file as the first (`file=`) argument for the function. An additional argument (`header=`) can be used to specify whether the first row of the data file consists of column/field names.
 
-The generic `read.table()` function can be used to read data files where columns are separated by tabs, commas, white space, or some other delimeter. The `sep=` argument tells ***R*** what character is used as a delimiter. The `skip=` argument can be used to start reading a file after a set number of rows.
+The generic `read.table()` function can be used to read data files where columns are separated by tabs, commas, white space, or some other delimeter. The `sep=` argument tells ***R*** what character is used as a "separator" or delimiter. The `skip=` argument can be used to start reading a file after a set number of rows.
 
 There are format-specific variants of `read.table()` (e.g., `read.csv()`) that have different defaults and may be quicker for certain file types. Note that when using this function from the {base} package, the argument `stringsAsFactors` is set to be TRUE by default, and we need to set it as FALSE if we want character strings to be loaded as actual strings.
 
@@ -71,7 +71,7 @@ Let's read in one of the data sets that you have copied and stored locally: **CP
 
 ### Reading from a local file
 
-The `file.choose()` command is useful and gives you a familiar dialog box to select a file. You can use this to specify the path to a locally-stored file.
+The `file.choose()` command is useful and gives you a familiar dialog box to select a file. You can use this to specify the path to a locally-stored file, which you will save as the ***R*** object called `f`.
 
 ``` {r eval=FALSE}
 f <- file.choose()
@@ -149,7 +149,8 @@ head(d)
 ```
 
 ## Loading ***Excel*** Files
-While you should never need to use ***Excel***, sometimes you will no doubt be given a spreadsheet file with some data in it that you want to read in ***R***. There are several packages available that provide functions for loading data into ***R*** from ***Excel*** spreadsheet files: {readxl}, {XLConnect}, {gdata}, and {xlsx}. The first two of these are fast, easy to use, and work well. {gdata} is a bit slower and requires that you have PERL installed someone on your computer (which it is likely to be by default). {xlsx} is much slower.
+
+While you should never need to use ***Excel***, sometimes you will no doubt be given a spreadsheet file with some data in it that you want to analyze in ***R***. There are several packages available that provide functions for loading data into ***R*** from ***Excel*** spreadsheet files: {readxl}, {XLConnect}, {gdata}, and {xlsx}. The first two of these are fast, easy to use, and work well. {gdata} is a bit slower and requires that you have PERL installed someone on your computer (which it is likely to be by default). {xlsx} is much slower.
 
 **NOTE:** always use `str()` to check if your variables come in as the correct data class.
 
@@ -179,28 +180,28 @@ if (file.exists(f)) {file.remove(f)}
 writeWorksheetToFile(f, d, sheet = "myData", clearSheets = TRUE)
 ```
 
-For futher information on using {XLConnect} check out [this blog post](http://altons.github.io/r/2015/02/13/quick-intro-to-xlconnect/#worksheet).
+For futher information on using {XLConnect} check out [this helpful documentation](https://www.rdocumentation.org/packages/XLConnect/versions/1.0.7).
 
 ## Loading Files Stored on a Remote Server
 We can also load files stored on a server elsewhere on the web, e.g., ***Dropbox*** or ***GitHub***.
 
-To read `.csv` or `.txt` files directly from ***GitHub***, use the {curl} or {readr} packages.
+To read `.csv` or `.txt` files directly from ***GitHub***, use the {curl} or {readr} packages. We'll use this extensively in this class, moving forward.
 
-GO TO: https://github.com/fuzzyatelin/AN588_Fall21/, select the `.csv` version of the **CPDS-1960-2014-reduced** file, then press `RAW` and copy the URL from the address box of your browser window... this is what you need to use as an argument for the functions below (you will repeat this for the `.txt` version later on)
+GO TO: https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall23/, select the `.csv` version of the **CPDS-1960-2014-reduced** file, then press `RAW` and copy the URL from the address box of your browser window... this is what you need to use as an argument for the functions below (you will repeat this for the `.txt` version later on)
 
 ### Importing data from a file on a remote server using {curl}
 
 For a comma-separated value (`.csv`) text file...
 ``` {r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/CPDS-1960-2014-reduced.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall23/CPDS-1960-2014-reduced.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 head(d)
 # returns a data frame
 ```
 For a tab-delimited (`.tsv` or `txt`) text file...
 ``` {r}
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/CPDS-1960-2014-reduced.txt")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall23/CPDS-1960-2014-reduced.txt")
 d <- read.table(f, header = TRUE, sep="\t", stringsAsFactors = FALSE)
 head(d)
 # returns a data frame
@@ -210,23 +211,23 @@ head(d)
 ``` {r}
 Sys.setenv("VROOM_CONNECTION_SIZE" = 131072 * 2)
 library(readr)
-f <- "https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/CPDS-1960-2014-reduced.csv"
+f <- "https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall23/CPDS-1960-2014-reduced.csv"
 d <- read_csv(f, col_names = TRUE)
 head(d)
 # returns a "tibble", a new version of a data frame
 ```
 ``` {r}
-f <- "https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/CPDS-1960-2014-reduced.txt"
+f <- "https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall23/CPDS-1960-2014-reduced.txt"
 d <- read_tsv(f, col_names = TRUE)
 head(d)
-# returns a "tibble", a new version of a data frame
+# returns a "tibble", a new version of a data frame for use in the {tidyverse}
 ```
 
 ### Importing data from a file hosted on ***Dropbox***
 
 To load data from a `.csv` located file in a *personal* ***Dropbox*** account you can use the {rdrop2} package.
 
-**NOTE:** The following code block cannot be "knit" to show you the output because it requires an interactive ***R*** environment for `drop_auth()`, `drop_search()`, etc.
+**NOTE:** The following code block cannot be "knit" to show you the output because it requires an interactive ***R*** environment for `drop_auth()`, `drop_search()`, etc. Also, with two-factor authentication protocols (like Duo for BU accounts), there are likely a number of cumbersome logins/authentications you need to enter to accomplish this!
 
 ``` {r eval=FALSE}
 require(rdrop2)
@@ -234,7 +235,7 @@ drop_auth() # opens a browser dialog box to ask for authorization...
 drop_dir() # lists the contents of your dropbox folder
 f <- "CPDS-1960-2014-reduced.csv" # name of the file to read from
 f <- drop_search(f) # searches your dropbox directory for file or directory names; this can be slow
-f <- f$path # $path is the location of the results returned above
+f <- f$path # f$path is the location you choose from the results returned above
 d <- drop_read_csv(f, header = TRUE, sep =",", stringsAsFactors = FALSE)
 head(d)
 str(d)
@@ -242,9 +243,9 @@ str(d)
 
 This same process can be done to load data from other types of delimited files in ***Dropbox*** by setting the appropriate `sep=` argument.
 
-You can also read text files from someone else's ***Dropbox*** account using a link that they have shared with you.
+You can also read text files from someone else's ***Dropbox*** account using a link that they have shared with you. Here's a link sharing the same file from my BU dropbox:
 ``` {r}
-link <- "https://www.dropbox.com/s/hft09jnpjepy1a1/CPDS-1960-2014-reduced.csv?dl=0"
+link <- "https://www.dropbox.com/scl/fi/560bh55pwv3sowbmyygsl/CPDS-1960-2014-reduced.csv?rlkey=sp4xkouegbno3fqrt65o7gb4d&dl=0"
 ```
 
 **NOTE:** Shared ***Dropbox*** links like this one will take you to a webpage that has the data embedded... to get the raw data you need to change the end of the link from **dl=0** to **dl=1** or **raw=1**. That's what the next line of code does:
@@ -265,30 +266,34 @@ head(d)
 str(d)
 ```
 
-Finally, you can also load data directly from ***google drive*** into ***R*** using either the {googledrive} or the {googlesheets} package.  The most seamless way of importing a file from ***google drive*** is to convert the file to a *google sheet* (i.e., a spreadsheet editable within the drive). Try saving the ***CPDS-1960-2014-reduced*** file as a google sheet in your own drive, and extracting it into ***R*** using the following code.
+Finally, you can also load data directly from ***google drive*** into ***R*** using either the {googledrive} or the {googlesheets4} package.  The most seamless way of importing a file from ***google drive*** is to convert the file to a *google sheet* (i.e., a spreadsheet editable within the drive). Try saving the ***CPDS-1960-2014-reduced*** file as a google sheet in your own drive, and extracting it into ***R*** using the following code.
 
 **NOTE:** The following code block cannot be “knit” to show you the output because it requires an interactive ***R*** environment for `gs_ls()`, `get_title()`, etc. If the package does not take you to a webpage login for google sheets upon the `gs_ls()` command, you may need to install the package [{httpuv}](https://cran.r-project.org/web/packages/httpuv/httpuv.pdf) separately.
 ```{r,eval=F}
-require(googlesheets)
-gs_ls()  # gives you the option to log in to a google account and see options for download
-get_title("CPDS-1960-2014-reduced")  # shows you worksheets from the sheet to which you have access
-d <- gs_read("CPDS-1960-2014-reduced")
+require(googledrive)
+require(googlesheets4)
+
+f <- drive_find(n_max=30,type="spreadsheet") #This interactive interface will guide you through steps to link your Google Drive. The "n_max" option will restrict the number of files retrieved to the 30 most recently-added to the linked drive. The "type" option allows you to only search for a specific kind of file; in this case, spreadsheets (this "type" will *not* find Excel files, only Google Sheets). It will store the results in an object called a "dribble".
+
+#In your dribble, find the Google Sheet you want. The first column is the name, and the second is the ID for the sheet. That ID is what you need to enter to read your google sheet into R (you may need to log in again to access it).
+
+d <- read_sheet("1bzyH5hgif0__q6oW4zfJhxGxLKA073sv8ZYcZpAHTf4")
 head(d)
 str(d)
 ```
 
 
-For importation of a spreadsheet file *not* converted to a *google sheet*, it's a bit more complicated but still possible. You can try uploading your document and extracting it into ***R*** using the code suggested by [this helpful post from the Dyer Lab](https://rodneydyer.com/2018/07/19/using-google-drive-as-an-r-data-repository/).
+For importation of a spreadsheet file *not* converted to a *google sheet* in your Drive, it's a bit more complicated but still possible. You can try uploading your document and extracting it into ***R*** using the code suggested by [this helpful post from the Dyer Lab](https://rodneydyer.com/2018/07/19/using-google-drive-as-an-r-data-repository/).
 
 ## Downloading Files from a Remote Server
-The {rdrop2} package can be used to **download** a file from a personal ***Dropbox*** account to your local computer, rather than just connecting to a ***Dropbox*** file to read the data stored there. This should work with any file type.
+The {rdrop2} package can be used to **download** a file from a personal ***Dropbox*** account to your local computer, rather than just connecting to a ***Dropbox*** file to read the data stored there. The {googledrive} package can do this, as well, with any file in a personal ***Google Drive*** account (given you have permission). This should work with any file type.
 
 **NOTE:** The following code block cannot be "knit" to show you the output because it requires an interactive ***R*** environment for `drop_search()`, etc.
 
 ``` {r eval=FALSE}
 filename <- "CPDS-1960-2014-reduced.csv" # name of file to download
 f <- drop_search(filename) # searches your dropbox directory for that file or directory name
-f <- f$path # $path is the location of the results returned above
+f <- f$path # f$path is the location of the results returned above
 drop_get(f, local_file = paste0("~/Desktop/",filename), overwrite = TRUE, progress = TRUE)
 # this will save the file to the desktop
 ```
@@ -314,6 +319,7 @@ drive_download("CPDS-1960-2014-reduced.csv")
 More on the basics of using {googledrive} for more refined data downloading, interfacing and formatting can be found [here](https://googledrive.tidyverse.org).
 
 ## Downloading Files from Other Statistical Programs
-***R*** is pretty great, but you may have analyses and datasets already formatted for other statistical programs. For more advice and tips on how to download other forms of data into R, including datasets and outputs from other statistical packages such as ***SAS***, ***Stata***, and ***SPSS***, check out [this webpage](https://www.r-bloggers.com/this-r-data-import-tutorial-is-everything-you-need/).
+
+***R*** is pretty great, but you may have analyses and datasets already formatted for other statistical programs that you want to bring to ***R*** for further analysis or replication. For more advice and tips on how to download other forms of data into R, including datasets and outputs from other statistical packages such as ***SAS***, ***Stata***, and ***SPSS***, check out [this webpage](https://www.r-bloggers.com/this-r-data-import-tutorial-is-everything-you-need/).
 
 For folks more intimately familiar with the statistical program ***MATLAB***, there are a number of resources like [this handy guide](http://mathesaurus.sourceforge.net/octave-r.html), and an entire package, [{R.matlab}](https://cran.r-project.org/web/packages/R.matlab/R.matlab.pdf), that allows ***MATLAB*** users to interface with ***R***.

@@ -10,12 +10,12 @@
 
 
 
-<meta name="date" content="2021-05-27" />
+<meta name="date" content="2023-08-18" />
 
 <title>AN/BI 588: Homework 01</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -61,6 +61,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -81,6 +82,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -165,32 +169,42 @@ pre code {
 
 
 <h1 class="title toc-ignore">AN/BI 588: Homework 01</h1>
-<h4 class="date">May 27, 2021</h4>
+<h4 class="date">August 18, 2023</h4>
 
 </div>
 
 
 <hr />
 <div id="course-outline" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/outline.html">Course Outline</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/outline.html">Course
+Outline</a></h3>
 </div>
 <div id="course-overview" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/overview.html">Course Overview</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/overview.html">Course
+Overview</a></h3>
 </div>
 <div id="modules" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/modules.html">Modules</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/modules.html">Modules</a></h3>
 </div>
 <div id="assignments" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/assignments.html">Assignments</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/assignments.html">Assignments</a></h3>
 </div>
 <div id="resources" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/resources.html">Resources</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/resources.html">Resources</a></h3>
 </div>
 <div id="policies" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/policies.html">Policies</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/policies.html">Policies</a></h3>
 </div>
 <div id="insurmountable-coding-problems" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html">Insurmountable Coding Problems</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html">Insurmountable
+Coding Problems</a></h3>
 <hr />
 <center>
 <font size="+2"><b>Push It!</b></font>
@@ -206,78 +220,186 @@ pre code {
 <p><br></p>
 <hr />
 <center>
-<font size="+2"><b>Must be submitted for Peer Commentary by 8:00 pm Monday, September 13th.</b></font>
+<font size="+2"><b>Must be submitted for Peer Commentary by 5:00 pm
+Sunday, September 17th.</b></font>
 </center>
 <p><br></p>
 <center>
-<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Thursday, September 16th.</b></font>
+<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm
+Wednesday, September 20th.</b></font>
 </center>
 <p><br></p>
 <hr />
 </div>
-<div id="create-clone-and-access-a-new-repo-in-rstudio" class="section level3">
+<div id="create-clone-and-access-a-new-repo-in-rstudio"
+class="section level3">
 <h3>Create, Clone, and Access a New Repo in <em>RStudio</em></h3>
-<p>Create a repository in your <strong><em>GitHub</em></strong> account called <strong><em>AN588-Week-2-BUlogin</em></strong> (where <em>BUlogin</em> is <em>your</em> BU login name; for example, mine would be <em>AN588-Week-2-caschmit</em>), and clone it to your computer. Once there, create a git-referenced Project in <strong><em>RStudio</em></strong> with the same name and connect it to your cloned repository.</p>
+<p>Create a repository in your <strong><em>GitHub</em></strong> account
+called <strong><em>AN588-Week-2-BUlogin</em></strong> (where
+<em>BUlogin</em> is <em>your</em> BU login name; for example, mine would
+be <em>AN588-Week-2-caschmit</em>), and clone it to your computer. Once
+there, create a git-referenced Project in
+<strong><em>RStudio</em></strong> with the same name and connect it to
+your cloned repository.</p>
 </div>
 <div id="write-some-code" class="section level3">
 <h3>Write Some Code</h3>
-<p>In that Project on <strong><em>RStudio</em></strong>, create a new <strong>R Markdown</strong> (Rmd) file - you can create one using the ‘new file’ button on the editor in <strong><em>RStudio</em></strong> - and use that to write and run your <em>well-annotated/commented</em> Original Homework Code, which will include all of the <strong>CHALLENGES</strong> from <a href="http://fuzzyatelin.github.io/bioanth-stats/module-04/module-04.html">Module 04</a>. When you save this file, name it <strong><em>BUlogin_OriginalHomeworkCode_01</em></strong> (i.e., for me, it would be <em>caschmit_OriginalHomeworkCode_01</em>).</p>
+<p>In that Project on <strong><em>RStudio</em></strong>, create a new
+<strong>R Markdown</strong> (Rmd) file - you can create one using the
+‘new file’ button on the editor in <strong><em>RStudio</em></strong> -
+and use that to write and run your <em>well-annotated/commented</em>
+Original Homework Code, which will include all of the
+<strong>CHALLENGES</strong> from <a
+href="http://fuzzyatelin.github.io/bioanth-stats/module-04/module-04.html">Module
+04</a>. When you save this file, name it
+<strong><em>BUlogin_OriginalHomeworkCode_01</em></strong> (i.e., for me,
+it would be <em>caschmit_OriginalHomeworkCode_01</em>).</p>
 </div>
 <div id="push-it" class="section level3">
 <h3>Push It!</h3>
-<p>Once you’ve finished (or even better: as you save along the way), you must PUSH that file up to <strong><em>GitHub</em></strong> directly from <strong><em>RStudio</em></strong> (i.e., once pushed, it should be accessible in your <em>AN588-Week-2-BUlogin</em> repo on your <strong><em>GitHub</em></strong> account’s website). Notes in <a href="http://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html">Module 03</a> should help you accomplish this - and, of course, feel free to come see me for additional help during my office hours if you’re having problems.</p>
+<p>Once you’ve finished (or even better: as you save along the way), you
+must <em>PUSH</em> that file up to <strong><em>GitHub</em></strong>
+directly from <strong><em>RStudio</em></strong> (i.e., once pushed, it
+should be accessible in your <em>AN588-Week-2-BUlogin</em> repo on your
+<strong><em>GitHub</em></strong> account’s website). Notes in <a
+href="http://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html">Module
+03</a> should help you accomplish this - and, of course, feel free to
+come see me for additional help during my office hours if you’re having
+problems.</p>
 </div>
 <div id="peer-commentary-for-homework-01" class="section level3">
 <h3>Peer Commentary for Homework 01</h3>
-<p>Peer Commentary for this week should focus on the code for the <a href="http://fuzzyatelin.github.io/bioanth-stats/module-04/module-04.html">Module 04</a> <strong>CHALLENGES</strong>, and should also be pushed directly to your <em>AN588-Week-2-BUlogin</em> repo by the member of your Peer Group responsible for commenting on your Original Homework Code. Share your Original Homework Code by <a href="https://help.github.com/en/articles/inviting-collaborators-to-a-personal-repository">adding your Peer Group (and your instructor) as ‘Collaborators’</a> by 8:00 pm on Monday, September 13th.</p>
-<p>Once this process is complete, you have a number of options for reading over and commenting on your peer’s code. Options for Peer Commentary include each of you making comments on one other person’s code (e.g., Laura on Christian’s, Christian on Gianna’s, Gianna on Laura’s), or each of you commenting together as a group on each others’ code (Peer Group 1 on Laura’s, Peer Group 1 on Christian’s, Peer Group 1 on Gianna’s). The latter option should only be used if your peer group meets in person to discuss code together as a group. The former option is the only option if you do not meet in person to discuss.</p>
-<p>For working with peer code on your personal computer in <strong><em>RStudio</em></strong>, I recommend cloning your peer’s homework repo to your computer, creating a git-referenced Project from the cloned repo, duplicating their Original Homework Code, and renaming it <strong><em>Peerlogin_PeerCommentary_BUlogin_01</em></strong>. For example, if Prof. Eva Garrett were the commenter on my Original Homework Code, the file would be named <em>garrette_PeerCommentary_caschmit_01</em>, and if the whole Peer Group worked together to comment, it would be called <em>PeerGroupX_PeerCommentary_caschmit_01</em>). Comment/edit this Rmd file of code in <strong><em>RStudio</em></strong> so that you can easily push your changes directly to <em>your peer’s</em> repo in the appropriately named file. Once you’re finished, comment/name your last push to their repo <strong>FINAL PUSH</strong> so that they know it’s ready for use in editing their own code.</p>
-<p>Please make your <strong>FINAL PUSH</strong> of comments/suggestions with enough time so that your peer can incorporate them into their Final Homework Code. To create your Final Homework Code (an Rmd file named <strong><em>BUlogin_FinalHomeworkCode_01</em></strong>), I recommend you duplicate and rename your Original Homework Code in your own homework repo, and then refer to the Peer Comments when trying out and running changes. This must be pushed to <strong><em>GitHub</em></strong> by 5:00 pm on Thursday, September 16th.</p>
+<p>Peer Commentary for this week should focus on the code for the <a
+href="http://fuzzyatelin.github.io/bioanth-stats/module-04/module-04.html">Module
+04</a> <strong>CHALLENGES</strong>, and should also be pushed directly
+to your <em>AN588-Week-2-BUlogin</em> repo by the member of your Peer
+Group responsible for commenting on your Original Homework Code. Share
+your Original Homework Code by <a
+href="https://help.github.com/en/articles/inviting-collaborators-to-a-personal-repository">adding
+your Peer Group (and your instructor) as ‘Collaborators’</a> by 5:00 pm
+on Sunday, September 17th.</p>
+<p>Once this process is complete, you have a number of options for
+reading over and commenting on your peer’s code. Options for Peer
+Commentary include each of you making comments on one other person’s
+code (e.g., Person1 on Person2’s, Person2 on Person3’s, Person3 on
+Peron1’s), or each of you commenting together as a group on each others’
+code (Peer Group 1 on Person1’s, Peer Group 1 on Person2’s, Peer Group 1
+on Person3’s). The latter option should only be used if your peer group
+meets in person to discuss code together as a group. The former option
+is the only option if you do not meet in person to discuss.</p>
+<p>For working with peer code on your personal computer in
+<strong><em>RStudio</em></strong>, I recommend cloning your peer’s
+homework repo to your computer, creating a git-referenced Project from
+the cloned repo, duplicating their Original Homework Code, and renaming
+it <strong><em>Peerlogin_PeerCommentary_BUlogin_01</em></strong>. For
+example, if Prof. Eva Garrett were the commenter on my Original Homework
+Code, the file would be named
+<em>garrette_PeerCommentary_caschmit_01</em>, and if the whole Peer
+Group worked together to comment, it would be called
+<em>PeerGroupX_PeerCommentary_caschmit_01</em>). Comment/edit this Rmd
+file of code in <strong><em>RStudio</em></strong> so that you can easily
+push your changes directly to <em>your peer’s</em> repo in the
+appropriately named file. Once you’re finished, comment/name your last
+push to their repo <strong>FINAL PUSH</strong> so that they know it’s
+ready for use in editing their own code.</p>
+<p>Please make your <strong>FINAL PUSH</strong> of comments/suggestions
+with enough time so that your peer can incorporate them into their Final
+Homework Code. To create your Final Homework Code (an Rmd file named
+<strong><em>BUlogin_FinalHomeworkCode_01</em></strong>), I recommend you
+duplicate and rename your Original Homework Code in your own homework
+repo, and then refer to the Peer Comments when trying out and running
+changes. This must be pushed to <strong><em>GitHub</em></strong> by 5:00
+pm on Wednesday, September 20th.</p>
 </div>
 <div id="dont-cheat" class="section level3">
 <h3>Don’t Cheat!</h3>
-<p>Some of you will no doubt realize that you will be able to see your colleagues’ <strong>Rmd</strong> documents on <strong><em>GitHub</em></strong> each time they push them up, if you check out their accounts… during the Peer Commentary stage, I encourage you to troubleshoot code together, but during the first phase of your homework, while writing your original code, please refrain from copying each others’ work - in person or from repositories - it is critically important that you <strong>make your original work your own</strong>!</p>
+<p>Some of you will no doubt realize that you will be able to see your
+colleagues’ <strong>Rmd</strong> documents on
+<strong><em>GitHub</em></strong> each time they push them up, if you
+check out their accounts… during the Peer Commentary stage, I encourage
+you to troubleshoot code together, but during the first phase of your
+homework, while writing your original code, please refrain from copying
+each others’ work - in person or from repositories - it is critically
+important that you <strong>make your original work your
+own</strong>!</p>
+</div>
+<div id="make-it-pretty" class="section level3">
+<h3>Make it Pretty!</h3>
+<p>For the purposes of <em>this</em> assignment, please format your
+Final Homework Code however you like, but it <em>must</em> have some
+intentional alterations in formatting entered 1) in the YAML, and 2) in
+the body of the <strong>RMarkdown</strong> file itself that only appear
+when the document is knitted!</p>
 <hr />
 </div>
 <div id="your-final-assignment-for-homework-01" class="section level3">
 <h3><strong>Your Final Assignment for Homework 01</strong></h3>
-Your final assignment, due to me by 5:00 pm on Thursday, September 16th, is to have in your <em>AN588-Week-2-BUlogin</em> repo only the following files:
+Your final assignment, due to me by 5:00 pm on Wednesday, September
+20th, is to have in your <em>AN588-Week-2-BUlogin</em> repo
+<strong><em>only</em></strong> the following six (6) files:
 <ol>
 <ol style="list-style-type: decimal">
-<li>Your Original Homework Code, including the five challenges you faced, as pushed to your repo by 8:00 pm on Monday, an R Markdown file named <em>BUlogin_OriginalHomeworkCode_01</em>.</li>
-<li>The <em>FINAL PUSH</em> of the Peer Commentary made on <em>your</em> code, an R Markdown file named <em>Peerlogin_PeerCommentary_BUlogin_01</em> or <em>PeerGroupX_PeerCommentary_BUlogin_01</em>.</li>
-<li>Your Final Homework Code, which has taken into account any changes recommended from the Peer Commentary and notes, an R Markdown file named <em>BUlogin_FinalHomeworkCode_01</em>.</li>
+<li>Your Original Homework Code, including the five challenges you
+faced, as pushed to your repo by 5:00 pm on Sunday, an R Markdown
+<em>and</em> HTML file each named
+<em>BUlogin_OriginalHomeworkCode_01</em>.</li>
+<li>The <em>FINAL PUSH</em> of the Peer Commentary made on <em>your</em>
+code, an R Markdown file <em>and</em> HTML file each named
+<em>Peerlogin_PeerCommentary_BUlogin_01</em> or
+<em>PeerGroupX_PeerCommentary_BUlogin_01</em>.</li>
+<li>Your Final Homework Code, which has taken into account any changes
+recommended from the Peer Commentary and which has your final
+prettification mods, an R Markdown file <em>and</em> HTML file each
+named <em>BUlogin_FinalHomeworkCode_01</em>.</li>
 </ol>
 </ol>
 <hr />
-NOTE: If you want your homework code to look nice (beyond being <em>very</em> well annotated and commented), and be easy to use by others, please consider consulting the following helpful guidelines on how to write effective <strong>R Markdown</strong> documents (also available at the end of <a href="https://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html">Module 03</a>).
+NOTE: If you want your homework code to look nice (beyond being
+<em>very</em> well annotated and commented), and be easy to use by
+others, please consider consulting the following helpful guidelines on
+how to write effective <strong>R Markdown</strong> documents (also
+available at the end of <a
+href="https://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html">Module
+03</a>).
 <ul>
 <li>
-An introduction to <a href="https://rmarkdown.rstudio.com/">R Markdown</a>
+An introduction to <a href="https://rmarkdown.rstudio.com/">R
+Markdown</a>
 </li>
 <li>
-<a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a>
+<a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The
+Definitive Guide</a>
 </li>
 <li>
-<a href="https://rmarkdown.rstudio.com/lesson-15.html">R Markdown Cheatsheet</a>
+<a href="https://rmarkdown.rstudio.com/lesson-15.html">R Markdown
+Cheatsheet</a>
 </li>
 <li>
-<a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">Another R Markdown Cheatsheet</a>
+<a
+href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">Another
+R Markdown Cheatsheet</a>
 </li>
 <li>
-<a href="https://holtzy.github.io/Pimp-my-rmd/">Pimp my RMD: A Few Tips for R Markdown</a>
+<a href="https://holtzy.github.io/Pimp-my-rmd/">Pimp my RMD: A Few Tips
+for R Markdown</a>
 </li>
 <li>
-<a href="https://github.com/rstudio/rticles/tree/master/inst/rmarkdown/templates">R Markdown Templates for Journal Submissions</a>
+<a
+href="https://github.com/rstudio/rticles/tree/master/inst/rmarkdown/templates">R
+Markdown Templates for Journal Submissions</a>
 </li>
 <li>
-<a href="https://www.stat.cmu.edu/~cshalizi/rmarkdown/">Using R Markdown for Class Reports</a>
+<a href="https://www.stat.cmu.edu/~cshalizi/rmarkdown/">Using R Markdown
+for Class Reports</a>
 </li>
 <li>
-<a href="http://www.datadreaming.org/post/r-markdown-theme-gallery/">R Markdown Theme Gallery</a>
+<a href="http://www.datadreaming.org/post/r-markdown-theme-gallery/">R
+Markdown Theme Gallery</a>
 </li>
 <li>
-<a href="https://cran.r-project.org/web/packages/prettydoc/vignettes/architect.html">Creating Pretty Documents from R Markdown</a>
+<a
+href="https://cran.r-project.org/web/packages/prettydoc/vignettes/architect.html">Creating
+Pretty Documents from R Markdown</a>
 </li>
 </ul>
 <p><br></p>

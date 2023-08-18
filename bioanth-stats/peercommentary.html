@@ -11,12 +11,12 @@
 
 <meta name="author" content="Christopher A Schmitt" />
 
-<meta name="date" content="2021-08-13" />
+<meta name="date" content="2023-08-17" />
 
 <title>AN/BI 588: Peer Commentary Assignments</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -62,6 +62,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -82,6 +83,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -167,35 +171,46 @@ pre code {
 
 <h1 class="title toc-ignore">AN/BI 588: Peer Commentary Assignments</h1>
 <h4 class="author">Christopher A Schmitt</h4>
-<h4 class="date">August 13, 2021</h4>
+<h4 class="date">August 17, 2023</h4>
 
 </div>
 
 
 <hr />
 <div id="course-overview" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/overview.html">Course Overview</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/overview.html">Course
+Overview</a></h3>
 </div>
 <div id="course-outline" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/outline.html">Course Outline</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/outline.html">Course
+Outline</a></h3>
 </div>
 <div id="modules" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/modules.html">Modules</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/modules.html">Modules</a></h3>
 </div>
 <div id="assignments" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/assignments.html">Assignments</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/assignments.html">Assignments</a></h3>
 </div>
 <div id="resources" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/resources.html">Resources</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/resources.html">Resources</a></h3>
 </div>
 <div id="policies" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/policies.html">Policies</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/policies.html">Policies</a></h3>
 </div>
 <div id="insurmountable-coding-problems" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html">Insurmountable Coding Problems</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html">Insurmountable
+Coding Problems</a></h3>
 <hr />
 <center>
-<font size="+2"><b>Instructions and Assigned Partners for Peer Commentary Assignments</b></font>
+<font size="+2"><b>Instructions and Assigned Partners for Peer
+Commentary Assignments</b></font>
 </center>
 <p><br></p>
 <center>
@@ -205,138 +220,267 @@ pre code {
 </center>
 <p><br></p>
 <center>
-<p>The Peer Commentary assignment is one of the most important exercises in this class. It’s a chance for you to work <em>with</em> your classmates to learn different perspectives on approaching and coding statistics while also engaging in respectful feedback about the ways in which your peers code, comment their code, and work through coding and statistical problems.</p>
-<p>(Please… no Bianca Del Rio-level shade in this class; we’ll <em>all</em> be making mistakes this semester).</p>
+<p>The Peer Commentary assignment is one of the most important exercises
+in this class. It’s a chance for you to work <em>with</em> your
+classmates to learn different perspectives on approaching and coding
+statistics while also engaging in respectful feedback about the ways in
+which your peers code, comment their code, and work through coding and
+statistical problems.</p>
+<p>(Please… no Bianca Del Rio-level shade in this class; we’ll
+<em>all</em> be making mistakes this semester).</p>
 </center>
 <hr />
 </div>
 <div id="how-it-works" class="section level3">
 <h3><strong>How it works…</strong></h3>
-<p>Every week, once finished working on your Original Homework Code associated with your assigned <a href="https://fuzzyatelin.github.io/bioanth-stats/modules.html">Module</a> (links to Homework can be found in the weekly entries on the <a href="https://fuzzyatelin.github.io/bioanth-stats/outline.html">Course Outline</a>), you will be required to share your annoted/commented code as an <a href="https://rmarkdown.rstudio.com/articles_intro.html"><strong><em>R Markdown</em></strong></a> file with your weekly assigned Peer Group. At the end of your Original Homework Code, in a section labeled <strong>CHALLENGES</strong>, you will share a list of the three most difficult challenges you faced in writing your code, and what you did to overcome them. The Peer Group you share this code with will typically be a group of three, although depending on final class size it may be a group of two, and this group will change on a weekly basis (see below for your assigned groups). <strong>You must push your commented/annotated Original Homework Code to your homework repository, which you must share with your Peer Group and instructor, by 8:00 pm on Monday night</strong>. It is up to your group whether one or both of the other members work together to respectfully critique the others’ code, and groups are encouraged to meet over the weekend to discuss their code in person.</p>
+<p>Every week, once finished working on your Original Homework Code
+associated with your assigned <a
+href="https://fuzzyatelin.github.io/bioanth-stats/modules.html">Module</a>
+(links to Homework can be found in the weekly entries on the <a
+href="https://fuzzyatelin.github.io/bioanth-stats/outline.html">Course
+Outline</a>), you will be required to share your annoted/commented code
+as an <a
+href="https://rmarkdown.rstudio.com/articles_intro.html"><strong><em>R
+Markdown</em></strong></a> file with your weekly assigned Peer Group. At
+the end of your Original Homework Code, in a section labeled
+<strong>CHALLENGES</strong>, you will share a list of the three most
+difficult challenges you faced in writing your code, and what you did to
+overcome them. The Peer Group you share this code with will typically be
+a group of three, although depending on final class size it may be a
+group of two, and this group will change on a weekly basis (see below
+for your assigned groups). <strong>You must push your
+commented/annotated Original Homework Code to your homework repository,
+which you must share with your Peer Group and instructor, by 8:00 pm on
+Monday night</strong>. It is up to your group whether one or both of the
+other members work together to respectfully critique the others’ code,
+and groups are encouraged to meet over the weekend to discuss their code
+in person.</p>
 </div>
 <div id="things-to-keep-in-mind" class="section level3">
 <h3><strong>Things to keep in mind</strong></h3>
-<p>How should we be critiquing each others’ code? There are better and worse practices for doing so. In keeping with best practices, please keep in mind the following concerns:</p>
+<p>How should we be critiquing each others’ code? There are better and
+worse practices for doing so. In keeping with best practices, please
+keep in mind the following concerns:</p>
 <ul>
-<li><strong>Team Dynamics</strong>: how do I improve my working relationship with this person and their code?</li>
-<li><strong>Code Standards</strong>: how does this code conform to how it should look?</li>
-<li><strong>Reusability/Extensibility</strong>: how easily/effectively can this code be expanded upon, maintained, and rebuilt in the future?</li>
+<li><strong>Team Dynamics</strong>: how do I improve my working
+relationship with this person and their code?</li>
+<li><strong>Code Standards</strong>: how does this code conform to how
+it should look?</li>
+<li><strong>Reusability/Extensibility</strong>: how easily/effectively
+can this code be expanded upon, maintained, and rebuilt in the
+future?</li>
 </ul>
-<p>Before every peer commentary, please read the <a href="https://www.codementor.io/">Codementor</a> guide on <a href="https://www.codementor.io/blog/code-review-best-practice-6q5slpm2e0">How to Effectively and Politely Critique Code</a>. We will discuss this in class, but please also consider reviewing the <a href="https://www.michaelagreiler.com/wp-content/uploads/2019/02/Characteristics-Of-Useful-Comments.pdf">Bosu et al.</a> paper on effective coding feedback and, above all, <a href="https://kickstarter.engineering/a-guide-to-mindful-communication-in-code-reviews-48aab5282e5e">be mindful in how you review</a> your Peers’ code.</p>
+<p>Before every peer commentary, please read the <a
+href="https://www.codementor.io/">Codementor</a> guide on <a
+href="https://www.codementor.io/blog/code-review-best-practice-6q5slpm2e0">How
+to Effectively and Politely Critique Code</a>. We will discuss this in
+class, but please also consider reviewing the <a
+href="https://www.michaelagreiler.com/wp-content/uploads/2019/02/Characteristics-Of-Useful-Comments.pdf">Bosu
+et al.</a> paper on effective coding feedback and, above all, <a
+href="https://kickstarter.engineering/a-guide-to-mindful-communication-in-code-reviews-48aab5282e5e">be
+mindful in how you review</a> your Peers’ code.</p>
 </div>
 <div id="how-you-share-your-code" class="section level3">
 <h3><strong>How you share your code</strong></h3>
-<p>You will be creating a new repo on <strong><em>GitHub</em></strong>, and cloning that repo to your computer so that you can make a git-referenced <strong><em>Rstudio</em></strong> project, for each individual homework assignment (instructions for each assignment on what to name that repo will be on the specific Homework webpage). Your homework code should be entered (and commented/annotated!) in an <strong><em>R Markdown</em></strong> file created and saved in your homework project, which can then be shared by ‘<a href="https://fuzzyatelin.github.io/bioanth-stats/homework-01.html">pushing</a>’ it to <strong><em>GitHub</em></strong>.</p>
-<p>You must then <em>invite</em> your Peer Group (and me, your instructor) to ‘Collaborate’ on that repo. Instructions for how to invite us to collaborate are <a href="https://help.github.com/en/articles/inviting-collaborators-to-a-personal-repository">here</a>. This will generate an email invitation (sent to the email address registered to their <strong><em>GitHub</em></strong> account), which your collaborators will have to Accept.</p>
-<p>Please keep an eye out for, and Accept, your Peer Group’s invitations each week!</p>
-<p>Once you’re an active collaborator, you can clone your <em>Peer’s</em> repository to your computer, create a git-referenced Project from <em>that</em> repo in <strong><em>Rstudio</em></strong>, and then write and push a new R Markdown file with your comments/changes/recommendations on how to improve their code directly to <em>their</em> homework repo.</p>
+<p>You will be creating a new repo on <strong><em>GitHub</em></strong>,
+and cloning that repo to your computer so that you can make a
+git-referenced <strong><em>Rstudio</em></strong> project, for each
+individual homework assignment (instructions for each assignment on what
+to name that repo will be on the specific Homework webpage). Your
+homework code should be entered (and commented/annotated!) in an
+<strong><em>R Markdown</em></strong> file created and saved in your
+homework project, which can then be shared by ‘<a
+href="https://fuzzyatelin.github.io/bioanth-stats/homework-01.html">pushing</a>’
+it to <strong><em>GitHub</em></strong>.</p>
+<p>You must then <em>invite</em> your Peer Group (and me, your
+instructor) to ‘Collaborate’ on that repo. Instructions for how to
+invite us to collaborate are <a
+href="https://help.github.com/en/articles/inviting-collaborators-to-a-personal-repository">here</a>.
+This will generate an email invitation (sent to the email address
+registered to their <strong><em>GitHub</em></strong> account), which
+your collaborators will have to Accept.</p>
+<p>Please keep an eye out for, and Accept, your Peer Group’s invitations
+each week!</p>
+<p>Once you’re an active collaborator, you can clone your
+<em>Peer’s</em> repository to your computer, create a git-referenced
+Project from <em>that</em> repo in <strong><em>Rstudio</em></strong>,
+and then write and push a new R Markdown file with your
+comments/changes/recommendations on how to improve their code directly
+to <em>their</em> homework repo.</p>
 </div>
 <div id="what-youre-critiquing" class="section level3">
 <h3><strong>What you’re critiquing…</strong></h3>
-As noted in the homework instructions, while completing your homework each of you will compile a list of the five most impactful challenges faced while coding it, along with how you overcame them (or what you attempted if you couldn’t overcome them). You, as a peer commenter, must spend <em>at least an hour</em> reviewing and testing your peer’s code with an eye towards understanding the challenges they faced, and in the process write down the following: <br>
+As noted in the homework instructions, while completing your homework
+each of you will compile a list of the five most impactful challenges
+faced while coding it, along with how you overcame them (or what you
+attempted if you couldn’t overcome them). You, as a peer commenter, must
+spend <em>at least an hour</em> reviewing and testing your peer’s code
+with an eye towards understanding the challenges they faced, and in the
+process write down the following: <br>
 <ol>
 <ol style="list-style-type: decimal">
-<li>What you learned from running their Original Homework Code that helped improve your own code.</li>
-<li>What you did in your own code that might help to improve theirs.</li>
-<li>What challenges, if any, you <em>both</em> faced in your code that could not be helped by comparison.</li>
-<li>Whether the annotation/commenting on your peer’s Original Homework Code is readable and interpretable to you, and if not then how it could be improved.</li>
+<li>What you learned from running their Original Homework Code that
+helped improve your own code.</li>
+<li>What you did in your own code that might help to improve
+theirs.</li>
+<li>What challenges, if any, you <em>both</em> faced in your code that
+could not be helped by comparison.</li>
+<li>Whether the annotation/commenting on your peer’s Original Homework
+Code is readable and interpretable to you, and if not then how it could
+be improved.</li>
 </ol>
 </ol>
-<p>Although not required, you are encouraged to meet outside class so that you may work together on this process.</p>
-<p>Ideally, as peer commenter you will give your comments back to your peer with enough time for them to take into account your comments and turn in an improved (and hopefully functional) Final Homework Code.</p>
-<p><strong>Students must have their Original Homework Code (with Challenges noted), Peer Commentaries, and Final Homework Code in their Homework repo by 5:00 pm on Sunday</strong></p>
-<p>In class, for 10 minutes, you will be given a chance to meet with your Peer Group in order to prioritize questions or challenges that your group would like to bring to the attention of the whole class.</p>
-<p>We will then take 30 minutes of each class to address these challenges together, and see if other Peer Groups faced similar challanges or found unique solutions to each problem, and together will do our best to solve them.</p>
-<p>Although grades will not be assigned for Peer Commentaries, if it comes to my attention that particular students are not actively participating in this process, it will be considered when negotiating their argument for their final grade.</p>
+<p>Although not required, you are encouraged to meet outside class so
+that you may work together on this process.</p>
+<p>Ideally, as peer commenter you will give your comments back to your
+peer with enough time for them to take into account your comments and
+turn in an improved (and hopefully functional) Final Homework Code.</p>
+<p><strong>Students must have their Original Homework Code (with
+Challenges noted), Peer Commentaries, and Final Homework Code in their
+Homework repo by 5:00 pm on the Due Date (see the <a
+href="https://fuzzyatelin.github.io/bioanth-stats/outline.html">Course
+Outline</a>, <a
+href="https://fuzzyatelin.github.io/bioanth-stats/assignments.html">Assignments</a>,
+and below for all due dates!)</strong></p>
+<p>In class, for 10 minutes, you will be given a chance to meet with
+your Peer Group in order to prioritize questions or challenges that your
+group would like to bring to the attention of the whole class.</p>
+<p>We will then take 30 minutes of each class to address these
+challenges together, and see if other Peer Groups faced similar
+challanges or found unique solutions to each problem, and together will
+do our best to solve them.</p>
+<p>Although grades will not be assigned for Peer Commentaries, if it
+comes to my attention that particular students are not actively
+participating in this process, it will be considered when negotiating
+their argument for their final grade.</p>
 </div>
 <div id="who-youre-working-with" class="section level3">
 <h3><strong>Who you’re working with…</strong></h3>
-<p>The students currently enrolled in Fall 2021 (and their associated GitHub accounts) include:</p>
+<p>The students currently enrolled in Fall 2023 (and their associated
+GitHub accounts) include:</p>
 <ul>
-<li>Zoe Albert: <a href="https://github.com/ZoeEAlbert">ZoeEAlbert</a></li>
-<li>Diego Alonso Larre: <a href="https://github.com/dalarre">dalarre</a></li>
-<li>Max Dippel: <a href="https://github.com/dippelmax">dippelmax</a></li>
-<li>Victoria French: <a href="https://github.com/vfrench-397">vfrench-397</a></li>
-<li>Cecelia Gerstenbacher: <a href="https://github.com/ceceg27">ceceg27</a></li>
-<li>Marta Hammers: <a href="https://github.com/sinnabunbun">sinnabunbun</a></li>
-<li>Warrenkevin Henderson: <a href="https://github.com/warrenkevin">warrenkevin</a></li>
-<li>Natalia Kelley: <a href="https://github.com/maekell98">maekell98</a></li>
-<li>Nirmiti Naik: <a href="https://github.com/nirmitin">nirmitin</a></li>
-<li>Isabel Novick: <a href="https://github.com/inovick">inovick</a></li>
-<li>Abigail Robinson: <a href="https://github.com/butterfliesrcool">butterfliesrcool</a></li>
-<li>Miguel Rubio Garcia: <a href="https://github.com/mrubiog2000">mrubiog2000</a></li>
-<li>Francis Short: <a href="https://github.com/fshortIV">fshortIV</a></li>
-<li>Elizabeth Varghese: <a href="https://github.com/ejv98">ejv98</a></li>
-<li>Gabriel Vincencio Castellanos: <a href="https://github.com/gabovicen">gabovicen</a></li>
-<li>Victoria Zdanowicz: <a href="https://github.com/vzdanowicz">vzdanowicz</a></li>
+<li>Erin Anderson: <a href="https://github.com/"></a></li>
+<li>Chuhan Bao: <a href="https://github.com/"></a></li>
+<li>Tiffany Chan: <a href="https://github.com/"></a></li>
+<li>Ella Corrao: <a href="https://github.com/"></a></li>
+<li>Julianna Dick: <a href="https://github.com/"></a></li>
+<li>Emiley Garcia-Zych: <a href="https://github.com/"></a></li>
+<li>Alex Gilbert: <a href="https://github.com/"></a></li>
+<li>Reese Hotten-Somers: <a href="https://github.com/"></a></li>
+<li>Madison Hurysz: <a href="https://github.com/"></a></li>
+<li>Katia Landauer: <a href="https://github.com/"></a></li>
+<li>Angelique Lindberg: <a href="https://github.com/"></a></li>
+<li>Abdullah Malik: <a href="https://github.com/"></a></li>
+<li>Jessica Martin: <a href="https://github.com/"></a></li>
+<li>Nicole Merullo: <a href="https://github.com/"></a></li>
+<li>Caroline Metcalf: <a href="https://github.com/"></a></li>
+<li>Camryn Millett: <a href="https://github.com/"></a></li>
+<li>Brooke Rothamer: <a href="https://github.com/"></a></li>
+<li>Billy Sanders: <a href="https://github.com/"></a></li>
+<li>Jasmin Tesani: <a href="https://github.com/"></a></li>
+<li>Bhavya Vadavalli: <a href="https://github.com/"></a></li>
+<li>Samantha Vee: <a href="https://github.com/"></a></li>
+<li>Sofia Weaver: <a href="https://github.com/"></a></li>
+<li>Amanda Wu: <a href="https://github.com/"></a></li>
+<li>Yu Yang: <a href="https://github.com/"></a></li>
 </ul>
-<p>And mine and Mel’s GitHub accounts are:</p>
+<p>And my own GitHub account is:</p>
 <ul>
-<li>Christopher Schmitt: <a href="https://github.com/fuzzyatelin">fuzzyatelin</a></li>
-<li>Mel Zarate: <a href="https://github.com/MelZarate">MelZarate</a></li>
+<li>Christopher Schmitt: <a
+href="https://github.com/fuzzyatelin">fuzzyatelin</a></li>
 </ul>
 </div>
 <div id="assigned-peer-groups" class="section level3">
 <h3><strong>Assigned Peer Groups</strong></h3>
-<div id="week-01-2019-09-03" class="section level4">
-<h4><strong>Week 01 (2019-09-03)</strong></h4>
 <hr />
-<p>No Peer Commentary due.</p>
+<div id="homework-01-push-it-assigned-14sep-due-20sep"
+class="section level4">
+<h4><strong>Homework 01: <a
+href="https://fuzzyatelin.github.io/bioanth-stats/homework-01.html">Push
+It!</a> (Assigned 14SEP, Due 20SEP)</strong></h4>
 <hr />
-</div>
-<div id="homework-01-push-it-assigned-10sep-due-16sep" class="section level4">
-<h4><strong>Homework 01: <a href="https://fuzzyatelin.github.io/bioanth-stats/homework-01.html">Push It!</a> (Assigned 10SEP, Due 16SEP)</strong></h4>
-<hr />
-<p>Peer Group 1: Abigail Robinson, Marta Hammers, Victoria French</p>
-<p>Peer Group 2: Miguel Rubio Garcia, Diego Alonso Larre, Zoe Albert</p>
-<p>Peer Group 3: Kenny Cho, Natalia Kelley, Isabel Novick, Jordan Cox</p>
-<p>Peer Group 4: Victoria Zdanowicz, Nirmiti Naik, Nicholas Beebe</p>
-<p>Peer Group 5: Max Dippel, Elizabeth Varghese, Cecelia Gerstenbacher</p>
-<p>Peer Group 6: Gabriel Vincencio Castellanos, Francis Short, Warrenkevin Henderson</p>
-<hr />
-</div>
-<div id="homework-02-titis-in-the-mist-assigned-17sep-due-30sep" class="section level4">
-<h4><strong>Homework 02: <a href="https://fuzzyatelin.github.io/bioanth-stats/homework-02.html">Titis in the Mist</a> (Assigned 17SEP, Due 30SEP)</strong></h4>
-<hr />
-<p>Peer Group 1: Francis Short, Victoria Zdanowicz, Nirmiti Naik, Jordan Cox</p>
-<p>Peer Group 2: Warrenkevin Henderson, Isabel Novick, Gabriel Vincencio Castellanos</p>
-<p>Peer Group 3: Victoria French, Natalia Kelley, Abigail Robinson</p>
-<p>Peer Group 4: Cecelia Gerstenbacher, Kenny Cho, Max Dippel</p>
-<p>Peer Group 5: Elizabeth Varghese, Miguel Rubio Garcia, Diego Alonso Larre</p>
-<p>Peer Group 6: Nicholas Beebe, Marta Hammers, Zoe Albert</p>
+<p>Peer Group 1: Jasmin Tesani, Julianna Dick, Soia Weaver, Odetta
+Minerva</p>
+<p>Peer Group 2: Amanda Wu, Angelique Lindberg, Yu Yang</p>
+<p>Peer Group 3: Jessica Martin, Bhavya Vadavalli, Brooke Rothamer</p>
+<p>Peer Group 4: Camryn Millett, Alez Gilbert, Emiley Garcia-Zych</p>
+<p>Peer Group 5: Katia Landauer, Ella Corrao, Samantha Vee</p>
+<p>Peer Group 6: Reese Hotten-Somers, Nicole Merullo, Erin Anderson</p>
+<p>Peer Group 7: Madison Hurysz, Chuhan Bao, Caroline Metcalf</p>
+<p>Peer Group 8: Billy Sanders, Tiffany Chan, Abdullah Malik</p>
 <hr />
 </div>
-<div id="homework-03-some-of-my-best-friends-are-zombies-assigned-01oct-due-14oct" class="section level4">
-<h4><strong>Homework 03: <a href="https://fuzzyatelin.github.io/bioanth-stats/homework-03.html">Some of My Best Friends are Zombies</a> (Assigned 01OCT, Due 14OCT)</strong></h4>
+<div id="homework-02-titis-in-the-mist-assigned-21sep-due-04oct"
+class="section level4">
+<h4><strong>Homework 02: <a
+href="https://fuzzyatelin.github.io/bioanth-stats/homework-02.html">Titis
+in the Mist</a> (Assigned 21SEP, Due 04OCT)</strong></h4>
 <hr />
-<p>Peer Group 1: Abigail Robinson, Natalia Kelley, Miguel Rubio Garcia</p>
-<p>Peer Group 2: Diego Alonso Larre, Max Dippel, Isabel Novick</p>
-<p>Peer Group 3: Nirmiti Naik, Elizabeth Varghese, Warrenkevin Henderson</p>
-<p>Peer Group 4: Cecelia Gerstenbacher, Gabriel Vincencio Castellanos</p>
-<p>Peer Group 5: Zoe Albert, Marta Hammers, Victoria French</p>
-<p>Peer Group 6: Francis Short, Victoria Zdanowicz</p>
-<hr />
-</div>
-<div id="homework-04-whats-your-malfunction-assigned-15oct-due-28oct" class="section level4">
-<h4><strong>Homework 04: <a href="https://fuzzyatelin.github.io/bioanth-stats/homework-04.html">What’s Your Malfunction?</a> (Assigned 15OCT, Due 28OCT)</strong></h4>
-<hr />
-<p>Peer Group 1: Elizabeth Varghese, Natalia Kelley</p>
-<p>Peer Group 2: Nirmiti Naik, Isabel Novick, Francis Short</p>
-<p>Peer Group 3: Diego Alonso Larre, Zoe Albert, Gabriel Vincencio Castellanos</p>
-<p>Peer Group 4: Warrenkevin Henderson, Abigail Robinson</p>
-<p>Peer Group 5: Victoria French, Miguel Rubio Garcia, Cecelia Gerstenbacher</p>
-<p>Peer Group 6: Max Dippel, Marta Hammers, Victoria Zdanowicz</p>
+<p>Peer Group 1: Yu Yang, Abdullah Malik, Jasmin Tesani</p>
+<p>Peer Group 2: Emiley Garcia-Zych, Caroline Metcalf, Jessica
+Martin</p>
+<p>Peer Group 3: Tiffany Chan, Chuhan Bao, Nicole Merullo</p>
+<p>Peer Group 4: Bhavya Vadavalli, Madison Hurysz, Billy Sanders</p>
+<p>Peer Group 5: Sofia Weaver, Erin Anderson, Julianna Dick, Odetta
+Minerva</p>
+<p>Peer Group 6: Angelique Lindberg, Alex Gilbert, Ella Corrao</p>
+<p>Peer Group 7: Katia Landauer, Samantha Vee, Reese Hotten-Somers</p>
+<p>Peer Group 8: Amanda Wu, Camryn Millett, Brooke Rothamer</p>
 <hr />
 </div>
-<div id="homework-05-boots-for-days-assigned-05nov-due-11nov" class="section level4">
-<h4><strong>Homework 05: <a href="https://fuzzyatelin.github.io/bioanth-stats/homework-05.html">Boots for Days!</a> (Assigned 05NOV, Due 11NOV)</strong></h4>
+<div
+id="homework-03-some-of-my-best-friends-are-zombies-assigned-05oct-due-18oct"
+class="section level4">
+<h4><strong>Homework 03: <a
+href="https://fuzzyatelin.github.io/bioanth-stats/homework-03.html">Some
+of My Best Friends are Zombies</a> (Assigned 05OCT, Due
+18OCT)</strong></h4>
 <hr />
-<p>Peer Group 1: Diego Alonso Larre, Max Dippel, Isabel Novick</p>
-<p>Peer Group 2: Zoe Albert, Warrenkevin Henderson</p>
-<p>Peer Group 3: Elizabeth Varghese, Miguel Rubio Garcia, Gabriel Vincencio Castellanos</p>
-<p>Peer Group 4: Abigail Robinson, Nirmiti Naik, Cecelia Gerstenbacher</p>
-<p>Peer Group 5: Francis Short, Victoria Zdanowicz, Natalia Kelley</p>
-<p>Peer Group 6: Victoria French, Marta Hammers</p>
+<p>Peer Group 1: Chuhan Bao, Yu Yang, Billy Sanders</p>
+<p>Peer Group 2: Reese Hotten-Somers, Bhavya Vadavalli, Katia
+Landauer</p>
+<p>Peer Group 3: Sofia Weaver, Emiley Garcia-Zych, Amanda Wu</p>
+<p>Peer Group 4: Angelique Lindberg, Jasmin Tesani, Brooke Rothamer,
+Odetta Minerva</p>
+<p>Peer Group 5: Madison Hurysz, Ella Corrao, Erin Anderson</p>
+<p>Peer Group 6: Abdullah Malik, Jessica Martin, Camryn Millett</p>
+<p>Peer Group 7: Samantha Vee, Alex Gilbert, Caroline Metcalf</p>
+<p>Peer Group 8: Tiffany Chan, Nicole Merullo, Julianna Dick</p>
+<hr />
+</div>
+<div id="homework-04-whats-your-malfunction-assigned-19oct-due-02nov"
+class="section level4">
+<h4><strong>Homework 04: <a
+href="https://fuzzyatelin.github.io/bioanth-stats/homework-04.html">What’s
+Your Malfunction?</a> (Assigned 19OCT, Due 02NOV)</strong></h4>
+<hr />
+<p>Peer Group 1: Reese Hotten-Somers, Erin Anderson, Caroline
+Metcalf</p>
+<p>Peer Group 2: Madison Hurysz, Samantha Vee, Sofia Weaver</p>
+<p>Peer Group 3: Tiffany Charn, Amanda Wu, Camryn Millett</p>
+<p>Peer Group 4: Katia Landauer, Bhavya Vadavalli, Jessica Martin</p>
+<p>Peer Group 5: Billy Sanders, Nicole Merullo, Emily Garcia-Zych,
+Odetta Minerva</p>
+<p>Peer Group 6: Abdullah Malik, Ella Corrao, Chuhan Bao</p>
+<p>Peer Group 7: Angelique Lindberg, Julianna Dick, Yu Yang</p>
+<p>Peer Group 8: Alex Gilbert, Jasmin Tesani, Brooke Rothamer</p>
+<hr />
+</div>
+<div id="homework-05-boots-for-days-assigned-09nov-due-22nov"
+class="section level4">
+<h4><strong>Homework 05: <a
+href="https://fuzzyatelin.github.io/bioanth-stats/homework-05.html">Boots
+for Days!</a> (Assigned 09NOV, Due 22NOV)</strong></h4>
+<hr />
+<p>Peer Group 1: Julianna Dick, Amanda Wu, Bhavya Vadavalli</p>
+<p>Peer Group 2: Emiley Garcia-Zych, Samantha Vee, Jasmin Tesani</p>
+<p>Peer Group 3: Katia Landauer, Billy Sanders, Reese Hotten-Somers</p>
+<p>Peer Group 4: Brooke Rothamer, Tiffany Chan, Angelique Lindberg</p>
+<p>Peer Group 5: Jessica Martin, Sofia Weaver, Alex Gilbert</p>
+<p>Peer Group 6: Chuhan Bao, Ella Corrao, Nicole Merullo</p>
+<p>Peer Group 7: Yu Yang, Camryn Millett, Caroline Metcalf</p>
+<p>Peer Group 8: Madison Hurysz, Abdullah Malik, Erin Anderson, Odetta
+Minerva</p>
 <hr />
 </div>
 </div>

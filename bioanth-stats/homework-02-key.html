@@ -8,148 +8,114 @@
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
-<meta name="date" content="2021-09-27" />
+<meta name="date" content="2023-08-18" />
 
 <title>AN/BI 588: Homework 02 Solution</title>
 
 <script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<style>h1 {font-size: 34px;}
-       h1.title {font-size: 38px;}
-       h2 {font-size: 30px;}
-       h3 {font-size: 24px;}
-       h4 {font-size: 18px;}
-       h5 {font-size: 16px;}
-       h6 {font-size: 12px;}
-       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-       pre:not([class]) { background-color: white }</style>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+/* A workaround for https://github.com/jgm/pandoc/issues/4278 */
+a.sourceLine {
+  pointer-events: auto;
+}
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
 </script>
 
 
 
+<link rel="stylesheet" href="homework-02-key_files/style.css" type="text/css" />
 
-
-
-
-
-
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-img {
-  max-width:100%;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-.html-widget {
-  margin-bottom: 20px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-summary {
-  display: list-item;
-}
-details > summary > p:only-child {
-  display: inline;
-}
-pre code {
-  padding: 0;
-}
-</style>
-
-
-
-<!-- tabsets -->
-
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
-
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-  background-color: transparent;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
-
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
-
-<!-- code folding -->
 
 
 
@@ -159,26 +125,41 @@ pre code {
 <body>
 
 
-<div class="container-fluid main-container">
 
 
+<section class="page-header">
+<h1 class="title toc-ignore project-name">AN/BI 588: Homework 02
+Solution</h1>
+<h4 class="date project-date">August 18, 2023</h4>
+</section>
 
 
-<div id="header">
-
-
-
-<h1 class="title toc-ignore">AN/BI 588: Homework 02 Solution</h1>
-<h4 class="date">September 27, 2021</h4>
-
+<div id="TOC" class="toc">
+<div class="toc-box">
+<ul>
+<li><a href="#getting-started" id="toc-getting-started">Getting
+Started</a></li>
+<li><a href="#question-1" id="toc-question-1">Question 1</a></li>
+<li><a href="#question-2" id="toc-question-2">Question 2</a></li>
+<li><a href="#question-3" id="toc-question-3">Question 3</a></li>
+<li><a href="#question-4" id="toc-question-4">Question 4</a></li>
+<li><a href="#question-5" id="toc-question-5">Question 5</a></li>
+<li><a href="#question-6" id="toc-question-6">Question 6</a></li>
+</ul>
+</div>
 </div>
 
-
+<section class="main-content">
 <hr />
 <center>
-<font size="+2"><b>Titis in the Mist…</b></font>
+<p><font size="+3"><b>Titis in the Mist…</b></font></p>
 </center>
-<p><br></p>
+<hr />
+<center>
+<p>
+<img src=https://www.zooborns.com/.a/6a010535647bf3970b0168e56d8d21970c-500wi style="border:5px solid black" alt="adorable titi monkey baby with father">
+</p>
+</center>
 <hr />
 <center>
 <p><font size="+2"><b>Homework Solutions!</b></font></p>
@@ -206,6 +187,8 @@ horizontal limits to be from 0 to 30. How does your histogram compare to
 the shape of the probability mass function you plotted above?</li>
 </ul>
 <hr />
+<div id="getting-started" class="section level2">
+<h2>Getting Started</h2>
 <p>The first thing we should do is find areas of the previous modules
 that might help with this data analysis. There are a few hints in the
 questions… First off, we need to know about the Poisson distribution,
@@ -226,30 +209,35 @@ given interval. In this case, λ = 15, our session is a two-hour window
 from 5 to 7 am, and <em>X</em> is our presumed number of calls…</p>
 <p>Now, we know the probability mass function for Poisson from Module
 08, and that for a given number or range of <em>x</em> that:</p>
-<pre class="r"><code>&gt; poisPMF&lt;-function(x,l) {((l^x)*exp(-l))/(x!)}</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="sc">&gt;</span> poisPMF<span class="ot">&lt;-</span><span class="cf">function</span>(x,l) {((l<span class="sc">^</span>x)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>l))<span class="sc">/</span>(x<span class="sc">!</span>)}</span></code></pre></div>
 <p>where <code>l</code> is standing in for λ.</p>
 <p>We <em>could</em> use this to solve our problem set, but it would be
 <em>much</em> easier to use the built-in Poisson functions. We can
 access these by searching for help around one of these functions we
 learned about in Module 08, <code>dpois</code>:</p>
-<pre class="r"><code>&gt; `?`(dpois)</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="st">`</span><span class="at">?</span><span class="st">`</span>(dpois)</span></code></pre></div>
 <p>Note that for any distribution function (e.g., Poisson, Binomial,
 Beta, etc), there are four functions available. We’ll use Poisson here
 as an example:</p>
 <ul>
-<li><p><code>dpois</code>: the probability density function, this will
-give you a point estimate of the probability for a given value
-<code>x</code> for the entered parameters (in this case, λ)</p></li>
-<li><p><code>ppois</code>: the probability distribution function, this
-will give you the cumulative probability for a given value
-<code>x</code> for the entered parameters.</p></li>
-<li><p><code>qpois</code>: the quantile function, this will give the
-value of <code>x</code> for which a particular <em>cumulative</em>
-probability is associated.</p></li>
-<li><p><code>rpois</code>: draws <code>n</code> random observations from
-a specified Poisson distribution.</p></li>
-<li><p><strong>What is the probability that she will hear more than 8
-calls during any given session?</strong></p></li>
+<li><code>dpois</code>: the probability density function, this will give
+you a point estimate of the probability for a given value <code>x</code>
+for the entered parameters (in this case, λ)</li>
+<li><code>ppois</code>: the probability distribution function, this will
+give you the cumulative probability for a given value <code>x</code> for
+the entered parameters.</li>
+<li><code>qpois</code>: the quantile function, this will give the value
+of <code>x</code> for which a particular <em>cumulative</em> probability
+is associated.</li>
+<li><code>rpois</code>: draws <code>n</code> random observations from a
+specified Poisson distribution.</li>
+</ul>
+</div>
+<div id="question-1" class="section level2">
+<h2>Question 1</h2>
+<ul>
+<li><strong>What is the probability that she will hear more than 8 calls
+during any given session?</strong></li>
 </ul>
 <p>In this case, counting from 9 through infinity might be daunting, but
 remember that probabilities are bounded from 0 to 1, which means that
@@ -258,14 +246,17 @@ the <em>cumulative probability</em> of 0 to 8 calls will be the
 probability of hearing 0 to 8 calls (or, x=8 for cumulative probability)
 using the <code>ppois</code> function, which will calculate the
 cumulative probability:</p>
-<pre class="r"><code>&gt; x &lt;- 8
-&gt; l &lt;- 15
-&gt; 1 - ppois(q = x, lambda = l)  #subtracting from 1 to get the complement</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="dv">8</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="sc">&gt;</span> l <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">ppois</span>(<span class="at">q =</span> x, <span class="at">lambda =</span> l)  <span class="co">#subtracting from 1 to get the complement</span></span></code></pre></div>
 <pre><code>## [1] 0.9625535</code></pre>
 <p>In a previous class, student Lara Hakam did it this way, which is a
 little more efficient:</p>
-<pre class="r"><code>&gt; ppois(8, 15, lower.tail = F)</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ppois</span>(<span class="dv">8</span>, <span class="dv">15</span>, <span class="at">lower.tail =</span> F)</span></code></pre></div>
 <pre><code>## [1] 0.9625535</code></pre>
+</div>
+<div id="question-2" class="section level2">
+<h2>Question 2</h2>
 <ul>
 <li><strong>What is the probability that she will hear no calls in a
 session?</strong></li>
@@ -273,15 +264,21 @@ session?</strong></li>
 <p>In this case, we’ll use <code>dpois</code> to get the probability of
 a single outcome (0, because she heard no calls) for λ = 15, rather than
 the cumulative probability.</p>
-<pre class="r"><code>&gt; dpois(0, 15)</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dpois</span>(<span class="dv">0</span>, <span class="dv">15</span>)</span></code></pre></div>
 <pre><code>## [1] 3.059023e-07</code></pre>
+</div>
+<div id="question-3" class="section level2">
+<h2>Question 3</h2>
 <ul>
 <li><strong>What is the probability that she will hear exactly 3 calls
 in a session?</strong></li>
 </ul>
 <p>We’ll use the same method here, but instead of 0, we’ll enter 3:</p>
-<pre class="r"><code>&gt; dpois(3, 15)</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dpois</span>(<span class="dv">3</span>, <span class="dv">15</span>)</span></code></pre></div>
 <pre><code>## [1] 0.0001720701</code></pre>
+</div>
+<div id="question-4" class="section level2">
+<h2>Question 4</h2>
 <ul>
 <li><strong>Plot the relevant Poisson mass function over the values in
 range 0 ≤ x ≤ 30.</strong></li>
@@ -289,22 +286,28 @@ range 0 ≤ x ≤ 30.</strong></li>
 <p>Ok, so in this case, we’ll need to plot a range (0 through 30) over
 the Poisson mass function where λ is 15 (so we’ll use
 <code>dpois</code>, rather than <code>ppois</code> ):</p>
-<pre class="r"><code>&gt; x &lt;- 0:30
-&gt; l = 15
-&gt; barplot(dpois(x, l))</code></pre>
-<p><img src="img/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">30</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="sc">&gt;</span> l <span class="ot">=</span> <span class="dv">15</span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">barplot</span>(<span class="fu">dpois</span>(x, l))</span></code></pre></div>
+<p><img src="img/unnamed-chunk-7-1.png" /><!-- --></p>
+</div>
+<div id="question-5" class="section level2">
+<h2>Question 5</h2>
 <ul>
 <li><strong>Simulate 104 results from this distribution (i.e., 2 years
 of Saturday monitoring sessions).</strong></li>
 </ul>
 <p>As Lara also suggested in a previous class, we’ll use
 <code>rpois</code> for this:</p>
-<pre class="r"><code>&gt; rpois(104, 15)</code></pre>
-<pre><code>##   [1] 12 18 15 17 10 17 11 11 15 18 16 20 15 16 11 13 16 17 10 19 11 14 16 16 10
-##  [26] 16 21 14  9 12 10 18 21 12 23 13 16 16 13 12 12 15 13 12 11 11 24 18 16 13
-##  [51] 14 15 14  9  7 22 16 13 17 15 10  6 15 24 12 18 18 11 18 16 11 17 14 15 17
-##  [76] 15  9 10 12 11 18 14 12 20 17 19 12 19 21 16 17 15 10 11 17 17 19 20 21 17
-## [101] 19 13 12 18</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rpois</span>(<span class="dv">104</span>, <span class="dv">15</span>)</span></code></pre></div>
+<pre><code>##   [1] 16 11 13 13 21 14 16 17 13  9 19 12 17 13 21 14 14 14 12 13 13 16 12 13 18
+##  [26] 12  9 21  6 16 13 16 10 10 21 20 10 17 12 21 15 11 11 16 17 15 18 14 16 15
+##  [51] 11 11 21 15 10 15 15 11 13  8 12 10 18 11 19 15 13 14 11 11 25  9 20 14 18
+##  [76] 12 13 18  8 12 19 13 17 12 12 15 16 19 18 13 13 14 13 18 17 16 18 16  9 16
+## [101] 14 14 15 12</code></pre>
+</div>
+<div id="question-6" class="section level2">
+<h2>Question 6</h2>
 <ul>
 <li><strong>Plot the simulated results using hist() and use xlim() to
 set the horizontal limits to be from 0 to 30. How does your histogram
@@ -314,10 +317,10 @@ above?</strong></li>
 <p>We’ll nest our <code>rpois</code> results in a histogram using the
 base R graphics, as suggested in a previous class by Christian Gagnon
 (which I’ll make pretty using the <code>col</code> command):</p>
-<pre class="r"><code>&gt; y &lt;- rpois(104, 15)
-&gt; hist(y, xlim = c(0, 30), xlab = &quot;Number of Calls&quot;, main = &quot;Call Monitoring Histogram&quot;,
-+     breaks = 30, col = &quot;forestgreen&quot;)</code></pre>
-<p><img src="img/unnamed-chunk-9-1.png" width="672" /></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="sc">&gt;</span> y <span class="ot">&lt;-</span> <span class="fu">rpois</span>(<span class="dv">104</span>, <span class="dv">15</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">hist</span>(y, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">30</span>), <span class="at">xlab =</span> <span class="st">&quot;Number of Calls&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Call Monitoring Histogram&quot;</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="sc">+</span>     <span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">col =</span> <span class="st">&quot;forestgreen&quot;</span>)</span></code></pre></div>
+<p><img src="img/unnamed-chunk-9-1.png" /><!-- --></p>
 <p>As you can see, our histogram is roughly the same shape as the PMF,
 but not quite. Our random sampling doesn’t perfectly fit the ideal (or
 population) distribution, but with a large enough sample (maybe 10 years
@@ -333,38 +336,10 @@ dearly departed) Brazilian primatologist Anand Dacier, based on work she
 published in the journal <a
 href="https://www.jstor.org/stable/41057989?seq=1#metadata_info_tab_contents"><em>Biotropica</em>
 (2011)</a>.</p>
-
-
-
-
 </div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
+</section>
 
 
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open');
-  });
-});
-</script>
 
 <!-- code folding -->
 

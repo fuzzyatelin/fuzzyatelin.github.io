@@ -1,9 +1,10 @@
 ---
 title: "AN/BI 588: Homework 02 Solution"
-date: "September 27, 2021"
-output:
-  html_document:
-    theme: cosmo
+date: "August 18, 2023"
+output: 
+  prettydoc::html_pretty:
+    theme: cayman
+    toc: true
 ---
 
 ```{r setup, include=FALSE}
@@ -21,7 +22,14 @@ knitr::opts_chunk$set(
 ***
 
 <center>
-<font size="+2"><b>Titis in the Mist...</b></font></center><br>
+
+<font size="+3"><b>Titis in the Mist...</b></font>
+
+</center>
+
+***
+
+<center><p><img src=https://www.zooborns.com/.a/6a010535647bf3970b0168e56d8d21970c-500wi style="border:5px solid black" alt="adorable titi monkey baby with father"></p></center>
 
 ***
 
@@ -44,6 +52,8 @@ Every Saturday morning, at the same time, a primatologist goes and sits in the f
 
 ***
 
+## Getting Started
+
 The first thing we should do is find areas of the previous modules that might help with this data analysis. There are a few hints in the questions... First off, we need to know about the Poisson distribution, which is in [Module 08](https://fuzzyatelin.github.io/bioanth-stats/module-08/module-08.html). Next, we need to know how to run a simulation, which we did in [Module 07](https://fuzzyatelin.github.io/bioanth-stats/module-07/module-07.html) when discussing how to bootstrap data.
 
 With this info, we should be able to come up with proper code to answer these questions!
@@ -57,7 +67,7 @@ poisPMF<-function(x,l) {((l^x)*exp(-l))/(x!)}
 where `l` is standing in for &lambda;. 
 
 We *could* use this to solve our problem set, but it would be *much* easier to use the built-in Poisson functions. We can access these by searching for help around one of these functions we learned about in Module 08, `dpois`:
-```{r}
+```{r,eval=F}
 ?dpois
 ```
 
@@ -67,6 +77,8 @@ Note that for any distribution function (e.g., Poisson, Binomial, Beta, etc), th
 * `ppois`: the probability distribution function, this will give you the cumulative probability for a given value `x` for the entered parameters.
 * `qpois`: the quantile function, this will give the value of `x` for which a particular *cumulative* probability is associated.
 * `rpois`: draws `n` random observations from a specified Poisson distribution.
+
+## Question 1
 
 - **What is the probability that she will hear more than 8 calls during any given session?**
 
@@ -82,6 +94,8 @@ In a previous class, student Lara Hakam did it this way, which is a little more 
 ppois(8,15,lower.tail=F)
 ```
 
+## Question 2
+
 - **What is the probability that she will hear no calls in a session?**
 
 In this case, we'll use `dpois` to get the probability of a single outcome (0, because she heard no calls) for &lambda; = 15, rather than the cumulative probability.
@@ -90,12 +104,16 @@ In this case, we'll use `dpois` to get the probability of a single outcome (0, b
 dpois(0,15)
 ```
 
+## Question 3
+
 - **What is the probability that she will hear exactly 3 calls in a session?**
 
 We'll use the same method here, but instead of 0, we'll enter 3:
 ```{r}
 dpois(3,15)
 ```
+
+## Question 4
 
 - **Plot the relevant Poisson mass function over the values in range 0 ≤ x ≤ 30.**
 
@@ -107,6 +125,7 @@ l=15
 barplot(dpois(x,l))
 ```
 
+## Question 5
 
 - **Simulate 104 results from this distribution (i.e., 2 years of Saturday monitoring sessions).**
 
@@ -114,6 +133,7 @@ As Lara also suggested in a previous class, we'll use `rpois` for this:
 ```{r}
 rpois(104,15)
 ```
+## Question 6
 
 - **Plot the simulated results using hist() and use xlim() to set the horizontal limits to be from 0 to 30. How does your histogram compare to the shape of the probability mass function you plotted above?**
 
