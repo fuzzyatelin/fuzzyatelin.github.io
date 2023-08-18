@@ -1,10 +1,9 @@
 ---
 title: "Homework 03 Solutions"
 author: "Christopher A. Schmitt"
-date: "10/6/2021"
-output:
-  html_document:
-    theme: cosmo
+date: "August 18, 2023"
+output: 
+  rmdformats::readthedown
 ---
 
 ```{r setup, include=FALSE}
@@ -26,6 +25,14 @@ knitr::opts_chunk$set(
 
 ***
 
+<br>
+<center><p><img src="https://i.gifer.com/feU.gif" style="border:5px solid black"></p>
+</center>
+
+<br>
+
+***
+
 <center>
 
 <font size="+2"><b>Homework Solutions!</b></font>
@@ -36,7 +43,7 @@ knitr::opts_chunk$set(
 
 Create a new ***GitHub*** repo and git-referenced ***Rstudio*** Project called "**AN588_Zombies_BUlogin**". Within that repo, create a new `.Rmd` file called "**BUlogin_OriginalHomeworkCode_03**". [Modules 03-08](https://fuzzyatelin.github.io/bioanth-stats/modules.html) will each have concepts and example code that will help you complete this assignment. Don't forget to add your [Peer Group](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) and instructor as collaborators, and to accept their invitations to you. Making sure to push both the markdown and knitted `.html` files to your repository, do the following:
 
-Load in the dataset "zombies.csv" from [my ***GitHub*** repo](https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall21/). This data includes the first name, last name, and gender of the entire population of 1000 people who have *survived* the zombie apocalypse and are now ekeing out an existence somewhere on the East Coast, along with several other variables (height, weight, age, number of years of education, number of zombies they have killed, and college major; [see here for info on important post-zombie apocalypse majors](http://www.thebestschools.org/magazine/best-majors-surviving-zombie-apocalypse/)).
+Load in the dataset "zombies.csv" from [my ***GitHub*** repo](https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall21/). This data includes the first name, last name, and gender of the entire population of 1000 people who have *survived* the zombie apocalypse and are now ekeing out an existence somewhere on the East Coast, along with several other variables (height, weight, age, number of years of education, number of zombies they have killed, and college major; [see here for info on important post-zombie apocalypse majors](https://zombieresearchsociety.com/archives/27548)).
 
 <ol><li>Calculate the *population* mean and standard deviation for each quantitative random variable (height, weight, age, number of zombies killed, and years of education). NOTE: You will not want to use the built in `var()` and `sd()` commands as these are for *samples*.</li>
 
@@ -52,17 +59,21 @@ Load in the dataset "zombies.csv" from [my ***GitHub*** repo](https://github.com
 
 ***
 
+## Getting Ready
+
 - **Load in the dataset "zombies.csv" from [my ***GitHub*** repo](https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall21/).**
 
 The first element of this assignment is loading in the dataset. As always in ***R***, there are many many ways to do this, and we have examples for a few of them in previous modules (particularly [Module 05](https://fuzzyatelin.github.io/bioanth-stats/module-05/module-05.html)). My preferred way, when I've got a clear online location for the dataset (in this case, the ***GitHub*** repo link provided above), is to use a {curl} command just because that's usually the most efficient. As always, though, if you have another way to do it that's great; the point is to get the data in, doesn't necessarily matter how for a dataset this small:
 ```{r,message=F,warning=F}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/zombies.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall23/zombies.csv")
 z <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 head(z)
 ```
 
 Great! Now we can get started characterizing this population of zombie apocalypse survivors, including taking the *population* mean and standard deviation for each quantitative random variable. 
+
+## Question 1
 
 - **Calculate the *population* mean and standard deviation for each quantitative random variable (height, weight, age, number of zombies killed, and years of education).**
 
@@ -106,6 +117,8 @@ s<- z %>%
 
 cbind(mean = apply(s, 2, mean), sd = apply(s, 2, pop_sd))
 ```
+
+## Question 2
 
 - **Use {ggplot} to make boxplots of each of these variables by gender.**
 
@@ -153,7 +166,7 @@ p <- ggplot(data = z, aes(x=gender,y=age)) + geom_boxplot(aes(fill=gender)) + gg
 p
 ```
 
-Now, as with the previous example, there are ways to simplify our work so that we don't have to write a separate line of code for each figure. Remembering the value of looping to save time, I leaned on the package [{ggloop}](https://cran.r-project.org/web/packages/ggloop/vignettes/intro.html) to run all my plots at once. *I would not expect you to be able to figure this out on your own*, but I thought it might be nice to show you:
+Now, as with the previous example, there are ways to simplify our work so that we don't have to write a separate line of code for each figure. Remembering the value of looping to save time, I leaned on the package [{ggloop}](https://github.com/seasmith/ggloop) to run all my plots at once. *I would not expect you to be able to figure this out on your own*, but I thought it might be nice to show you (may come in handy later!):
 ```{r,message=F,warning=F}
 library(ggloop)
 #Here I use piping to select the names of only those columns in 'z' that have numeric entries (plus the 'gender' column)
@@ -165,9 +178,11 @@ genplots[1:5] <- genplots[1:5] %L+% geom_boxplot(aes(fill=gender)) %L+% theme_bw
 genplots
 ```
 
+## Question 3
+
 - **Use {ggplot} to make scatterplots of height and weight in relation to age. Do these variables seem to be related? In what way?**
 
-The easiest way to make a scatterplot from these data, given that we've already made a boxplot, is to simply copy and paste our boxplot code and 1) swap out our variables, and 2) change our `geom_boxplot` for `geom` for a scatterplot, like `geom_point`, and finally 3) we should also rename the object we save the plot to, so we can keep versions of both plots in our ***R*** space:
+The easiest way to make a scatterplot from these data, given that we've already made a boxplot, is to simply copy and paste our boxplot code and 1) swap out our variables, and 2) change our `geom_boxplot` for the `geom` for a scatterplot, like `geom_point`, and finally 3) we should also rename the object we save the plot to, so we can keep versions of both plots in our ***R*** space:
 ```{r}
 haplot <- ggplot(data=z, aes(x=age, y=height))
 
@@ -202,6 +217,8 @@ waplot
 ```
 
 In this case, both variables appear to be positively related to age, with both height and, to a lesser extent, weight increasing as age increases. The addition of the regression lines really highlights these relationships, no?
+
+## Question 4
 
 - **Using histograms and Q-Q plots, check whether the quantitative variables seem to be drawn from a normal distribution. Which seem to be and which do not (hint: not all are drawn from the normal distribution)? For those that are not normal, can you determine from which common distribution they are drawn?**
 
@@ -274,6 +291,8 @@ barplot(probset2,names.arg=0:11,space=0,xlab="kills",ylab="Pr(X=outcome)",ylim=c
 
 Ok... these look pretty similar to the data distributions, actually. Looks like the number of zombes killed come from our old friend the Bernoulli distribution.
 
+## Question 5
+
 - **Now use the `sample()` function to sample ONE subset of 30 zombie survivors (without replacement) from this population and calculate the mean and sample standard deviation for each variable. Also estimate the standard error for each variable and construct the 95% confidence interval for each mean. Note that for the variables that are not drawn from the normal distribution, you will need to base your estimate of the CIs on some different distribution.**
 
 Code for `sample()` we can get from [Module 08](https://fuzzyatelin.github.io/bioanth-stats/module-08/module-08.htm), while code for confidence intervals we can get from [Module 07](https://fuzzyatelin.github.io/bioanth-stats/module-07/module-07.htm). Don't forget to define `se()`, which isn't in the native ***R*** environment (you can either write your own function, as in the module, or load the `sciplot` package as a shortcut)!
@@ -339,6 +358,8 @@ for (i in 1:10000) {
 quantile(set,c(0.025,0.975))
 
 ```
+
+## Question 6
 
 - **Now draw 99 more random samples of 30 zombie survivors out and calculate the mean for each of the these samples. Together with the first sample you drew out, you now have a set of 100 means for each variable (each based on 30 observations), which constitutes a sampling distribution for each variable. What are the means and standard deviations of this distribution for each variable? How do the standard deviations compare to the standard errors estimated in the last exercise? What do these sampling distributions look like? Are they normally distributed? What about for those variables that you concluded were not originally drawn from a normal distribution?**
 
@@ -413,4 +434,5 @@ mean(x_m_edu)
 sd(x_m_edu)
 ```
 
-Well, I have to say that the histograms here all look normally distributed, including those derived from data with non-normal distributions (ok, so they may randomly look a bit wonkier than normal)... of course, that's *exactly* what we'd expect in accordance with the CLT (yes, this was another way to illustrating the importance of this concept)! Also in accordance with the CLT, it looks like the SE's estimated in the previous exercise the SDs are not quite the same, but are closer to each other than the SD of each as estimated in the previous exercise.
+Well, I have to say that the histograms here all look fairly normally distributed, including those derived from data with non-normal distributions (ok, so they may randomly look a bit wonkier than normal)... of course, that's *exactly* what we'd expect in accordance with the CLT (yes, this was another way to illustrating the importance of this concept)! Also in accordance with the CLT, it looks like the SE's estimated in the previous exercise the SDs are not quite the same, but are closer to each other than the SD of each as estimated in the previous exercise.
+<br>
