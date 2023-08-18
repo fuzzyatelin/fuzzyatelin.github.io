@@ -160,7 +160,7 @@ Note: this expectation based on an approximation of the normal holds true only i
 
 ***
 
-Suppose a polling group in the Massachusetts is interested in the proportion of voting-age citizens in their state that already know they will vote for Elizabeth Warren in the upcoming November 6, 2018 midterm elections ([don't forget to vote!](https://ballotpedia.org/Massachusetts_elections,_2018)). The group obtains a yes or no answer from 1000 suitable randomly selected individuals. Of these individuals, 856 say they know they’ll vote for Senator Warren. How would we characterize the mean and variability associated with this proportion?
+Suppose a polling group in the Massachusetts is interested in the proportion of voting-age citizens in their state that already know they will vote for Elizabeth Warren in the upcoming November 5, 2024 general elections ([don't forget to vote!](https://ballotpedia.org/Massachusetts_elections,_2024)). The group obtains a yes or no answer from 1000 suitable randomly selected individuals. Of these individuals, 856 say they know they’ll vote for Senator Warren. How would we characterize the mean and variability associated with this proportion?
 
 ``` {r}
 n <- 1000
