@@ -10,11 +10,11 @@
 
 
 
-<meta name="date" content="2021-05-27" />
+<meta name="date" content="2023-08-18" />
 
 <title>AN/BI 588: Homework 03</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -61,6 +61,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -81,6 +82,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -165,32 +169,42 @@ pre code {
 
 
 <h1 class="title toc-ignore">AN/BI 588: Homework 03</h1>
-<h4 class="date">May 27, 2021</h4>
+<h4 class="date">August 18, 2023</h4>
 
 </div>
 
 
 <hr />
 <div id="course-outline" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/outline.html">Course Outline</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/outline.html">Course
+Outline</a></h3>
 </div>
 <div id="course-overview" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/overview.html">Course Overview</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/overview.html">Course
+Overview</a></h3>
 </div>
 <div id="modules" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/modules.html">Modules</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/modules.html">Modules</a></h3>
 </div>
 <div id="assignments" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/assignments.html">Assignments</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/assignments.html">Assignments</a></h3>
 </div>
 <div id="resources" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/resources.html">Resources</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/resources.html">Resources</a></h3>
 </div>
 <div id="policies" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/policies.html">Policies</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/policies.html">Policies</a></h3>
 </div>
 <div id="insurmountable-coding-problems" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html">Insurmountable Coding Problems</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html">Insurmountable
+Coding Problems</a></h3>
 <hr />
 <center>
 <font size="+2"><b>Some of my best friends are Zombies…</b></font>
@@ -205,82 +219,170 @@ pre code {
 <p><br></p>
 <hr />
 <center>
-<p><font size="+2"><b>Must be submitted for Peer Commentary by 8:00 pm Thursday, October 7th.</b></font></p>
+<p><font size="+2"><b>Must be submitted for Peer Commentary by 5:00 pm
+Wednesday, October 11th.</b></font></p>
 </center>
 <p><br></p>
 <center>
-<p><font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Thursday, October 14th.</b></font></p>
+<p><font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm
+Wednesday, October 18th.</b></font></p>
 </center>
 <p><br></p>
 <hr />
-<p>Create a new <strong><em>GitHub</em></strong> repo and git-referenced <strong><em>Rstudio</em></strong> Project called “<strong>AN588_Zombies_BUlogin</strong>”. Within that repo, create a new <code>.Rmd</code> file called “<strong>BUlogin_OriginalHomeworkCode_03</strong>”. <a href="https://fuzzyatelin.github.io/bioanth-stats/modules.html">Modules 03-08</a> will each have concepts and example code that will help you complete this assignment. Don’t forget to add your <a href="https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html">Peer Group</a> and instructor as collaborators, and to accept their invitations to you. Making sure to push both the markdown and knitted <code>.html</code> files to your repository, do the following:</p>
-<p>Load in the dataset “zombies.csv” from <a href="https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall21/">my <strong><em>GitHub</em></strong> repo</a>. This data includes the first name, last name, and gender of the entire population of 1000 people who have <em>survived</em> the zombie apocalypse and are now ekeing out an existence somewhere on the East Coast, along with several other variables (height, weight, age, number of years of education, number of zombies they have killed, and college major; <a href="http://www.thebestschools.org/magazine/best-majors-surviving-zombie-apocalypse/">see here for info on important post-zombie apocalypse majors</a>).</p>
+<p>Create a new <strong><em>GitHub</em></strong> repo and git-referenced
+<strong><em>Rstudio</em></strong> Project called
+“<strong>AN588_Zombies_BUlogin</strong>”. Within that repo, create a new
+<code>.Rmd</code> file called
+“<strong>BUlogin_OriginalHomeworkCode_03</strong>”. <a
+href="https://fuzzyatelin.github.io/bioanth-stats/modules.html">Modules
+03-08</a> will each have concepts and example code that will help you
+complete this assignment. Don’t forget to add your <a
+href="https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html">Peer
+Group</a> and instructor as collaborators, and to accept their
+invitations to you. Making sure to push both the markdown and knitted
+<code>.html</code> files to your repository, do the following:</p>
+<p>Load in the dataset “zombies.csv” from <a
+href="https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall23/">my
+<strong><em>GitHub</em></strong> repo</a>. This data includes the first
+name, last name, and gender of the entire population of 1000 people who
+have <em>survived</em> the zombie apocalypse and are now ekeing out an
+existence somewhere on the East Coast, along with several other
+variables (height, weight, age, number of years of education, number of
+zombies they have killed, and college major; <a
+href="http://www.thebestschools.org/magazine/best-majors-surviving-zombie-apocalypse/">see
+here for info on important post-zombie apocalypse majors</a>).</p>
 <ol>
 <li>
-Calculate the <em>population</em> mean and standard deviation for each quantitative random variable (height, weight, age, number of zombies killed, and years of education). NOTE: You will not want to use the built in <code>var()</code> and <code>sd()</code> commands as these are for <em>samples</em>.
+Calculate the <em>population</em> mean and standard deviation for each
+quantitative random variable (height, weight, age, number of zombies
+killed, and years of education). NOTE: You will not want to use the
+built in <code>var()</code> and <code>sd()</code> commands as these are
+for <em>samples</em>.
 </li>
 <li>
 Use {ggplot} to make boxplots of each of these variables by gender.
 </li>
 <li>
-Use {ggplot} to make scatterplots of height and weight in relation to age. Do these variables seem to be related? In what way?
+Use {ggplot} to make scatterplots of height and weight in relation to
+age. Do these variables seem to be related? In what way?
 </li>
 <li>
-Using histograms and Q-Q plots, check whether the quantitative variables seem to be drawn from a normal distribution. Which seem to be and which do not (hint: not all are drawn from the normal distribution)? For those that are not normal, can you determine from which common distribution they are drawn?
+Using histograms and Q-Q plots, check whether the quantitative variables
+seem to be drawn from a normal distribution. Which seem to be and which
+do not (hint: not all are drawn from the normal distribution)? For those
+that are not normal, can you determine from which common distribution
+they are drawn?
 </li>
 <li>
-Now use the <code>sample()</code> function to sample ONE subset of 30 zombie survivors (without replacement) from this population and calculate the mean and sample standard deviation for each variable. Also estimate the standard error for each variable, and construct the 95% confidence interval for each mean. Note that for the variables that are not drawn from the normal distribution, you may need to base your estimate of the CIs on slightly different code than for the normal…
+Now use the <code>sample()</code> function to sample ONE subset of 30
+zombie survivors (without replacement) from this population and
+calculate the mean and sample standard deviation for each variable. Also
+estimate the standard error for each variable, and construct the 95%
+confidence interval for each mean. Note that for the variables that are
+not drawn from the normal distribution, you may need to base your
+estimate of the CIs on slightly different code than for the normal…
 </li>
 <li>
-Now draw 99 more random samples of 30 zombie apocalypse survivors, and calculate the mean for each variable for each of these samples. Together with the first sample you drew, you now have a set of 100 means for each variable (each based on 30 observations), which constitutes a <em>sampling</em> distribution for each variable. What are the means and standard deviations of this distribution of means for each variable? How do the standard deviations of means compare to the standard errors estimated in [5]? What do these sampling distributions look like (a graph might help here)? Are they normally distributed? What about for those variables that you concluded were <em>not</em> originally drawn from a normal distribution?
+Now draw 99 more random samples of 30 zombie apocalypse survivors, and
+calculate the mean for each variable for each of these samples. Together
+with the first sample you drew, you now have a set of 100 means for each
+variable (each based on 30 observations), which constitutes a
+<em>sampling</em> distribution for each variable. What are the means and
+standard deviations of this distribution of means for each variable? How
+do the standard deviations of means compare to the standard errors
+estimated in [5]? What do these sampling distributions look like (a
+graph might help here)? Are they normally distributed? What about for
+those variables that you concluded were <em>not</em> originally drawn
+from a normal distribution?
 </li>
 </ol>
 <hr />
 </div>
 <div id="your-final-assignment-for-homework-03" class="section level3">
 <h3><strong>Your Final Assignment for Homework 03</strong></h3>
-Your final assignment, due to me by 5:00 pm on October 14th, is to have in your <em>AN588_Zombies_BUlogin</em> repo only the following files:
+Your final assignment, due to me by 5:00 pm on October 14th, is to have
+in your <em>AN588_Zombies_BUlogin</em> repo only the following files:
 <ol>
 <ol style="list-style-type: decimal">
-<li>The <em>FINAL PUSH</em> of your Original Homework Code, including the five challenges you faced, as pushed to your repo by 8:00 pm on Thursday, an R Markdown file named <em>BUlogin_OriginalHomeworkCode_03</em>.</li>
-<li>The <em>FINAL PUSH</em> of the <a href="https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html">Peer Commentary</a> made on <em>your</em> code, an R Markdown file named <em>Peerlogin_PeerCommentary_BUlogin_03</em> or <em>PeerGroupX_PeerCommentary_BUlogin_03</em>.</li>
-<li>The <em>FINAL PUSH</em> of your Final Homework Code, which has taken into account any changes recommended from the Peer Commentary and notes, an R Markdown file named <em>BUlogin_FinalHomeworkCode_03</em>.</li>
+<li>The <em>FINAL PUSH</em> of your Original Homework Code, including
+the five challenges you faced, as pushed to your repo by 8:00 pm on
+Thursday, an R Markdown file named
+<em>BUlogin_OriginalHomeworkCode_03</em>.</li>
+<li>The <em>FINAL PUSH</em> of the <a
+href="https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html">Peer
+Commentary</a> made on <em>your</em> code, an R Markdown file named
+<em>Peerlogin_PeerCommentary_BUlogin_03</em> or
+<em>PeerGroupX_PeerCommentary_BUlogin_03</em>.</li>
+<li>The <em>FINAL PUSH</em> of your Final Homework Code, which has taken
+into account any changes recommended from the Peer Commentary and notes,
+an R Markdown file named <em>BUlogin_FinalHomeworkCode_03</em>.</li>
 </ol>
 </ol>
+<p><strong>Formatting Instructions</strong>: Please use the
+<code>readthedown</code> theme (from the {rmdformats} package) in your
+Final Homework Code, with a <code>Header 2</code> title for each
+question you answer. These headers should be organized in a Table of
+Contents. Add to the top of the document, under your title, your
+favorite GIF, picture, or video related to zombies that you’re able to
+find online.</p>
 <hr />
 </div>
-<div id="homework-03-solutions-will-be-posted-on-october-15th." class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/homework-03-key.html">Homework 03 Solutions</a> will be posted on October 15th.</h3>
+<div id="homework-03-solutions-will-be-posted-on-october-18th."
+class="section level3">
+<h3><a
+href="#https://fuzzyatelin.github.io/bioanth-stats/homework-03-key.html">Homework
+03 Solutions</a> will be posted on October 18th.</h3>
 <hr />
-<p>NOTE: If you want your homework code to look nice (beyond being <em>very</em> well annotated and commented), and be easy to use by others, you can check out the relatively simply example <strong>R Markdown</strong> templates in the <a href="https://github.com/fuzzyatelin/AN588_Week_3_caschmit">AN588_Week_3_caschmit</a> repo.</p>
-Please also consider consulting the following helpful guidelines on how to write effective <strong>R Markdown</strong> documents (also available at the end of <a href="https://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html">Module 03</a>), which go well beyond the simple formatting of the templates.
+<p>NOTE: If you want your homework code to look nice (beyond being
+<em>very</em> well annotated and commented), and be easy to use by
+others, you can check out the relatively simple example <strong>R
+Markdown</strong> templates in the <a
+href="https://github.com/fuzzyatelin/AN588_Week_3_caschmit">AN588_Week_3_caschmit</a>
+repo.</p>
+Please also consider consulting the following helpful guidelines on how
+to write effective <strong>R Markdown</strong> documents (also available
+at the end of <a
+href="https://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html">Module
+03</a>), which go well beyond the simple formatting of the templates.
 <ul>
 <li>
-An introduction to <a href="https://rmarkdown.rstudio.com/">R Markdown</a>
+An introduction to <a href="https://rmarkdown.rstudio.com/">R
+Markdown</a>
 </li>
 <li>
-<a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a>
+<a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The
+Definitive Guide</a>
 </li>
 <li>
-<a href="https://rmarkdown.rstudio.com/lesson-15.html">R Markdown Cheatsheet</a>
+<a href="https://rmarkdown.rstudio.com/lesson-15.html">R Markdown
+Cheatsheet</a>
 </li>
 <li>
-<a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">Another R Markdown Cheatsheet</a>
+<a
+href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">Another
+R Markdown Cheatsheet</a>
 </li>
 <li>
-<a href="https://holtzy.github.io/Pimp-my-rmd/">Pimp my RMD: A Few Tips for R Markdown</a>
+<a href="https://holtzy.github.io/Pimp-my-rmd/">Pimp my RMD: A Few Tips
+for R Markdown</a>
 </li>
 <li>
-<a href="https://github.com/rstudio/rticles/tree/master/inst/rmarkdown/templates">R Markdown Templates for Journal Submissions</a>
+<a
+href="https://github.com/rstudio/rticles/tree/master/inst/rmarkdown/templates">R
+Markdown Templates for Journal Submissions</a>
 </li>
 <li>
-<a href="https://www.stat.cmu.edu/~cshalizi/rmarkdown/">Using R Markdown for Class Reports</a>
+<a href="https://www.stat.cmu.edu/~cshalizi/rmarkdown/">Using R Markdown
+for Class Reports</a>
 </li>
 <li>
-<a href="http://www.datadreaming.org/post/r-markdown-theme-gallery/">R Markdown Theme Gallery</a>
+<a href="http://www.datadreaming.org/post/r-markdown-theme-gallery/">R
+Markdown Theme Gallery</a>
 </li>
 <li>
-<a href="https://cran.r-project.org/web/packages/prettydoc/vignettes/architect.html">Creating Pretty Documents from R Markdown</a>
+<a
+href="https://cran.r-project.org/web/packages/prettydoc/vignettes/architect.html">Creating
+Pretty Documents from R Markdown</a>
 </li>
 </ul>
 <p><br></p>

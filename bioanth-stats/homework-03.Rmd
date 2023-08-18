@@ -1,6 +1,6 @@
 ---
 title: "AN/BI 588: Homework 03"
-date: "May 27, 2021"
+date: "August 18, 2023"
 output:
   html_document:
     theme: cosmo
@@ -43,13 +43,13 @@ knitr::opts_chunk$set(
 
 <center>
 
-<font size="+2"><b>Must be submitted for Peer Commentary by 8:00 pm Thursday, October 7th.</b></font>
+<font size="+2"><b>Must be submitted for Peer Commentary by 5:00 pm Wednesday, October 11th.</b></font>
 
 </center><br>
 
 <center>
 
-<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Thursday, October 14th.</b></font>
+<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Wednesday, October 18th.</b></font>
 
 </center><br>
 
@@ -57,7 +57,7 @@ knitr::opts_chunk$set(
 
 Create a new ***GitHub*** repo and git-referenced ***Rstudio*** Project called "**AN588_Zombies_BUlogin**". Within that repo, create a new `.Rmd` file called "**BUlogin_OriginalHomeworkCode_03**". [Modules 03-08](https://fuzzyatelin.github.io/bioanth-stats/modules.html) will each have concepts and example code that will help you complete this assignment. Don't forget to add your [Peer Group](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) and instructor as collaborators, and to accept their invitations to you. Making sure to push both the markdown and knitted `.html` files to your repository, do the following:
 
-Load in the dataset "zombies.csv" from [my ***GitHub*** repo](https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall21/). This data includes the first name, last name, and gender of the entire population of 1000 people who have *survived* the zombie apocalypse and are now ekeing out an existence somewhere on the East Coast, along with several other variables (height, weight, age, number of years of education, number of zombies they have killed, and college major; [see here for info on important post-zombie apocalypse majors](http://www.thebestschools.org/magazine/best-majors-surviving-zombie-apocalypse/)).
+Load in the dataset "zombies.csv" from [my ***GitHub*** repo](https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall23/). This data includes the first name, last name, and gender of the entire population of 1000 people who have *survived* the zombie apocalypse and are now ekeing out an existence somewhere on the East Coast, along with several other variables (height, weight, age, number of years of education, number of zombies they have killed, and college major; [see here for info on important post-zombie apocalypse majors](http://www.thebestschools.org/magazine/best-majors-surviving-zombie-apocalypse/)).
 
 <ol><li>Calculate the *population* mean and standard deviation for each quantitative random variable (height, weight, age, number of zombies killed, and years of education). NOTE: You will not want to use the built in `var()` and `sd()` commands as these are for *samples*.</li>
 
@@ -82,13 +82,15 @@ Your final assignment, due to me by 5:00 pm on October 14th, is to have in your 
 3. The *FINAL PUSH* of your Final Homework Code, which has taken into account any changes recommended from the Peer Commentary and notes, an R Markdown file named *BUlogin_FinalHomeworkCode_03*.
 </ol>
 
-***
-
-### [Homework 03 Solutions](https://fuzzyatelin.github.io/bioanth-stats/homework-03-key.html) will be posted on October 15th.
+**Formatting Instructions**: Please use the `readthedown` theme (from the {rmdformats} package) in your Final Homework Code, with a `Header 2` title for each question you answer. These headers should be organized in a Table of Contents. Add to the top of the document, under your title, your favorite GIF, picture, or video related to zombies that you're able to find online.
 
 ***
 
-NOTE: If you want your homework code to look nice (beyond being *very* well annotated and commented), and be easy to use by others, you can check out the relatively simply example **R Markdown** templates in the [AN588_Week_3_caschmit](https://github.com/fuzzyatelin/AN588_Week_3_caschmit) repo.
+### [Homework 03 Solutions](#https://fuzzyatelin.github.io/bioanth-stats/homework-03-key.html) will be posted on October 18th.
+
+***
+
+NOTE: If you want your homework code to look nice (beyond being *very* well annotated and commented), and be easy to use by others, you can check out the relatively simple example **R Markdown** templates in the [AN588_Week_3_caschmit](https://github.com/fuzzyatelin/AN588_Week_3_caschmit) repo.
 
 Please also consider consulting the following helpful guidelines on how to write effective **R Markdown** documents (also available at the end of [Module 03](https://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html)), which go well beyond the simple formatting of the templates.
 <ul>
