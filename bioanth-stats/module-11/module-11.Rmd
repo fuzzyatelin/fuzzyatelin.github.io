@@ -104,7 +104,7 @@ typeI <- function(mu0,sigma,n,alternative="two.tailed",alpha=0.05,k=1000){
 	return(length(p[p<alpha])/k) # returns the proportion of simulations where p < alpha
 }
 ```
-Can you explain what each step of this code is doing?
+Take some time to really look through this code. Can you explain what each step of this code is doing?
 
 Now, run our Type I error test function with a couple of different values of $\mu_0$, $\sigma$, and $\alpha$. What error rates are returned? They should be always be close to $\alpha$!
 
@@ -304,6 +304,7 @@ power.plot <- function(sigma, muA, mu0, n, alpha, alternative="two.tailed"){
 }
 ```
 ``` {r eval=FALSE}
+manipulate(plot(1:5, cex=size), size = slider(0.5,10,step=0.5)) #run this to get it going
 manipulate(
 	power.plot(sigma, muA, mu0, n, alpha, alternative),
 	sigma = slider(1, 10, step = 1, initial = 4),
@@ -315,6 +316,8 @@ manipulate(
 	)
 
 ```
+
+**NOTE**: You *must* run a `manipulate()` command in the console (i.e., you cannot run it inline from a chunk). As such, please copy/paste the whole `manipulate()` code directly to the console to run. If you don't see the slider to toggle the values - it should appear as a pop-up box - press the gear symbol in the top right corner of the plot, which should cause the slider to appear.
 
 In most cases, since we are dealing with limited samples from a population, we will want to use the t rather than the normal distibution as the basis for making our power evaluations. The `power.t.test()` function lets us easily implement power calculations based on the t distribution, and the results of using it should be very similar to those we found above by simulation. The `power.t.test()` function takes as possible arguments the sample size ($n$), the difference (delta, $\delta$) between group means, the standard deviation of the data = sigma ($\sigma$), the sig.level = alpha ($\alpha$\), the test type ("two.sample", "one.sample", or "paired"), the alternative test to run ("two.sided", "one sidedd") and the power. Power, $n$, or the difference between means is left as null and the other arguments are specified. The function then calculate the missing argument.
 
@@ -348,5 +351,6 @@ power.test <- function(mu0,muA,sigma,alpha=0.05,type,alternative){
 ```
 
 ``` {r eval=FALSE}
+manipulate(plot(1:5, cex=size), size = slider(0.5,10,step=0.5)) #run this to get it going
 manipulate(power.test(mu0,muA,sigma,alpha,type,alternative),mu0=slider(-10,10,initial=3,step=1),muA=slider(-10,10,initial=0,step=1),sigma=slider(1, 10, initial=3,step=1), alpha=slider(0.01,0.10,initial=0.05,step=0.01),alternative=picker("two.sided","one.sided"),type=picker("two.sample","one.sample","paired"))
 ```
