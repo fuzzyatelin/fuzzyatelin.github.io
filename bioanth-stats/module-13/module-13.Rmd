@@ -43,7 +43,7 @@ Let's make sure we have our zombie survivor data loaded...
 
 ```{r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/zombies.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall23/zombies.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 ```
 
@@ -272,7 +272,7 @@ Load in the "KamilarAndCooper.csv" dataset and develop a linear model to look at
 - Run the `plot()` command on the result of `lm()` and examine the 4 plots produced. Again, based on examination of the residuals and the results of  Shapiro-Wilks test, does it look like your model has good fit?
 
 ```{r,fig.height=5,fig.width=5}
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/KamilarAndCooperData.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall23/KamilarAndCooperData.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 head(d)
 plot(data=d,WeaningAge_d~Body_mass_female_mean)
