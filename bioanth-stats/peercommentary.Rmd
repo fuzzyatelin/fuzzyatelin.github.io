@@ -85,9 +85,10 @@ The students currently enrolled in Fall 2023 (and their associated GitHub accoun
 
 * Erin Anderson: [](https://github.com/)
 * Chuhan Bao: [](https://github.com/)
+* Paige Becker: [](https://github.com/)
 * Tiffany Chan: [](https://github.com/)
-* Ella Corrao: [](https://github.com/)
 * Julianna Dick: [](https://github.com/)
+* Jimmy Erkens: [](https://github.com/)
 * Emiley Garcia-Zych: [](https://github.com/)
 * Alex Gilbert: [](https://github.com/)
 * Reese Hotten-Somers: [](https://github.com/)
@@ -101,6 +102,7 @@ The students currently enrolled in Fall 2023 (and their associated GitHub accoun
 * Camryn Millett: [](https://github.com/)
 * Brooke Rothamer: [](https://github.com/)
 * Billy Sanders: [](https://github.com/)
+* Ritika Sibal: [](https://github.com/)
 * Jasmin Tesani: [](https://github.com/)
 * Bhavya Vadavalli: [](https://github.com/)
 * Samantha Vee: [](https://github.com/)
@@ -121,15 +123,15 @@ And my own GitHub account is:
 
 ***
 
-Peer Group 1: Jasmin Tesani, Julianna Dick, Soia Weaver, Odetta Minerva
+Peer Group 1: Jasmin Tesani, Julianna Dick, Soia Weaver, Paige Becker
 
-Peer Group 2: Amanda Wu, Angelique Lindberg, Yu Yang
+Peer Group 2: Amanda Wu, Angelique Lindberg, Yu Yang, Ritika Sibal
 
 Peer Group 3: Jessica Martin, Bhavya Vadavalli, Brooke Rothamer
 
 Peer Group 4: Camryn Millett, Alez Gilbert, Emiley Garcia-Zych
 
-Peer Group 5: Katia Landauer, Ella Corrao, Samantha Vee
+Peer Group 5: Katia Landauer, Jimmy Erkens, Samantha Vee
 
 Peer Group 6: Reese Hotten-Somers, Nicole Merullo, Erin Anderson
 
@@ -145,17 +147,17 @@ Peer Group 8: Billy Sanders, Tiffany Chan, Abdullah Malik
 
 Peer Group 1: Yu Yang, Abdullah Malik, Jasmin Tesani
 
-Peer Group 2: Emiley Garcia-Zych, Caroline Metcalf, Jessica Martin
+Peer Group 2: Emiley Garcia-Zych, Caroline Metcalf, Jessica Martin, Ritika Sibal
 
 Peer Group 3: Tiffany Chan, Chuhan Bao, Nicole Merullo
 
 Peer Group 4: Bhavya Vadavalli, Madison Hurysz, Billy Sanders
 
-Peer Group 5: Sofia Weaver, Erin Anderson, Julianna Dick, Odetta Minerva
+Peer Group 5: Sofia Weaver, Erin Anderson, Julianna Dick, Paige Becker
 
-Peer Group 6: Angelique Lindberg, Alex Gilbert, Ella Corrao
+Peer Group 6: Angelique Lindberg, Alex Gilbert, Jimmy Erkens
 
-Peer Group 7: Katia Landauer, Samantha Vee, Reese Hotten-Somers
+Peer Group 7: Katia Landauer, Samantha Vee, Reese Hotten-Somers, Ritika Sibal
 
 Peer Group 8: Amanda Wu, Camryn Millett, Brooke Rothamer
 
@@ -171,11 +173,11 @@ Peer Group 2: Reese Hotten-Somers, Bhavya Vadavalli, Katia Landauer
 
 Peer Group 3: Sofia Weaver, Emiley Garcia-Zych, Amanda Wu
 
-Peer Group 4: Angelique Lindberg, Jasmin Tesani, Brooke Rothamer, Odetta Minerva
+Peer Group 4: Angelique Lindberg, Jasmin Tesani, Brooke Rothamer, Paige Becker
 
-Peer Group 5: Madison Hurysz, Ella Corrao, Erin Anderson
+Peer Group 5: Madison Hurysz, Jimmy Erkens, Erin Anderson
 
-Peer Group 6: Abdullah Malik, Jessica Martin, Camryn Millett
+Peer Group 6: Abdullah Malik, Jessica Martin, Camryn Millett, Ritika Sibal
 
 Peer Group 7: Samantha Vee, Alex Gilbert, Caroline Metcalf
 
@@ -195,13 +197,13 @@ Peer Group 3: Tiffany Charn, Amanda Wu, Camryn Millett
 
 Peer Group 4: Katia Landauer, Bhavya Vadavalli, Jessica Martin
 
-Peer Group 5: Billy Sanders, Nicole Merullo, Emily Garcia-Zych, Odetta Minerva
+Peer Group 5: Billy Sanders, Nicole Merullo, Emily Garcia-Zych, Paige Becker
 
-Peer Group 6: Abdullah Malik, Ella Corrao, Chuhan Bao
+Peer Group 6: Abdullah Malik, Jimmy Erkens, Chuhan Bao
 
 Peer Group 7: Angelique Lindberg, Julianna Dick, Yu Yang
 
-Peer Group 8: Alex Gilbert, Jasmin Tesani, Brooke Rothamer
+Peer Group 8: Alex Gilbert, Jasmin Tesani, Brooke Rothamer, Ritika Sibal
 
 ***
 
@@ -217,13 +219,13 @@ Peer Group 3: Katia Landauer, Billy Sanders, Reese Hotten-Somers
 
 Peer Group 4: Brooke Rothamer, Tiffany Chan, Angelique Lindberg
 
-Peer Group 5: Jessica Martin, Sofia Weaver, Alex Gilbert
+Peer Group 5: Jessica Martin, Sofia Weaver, Alex Gilbert, Ritika Sibal
 
-Peer Group 6: Chuhan Bao, Ella Corrao, Nicole Merullo
+Peer Group 6: Chuhan Bao, Jimmy Erkens, Nicole Merullo
 
 Peer Group 7: Yu Yang, Camryn Millett, Caroline Metcalf
 
-Peer Group 8: Madison Hurysz, Abdullah Malik, Erin Anderson, Odetta Minerva
+Peer Group 8: Madison Hurysz, Abdullah Malik, Erin Anderson, Paige Becker
 
 ***
 
