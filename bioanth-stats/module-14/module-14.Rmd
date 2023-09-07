@@ -26,7 +26,7 @@ knitr::opts_chunk$set(
 ***
 
 ## Preliminaries
-- Install these packages in ***R***: {curl}, {ggplot2}, {dplyr}, {car}
+- If you haven't already, install these packages in ***R***: {curl}, {ggplot2}, {dplyr}, {car}
 
 ## Objectives
 
@@ -34,11 +34,11 @@ knitr::opts_chunk$set(
 
 ## Categorical Predictors in Regression
 
-Thus far we have used simple linear regression models involving continuous explanatory variables, but we can also use a discrete or categorical explanatory variable, made up of 2 or more groups that are coded as "factors" (i.e., we use integer values from 1 to $k$ discrete groups as dummy values for our categorical variables). Let's load in our zombie data again, but this time we specify `stringsAsFactors = TRUE` and then look at the class of the variable "gender".
+Thus far we have used simple linear regression models involving continuous explanatory variables, but we can also use a discrete or categorical explanatory variable, made up of 2 or more groups that are coded as "factors" (i.e., we use integer values from 1 to $k$ discrete groups as dummy values for our categorical variables). Let's load in our zombie survivor data again, but this time we specify `stringsAsFactors = TRUE` and then look at the class of the variable "gender".
 
 ``` {r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall21/zombies.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall23/zombies.csv")
 z <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = TRUE)
 class(z$gender)
 summary(z$gender)
@@ -52,22 +52,22 @@ plot(z$height~z$gender)
 
 This immediately gives us a nice barplot. Note that if we'd try to use this command after loading in "gender" as character rather than factor data, ***R*** would have thrown an error. Always make sure your variables are in the right format!
 
-Based on our plot, there indeed seems to be a difference in height between males and females. We can test this directly using linear regression (and, recall, we already know another way to test this, using z or t tests to compare means).
+Based on our plot, there indeed seems to be a difference in height between genders, with males appearing taller, non-binary folks of middling height, and females at the shorter end of the distribution. We can test this directly using linear regression (and, recall, we already know another way to test this, using z or t tests to compare means).
 
 ``` {r}
 m <- lm(data=z, height~gender)
 summary(m)
 ```
 
-If we take a look at the `summary()` of our model, **m**, we see the same kind of table of results we have seen before, but because the predictor variable in this case is a factor vector instead of a numeric vector, the coefficients are reported and interpreted a bit differently. The coefficient for the intercept, i.e., $\beta_0$, reflects the estimate of the mean height for the first of our level variables.
+If we take a look at the `summary()` of our model, **m**, we see the same kind of table of results we have seen before, but because the predictor variable in this case is a factor vector instead of a numeric vector, the coefficients are reported and interpreted a bit differently. The coefficient for the intercept, i.e., $\beta_0$, reflects the estimate of the mean height for the first of our level variables (in this case, Female).
 
 ``` {r}
 levels(z$gender)
 ```
 
-The estimate for $\beta_1$ is reported as "genderMale" and the value for that coefficient, 4.0154, is the estimated difference in mean height associated with being a male. The regression equation is basically:
+The estimate for $\beta_1$ is reported as "genderMale" and the value for that coefficient, 4.0349, is the estimated difference in mean height associated with being a male compared to a female. The regression equation is basically:
 
-**height = 65.5983 + 4.0154 x gender**, with males assigned a gender value of 1 and females of 0.
+**height = 65.5888 + 4.0349 x gender**, with males assigned a gender value of 1 and females of 0.
 
 In this case, the **p** value associated with the **t** statistic for $\beta_1$ is extremely low, so we conclude that "gender" has a significant effect on height.
 
