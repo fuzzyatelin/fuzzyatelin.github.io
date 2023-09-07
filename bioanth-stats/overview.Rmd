@@ -1,7 +1,7 @@
 ---
 title: "AN/BI 588: Project Design and Statistics</br> in Biological Anthopology"
 author: "Christopher A Schmitt</br>Boston University"
-date: "August 17, 2023"
+date: "September 7, 2023"
 output: 
   html_document:
     theme: cosmo
@@ -17,7 +17,7 @@ output:
 
 ### Faculty Instructor:
   **Christopher A. Schmitt**  
-  Assistant Professor of Anthropology and Biology  
+  Assistant Professor of Anthropology, Biology, Women's Gender & Sexuality Studies <br>
   Office: Stone Science Building (STO), 675 Commonwealth Ave, Rm 247E  
   Office Hours: Mondays 1:00 - 3:30pm <br>
   Web: http://www.evopropinquitous.net  
