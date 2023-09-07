@@ -1,7 +1,7 @@
 ---
 title: "AN/BI 588: Peer Commentary Assignments"
 author: "Christopher A Schmitt"
-date: "August 17, 2023"
+date: "September 7, 2023"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -85,25 +85,25 @@ The students currently enrolled in Fall 2023 (and their associated GitHub accoun
 
 * Erin Anderson: [](https://github.com/)
 * Chuhan Bao: [](https://github.com/)
-* Paige Becker: [](https://github.com/)
+* Paige Becker: [paigebecker1](https://github.com/paigebecker1)
 * Tiffany Chan: [](https://github.com/)
 * Julianna Dick: [](https://github.com/)
 * Jimmy Erkens: [](https://github.com/)
 * Emiley Garcia-Zych: [](https://github.com/)
 * Alex Gilbert: [](https://github.com/)
 * Reese Hotten-Somers: [](https://github.com/)
-* Madison Hurysz: [](https://github.com/)
-* Katia Landauer: [](https://github.com/)
-* Angelique Lindberg: [](https://github.com/)
-* Abdullah Malik: [](https://github.com/)
+* Madison Hurysz: [mhury](https://github.com/mhury)
+* Katia Landauer: [katialandauer](https://github.com/katialandauer)
+* Angelique Lindberg: [angeliquelindberg](https://github.com/angeliquelindberg)
+* Abdullah Malik: [A-Malik03](https://github.com/A-Malik03)
 * Jessica Martin: [](https://github.com/)
-* Nicole Merullo: [](https://github.com/)
-* Caroline Metcalf: [](https://github.com/)
+* Nicole Merullo: [nmerullo](https://github.com/nmerullo)
+* Caroline Metcalf: [cattuccino](https://github.com/cattuccino)
 * Camryn Millett: [](https://github.com/)
 * Brooke Rothamer: [](https://github.com/)
 * Billy Sanders: [](https://github.com/)
 * Ritika Sibal: [](https://github.com/)
-* Jasmin Tesani: [](https://github.com/)
+* Jasmin Tesani: [jasmintesani](https://github.com/jasmintesani)
 * Bhavya Vadavalli: [](https://github.com/)
 * Samantha Vee: [](https://github.com/)
 * Sofia Weaver: [](https://github.com/)
