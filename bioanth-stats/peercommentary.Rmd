@@ -1,7 +1,7 @@
 ---
 title: "AN/BI 588: Peer Commentary Assignments"
 author: "Christopher A Schmitt"
-date: "September 14, 2023"
+date: "September 15, 2023"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -90,9 +90,8 @@ The students currently enrolled in Fall 2023 (and their associated GitHub accoun
 * Jimmy Erkens: [jrerkens](https://github.com/jrerkens)
 * Emiley Garcia-Zych: [EmileyGarciaZych](https://github.com/EmileyGarciaZych)
 * Alex Gilbert: [alexogc](https://github.com/alexogc)
-* Lillian Holden: [](https://github.com/)
+* Lillian Holden: [lilliansoccer10](https://github.com/lilliansoccer10)
 * Reese Hotten-Somers: [rhottensomers](https://github.com/rhottensomers)
-* Madison "Maddie" Hurysz: [mhury](https://github.com/mhury)
 * Angelique Lindberg: [angeliquelindberg](https://github.com/angeliquelindberg)
 * Abdullah "Allister" Malik: [A-Malik03](https://github.com/A-Malik03)
 * Jessica "Jess" Martin: [JessMartin1](https://github.com/JessMartin1)
@@ -103,7 +102,7 @@ The students currently enrolled in Fall 2023 (and their associated GitHub accoun
 * Ritika Sibal: [ritikasibal](https://github.com/ritikasibal)
 * Bhavya Vadavalli: [bhavya-dv](https://github.com/bhavya-dv)
 * Samantha "Sam" Vee: [samanthavee](https://github.com/samanthavee)
-* Genesis Velasco: [](https://github.com/)
+* Genesis Velasco: [Genesis5412](https://github.com/Genesis5412)
 * Sofia Weaver: [sofimofii](https://github.com/sofimofii)
 * Amanda Wu: [amandafwu](https://github.com/amandafwu)
 * Yu "Emily" Yang: [YYangEmily](https://github.com/YYangEmily)
@@ -133,7 +132,7 @@ Peer Group 5: Genesis Velasco, Jimmy Erkens, Samantha Vee
 
 Peer Group 6: Reese Hotten-Somers, Nicole Merullo, Erin Anderson
 
-Peer Group 7: Maddie Hurysz, Lia Bao, Cat Metcalf
+Peer Group 7: Lia Bao, Cat Metcalf
 
 Peer Group 8: Billy Sanders, Allister Malik, Lillian Holden
 
@@ -149,7 +148,7 @@ Peer Group 2: Emiley Garcia-Zych, Cat Metcalf, Jess Martin
 
 Peer Group 3: Lia Bao, Nicole Merullo, Lillian Holden
 
-Peer Group 4: Bhavya Vadavalli, Maddie Hurysz, Billy Sanders
+Peer Group 4: Bhavya Vadavalli, Billy Sanders
 
 Peer Group 5: Sofia Weaver, Erin Anderson, Julianna Dick
 
@@ -173,7 +172,7 @@ Peer Group 3: Sofia Weaver, Emiley Garcia-Zych, Amanda Wu
 
 Peer Group 4: Angelique Lindberg, Brooke Rothamer, Paige Becker
 
-Peer Group 5: Maddie Hurysz, Jimmy Erkens, Erin Anderson
+Peer Group 5: Jimmy Erkens, Erin Anderson
 
 Peer Group 6: Allister Malik, Jess Martin, Ritika Sibal
 
@@ -189,7 +188,7 @@ Peer Group 8: Nicole Merullo, Julianna Dick, Lillian Holden
 
 Peer Group 1: Reese Hotten-Somers, Erin Anderson, Cat Metcalf
 
-Peer Group 2: Maddie Hurysz, Samantha Vee, Sofia Weaver
+Peer Group 2: Samantha Vee, Sofia Weaver
 
 Peer Group 3: Amanda Wu, Paige Becker, Lillian Holden
 
@@ -223,7 +222,7 @@ Peer Group 6: Lia Bao, Jimmy Erkens, Nicole Merullo
 
 Peer Group 7: Emily Yang, Paige Becker, Cat Metcalf
 
-Peer Group 8: Maddie Hurysz, Allister Malik, Erin Anderson
+Peer Group 8: Allister Malik, Erin Anderson
 
 ***
 
