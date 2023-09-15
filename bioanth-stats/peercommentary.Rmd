@@ -89,7 +89,6 @@ The students currently enrolled in Fall 2023 (and their associated GitHub accoun
 * Julianna Dick: [juliannad0929](https://github.com/juliannad0929)
 * Jimmy Erkens: [jrerkens](https://github.com/jrerkens)
 * Emiley Garcia-Zych: [EmileyGarciaZych](https://github.com/EmileyGarciaZych)
-* Alex Gilbert: [alexogc](https://github.com/alexogc)
 * Lillian Holden: [lilliansoccer10](https://github.com/lilliansoccer10)
 * Reese Hotten-Somers: [rhottensomers](https://github.com/rhottensomers)
 * Angelique Lindberg: [angeliquelindberg](https://github.com/angeliquelindberg)
@@ -126,7 +125,7 @@ Peer Group 2: Amanda Wu, Angelique Lindberg, Emily Yang
 
 Peer Group 3: Jess Martin, Bhavya Vadavalli, Brooke Rothamer
 
-Peer Group 4: Ritika Sibal, Alez Gilbert, Emiley Garcia-Zych
+Peer Group 4: Ritika Sibal, Emiley Garcia-Zych
 
 Peer Group 5: Genesis Velasco, Jimmy Erkens, Samantha Vee
 
@@ -152,7 +151,7 @@ Peer Group 4: Bhavya Vadavalli, Billy Sanders
 
 Peer Group 5: Sofia Weaver, Erin Anderson, Julianna Dick
 
-Peer Group 6: Angelique Lindberg, Alex Gilbert, Jimmy Erkens
+Peer Group 6: Angelique Lindberg, Jimmy Erkens
 
 Peer Group 7: Genesis Velasco, Samantha Vee, Reese Hotten-Somers
 
@@ -176,7 +175,7 @@ Peer Group 5: Jimmy Erkens, Erin Anderson
 
 Peer Group 6: Allister Malik, Jess Martin, Ritika Sibal
 
-Peer Group 7: Samantha Vee, Alex Gilbert, Cat Metcalf
+Peer Group 7: Samantha Vee, Cat Metcalf
 
 Peer Group 8: Nicole Merullo, Julianna Dick, Lillian Holden
 
@@ -200,7 +199,7 @@ Peer Group 6: Allister Malik, Jimmy Erkens, Lia Bao
 
 Peer Group 7: Angelique Lindberg, Julianna Dick, Emily Yang
 
-Peer Group 8: Alex Gilbert, Brooke Rothamer, Ritika Sibal
+Peer Group 8: Brooke Rothamer, Ritika Sibal
 
 ***
 
@@ -216,7 +215,7 @@ Peer Group 3: Genesis Velasco, Billy Sanders, Reese Hotten-Somers
 
 Peer Group 4: Brooke Rothamer, Angelique Lindberg, Lillian Holden
 
-Peer Group 5: Jess Martin, Sofia Weaver, Alex Gilbert
+Peer Group 5: Jess Martin, Sofia Weaver
 
 Peer Group 6: Lia Bao, Jimmy Erkens, Nicole Merullo
 
