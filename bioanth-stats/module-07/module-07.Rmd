@@ -36,7 +36,9 @@ knitr::opts_chunk$set(
 - **Population** = includes **all** of the elements from a set of data (e.g., all of the vervet monkeys in the world) = ***N***
 - **Sample** = one or more observations from a population (e.g., the set of vervets trapped during a field season in South Africa, the set of vervet skeletons found in a museum) = ***n***
 - **Parameter** = a measurable characteristic of a population (e.g., the mean value of the femur length of all vervets)
-- **Statistic** = a measureable characteristic about a sample, in this case described by a function in relation to the data (e.g., the mean length of vervet monkey femora found at the American Museum of Natural History). This is also called an *estimator* in statistical parlance (as in, an estimate of some characteristic).
+- **Statistic** = a measurable characteristic about a sample, described by a function applied to the sample (e.g., the mean length of vervet monkey femora found at the American Museum of Natural History). 
+
+NOTE: A statistic becomes an **estimator** when it is used to infer some property of the population, like an unknown parameter (e.g., if we want to use the mean length of vervet monkey femora to infer the mean femur length of all vervet monkeys). 
 
 ## Describing Sets of Observations or Measurements
 
