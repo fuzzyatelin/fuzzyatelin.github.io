@@ -48,10 +48,14 @@ It is important for us to be able to describe the general characteristics of a s
 - **Median** = middle value in a rank ordered series of values
 - **Mean** = the sum of measured values divided by **n** = the *average* or the *arithemetic mean*
 
-These measures are relevant to summarizing observations about processes that are additive.
+These measures are relevant to summarizing observations about processes that are *additive* or *linear*, meaning that if you graphed them out they'd all fall more or less on the same straight line.
 
-- **Harmonic mean** = the reciprocal of the average of the reciprocals of a set of values.
-- **Geometric mean** = a measure of central tendency for processes that are multiplicative rather than additive = the nth root of the product of the values (for the mathematically inclindes, it also = the antilog of the averaged log values).
+Other measures of central tendency may be more useful if your data are *not* additive... for example:
+
+- [**Harmonic mean**](https://www.mathsisfun.com/numbers/harmonic-mean.html) = the reciprocal of the average of the reciprocals of a set of values. This measure is particularly useful for understanding the mean of a set of ratios or rates, because it will equalize the weights of each data point.
+- [**Geometric mean**](https://www.mathsisfun.com/numbers/geometric-mean.html) = a measure of central tendency for processes that are multiplicative rather than additive = the nth root of the product of the values (for the mathematically inclined, it also = the antilog of the averaged log values). This measure is particularly useful when the values are not independent of each other, or if they make large fluctuations.
+
+To learn a bit more about these mean measures, which together are called *Pythagorean means*, you can read [here](https://towardsdatascience.com/on-average-youre-using-the-wrong-average-geometric-harmonic-means-in-data-analysis-2a703e21ea0).
 
 ***
 
