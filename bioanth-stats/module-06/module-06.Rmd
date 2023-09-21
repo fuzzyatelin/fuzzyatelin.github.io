@@ -42,7 +42,7 @@ knitr::opts_chunk$set(
 
 ## Some Useful Procedures for Exploratory Data Analysis
 
-###For univariate data
+### For univariate data
 
 ***
 
