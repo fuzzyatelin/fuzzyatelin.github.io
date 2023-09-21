@@ -227,6 +227,7 @@ p <- p + facet_wrap(~ Family, ncol=4)
 p <- p + theme(legend.position="none")
 p
 ```
+
 And we can easily add regression lines to our plot. Here, we add a linear model to each facet.
 ``` {r}
 p <- p + geom_smooth(method="lm", fullrange=TRUE)
