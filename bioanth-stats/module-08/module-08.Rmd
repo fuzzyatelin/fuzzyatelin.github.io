@@ -56,6 +56,10 @@ Example: if we roll a (fair) die, there are 6 possible outcomes, each has a prob
 
 We will use the {manipulate} package and the `sample()` function to explore the effects of sample size on estimates of the probability of different outcomes. The probability of each outcome (rolling a "1", "2",..., "6") is 1 in 6, but our estimate of the probability of each possible outcome will change with sample size.
 
+**NOTE**: To run {manipulate} effectively, you *must* run the code directly in the console (i.e., copy and paste the code into the console; using the 'green arrow' or 'Run' buttons on a {manipulate} chunk won't have the desired effect). When you run the code as pasted into the console, the graph will appear in the `Plots` tab of your lower right ***RStudio*** pane. Once there, look to the upper left corner of the graph and you should see a small image of a gear. Click on the gear image and a slider will appear, allowing you to manipulate/toggle the sample size (n) of die rolls used to generate the graph. 
+
+In this particular graph, you should be able to see the difference in random sampling distribution of die roll outcomes for a given sample size, and how they change as sample size changes.
+
 ``` {r eval = FALSE}
 library(manipulate)
 outcomes <- c(1,2,3,4,5,6)
@@ -66,7 +70,7 @@ manipulate(
 			 main = paste("Histogram of Outcomes of ", n, " Die Rolls", sep=""),
 			 xlab = "roll",
 			 ylab = "probability"),
-	n=slider(0, 10000, initial=100, step=100)
+	n=slider(0, 10000, initial=10, step=10)
 )
 ```
 
