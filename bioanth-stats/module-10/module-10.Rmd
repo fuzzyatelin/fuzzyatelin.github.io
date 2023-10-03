@@ -32,7 +32,7 @@ knitr::opts_chunk$set(
 
 Classical or frequentist hypothesis testing (a.k.a. parametric statistics) involves formally stating a claim - the **null hypothesis** - which is then followed up by statistical evaluation of the null versus an alternative hypotheses. The null hypothesis is interpreted as a baseline hypothesis and is the claim that is assumed to be true. The **alternative hypothesis** is the conjecture that we are testing.
 
-We need some kind of statistical evidence to reject the null hypothesis in favor of an alternative hypothesis. This evidence is, in classicical frequentist approaches, some measure of how unexpected it would be for the sample to have been drawn from a given null distribution.
+We need some kind of statistical evidence to reject the null hypothesis in favor of an alternative hypothesis. This evidence is, in classical frequentist approaches, some measure of how unexpected it would be for the sample to have been drawn from a given null distribution.
 
 - **$H_0$ = null hypothesis** = a sample statistic shows no deviation from what is expected or neutral
 
@@ -233,8 +233,8 @@ where:
 
   * <img src="img/x1bar.svg" width="20px"/> and <img src="img/x2bar.svg" width="20px"/> = means of observations in each sample group
   * $\mu$ = expected difference in means between sample groups under the null hypothesis, which is usually zero
-  * $s_1$ and $s_2$ = standard deviations of each sample group
-  * $n_1$ and $n_2$ = numbers of observations in each sample group
+  * $s_1$ and $s_2$ = standard deviations of *each* sample group
+  * $n_1$ and $n_2$ = numbers of observations in *each* sample group
 
 ***
 
@@ -464,7 +464,7 @@ or,
 <center><p><img src="http://www.rope-net.com/photo/rope-net/editor/20140506170127_89208.jpg" style="border:5px solid black"></p>
 </center>
 
-A neotropical ornithologist working in the western Amazon deploys 30 mist nets in a 100 hectare (ha) grid. She monitors the nets on one morning and records whether or not a she captures any birds in the net (i.e., a "success" or "failure" for every net during a netting session). The following vector summarizes her netting results:
+A neotropical ornithologist working in the western Amazon deploys 30 mist nets in a 100 hectare (ha) grid. She monitors the nets on one morning and records whether or not she captures any birds in the net (i.e., a "success" or "failure" for every net during a netting session). The following vector summarizes her netting results:
 
 ``` {r}
 v <- c(0,1,1,1,0,1,0,0,1,1,0,0,1,1,0,1,1,0,0,1,1,1,0,1,1,0,1,0,1,1)
@@ -488,6 +488,7 @@ z
 p <- pnorm(z, lower.tail=TRUE)
 p
 ```
+
 We use the `lower.tail=TRUE` argument because we're testing a lower-tailed one-tailed hypothesis. The 95% confidence interval can be estimated, based on the normal distribution, as follows:
 
 ``` {r}
@@ -496,6 +497,7 @@ upper <- phat + qnorm(0.975)*sqrt(phat*(1-phat)/30)
 ci <- c(lower, upper)
 ci
 ```
+
 This approach using quantiles of the standard normal distribution is but one method of calculating CIs for proportion data, and is the CI referred to as a *Wald confidence interval*. Note that the CI does not include the value of $\pi$... rather, $\pi$ > is greater than the upper bound of the CI, suggesting that the observed success rate is indeed lower than in previous years.
 
 We can do the same test with a one-liner in ***R***...
@@ -504,6 +506,7 @@ We can do the same test with a one-liner in ***R***...
 pt <- prop.test(x=sum(v),n=length(v),p=0.8,conf.level=0.95,correct=FALSE, alternative = "less")
 pt
 ```
+
 Note that the CI is different than we calculated based on the normal distribution... `prop.test()` implements a slightly different procedure for estimating the CI rather than basing this on the normal distribution and the CLT.
 
 How should she interpret these results? Was she right that her trapping results are off this year?
