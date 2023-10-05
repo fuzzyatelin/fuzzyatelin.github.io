@@ -62,7 +62,7 @@ According to the setup, this is a Poisson distributed dataset, which makes sense
 
 Now, we know the probability mass function for Poisson from Module 08, and that for a given number or range of *x* that:
 ```{r,eval=F}
-poisPMF<-function(x,l) {((l^x)*exp(-l))/(x!)}
+poisPMF<-function(x,l) {((l^x)*exp(-l))/(factorial(x))}
 ```
 where `l` is standing in for &lambda;. 
 
