@@ -97,11 +97,9 @@ The students currently enrolled in Fall 2023 (and their associated GitHub accoun
 * Nicole Merullo: [nmerullo](https://github.com/nmerullo)
 * Caroline "Cat" Metcalf: [cattuccino](https://github.com/cattuccino)
 * Brooke Rothamer: [Brothamer](https://github.com/Brothamer)
-* Billy Sanders: [billysanders88](https://github.com/billysanders88)
 * Ritika Sibal: [ritikasibal](https://github.com/ritikasibal)
 * Bhavya Vadavalli: [bhavya-dv](https://github.com/bhavya-dv)
 * Samantha "Sam" Vee: [samanthavee](https://github.com/samanthavee)
-* Genesis Velasco: [Genesis5412](https://github.com/Genesis5412)
 * Sofia Weaver: [sofimofii](https://github.com/sofimofii)
 * Amanda Wu: [amandafwu](https://github.com/amandafwu)
 * Yu "Emily" Yang: [YYangEmily](https://github.com/YYangEmily)
@@ -163,9 +161,9 @@ Peer Group 8: Amanda Wu, Paige Becker, Brooke Rothamer
 
 ***
 
-Peer Group 1: Lia Bao, Emily Yang, Billy Sanders
+Peer Group 1: Lia Bao, Emily Yang
 
-Peer Group 2: Reese Hotten-Somers, Bhavya Vadavalli, Genesis Velasco
+Peer Group 2: Reese Hotten-Somers, Bhavya Vadavalli
 
 Peer Group 3: Sofia Weaver, Emiley Garcia-Zych, Amanda Wu
 
@@ -187,19 +185,17 @@ Peer Group 8: Nicole Merullo, Julianna Dick, Lillian Holden
 
 Peer Group 1: Reese Hotten-Somers, Erin Anderson, Cat Metcalf
 
-Peer Group 2: Samantha Vee, Sofia Weaver
+Peer Group 2: Samantha Vee, Sofia Weaver, Bhavya Vadavalli
 
 Peer Group 3: Amanda Wu, Paige Becker, Lillian Holden
 
-Peer Group 4: Genesis Velasco, Bhavya Vadavalli, Jess Martin
+Peer Group 4: , Jess Martin, Nicole Merullo, Emily Garcia-Zych
 
-Peer Group 5: Billy Sanders, Nicole Merullo, Emily Garcia-Zych
+Peer Group 5: Allister Malik, Jimmy Erkens, Lia Bao
 
-Peer Group 6: Allister Malik, Jimmy Erkens, Lia Bao
+Peer Group 6: Angelique Lindberg, Julianna Dick, Emily Yang
 
-Peer Group 7: Angelique Lindberg, Julianna Dick, Emily Yang
-
-Peer Group 8: Brooke Rothamer, Ritika Sibal
+Peer Group 7: Brooke Rothamer, Ritika Sibal
 
 ***
 
@@ -211,17 +207,15 @@ Peer Group 1: Julianna Dick, Amanda Wu, Bhavya Vadavalli
 
 Peer Group 2: Emiley Garcia-Zych, Samantha Vee, Ritika Sibal
 
-Peer Group 3: Genesis Velasco, Billy Sanders, Reese Hotten-Somers
+Peer Group 3: Brooke Rothamer, Angelique Lindberg, Lillian Holden
 
-Peer Group 4: Brooke Rothamer, Angelique Lindberg, Lillian Holden
+Peer Group 4: Jess Martin, Sofia Weaver, Reese Hotten-Somers
 
-Peer Group 5: Jess Martin, Sofia Weaver
+Peer Group 5: Lia Bao, Jimmy Erkens, Nicole Merullo
 
-Peer Group 6: Lia Bao, Jimmy Erkens, Nicole Merullo
+Peer Group 6: Emily Yang, Paige Becker, Cat Metcalf
 
-Peer Group 7: Emily Yang, Paige Becker, Cat Metcalf
-
-Peer Group 8: Allister Malik, Erin Anderson
+Peer Group 7: Allister Malik, Erin Anderson
 
 ***
 
