@@ -67,7 +67,7 @@ Every Saturday morning, at the same time, a primatologist goes and sits in the f
 
 ### **Your Final Assignment for Homework 02**
 
-Your final assignment, due to me by 5:00 pm on October 04th, is to have in your *AN588-Week-3-BUlogin* repo only the following six (6) files:
+Your final assignment, due to me by 5:00 pm on October 04th, is to have in your *AN588-Week-3-BUlogin* repo only the following six (6) files (aside from repo basics like an `.Rproj` and `README` file):
 <ol>
 1. The *FINAL PUSH* of your Original Homework Code, including the five challenges you faced, as pushed to your repo by 5:00 pm on Friday September 29th, an R Markdown *and* HTML file named *BUlogin_OriginalHomeworkCode_02*.
 2. The *FINAL PUSH* of the [Peer Commentary](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) made on *your* code, an R Markdown *and* HTML file named *Peerlogin_PeerCommentary_BUlogin_02* or *PeerGroupX_PeerCommentary_BUlogin_02*.

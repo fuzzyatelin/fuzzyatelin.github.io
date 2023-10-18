@@ -75,9 +75,9 @@ Load in the dataset "zombies.csv" from [my ***GitHub*** repo](https://github.com
 
 ### **Your Final Assignment for Homework 03**
 
-Your final assignment, due to me by 5:00 pm on October 14th, is to have in your *AN588_Zombies_BUlogin* repo only the following files:
+Your final assignment, due to me by 5:00 pm on October 18th, is to have in your *AN588_Zombies_BUlogin* repo only the following files (aside from repo basics like an `.Rproj` and `README` file):
 <ol>
-1. The *FINAL PUSH* of your Original Homework Code, including the five challenges you faced, as pushed to your repo by 8:00 pm on Thursday, an R Markdown file named *BUlogin_OriginalHomeworkCode_03*.
+1. The *FINAL PUSH* of your Original Homework Code, including the five challenges you faced, as pushed to your repo by 5:00 pm on Wednesday October 18th, an R Markdown file named *BUlogin_OriginalHomeworkCode_03*.
 2. The *FINAL PUSH* of the [Peer Commentary](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) made on *your* code, an R Markdown file named *Peerlogin_PeerCommentary_BUlogin_03* or *PeerGroupX_PeerCommentary_BUlogin_03*.
 3. The *FINAL PUSH* of your Final Homework Code, which has taken into account any changes recommended from the Peer Commentary and notes, an R Markdown file named *BUlogin_FinalHomeworkCode_03*.
 </ol>
