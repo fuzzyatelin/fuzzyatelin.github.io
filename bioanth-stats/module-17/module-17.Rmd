@@ -158,13 +158,53 @@ p
 We can get the confidence intervals around our estimates using `confint()` with the model results as an argument. There are two common approaches used to derive these confidence intervals, once based on ML and one based on the standard error associated with the parameter estimates.
 
 ```{r}
-CI <- confint(glm, level=0.95) # this function returns a CI based on log-likelihood, an iterative ML process
-CI
 CI <- confint.default(glm, level=0.95) # this function returns CIs based on standard errors, the way we have calculated them by hand previously... note the slight difference
 CI
 CI <- glmresults$estimate[2] + c(-1,1) * qnorm(0.975) * glmresults$std.error[2] # and this is how we have calculated CIs by hand previously
 CI
+CI <- confint(glm, level=0.95) # this function returns a CI based on log-likelihood, an iterative ML process
+CI
 ```
+
+Finally, we can visualize this change in odds ratio using a *forest plot*. This will let us visualize how GRE score influences the odds of being admitted vs. not-admitted:
+```{r,fig.height=2,fig.width=5}
+library(tidyverse)
+#create a label for your variables:
+dat <- data.frame(
+  index = c(1),
+  labels = c("gre"),
+  OR = c(exp(glm$coefficients[2])),
+  LL = c((exp(glm$coefficients[2]-CI[2,1]))),
+  UL = c((exp(glm$coefficients[2]+CI[2,2]))))
+dat
+
+plot1 <- ggplot(dat, aes(y = index, x = OR)) +
+  geom_point(shape = 18, size = 5) +  
+  geom_errorbarh(aes(xmin = LL, xmax = UL), height = 0.25) +
+  geom_vline(xintercept = 1, color = "red", linetype = "dashed", cex = 1, alpha = 0.5) +
+  scale_y_continuous(name = "", breaks=1, labels = dat$label, trans = "reverse") +
+  xlab("Odds Ratio (95% CI)") + 
+  ylab(" ") + 
+  theme_bw() +
+  theme(panel.border = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(), 
+        axis.line = element_line(colour = "black"),
+        axis.text.y = element_text(size = 12, colour = "black"),
+        axis.text.x.bottom = element_text(size = 12, colour = "black"),
+        axis.title.x = element_text(size = 12, colour = "black"))
+plot1
+```
+
+As you can see, every increase in GRE score gives a student a slightly but significantly higher chance of being addmitted to graduate school.
+
+As always, this can also be more simply (and elegantly) done using a dedicated package; in this case, the {[ggstats](https://larmarange.github.io/ggstats/articles/ggcoef_model.html)} package:
+```{r,fig.height=2,fig.width=5}
+library(ggstats)
+ggcoef_model(glm,exponentiate = TRUE)
+```
+
 
 ***
 
@@ -223,6 +263,13 @@ p <- p + geom_ribbon(aes(ymin = LL, ymax = UL), alpha = 0.2) + geom_line() + xla
 p <- p + geom_point(data=d, aes(x=gpa,y=admit))
 p
 ```
+
+And finally, we can visualize our Odds Ratio using a forest plot:
+```{r,fig.height=2,fig.width=5}
+ggcoef_model(glm,exponentiate = TRUE)
+```
+
+Compare this visualization of the odds of getting into graduate school with a high GPA vs. a high GRE score... which is giving you better odds of admission?
 
 #### Likelihood Ratio Tests
 
@@ -353,6 +400,13 @@ glmNO <- glm(data=d, admit~rank+gpa+gre, family="binomial")
 glmALL <- glm(data=d, admit~rank*gpa*gre, family="binomial")
 anova(glmNO,glmALL, test="Chisq") # adding interaction terms to model doesn't significantly decrease deviance
 ```
+
+Finally, let's compare the odds ratios for the full model without interaction terms, to make it visually more clear what these numbers indicate regarding the odds of being admitted to graduate school. It's in multivariate modeling that visualization of the odds ratios really shines for model interpretation:
+```{r,fig.height=5,fig.width=5}
+ggcoef_model(glmGGR,exponentiate = TRUE)
+```
+
+According to this model/figure, which factor appears most important to the odds of being addmitted to graduate school in this dataset?
 
 ### Log-Linear or Poisson Regression
 
