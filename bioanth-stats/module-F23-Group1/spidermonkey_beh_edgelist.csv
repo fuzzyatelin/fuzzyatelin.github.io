@@ -1,0 +1,202 @@
+Focal,Beh,Rec,Mins
+Ba,In contact,Bo,262
+Ba,In contact,Db,1
+Ba,In contact,Dl,134
+Ba,In contact,Ku,6
+Ba,In contact,Nw,10
+Ba,In contact,Pe,37
+Ba,In contact,Pi,7
+Ba,In contact,Pk,29
+Ba,In contact,RK,74
+Ba,In contact,Vi,3
+Ba,In contact,Vt,58
+Ba,In contact,Wa,7
+Dl,In contact,Ba,100
+Dl,In contact,Db,173
+Dl,In contact,Ku,11
+Dl,In contact,Nw,187
+Dl,In contact,Pe,17
+Dl,In contact,Pk,50
+Dl,In contact,RK,207
+Dl,In contact,Vi,13
+Dl,In contact,Wa,73
+Ku,In contact,Ba,29
+Ku,In contact,Db,1
+Ku,In contact,Dl,31
+Ku,In contact,Ki,99
+Ku,In contact,Ko,4
+Ku,In contact,Nw,33
+Ku,In contact,Pe,49
+Ku,In contact,Pk,92
+Ku,In contact,RK,1
+Ku,In contact,Vi,70
+Ku,In contact,Wa,110
+Nw,In contact,Ba,27
+Nw,In contact,Db,2
+Nw,In contact,Dl,18
+Nw,In contact,Ku,41
+Nw,In contact,Pe,1
+Nw,In contact,RK,1
+Nw,In contact,Vi,72
+Nw,In contact,Vt,26
+Nw,In contact,Wa,45
+Pe,In contact,Ba,115
+Pe,In contact,Db,8
+Pe,In contact,Dl,5
+Pe,In contact,Ku,31
+Pe,In contact,Nw,56
+Pe,In contact,Pi,366
+Pe,In contact,Pk,15
+Pe,In contact,Pl,3
+Pe,In contact,RK,36
+Pe,In contact,Vi,63
+Pe,In contact,Vt,10
+Pe,In contact,Wa,49
+Pk,In contact,Vi,15
+Pk,In contact,Vt,10
+Pk,In contact,Dl,5
+Pk,In contact,Ku,10
+Pk,In contact,Nw,10
+Pk,In contact,Wa,15
+RK,In contact,Ba,9
+RK,In contact,Db,32
+RK,In contact,Dl,2
+RK,In contact,Nw,26
+RK,In contact,Pe,19
+RK,In contact,Pk,1
+RK,In contact,Vi,25
+RK,In contact,Wa,21
+Vi,In contact,Ba,10
+Vi,In contact,Db,4
+Vi,In contact,Dl,32
+Vi,In contact,Ku,46
+Vi,In contact,Nw,40
+Vi,In contact,Pe,24
+Vi,In contact,Pk,27
+Vi,In contact,Vi,14
+Vi,In contact,Vt,351
+Vi,In contact,Wa,109
+Vt,In contact,Pi,10
+Vt,In contact,Vi,35
+Vt,In contact,Vn,15
+Vt,In contact,Vt,6
+Wa,In contact,Ba,107
+Wa,In contact,Bo,9
+Wa,In contact,Dl,33
+Wa,In contact,Ku,2
+Wa,In contact,Nw,56
+Wa,In contact,Pe,43
+Wa,In contact,Pi,64
+Wa,In contact,RK,11
+Wa,In contact,Vi,246
+Nw,mating,Dl,25
+Ba,mating,Pk,42
+Ba,mating,Nw,12
+Nw,mating,Ba,16
+Pe,mating,Pk,28
+Wa,mating,Dl,40
+Pe,mating,Nw,8
+Nw,mating,Pe,20
+Pe,mating,Wa,11
+Ba,mating,Vt,18
+Ba,mating,Wa,2
+Ba,play,Bo,10
+Ba,play ,Db,2
+Ba,play,Dl,6
+Ba,play,Pe,2
+Ba,play,Vt,20
+Db,play ,Ba,1
+Db,play ,Bo,6
+Dl,play,Db,3
+Dl,play,Pe,4
+Ku,play,Ko,5
+Ku,play,Ki,5
+Nw,play,Bo,4
+Nw,play,Ko,1
+Pe,play,Nw,1
+Pe,play,Pi,9
+Pe,play,Vt,4
+Pe,play,Vi,20
+RK,play,Ba,1
+RK,play,Db,18
+RK,play,Pl,5
+RK,play,Wa,1
+Vi,play,Db,2
+Vi,play ,Ko,3
+Vi,play,Pe,20
+Vi,play,Vn,4
+Vi,play,Vt,13
+Vt,play ,Pi,1
+Vt,play ,Vn,2
+Wa,play,Bo,2
+Wa,play ,RK,35
+Wa,play ,Ba,5
+Ba,groom,Bo,91
+Ba,groom,Db,16
+Ba,groom,Dl,116
+Ba,groom,Ku,12
+Ba,groom,Nw,10
+Ba,groom,Pe,111
+Ba,groom,Pi,12
+Ba,groom,Pk,1
+Ba,groom,Pl,7
+Ba,groom,RK,37
+Ba,groom,Vi,6
+Ba,groom,Vt,7
+Ba,groom,Wa,33
+Db,groom,Dl,7
+Dl,groom,Ba,51
+Dl,groom,Db,136
+Dl,groom,Nw,36
+Dl,groom,Pk,8
+Dl,groom,RK,72
+Dl,groom,Vi,9
+Dl,groom,Wa,14
+Ku,groom,Ba,41
+Ku,groom,Db,1
+Ku,groom,Dl,1
+Ku,groom,Ki,41
+Ku,groom,Ko,33
+Ku,groom,Nw,4
+Ku,groom,Pe,1
+Ku,groom,Pi,5
+Ku,groom,Pk,14
+Ku,groom,RK,2
+Ku,groom,Vt,2
+Ku,groom,Wa,8
+Nw,groom,Ba,75
+Nw,groom,Dl,6
+Nw,groom,Pe,5
+Nw,groom,RK,35
+Nw,groom,Vt,5
+Nw,groom,Wa,10
+Pe,groom,Ba,90
+Pe,groom,Db,2
+Pe,groom,Ki,2
+Pe,groom,Ku,3
+Pe,groom,Nw,25
+Pe,groom,Pi,92
+Pe,groom,Pl,30
+Pe,groom,RK,12
+Pe,groom,Vi,11
+Pe,groom,Vt,11
+Pe,groom,Wa,23
+Pk,groom,Db,5
+RK,groom,Ba,178
+RK,groom,Db,46
+RK,groom,Dl,1
+RK,groom,Nw,5
+RK,groom,Pe,1
+RK,groom,Pi,1
+Vi,groom,Ba,4
+Vi,groom,Nw,1
+Vi,groom,Pk,3
+Vi,groom,Vi,2
+Vi,groom,Vn,4
+Vi,groom,Vt,53
+Vi,groom,Wa,69
+Vt,groom,Vi,3
+Wa,groom,Ba,37
+Wa,groom,Nw,4
+Wa,groom,Pe,5
+Wa,groom,Vi,56

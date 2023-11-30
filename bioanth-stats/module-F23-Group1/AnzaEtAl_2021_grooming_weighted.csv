@@ -1,0 +1,17 @@
+﻿actor,receiver,weight
+j,li,1
+li,h,3
+h,j,6
+j,h,3
+h,li,2
+ln,dn,8
+ky,ln,3
+ln,ky,6
+ky,dn,1
+ln,lc,11
+ky,lc,12
+lc,ky,12
+dn,lc,7
+lc,dn,7
+lc,ln,11
+dn,ky,1

@@ -1,0 +1,14 @@
+﻿actor,receiver,GGR Weight
+ln,ky,4
+h,j,20
+j,h,4
+ky,lc,15
+lc,ky,20
+lc,ln,31
+ln,lc,40
+h,li,7
+li,h,2
+dn,lc,21
+ky,ln,5
+lc,dn,13
+ln,dn,9
