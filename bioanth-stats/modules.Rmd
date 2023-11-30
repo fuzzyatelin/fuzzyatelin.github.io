@@ -131,7 +131,7 @@ Each module listed is linked to another page containing instructions and helpful
 ### [Module 19 - **Spit Chain: Social Network Analysis in Nonhuman Primates**](http://fuzzyatelin.github.io/bioanth-stats/module-F23-Group1/module-F23-Group1.html)
 (Sam Vee, Nicole Merullo, Jess Martin, Bhavya Vadavalli, & Brooke Rothamer)
 
-### [Module 20 - **TBA**]()
+### [Module 20 - **An Introduction to Bayesian Analysis for Biological Anthropologists**](http://fuzzyatelin.github.io/bioanth-stats/module-F23-Group2/Bayesian_Vignette.html)
 
 ***
 
