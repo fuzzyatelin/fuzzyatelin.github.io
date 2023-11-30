@@ -32,6 +32,7 @@ Social network analysis includes the theory, methods, and practical/analytical a
 In this vignette, you will learn **(1)** how to prepare social network data for analysis and **(2)** how to perform quadratic assignment procedures to assess correlations between social networks (response variables) and factors that may influence the structure of those networks (predictor variables). <br><br>
 
 A **network analysis** (as opposed to a **non-network analysis**) may be used to reveal information about the group as a whole, as opposed to the individual. Looking back at our social network from *The L Word*, non-network analysis might only look at Shane’s romantic connections **independently**, to understand why Shane hooks up with whom and how many hook-ups she's had. This can tell us about Shane's choices and appeal, and potentially about who seeks out Shane as a partner, but doesn't tell us much about the LA power-lesbian scene as a whole. A social network analysis, however, can tell us how Shane’s romantic connections are structured *in relation to* Alice’s and Lauren’s (in other words, we can understand them as being **not independent** of the larger social network). It could also reveal group-level characteristics that don’t exist or are difficult to ascertain just by looking at individuals. When we want to look at the patterns of relationships between individuals, an edge is just as important (and as much a network-object) as a node. 
+
 ## Terms to know
 
 - **Nodes**: the individuals in the social network
@@ -152,10 +153,10 @@ summary(bonobo_ggr_net)
 Seeing the above summary output is fine... but not as intuitive as seeing something like Alice Pieszecki's Chart. For a more intuitive figure, we can visualize social networks by creating network objects with {statnet}:
 ```{r visualize}
 par(mfrow = c(1, 2))
-plot(bonobo_ggr_net, label = "vertex.names", main="GG rubbing") # left plot
+plot(bonobo_ggr_net, label = "vertex.names", main="GG rubbing", vertex.cex = 4) # left plot
 box(col = "black")
 
-plot(bonobo_ggr_net, vertex.col = "rank", label = "vertex.names", main="GG rubbing", vertex.cex = 2, edge.label = "GGR.Weight", edge.label.cex = 0.6) # right plot
+plot(bonobo_ggr_net, vertex.col = "rank", label = "vertex.names", main="GG rubbing", vertex.cex = 4, edge.label = "GGR.Weight", edge.label.cex = 0.6) # right plot
 box(col = "black")
 ```
 
@@ -167,10 +168,10 @@ The plot on the left looks great, but we can make it even more informative by ad
 We can also do the same for the grooming network.
 ```{r visualize2}
 par(mfrow = c(1, 2))
-plot(bonobo_groom_net, label = "vertex.names", main="Grooming") 
+plot(bonobo_groom_net, label = "vertex.names", main="Grooming", vertex.cex = 4) 
 box(col = "black")
 
-plot(bonobo_groom_net, vertex.col = "rank", label = "vertex.names", main="Grooming", vertex.cex = 2, edge.label = "weight", edge.label.cex = 0.6)
+plot(bonobo_groom_net, vertex.col = "rank", label = "vertex.names", main="Grooming", vertex.cex = 4, edge.label = "weight", edge.label.cex = 0.6)
 box(col = "black")
 ```
 
@@ -461,6 +462,10 @@ sp_contact_net %v% "repr" <- sp_attr$Repr_status #adds reproductive status as a 
 
 # Let's add the "Mins" from the initial spmonkey edgelist as edge weights
 sp_contact_net %e% "time" <- spmonkey_el[spmonkey_el$Beh == "In contact",]$Mins 
+```
+
+```{r}
+plot(sp_contact_net, label = "vertex.names", main="Spider Monkey Contact Network")
 ```
 
 **How was this process different from the bonobo data loading, cleaning, and visualizing process?** 
