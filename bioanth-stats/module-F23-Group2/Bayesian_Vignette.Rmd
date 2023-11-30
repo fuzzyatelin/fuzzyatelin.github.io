@@ -1,0 +1,555 @@
+---
+title: "An Introduction to Bayesian Analysis for Biological Anthropologists"
+author: "Jimmy Erkens"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: true
+    number_sections: true
+    toc_float: true
+    code_folding: show
+    theme: journal
+---
+
+![Every statistics professor i've had has a serious parasocial relationship with xkcd](https://imgs.xkcd.com/comics/frequentists_vs_bayesians_2x.png)
+
+# What are Bayesian statistics?
+
+## How do you pronounce Bayesian?     
+\
+Perhaps the best way to understand _Bayesian statistics_ is to contrast them with _frequentist statistics_. In most statistics courses we learn how to create and interpret frequentist statistics almost exclusively. In other words, we've been treating probability as a measure of frequency. In this paradigm, there is a true, _correct_, value for a parameter of interest, and as we collect more and more data, our estimation of the parameter (our estimand) will approach this 'true' value. This is fine when it works, but what do we do when we realize we realize we _need_ a sample larger than what we can realistically manage? What if you _really_ want to think of confidence intervals in terms of _probability_ and not confidence? What even is _confidence_ anyways? 
+\
+\
+Let's say we don't know what the population parameter might be for some variable of interest, but we think your sample data are good. We might feeling a bit iffy about how well our data matches up with the _truth_...
+\
+\
+What if our data can't meet those pesky assumptions that our statistics professors have been telling us about (and that we've probably been trying to ignore), like normally distributed residuals or homoskedasticity? 
+\
+\
+We're mostly all biologists here, right? We know our data frequently (hah) sucks for doing frequentist statistics, and maybe we don't want to be in an email correspondence trying to convince someone keeping our paper in reviewer Hell that our data is _probably_ normal. We must ask ourselves: how well do we think we could defend our statistical methods?
+\
+\
+![](https://thewriteaddiction.files.wordpress.com/2018/03/square-peg-round-hole.png)
+\
+\
+Enter Bayesian statistics.
+\
+\
+Bayesian statistics are otherwise known as _subjective_ statistics, and for good reason! Rather than estimating a parameter we're assuming to be true and trying to figure out how close our data come to it, we're actually estimating our _uncertainty about_ a parameter based on our dataset itself.
+\
+\
+For example, let's say we want to learn about a parameter: $\theta$.
+\
+\
+With a Bayesian paradigm, we make inferences on $\theta$ combining our  _prior_ knowledge of $\theta$ and the _likelihood_ of receiving our data given $\theta$. In other words, we're integrating whatever data we have with our subjective thoughts of how the data is parameterized. From this fun collaboration, we generate a _posterior_ probability distribution of samples of $\theta$. Rather than a binary Yes/No answer, as in frequentist statistics, the posterior distribution is our "answer".
+\
+\
+So we have a probability distribution of how $\theta$ is distributed, what does this mean and why should we care? 
+\
+\
+Well... if we've done it all correctly the posterior distribution tells us how certain/uncertain we are about $\theta$ given our specific data. Instead of rejecting/failing to reject a hypothesis based on our data and whatever assumptions we're making about it, the posterior distribution tells us the exact probabilities of $\theta$ given our data as it actually is.
+
+## What's going on under the hood
+
+Bayesian inference is an application of Bayes' Rule (we already learned this fun fact when we talked about [Probability](https://fuzzyatelin.github.io/bioanth-stats/module-08/module-08.html)!). 
+\
+\
+Bayes' Rule states that $P(A|B) = \frac{P(A|B) \times P(A)}{P(B)}$. Instead of individual probabilities, however, we can think of these values in the context of the example given above. In other words, our *posterior probability* ($P(A|B)$ for $\theta$) is operationalized in this formula using our prior probability (what we already think we know about $\theta$) and the likelihood of various values of $\theta$ given our dataset... but how do we get to that from this equation?
+\
+\
+With Bayesian statistics, we can workshop our formula a bit to get $P(\theta | X_{1,2,...,n}) \propto P(X_{1,2,...,n}|\theta) \times P(\theta)$. In this equation, our _posterior_ probability is the probability of $\theta$ given our dataset ($P(\theta | X_{1,2,...,n})$), which is _proportional_ to the likelihood of our dataset given $\theta$ is a parameter that describes it ($P(X_{1,2,...,n}|\theta)$) and our prior knowledge of the probability of the parameter ($P(\theta)$).
+\
+\
+We can make an educated guess on how $\theta$ is distributed (an _informative prior_), or we can throw in the towel and admit we know very little regarding how $\theta$ is distributed (an _uninformative prior_). Our data can't be changed (this is the objective part of Bayesian statistics), but we can see that is _distributed_ in a certain way. From these two distributions (our prior and our actual data distribution), our goal is then to find how $\theta$ is distributed _GIVEN_ our data.
+\
+\
+But again: what does all of this mean?
+
+![Bayesian statistics are hard](https://imgs.xkcd.com/comics/seashell_2x.png)
+
+Bayesian statistics can be complex and a lot of work. Without recent beefy computers, Bayesian statistics had to be calculated by hand (this is hard and not fun) and were _EXTREMELY_ limited in their applications.  
+
+However, we now have the computational power to make Bayesian statistics more accessible and realistically applicable, including in ***R***.
+
+Enter: [{rjags}](https://CRAN.R-project.org/package=rjags).
+
+# Bayesian modeling using `rjags`
+
+![RAWR, Jaguar](https://preview.redd.it/w2c-supreme-jaguar-sculpture-v0-5g12akod0eia1.jpg?auto=webp&s=c49ae8a8df0cfb11c631c9e2bb151e57cef37732)
+
+\
+
+To demonstrate, let's check out the titi monkeys from [Homework 2](https://fuzzyatelin.github.io/bioanth-stats/homework-02.html) again, but this time from a Bayesian perspective!
+
+![Titi, she's _mother_](https://www.animal.photos/mamm2/titi-cop_files/redtiti1.jpg)
+
+## Let's load some libraries
+
+```{r, libraries}
+library(tidyverse)
+library(coda)
+library(rjags)
+```
+
+
+## ...and simulate some data
+
+So if you remember, our primatologist believed from prior experience that the average number of titi monkey calls she would hear in a 2hr period at her study site in Ecuador would be around 15. 
+
+Let's imagine (and simulate) that she collected titi monkey call data during a week of field work using 2 separate methods: one using a playback point transect method (the calls), and the other using actual home range calculations, to figure out how many titi groups were in the area (assuming that each call was an independent event indicating the presence of a unique group). Let's just assume the population means (from the  paper by [Anand Dacier, collected at the Tiputini Biodiversity Station, in Ecuador](https://www.jstor.org/stable/41057989?seq=1#metadata_info_tab_contents)) for these two methods.
+
+```{r, poisson_sim}
+set.seed(812) # set seed, i'm a leo it's my birthday <3; feel free to change it up <3
+titi_ppt <- rpois(n = 7, lambda = 13.8) # "collect" data via playback point transect
+titi_homerange <- rpois(n = 7, lambda = 16) # "collect" data via homerange
+```
+
+
+## Frequentist inference
+
+### Hypothesis Test
+
+Let's first check and see how frequentist statistics would go about estimating whether our primatologist's prior assumption of 15 calls/groups is correct given the data she collected. We can do this using a t-test to see if there is a significant difference between the assumed mean number of calls and the distributions measured in the field:
+
+```{r, hyp_test15}
+# are these consistent with 15 groups?
+t.test(titi_homerange, alternative = "greater", mu = 15) # is homerange more than 15
+t.test(titi_ppt, alternative = "less", mu = 15) # is ppt greater than 15
+```
+
+Here, we see there is no significant difference using either method; we fail to reject our null hypothesis that there are on average 15 groups of titi monkeys in a given area. Cool! This is no big deal but also we've spent all this money, and done all this work, got what _looks_ to be interesting data just to confirm that our two methods are pretty much the same. Bummer!
+
+```{r, hyp_test_diff}
+t.test(titi_homerange, titi_ppt)
+```
+
+So... we don't have significant evidence to suggest that either test is different from one another. Even though we _know_ for a fact they're different. What gives! Oh! And before you ask, the p-values from a non-parametric test are going to show the same.
+
+## Bayesian inference with `rjags`
+
+We're going to generate a _BUNCH_ of data via machine learning Markov-Chain Monte-Carlo methods. We're going to be sampling via the  _Just Another Gibbs Sampler_ algorithm (JAGS), which creates Markov-Chain Monte Carlo (MCMC) samples via a Metropolis Hastings algorithm. Essentially, we're training the algorithm to create a distribution of data using both our prior beliefs of the data (that the average is 15) and the data we collected (how likely it is to be 15). This is a Gaussian random walk. We're going to be randomly walking around possible values of data until the algorithm begins to get comfortable and converge to what should be a plausible range of values. These samples constitute our posterior distribution, hence we're going to be generating a BUNCH of them.
+\
+\
+You might have heard of `brms`, which is another way to do Bayesian statistics. It honestly might be a bit more intuitive for whatever you're into over JAGS, but I'm less familiar with it hence why we're not going into it today. It uses a Hamiltonian Monte Carlo algorithm, which is just a non-Gaussian Metropolis-Hastings algorithm. It generates less samples, in some cases is more parsimonious, but it's your pick. JAGS is still an amazing way to get your samples, and stats people aren't going to nitpick one over the other for you (probably). Regardless, you're going to be 10 years ahead of where the field currently is with either method (20 years if you're in archy lol).
+
+### JAGS Initializations
+
+Let's get our algorithm initialized :)
+
+```{r, jagsinnit}
+# oi jags innit
+n_iter <- 20000 # we're going to generate 20000 samples
+n_burnin <- 5000 # we're going to throw 5000 samples away as the model gets comfy
+n_adapt <- 5000 # we're  going throw another 5000 samples away 
+# we're going to have a total of 10000 samples at the end of the data
+
+n_homerange <- length(titi_homerange) 
+n_ppt <- length(titi_ppt)
+# these just happen to both be 7 but good practice to differentiate
+
+# where do we want our model to start from?
+# it doesn't really matter but why not start at the mean?
+homerange_init <- mean(titi_homerange)
+ppt_init <- mean(titi_ppt)
+
+# note spoiler
+
+# JAGS hates normal R data, you need to make a separate list for **JAGS**  <3
+jags_data <- list(n_homerange = n_homerange, n_ppt = n_ppt, 
+                  homerange = titi_homerange, ppt = titi_ppt)
+jags_init <- list(lambda1 = homerange_init, 
+                  lambda2 = ppt_init) # oi jags innit
+```
+
+### What prior should we pick?
+
+So we _know_ titi data is poisson generated, because we're counting calls and counting monkey groups. So, given this, what do we think could make a good prior distribution of our data (centered at 15)?
+\
+\
+\
+Unif(10, 20)?
+\
+\
+```{r, uniform_distn}
+x <- seq(0, 30, by = 0.01)
+plot(x, dunif(x, min = 10, max = 20), type = "l", 
+     main = "Uniform?",
+     xlab = "Prior values",
+     ylab = "Probabilities")
+```
+
+Normal(15, 3)?
+
+```{r, normaldstn}
+x <- seq(0, 30, by = 0.01)
+plot(x, dnorm(x, mean = 15, sd = 3), type = "l", 
+     main = "Normal?",
+     xlab = "Prior values",
+     ylab = "Probabilities")
+```
+
+Gamma(15, 1)?
+
+```{r}
+x <- seq(0, 30, by = 0.01)
+plot(x, dgamma(x, shape = 15, rate = 1), type = "l", 
+     main = "Gamma?",
+     xlab = "Prior values",
+     ylab = "Probabilities")
+```
+
+I'm going to pick Gamma(15, 1) for my prior, why?
+\
+\
+\
+Let's think... What values can a poisson distribution take? What do we remember distributions in general?
+\
+\
+Can we be negative?
+\
+\
+Can we be _0_? 
+\
+\
+Is our data discrete? Can $\theta$ be continuous?
+\
+\
+I'm not going to lie, it's YOUR pick as to what the prior should be, just be prepared to justify it!
+\
+\
+Before we actually start our algorithm:
+\
+As a fun aside, before computers were super _beefy_, people were limited to only using prior distributions conjugate to the likelihood of their data. This results in a posterior distribution that's parameterized by the same family as the prior distribution! So our posterior here would follow a gamma distribution.
+\
+\
+So... 
+if your data was Poisson distributed, you _had_ to use a Gamma prior
+\
+\
+Binomial likelihood = Beta prior
+\
+\
+Normal likelihood = Normal-inverse gamma prior
+\
+\
+Doing the math by hand can be... disgusting (I have receipts), and you're limited to modeling exclusively via conjugate priors. Let's say you have normally distributed data, and you're not at all confident about it (you'd use a uniform prior). Prior to good computers, you'd suffer! This situation is why Bayesian statistics are only now really getting their time in the limelight <3
+
+
+### Gamma JAGS model
+
+```{r, jagsmodel}
+set.seed(812) # feel free to change my seed <3
+# we first need to make the model
+jags_model <- "model{
+  # likelihood
+  for(i in 1:n_homerange){
+  homerange[i] ~ dpois(lambda1)
+  }
+  for (i in 1:n_ppt){
+  ppt[i] ~ dpois(lambda2)
+  }
+  
+  # prior
+  lambda1 ~ dgamma(15, 1)
+  lambda2 ~ dgamma(15, 1)
+}"
+
+fit <- jags.model(textConnection(jags_model),
+               data = jags_data, inits = jags_init, 
+               n.chains = 2, n.adapt = n_adapt) # what do the chains do?
+# this saves the model as a variable
+
+fit_samples <- coda.samples(fit, c("lambda1", "lambda2"), n.iter = n_iter) %>% 
+  window(start = n_burnin + n_adapt) # let's get our samples <3
+```
+
+We have two chains going on up there, what does that mean?
+\
+\
+\
+So... we have our algorithm right, how do we control for the algorithm just being bad and going all over the place? We can obviously omit the first 10,000 samples (burn in plus adaptation) but we can also run the algorithm a SECOND time, and then concatenate samples, this will give us a good idea of how consistent our model is and where we are in terms of uncertainty.
+\
+\
+\
+So we have our samples, now what? Let's check to see if our algorithm actually worked out. We're going to see what our samples look like, then we can run some diagnostics (trace and ACF plots).
+
+```{r, jagsviz}
+plot(window(fit_samples), density = FALSE) # this is a trace plot (tells us where we're randomly walking)
+plot(window(fit_samples), trace = FALSE) # this is a density plot (you know what this is!)
+summary(window(fit_samples)) # these are our samples
+
+fit_samples <- as.data.frame(as.array(fit_samples)) # got to make a df
+
+acf(fit_samples$lambda1.1)
+acf(fit_samples$lambda1.2)
+# let's do another diagnostic, when we're walking around, we need to guarantee that samples, from say 10 samples ago, aren't influencing the current sample. ACF plot! 
+acf(fit_samples$lambda2.1)
+acf(fit_samples$lambda2.2)
+# all of these look great! autocorrelation between sample 1 and sample 3 is basically 0, good model (you want your model to be between the blue dotted lines I'd say before lag 10)
+
+# we've got two chains, so we need to concatenate our dudes
+fit_samples <- data.frame(homerange = 
+                            c(fit_samples[, "lambda1.1"], 
+                              fit_samples[, "lambda1.2"]),
+                          ppt = 
+                            c(fit_samples[, "lambda2.1"],
+                                  fit_samples[, "lambda2.2"]))
+```
+
+You can informally determine if a trace plot is "good" based on whether or not you could draw a line through the plot with a sharpie (literally how Bayesian statisticians conceptualize this). Autocorrelation, modeled by an autocorrelation function (ACF) tells us how much the ith sample impacts the following samples. You'd like to see the ACF plot plummet as soon as possible (hopefully before lag 10). Our algorithm is simple, and our data isn't messy, so all looks great. Let's now do some inference with our samples!
+
+### Gamma JAGS inference
+
+```{r, samples_ints}
+colors <- c("Homerange" = "orange3", "Playback point transect" = "steelblue3")
+# let's put our two samples against each other
+fit_samples %>% ggplot() + # ggplot them
+  geom_density(aes(x = homerange, fill = "Homerange", alpha = 0.5)) +
+  geom_density(aes(x = ppt, fill = "Playback point transect", alpha = 0.5)) +
+  xlab("Lambda Samples") +
+  ggtitle("Posterior distributions of Homerange\nand Playback point transect lambdas") +
+  scale_fill_manual(values = colors) +
+  geom_vline(xintercept = 15, linetype = 3) + 
+  guides(alpha="none")
+```
+
+So let's see how the playback point transect is working out.
+
+```{r, credints}
+# what percentage are less than 15?
+ppt_credinterval <- quantile(fit_samples$ppt, probs = c(0.025, 0.975)); ppt_credinterval
+# the probability lambda < 15
+ppt_problessthan <- sum(fit_samples$ppt < 15)/length(fit_samples$ppt); ppt_problessthan
+```
+
+So credible interval, analogous to confidence interval, is from 10.97 to 15.98, the range here is 5.01. With 95% probability, there are between 10.97 an 15.98 titi monkeys in a given area via a PPT method. The probability that the PPT method finds a sample less than 15 is 0.895. In frequentist world, this would be frustrating. However in Bayesian world this _is_ a valid answer, it just matters on how we interpret it. How do we interpret this probability? What does it mean to not think of things in terms of significance? How certain are we that the parameter falls under 15? Do you think 89.5% probability is high enough?
+\
+\
+
+Let's contrast with homerange calculations
+
+```{r}
+# credible interval
+hr_credinterval <- quantile(fit_samples$homerange, probs = c(0.025, 0.975)); hr_credinterval
+# the probability lambda > 15
+hr_probmorethan <- sum(fit_samples$homerange > 15)/length(fit_samples$homerange); hr_probmorethan
+```
+
+So... our credible interval for the homerange estimate is 12.66 to 18.12, range is 5.46. Is there more or less certainty about the homerange estimates or the playback point transects? What about our null hypothesis that we're greater than 15. 56.3% of our samples are greater than 15, what do you think? Is this different from 15?
+
+\
+\
+Are our estimates different from one another?
+
+```{r}
+diff_data <- fit_samples$homerange - fit_samples$ppt # subtract the two samples, then create a credible interval!
+diffr_credinterval <- quantile(diff_data, probs = c(0.025, 0.975)); diffr_credinterval
+# okay but what's the probability homerange estimates more than ppt?
+diffr_prop <- sum(diff_data > 0)/length(diff_data); diffr_prop
+```
+
+Okay, so we still can't say with 95% probability these two methods are different, but compared to the frequentist confidence interval (-1.964508, 6.250222) we're reducing uncertainty. The Bayesian method _is_ giving us a stronger estimate . We also find that 84% of homerange estiamtes are larger than ppt. Again, there's no "oh but what if our sample..." flat out, 84% of homerange estimates are going to be larger. Is this different enough for you?
+
+![Is this titi monkey visible enough for you?](https://www.animal.photos/mamm2/titi-cop_files/redtiti8.jpg)
+\
+From Bayesian world, I'm able to say the playback method not only provides a slightly more certain estimate of the number of titi's in a given over the homerange method. Moreover, I'd say we have reason to think the number of titi's in a given area, via the playback method, is less than 15.
+\
+\
+What's our answer?
+
+### How does a normal prior work?
+
+!["Normies possess a lack of interest in ideas not easily accessible or being outside of their/society's current range of acceptance. A straight. A follower." - Urban Dictionary](https://www.spectator.co.uk/wp-content/uploads/2023/08/Screenshot-2023-07-31-at-16.04.02.jpg)
+
+\
+\
+\
+You're so _valid_ for wanting to use a normal prior! Being able to use different priors than the conjugate is kinda the point of a JAGS algorithm.
+\
+\
+That being said, do you think a normal distribution is an effective prior? Why or why not? 
+\
+\
+Let's do our initializations again! Theoretically, a normal prior may not be the _it girl_ but materially how does it look?
+
+```{r, normjagsinit}
+jags_data <- list(n_homerange = n_homerange, n_ppt = n_ppt, 
+                  homerange = titi_homerange, ppt = titi_ppt)
+jags_init <- list(lambda1 = homerange_init, 
+                  lambda2 = ppt_init)
+```
+
+Whoa! what's up with $\tau$? Instead of using variance, JAGS parameterizes a normal prior with precision (which is just $\frac{1}{\sigma^2}$). Otherwise, our model should function identical to the gamma situation.
+
+```{r}
+set.seed(812) # feel free to change my seed <3
+# we first need to make the model
+jags_model <- "model{
+  # likelihood
+  for(i in 1:n_homerange){
+  homerange[i] ~ dpois(lambda1)
+  }
+  for (i in 1:n_ppt){
+  ppt[i] ~ dpois(lambda2)
+  }
+  
+  # prior
+  lambda1 ~ dnorm(15, 1/9)
+  lambda2 ~ dnorm(15, 1/9)
+}"
+
+fit_norm <- jags.model(textConnection(jags_model),
+               data = jags_data, inits = jags_init, 
+               n.chains = 2, n.adapt = n_adapt) # what do the chains do?
+# this saves the model as a variable
+
+fit_samples_norm <- coda.samples(fit_norm, c("lambda1", "lambda2"), n.iter = n_iter) %>% 
+  window(start = n_burnin + n_adapt) # let's get our samples <3
+```
+
+Whoa! what's up with 1/3 in the model? Instead of using variance, JAGS parameterizes a normal prior with precision (which is just $\frac{1}{\sigma^2}$ OR $\tau$). Otherwise, our model should function identical to the poisson situation. Again, we're looking at lambdas because our data is poisson generated.
+
+```{r, diagnostics2}
+plot(window(fit_samples_norm), density = FALSE) # this is a trace plot (tells us where we're randomly walking)
+plot(window(fit_samples_norm), trace = FALSE) # this is a density plot (you know what this is!)
+summary(window(fit_samples_norm)) # these are our samples
+
+fit_samples_norm <- as.data.frame(as.array(fit_samples_norm)) # got to make a df
+
+acf(fit_samples_norm$lambda1.1) # notice how we have a bit more lag, sample i is influencing i+1 a bit more than w the poisson-gamma
+acf(fit_samples_norm$lambda1.2)
+# let's do another diagnostic, when we're walking around, we need to guarantee that samples, from say 10 samples ago, aren't influencing the current sample. ACF plot! 
+acf(fit_samples_norm$lambda2.1)
+acf(fit_samples_norm$lambda2.2)
+# all of these look great! autocorrelation between sample 1 and sample 3 is basically 0, good model (you want your model to be between the blue dotted lines I'd say before lag 10)
+
+# we've got two chains, so we need to concatenate our dudes
+fit_samples_norm <- data.frame(homerange = 
+                            c(fit_samples_norm[, "lambda1.1"], 
+                              fit_samples_norm[, "lambda1.2"]),
+                          ppt = 
+                            c(fit_samples_norm[, "lambda2.1"],
+                                  fit_samples_norm[, "lambda2.2"]))
+```
+
+### How does normal compare to gamma as a prior
+
+```{r, comparisonplot}
+colors <- c("Gamma" = "orange3", "Normal" = "steelblue3")
+# let's put our two samples against each other
+ggplot() + # ggplot them
+  geom_density(aes(x = fit_samples$homerange, fill = "Gamma", alpha = 0.5)) +
+  geom_density(aes(x = fit_samples_norm$homerange, fill = "Normal", alpha = 0.5)) +
+  xlab("Lambda Samples") +
+  ggtitle("Posterior distributions of Homerange\nfor Gamma and Normal Priors") +
+  scale_fill_manual(values = colors) +
+  geom_vline(xintercept = 15, linetype = 3) + 
+  guides(alpha="none")
+
+ggplot() + # ggplot them
+  geom_density(aes(x = fit_samples$ppt, fill = "Gamma", alpha = 0.5)) +
+  geom_density(aes(x = fit_samples_norm$ppt, fill = "Normal", alpha = 0.5)) +
+  xlab("Lambda Samples") +
+  ggtitle("Posterior distributions of Playback point transect\nfor Gamma and Normal Priors") +
+  scale_fill_manual(values = colors) +
+  geom_vline(xintercept = 15, linetype = 3) + 
+  guides(alpha="none")
+```
+
+Just a snapshot of what's going on here, it looks like our normal prior is reducing uncertainty with respect to homerange, but maybe not that much with playback point transect. We also see that while the centers of homerange are pretty similar, it is not the same with the playback point transect. Why? Think about our priors, how are they parameterized? Is our normal prior really influencing the posterior compared to gamma prior? Is normal better? Or just different?
+\
+\
+Keep this in mind, let's figure out credible intervals and check out what's up!
+
+### Normal JAGS inference
+
+```{r, hrcred}
+# credible interval
+hr_normcredinterval <- quantile(fit_samples_norm$homerange, probs = c(0.025, 0.975)); hr_normcredinterval
+# the probability lambda > 15
+hr_normprobmorethan <- sum(fit_samples_norm$homerange > 15)/length(fit_samples_norm$homerange);
+hr_normprobmorethan
+```
+
+How does this compare to the gamma values? The normal credible interval range is 5.18, contrast with the poisson which is 5.47. We're reducing a bit of uncertainty with the normal credible interval relative to the gamma, cool! Looking at probabilities greater than 15, we're basically identical to the gamma, cool! Why do we see these results do you think?
+
+\
+\
+What's going on with the playback point transect?
+
+```{r, pptcred}
+ppt_normcredinterval <- quantile(fit_samples_norm$ppt, probs = c(0.025, 0.975)); ppt_normcredinterval
+# the probability lambda < 15
+ppt_normprobmorethan <- sum(fit_samples_norm$ppt < 15)/length(fit_samples_norm$ppt);
+ppt_normprobmorethan
+```
+
+So with playback point transect for the normal we have a slightly smaller credible interval (4.95) compared to the gamma (5.2). However, the probability that our playback point transect estimates less than 15 is 86.7%. 
+\
+\
+Let's try comparing the two again:
+
+```{r}
+diff_data <- fit_samples_norm$homerange - fit_samples_norm$ppt # subtract the two samples, then create a credible interval!
+diffr_credinterval <- quantile(diff_data, probs = c(0.025, 0.975)); diffr_credinterval
+# okay but what's the probability homerange estimates more than ppt?
+diffr_prop <- sum(diff_data > 0)/length(diff_data); diffr_prop
+```
+
+So we get very similar results to the Gamma estimate, but our credible interval is ever so slightly smaller. Our probability homerange is greater than ppt is also a bit smaller, what's going on there?
+
+![This figure was uploaded by Hideyoshi Yanagisawa](https://www.researchgate.net/profile/Hideyoshi-Yanagisawa/publication/330577376/figure/fig1/AS:718458304086017@1548305216392/Example-of-Bayesian-inference-with-a-prior-distribution-a-posterior-distribution-and_W640.jpg)
+
+### So... which is better?
+
+The answer is... it depends
+\
+
+Let's be clear here, you shouldn't work multiple JAGS models and pick the one that gives you the answer you want. Rather, you gotta pick a prior BECAUSE it best models the parameter you're looking at and stick with it. If you're a stats wizard, you can think it through. For instance, despite the slight increase in uncertainty relative to a normal prior, I think a gamma prior works better for this context because of the limitations of a poisson distribution. But let's say you aren't a stats wizard, you should probably go for either a normal or a uniform prior. 
+\
+\
+
+### I'm still confused at what my prior should be
+
+#### Situation 1: You have old preliminary data 
+
+Cool! You've got a variance and a mean you can get from preliminary data and plug into your prior. That is, in the `rjags` model you can parameterize via dnorm(`preliminary mean`, `preliminary precision`). Remember precision is $\frac{1}{\sigma^2}$! Double remember, make sure you DON'T parameterize your prior with your actual data! This is cheating and fake statistics!
+
+#### Situation 2: You don't have preliminary data
+
+Cry. No, but seriously, this is not the most fun tough situation to be in. First, get an idea of where the prior should be centered. What does the literature say about your parameter? Do you have numbers you can use? Can you guesstimate a value based on what's been done before? If yes to any of those things, determine how certain you are about your parameter.
+
+##### You're a bit certain
+
+Great! Feel free to go for a normal or uniform prior. Choose a level of precision that fits your prior (I can't tell you what's going to work for your situation!)
+
+##### You're more than a bit uncertain
+
+Bummer! You should have _some_ measure of center (it doesn't have to be good). You should probably use a Uniform prior such that upper and lower bounds are reflective of your uncertainty. In the JAGS code this might look like... \
+dunif(`measure of center - large number`, `measure of center + large number`).\
+How large a number? It's your choice, you gotta learn to trust yourself here!
+
+# Conclusion
+
+![slay](https://www.brodrigues.co/img/mudasir.png)
+
+Pat yourself on the back! This is some pretty tough stuff and I'm proud of you :)
+\
+\
+I've hopefully illustrated the utility of Bayesian statistics for you, here's the take home:
+
+* Bayesian statistics aren't better, they just require a different way of thinking about things than frequentist statistics
+
+* Bayesian statistics are about modeling our uncertainty about a given parameter
+
+* So when your sample sucks, you may want to hedge your bets with Bayesian statistics over frequentist
+
+* We looked at some titi monkey data to compare both frequentist and Bayesian methods, as well as our choice of prior
+
+* There's not really a simple one-line piece of code to get you a posterior distribution (`brms` is a bit easier but doesn't afford you the same flexibility as JAGS modeling in my opinion)
+
+* This is a hyper simplified version of how JAGS and Bayesian statistics work. If you'd like an introduction in making linear models (and more complex ones, they follow the same-ish procedure) check out: https://bookdown.org/kevin_davisross/bayesian-reasoning-and-methods/regression.html
+
+* What if my prior has priors? https://bookdown.org/kevin_davisross/bayesian-reasoning-and-methods/hierarchical.html
+
+Congrats!
