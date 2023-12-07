@@ -1,0 +1,565 @@
+---
+title: "Group Vignette: Machine Learning"
+author: "Lia Bao, Julianna Dick, Emiley Garcia-Zych, Cat Metcalf, Angelique Lindberg"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    theme: cerulean
+    toc: yes 
+    toc_float: true
+---
+
+## Preliminaries
+
+> Install these packages in ***R:*** {caret}, {dplyr}, {ggplot2}, {rsample}, {caTools}, {ModelMetrics}
+
+## Objectives
+
+> The objective of this module is to demonstrate an applied example of machine learning via logistic regression. This module contains exercises to provide opportunities to apply machine learning.
+>
+> To complete this module, one is expected to have prior knowledge/familiarity with R syntax and logistic regression.
+> 
+> The objective of our machine learning module is to predict outcomes.
+
+<center>
+
+<img src="https://github.com/cbao2397/Machine-Learning_Group-Vignette/blob/master/VirtualAssis.jpg?raw=true" alt="Siri, Alexa, Google." width="60%"/>
+
+<figcaption>Siri, Alexa, Google. (Image from <https://www.gearpatrol.com/tech/a369922/how-does-a-virtual-assistant-work/>)</figcaption>
+
+</center>
+
+## Introduction
+
+> Do you use Siri, Alexa, Google, or Cortana? These are examples of artificial intelligence that rely on machine learning. Artificial intelligence refers to systems or machines that parallel human intelligence. Machine learning is a subdivision of artificial intelligence, and sometimes the terms are used interchangeably. It must be noted that, while all machine learning is artificial intelligence, not all artificial intelligence is machine learning. In addition to digital voice assistants, machine learning can be used for social network analytics, embedding interactive visual graphics, getting insight into the behavior of users, analyzing trends and patterns, and developing analytical solutions. Many of these applications are used by large companies such as Google, Facebook, Microsoft, and Amazon.
+>
+> We see examples of machine learning in our everyday lives. On social media, recommendations of "people you may know," targeted website ads for something you might've previously searched for or talked about, or when YouTube suggests another video saying "You May Also Like This" are all powered by machine learning.
+
+### What is Machine Learning?
+> Machine learning is defined as developing systems that learn or improve performance based on the data they receive without being explicitly programmed. The term Machine Learning was first coined by Arthur Samuel in 1952 when he wrote the first IBM computer learning program for the game of checkers. As the computer played more checkers matches, it studied the moves and strategies and incorporated them into its program. Machine learning is classified into 3 categories: supervised learning, unsupervised learning, and reinforcement learning. In this module, we will focus on supervised and unsupervised learning.
+
+
+> Machine learning is defined as developing systems that learn or improve performance based on the data they receive without being explicitly programmed. The term Machine Learning was first coined by Arthur Samuel in 1952 when he wrote the first IBM computer learning program for the game of checkers. As the computer played more checkers matches, it studied the moves and strategies and incorporated them into its program. Machine learning is classified into 3 categories: supervised learning, unsupervised learning, and reinforcement learning. In this module, we will focus on supervised learning.
+
+#### Supervised Learning
+
+> As the name suggests, machine-supervised learning requires supervision in which we teach the machine using training data, labels, and target values (correct answers). The machine identifies variables and features within the training data and learns the algorithm that results in the target output. The machine models the relationships from the training data and uses these features to make predictions. One example of predictive supervised learning is using home attributes to predict real estate sales prices. Because we give the machine the training data and target outcomes, we are able to check the work of the machine's predictions.
+
+#### Unsupervised Learning
+
+> Unsupervised learning is often performed as part of exploratory data analysis. Unsupervised learning uses statistical tools to understand and describe the training data but target values are not provided. The machine must identify groups in the dataset. One example of unsupervised machine learning is identifying groups of online shoppers with similar browsing and purchasing histories. The machine groups these online shoppers and will show ads for products of their particular interest. In unsupervised machine learning, unlike in supervised learning, there is not one target outcome or answer because it depends on the data. As a result, one downside of unsupervised learning is that there's no way to check your work because there is no true answer.
+
+### Why Do Machine Learning?
+
+> R has an expansive public domain of tools and packages to work with machine learning. Machine learning in R is useful for dealing with large amounts of data, it helps identify relationships in datasets to inform decision-making, and the machine can learn from itself to improve automatically. There are many different types of problems that machine learning can solve: regression, classification, association, clustering, anomaly detection, and recommendation.
+
+> We chose to do our module on machine learning to emphasize its ability to predict outcomes from complex data based on a combination of previous trends and current trends. Machine learning is favorable to regression models, for example, because of its flexibility and versatility. While regression models produce similar outcomes to machine learning, regression is mainly used for simple, linear numerical relationships between the input and target output. Machine learning is ideal for complex relationships, handling data with outliers, understanding interactions between variables/features, and prediction accuracy. Most importantly, machine learning is beneficial for transfer learning, where a pre-trained model can be fine-tuned to your specific process or problem. 
+
+#### General Process
+
+> 1.  Clean the data obtained from the training dataset\
+> 2.  Form a proper algorithm for building a prediction model\
+> 3.  Train the machine and model to understand the pattern of the dataset/project\
+> 4.  Predict your results more efficiently and with higher accuracy
+
+#### What is Logistic Regression?
+
+> The regression technique helps the machine predict continuous values, which is a type of supervised machine learning. Regression is a classic form of statistical modeling and one of the simplest tests for machine learning. Logistic regression is used to approximate the linear relationship between continuous variables and a set of continuous predictor variables. Using the slope and intercept of the training data's regression, the machine can predict outcomes from given input or predictor variables.
+
+## Training the Model
+
+> In order to produce a well-crafted, working model it is important to use the data wisely for the learning and validation procedures. This includes proper pre-processing for the feature and target variables while also minimizing data leakage. Finally, after you have completed this we can assess the model performance.
+
+> \*Although we focus on supervised learning, these techniques can also be applied to the unsupervised learning.
+
+> An example of how this model teaching works is shown below:
+
+<center>
+
+<img src="https://github.com/cbao2397/Machine-Learning_Group-Vignette/blob/master/Model%20Diagram.jpg?raw=true" alt="Model Diagram" width="95%"/>
+
+<figcaption>Modeling Diagram (Image from <https://bradleyboehmke.github.io/HOML/index.html#software-information>)</figcaption>
+
+</center>
+
+> This image shows the general predictive machine learning process where an optimal model is created by running the process repeatedly until it can be applied back to the testing data.
+
+> We will be using the Heart Disease Dataset for teaching our model with supervised learning:
+
+```{r}
+library(curl)
+f <- curl("https://raw.githubusercontent.com/cbao2397/DataStorage/main/moremoreprocessedbut01.cleveland.csv")
+d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
+head(d) #loads in dataset
+```
+
+> There is some pre-processing we must conduct since there are missing values. 
+
+```{r}
+d <- na.omit(d)
+```
+
+### Data Splitting
+
+> One of the goals we have for machine learning is to find the algorithm f(X) that will accurately predict a future value or values (Yhat) based on a group of features (X). This algorithm fits past data but will also predict future outcomes using it's learning from that previous data. This is called *generalizability*. Meaning how well we use our data to teach helps us understand how best the algorithm generalizes to unseen data. Think about our fight or flight response and how this became a learned adaptation. We first encountered something dangerous, and we either fought or fled. Let's say someone encountered a bear in the woods for the first time, their body entered flight mode and they ran (Don't actually do this if you encounter a bear!). They quickly discover running from the bear may lead to it chasing after them. Therefore, the next time they enter the woods, they may think about encountering a bear and they will likely not choose to flee, because that model did not work well for them, so they may alter the model to not flee but to make themselves look big and make really loud noises like dog barks, which successfully scares away the bear. The choice of fight or flight in this case is our *training set* and the final choice of model being to make ourselves big and bark like a dog is our *test set*. Basically: **Training set**- used to develop groups of features that train the algorithms, tune hyperparameters, compare models, and other choices that lead to choosing a final model (Ex. the model that wants to be reproduced) **Test set**- once the final model is chosen, this is the data used to estimate unbiased assessment of the model's performance, which is also referred to as the *generalization error*. It is important this set does not get used while training your model since then it becomes part of the testing data and affects how well the model actually predicts data.
+
+> Generally, the best split between the two is 60% training data and 40% testing data, because if you spend too much on training then you are not getting a valid assessment on the predictive performance (aka not generalizable). In contrast, too much spent on testing does not allow a good assessment of model parameters. Smaller training samples are often used for the sake of computation speed, but a general rule is p≥n (where p is the number of features and n is sample size).
+
+> Data can be split in two ways: Simple Random Sampling and Stratified Sampling. For this module we will focus on simple random sampling for our dataset, but it could be helpful for certain datasets to explore stratified sampling in your own time so do not disregard it!
+
+### Simple Random Sampling
+
+> We have used random sampling in previous modules, so it follows a similar pattern here. Remember you can use set.seed() to make the sample reproducible. There are a few ways to do this, one in base R, one using the caret package that we use for the Heart Disease dataset, and one using the rsample package. It is largely dependent on what applies best to your chosen dataset.
+
+> Let us take a 60-40 split through simple random sampling:
+
+```{r}
+library(caret)
+library(rsample) #load in the necessary packages
+
+# Using base R for random sampling
+set.seed(123)  # for reproducibility of the random sample
+index_1 <- sample(1:nrow(d), round(nrow(d) * 0.6)) #indicates we are taking from dataset d, by row and rounding and the 0.6 shows we are taking a 60-40 split
+train_1 <- d[index_1, ] #creates our training set which we use for making the model
+test_1  <- d[-index_1, ] #creates our test set which we will test our final model against
+
+# Using caret package for random sampling
+set.seed(123)  # for reproducibility
+index_2 <- createDataPartition(d$age, p = 0.6, 
+                               list = FALSE) #let us sample by age
+train_2 <- d[index_2, ]
+test_2  <- d[-index_2, ]
+
+# Using rsample package for random sampling
+set.seed(123)  # for reproducibility
+split_1  <- initial_split(d, prop = 0.6)
+train_2  <- training(split_1)
+test_2  <- testing(split_1)
+```
+
+> This sampling size usually results in similar distributions of Y (Ex. Age in the Heart Disease dataset) between training and test sets.
+
+### Creating models in R
+
+> In order to fit our model, we need to identify the terms of the model. We can use symbolic representations of the terms, for example in previous modules we have seen y ~ x, meaning "y is a function of x". We can also have separate arguments for predictors and outcomes, like previously seen with prop.test(x, n, p = NULL, alternative = c("two.sided", "less", "greater"), conf.level = 0.95, correct = TRUE). Which technique you use will depend entirely on your dataset and usually a dataset within machine learning provides help documentation to point you to which technique to use and each technique has its limitations. 
+
+>For our dataset we will be using logistic regression to create a model. Let us look into predicting hert disease based on age and then a second model based on sex, followed by two more complex models. We will be using glm() like in previous models to evaluate this. Simply change the argument family="binomial" to tell the function to run a logistic regression (where it usually is family="gaussian"). This technique is evaluating predictions for a "Yes/No" value, expressed in the data set as a set of "0 1 0 0 1" values, which in our dataset is shown by "num", representing Yes for Heart Disease present and No for no Heart Disease present.
+
+>Let's review what some of the other features are too:
+>-cp = chest pain
+>-trestbps = resting blood pressure (on admission to hospital)
+>-chol = cholestrol
+>-fbs = fasting blood sugar
+>-restecg = resting electrocardiograohic result
+>-thalach = maximum heart rate achieved
+>-exang = exercise induced angina
+>-oldpeak = ST depression indcued by exercise relative to rest
+>-slope = slope of peak exercise ST segment
+>-ca = number of major vessels (0-3) colored by flourosopy
+>-thal = related to blood disorder thalassemia 
+
+>Now that we know what we are measuring, let us make our models:
+
+```{r}
+library(ggplot2) #load in package to plot our predictions for our models
+library(dplyr) #for transforming and interpreting our results later
+model1 <- glm(num ~ age, family = "binomial", data = train_2)
+model2 <- glm(num ~ sex, family = "binomial", data = train_2)
+model3 <- glm(
+  num ~ age + sex,
+  family = "binomial", 
+  data = train_2
+  ) #uses multiple logistic regression to evaluate prediction by age AND sex
+model4 <- glm(data = train_2, num ~ age + sex + cp + trestbps + chol + restecg + thalach + exang + oldpeak + slope + ca + thal + fbs, family = "binomial") #this model tests all the features significance with num, which uses a selection of features like we learned in Module 17, to which we can work backwards by dropping variables (kind of like we did in model 3 only representing two features)
+```
+
+```{r}
+exp(coef(model1))
+exp(coef(model2))
+exp(coef(model3)) 
+exp(coef(model4))
+```
+
+>When we look at the coefficents of each model we can see how they may relate to the diagnosis of Heart Disease, which can help us better understand which features have a stronger correllation. For these models, we can see how a range of features can overwhelm the diagnosis, which is why machine learning is so necessary to narrow down which features have actual influence.
+
+> Let's plot our models to see the predicted values for each feature representation to see the best fitting model:
+
+```{r}
+plot1 <- ggplot(data = model1, aes(x = age, y = num))
+plot1 <- plot1 + geom_point()
+plot1 <- plot1 + geom_smooth(method = "glm", formula = y ~ x)
+plot1 #gives our plot, which will show the points of fbs Yes/No with the line representing the predicted values associated with age
+
+plot2 <- ggplot(data = model2, aes(x = sex, y = num))
+plot2 <- plot2 + geom_point()
+plot2 <- plot2 + geom_smooth(method = "glm", formula = y ~ x)
+plot2 #gives our plot, which will show the points of fbs Yes/No with the line representing the predicted values associated with sex
+
+plot3 <- ggplot(data = model3, aes(x = age + sex, y = num))
+plot3 <- plot3 + geom_point()
+plot3 <- plot3 + geom_smooth(method = "glm", formula = y ~ x)
+plot3 #gives our plot, which will show the points of fbs Yes/No with the line representing the predicted values associated with age and sex
+
+plot4 <- ggplot(data = model4, aes(x = age + sex + cp + trestbps + chol + restecg + thalach + exang + oldpeak + slope + ca + thal + fbs, y = num))
+plot4 <- plot4 + geom_point()
+plot4 <- plot4 + geom_smooth(method = "glm", formula = y ~ x)
+plot4 #gives our plot, which will show the points of fbs Yes/No with the line representing the predicted values associated with age and sex
+```
+
+## Testing the Model
+
+### Introduction
+
+> Model testing is an important part in machine learning. It allows you to find problem or concern that may affect the prediction capability and accuracy. Knowing what and why the model is failing is always beneficial. Model testing and evaluation are very similar, while model testing usually perform certain tests aiming to test a particular issue in the model.
+
+> 1. Calculate the model results to the data points in the testing data set. Use the test data as input for the model to generate predictions. Perform this task using the highest performing model from the validation phase. You should have both the real values and the model's corresponding predictions for each input data instance in the data set.
+
+> 2. Compute statistical values comparing the model results to the test data. Check to ensure the model fits the test data set closely enough to be satisfactory.
+
+<center>
+
+<img src="https://github.com/cbao2397/Machine-Learning_Group-Vignette/blob/2ad65efc8bd5d0645e0764da9d55f35c066e66d4/ConfusionMatrix.png?raw=true" alt="Model Diagram" width="70%"/>
+
+<figcaption>Confusion Matrix (Image from <https://www.v7labs.com/blog/confusion-matrix-guide>)</figcaption>
+
+</center>
+
+```{r}
+p <- predict(model4, test_2, type = "response")
+summary(p)
+cl <- ifelse(p > 0.5, "1", "0") #We want to categorize the prediction result (into 0 and 1). 
+testRef <- test_2$num
+t <- table(cl, testRef)
+confusionMatrix(t, positive='1') #Create a confusion matrix which will be returned in the result. 
+```
+
+> The confusionMatrix function returns a variety of values. 
+
+> 1. Accuracy: Overall, how often is the classifier correct? It indicates the proportion of true predictions among all predictions. 
+
+> 2. Precision: How accurately does the classifier predict events? It indicates the true positives to false positive ratio. 
+
+> 3. Sensitivity: How accurately does the classifier classify actual events? It indicates the proportion of predicted events among all events taken place. 
+
+> 4. Specificity: How accurately does the classifier classify actual non-events? Similar to sensitivity, but specificity indicates the proportion of predicted non-events. 
+
+
+```{r}
+library(caTools)
+caTools::colAUC(p, test_2[["num"]], plotROC = TRUE)
+```
+
+> Receiver Operating Characteristic curve (ROC curve) plots the false positive rate along the x-axis and the true positive rate along the y-axis. AUC is the Area Under the Curve. The goal is making the ROC curve closer to the upper left corner and maximize AUC. If the ROC curve is a diagonal line from the lower left corner to the upper right corner, with AUC of 0.5, It means that the model is no better than random guessing. A perfect model will have AUC value of 1. 
+
+## Evaluating the Model
+
+> Sound statistical practice is to assess the performance of your model and how accurate it is at predicting values. This is done in a variety of ways, some of which you've seen in Testing the Model. Another way is via loss functions, which compare the value predicted by the model to the actual value of the sample. The product of this equation is called an error (or residual[wink]). There are a variety of loss functions that can be used depending on the context of the data and the type of model applied.
+
+> In regression without machine learning, error can be evaluated by calculating the difference between the actual and predicted values, the residual. In machine learning, models are assessed by calculating the errors of the entire data. These two principles are applied in conjunction for regression via machine learning.
+
+### Loss Functions
+
+> The loss functions commonly used in machine learning models are:
+
+> *Mean squared error (MSE)*
+
+> $MSE=(1/n)Σ_{i=1}^{n}(actual(y)_{i}-predicted(y)_{i})^2$
+
+> The average of the squared errors. Since it's based on the original error, the larger the original error estimate, the larger the subsequent loss functions. An optimal model minimizes the MSE.
+
+> *Root mean squared error (RMSE)*
+
+> $RMSE=√(1/n)Σ_{i=1}^{n}(actual(y)_{i}-predicted(y)_{i})^2$
+
+> Square root of the MSE. This is used so the error is in the same units as your response variable (instead of units squared like MSE). An optimal model minimizes the RMSE.
+
+> *Root mean squared logarithmic error (RMSLE)*
+
+> $RMSLE=√(1/n)Σ_{i=1}^{n}(log(actual(y)_{i}-predicted(y)_{i}))^2$
+
+> RMSE but with log of errors. Useful when there is a wide range of response values, as it minimizes the impact of large values with large errors(unlike MSE/RMSE). RMSLE minimizes this impact so that small response values with large errors can have just as meaningful of an impact as large response values with large errors. An optimal model minimizes the RMSLE. *Mean absolute error (MAE)*
+
+> $MAE=(1/n)Σ_{i=1}^{n}(|actual(y)_{i}-predicted(y)_{i}|)^2$
+
+> Average of the absolute errors. Similar to MSE but, since it takes the absolutes of the differences between the actual and predicted values, there is less effect of large errors than in the MSE. An optimal model minimizes the MAE.
+
+> *Coefficient of determination (R2)*
+
+> The proportion of the variance in the dependent variable that is predictable from the independent variable. While a familiar statistic in regression analysis, it provides limited information about regression models here since less variability in the response variable can cause a lower R2. The goal is typically a maximized R2 (meaning the explanatory variable has a large effect on variability of response variable).
+
+> However, these loss functions are not appropriate for logistic regression (MSE will be negative in this case, for example). Since logistic regression is binary, you typically use the cross-entropy loss function, also called the "log loss" function.
+
+> *Log Loss*
+
+> $LL=-(1/n)Σ_{i=1}^{n}(actual(y)_{i})(log(prob(y)_{i}))+(1-(actual(y)_{i}))(log(1-prob(y)_{i}))$
+
+> The negative average of the log of the error. Error in this case compares the actual classification (from data not in training sample) to the model's predicted probabilities ($prob(y)_{i}$ is probability of model assigning to class 1 and $1-prob(y)_{i}$ prob of assigning to class 0). Luckily, there's a handy function for calculating log loss. Unfortunately, it's not in {caret}, but the package {ModelMetrics} (which loading masks confusionMatrix). An optimal model minimized the log loss function; a log loss of 0 would be a perferct model.
+
+```{r}
+library(ModelMetrics)
+LL<-logLoss(model4) #don't have to specify actual and predicted values when a glmobject has been calculated
+LL
+```
+
+> Alone, the log loss is difficult to interpret, but when compared to other models...
+
+```{r}
+LL1<-logLoss(model1)
+LL2<-logLoss(model2)
+LL3<-logLoss(model3)
+LL4<-logLoss(model4)
+LL1
+LL2
+LL3
+LL4
+```
+
+> ...we see that the model that includes all the features is the best model for this data (has the log loss value closest to 0).
+
+### Data Partitioning/Cross Validation
+
+> As many loss functions as appropriate are tested along with the model. However, you typically want to calculate an out-of-sample error rather than an in-sample error. An in-sample error uses the same data used to train the model. This is because the model is already familiar with this data and was built from it; it is supposed to fit this data well. Instead you want to calculate out-of-sample error, on data new to the model, in order to assess performance, the *generalizability* we need to apply resampling. This is called a cross validation approach.
+
+> In order to do so, you must partition the data before training the model. We originally performed a 60/40 split, but there are several ways you can choose to do this (based on the characteristics of your data) including:
+
+> **Data split** 
+
+> Splitting the data proportionally (what we did). One set is used to train, the other to calculate error. However, the presence of an outlier in either set of the data can significantly affect the accuracy of the model or the estimates of error.
+
+> **Leave One Out** 
+
+> Train the model on all the data minus 1. Use that data point to calculate the prediction error, then repeat on all points until there is an error for each point. While affected by outliers, it can be time-consuming to do by hand (lucky there's a function).
+
+/*Note: In order to use train() in caret for logistic regression with classification and have it actually compute logistic regression, you have to make sure the console can recognize the binary nature of the data, which usually means releveling and ensuring you data is a factor. In our case, we first have to tell it that 0 is the reference:
+```{r}
+d$num<-as.factor(d$num)
+relevel(d$num, ref="0")
+```
+
+```{r}
+set.seed(123)
+train.control <- trainControl(method = "LOOCV") #setting the model to cross validate by leaving one out
+loomodel<-train(num~., data=d, method= "glm", family=binomial, trControl=train.control)
+print(loomodel)
+```
+
+> **K-fold** 
+
+>Split the data into k number of data sets (10 folds or more is ideal but the size of data may limit), train the model on all but one subset, calculate error for that subset, then repeat until all subsets have an error calculated.
+
+```{r}
+set.seed(123)
+train.control <- trainControl(method = "cv", number = 10) #setting the model to cross validate and k=10
+kmodel<-train(num~., data=d, method= "glm", family=binomial, trControl=train.control)
+print(kmodel)
+```
+
+> You can also perform *repeated K-fold cross validation*.
+
+```{r}
+set.seed(123)
+train.control2 <- trainControl(method = "repeatedcv", number = 10, repeats = 3) #setting the model to repeatedly cross validate, k=10, and repeat three times
+repkmodel<-train(num~., data=d, method="glm", family = binomial, trControl=train.control2)
+print(repkmodel) 
+```
+
+> While these validation methods are useful for providing error estimates, these error models are usually discarded in favor of a final one that uses all available data, but errors are still included based on these partitions.
+
+## Challenge 1: Train the Model 
+
+> Now you will try Supervised Machine Learning on your own using the Breast Cancer Wisconsin (Diagnostic). Let's load the data.
+
+```{r}
+library(curl)
+x <- curl("https://raw.githubusercontent.com/cbao2397/DataStorage/main/wdbc10.csv")
+b <- read.csv(x, header = TRUE, sep = ",", stringsAsFactors = FALSE)
+head(b) #loads in dataset
+
+# Refer to our repository for a description of the data, in the file called wdbc.names
+```
+
+> Next, clean the data of NAs. 
+
+```{r}
+b <- na.omit(b)
+```
+
+> Use simple random sampling to split the data and practice training and testing.
+
+```{r}
+library(caret)
+library(rsample) #load in the necessary packages
+
+# Using base R for random sampling
+set.seed(123)  # for reproducibility of the random sample
+index_1 <- sample(1:nrow(b), round(nrow(b) * 0.6)) #indicates we are taking from dataset d, by row and rounding and the 0.6 shows we are taking a 60-40 split
+train_1 <- b[index_1, ] #creates our training set which we use for making the model
+test_1  <- b[-index_1, ] #creates our test set which we will test our final model against
+
+# Using caret package for random sampling
+set.seed(123)  # for reproducibility
+index_2 <- createDataPartition(b$texture1, times = 1, p = 0.6, list = FALSE) #let us sample by texture1
+train_2 <- b[index_2, ]
+test_2  <- b[-index_2, ]
+
+# Using rsample package for random sampling
+set.seed(123)  # for reproducibility
+split_1  <- initial_split(b, prop = 0.6)
+train_2  <- training(split_1)
+test_2  <- testing(split_1)
+```
+
+> Let's use the data set to predict malignant or benign cancer based on texture1 (standard deviation of gray scale values) and perileter1 (perimeter). Fit models with each predictor and also combine them...
+
+```{r}
+library(ggplot2) #load in package to plot our predictions for our models
+library(dplyr) #for transforming and interpreting our results later
+model1 <- glm(Diagnosis ~ texture1, family = "binomial", data = train_2)
+model2 <- glm(Diagnosis ~ peri1eter1, family = "binomial", data = train_2)
+model3 <- glm(
+  Diagnosis ~ texture1 + peri1eter1,
+  family = "binomial", 
+  data = train_2
+  )
+```
+
+>...display the coefficients...
+
+```{r}
+exp(coef(model1))
+exp(coef(model2))
+exp(coef(model3)) 
+```
+
+> ... and plot the models.
+
+```{r}
+plot1 <- ggplot(data = model1, aes(x = texture1, y = Diagnosis))
+plot1 <- plot1 + geom_point()
+plot1 <- plot1 + geom_smooth(method = "glm", formula = y ~ x)
+plot1 #gives our plot, which will show the points of fbs Yes/No with the line representing the predicted values associated with texture1
+
+plot2 <- ggplot(data = model2, aes(x = peri1eter1, y = Diagnosis))
+plot2 <- plot2 + geom_point()
+plot2 <- plot2 + geom_smooth(method = "glm", formula = y ~ x)
+plot2 #gives our plot, which will show the points of fbs Yes/No with the line representing the predicted values associated with perimeter
+
+plot3 <- ggplot(data = model3, aes(x = texture1 + peri1eter1, y = Diagnosis))
+plot3 <- plot3 + geom_point()
+plot3 <- plot3 + geom_smooth(method = "glm", formula = y ~ x)
+plot3 #gives our plot, which will show the points of fbs Yes/No with the line representing the predicted values associated with texture1 and perimeter
+
+```
+
+Let's also create a model with all variables as predictors
+
+```{r, warning=FALSE}
+model4 <- glm(Diagnosis ~ ., family = "binomial", data = train_2)
+```
+
+
+## Challenge 2: Testing the Model 
+
+> Now you will test a model and have it make predictions based on the dataset. 
+
+```{r}
+p <- predict(model3, test_2, type = "response")
+summary(p)
+```
+
+> Create a confusion matrix.
+
+```{r}
+library(ModelMetrics)
+cl <- ifelse(p > 0.5, "1", "0") #We want to categorize the prediction result (into 0 and 1). 
+testRef <- test_2$Diagnosis
+t <- table(cl, testRef)
+print(t)
+caret::confusionMatrix(t, positive = '1') #Create a confusion matrix which will be returned in the result. 
+```
+
+> Don't forget to graph the ROC curve.
+
+```{r}
+library(caTools)
+caTools::colAUC(p, test_2[["Diagnosis"]], plotROC = TRUE)
+```
+
+## Challenge 3: Evaluating the Model 
+
+> Finally, let's evaluate models using loss functions and create cross validated models.
+
+> Let's check the accuracy of the previous models using log loss. Which is the most accurate model?
+
+```{r}
+library(ModelMetrics)
+
+LL1 <-logLoss(model1)
+LL2 <-logLoss(model2)
+LL3 <-logLoss(model3)
+LL4 <-logLoss(model4)
+
+LL1
+LL2
+LL3
+LL4
+```
+
+
+> Now let's try cross-validated models. Fitst, confirm Dichotomous Outcomes by releveling the data.
+
+```{r}
+# Making sure the machine recognizes the binary nature of the data
+b$Diagnosis<-as.factor(b$Diagnosis)
+relevel(b$Diagnosis, ref="0")
+```
+
+> Create a cross-validated Leave One Out logistic regression model.
+
+```{r, warning=FALSE}
+set.seed(123)
+train.control <- trainControl(method = "LOOCV") #setting the model to cross validate by leaving one out
+loomodel2<-train(Diagnosis~., data=b, method= "glm", family=binomial, trControl=train.control)
+print(loomodel2)
+```
+
+> Create a cross-valiated K-fold logistic regression model.
+
+```{r, warning=FALSE}
+set.seed(123)
+train.control <- trainControl(method = "cv", number = 10 )
+kmodel2 <- train(Diagnosis~., data = b, method = 'glm', trControl = train.control, family = "binomial")
+print(kmodel2)
+```
+
+> Create a model with Repeated K-fold cross validation.
+
+```{r, warning=FALSE}
+set.seed(123)
+train.control2 <- trainControl(method = "repeatedcv", number = 10, repeats = 3) #setting the model to repeatedly cross validate, k=10, and repeat three times
+repkmodel2<-train(Diagnosis~., data=b, method="glm", family = binomial, trControl=train.control2)
+print(repkmodel2) 
+```
+
+> Looks like our model is pretty accurate! Nice job!
+
+## Works Cited 
+
+data:https://archive.ics.uci.edu/datasets
+
+https://bradleyboehmke.github.io/HOML/process.html#model-eval
+
+https://lgatto.github.io/IntroMachineLearningWithR/final-notes.html#model-performance-1
+
+https://www.geeksforgeeks.org/cross-validation-in-r-programming/
+
+https://www.analyticsvidhya.com/blog/2020/11/binary-cross-entropy-aka-log-loss-the-cost-function-used-in-logistic-regression/
+
+https://medium.com/@chandu.bathula16/mastering-multi-class-log-loss-a-comprehensive-guide-to-boost-your-machine-learning-skills-fbbc74f63c7#:~:text=Interpretation%20and%20Evaluation%3A&text=Lower%20log_loss%20values%20indicate%20better,higher%20values%20signify%20poorer%20performance.
+
+https://rdrr.io/r/stats/relevel.html
+
+https://www.geeksforgeeks.org/k-fold-cross-validation-in-r-programming/
+
+http://www.sthda.com/english/articles/38-regression-model-validation/157-cross-validation-essentials-in-r/#k-fold-cross-validation
+
