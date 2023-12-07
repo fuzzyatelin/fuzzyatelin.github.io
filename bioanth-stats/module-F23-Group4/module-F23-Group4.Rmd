@@ -1,5 +1,5 @@
 ---
-title: "Group Vignette: Machine Learning"
+title: "Machine Learning"
 author: "Lia Bao, Julianna Dick, Emiley Garcia-Zych, Cat Metcalf, Angelique Lindberg"
 date: "`r Sys.Date()`"
 output: 
