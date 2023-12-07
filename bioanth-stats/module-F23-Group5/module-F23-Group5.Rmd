@@ -1,5 +1,5 @@
 ---
-title: "Bioacoustic Vignette"
+title: "Bioacoustics"
 author: "Reese Hotten-Somers, Ritika Sibal, Sofia Weaver, Paige Becker, Allister Malik"
 date: "2023-11-28"
 output:
