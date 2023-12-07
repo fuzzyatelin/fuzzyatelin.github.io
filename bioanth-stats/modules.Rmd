@@ -129,18 +129,24 @@ Each module listed is linked to another page containing instructions and helpful
 ***
 
 ### [Module 19 - **Spit Chain: Social Network Analysis in Nonhuman Primates**](http://fuzzyatelin.github.io/bioanth-stats/module-F23-Group1/module-F23-Group1.html)
-(Sam Vee, Nicole Merullo, Jess Martin, Bhavya Vadavalli, & Brooke Rothamer)
+(Sam Vee, Nicole Merullo, Jess Martin, Bhavya Vadavalli, & Brooke Rothamer; Fall 2023)
 
-### [Module 20 - **An Introduction to Bayesian Analysis for Biological Anthropologists**](http://fuzzyatelin.github.io/bioanth-stats/module-F23-Group2/Bayesian_Vignette.html)
+### [Module 20 - **An Introduction to Bayesian Analysis for Biological Anthropologists**](http://fuzzyatelin.github.io/bioanth-stats/module-F23-Group2/module-F23-Group2.html)
+(Jimmy Erkens; Fall 2023)
 
 ***
 
-### Week 14 (2023-12-07)
+### **Week 14 (2023-12-07)**
 ***
 
-### [Module 21 - **TBA**]()
+### [Module 21 - **Goodness-of-Fit Tests**](http://fuzzyatelin.github.io/bioanth-stats/module-F23-Group3/module-F23-Group3.html)
+(Erin Anderson, Lillian Holden, Amanda Wu, Emily Yang; Fall 2023)
 
-### [Module 22 - **TBA**]() 
+### [Module 22 - **Machine Learning**](http://fuzzyatelin.github.io/bioanth-stats/module-F23-Group4/module-F23-Group4.html)
+(Lia Bao, Julianna Dick, Emiley Garcia-Zych, Cat Metcalf, Angelique Lindberg; Fall 2023)
+
+### [Module 23 - **Bioacoustics**](http://fuzzyatelin.github.io/bioanth-stats/module-F23-Group5/module-F23-Group5.html)
+(Reese Hotten-Somers, Ritika Sibal, Sofia Weaver, Paige Becker, Allister Malik; Fall 2023)
 
 ***
 
@@ -149,19 +155,19 @@ Each module listed is linked to another page containing instructions and helpful
 ***
 
 ### [**Introduction to GIS and Spatial Analysis in R**](http://fuzzyatelin.github.io/bioanth-stats/module-GIS/module-GIS.html)
-(Prof. Schmitt)
+(Prof. Schmitt; Fall 2019)
 
 ### [**Continuous-Time Movement Modeling**](http://fuzzyatelin.github.io/bioanth-stats/module-F21-Group3/module-F21-Group3.html)
-(Zoe Albert, Natalia Kelley, Frank Short & Victoria Zdanowicz)
+(Zoe Albert, Natalia Kelley, Frank Short & Victoria Zdanowicz; Fall 2021)
 
 ### [**Phylogenetic Comparison between Molecular and Morphological Trees**](http://fuzzyatelin.github.io/bioanth-stats/module-F21-Group4/module-F21-Group4.html)
-(Abby Robinson, Isabel Novick, Marta Hammers, Nirmiti Naik)
+(Abby Robinson, Isabel Novick, Marta Hammers, Nirmiti Naik; Fall 2021)
 
 ### [**Weighted Gene Correlation Network Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-F21-Group1/module-F21-Group1.html)
-(Victoria French, CeCe Gerstenbacher, Warrenkevin Henderson, Elizabeth Varghese)
+(Victoria French, CeCe Gerstenbacher, Warrenkevin Henderson, Elizabeth Varghese; Fall 2021)
 
 ### [**Time Series Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-F21-Group2/module-F21-Group2.html)
-(Gabriel Vicencio, Max Dippel, Diego Alonso Larre and Miguel Rubio Garcia)
+(Gabriel Vicencio, Max Dippel, Diego Alonso Larre and Miguel Rubio Garcia; Fall 2021)
 
 ### [**Discriminant Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-F19-Group1/module-F19-Group1.html)
 (Laura Angley, Laura Brubaker-Whitman, Christian Gagnon, Melissa Zarate; Fall 2019)
