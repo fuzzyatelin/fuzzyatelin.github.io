@@ -132,7 +132,7 @@ test_2  <- d[-index_2, ]
 
 # Using rsample package for random sampling
 set.seed(123)  # for reproducibility
-split_1  <- initial_split(d, prop = 0.6)
+split_1  <- rsample::initial_split(d, prop = 0.6)
 train_2  <- training(split_1)
 test_2  <- testing(split_1)
 ```

@@ -25,11 +25,11 @@ The objective of this module is to introduce you to analysis of biacoustic data 
 
 What is bioacoustics, who uses it, and how is it implemented? 
 
-Broadly, bioacoustics is the the noninvasive crossdisciplinary science of biology and acoustics that studies the production, transmission, and reception of animal sounds. Given the wide range of information that bioacoustics provides, it's used by researchers, physicians, and government agencies. Studying sounds and it's affects on living organisms, can provide powerful insight into natural history, structure and dynamics of ecosystems, species biodiversity, habitat and species health, information climate change, and much more.  
+Broadly, bioacoustics is the the noninvasive crossdisciplinary science of biology and acoustics that studies the production, transmission, and reception of animal sounds. Given the wide range of information that bioacoustics provides, it's used by researchers, physicians, and government agencies. Studying sounds and their affects on living organisms, can provide powerful insight into natural history, structure and dynamics of ecosystems, species biodiversity, habitat and species health, information climate change, and much more.  
 
 ### Typical Frequency Ranges
 
-Different Sounds will happen at different frequencies. This is important to know because you settings may have to change in order to display and analyze your bioacoustic data correctly. Here are a general list of frequency ranges that you might encounter:
+Different sounds will happen at different frequencies. This is important to know because your settings for acoustic range may have to change in order to display and analyze your bioacoustic data correctly. Here are a general list of frequency ranges that you might encounter:
 
 * Humans: 100 Hz to 900 Hz
 * Apes: 900 Hz to 1,400 Hz
@@ -48,15 +48,15 @@ library(bioacoustics)
 library(tools)
 library(randomForest)
 # Unfortunately, ohun is currently under policy violation, so for the time being we are using an archived version. We expect this library to be unarchived after investigation.
-url <- "https://cran.r-project.org/src/contrib/Archive/ohun/ohun_1.0.0.tar.gz"
-install.packages(url, type="source", repos=NULL)
+#url <- "https://cran.r-project.org/src/contrib/Archive/ohun/ohun_1.0.0.tar.gz"
+#install.packages(url, type="source", repos=NULL)
 library(ohun)
 library(viridis)
 ```
 
 ## Importing Data from the internet
 
-The warbleR package comes with the function query_xc which allows you to seamlessly import audio data from [xeno-canto] (https://xeno-canto.org/484847).
+The warbleR package comes with the function `query_xc` which allows you to seamlessly import audio data from the public archive [xeno-canto] (https://xeno-canto.org/484847).
 ```{r, importing, message=FALSE, results='hide'}
 # pulling all Strepera versicolor calls without downloading locally
 df1 = query_xc(qword ='Strepera versicolor type:call cnt:"Australia"', download = FALSE)
@@ -137,7 +137,7 @@ read_all_mp3()
 Now that we've imported, converted, and read our audio files it's time to plot them. This can be done many different ways depending on what information you need out of your bioacoustic information. These primarily graph simply display the wave files but later on we will give you a way to graph analysis onto them. 
 
 
-The simplest of the graphs is plot() which plots wave objects. It displays a black and white graph of audio spikes. This is a waveform,  x axis is the time of the file and the yaxis is a amplitude, or the displacement of a particle
+The simplest of the graphs is `plot()` which plots wave objects. It displays a black and white graph of audio spikes. This is a waveform,  x axis is the time of the file and the yaxis is a amplitude, or the displacement of a particle
 ```{r, plotp}
 # First you call your wave audio file that we converted previously:
 plot(STREPV)
@@ -146,7 +146,7 @@ plot(STREPV)
 plot(STREPV, xlim = c(3, 5)) # xlim is indicating the time limits to narrow the field of analysis
 ```
 
-Plot can also be used with stereo audio files where there is audio from the right and left channel. To see if your data is stereo vs mono you can look at the list from either read_audio or read_all_mp3(). Under the audio file it will state Channels(mono/stereo) and if it is stereo you can plot it this way: 
+Plot can also be used with stereo audio files where there is audio from the right and left channel. To see if your data is stereo vs mono you can look at the list from either `read_audio` or `read_all_mp3()`. Under the audio file it will state `Channels(mono/stereo)` and if it is `stereo` you can plot it this way: 
 ```{r, steroplot}
  # Reads stereo audio and converts it into a wave object. 
 STREPV2 <- read_audio(file.path(getwd(), "Strepera-versicolor-743906.mp3")) 
@@ -158,9 +158,9 @@ STREPV2
 plot(STREPV2)
 ```
 
-This plot graph is similar to the one above but it has one graph for the right channel and one for the left. Stereo and mono wave object do plot differently with plot() so always make sure to confirm what kind of channel your object is. 
+This plot graph is similar to the one above but it has one graph for the right channel and one for the left. Stereo and mono wave object do plot differently with `plot()` so always make sure to confirm what kind of channel your object is. 
 
-While plot() is wonderful spectro() and fspec() are both plotting devices that come with the bioacoustics r package. They are able to generate spectrograms. Spectrograms are a visual representation of the strength or loudness of the audio signal/frequency throughout the wave object. Spectro, true to its name, plots a spectrogram of your data. 
+While `plot()` is wonderful `spectro()` and `fspec()` are both plotting devices that come with the {bioacoustics} r package. They are able to generate *spectrograms*. Spectrograms are a visual representation of the strength or loudness of the audio signal/frequency throughout the wave object. `spectro()`, true to its name, plots a spectrogram of your data:
 ```{r, spectro}
 # First let's look at the parameters within spectrogram:
 ?spectro()
@@ -174,8 +174,9 @@ temp_slice <- c(from = 1, to = 10)
 spectro(STREPV, tlim = temp_slice, FFT_size = 512, ticks_y = ticks) # sets the y axis labeling, in Hz, so its 1 kHz to 100 kHz, in 1 kHz interval
 ```
 
-<br> NOTE: Y axis is frequency in hertz and X axis is time. However spectro() does not have the ability to add x axis label so it should only be used for visualization. 
-Spectro() is wonderful for an elementary spectrogram but there is a better way to visualize the data with fspec(). It is a matrix of amplitude or decibel (dB) values in the time / frequency domain. This function on its own generates only the matris of a spectrogram so in order to visual the data we use image() to display the graph. 
+<br> NOTE: Y axis is frequency in hertz and X axis is time. However `spectro()` does not have the ability to add x axis label so it should only be used for visualization. 
+
+`spectro()` is wonderful for an elementary spectrogram but there is a better way to visualize the data with `fspec()`. It is a matrix of amplitude or decibel (dB) values in the time / frequency domain. This function on its own generates only the matrix of a spectrogram so in order to visual the data we use `image()` to display the graph. 
 
 ```{r, fspec}
 # First let's look at the parameters:
@@ -185,14 +186,15 @@ Spectro() is wonderful for an elementary spectrogram but there is a better way t
 image(fspec(STREPV, tlim = temp_slice, rotate = TRUE)) 
 ```
 
-NOTE: If you have older zero-crossing bat vocalization patterns, then the functions write_zc() and plot_zc() will serve as replacements for fspec() and spectro(). (Add in paragraph after running through spectro and fspec() with an asterisk)
+NOTE: If you have older *zero-crossing* bat vocalization patterns (this is an older way of recording bat vocalizations that are incompatible with `spectro()`), then the functions `write_zc()` and `plot_zc()` will serve as replacements for `fspec()` and `spectro()`. 
+
+***(Add in paragraph after running through spectro and fspec() with an asterisk)***
 
 ## Plotting parts of the data
 
-Now that we have the prepared audiofile in its manipulatative form, we can filter the desired sounds(the bird calls) from background noise(other bird noises, self noise, etc).
+Now that we have the prepared audiofile in its manipulable form, we can filter the desired sounds(the bird calls) from background noise(other bird noises, self noise, etc).
 
-Blob_detection is one function that detects and filters audio and displays them in batches. A "blob" is simply an area that is distinguishable from the background.
-It is a common type of detection/filtration algorithm used not only in audio analysis but also in image processing. Blob detection can be used to filter and identify colors, intensity/brightness, etc.
+`blob_detection()` is one function that detects and filters audio and displays them in batches. A "blob" is simply an area in the spectrogram that is distinguishable from the background noise. This is a common type of detection/filtration algorithm used not only in audio analysis but also in image processing. Blob detection can be used to filter and identify colors, intensity/brightness, etc.
 ```{r blob_detec}
 # blob_detection
 ?blob_detection
@@ -252,9 +254,9 @@ TD
 ![thresh detections](thresh_2.png)\
 ![thresh detections](thresh_3.png)\
 
-You can see that threshold_detection has identified fewer events compared to blob detection. Notice how the extracted data compares between the data frames, because of how each form of detection filters audio, one type may be better to use than the other.
+You can see that `threshold_detection()` has identified fewer events compared to blob detection. Notice how the extracted data compares between the data frames, because of how each form of detection filters audio, one type may be better to use than the other.
 
-Third, the auto_detec function automatically detects the start and end of vocalizations in sound files based on amplitude, duration, and frequency range attributes. 
+Third, the `auto_detec()` function automatically detects the start and end of vocalizations in sound files based on amplitude, duration, and frequency range attributes. 
 ```{r,autodetec, message=FALSE, results='hide'}
 # Let's look at the parameters of the function first
 ?auto_detec
@@ -265,7 +267,7 @@ wl = 300, # Window used internally for bandpass filtering
 path = getwd())
 ```
 
-The packages 'ohun' and 'viridis' allow us to visualize the autodetection points determined above plotted on a spectrogram, this time with labeled axis!
+The packages {ohun} and {viridis} allow us to visualize the autodetection points determined above, plotted on a spectrogram, this time with labeled axes!
 ```{r, ohun, message=FALSE, results='hide'}
 label_spectro(wave = STREPV, #Wave object
   detection = detection[detection$sound.files == "Strepera-versicolor-571957.mp3", ], #Data frame or 'selection.table' with the detection
@@ -278,7 +280,7 @@ label_spectro(wave = STREPV, #Wave object
 ## **Challenge**
 1. Record an audio file of you saying something (around 30 seconds!)
 2. Transfer that file onto your laptop. Save it wherever you'd like!
-3. Read in the mp3 file. 
+3. Read in the `.mp3` file. 
 4. Plot the spectrogram from 10-20 seconds of the audio file.
 5. Run a detection algorithm on your file and plot the detection results.
 

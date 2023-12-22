@@ -165,11 +165,11 @@ In addition to goodness of fit test you can also use the G test for Independence
 **Alternate Hypothesis:** The two variables are dependent.
 
 ```{r Independence}
-library(dplyr)
+library(tidyverse)
 d$Flower.color <- as.factor(d$Flower.color)
 d$Flower.size <- as.factor(d$Flower.size)
 d %>% 
-  count(Flower.color, Flower.size)
+  dplyr::count(Flower.color, Flower.size)
 
 obs <- rbind(c(64, 22, 327, 210), # Small
              c(57, 37, 301, 182)) # Large
@@ -336,13 +336,13 @@ Objectives
 
 The Anderson Darling test is a type of the goodness of fit test used to determine if a sample of data comes follows a specific kind of distribution, more commonly normal distribution. It is a modification of the Kolmogorov-Smirnov test that focuses more on whether or not the tails follow normal distribution, rather than the peak. 
 
-It is important to note that the length of the sample data  must be **greater than 7**, but is advised to be **greater than 20**. The smaller the sample of data, the more likely it is to get false results.
+It is important to note that the length of the sample data *must* be **greater than 7**, but is advised to be **greater than 20**. The smaller the sample of data, the more likely it is to get false results.
 
 Hypotheses 
 <br>
 
-- Null Hypothesis: H0 is the data that follows a specific distribution
-- Alternative Hypothesis: HA is the data that does not follow the specific distribution 
+- Null Hypothesis: H<sub>0</sub> is the data that follows a specific distribution
+- Alternative Hypothesis: H<sub>A</sub> is the data that does not follow the specific distribution 
 
 ## Anderson Darling Test Statistic Equation: 
 
@@ -583,7 +583,7 @@ Because the p-value is less than or equal to 0.05 and the test statistic is grea
 #### Visualizing Results
 ```{r}
 hist(nodistribution, main= "Histogram Showing No Normal Distribution", prob = TRUE, col="red")
-lines(density(nodistribution), col = 4, lwd = 2)
+lines(density(nodistribution), col = "red3", lwd = 2)
 ```
 
 <br>
