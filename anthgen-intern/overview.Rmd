@@ -16,7 +16,7 @@ output:
 </center>
 ***
 
-### Faculty Instructor:
+### Faculty Instructor
   **Christopher A. Schmitt**  (he/they) <br>
   Assistant Professor of Anthropology & Biology <br>
   Core Faculty, Women's Gender & Sexuality Studies Program <br>
@@ -27,14 +27,14 @@ output:
   Phone: 3-5026 <br>
   Twitter: http://www.twitter.com/fuzzyatelin  
   
-### Lab Coordinator:
+### Lab Coordinator
   **Sam Kelley** (she/her) <br>
   Laboratory Coordinator, Department of Anthropology <br>
   Office: Stone Science Building (STO), 675 Commonwealth Ave, Rm 240 <br>
   Email: srkell19[at]bu[dot]edu <br>
   Phone: 3-5521 <br>
   
-### Senior SMAGL Ph.D. student:
+### Senior SMAGL Ph.D. student
   **Melissa Zarate** (she/her) <br>
   Ph.D. Candidate, Department of Anthropology <br>
   Office: Stone Science Building (STO), 675 Commonwealth Ave, Suite 247 <br>
