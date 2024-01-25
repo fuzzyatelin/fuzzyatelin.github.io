@@ -1,0 +1,332 @@
+---
+title: 'AN 902: SMAGL Anthropological Genetics Internship Outline'
+author: "Christopher A Schmitt"
+date: "January 13, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+***
+
+### **Week 01 (January 22, 2024)**
+***
+
+#### An Introduction to the SMAGL Internship
+
+##### Topics for Discussion
+
+We'll discuss general expectations for the course, required trainings and approvals for lab access, and the projects we'll be working on throughout the semester.
+
+##### Lab Practicum
+
+**SMAGL Wet Lab Orientation**: we will walk through the [SMAGL Wet Lab](https://www.bu.edu/anthrop/research/laboratories/sensory-morphology-and-genomic-anthropology-lab-smgal/) and go over the basics of the space, including basic lab safety and etiquette, assign and discuss PPE, and go over what is and is not accessible to you while conducting this internship.
+
+##### SMAGL Lab Meeting
+
+**Introductory Lab Meeting**: we will meet the other members of the SMAGL at our first lab meeting of the semester! Please come prepared to share your goals for the semester, and to set your goals for the coming week.
+
+##### Required Readings
+
+**Mandatory Lab Trainings**: you have already been added to the SMAGL Schmitt Lab on [BioRAFT](https://www.bu.edu/ehs/ehs-topics/about-bioraft/), and have several associated trainigs that are **required** for you to complete **prior to** entering the wet bench space in STO 251. **Please complete these before Monday, January 22!**
+
+***
+
+### **Week 02 (January 29, 2024)**
+***
+
+#### Introduction to Molecular Genetics
+
+##### Topics for Discussion
+
+We'll discuss the basics of molecular genetics - what is DNA and RNA, what is a gene and how does it work, and a brief history of molecular genetics techniques.
+
+##### Lab Practicum
+
+It's time to pipette!  We'll learn some *very* basic lab skills in the wet lab today, including how to clean up a work bench, how to run the BSC, how to run the UV hoods, and how to run the autoclave.
+
+##### SMAGL Lab Meeting
+
+Jimmy Erkens will be introducing us to the green monkeys (*Chlorocebus sabaeus*) of St. Kitts & Nevis this week!
+
+##### Background Readings
+
+Strachan & Read: Chapter 1
+
+##### Project-Specific Readings
+
+* **Fecal Metabarcoding Project**
+    + [Brun et al. 2022. Focal vs. fecal: Seasonal variation in the diet of wild vervet monkeys from observational and DNA metabarcoding data. *Ecology and Evolution* 12(10): e9358.](https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.9358)
+* **Fecal Microbiome Project**
+    + [Clayton et al. 2018. The gut microbiome of nonhuman primates: Lessons in ecology and evolution. *American Journal of Primatology* 80(6): e22867.](https://onlinelibrary.wiley.com/doi/full/10.1002/ajp.22867?casa_token=61srKkUnibUAAAAA%3AJrgQG0lxYGL0erEYALWcbZ9K-BjRpCiSEZ4B-M_S1_SBleLJfirfLtNcsXxQnlh4C6C5uzFoKFVZtw)
+
+
+***
+
+### **Week 03 (February 5, 2024)**
+***
+
+#### TBA
+
+##### Topics for Discussion
+
+##### Lab Practicum
+
+##### SMAGL Lab Meeting
+
+Jess Martin will walk us through her replication attempt of some previous (Illumina-based) vervet gut/fecal microbiome analyses using the R package {dada2} in a sample of wild vervet monkeys (*Chlorocebus pygerythrus*) in South Africa!
+
+##### Background Readings
+
+##### Project-Specific Readings
+
+* **Fecal Metabarcoding Project**
+    + TBA
+* **Fecal Microbiome Project**
+    + TBA
+
+***
+
+### **Week 04 (February 12, 2024)**
+***
+
+#### TBA
+
+##### Topics for Discussion
+
+##### Lab Practicum
+
+##### SMAGL Lab Meeting
+
+##### Background Readings
+
+##### Project-Specific Readings
+
+* **Fecal Metabarcoding Project**
+    + TBA
+* **Fecal Microbiome Project**
+    + TBA
+
+***
+
+### **Week 05 (February 21, 2024; WEDNESDAY)**
+***
+
+#### TBA
+
+##### Topics for Discussion
+
+##### Lab Practicum
+
+##### SMAGL Lab Meeting
+
+##### Background Readings
+
+##### Project-Specific Readings
+
+* **Fecal Metabarcoding Project**
+    + TBA
+* **Fecal Microbiome Project**
+    + TBA
+
+***
+
+### **Week 06 (February 26, 2024)**
+***
+
+#### TBA
+
+##### Topics for Discussion
+
+##### Lab Practicum
+
+##### SMAGL Lab Meeting
+
+##### Background Readings
+
+##### Project-Specific Readings
+
+* **Fecal Metabarcoding Project**
+    + TBA
+* **Fecal Microbiome Project**
+    + TBA
+    
+***
+
+### **Week 07 (March 4, 2024)**
+***
+
+#### TBA
+
+##### Topics for Discussion
+
+##### Lab Practicum
+
+##### SMAGL Lab Meeting
+
+##### Background Readings
+
+##### Project-Specific Readings
+
+* **Fecal Metabarcoding Project**
+    + TBA
+* **Fecal Microbiome Project**
+    + TBA
+
+***
+
+### **Week 08 (March 11, 2024)**
+***
+
+#### **SPRING RECESS: NO FORMAL MEETINGS**
+
+***
+
+### **Week 09 (March 18, 2024)**
+***
+
+**NOTE: Annual Meeting fo the AABA is this week!** We will have Monday meetings, but Prof. Schmitt will be in Los Angeles for the rest of the week and unable to assist in lab.
+
+#### TBA
+
+##### Topics for Discussion
+
+##### Lab Practicum
+
+##### SMAGL Lab Meeting
+
+##### Background Readings
+
+##### Project-Specific Readings
+
+* **Fecal Metabarcoding Project**
+    + TBA
+* **Fecal Microbiome Project**
+    + TBA
+
+***
+
+### **Week 10 (March 25, 2024)**
+***
+
+#### TBA
+
+##### Topics for Discussion
+
+##### Lab Practicum
+
+##### SMAGL Lab Meeting
+
+##### Background Readings
+
+##### Project-Specific Readings
+
+* **Fecal Metabarcoding Project**
+    + TBA
+* **Fecal Microbiome Project**
+    + TBA
+
+***
+
+### **Week 11 (April 1, 2024)**
+***
+
+#### TBA
+
+##### Topics for Discussion
+
+##### Lab Practicum
+
+##### SMAGL Lab Meeting
+
+##### Background Readings
+
+##### Project-Specific Readings
+
+* **Fecal Metabarcoding Project**
+    + TBA
+* **Fecal Microbiome Project**
+    + TBA
+
+***
+
+### **Week 13 (April 8, 2024)**
+***
+
+#### TBA
+
+##### Topics for Discussion
+
+##### Lab Practicum
+
+##### SMAGL Lab Meeting
+
+##### Background Readings
+
+##### Project-Specific Readings
+
+* **Fecal Metabarcoding Project**
+    + TBA
+* **Fecal Microbiome Project**
+    + TBA
+
+***
+
+### **Week 14 (April 15, 2024)**
+***
+
+#### **PATRIOT'S DAY: NO FORMAL MEETINGS**
+
+***
+
+### **Week 15 (April 22, 2024)**
+***
+
+#### TBA
+
+##### Topics for Discussion
+
+##### Lab Practicum
+
+##### SMAGL Lab Meeting
+
+**Fecal Microbiome Project** will present their research results in the SMAGL Lab Meeting (CILSE 106C)
+
+##### Background Readings
+
+##### Project-Specific Readings
+
+* **Fecal Metabarcoding Project**
+    + TBA
+* **Fecal Microbiome Project**
+    + TBA
+
+***
+
+### **Week 15 (April 29, 2024)**
+***
+
+#### TBA
+
+##### Topics for Discussion
+
+##### Lab Practicum
+
+##### SMAGL Lab Meeting
+
+**Fecal Metabarcoding Project** will present their research results in the SMAGL Lab Meeting (CILSE 106C)
+
+##### Background Readings
+
+##### Project-Specific Readings
+
+* **Fecal Metabarcoding Project**
+    + TBA
+* **Fecal Microbiome Project**
+    + TBA
+
+***
+
+### [Back to SMAGL Overview](https://fuzzyatelin.github.io/anthgen-intern/overview.html)
+
+***

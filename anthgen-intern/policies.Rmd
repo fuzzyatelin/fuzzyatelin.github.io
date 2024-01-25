@@ -1,0 +1,253 @@
+---
+title: 'AN 902: SMAGL Policies'
+author: "Christopher A Schmitt"
+date: "January 24, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+***
+
+# General Course Policies
+
+***
+
+## Academic Coduct Code
+
+*The community at Boston University has adopted the following Academic Conduct Code*:
+
+“All students entering Boston University are expected to maintain high standards of academic honesty and integrity.”  Obviously, the full text is more detailed. The expectation is that you will adhere to this code, as your instructor pledges to do as well.  For more information, please visit [this website](http://www.bu.edu/academics/policies/academic-conduct-code/). In keeping with this code, cheating, plagiarism, or any other form of academic dishonesty will not be tolerated (ACC III).<br>
+
+## Communications Policy
+
+Prof. Schmitt will respond to emails within 24 hours from 8am on Monday through 5pm on Friday. You will likely not receive email replies over the weekend. Although email is available to you 24 hours a day 7 days a week, Prof. Schmitt potentially cannot be. Please keep this in mind. If you would like to discuss a confidential issue with Prof. Schmitt, or require special assistance, please request a one-on-one meeting via zoom or in person using his [booking link](https://outlook.office.com/bookwithme/user/093a4c2fe9c645169a97ec740e12f96d@bu.edu?anonymous&ep=pcard).
+
+You must sign your email with the official name you use with the University and/or use your email address registered with the University. If I cannot tell that you are officially a student at BU and enrolled in the internship this semester, I will not reply to your email. *This includes emails sent from cell/mobile phones*.<br>
+
+Please use proper grammar and complete sentences so that your request is clearly understandable.<br>
+
+**The best way to communicate with me regarding issues with the anthropological genetics internship will be via the [SMAGL Slack page](https://schmitt-smgal-bu.slack.com/)!**
+
+
+## Policy on accommodation of religious holidays and other scheduling conflicts  
+
+In compliance with Massachusetts General Laws Chapter 151C, Section 2B, it is the official policy of Boston University to permit any student to undergo a test or examination, without penalty, at a time when that activity would not violate the student's religious creed, unless administering the examination at an alternative time would impose an undue hardship which could not reasonably have been avoided.<br>
+
+All course meeting times and deadlines are noted on this syllabus. It is *your* responsibility to note any conflicts with meetings and due dates and let the instructor know. If you have other scheduling conflicts, please see the guidelines [here](http://www.bu.edu/cfa/files/pdf/BUPolicyonstudentabsenceduetoreligiousobservance.pdf).
+
+## Policy on the final assignment(s)  
+
+Only illness or some other unforeseeable emergency will allow me to grant you a later due date for the final assignments than what is posted on this syllabus. Anticipated events do not count as acceptable reasons for turning in your paper late (even if it is a University-approved one), as you can and should plan ahead and turn your assignment(s) in early.<br>
+
+## Policy on attendance  
+
+*You must come to the course Discussion, Lab Practicum, and SMAGL Lab Meeting every Monday.* All other lab work may be done on a schedule made in agreement with your research group and in accordance with the research needs of SMAGL lab members as indicated in the Sign-Up sheet.
+
+
+## Policy on students with disabilities
+
+In order to adequately accommodate students with disabilities that require additional services, I need to know who you are and what your needs are by **Febuary 16th**. If you delay processing your paperwork, I will not be able to accommodate you until your letter is in my hands. The Office of Disability & Access Services requires a significant amount of lead-time. Do not delay in finalizing and confirming your accommodations. For more information, visit the [Disability & Access Services website](http://www.bu.edu/disability/).
+
+***
+
+# SMAGL Authorship Policy
+
+***
+
+Simply conducting wet bench work like pipetting reagents on a project is, in and of itself, *not* sufficient work to merit authorship on the final paper of a publishable project in the SMAGL. Additionally, your working on a research project as part of your internship in the lab *does not* give you ownership over that project. The projects you are helping with were designed and created by other scholars; please respect that priority.
+
+Due to this, *anything leaving the lab must have the explicit approval of Prof. Schmitt* (i.e., abstracts, presentation on SMAGL research, workshop applications, funding proposals, etc). Never submit any of these items without letting Prof. Schmitt read/edit them first! 
+
+*	If you are submitting an abstract to a meeting related to SMAGL research, please send it to Prof. Schmitt at least 1 week in advance so we have time to go back and forth on edits. 
+*	If you are submitting a funding proposal related to SMAGL research, it should be sent to me at least 3 weeks in advance so we can work together to edit it. 
+*	No scholarly writing (outside course assignments) should be sent to a colleague outside the lab except with Prof. Schmitt's explicit approval.
+
+**Authorship is a privilege, not a right**. When you make a significant *intellectual* or *experimental design* contribution to a project, then you will typically be given acknowledgement for that contribution via authorship on the manuscript. However, in many cases there have often been considerable resources devoted to a project *before* you were involved, and so others may also deserve authorship. Authorship (including order of authors) is always discussed before a manuscript is submitted from the SMAGL. 
+
+**Prof. Schmitt, as PI, reserves the ultimate decision on authorship regarding research outputs from his lab.** 
+
+As a general rule of thumb, to be considered for authorship you need to substantially contribute to *at least three* of the following: 
+
+1.	Intellectual development of the idea and/or experimental design.
+2.	Funding for the work through proposal development and writing.
+3.	Significant time in the field collecting samples and/or in the lab analyzing samples.
+4.	Significant time statistically analyzing data and preparing it for publication.
+5.	Manuscript development including outlining and text writing, as well as contributing to figures/tables.
+
+As Schmitt Lab PI, *I must be a co-author on any publication arising from research conducted in my lab* (including conference abstracts, published thesis/dissertation chapters, etc). Typically, I will be last author and/or corresponding author on research on which I have secured funding or on projects initiated by members of my lab, although there will be cases where, if I’ve contributed a large amount of the intellectual and written contribution, I may choose to be first author.
+
+**Before you discuss initiating a potential collaboration with a member from another research group, *speak with Prof. Schmitt first***. Although it is not required that you speak with him before you make a request of others, he would prefer that you send him a draft of a potential request before you send it to an outside researcher. Requests by others for materials/information from the SMAGL Schmitt Lab *must* be discussed with Prof. Schmitt before they are distributed. If there is a misunderstanding or a conflict with a collaborator – talk to Prof. Schmitt Remember that the lab may have multiple interactions with the potential collaborating lab or individual that could be impacted by your actions. Prof. Schmitt may also know something about the lab/collaborator that would be helpful as you engage with them.
+
+***
+
+# SMAGL Policy on Samples, Data, and Code
+
+***
+
+**No data, code, or samples from the Schmitt Lab may be accessed, moved, used, or shared with anyone outside the lab without the express permission of Prof. Schmitt.** 
+
+This policy includes data, code, and samples already present in the lab, or those generated as part of a project in the lab over which I am PI or supervisor. In keeping with BU policy, all data, code, and samples generated as part of M.S. theses or Ph.D. dissertations over which I am primary supervisor are considered the property of the Schmitt Lab and Boston University. None should be shared without prior discussion with me nor without my express permission. This is both to protect the interests of the lab and BU, as well as the interests of collaborators who may have helped us to collect and generate these data and trust me to curate them appropriate.
+
+Graduate students interested in taking data, code, and samples with them to a subsequent position (even those generated with funding in the graduate student’s name while conducting research in the Schmitt Lab) must discuss the idea of doing so with Prof. Schmitt prior to doing so. If the data, code, and samples would be used to conduct research with another PI, Prof. Schmitt will have to discuss their use with that PI and they will together write an appropriate Material Transfer Agreement (MTA) and Memorandum of Understanding (MOU) concerning how those data are to be used, each of which need to be filed with Boston University and the receiving institution. It is possible that such arrangements cannot easily be made, so please discuss such an idea with Prof. Schmitt prior to making promises with other potential employers or collaborators.
+
+There may be data and code on our servers and samples in the lab from collaborators and other PIs, including Prof. Eva Garrett (SMAGL co-Director), Prof. Cheryl Knott, Dr. Alicia Rich (former Schmitt Lab Postdoctoral Research Associate), Dr. Stephanie Poindexter (former Garrett Lab Postdoctoral Research Associate), Dr. Christian Gagnon (former Schmitt Lab Ph.D. student), Dr. Anthony Di Fiore (external Schmitt Lab collaborator), and Dr. Liz Mallott (external Schmitt Lab collaborator). Under no circumstances should these be accessed, moved, or used without the express permission of Prof. Schmitt or that of the associated PI. Prior to reaching out to those investigators, you *must first discuss any use of such samples with Prof. Schmitt*.
+
+Schmitt Lab data that has previously been published and uploaded to public data repositories (e.g., Dryad, GenBank, Gene Expression Omnibus, etc.) are open to the public and freely available for public use and sharing. In such cases the links to the public repositories should be shared with interested parties, *not the raw data* itself housed on lab servers.
+
+***
+
+# SMAGL Code of Conduct
+
+***
+
+This contract and code of conduct must be discussed and counter-signed with your PI at the beginning of every academic year that you are affiliated with the Schmitt Lab and SMAGL more broadly. The goal of this Code of Conduct is to ensure that the Principles supported by the Schmitt Lab/SMAGL are followed so that we may provide a safe and respectful environment for all members to thrive in while conducting research. This includes staff, faculty, researchers, students, contractors, technicians, visiting classes or students, interns, guests, and volunteers.
+
+## Principles of Schmitt Lab/SMAGL
+
+*	Excellence, integrity, and honesty in all aspects of professional/scientific work.
+*	Professional courtesy, equity, and fairness in working with others.
+*	Freedom to responsibly pursue science without interference or coercion.
+*	Unselfish cooperation in all SMAGL activities.
+*	Legal compliance in all aspects of the SMAGL’s professional activities.
+
+## Responsibilities of Graduate Lab Members
+
+*	Students will behave in a professional and courteous manner at all times while conducting research in the lab or while representing the lab on campus, at conferences, or in the field. 
+*	Each student is expected to conduct him/herself in a spirit of cooperation, respect and thoughtfulness for other students, staff, and faculty in Schmitt Lab/SMAGL. 
+*	Students will take responsibility for the integrity of their contributions to all professional activities related to Schmitt Lab/SMAGL and BU.
+*	Students will acknowledge the names and roles of those who made significant contributions (such as ideas and scientific discussion) to Schmitt Lab/SMAGL activities. 
+*	Students, when representing Schmitt Lab/SMAGL research in professional settings, will limit comments to their areas of expertise when engaged in public discussions about the research, and will clearly distinguish professional comments from their opinions based on personal views. 
+*	Students will take responsibility to act or intercede where possible to prevent misconduct, and will report any suspected misconduct, including fabrication, falsification, or plagiarism of materials to PIs. *	Students will not use alcohol or illegal drugs (or be under the influence) while working in the SMAGL lab space or while actively conducting field research.
+*	Students will abide by all rules and regulations of the lab or field site as set forth by PIs and PRAs.
+*	All students that are part of the lab will attend the Schmitt Lab/SMAGL Lab Meetings unless otherwise engaged in coursework or paid employment.
+*	Any transgression from professional conduct will result in a warning, and, if another similar transgression occurs, may be grounds for expulsion from the lab.
+
+## Grounds for Expulsion
+
+The Schmitt Lab/SMAGL is committed to creating a safe, diverse, inclusive, and equitable work and learning environment free from discrimination, harassment, bullying, microaggressions, or sexual misconduct. Any of these behaviors are grounds for expulsion from the lab. See below for definitions and potential outcomes of these behaviors.
+
+### Discrimination
+
+Discrimination means unequal or unfair treatment in professional opportunities, education, benefits, evaluation, and employment (such as hiring, termination, promotion, compensation) as well as retaliation and various types of harassment. Discriminatory practices can be explicit or implicit, intentional or unintentional. Discrimination on the basis of race, color, ethnicity, religion, sex, national origin, age, ancestry, disability, veteran status, sexual orientation, marital status, parental status, gender identify, gender expression and genetic information is prohibited under federal statutes, and the BU Equal Opportunity/Affirmative Action Policy.
+
+### Harassment
+
+Harassment is a type of discrimination that involves actions, words or physical gestures that could reasonably be perceived to be the cause of another person’s distress or discomfort, or which put the safety of the individual at risk. This includes all behaviors that are unwanted by the recipient, which have the purpose or effect of violating the recipient’s dignity, marginalizing an individual either personally or professionally, or which create an intimidating, hostile, degrading, humiliating or offensive environment. It applies not only to direct interactions, but also other forms of communication including social media. These acts may include epithets, slurs, or negative stereotyping based on gender, race, sexual identity, or other categories, as protected by U.S. federal law. Also included are threatening, intimidating, or hostile acts; stalking; denigrating jokes and displays; or circulation of written or graphic material that denigrates or shows hostility or aversion toward an individual or a group. It becomes unlawful where enduring it becomes a condition of continued employment or when the conduct is severe or pervasive enough that a reasonable person would consider the work environment to be hostile.
+
+### Bullying
+
+Bullying is the repeated use of force, threat, or coercion to abuse, intimidate, or purposefully dominate others in the professional environment based on a real or perceived power imbalance. These actions can include abusive criticism, humiliation, the spreading of rumors, physical and verbal attacks, isolation, undermining, and professional exclusion of individuals through any means. Bullying will not be tolerated in the SMAGL.
+
+### Microaggressions
+
+Microaggressions are the everyday verbal, nonverbal, and environmental slights, snubs, or insults which communicate hostile, derogatory, or negative messages to target persons based solely upon their group membership. These messages may invalidate the group identity or experiential reality of targets, marginalize or demean them on a personal or group level, communicate they are lesser human beings, suggest they do not belong, threaten and intimidate, or relegate them to inferior status and treatment. Micro-aggressions are less overt and are often related to discrimination, harassment or bullying, but may also occur in well-intentioned individuals who are unaware that they have engaged in an offensive act or made an offensive statement. Microaggressions will not be tolerated in the SMAGL.
+
+### Sexual Misconduct
+
+Everyone in the SMAGL has the right to be free from discrimination, unlawful harassment, sexual misconduct, and violence. Title IX is a federal law that gives everyone the right to equal access to education and employment in the absence of sexual harassment and gender discrimination. During your time at the SMAGL you are expected to follow the law, as well as specific guidelines laid out in this Code of Conduct. Anyone working in the SMAGL is expected to conduct themselves in a manner that does not infringe on the rights of others. Violations will result in expulsion from the lab and repercussions at the college and university level.
+
+#### Unacceptable behaviors falling under sexual misconduct
+
+The following behaviors are considered violations of the Schmitt Lab/SMAGL Code of Conduct:
+
+*	Sexual Harassment includes unwelcome sexual advances, requests for sexual favors, other verbal or physical conduct of a sexual nature, and offensive comments related to gender, gender identity and expression, sexual orientation, physical appearance, and body size. 
+*	Sexual Misconduct includes rape, sexual assault, inappropriate touching, sexual battery, sexual exploitation, coercion, and other forms of non-consensual sexual activity. 
+*	Stalking is repeatedly following, harassing, threatening, or intimidating including by telephone, mail, electronic communication, or social media. 
+*	Patterns of inappropriate social contact, such as requesting/assuming inappropriate levels of intimacy with others. 
+*	Dating and Domestic Violence includes emotional, verbal, and economic abuse with or without the presence of physical abuse. 
+*	Retaliation is adverse employment, academic or other actions against anyone reporting a violation of this policy (including reporting to any BU staff, management team member, police, or Title IX office). 
+*	Title IX Violation is the collective term used for incidents involving discrimination, harassment, sexual harassment, sexual misconduct, stalking, dating violence, domestic violence, and/or retaliation. 
+*	Power-based personal violence occurs when an individual asserts power, control, or intimidation in order to harm another. This includes relationship/partner violence, sexual assault, and stalking. 
+*	Deliberately mis-characterizing a person's gender identity, including through the use of a name or pronoun that the person has rejected. 
+*	Gratuitous or off-topic sexual images or behavior in spaces where they’re not appropriate in the lab or the field. 
+*	Violating the Ask Once policy (defined below)
+
+#### Ask Once guideline
+
+It is generally appropriate to ask someone out once, but no more than once. The Schmitt Lab/SMAGL follows Ask Once as a behavioral guideline. The Ask Once guideline means that you can ask someone out once, and if they do not say yes, you cannot ask them out again. Asking out includes hitting on, expressing interest, and making advances. If someone brushes off the advance, does not reciprocate in a positive way, or turns down the advance in any way, it must still be considered a “no”. This guideline is intended to inform the behavior of someone interested in another SMAGL lab member, give people a simple way to judge when they are being harassed, and give SMAGL PIs a tool in which to evaluate lab members’ behavior.
+
+#### Reporting options
+
+**University Title IX Coordinator**
+Kim Randall, Executive Director of Equal Opportunity
+Phone: (617) 353-9286
+Email: krandall[at]bu[dot]edu
+http://www.bu.edu/safety/sexual-misconduct/title-ix-bu-policies/
+http://www.bu.edu/policies/employment/sexual-misconducttitle-ix-policy/
+
+All faculty and TFs (including Postdoctoral Research Associates) are “responsible employees” of BU, and as such are *mandatory reporters* of sexual misconduct or harassment if they hear of such behaviors, and must report them to Kim Randall, the Title IX Coordinator, or a Deputy Title IX Coordinator (see below). See the links above for a comprehensive list of definitions outlining which behaviors qualify. Due to our role as mandatory reporters, we cannot guarantee confidentiality if a student tells us about harassment or sexual misconduct.
+
+Within CAS, mandatory reporting may also be made to the following CAS Deputy Title IX Coordinators:
+
+* Kerry Buglio, Director, CAS Academic Services (Undergraduates)
+kbuglio[at]bu[dot]edu / (617) 353-2400
+* Laura Wipf, Graduate Services Administrator (Graduate students)
+lwipf[at]bu[dot]edu / (617) 353-2696
+
+For confidential reporting of sexual misconduct or harassment, students have a number of resources available to them (listed in the links above), including the Sexual Assault Response and Prevention Center (SARP), (617) 353-SARP, sarp[at]bu[dot]edu; Student Health Services (SHS), and the University Chaplains.
+
+You may also contact the National: National Sexual Assault Hotline, which provides confidential, one-on-one, crisis support 24/7 at (800) 656-4673 
+https://rainn.org/get-help/national-sexual-assault-hotline/
+
+#### What happens after a report is made
+
+Reporting to any of the listed options above (except SARP or the NSAH) will result in disclosure to the BU Title IX office, who will work together alongside the individual who was harmed to determine a course of action. It is important to note again that all BU staff and employees are mandatory reporters to Title IX. This means they are required to report anything they experience, see, or hear about to BU’s Title IX office. The next step in the BU Title IX office process is that an investigator from their office will conduct outreach to the target of the inappropriate behavior, which includes providing resources for support. They will then ask this individual if they want the office to move forward with an investigation. The target is in control of the process at this point. If they do not want an investigation to move forward, it will not. 
+
+The only way that an investigation will move forward without the support of the targeted individual is if: 
+
+1)	The incident was part of a larger pattern at BU (one example is if multiple individuals reported the same person for comments that constituted sexual harassment or discrimination); 
+2)	The accused individual has a history of violence, sexual violence, arrest, or the incident was committed by multiple perpetrators; 
+3)	The incident was perpetrated with a weapon, included physical violence (such as hitting, restraint, pushing, or kicking), or the threat of violence; 
+4)	The affected individual is a minor; 
+In the event of an investigation, if the individual causing harm is from an institution other than BU, the BU Title IX office will coordinate with the Title IX office at the individual’s home institution.
+The target will always be included and informed of the results of their disclosure, any action that is taken, and the results of an investigation. 
+
+#### What to do if someone discloses to you (and you are not a mandatory reporter) 
+
+If a friend in the SMAGL discloses that they have been targeted by sexual misconduct, there are a number of ways in which you can support them: 
+
+*	Tell them that you believe them, that you support them, that it is not their fault, that no one deserves to be targeted by such behavior. 
+*	Provide them with the list of contact information and resources included in this document. 
+*	Ask if they want your help in finding out what their options are. 
+*	Ask what else you can do to help. 
+*	Respect their decision not to talk with you if they don’t want to. 
+
+It is common for survivors of sexual assault not to initially name what happened to them as rape or abuse although they may recognize harmful behavior. Over time, as they feel safer, they may try to understand the experience through talking about it. The support of a friend can be extremely beneficial in the healing process. 
+
+Remember that the well-being of the person who was harmed must be prioritized. Reporting an incident to police or others without the support or knowledge of the person who was harmed could be more traumatic than helpful.
+
+#### What to do if you have been sexually assaulted, or targeted by sexual misconduct 
+
+We support you. You have the right to: 
+
+*	Talk to anyone about your experience; 
+*	To *not* talk to anyone about your experience (silence can make the healing process more difficult, and we encourage you to reach out to a trusted friend or one of the BU resources listed above);
+*	Change your mind about talking to anyone about your experience at any time; 
+*	Report to your PI, the police, or any of the other reporting options listed above; 
+*	Bring someone with you to provide support during reporting or any resulting discussions; 
+*	To seek reasonable accommodations to minimize the impact of the experience on the success of your work in the SMAGL; 
+*	To seek medical assistance, including medical care and a medical forensic exam. 
+
+This is not intended to be a comprehensive list. 
+
+### What to do if you see something inappropriate 
+
+The most effective way we can prevent harm to any member of our community is by looking out for each other. All SMAGL community members are expected to share in the responsibility of creating a safe environment and to act when they witness behavior that could be harmful to others. In any potentially harmful situation there are often other individuals along the way who recognize there is a problem and have the ability to step in and help the targeted individual. 
+
+Bystander intervention training programs provide tools to help bystanders act effectively in the way that works best for them. Active bystanders are individuals who take the responsibility to act when they see something or hear something that makes them uncomfortable. You do not need training in order to be an active bystander. 
+
+Here are some suggestions to take an active role in the safety of our community: 
+
+*	Be aware of your surroundings and social situations. 
+*	If a situation makes you or others uncomfortable, or it looks like someone is being targeted, recognize that this is a problem and that you can be part of the solution to help. 
+*	Take action to diffuse the situation while staying safe; some ideas include checking in with the targeted individual, telling a PI or PRA what is happening, recruiting help from friends, diffusing the situation by distracting those involved (look at that neat thing over there!).
+*	If you are uncertain if there is a problem, check in with the individuals involved to see if they are okay or need help. 
+
+Look out for your friends and lab mates, but never put yourself at risk! 
+
+***
+
+# [Back to SMAGL Overview](https://fuzzyatelin.github.io/anthgen-intern/overview.html)
+
+***

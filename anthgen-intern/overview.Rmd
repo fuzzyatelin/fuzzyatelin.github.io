@@ -1,0 +1,147 @@
+---
+title: 'AN 902: SMAGL Anthropological Genetics Lab Internship'
+author: "Christopher A Schmitt</br>Boston University"
+date: "January 24, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+***
+<center><p><img src="https://scitechdaily.com/images/Genetics-DNA-Molecule-Spinning.gif"></p></center>
+
+***
+<center>
+**Discussion** will be held on **Mondays, 10:00 - 11:00am** in *STO 247*<br>**Lab Practicum** will be held on **Mondays, 11:00 - 12:00pm** in *STO 251* (SMAGL Wet Lab) <br> **SMAGL Lab Meetings** will be held on **Mondays, 4:00 - 5:00pm** in *CILSE 106B*
+</center>
+***
+
+### Faculty Instructor:
+  **Christopher A. Schmitt**  (he/they) <br>
+  Assistant Professor of Anthropology & Biology <br>
+  Core Faculty, Women's Gender & Sexuality Studies Program <br>
+  Office: Stone Science Building (STO), 675 Commonwealth Ave, Rm 247E <br>
+  Office Hours: Mondays 1:00 - 2:00pm, Tuesdays 2:00 - 3:00pm <br>
+  Web: http://www.evopropinquitous.net  <br>
+  Email: caschmit[at]bu[dot]edu <br>
+  Phone: 3-5026 <br>
+  Twitter: http://www.twitter.com/fuzzyatelin  
+  
+### Lab Coordinator:
+  **Sam Kelley** (she/her) <br>
+  Laboratory Coordinator, Department of Anthropology <br>
+  Office: Stone Science Building (STO), 675 Commonwealth Ave, Rm 240 <br>
+  Email: srkell19[at]bu[dot]edu <br>
+  Phone: 3-5521 <br>
+  
+### Senior SMAGL Ph.D. student:
+  **Melissa Zarate** (she/her) <br>
+  Ph.D. Candidate, Department of Anthropology <br>
+  Office: Stone Science Building (STO), 675 Commonwealth Ave, Suite 247 <br>
+  Email: mazarate[at]bu[dot]edu <br>
+  Lab Availability: Mondays <br>
+
+***
+### Course Description
+***
+<p>
+
+<img src="https://www.bu.edu/anthrop/files/2020/08/Thermocyclers-for-PCR-analysis-992x558.jpg" style="float:right" width="300" hspace="20" alt="SMAGL (STO 251) PCR Station" border="0"> 
+
+How do we generate *molecular genetic* data to test hypotheses in ecology and evolution? This Anthropological Genetics internship will familiarize students with basic wet bench molecular genetics techniques in the SMAGL (Sensory Morphology and Anthropological Genomics Lab) to provide a foundational and practical lab experience that may either serve as a primer on basic molecular genetics, or as a platform on which to build their own more complex anthropological genetics research projects for undergraduate Honors projects, master's theses, or dissertations.
+
+Students will learn the necessary theory, background information, and skills to understand, implement, and troubleshoot basic molecular genetics wet bench techniques including DNA extraction, DNA purification, DNA quantitation, PCR amplification and primer design, gel electrophoresis, library preparation, and DNA sequencing using the third-generation [Oxford Nanopore MinION](https://www.youtube.com/watch?v=1_mER5qmaVk) platform. 
+
+In the Spring 2024 semester, interns will learn to use these methods while contributing to two standing SMAGL Schmitt Lab pilot projects:
+
+* Fecal DNA metabarcoding in wild woolly monkeys (*Lagothrix flavicauda* and *Lagothrix lagotricha poeppigii*) to indirectly assess plant and insect content in their diets.
+* Fecal microbiome sequencing in wild woolly monkeys (*Lagothrix flavicauda* and *Lagothrix lagotricha poeppigii*) to learn more about how age, sex, diet, and local ecology may be influence gut microbial composition.
+
+Once lab work is complete, students will work together to analyze their sequencing data and write up 1) a group presentation to be presented at the SMAGL Lab Meeting at the end of the semester, and 2) a draft publication formatted using the online template for the journal *Folia Primatologica*.
+
+This internship is open to students outside of Anthropology willing to learn the methods involved.
+</p>  
+
+***
+
+### [Course Outline](https://fuzzyatelin.github.io/anthgen-intern/outline.html)
+### [SMAGL Wet Lab Basics](https://fuzzyatelin.github.io/anthgen-intern/smagl-basics.html)
+### [Lab Modules/Protocols](https://fuzzyatelin.github.io/anthgen-intern/modules.html)
+### [Resources](https://fuzzyatelin.github.io/anthgen-intern/resources.html)
+### [SMAGL Policies](https://fuzzyatelin.github.io/anthgen-intern/policies.html)
+
+***
+### Prerequisites
+***
+
+For undergraduate students: CAS AN 102 or CAS BI 107/108 or CAS AN/WS 233, and AN/BI 333 or AN/BI 551, and/or consent of instructor. <br><br>
+
+For graduate students: enrollment in the M.A./M.S. or Ph.D. programs in the Departments of Anthropology or Biology, and/or consent of instructor.<br><br>
+
+For all students, at least one semester of introductory genetics is recommended, but not required. Prior wet bench experience and/or experience programming is helpful, but also not required. <br><br>
+
+This course may fulfill the Genetics/Genomics subdisciplinary requirement for the Biological Anthropology Track in the Ph.D. in Anthropology.
+
+***
+### Course Format
+***
+This is a 4 credit internship course. Discussion will be held once a week for a total of 1 hour, followed by a lab practicum for 1 hour, and 1 hour of lab meeting. The remainder of the internship will be spent on readings and conducting wet bench research. Please bring laptops or tablets to class loaded with appropriate software for course exercises (these can be found in Resources, above; packages required for the week will be noted in the Modules).
+
+***
+### Assessment
+***
+Performance in the class will be assessed on a **gradeless** basis for the semester, with only a single final grade being assigned in consultation with each student. Assessment will entail the following assignments and considerations:
+<ol>
+1. Regular attendance and class participation (10%).  
+2. On-time completion of all assigned [**Readings**](https://fuzzyatelin.github.io/anthgen-intern/outline.html) prior to Monday meetings (10%).
+3. One group-based wet bench **genetics research project**, chosen in consultation with the instructor, comprised of:
+    + One complete **group-written lab report**, formatted as an *html* document and written in either Quarto or RMarkdown, detailing the course of research for the group (complete with images, tables, analytical code, results, interpretation, etc) (25%)
+    + One **group presentation and group-written R-based lab report** demonstrating the the course of research over the semester. Group participation will be a large part of evaluation (25%).
+    + One draft manuscript, using the *Folia Primatologica* template, writing up the research project. (25%)
+
+4. A final [**Self Evaluation**](https://fuzzyatelin.github.io/anthgen-intern/selfevaluation.html) written by *you* arguing for the grade you have earned through your progress and the quality of your work in the class (5%).
+</ol>
+
+***
+### Required Texts
+***
+
+::::{style="display: flex;"}
+
+:::{}
+
+  
+<center><p><img src="https://brandflymedia.com/wp-content/uploads/2023/12/Human-Molecular-Genetics-5th-Edition.jpg" height="250" width="200"></p></center><br>
+Strachan T, Read AP. 2018. <i>Human Molecular Genetics, 5th Edition</i>. New York: Garland Science.
+
+:::
+
+:::{}
+  
+<center><p><img src="https://m.media-amazon.com/images/I/91FZBjQnO6L._AC_UF894,1000_QL80_.jpg" height="250" width="200"></p></center></ul><br>
+Jobling M, Hollox E, Hurles M, Kivisiid T, Tyler-Smith C. 2013. <i>Human Evolutionary Genetics, 2nd Edition</i>. New York: Garland Science.
+
+:::
+
+::::
+
+*Jobling* available electronically [here](https://library.lol/main/608F245536F637C332F014E4531BFC00); *Strachan & Read* available electronically [here](https://library.lol/main/9D53C38CA12509F137271520B1628762); both texts are also available at [Amazon.com](https://www.amazon.com/).
+
+***
+### Learning Objectives
+***
+By the end of this course, you should:
+<ul>
+<li>be familiar with key concepts and methods in basic molecular genetics;</li>
+
+<li>have a facility with <b>modern wet bench tools for genetic analysis</b>, and be able to apply "best practices" in the lab-based genetics approaches covered;</li>
+
+<li>be comfortable <b>writing simple code</b> for genetic data management, statistical analysis, visualization, and more specialized applications;</li>
+
+<li>know how to design and implement a <b>molecular genetic research project</b> from DNA extraction to cleanup to library preparation to sequencing, and then from data acquisition to analysis to presentation;</li>
+
+<li>be able to <b>accurately assess, critique, and reproduce existing published works</b> that use molecular genetic techniques;</li>
+
+<li>be able to <b>work as part of an effective team</b> to problem solve and implement effective wet bench genetics methods towards a group research project goal;</li>
+
+<li>and be able to apply all of these tools to <b>questions of interest in evolutionary anthropology</b>.</li></ul><br>
