@@ -47,11 +47,11 @@ It's time to pipette!  We'll learn some *very* basic lab skills in the wet lab t
 
 ##### SMAGL Lab Meeting
 
-Jimmy Erkens will be introducing us to the green monkeys (*Chlorocebus sabaeus*) of St. Kitts & Nevis this week!
+Schmitt Lab first-year Ph.D. student Jimmy Erkens will be introducing us to the green monkeys (*Chlorocebus sabaeus*) of St. Kitts & Nevis this week!
 
 ##### Background Readings
 
-Strachan & Read: Chapter 1
+Strachan & Read: Chapter 1 (Basics Principles of Nucleic Acid Structure and Gene Expression)
 
 ##### Project-Specific Readings
 
@@ -66,59 +66,81 @@ Strachan & Read: Chapter 1
 ### **Week 03 (February 5, 2024)**
 ***
 
-#### TBA
+#### The Basics of Doing Genetics
 
 ##### Topics for Discussion
 
+We'll discuss an overview of the basics of genetics lab work - from extraction to sequencing, with a focus on some key methodological considerations for the generation of DNA sequences critical for analyses relevant to the projects we plan on doing this semester.
+
 ##### Lab Practicum
+
+This week in lab, we'll go over the basics of where things are in the lab that we'll use in our projects this semester, and why. We'll look briefly at relevant protocols, and identify and discuss potential issues with workflow in the lab before, in the coming weeks, diving into actual labwork!
 
 ##### SMAGL Lab Meeting
 
-Jess Martin will walk us through her replication attempt of some previous (Illumina-based) vervet gut/fecal microbiome analyses using the R package {dada2} in a sample of wild vervet monkeys (*Chlorocebus pygerythrus*) in South Africa!
+Schmitt Lab second-year Ph.D. student Jess Martin will walk us through her replication attempt of some previous (Illumina-based) vervet gut/fecal microbiome analyses using the R package {dada2} in a sample of wild vervet monkeys (*Chlorocebus pygerythrus*) in South Africa!
 
 ##### Background Readings
+
+Strachan & Read: Chapter 6 (Core DNA Technologies: Amplifying DNA, Nucleic Acid Hybridization, and DNA Sequencing)
+
+Jobling: Chapter 4 (Finding and Assaying Genome Diversity)
 
 ##### Project-Specific Readings
 
 * **Fecal Metabarcoding Project**
-    + TBA
+    + [Mallott et al. 2018. *trnL* outperforms *rbcL* as a DNA metabarcoding marker when compared with the observed plant component of the diet of wild white-faced capuchins (*Cebus capucinus*, Primates). *PLoS ONE* 13(6): e0199556](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0199556)
+    + [Pinto et al. 2023. Promise and limitations of 18S genetic screening of extracted fecal DNA from wild capuchins. *Frontiers in Ecology and Evolution* 11: fevo.2023.1176681](https://www.frontiersin.org/articles/10.3389/fevo.2023.1176681/full)
 * **Fecal Microbiome Project**
-    + TBA
+    + [Song et al. 2016. Preservation Methods Differ in Fecal Microbiome Stability, Affecting Suitability for Field Studies. *mSystems* 1(3): 10.1128/msystems.00021-16](https://journals.asm.org/doi/full/10.1128/msystems.00021-16)
+    + [Hayakawa et al. 2018. Improving the standards for gut microbiome analysis of fecal samples: insights from the field biology of Japanese macaques on Yakushima Island. *Primates* 59: 423–436](https://link.springer.com/article/10.1007/s10329-018-0671-x)
 
 ***
 
 ### **Week 04 (February 12, 2024)**
 ***
 
-#### TBA
+#### Extracting DNA from Feces (or Whatever)
 
 ##### Topics for Discussion
 
+We'll discuss poop and what we can get from it. Along the way, we'll also dig in to other sample types and what they might be good for.
+
 ##### Lab Practicum
+
+We'll get familiar with the SMAGL Extraction Workstation, the extraction kit we'll be working with, and our extraction protocol! Your job for this week is to complete the extractions for your project. 
 
 ##### SMAGL Lab Meeting
 
+Dr. Evelyn Pain, Schmitt Lab Postdoctoral Research Associate and Postdoctoral Associate Lecturer in the Department of Biology, will present on exciting new work that we'll be conducting on yellow-tailed woolly monkeys (*Lagothrix flavicauda*) in Perú with the aid of funding from The Leakey Foundation and the National Geographic Society.
+
 ##### Background Readings
+
+Jobling: Chapter 4 (Finding and Assaying Genome Diversity)
 
 ##### Project-Specific Readings
 
 * **Fecal Metabarcoding Project**
-    + TBA
+    + [Ando et al. 2020. Methodological trends and perspectives of animal dietary studies by noninvasive fecal DNA metabarcoding. *Environmental DNA* 2(4): 391-406.](https://onlinelibrary.wiley.com/doi/full/10.1002/edn3.117)
+    + [McInnes et al. 2016. Optimised scat collection protocols for dietary DNA metabarcoding in vertebrates. *Methods in Ecology and Evolution* 8(2): 192-202.](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12677)
 * **Fecal Microbiome Project**
-    + TBA
+    + [Videnska et al. 2019. Stool sampling and DNA isolation kits affect DNA quality and bacterial composition following 16S rRNA gene sequencing using MiSeq Illumina platform. *Scientific Reports* 9: 13837.](https://www.nature.com/articles/s41598-019-49520-3)
+    + [Elie et al. 2023. Comparison of DNA extraction methods for 16S rRNA gene sequencing in the analysis of the human gut microbiome. *Scientific Reports* 13: 10279](https://www.nature.com/articles/s41598-023-33959-6)
 
 ***
 
 ### **Week 05 (February 21, 2024; WEDNESDAY)**
 ***
 
-#### TBA
+#### Quantifying Genetic Materials
 
 ##### Topics for Discussion
 
 ##### Lab Practicum
 
 ##### SMAGL Lab Meeting
+
+**No lab meeting this week due to scheduling shift**
 
 ##### Background Readings
 
@@ -142,6 +164,8 @@ Jess Martin will walk us through her replication attempt of some previous (Illum
 
 ##### SMAGL Lab Meeting
 
+Schmitt Lab fourth-year Ph.D. student and NSF Graduate Research Fellow Mel Zarate will discuss her NSF INTERN-funded work at the Broad Institute as part of her work with the Zoo New England Conservation Genomics Lab.
+
 ##### Background Readings
 
 ##### Project-Specific Readings
@@ -163,6 +187,8 @@ Jess Martin will walk us through her replication attempt of some previous (Illum
 ##### Lab Practicum
 
 ##### SMAGL Lab Meeting
+
+Lab meeting this week will entail practice presentations by lab members giving podium or poster presentations at the annual meeting of the American Association of Biological Anthropologists (AABA) in Los Angeles. Presenters include Dr. Evelyn Pain, Mel Zarate, Jimmy Erkens, and Sofia Weaver.
 
 ##### Background Readings
 
@@ -195,6 +221,8 @@ Jess Martin will walk us through her replication attempt of some previous (Illum
 
 ##### SMAGL Lab Meeting
 
+Garrett Lab undergraduate Biology major Luke Buza will present his Honors Thesis, currently being conducted under the advisement of Dr. James Traniello in the Department of Biology.
+
 ##### Background Readings
 
 ##### Project-Specific Readings
@@ -217,6 +245,8 @@ Jess Martin will walk us through her replication attempt of some previous (Illum
 
 ##### SMAGL Lab Meeting
 
+Schmitt Lab undergraduate Biology major, UROP student, and research-for-credit student Sofia Weaver will present on her prospective summer research project studying the Y chromosome of wild yellow-tailed woolly monkeys at the Wildlife Conservation Lab at Los Amigos in Perú.
+
 ##### Background Readings
 
 ##### Project-Specific Readings
@@ -231,15 +261,22 @@ Jess Martin will walk us through her replication attempt of some previous (Illum
 ### **Week 11 (April 1, 2024)**
 ***
 
-#### TBA
+#### Sequencing using the ONT MinION
 
 ##### Topics for Discussion
 
+We'll discuss what MinION sequencing is, how it works, and the benefits and drawbacks of this particular sequencing platform.
+
 ##### Lab Practicum
+
+We'll work together to finish library preparation and be present while Mel Zarate walks us through our course sequencing reaction on the MinION Mk1B!
 
 ##### SMAGL Lab Meeting
 
+Schmitt Lab undergraduate Anthropology major and research-for-credit student Reese Hotten-Somers will present on her prospective summer project studying whether the fecal microbiome of wild vervet monkeys can be used to assess SIV infection status.
+
 ##### Background Readings
+
 
 ##### Project-Specific Readings
 
@@ -260,6 +297,8 @@ Jess Martin will walk us through her replication attempt of some previous (Illum
 ##### Lab Practicum
 
 ##### SMAGL Lab Meeting
+
+TBA
 
 ##### Background Readings
 
