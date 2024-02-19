@@ -1,7 +1,7 @@
 ---
 title: 'AN 902: SMAGL Anthropological Genetics Internship Outline'
 author: "Christopher A Schmitt"
-date: "January 13, 2024"
+date: "February 18, 2024"
 output: 
   rmdformats::readthedown:
     toc_depth: 5
@@ -100,6 +100,13 @@ Jobling: Chapter 4 (Finding and Assaying Genome Diversity)
 ### **Week 04 (February 12, 2024)**
 ***
 
+#### Cancelled due to illness.
+
+***
+
+### **Week 05 (February 21, 2024; WEDNESDAY)**
+***
+
 #### Extracting DNA from Feces (or Whatever)
 
 ##### Topics for Discussion
@@ -108,15 +115,17 @@ We'll discuss poop and what we can get from it. Along the way, we'll also dig in
 
 ##### Lab Practicum
 
-We'll get familiar with the SMAGL Extraction Workstation, the extraction kit we'll be working with, and our extraction protocol! Your job for this week is to complete the extractions for your project. 
+Please review the [SMAGL Microbiome Extractions: DNeasy PowerLyzer PowerSoil Kit 18FEB24](https://docs.google.com/document/d/10Pe05ih58cTuLuiQI-9DQE4XmkOcX_zY1uR5cgMGRZE/edit#heading=h.mlr9l8hl37ip) (request access if this is not accessible to you). Please copy this protocol to you lab notebook for the internship and make modifications to it there (NOT to the original document!).
+
+We will walk through the protocol in lab this week in preparation for your performing extractions this week!
 
 ##### SMAGL Lab Meeting
 
-Dr. Evelyn Pain, Schmitt Lab Postdoctoral Research Associate and Postdoctoral Associate Lecturer in the Department of Biology, will present on exciting new work that we'll be conducting on yellow-tailed woolly monkeys (*Lagothrix flavicauda*) in Perú with the aid of funding from The Leakey Foundation and the National Geographic Society.
+**No lab meeting this week due to scheduling shift**
 
 ##### Background Readings
 
-Jobling: Chapter 4 (Finding and Assaying Genome Diversity)
+Strachan & Reed: Chapter 9 (Uncovering the Architecture and Workings of the Human Genome)
 
 ##### Project-Specific Readings
 
@@ -129,38 +138,18 @@ Jobling: Chapter 4 (Finding and Assaying Genome Diversity)
 
 ***
 
-### **Week 05 (February 21, 2024; WEDNESDAY)**
-***
-
-#### Quantifying Genetic Materials
-
-##### Topics for Discussion
-
-##### Lab Practicum
-
-##### SMAGL Lab Meeting
-
-**No lab meeting this week due to scheduling shift**
-
-##### Background Readings
-
-##### Project-Specific Readings
-
-* **Fecal Metabarcoding Project**
-    + TBA
-* **Fecal Microbiome Project**
-    + TBA
-
-***
-
 ### **Week 06 (February 26, 2024)**
 ***
 
-#### TBA
+#### Quantitating Genetic Material
 
 ##### Topics for Discussion
 
+We'll talk about how we actually quantify how much genetic material is in a sample, and why that's important. We'll also talk about sample contamination, how we detect it, troubleshoot it, and get rid of it. 
+
 ##### Lab Practicum
+
+We'll walk through the Quantitation Station today, and run an example sample through the dsDNA protocol on the Quantus and the NanoDrop. You'll be responsible for quantitating your extractions this week!
 
 ##### SMAGL Lab Meeting
 
@@ -168,12 +157,17 @@ Schmitt Lab fourth-year Ph.D. student and NSF Graduate Research Fellow Mel Zarat
 
 ##### Background Readings
 
+Strachan & Reed: Chapter 7 (Analyzing the Structure and Expression of Genes and Genomes)
+
 ##### Project-Specific Readings
 
+* **Fecal Metabarcoding Project** & **Fecal Microbiome Project**
+    + [Sedlackova et al. 2013. Fragmentation of DNA affects the accuracy of the DNA quantitation by the commonly used methods. *Biological Procedures Online* 15:5.](https://link.springer.com/article/10.1186/1480-9222-15-5)
+    + [Nakayama et al. 2016. Pitfalls of DNA Quantification Using DNA-Binding Fluorescent Dyes and Suggested Solutions. *PLoS ONE* 11(3): e0150528](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0150528) 
 * **Fecal Metabarcoding Project**
-    + TBA
+    + [Matthews et al. 2020. A comparison of fecal sampling and direct feeding observations for quantifying the diet of a frugivorous primate. (Current Zoology 66(4):333-343.)](https://academic.oup.com/cz/article/66/4/333/5643760)
 * **Fecal Microbiome Project**
-    + TBA
+    + [Clayton et al. 2018. Associations Between Nutrition, Gut Microbiome, and Health in A Novel Nonhuman Primate Model. *Scientific Reports* 8:11159.](https://www.nature.com/articles/s41598-018-29277-x)
     
 ***
 

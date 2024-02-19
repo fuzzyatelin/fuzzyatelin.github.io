@@ -1,0 +1,33 @@
+---
+title: "AN 902: SMAGL Anthropological Genetics Internship Protocols"
+author: "Christopher A Schmitt"
+date: "February 18, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+***
+
+<center>
+
+<font size="+2"><b>Welcome to your SMAGL Protocols!</b></font></center><br>
+
+<center><p><img src="https://media4.giphy.com/media/B7YsPcMtLFE5y/giphy.gif" style="border:5px solid black"></p>
+</center><br>  
+
+<center>
+Each protocol listed is linked to Google Doc page containing the most recently updated protocol used in the SMAGL. Homework assignments on weeks when Protocols are assigned are real-world applications of these procedures, which you'll be preliminarily guided through during our Practicum. Copies of all Protocols with notes relating to who did what and when are **required** in all Project Lab Notebooks!
+
+</center>
+***
+
+# [SMAGL Microbiome Extractions: DNeasy PowerLyzer PowerSoil Kit 18FEB24](https://docs.google.com/document/d/10Pe05ih58cTuLuiQI-9DQE4XmkOcX_zY1uR5cgMGRZE/edit#heading=h.mlr9l8hl37ip)
+
+***
+
+***
+
+# [Back to SMAGL Overview](https://fuzzyatelin.github.io/anthgen-intern/overview.html)
+
+***

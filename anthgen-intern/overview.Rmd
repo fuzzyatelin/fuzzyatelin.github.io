@@ -1,7 +1,7 @@
 ---
 title: 'AN 902: SMAGL Anthropological Genetics Lab Internship'
 author: "Christopher A Schmitt</br>Boston University"
-date: "January 24, 2024"
+date: "February 18, 2024"
 output: 
   rmdformats::readthedown:
     toc_depth: 5
@@ -66,7 +66,7 @@ This internship is open to students outside of Anthropology willing to learn the
 
 ### [Course Outline](https://fuzzyatelin.github.io/anthgen-intern/outline.html)
 ### [SMAGL Wet Lab Basics](https://fuzzyatelin.github.io/anthgen-intern/smagl-basics.html)
-### [Lab Modules/Protocols](https://fuzzyatelin.github.io/anthgen-intern/modules.html)
+### [Lab Protocols](https://fuzzyatelin.github.io/anthgen-intern/protocols.html)
 ### [Resources](https://fuzzyatelin.github.io/anthgen-intern/resources.html)
 ### [SMAGL Policies](https://fuzzyatelin.github.io/anthgen-intern/policies.html)
 
