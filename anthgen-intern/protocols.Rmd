@@ -1,7 +1,7 @@
 ---
 title: "AN 902: SMAGL Anthropological Genetics Internship Protocols"
 author: "Christopher A Schmitt"
-date: "February 18, 2024"
+date: "February 25, 2024"
 output: 
   rmdformats::readthedown:
     toc_depth: 5
@@ -22,9 +22,24 @@ Each protocol listed is linked to Google Doc page containing the most recently u
 </center>
 ***
 
-# [SMAGL Microbiome Extractions: DNeasy PowerLyzer PowerSoil Kit 18FEB24](https://docs.google.com/document/d/10Pe05ih58cTuLuiQI-9DQE4XmkOcX_zY1uR5cgMGRZE/edit#heading=h.mlr9l8hl37ip)
+# Extraction Protocols
 
 ***
+
+
+## [SMAGL Microbiome Extractions: DNeasy PowerLyzer PowerSoil Kit 18FEB24](https://docs.google.com/document/d/10Pe05ih58cTuLuiQI-9DQE4XmkOcX_zY1uR5cgMGRZE/edit#heading=h.mlr9l8hl37ip)
+
+## [SMAGL Fecal DNA Extractions: QIAGEN Stool Kit 25FEB24](https://docs.google.com/document/d/1E6bTLR_c8ge6NCUmiqmiPIpWrof9RDYa98Jtfvj5Wlw/edit?usp=sharing)
+
+***
+
+# Quantitation Protocols
+
+***
+
+## [dsDNA Quantus Protocol]() (coming soon)
+
+## [Nanodrop Protocol]() (coming soon)
 
 ***
 

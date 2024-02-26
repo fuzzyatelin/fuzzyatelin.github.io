@@ -115,9 +115,13 @@ We'll discuss poop and what we can get from it. Along the way, we'll also dig in
 
 ##### Lab Practicum
 
+* **Fecal Microbiome Project**
 Please review the [SMAGL Microbiome Extractions: DNeasy PowerLyzer PowerSoil Kit 18FEB24](https://docs.google.com/document/d/10Pe05ih58cTuLuiQI-9DQE4XmkOcX_zY1uR5cgMGRZE/edit#heading=h.mlr9l8hl37ip) (request access if this is not accessible to you). Please copy this protocol to you lab notebook for the internship and make modifications to it there (NOT to the original document!).
 
-We will walk through the protocol in lab this week in preparation for your performing extractions this week!
+* **Fecal Metabarcoding Project**
+Please review the [SMAGL Fecal DNA Extractions: QIAGEN Stool Kit 25FEB24](https://docs.google.com/document/d/1E6bTLR_c8ge6NCUmiqmiPIpWrof9RDYa98Jtfvj5Wlw/edit?usp=sharing) (request access if this is not accessible to you). Please copy this protocol to you lab notebook for the internship and make modifications to it there (NOT to the original document!).
+
+We will walk through the protocols in lab this week in preparation for your performing extractions this week!
 
 ##### SMAGL Lab Meeting
 
@@ -149,7 +153,7 @@ We'll talk about how we actually quantify how much genetic material is in a samp
 
 ##### Lab Practicum
 
-We'll walk through the Quantitation Station today, and run an example sample through the dsDNA protocol on the Quantus and the NanoDrop. You'll be responsible for quantitating your extractions this week!
+We'll walk through the **Quantitation Station** today, and run an example sample through the dsDNA protocol on the Quantus and the NanoDrop. You'll be responsible for quantitating your extractions when they are ready to do so!
 
 ##### SMAGL Lab Meeting
 
