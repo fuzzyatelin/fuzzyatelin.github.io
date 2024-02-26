@@ -37,7 +37,7 @@ Each protocol listed is linked to Google Doc page containing the most recently u
 
 ***
 
-## [dsDNA Quantus Protocol]() (coming soon)
+## [dsDNA Quantus Protocol](https://docs.google.com/document/d/1mqOyFYX_8ZY3a7U-JGjQgyJ6j-iJUcMDZ3EltvDGJh4/edit?usp=sharing)
 
 ## [Nanodrop Protocol]() (coming soon)
 
