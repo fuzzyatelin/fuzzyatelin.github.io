@@ -178,11 +178,15 @@ Strachan & Reed: Chapter 7 (Analyzing the Structure and Expression of Genes and 
 ### **Week 07 (March 4, 2024)**
 ***
 
-#### TBA
+#### Checking in on Extractions/Quantitation
 
 ##### Topics for Discussion
 
+Today we'll do a debrief on extractions and quantitations, and discuss where we could improve our lab practice in anticipation of next week, when we'll go over PCR (which particularly requires strong sterile lab methods).
+
 ##### Lab Practicum
+
+If we haven't already, we'll work on quantitating our newly-finished extractions, and will potentially help each other work on our clean/sterile lab techniques. We'll also gear up for PCR and gel electrophoresis for the coming weeks!
 
 ##### SMAGL Lab Meeting
 
@@ -192,10 +196,7 @@ Lab meeting this week will entail practice presentations by lab members giving p
 
 ##### Project-Specific Readings
 
-* **Fecal Metabarcoding Project**
-    + TBA
-* **Fecal Microbiome Project**
-    + TBA
+* [Chaves et al. 2006. Noninvasive genetic sampling of endangered muriqui (Primates, Atelidae): efficiency of fecal DNA extraction. *Genetics and Molecular Biology* 29(4)](https://www.scielo.br/j/gmb/a/JHZTbnTm56XCvJ7YhfLdCRc/?lang=en) 
 
 ***
 
@@ -211,17 +212,23 @@ Lab meeting this week will entail practice presentations by lab members giving p
 
 **NOTE: Annual Meeting fo the AABA is this week!** We will have Monday meetings, but Prof. Schmitt will be in Los Angeles for the rest of the week and unable to assist in lab.
 
-#### TBA
+#### PCR: The Polymerase Chain Reaction
 
 ##### Topics for Discussion
 
+We'll discuss the importance of PCR, and it's use in molecular genetics to isolate regions of interest for genetic analysis. We'll also discuss methods important to our own work - in particular the ups and downs of primers used for microbiome and metabarcoding research. Finally, we'll discuss designing our own primers, and what that may involve.
+
 ##### Lab Practicum
+
+We'll go over basic PCR technique, including using the PCR hood, the importance of sterile techniques to PCR methods in particular, and the use of the thermocyclers.
 
 ##### SMAGL Lab Meeting
 
 Garrett Lab undergraduate Biology major Luke Buza will present his Honors Thesis, currently being conducted under the advisement of Dr. James Traniello in the Department of Biology.
 
 ##### Background Readings
+
+TBA
 
 ##### Project-Specific Readings
 
@@ -235,17 +242,23 @@ Garrett Lab undergraduate Biology major Luke Buza will present his Honors Thesis
 ### **Week 10 (March 25, 2024)**
 ***
 
-#### TBA
+#### Gel Electrophoresis
 
 ##### Topics for Discussion
 
+We'll discuss gel electrophesis and its various uses in genetics - for our own part, we'll be particularly interested in its uses for confirming the effectiveness of our PCR methods.
+
 ##### Lab Practicum
+
+We'll learn how to create an agarose gel for use in our BlueGel rigs, and run a preliminary gel on some previously-generated PCR products in the lab.
 
 ##### SMAGL Lab Meeting
 
 Schmitt Lab undergraduate Biology major, UROP student, and research-for-credit student Sofia Weaver will present on her prospective summer research project studying the Y chromosome of wild yellow-tailed woolly monkeys at the Wildlife Conservation Lab at Los Amigos in Perú.
 
 ##### Background Readings
+
+TBA
 
 ##### Project-Specific Readings
 
@@ -259,15 +272,15 @@ Schmitt Lab undergraduate Biology major, UROP student, and research-for-credit s
 ### **Week 11 (April 1, 2024)**
 ***
 
-#### Sequencing using the ONT MinION
+#### Library Prep and Sequencing using the ONT MinION
 
 ##### Topics for Discussion
 
-We'll discuss what MinION sequencing is, how it works, and the benefits and drawbacks of this particular sequencing platform.
+We'll discuss what MinION sequencing is, how it works, and the benefits and drawbacks of this particular sequencing platform, as well as how to prepare our samples for sequencing via the library prep process.
 
 ##### Lab Practicum
 
-We'll work together to finish library preparation and be present while Mel Zarate walks us through our course sequencing reaction on the MinION Mk1B!
+We'll work together to do our library preparation and be present while Mel Zarate walks us through our course sequencing reaction on the MinION Mk1B!
 
 ##### SMAGL Lab Meeting
 
@@ -275,6 +288,7 @@ Schmitt Lab undergraduate Anthropology major and research-for-credit student Ree
 
 ##### Background Readings
 
+TBA
 
 ##### Project-Specific Readings
 
@@ -288,17 +302,23 @@ Schmitt Lab undergraduate Anthropology major and research-for-credit student Ree
 ### **Week 13 (April 8, 2024)**
 ***
 
-#### TBA
+#### Digging in to our Sequencing Results
 
 ##### Topics for Discussion
 
+We'll go over the results of our sequencing reaction, and various bioinformatic post-processing techniques necessary to make sense of our generated DNA sequences, including de-multiplexing, alignment, and ASV assignment.
+
 ##### Lab Practicum
+
+Our lab practicum for this week will take place in the SMAGL computational lab.
 
 ##### SMAGL Lab Meeting
 
 TBA
 
 ##### Background Readings
+
+TBA
 
 ##### Project-Specific Readings
 
@@ -319,7 +339,7 @@ TBA
 ### **Week 15 (April 22, 2024)**
 ***
 
-#### TBA
+#### Interpreting our Data
 
 ##### Topics for Discussion
 
