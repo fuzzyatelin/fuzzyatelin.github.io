@@ -228,14 +228,14 @@ Garrett Lab undergraduate Biology major Luke Buza will present his Honors Thesis
 
 ##### Background Readings
 
-TBA
+* Strachan & Reed: pp. 170-174
+* Jobling: pp. 98-100, 120
+* [Palumbi et al. 2002. The Simple Fool's Guide to PCR. ](https://stacks.stanford.edu/file/druid:yh393jm6703/Simple_Fool%27s_Master%20PCR.pdf)
+* [Lorenz. 2012. Polymerase chain reaction: Basic protocol plus troubleshooting and optimization strategies. *J Vis Exp* 63: PMC4846334. ](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4846334/)
+* [BiteSizeBio. Published May 13, 2021. "What is PCR? The Beginner's Guide"](https://bitesizebio.com/19132/pcr-basics-what-is-pcr/)
 
 ##### Project-Specific Readings
 
-* **Fecal Metabarcoding Project**
-    + TBA
-* **Fecal Microbiome Project**
-    + TBA
 
 ***
 
@@ -258,7 +258,8 @@ Schmitt Lab undergraduate Biology major, UROP student, and research-for-credit s
 
 ##### Background Readings
 
-TBA
+* [miniPcR bio. 2021. "What is Gel Electrophoresis?" YouTube.](https://www.youtube.com/watch?v=GUXKQBknYQo)
+* [ThermoFisher Scientific. "Nucleic Acid Gel Elecrtophoresis Troubleshooting."](https://www.thermofisher.com/us/en/home/life-science/cloning/cloning-learning-center/invitrogen-school-of-molecular-biology/na-electrophoresis-education/na-electrophoresis-troubleshooting.html)
 
 ##### Project-Specific Readings
 
