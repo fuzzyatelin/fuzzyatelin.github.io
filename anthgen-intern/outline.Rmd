@@ -385,6 +385,12 @@ TBA
 
 ***
 
+### Other potentially interesting readings for those continuing with field-based lab work:
+
+* [Menke et al. 2017. Home-Made Cost Effective Preservation Buffer Is a Better Alternative to Commercial Preservation Methods for Microbiome Research. *Front Microbiol* 8: 102.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5281576/)
+
+***
+
 ### [Back to SMAGL Overview](https://fuzzyatelin.github.io/anthgen-intern/overview.html)
 
 ***
