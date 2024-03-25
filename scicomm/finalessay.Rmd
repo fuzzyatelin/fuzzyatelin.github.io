@@ -1,7 +1,7 @@
 ---
 title: "Final Essay Prompts"
 author: "Christopher A Schmitt</br>Departments of Anthropology & Biology<br>Boston University"
-date: "April 6, 2022"
+date: "March 25, 2024"
 output: 
   prettydoc::html_pretty:
     theme: cayman
@@ -19,7 +19,7 @@ output:
 
 As part of the final exam for CAS AN/WS 233, we ask you to write responses to three questions (you *must* answer all three) related to your SciComm project. These are open-ended questions with no right or wrong answers. We are looking for thoughtfulness, to see that you participated in all of the steps of the SciComm project and that you have opinions and thoughts about the process and the product.
 
-Please create a text document and copy/paste the three questions, below into it. You should begin working on these essays as soon as you are finished presenting your SciComm on the last day of class, in preparation for entering them into your final exam on Blackboard during our exam time on Tuesday, May 10. 
+Please create a text document and copy/paste the three questions, below into it. You should begin working on these essays as soon as you are finished presenting your SciComm on the last day of class, in preparation for entering them into your final exam on Blackboard during our exam time on Monday, May 6. 
 
 **You will, for the final exam, copy and paste your answers into the exam's essay interfaces; there will be one for each Question.** Each will be worth 10 points towards your final exam score, for a total of 30 points of your final exam score.
 
@@ -43,7 +43,7 @@ Please create a text document and copy/paste the three questions, below into it.
 
 And speaking of making life easier for your TF, please submit your *best* writing. Proofread your essay responses. This means that **you should write a draft of your responses by May 3** and then put it away for a couple of days. Come back to your responses towards the end of that week with a clear mind and read through your words critically. Read out loud. Does one sentence flow to the next? Is there a logical point for each paragraph and are all of the sentences feeding into the same topic/point? Did you use good grammar and spelling? Adjust as needed. There is nothing quite like a misspelled word or a non sequitur to distract the reader from the message you are trying to convey. If grammatical and spelling mistakes obfuscate your point, you'll get a lower score; our TF is an amazing scholar, but sadly, she still can't read minds or intent if the words don't make them clear. 
 
-Remember, the assignment is worth up to 30 points of your final exam (on **May 10 from noon to 2 pm**), 10 points for each question's response. **Your responses *must* be turned in as part of the final exam on Blackboard.**
+Remember, the assignment is worth up to 30 points of your final exam (on **May 6 from noon to 2 pm**), 10 points for each question's response. **Your responses *must* be turned in as part of the final exam on Blackboard.**
 
 Best of luck with this assignment! We look forward to hearing your reflections on the SciComm project!
 

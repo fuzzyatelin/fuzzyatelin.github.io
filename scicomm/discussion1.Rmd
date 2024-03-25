@@ -1,7 +1,7 @@
 ---
 title: 'Discussion 1:<br>Science Communication'
 author: "Christopher A Schmitt</br>Departments of Anthropology & Biology<br>Boston University"
-date: "April 2, 2022"
+date: "March 25, 2024"
 output: 
   prettydoc::html_pretty:
     theme: cayman
@@ -46,16 +46,14 @@ More specifically:
 
 4. You will learn how to provide productive peer-review for your classmates and how to incorporate the peer-review of others into your own project.
 
-5. You will be assessed in Discussion on the *process* of creating your SciComm piece and on helping other groups improve their projects. 
+5. You will be assessed, in part, on the *process* of creating your SciComm piece and on helping other groups improve their projects. 
 
-   * If you are enrolled in *CAS AN/WS 233*, you will *not* be graded on the final product specifically. 
-   * If you are enrolled in *CAS AN 551*, your final project will be graded in lieu of a final exam.
+   * If you are enrolled in *CAS AN/WS 233*, the process and the final product will be worth 100 points. 
 <br><br>
    
 6. You will write a reflective essay on the process. 
 
-   * If you are enrolled in *CAS AN/WS 233*, this essay will be a component of your final exam (you may write this *before* the final and copy/paste it into the final exam interface). 
-   * If you are enrolled in *CAS AN 551*, this essay, in tandem with your project itself, serves as your final for the class. It is due on the final exam date, along with your presentation of the project.
+   * If you are enrolled in *CAS AN/WS 233*, this essay will be a component of your final exam (you may write this *before* the final and bring it to class as part of your notes). 
 
 Let's begin by looking at the different forms of science communication.
 
@@ -65,7 +63,7 @@ Let's begin by looking at the different forms of science communication.
 
 ***
 
-In this section, your TF will lead a discussion on the various forms of science communication.
+In this section, you should discuss with your peers the various forms of science communication.
 
 Coming into discussion today, you've (hopefully) completed an assignment that asked you to analyze a few pieces of science communication, considering any strengths and drawbacks you may have noticed.
 
@@ -104,7 +102,7 @@ What is a non-primary source? Have we seen or discussed some examples in this cl
 
 ***
 
-Your TF will lead you through some of the Boston University campus library resources, along with some online resources, which is where we will find our primary research sources.
+Below are links to some resources that can guide you through some of the Boston University campus library resources, along with some online resources, which is where we will find our primary research sources.
 
 For reference, you can start at the [BU Library website](https://www.bu.edu/library/), and its [How-to-Guides](https://www.bu.edu/library/help/how-to/).
 
@@ -130,7 +128,7 @@ Two primary research articles:
 * [Martin et al. 2017: An Unexpectedly Complex Architecture for Skin Pigmentation in Africans.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5884124/)
 * [Adhikari et al. 2019: A GWAS in Latin Americans highlights the convergent evolution of lighter skin pigmentation in Eurasia.](https://www.nature.com/articles/s41467-018-08147-0.pdf)
 
-To get a head start on your homework, your TF will encourage you to split into groups and circulate between them while you discuss one or two of these articles. By next week, you will be expected to have independently read and reflected upon all three.
+To get a head start on your homework, you are encouraged to reach out and work in a group with your peers to discuss one or two of these articles. By next week, you will be expected to have independently read and reflected upon all three.
 
 ***
 

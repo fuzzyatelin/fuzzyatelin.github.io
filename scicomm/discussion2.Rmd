@@ -1,7 +1,7 @@
 ---
 title: 'Discussion 2:<br>Primary Literature to Target Audience'
 author: "Christopher A Schmitt</br>Departments of Anthropology & Biology<br>Boston University"
-date: "April 11, 2022"
+date: "March 25, 2024"
 output: 
   prettydoc::html_pretty:
     theme: cayman
@@ -11,14 +11,14 @@ output:
 
 <font size="+2"><b>Speaking to Your Audience...</b></font></center><br>
 
-<center><p><img src="https://c.tenor.com/A6REms8pMPMAAAAC/gia-gunn.gif" style="border:5px solid lightseagreen" alt="Gia Gunn looking skeptical says well what you wanna do is not necessarily what you're gonna do"></p></center><br>
+<center><p><img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHRxMWtqbjR0MHQ5N2VtNXk0YTNnMGNmZGNyanBleml0cXVvdXhpOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lsAsaOE1nXfm0OpS3U/giphy.gif" style="border:5px solid lightseagreen" alt="Gia Gunn looking skeptical says well what you wanna do is not necessarily what you're gonna do"></p></center><br>
 
 ***
 
 ## Learning Objectives
 
 * Debrief: Compare and contrast peer-reviewed primary research and review articles: Which are the best sources for your SciComm project? Why?
-* Identify your target audience for your SciComm project and form working groups
+* Identify your target audience for your own SciComm project and form a working group with your peers
 * Start thinking about media, accessibility, target audience best-practices, to ensure these are built in throughout
 * Learn how to create your science communication (SciComm) project in accordance with the United States' copyright and fair use laws
 * Understand what universal design and accessibility are, concepts that you will need to include in your SciComm project
