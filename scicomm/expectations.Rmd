@@ -1,7 +1,7 @@
 ---
 title: "Expectations for the Inclusive Design Project"
 author: "Christopher A Schmitt</br>Departments of Anthropology & Biology<br>Boston University"
-date: "April 5, 2022"
+date: "March 25, 2024"
 output: 
   prettydoc::html_pretty:
     theme: cayman
@@ -66,34 +66,34 @@ Utilize the timing & grading schema below to keep track of your assignment progr
     - [ ] Completed?
     - *Thinking Checkpoint*: Begin to think about which type of scientific communication appeals to you the most.
 
-2. **Science Communication** (April 4, 5)
+2. **Science Communication** (April 1, 2)
     - Due: Primary Literature Assignment - Value: 10 pts
     - [ ] Completed?
     - *Thinking Checkpoint*: How will you share this scientific information without relying on the trope, and social and power construct, of race?
 
-3. **Primary Literature to Target Audience** (April 11, 12) - Synthesize information from primary research literature and primary review literature, connecting it to target audience and other SciComm media (group delegation of research).
+3. **Primary Literature to Target Audience** (April 8, 9) - Synthesize information from primary research literature and primary review literature, connecting it to target audience and other SciComm media (group delegation of research).
     - Due: Decide on your target audience, media type, group members, and accessibility feature(s); Discussion attendance: 10 pts
     - [ ] Completed?
     - *Thinking Checkpoint*: How are you tailoring your message so that it reaches your target audience?
 
-4. **Creating a Narrative** (April 18, 19)
+4. **Creating a Narrative** (April 15, 16)
     - Discussion attendance: 10 pts
     - [ ] Attended?
     - *Thinking Checkpoint*: How will you structure your science story, based in evidence? Who is undertaking which tasks in your group?
 
-5. **Peer Review** (April 25, 26) - Come prepared with peer-review feedback for your partner
+5. **Peer Review** (April 22, 23) - Come prepared with peer-review feedback for your partner
 group
     - Attend Section & Peer-Review Completion on bCourses: 10 pts
     - [ ] Completed?
     - *Thinking Checkpoint*: How will you respectfully give and receive feedback?
 
-6. **Project Presentations** (April 28) - Work on final essay reflection
+6. **Project Presentations** (April 25, 30) - Work on final essay reflection
     - Incorporate peer-review feedback
     - *Final presentations in lecture on April 28*
     - [ ] Completed?
     - *Thinking Checkpoint*: How did the feedback you received improve your project?
 
-7. **Final Essay Reflection** (for Final Exam, May 3)
+7. **Final Essay Reflection** (for Final Exam, May 6)
     - Final reflection on the project
     - You may write this ahead of time and copy/paste it into the exam interface on Blackboard
     - Value: 30 points of the final exam score
