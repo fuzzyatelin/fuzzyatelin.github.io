@@ -19,8 +19,7 @@ htmltools::img(src = "buhub.png",
 <font size="+2"><b>Science Communication Modules</b></font></center><br>
 </center>
 
-
-<center><p><img src=https://thumbs.gfycat.com/AnotherParchedBinturong-size_restricted.gif style="border:5px solid lightseagreen" alt="extravagant drag queen against a background of floating red blood cells says I don't know anything about science other than its really good for you"></p></center>
+<center><p><img src=https://nomadette.com/wp-content/uploads/2017/11/ca0415cc2f91c59283098cfc576ff190.gif style="border:5px solid lightseagreen" alt="extravagant drag queen against a background of floating red blood cells says I don't know anything about science other than its really good for you"></p></center>
 
 ***
 
@@ -98,10 +97,10 @@ You can find the remaining discussion section assignments related to the SciComm
 
 ***
 
-### [Discussion 1: Science Communication (CAS AN/WS 233: April 4,5)](https://fuzzyatelin.github.io/scicomm/discussion1.html)
-### [Discussion 2: Primary Literature to Target Audience (CAS AN/WS 233: April 11,12)](https://fuzzyatelin.github.io/scicomm/discussion2.html)
-### [Discussion 3: Creating a Narrative (CAS AN/WS 233: April 18,19)](https://fuzzyatelin.github.io/scicomm/discussion3.html)
-### [Discussion 4: Peer Review (CAS AN/WS 233: April 25,26)](https://fuzzyatelin.github.io/scicomm/discussion4.html)
+### [Discussion 1: Science Communication (CAS AN/WS 233: April 1,2)](https://fuzzyatelin.github.io/scicomm/discussion1.html)
+### [Discussion 2: Primary Literature to Target Audience (CAS AN/WS 233: April 8,9)](https://fuzzyatelin.github.io/scicomm/discussion2.html)
+### [Discussion 3: Creating a Narrative (CAS AN/WS 233: April 15,16)](https://fuzzyatelin.github.io/scicomm/discussion3.html)
+### [Discussion 4: Peer Review (CAS AN/WS 233: April 22,23)](https://fuzzyatelin.github.io/scicomm/discussion4.html)
 
 ***
 
