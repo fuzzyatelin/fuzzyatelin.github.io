@@ -1,7 +1,7 @@
 ---
 title: "Inclusive Design Project Rubric"
 author: "Christopher A Schmitt</br>Departments of Anthropology & Biology<br>Boston University"
-date: "April 5, 2022"
+date: "March 25, 2024"
 output: 
   prettydoc::html_pretty:
     theme: cayman
