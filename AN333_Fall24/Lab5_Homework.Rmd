@@ -1,0 +1,89 @@
+---
+title: 'Module 5: Homework'
+author: "Christopher A Schmitt"
+date: "November 1, 2020"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
+---
+
+## Introduction to Neutrality Statistics and Signs of Selection
+
+***
+
+**Readings**:<ul> 
+<li>[Garrigan DR, Lewontin R, Wakeley J. 2010. Measuring the sensitivity of single-locus “neutrality tests” using a direct perturbation approach. *Mol Biol Evol* 27(1): 73-89.](https://academic.oup.com/mbe/article/27/1/73/1125718)</li><br>
+<li>[The Severe COVID-19 GWAS Group. 2020. Genomewide Association Study of Severe Covid-19 with Respiratory Failure. *New England Journal of Medicine*, 383, 1522-1534.](https://www.nejm.org/doi/full/10.1056/NEJMoa2020283)</li><br>
+<li>[Genetics and COVID-19 Pandemic. 2020. The American Society of Human Genetics.](https://medicalxpress.com/news/2020-10-genetics-covid-pandemic.html)</li><br>
+<li>[Sabeti PC, et al. 2002. Detecting recent positive selection in the human genome from haplotype structure. Nature 419(6909): 832-837.](https://www.nature.com/articles/nature01140)</li><br>
+<li>[Tajima F. 1989. Statistical method for testing the neutral mutation hypothesis by DNA polymorphism. *Genetics* 123(3): 585–595.](http://www.genetics.org/content/123/3/585)</li></ul>
+
+***
+
+For our homework, we'll be doing a little more work with neutrality statistics and using them to detect selection in genomic regions. Most importantly, we'll be interpreting the results of our lab and doing a little bit of dN/dS assessement!
+
+As before, you'll be turning in your homework via an online interface.  I recommend writing your essays in a document on your laptop and only engaging with the online interface when you're ready to turn in *all* of your completed answers in a single submission.<br>
+
+<center>
+### [Access the online interface to submit your homework answers here.](https://goo.gl/forms/xzBw46KxoNSrOiBO2)
+</center><br>
+
+* What is a segregating site?
+
+* According to Tajima (1989), why is a pure count of segregating sites (*S*) alone not a good estimate to explain levels of polymorphism in a population?
+
+* According to Tajima (1989), when selection is occurring, which two measures of nucleotide diversity in a population conceptually become unequal?
+
+* An approach to what value of Tajima's *D* statistic implies that *no* selection is occurring?
+
+* Of the genes based on restriction sites Tajima tested in fruit flies (*Drosophila melanogaster*), which showed signs of selection based on his D statistic?
+
+* According to your lab exercises, what was the value of Tajima's D for *your* study population? Is this a significant deviation from the assumptions of neutrality (please give p-value)?
+
+* Based on this value, what kind of selection does Tajima's D imply your population might be experiencing in *UCP1* (if any)?
+
+* Match the statistic to its appropriate descriptor. Both of Fu and Li's statistics compare the number of private mutations in a given population to some other value. Which test goes with which comparative measure/value?
+
+* What was Fu & Li's F for your population?
+
+* What was Fu * Li's D for your population?
+
+* What does this say about potential selection in your population?
+
+* According to the Garrigan et al. (2010) paper, which of the test statistics we used today is the least reliable to random perturbations in allele frequencies that are NOT selection?
+
+* Garrigan et al. (2010) find that it takes, on average, *4N generations* after a random demographic purturbation in allele frequencies (i.e., a bottleneck or founder event) for the test statistics to "relax to their theoretical, steady-state distributions." What does this mean, and why is it important for our understanding of the results of our tests of selection in humans?
+
+* iHS relies on extended haplotypes of homozygosity in regions of the genome that have experienced selective sweeps. Based on what you learned in lecture, what kind of selective sweep is iHS showing us? Hard or soft?
+
+* Match the kind of selective sweep (hard, soft, partial) to the kind of variant under selection. Ancestral, novel, or one of several involved in a polygenic trait?
+
+* In the Severe COVID-19 GWAS Group paper (2020), the authors tried to find regions of the genome associated with severe COVID-19 symptoms in Italian and Spanish populations, and found two candidate regions. One on chromosome 3 (which we studied here), and one on chromosome 9. Which showed a stronger association with severe COVID-19?
+
+* What made the authors focus on *rs11385942* as a focal risk allele? Can you find out on Ensembl what gene this variant actually resides in?
+
+* Why do the authors focus on *SLC6A20* as a potential candidate gene in this region that might be affecting suceptibility?
+
+* Upload the image of your 1) EHH and 2) Bifurcation diagram for the best (highest p<sub>iHS</sub> value) candidate for a selective sweep in your population in the severe COVID-19 GWAS region.
+
+* Given what *you* know about your study population, iHS, and how it assesses selection in the genome, would *you* expect to see signs of selection in the severe COVID-19 GWAS region? Why or why not?
+<br>
+<br>
+<br>
+
+## Extra Credit (required for students taking CAS AN 733)
+
+* What is the 500-bp window of the severe COVID-19 risk region that has the highest value for Tajima's D in your population?
+
+* What is the functional annotation for the SNPs in this window?
+
+* Does any of your significance windows contain any of the SNPs identified as potential selective sweeps via significant p<sub>iHS</sub> score from your previous analysis?
+
+* Upload the image of your 1) EHH and 2) Bifurcation diagram for a representative SNP from this window, or for a particularly interesting SNP in one of your significance windows based on potential functionality.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

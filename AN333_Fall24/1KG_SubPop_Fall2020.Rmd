@@ -1,0 +1,36 @@
+---
+title: 'AN/BI 333/733: Fall 2020 Assigned Sub-Populations'
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
+---
+
+***
+<center><p><img src="http://3.bp.blogspot.com/-RhRP4oF0zY8/VhE9HtdOM6I/AAAAAAAAYjg/KUllTWJyVKo/s1600/tmp.jpg"></p></center>
+
+***
+
+These are your assigned 1000 Genomes Project sub-populations for our investigations of *ACE2* and *TMPRSS2* this semester! I've tried my best to accommodate personal interests in a particular sub-population, but there are always some that are more popular than others. If there's another sub-population you'd rather work on, please contact me directly to discuss switching.
+
+<ul>
+<li>Ana Barun - **TSI:	Toscani in Italia**
+<li>Emily Cobb - **CDX:	Chinese Dai in Xishuangbanna, China**
+<li>Shahaf Dan - **PEL:	Peruvians from Lima, Peru**
+<li>Lily DeFelice - **ASW: Americans of African Ancestry in SW USA**
+<li>Emily Fried - **LWK:	Luhya in Webuye, Kenya**
+<li>Emily Fusco - **CHS:	Southern Han Chinese**
+<li>Wenxin Gao - **STU:	Sri Lankan Tamil from the UK**
+<li>Nikita Joshi - **GIH:	Gujarati Indian from Houston, Texas**
+<li>Christina Lamagna - **FIN: Finnish in Finland**
+<li>Chloe Liu - **CHB:	Han Chinese in Beijing, China**
+<li>Pengcheng Lu - **GWD:	Gambian in Western Divisions in the Gambia**
+<li>Harjeet Malhi - **ITU: Indian Telugu in the UK**
+<li>Ayna Molina - **ACB: African Caribbeans in Barbados**
+<li>Chauncey Nicholas - **KHV:	Kinh in Ho Chi Minh City, Vietnam**
+<li>Priya Patel - **ESN:	Esan in Nigeria**
+<li>Raquel Quiñones - **MXL:	Mexican Ancestry from Los Angeles USA**
+<li>Jake Reardon - **IBS:	Iberian Population in Spain**
+<li>Dashannah St. Hubert - **PUR	Puerto Ricans from Puerto Rico**
+<li>Astrid Sundberg - **CLM:	Colombians from Medellin, Colombia**
+<li>Mercy Villalona - **BEB:	Bengali from Bangladesh**
+</ul>

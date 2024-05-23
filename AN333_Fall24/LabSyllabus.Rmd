@@ -1,0 +1,233 @@
+---
+title: 'AN/BI 333/733: Modules'
+author: "Christopher A Schmitt"
+date: "October 1, 2020"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
+---
+
+***
+
+### [Course Overview](https://fuzzyatelin.github.io/AN333_Fall20/overview.html)
+### [Syllabus](https://fuzzyatelin.github.io/AN333_Fall20/Syllabus.html)
+### [Exam](https://fuzzyatelin.github.io/AN333_Fall20/Midterm2.html)
+### [Policies](https://fuzzyatelin.github.io/AN333_Fall20/policies.html)
+### [Final Project](https://fuzzyatelin.github.io/AN333_Fall20/FinalProject.html)
+
+***
+
+### *Pre-Module: BU Shared Computing Cluster Tutorial*
+**September 11**<br>
+
+***
+
+**Material covered**: Introduction to and tutorial on using the BU Shared Computing Cluster, via Linux-based SCC.<br><br>
+**Readings**: None.<br><br>
+**Activities**: We will create personal profiles using the SCC interface with the help of a representative from Research Computing. We’ll learn how to connect to SCC and some basic commands that will help us navigate the interface and access analytical software that will be used in the course.<br><br>
+**Assignment**: In-class worksheet based on activities will be graded.<br><br>
+**Learning Outcomes**:
+<ul>
+<li>Learn how to access your SCC profile and data storage, and become familiar with analytical software and data download and storage commands.</li>
+<li>Learn basic command-line tools, vocabulary, and syntax.</li>
+<li>Learn how to access analytical software such as R and RStudio, which we will be using to do real-
+life population genetic analyses.</li>
+<li>If we have time, we will begin using these tools to get a head start on Module 1!</li></ul>
+
+**Please download associated materials on Blackboard**
+
+**RCS Tutorials**: Research Computing Services offers many [helpful (free) tutorials](http://www.bu.edu/tech/about/training/classroom/rcs-tutorials/) during the month of September that may make a huge difference for how well and quickly you are able to learn this material. I strongly recommend the tutorials Introduction to BU’s Shared Computing Cluster and Introduction to R (although they are *not* required for the course), and the remainder I recommend if you would like to learn more about the systems we'll be working with:
+
+* Thu, Sep  3 10:00am ‐ 12:00pm  Introduction to BU’s Shared Computing Cluster (Hands‐on)
+* Wed, Sep  3 12:15pm ‐ 12:45pm  Using (Python, MATLAB, R, SAS, Stata, or ML) on the SCC
+* Fri, Sep  4  1:00pm ‐  3:00pm  Introduction to Linux (Hands‐on)
+* Tue, Sep  1  3:30pm ‐  5:30pm  Introduction to R (Hands‐on)
+* Tue, Sep  8  3:30pm ‐  5:30pm  Introduction to R (Hands‐on)
+* Thu, Sep  3  3:30pm ‐  5:30pm  Data Wrangling in R (Hands‐on)
+* Wed, Sep  9  3:30pm ‐  5:30pm  Data Wrangling in R (Hands‐on)
+* Thu, Sep 10  3:30pm ‐  5:30pm  Graphics Using Base R Packages (Hands‐on)
+* Fri, Sep 11  3:30pm ‐  5:30pm  Graphics in R: ggplot2 (Hands‐on)
+* Mon, Sep 14  3:30pm ‐  5:30pm  Programming in R (Hands‐on)
+
+
+***
+
+### [*Module 1: Accessing Human Candidate Gene Region Data* – *ACE2* and *TMPRSS2*](https://fuzzyatelin.github.io/AN333_Fall20/Lab1_Module.html)
+**September 18**<br>
+
+***
+
+**Material covered**: Introduction to the *1000 Genomes Project* dataset, and tutorial on using *Ensembl* to access the 1000 Genomes dataset. For illustrative purposes, we’ll focus on both the angiotensin-converting enzyme 2 (*ACE2*) gene and the transmembrane serine protease 2 (*TMPRSS2*) gene, each of which code for the key receptors the coronavirus SARS-CoV-2 uses to enter cells, leading to the disease known as COVID-19.<br><br>
+**Readings**:<ul>
+<li>[The 1000 Genomes Project Consortium. 2015. A global reference for human genetic variation. *Nature* 526: 68-74.](https://www.nature.com/articles/nature15393)</li><br>
+<li>[Danecek P, Auton A, Abecasis G, Albers CA, Banks E, DePristo MA, Handsaker RE, Lunter G, Marth GT, Sherry ST, McVean G, Durbin R, 1000 Genomes Project Analysis Group. 2011. The variant call format and VCFtools. *Bioinformatics App Note* 27: 2156-2158.](https://academic.oup.com/bioinformatics/article/27/15/2156/402296)</li><br>
+<li>[Gheblawi M, Wang K, Viveiros A, Nguyen Q, Zhong J-C, Turner AJ, Raizada MK, Grant MB, Oudit GY. 2020. Angiotensin-Converting Enzyme 2: SARS-CoV-2 Receptor and Regulator of the Renin-Angiotensin System. *Circulation Research*, 126(10):1456-1474](https://www.ahajournals.org/doi/full/10.1161/CIRCRESAHA.120.317015)</li><br>
+<li>[Hoffmann M, et al. 2020. SARS-CoV-2 cell entry depends on *ACE2* and *TMPRSS2* and is blocked by a clinically proven protease inhibitor. *Cell*, 181(2):271-280.e8 ](https://www.sciencedirect.com/science/article/pii/S0092867420302294)</li><br>
+<li>[David A, Khanna T, Beykou M, Hanna G, Sternberg MJE. [Preprint]. Structure, function and variants analysis of the androgen-regulated TMPRSS2, a drug target candidate for COVID-19 infection. *bioRxiv*, accessed 10SEP20, DOI: 10.1101/2020.05.26.116608](https://www.biorxiv.org/content/10.1101/2020.05.26.116608v1)</li><br>
+<li>[Sriram K, Insel P, Loomba R. May 14, 2020. What is the ACE2 receptor, how is it connected to coronavirus and why might it be key to treating COVID-19? The experts explain. *The Conversation*.](https://theconversation.com/what-is-the-ace2-receptor-how-is-it-connected-to-coronavirus-and-why-might-it-be-key-to-treating-covid-19-the-experts-explain-136928)</li></ul><br>
+**Activities**: We’ll learn how to use the *Ensembl* database to navigate our candidate genes, *ACE2* and *TMPRSS2*, and find more information about them. [**Each student will be assigned a single 1000 Genomes sub-population**](https://fuzzyatelin.github.io/AN333_Fall20/1KG_SubPop_Fall2020.html) that they will look at over the course of the modules, and we will use the *Data Slicer* within *Ensembl* to download data for each gene from those populations into our *SCC* accounts.<br><br>
+**Assignment**: Students must turn in a homework assignment – with questions related to *ACE2* and *TMPRSS2* variation in humans and related to the downloaded dataset – the following Friday **Pre-Module Homework Assignment is due today.**<br><br>
+**Learning Outcomes**:<ul>
+<li>Learn about the basics of bioinformatics and how genetic data is transformed from raw sequencing reads in to a VCF file, which is the file type we will be working with.</li>
+<li>Learn about the public data on human genomes available via the 1000 Genomes Project, and how to access it via *Ensembl*.</li>
+<li>Learn about the role of *ACE2* and *TMPRSS2* variation in humans, and how they are implicated in SARS-CoV-2 infection, and their roles in other bodily systems.</li>
+<li>Learn how to download specific regions of genomic data – or candidate gene regions – from 1000 Genome populations in VCF format using the *Data Slicer* in *Ensembl* and move them on to the *SCC*.</li>
+
+***
+
+### [Homework for Module 1: DUE Friday, September 25th at 5:00 pm](https://fuzzyatelin.github.io/AN333_Fall20/Lab1_Homework.html)
+
+***
+
+### [*Module 2: ACE2/TMPRSS2 Variants and Hardy-Weinberg Equilibrium*](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Module.html)
+**September 25**<br>
+
+***
+
+**Material covered**: Using *R* and *RStudio* via the *SCC* to run pre-written code that will perform our analyses. Assessing allelic variation in SNPs within and across populations. Testing **Hardy-Weinberg equilibrium (HWE)** and understanding what it means if violated, which involves knowing the assumptions of the model. Using downloaded candidate region data from 1000 Genomes Project to assess HWE in living human populations using a Chi-Squared test. Using *Ensembl* to obtain genotype count information in order to use the Wigginton and Cutler method of HWE calculation on selected SNPs.<br><br> 
+**Readings**:<ul> 
+<li>[Chen J. The Hardy-Weinberg Principle and Its Applications in Modern Population Genetics. *Frontiers in Biology* 5(4): 348-53.](https://link.springer.com/article/10.1007/s11515-010-0580-x)</li><br>
+<li>[Benetti E, et al. 2020. ACE2 gene variants may underlie interindividual variability and susceptibility to COVID-19 in the Italian population. *European Journal of Human Genetics* ](https://www.nature.com/articles/s41431-020-0691-z)</li><br>
+<li>[Wigginton JE, Cutler DJ, Abecasis GR. 2005. A note on exact tests of Hardy-Weinberg equilibrium. *Am J Hum Genet* 76: 887-893.](https://www.cell.com/ajhg/fulltext/S0002-9297(07)60735-6?code=ajhg-site)</li></ul><br>
+**Activities**: We will use the *R* coding language to test HWE in the dataset on *ACE2* we downloaded from *Ensembl*. We will assess whether or not SNPs in this genomic region are in Hardy-Weinberg equilibrium based on a Chi-Squared test in assigned human populations. We will then re-test selected SNPs using the "True HWE" method described in Wigginton and Cutler. We will then discuss what our results mean, in accordance with what we know about those populations, HWE, and the effects of these *ACE2* variants on disease expression.<br><br>
+**Assignment**: Students must turn in a worksheet – with questions related to *ACE2* variation in humans and related to the downloaded dataset –  in class the following Monday. **Module 1 Homework Assignment is due today.**<br><br>
+**Learning Outcomes**:<ul>
+<li>Learn how to use the *SCC* and *R* coding language to observe and understand population differences in *ACE2* variation.</li>
+<li>Calculate Hardy-Weinberg Equilibrium for all *ACE2* SNPs in individual populations using a traditional Chi-Square test.</li>
+<li>Perform a check on all SNPs not in Hardy-Weinberg Equilibrium by calculating "True" Hardy-Weinberg with the built-in Shiny App.</li> 
+<li>Research the consequence types of these SNPs in order to understand how these SNPs might affect the genome itself, and how they might affect genotype.</li> 
+<li>Calculate the "true" Hardy-Weinberg Equilibrium using the Shiny App for *Lys26Arg*, a SNP that may be implicated in less severe SARS-CoV-2 infections, and determine what the Hardy-Weinberg Equilibrium says about this SNP in your population.</li>
+
+***
+
+### [Homework for Module 2: DUE Friday, October 2nd at 5:00 pm](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Homework.html)
+
+***
+
+### [*Module 3: Linkage Disequilibrium (LD) in ACE2 and TMPRSS2*](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Module.html)
+**October 16**<br>
+
+***
+
+**Material covered**: In this module, we'll be assessing linkage disequilibrium (LD) in the *ACE2* genomic regions of the 1000 Genomes populations using *R* coding language. We'll also work on calculating LD by hand between two known loci in *ACE2*. All of this will help us work towards understanding factors that increase LD in the human genome.<br><br> 
+**Readings**:<ul> 
+<li>[Wooster L, Nicholson CJ, Sigurslid HH, Lino Cardenas CL, Malhotra R. *Preprint accessed 31AUG20*. Polymorphisms in the ACE2 locus associate with severity of COVID-19 infection. *medRxiv* doi:10.1101/2020.06.18.20135152](https://www.medrxiv.org/content/10.1101/2020.06.18.20135152v1.full.pdf)</li><br>
+<li>[Cheng Z., et al. 2015. Identification of *TMPRSS2* as a susceptibility gene for severe 2009 pandemic A(H1N1) influenza and A(H7N9) influenza. *The Journal of Infectious Diseases*, 212(8):1214–1221.](https://academic.oup.com/jid/article/212/8/1214/2193475)</li><br>
+<li>[Slatkin M. 2008. Linkage disequilibrium – understanding the evolutionary past and mapping the medical future. *Nat Rev Genet* 9: 477-485.](https://www.nature.com/articles/nrg2361)</li><br>
+<li>[Zeberg H, Pääbo S. 2020. The major genetic risk factor for severe COVID-19 is inherited from Neanderthals. *Nature* 2998 ](https://www.nature.com/articles/s41586-020-2818-3)</li><br>
+<li>[Claiborne Stephens J, Schneider JA, Tanguay DA, Choi J, Acharya Y, Stanley SE, Jiang R, *et al*. 2001. Haplotype variation and linkage disequilibrium in 313 human genes. *Science* 293: 489-93.](http://science.sciencemag.org/content/293/5529/489)</li></ul><br>
+**Activities**: We'll assess linkage disequilibrium across the *ACE2* and *TMPRSS2* loci using our datasets downloaded from *Ensembl*, with a focus on the SNPs that are defined in Wooster *et al*. (2020) and Cheng *et al*. (2015). We will then discuss what high linkage disequilibrium in our populations could mean regarding potential for selection having occurred within our populations.<br><br>
+**Assignment**: Students must turn in homeowork – with questions related to *ACE2* and *TMPRSS2* variation in humans and related to the downloaded dataset –  online by the following Friday. **Module 2 Homework Assignment is due today.**<br><br>
+**Learning Outcomes**:<ul>
+<li>Learn about the SNPs *rs1548474* and *rs4240157* for *ACE2*, and *rs383510* and *rs2070788* for *TMPRSS2*, and their roles in viral susceptibility.</li>
+<li>Learn how to use the *R* package *SNPStats* to perform LD analysis in a population, including constructing LD matrices and LD heatmaps.</li> 
+<li>Learn about the two statistics *D'* and *R<sup>2</sup>*, which are the most commonly used statistics to evaluate LD between SNPs. Learn what each can tell us about a population, and apply the two statistics to our own populations</li> 
+<li>Learn how to use *Ensembl* to look at long-distance LD between SNPs in *ACE2* and *TMPRSS2*, as well as for SNPs in other genes. 
+</li>
+
+***
+
+### [Homework for Module 3: DUE Monday, October 26th](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Homework.html)
+
+***
+
+### [*Module 4: Introduction to Nearest-Neighbor Joining and Phylogenetics*](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Module.html)
+**October 30th**<br>
+
+***
+
+**Material covered**: In this module, we'll be using Nearest-Neighbor Joining to see which individuals within our assigned 1000 Genomes populations are most related to each other (at least insofar as *ACE2* variation indicates). We'll also plot these *phylogenetic trees* to better understand the patterns of molecular variation and amount of diversity in *ACE2* within our populations. 
+<br><br> 
+**Readings**:<ul> 
+<li>[Kimura M. 1980. A simple method for estimating evolutionary rates of base substitutions through comparative studies of nucleotide sequences. *J Mol Evol* 16: 111–120.](http://www.nematodes.org/teaching/tutorials/phylogenetics/Bayesian_Workshop/PDFs/Kimura%20J%20Mol%20Evol%201980.pdf)</li><br>
+<li>[Saitou N, Nei M. 1987. The neighbor-joining method: a new method for reconstructing phylogenetic trees. *Mol Biol Evol* 4: 406–425.](https://academic.oup.com/mbe/article/4/4/406/1029664)</li><br>
+<li>[Liu Z, et al. 2020. Composition and divergence of coronavirus spike proteins and host *ACE2* receptors predict potential intermediate hosts of SARS‐CoV‐2. *J Med Virol* 92(6): 595-601.](https://onlinelibrary.wiley.com/doi/full/10.1002/jmv.25726?casa_token=sRQv7aBlsVkAAAAA%3AXR8hCMvVMokbFW7aX9KNkBUo0wK5trNsx3KK0t0c4TRk4ORWOJ-9zyBjz9vC6_NEWRJIXlgxoRJbjw)</li></ul><br>
+
+**Activities**: We'll learn how to create a phylogenetic tree with simple neighbor-joining methods using the *ape* package in *R*. We'll then learn how to make a tree from multiple populations, which will allow us to compare those different populations’ structures in a qualitative way. We will also use these phylogenetic trees to assess the diversity of *ACE2* in each population, and discuss what that means. <br><br>
+**Assignment**: Students must turn in a worksheet – with questions related to *ACE2* variation in humans and related to the downloaded dataset –  in class the following Friday.<br><br>
+**Learning Outcomes**:<ul>
+<li>Learn how to apply Kimura's Neutral Theory to our populations to create a matrix of genetic distances between individuals in a population.</li>
+<li>Learn how to use the *ape* package's Nearest Neighbor Joining algorithm to create a Nearest Neighbor Joining tree, and learn how to use the package *phangorn* to manipulate phylogenetic trees.</li> 
+<li>Learn how to interpret a phylogenetic tree, and learn what it can tell us about molecular diversity within our populations.
+</li> 
+
+***
+
+### [Homework for Module 4: DUE Friday, November 6th](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Homework.html)
+
+***
+
+### [*Module 5: Introduction to Neutrality Statistics and Signs of Selection*](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Module.html)
+**November 6th**<br>
+
+***
+
+**Material covered**: This module is an introduction to statistical tests of *neutrality* that can be used in genomic studies. *Tajima’s D*, *Fu and Li’s D and F*, and *iHS scores* will be covered and discussed. We'll work towards understanding what each of these tests do to measure selection, and what these statistics can tell us about population structure and history.
+<br><br> 
+**Readings**:<ul> 
+<li>[Garrigan DR, Lewontin R, Wakeley J. 2010. Measuring the sensitivity of single-locus “neutrality tests” using a direct perturbation approach. *Mol Biol Evol* 27(1): 73-89.](https://academic.oup.com/mbe/article/27/1/73/1125718)</li><br>
+<li>[The Severe COVID-19 GWAS Group. 2020. Genomewide Association Study of Severe Covid-19 with Respiratory Failure. *New England Journal of Medicine*, 383, 1522-1534.](https://www.nejm.org/doi/full/10.1056/NEJMoa2020283)</li><br>
+<li>[Genetics and COVID-19 Pandemic. 2020. The American Society of Human Genetics.](https://medicalxpress.com/news/2020-10-genetics-covid-pandemic.html)</li><br>
+<li>[Sabeti PC, et al. 2002. Detecting recent positive selection in the human genome from haplotype structure. Nature 419(6909): 832-837.](https://www.nature.com/articles/nature01140)</li><br>
+<li>[Tajima F. 1989. Statistical method for testing the neutral mutation hypothesis by DNA polymorphism. *Genetics* 123(3): 585–595.](http://www.genetics.org/content/123/3/585)</li></ul>
+<br>
+**Activities**: We'll use the packages *PopGenome* and *pegas* to cauclate Fu and Li’s D and F, as well as Tajima’s D for the severe COVID-19 susceptibility region (3p21.3) identified by The Severe COVID-19 GWAS Group in our respective 1000 Genomes populations. We'll also look for positive selective sweeps in each of our 1000 Genomes populations using iHS score and EHH using the *rehh* package. Finally, we will take ample time to understand what the Fu and Li’s D and F and Tajima’s D test results tell us about how our populations are evolving, and use the example of iHS to predict whether or not our populations underwent a selective sweep in this susceptibility region. <br><br>
+**Assignment**: Students must turn in a homework assignment – with questions related to this module and associated readings in humans and related to the downloaded dataset – in class the following Friday. **Module 4 Homework Assignment is due today.**<br><br>
+**Learning Outcomes**:<ul>
+<li>Learn what Fu and Li's D and F, Tajima's D, and iHS scores and EHH means, and how to interpret them.</li>
+<li>Learn to use the *PopGenome* package to calculate neutrality statistics like Fu and Li's D and F, and Tajima's D.</li> 
+<li>Learn to use the *pegas* package to explore our Tajima's D statistic further.</li>
+<li>Learn about iHS and how to calculate iHS in *R*, and reflect on what the iHS score for our populations.</li>
+<li>Learn about whether or not selection is happening in our populations based on these statistics, and relate it to what may be happening in the local environment to cause these alleles to be selected for/against.
+</li> 
+
+***
+
+### [Homework for Module 5: DUE Friday, November 13th](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Homework.html)
+
+***
+
+### [*Module 6: A Brief Digression from COVID-19 for Quantitative Genetics*](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Module.html)
+**November 20**<br>
+
+***
+
+**Material covered**: Quantitative genetics and partitioning variance in phenotypes between genetic and environmental signals. To do this, we'll be working with some captive vervet monkey (*Chlorocebus sabaeus*) data I collected at Wake Forest College of Medicine's Vervet Research Colony (VRC). We'll also learn about the *SOLAR* work environment, which is a (relatively) easy interface for doing quantitative genetics analysis in the *SCC* space. Through this, we'll learn a bit about the quantitative genetics of BMI and body mass.
+<br><br> 
+**Readings**:<ul> 
+<li>[Almasy L, Blangero J. 2010. Variance component methods for analysis of complex phenotypes *Cold Spring Harbor Protocols* 2010(5): pdb.top77.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3064490/pdf/nihms253587.pdf)</li><br>
+<li>[Schmitt CA, Service S, Cantor RM, Jasinska AJ, Jorgensen MJ, Kaplan JR, and Freimer NB. 2018. High heritability of obesity and obesogenic growth are both highly heritable and modified by diet in a nonhuman primate model, the African green monkey (*Chlorocebus aethiops sabaeus*). *Int J Obesity* 42: 765-774.](https://www.nature.com/articles/ijo2017301)</li><br>
+<li>[Hill WG. 2012. Quantitative genetics in the genomics era. *Curr Genomics* 13(3): 196-206.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3382274/pdf/CG-13-196.pdf)</li></ul>
+<br>
+**Activities**: There will be a brief discussion of quantitative genetics and the vervet monkey (*Chlorocebus sabaeus*) model as implemented in *SOLAR* using the Almasy & Blangero terminology and orientation to using *SOLAR* in the *SCC* environment. We will conduct in class exercises that will be used to answer questions in the Module 6 homework. <br><br>
+**Assignment**: Students must turn in a worksheet – with questions related to quantitative genetic variation in vervets related to BMI, body mass, and obesity – in class the following Friday. **Module 5 Homework Assignment is due today.**<br><br>
+**Learning Outcomes**:<ul>
+<li>Learn about basic quantitative genetics terminology, and the process of variance decomposition.</li>
+<li>Learn about pedigree-based analyses and how to process a pedigree file.</li> 
+<li>Learn how to use the program *SOLAR* (in the *SCC* framework).</li>
+<li>Learn how to transform data to meet quantitative genetics model assumptions.</li>
+<li>Learn how to appropriately interpret quantitative genetics outcomes, including narrow-sense heritability, what environmental component means, and how to interpret a household/maternal effect in this context.
+</li> 
+
+***
+
+### [Homework for Module 6: DUE Friday, November 27th](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Homework.html)
+
+***
+
+### [*Module 7: Finding a New Locus…*](https://fuzzyatelin.github.io/AN333_Fall20/Lab7_Module.html)
+**November 02**<br>
+
+***
+
+**Material covered**: We'll discuss the process of finding a new locus on which to conduct a population genetics study for your final project! Make sure the locus is related somehow to a trait you're really interested in, and also preferably a trait that varies among contemporary human populations. A *candidate gene* for a particular trait would be great (i.e., a gene that's been noted to perhaps be associated with a trait in a GWAS, but hasn't really been tested across populations that vary in that trait). A trait that's been noted to have been under selection previously would be great, but is by no means necessary.
+<br><br> 
+**Readings**:<ul> 
+<li>[Slate J. 03 Nov 2015. Why I’m wary of candidate gene studies.](http://jon-slate.staff.shef.ac.uk/why-im-wary-of-candidate-gene-studies/)</li><br>
+<li>[Patnala R, Clements J, Batra J. 2013. Candidate gene association studies: a comprehensive guide to useful in silico tools. *BMC Genet* 14:39.](https://bmcgenet.biomedcentral.com/articles/10.1186/1471-2156-14-39)</li><br></ul>
+<br>
+**Activities**: We will go over a brief tutorial on how to think about finding a new locus of interest to study on your own, and we will have a class discussion on final project topic ideas.<br><br>
+**Assignment**: Students must choose a gene of interest for their final project by the following **Friday, November 13**.
+**Learning Outcomes**:<ul>
+<li>Learn how to use the resources provided to you in this class to find a new genetic locus for study.</li>
+<li>Assess the merits/flaws of using a candidate gene approach to understand trait histories in human populations.</li><br><br> 

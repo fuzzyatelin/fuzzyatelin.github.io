@@ -1,0 +1,60 @@
+---
+title: 'Module 4: Homework'
+author: "Christopher A Schmitt"
+date: "10/23/2020"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
+---
+
+## Introduction to Phylogenomics
+
+***
+
+**Readings**:<ul> 
+<li>[Kimura M. 1980. A simple method for estimating evolutionary rates of base substitutions through comparative studies of nucleotide sequences. *J Mol Evol* 16: 111–120.](http://www.nematodes.org/teaching/tutorials/phylogenetics/Bayesian_Workshop/PDFs/Kimura%20J%20Mol%20Evol%201980.pdf)</li>
+<li>[NextStrain (SARS-CoV-2): Genomic epidemiology of novel coronavirus - Global subsampling](https://nextstrain.org/ncov/global)</li>
+<li>[Saitou N, Nei M. 1987. The neighbor-joining method: a new method for reconstructing phylogenetic trees. *Mol Biol Evol* 4: 406–425.](https://academic.oup.com/mbe/article/4/4/406/1029664)</li></ul>
+
+***
+
+For our homework, we'll be digging a little further into Kimura's neutral theory and how that translates to genetic distance, and what, exactly, our phylogenies might be telling us.
+
+As before, you'll be turning in your homework via an online interface.  I recommend writing your essays in a document on your laptop and only engaging with the online interface when you're ready to turn in *all* of your completed answers in a single submission.<br>
+
+<center>
+### [Access the online interface to submit your homework answers here.](https://goo.gl/forms/aRFIlvKaPmXvQTJ12)
+</center><br>
+
+* According to Kimura (1980), what are the two basic types of changes a base can undergo when it mutates? In other words, what potential homologues are there for a particular allele?
+
+* Which bases are pyramidines and which purines?
+
+* Kimura distinguishes between these two types of base-pair mutations in the genome because one may occur more frequently than the other, altering estimations of distance based on what kind of change occurs. Which kind of change occurs more frequently?
+
+* According to Kimura, equation 10 in his 1980 paper is the best measure of genetic distance, or how many bases are expected to differ between two populations at a given time. What does each variable in this equation stand for?
+
+* As Kimura distinguishes them, what is the term for when the final base pair of a codon yields the same amino acid no matter what it mutates into?
+
+* Do mutations at two-fold degeneracy sites (which may result in an amino acid change) and four-fold degeneracy sites (which never result in an amino acid change) happen at equivalent rates?
+
+* Generally, at which base-pair position in any given codon are substitutions/mutations the slowest to accrue? According to Kimura (1980), why is this true?
+
+* According to Saitou and Nei (1987), what is an OTU? Define the acronym and describe what it means.
+
+* Under what principle does the Neighbor-Joining method operate for building a phylogenetic tree? What does this mean for the construction of OTUs?
+
+* List the individuals comprising one OTU from the Yoruba (YRI) population data using the tree visible in the online [Module 4](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Module.html).
+
+* Does the neighbor-joining method always give you the evolutionarily 'correct' tree? Meaning does it show you exactly how these OTUs are related to each other biologically?
+
+* According to Saitou & Nei (1987), when the rate of nucleotide substitution (i.e., mutation) differs from lineage to lineage,  how does that influence the probability of obtaining the correct tree?
+
+* Please take a screenshot or save a PNG or PDF file of the neighbor-joining tree for your population and upload it as part of your answer. Your file size must not exceed 10 MB. Think about the diversity you see in terms of *TMPRSS2*. If there was an unexpected amount of diversity in your population, what would that mean for *TMPRSS2*? For example, if there is a lot of diversity in your population, does that mean there is selection occurring?
+
+* What two populations did you choose to compare to your own? Please take a screenshot or save a PNG or PDF file of your small final comparative tree of the three populations and upload it as part of your answer. Your file size must not exceed 10 MB. What do you think your trees are telling you about the comparative variation of these three populations? Which is the most variable? Why might that be?
+
+## Extra Credit
+
+* Take a look at the interactive phylogenetic trees on the Next Strain website for SARS-CoV-2. Explore the tree. What is the most deviated/changed viral sample? How many mutations from the original virus does it have? What country was it sampled in? When was it collected?
+

@@ -1,0 +1,444 @@
+---
+title: "Module 2 - ACE2/TMPRSS2 Variants and Hardy-Weinberg Equilibrium"
+author: "Becca DeCamp & Christopher Schmitt"
+date: "September 21, 2020"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
+---
+
+```{r,echo=F}
+library(knitr)
+```
+
+```{css,echo=F}
+.sccCode {
+background-color: black;
+color: white;
+}
+```
+
+## Introduction to Hardy-Weinberg Equilibrium (using Human Genome Data)
+
+***
+
+###[Homework for Lab 2: DUE Friday, October 2nd](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Homework.html)
+
+***
+
+**Readings**:<ul> 
+<li>[Chen J. The Hardy-Weinberg Principle and Its Applications in Modern Population Genetics. *Frontiers in Biology* 5(4): 348-53.](https://link.springer.com/article/10.1007/s11515-010-0580-x)</li><br>
+<li>[Benetti E, et al. 2020. ACE2 gene variants may underlie interindividual variability and susceptibility to COVID-19 in the Italian population. *European Journal of Human Genetics* ](https://www.nature.com/articles/s41431-020-0691-z)</li><br>
+<li>[Maekawa et al. 2014. TMPRSS2 Met160Val polymorphism: Significant association with sporadic prostate cancer, but not with latend prostate cancer in Japanses men. *Int J Urology* 21(12): 1234-1238](https://onlinelibrary.wiley.com/doi/full/10.1111/iju.12578)</li><br>
+<li>[Wigginton JE, Cutler DJ, Abecasis GR. 2005. A note on exact tests of Hardy-Weinberg equilibrium. *Am J Hum Genet* 76: 887-893.](https://www.cell.com/ajhg/fulltext/S0002-9297(07)60735-6?code=ajhg-site)</li></ul>
+
+***
+
+We have already discussed Hardy-Weinberg Equilibrium in class, but we haven't really linked it to population genetics yet. Today's lab will focus on the uses of Hardy-Weinberg Equilibrium in modern population genetics as we use *R* to look at Hardy-Weinberg Equilibrium in our assigned populations. 
+<br>
+
+### Hardy-Weinberg Equilibrium in Population Genetics
+<br>
+In modern population genetics studies, Hardy-Weinberg Equilibrium has a slightly different meaning than what we have talked about so far in class. In class, we learned that a population that is in true Hardy-Weinberg Equilibrium has to fit five conditions: 
+
+* the population must be extremely large (no genetic drift)
+* it must be isolated from other populations (no gene flow)
+* there must be no mutations
+* there must be random mating (no assortative mating or sexual selection)
+* there must be no natural selection
+
+Obviously, holding a population of any species to this standard is pretty much impossible, so we will use Hardy-Weinberg differently to understand real populations (like humans) in our own population genetics study. 
+<br>
+<br>
+You will often see Hardy-Weinberg Equilibrium being used in modern population genetics to simply measure whether the observed genotype frequencies of a specific SNP or microsatellite are the same as the estimated genotype frequencies. Population geneticists will often use this measure of deviance as a "starting point," so to speak, for their studies. They use Hardy-Weinberg as their starting point for a few reasons: to check the genotype quality of their data, to get a general sense of the amount of allelic variability and selection happening at specific loci, or, most commonly, as an assumption about the frequency of disease causing genotypes in their population. The assigned [Benetti et al. (2020)](https://www.nature.com/articles/s41431-020-0691-z) and [Maekawa et al. (2014)](https://onlinelibrary.wiley.com/doi/full/10.1111/iju.12578) papers use Hardy-Weinberg in the latter manner, as a check to make sure there was no selection happening at their loci of interest.
+<br>
+<br>
+In order to determine how much the observed genotype deviates from the expected genotype, we've been using a *Chi-Squared Goodness-of-Fit test*, the output of which is a *P-value* that will tell you how much the observed genotype frequency deviates from the expected frequency. However, we learned from the [Wigginton reading](https://www.cell.com/ajhg/fulltext/S0002-9297(07)60735-6?code=ajhg-site) that the Chi-Squared test has a tendency to give false positives, meaning it will tell us something is significantly different when it's actually not; this is also called a *Type I Error*). In their paper, they propose a new mathematical method of calculating the "True" Hardy-Weinberg value, which fixes the problem of false positives. We will not need to get into the specifics of the equation to calculate the "True" Hardy-Weinberg Equilibrium, but you will be calculating your population's "True" Hardy-Weinberg Equilibrium as well as using a traditional Chi-Squared test. 
+<br>
+<br>
+Now that we have learned a little more about the applications of Hardy-Weinberg Equilibrium in modern population genetics, let's get to the module activities! 
+<br>
+
+### Learning Outcomes
+
+* Use the *SCC* and *R* coding language to observe and understand population differences in *ACE2* variation, as well as *vcftools* to understand differences in *TMPRSS2* variation.
+
+* Calculate Hardy-Weinberg Equilibrium for all *ACE2* OR *TMPRSS2* SNPs in individual populations using a traditional Chi-Squared test.
+
+* Perform a check on all SNPs *not* in Hardy-Weinberg Equilibrium by calculating "True" Hardy-Weinberg with the built-in *Shiny App*. 
+
+* Research the consequence types of these SNPs in order to better understand *how* these SNPs might affect the function of the gene itself, and also how they might affect subsequent phenotypes. 
+
+* Calculate the "True" Hardy-Weinberg Equilibrium using the *Shiny App* for EITHER: 
+*ACE2* SNP [*2074192*](https://www.snpedia.com/index.php/Rs2074192), an exonic SNP that has known phenotypic consequences (according to Fan et al., 2011), and determine what the Hardy-Weinberg Equilibrium of that SNP says about the population.
+
+OR
+
+*TMPRSS2* SNP [*rs12329760*](https://www.snpedia.com/index.php/Rs12329760), an exonic SNP that has known phenotypic consequences (according to Maekawa et al., 2014), and determine what the Hardy-Weinberg Equilibrium of that SNP says about the population.
+
+* Use *vcftools* to calculate "True" Hardy-Weinberg Equilibrium for every SNP in the *TMPRSS2* gene region.
+<br> 
+
+**IMPORTANT NOTE**: Some students will find that their *ACE2* gene region will not work for the HWE exercises. This is due to a lack of variation data in their specific population (in other words, all individuals have the same allelic variants at all *ACE2* loci). If you find that's the case (e.g., your HWE table is empty!), then run the following exercises using *TMPRSS2*.
+
+## Step 1: Accessing *R Studio* and your Data
+<br>
+The first thing we need to do is access *R Studio* within the *SCC* environment. This is a little different from just logging in to the *SCC*. To use *R Studio*, we actually have to log in to the *SCC On Demand* interface:
+
+[Use this link to log in to *SCC On Demand* using your Kerberos password.](https://shib.bu.edu/idp/profile/SAML2/Redirect/SSO?execution=e1s1)
+
+Once logged in, navigate to the *Interactive Apps* menu item.
+<br>
+<br>
+
+![](img/interactiveapps.png)
+<br>
+<br>
+Within that menu item, choose the *RStudio Server*
+<br>
+<br>
+![](img/rstudioserveritem.png)
+<br>
+<br>
+When that launches, your screen should look like this:
+<br>
+<br>
+![](img/rstudiolaunch.png)
+<br>
+<br>
+Click on the `Launch` button.
+
+It may take a moment, but once your *SCC*-based *R Studio* session is ready, you'll see this on your screen:
+<br>
+<br>
+![](img/rstudioready.png)
+<br>
+<br>
+Click on `Connect to RStudio Server`.  Once your *R Studio* interface launches, it will look like this:
+<br>
+<br>
+![](img/rstudiointerface.png)
+<br>
+<br>
+The pane on the left is your *console*, which is where you will enter code to run. The pane on the upper right is your (*environment*), which is where anything running, or any datasets or items running in *R* will be shown. Finally, the pane on the lower right is your *working directory*. It should be your *SCC* home space when you first log in. 
+
+If you want to change your working directory to your `anth333` project space, you may nagivate there by clicking on the `...` button on the upper right side of the pane and entering your project space name:
+<br>
+<br>
+![](img/rstudionavigate.png)
+<br>
+<br>
+Finally, once you've navigated to the correct folder, you'll want to set this as your working directory in *R* by clicking on the `More` menu item in the pane, and cliking on `Set As Working Directory`: 
+<br>
+<br>
+![](img/rstudiosetwd.png)
+<br>
+<br>
+Conveniently enough, you can also access your space *SCC* via a Terminal window in this *R Studio* session using the *Terminal* tab next to your *console*. Please note that you may need to set your proper working directory in the Terminal, as well, using the `cd` command (e.g., `cd /project/anth333/caschmit`).
+
+## Step 2: Calculating Hardy-Weinberg Equilibrium Using Chi-Squared
+<br> 
+Now that we are in *R Studio* and have our data in place in our working directory (from Lab 1), we can get started. The first thing we need to do here is install two *packages*. 
+<br>
+<br>
+In *R* space, packages are essentially bundles of functions that *R* users have written to perform analyses that do not come with the base program. In this class we will be using packages that were designed specifically for population genetics analysis. To install these packages, run these two lines of code in the console (this may take a few minutes!): 
+<br>
+```{r, eval=F, echo=T}
+install.packages("vcfR")
+install.packages("pegas")
+```
+
+We only need to install these packages once, but we need to load them in to our workspace every time we open the program. To do this, use the following code: 
+<br>
+```{r, results = 'hide', message=F, warning=F}
+library(vcfR)
+library(pegas)
+```
+
+Now that we have all our packages loaded, we can get to the analysis! In the "files" tab in the bottom left quadrant, you should see the VCF files you downloaded in your folder (give you put them there properly). 
+
+**Try these exercises *first* with your *ACE2* VCF file.**
+
+For the ***YRI*** population, however, there is *no* variation in the *ACE2* gene region. Because of this, the demonstration data here will have to be done with *TMPRSS2*. If you find that you also have no variation within *ACE2* in your population, please also use *TMPRSS2* for the remainder of the module.
+
+We will need to load our VCF file into our *R* workspace much like we did with our packages. Unlike the packages, however, we need to give a name to the file. To make things simple, it would be a good idea to name this file in accordance with the acronym of your population. I will use the YRI population as an example. Use one of the two options below to enter your VCF data into the *R* space: 
+<br>
+```{r}
+#If your file is zipped (e.g., ends in '.vcf.gz') then use this code:
+
+TMPRSS2_YRI <- read.vcfR("TMPRSS2_YRI.vcf.gz", verbose = TRUE)
+```
+
+```{r, eval = F, echo=T, results='hide'}
+#If your file is unzipped (e.g., ends in just '.vcf') then use this code:
+
+TMPRSS2_YRI <- read.vcfR("TMPRSS2_YRI.vcf", verbose = TRUE)
+```
+
+This will give you a file in your workspace called a *vcfR* file. Most genetics-based packages have their own way of formatting and working with genetic data, and this is a format *R* can use. The next line of code will seem a little counterintuitive, because we have to change the format of the file *again* to work with functions in the *pegas* package. Doing this will not delete the original file (as long as you name the file something different), so we can use the *vcfR* file again in later analyses. The type of file we have to convert to for *pegas* is called a *genind* format, so we will do that here: 
+<br>
+```{r}
+pegas.TMPRSS2_YRI <- vcfR2genind(TMPRSS2_YRI, sep = "[|/]")
+```
+
+Finally, now that we have our data in the format that we need, we can do our Hardy-Weinberg tests. This function will test whether *all* of your population's SNPs in the coding region of *ACE2* or *TMPRSS2* are in Hardy-Weinberg Equilibrium. As an example, I will run the funtion with my *pegas.TMPRSS2_YRI* file. Remember to save your results by assigning them a name:
+<br>
+```{r}
+HWE <- hw.test(pegas.TMPRSS2_YRI, B = 0) #B MUST equal 0 here, changing this value will affect the result!
+HWE #Running the name of your results file will print the results
+```
+
+You can save a text file version of this table using the following code:
+
+```{r}
+write.table(HWE,file="TMPRSS2_YRI.HWE.txt")
+```
+Now, you'll have a saved copy of the results of your HWE analysis of all the variants in *ACE2* or *TMPRSS2* for your population in your workspace!
+<br>
+<br>
+If you've got the text file saved, you can close *R Studio* and complete the rest of this exercise using the analysis results in the text file. You can look at it in the *SCC* using either *gedit*:
+
+```{bash, eval = F, echo = T, class.source="sccCode"}
+gedit TMPRSS2_YRI.HWE.txt &
+```
+
+Or in the terminal space itself using the *less* command (don't forget, to leave the *less* output, press 'q'):
+
+```{bash, eval = F, echo = T, class.source="sccCode"}
+less TMPRSS2_YRI.HWE.txt
+```
+
+Now, on the right of your table is a list of P-values. Look over your P-values to see if any of them are significant (p < 0.05). If any of your P-values *are* significant, this means that that SNP is not in Hardy-Weinberg Equilibrium!
+
+Here's some easy ***R*** code to filter out JUST those SNPs that are significant:
+```{r,warning=FALSE,message=FALSE}
+library(tidyverse)
+HWE.sig <-
+  HWE %>%
+  as_tibble(HWE) %>%
+  mutate(snp = rownames(HWE)) %>%
+  rename(chi2 = 'chi^2', pval = 'Pr(chi^2 >)') %>%
+  select(snp,chi2,df,pval) %>%
+  filter(pval <= 0.05)
+HWE.sig
+```
+
+In this case the YRI population has 13 SNPs out of HWE in *TMPRSS2*. Record the SNP ID numbers that have significant P-values for your population, because they will be important for what we do next. 
+<br>
+<br>
+Hopefully, some of you have found that there are SNPs in your population that are not in Hardy-Weinberg Equilibrium. That's exciting! But, think back to the Wigginton paper. There is a large *Type 1 Error* rate for Hardy-Weinberg tests performed using a Chi-Squared test. To account for this, we will test our significant SNPs for Type 1 Error using the Shiny App calculator Becca De Camp created for us. Here's how we will do that: 
+
+## Step 3: Finding the "True" Hardy-Weinberg Equilibrium
+<br>
+Here, you will be interacting with a user interface on this webpage that was created to calculate "true" Hardy-Weinberg Equilibrium P-values for one SNP at a time. The input for this UI will be the genotype frequencies from your population (i.e. the number of people from the population with the heterozygous genotype, the number of people with one homozygous genotype, etc.). You will find this information on *Ensembl* by doing the following: 
+<br> 
+
+* Make a shortlist of ***FOUR*** SNP ID numbers of the SNPs that you found *not* to be in Hardy-Weinberg Equilibrium. When making this list, check the *degrees of freedom*, column. This UI will only accept SNPs with only *two* alleles, or *one* degree of freedom. Therefore, even though there are SNPs with more than two alleles that are not in Hardy-Weinberg Equilibrium, please ignore them for now. If you do *not* have four SNPs that meet these criteria, fill in your list with SNPs at random. Ultimately, EVERYONE should be looking at FOUR SNPs each. 
+
+* Go to the *ACE2* or *TMPRSS2* gene page on *Ensembl* and click on the *Variant table* tab so you get this familiar page: 
+
+* In the search bar at the top right of the variant table, type in the SNP ID number for one of your SNPs that's not in Hardy-Weinberg Equilibrium and search it. I will use the *ACE2* SNP **rs2074192** to demonstrate this. 
+<br> 
+
+![](img/rs2074192.png)
+<br>
+
+* When you have found your SNP in the table, you should first make note of the consequence type of the SNP. For example, *rs2074192* is an intronic variant. How do you think the consequence type will affect the phenotypic outcome of this SNP? 
+
+* Next, click on the SNP ID to get to the SNP page. From there, click on the *Population Genetics* tab to get the population genetics table. 
+
+* Find the *Genotype Frequency* column in this table: 
+<br>
+
+![](img/genotypefreq_rs2074192.png)
+<br>
+
+* Find *your* population in the table. Record the genotype frequency count numbers (heterozygous, homozygous 1 and homozygous 2). These will be your input to the UI below. Using this method, find these genotype frequencies for each SNP you want to test.
+
+* NOTE: before you've entered any data into the UI, it will show a result error ("Error: missing value where TRUE/FALSE needed"). This just means there's nothing entered yet. Once you've entered your genotype counts, that error message will be replaced by the calculated "True" Hardy-Weinberg Equilibrium P-value for your SNP.
+
+<center>
+```{r,echo=F}
+library(knitr)
+include_app("https://fuzzyatelin.shinyapps.io/shiny_HWE/")
+```
+</center>
+```{r, eval=F,echo=F}
+library(shiny)
+runGitHub("sososhiny","fuzzyatelin",subdir="shiny_HWE/")
+
+```
+
+```{r, eval=F,echo=F}
+library(shiny)
+shinyApp(
+   
+   ui <- fluidPage(
+  
+  # App title ----
+  titlePanel("True HWE Calculator"),
+  
+  # Sidebar layout with input and output definitions ----
+  sidebarLayout(
+    
+    # Sidebar panel for inputs ----
+    sidebarPanel(
+      
+      # Input: Slider for the number of bins ----
+      
+      numericInput("hetero", 
+                   "Heterozygous Genotype Count", 
+                   0),
+      
+      numericInput("hom1", 
+                   "Homozygous 1 Genotype Count", 
+                   0),
+      
+      numericInput("hom2", 
+                   "Homozygous 2 Genotype Count", 
+                   0)
+      
+    ),
+    
+    # Main panel for displaying outputs ----
+    mainPanel(
+      
+  
+      textOutput("HWE")
+      
+    )
+  )
+),
+server = function(input, output) {
+  
+  output$HWE <- renderText({if (input$hom1 < 0 || input$hom2 < 0 || input$hetero < 0)
+    return(-1.0)
+    
+    # total number of genotypes
+    N <- input$hom1 + input$hom2 + input$hetero
+    
+    # rare homozygotes, common homozygotes
+    obs_homr <- min(input$hom1, input$hom2)
+    obs_homc <- max(input$hom1, input$hom2)
+    
+    # number of rare allele copies
+    rare  <- obs_homr * 2 + input$hetero
+    
+    # Initialize probability array
+    probs <- rep(0, 1 + rare)
+    
+    # Find midpoint of the distribution
+    mid <- floor(rare * ( 2 * N - rare) / (2 * N))
+    if ( (mid %% 2) != (rare %% 2) ) mid <- mid + 1
+    
+    probs[mid + 1] <- 1.0
+    mysum <- 1.0
+    
+    # Calculate probablities from midpoint down 
+    curr_hets <- mid
+    curr_homr <- (rare - mid) / 2
+    curr_homc <- N - curr_hets - curr_homr
+    
+    while ( curr_hets >=  2)
+    {
+      probs[curr_hets - 1]  <- probs[curr_hets + 1] * curr_hets * (curr_hets - 1.0) / (4.0 * (curr_homr + 1.0)  * (curr_homc + 1.0))
+      mysum <- mysum + probs[curr_hets - 1]
+      
+      # 2 fewer heterozygotes -> add 1 rare homozygote, 1 common homozygote
+      curr_hets <- curr_hets - 2
+      curr_homr <- curr_homr + 1
+      curr_homc <- curr_homc + 1
+    }    
+    
+    # Calculate probabilities from midpoint up
+    curr_hets <- mid
+    curr_homr <- (rare - mid) / 2
+    curr_homc <- N - curr_hets - curr_homr
+    
+    while ( curr_hets <= rare - 2)
+    {
+      probs[curr_hets + 3] <- probs[curr_hets + 1] * 4.0 * curr_homr * curr_homc / ((curr_hets + 2.0) * (curr_hets + 1.0))
+      mysum <- mysum + probs[curr_hets + 3]
+      
+      # add 2 heterozygotes -> subtract 1 rare homozygtote, 1 common homozygote
+      curr_hets <- curr_hets + 2
+      curr_homr <- curr_homr - 1
+      curr_homc <- curr_homc - 1
+    }    
+    
+    # P-value calculation
+    target <- probs[input$hetero + 1]
+    
+    #plo <- min(1.0, sum(probs[1:obs_hets + 1]) / mysum)
+    
+    #phi <- min(1.0, sum(probs[obs_hets + 1: rare + 1]) / mysum)
+    
+    # This assignment is the last statement in the fuction to ensure 
+    # that it is used as the return value
+    p <- min(1.0, sum(probs[probs <= target])/ mysum)})
+  
+}
+)
+
+```
+<br>
+
+Record your results, and make sure to record the SNP ID of each SNP you are testing. The last thing we'll do is think about what the calculations you did today mean. 
+<br>
+
+## Step 4: What Do Your Results Mean? 
+
+Think about the results you produced today in the context of your population. Here are some guiding questions to help you: 
+<br>
+
+* If your population had SNPs that were not in Hardy-Weinberg Equilibrium, what kind of consequence did the SNP(s) have? How would that consequence type affect the phenotype? 
+
+* Does a SNP not being in Hardy-Weinberg Equilibrium mean that evolutionary forces are acting on it? How might evolutionary forces be acting on *ACE2* if a SNP is *not* in Hardy-Weinberg Equilibrium? 
+<br>
+<br>
+<br>
+
+## PRO-TIP: HWE Using *VCF Tools*
+
+You can actually run the same analysis we just did using a single line of code in *vcftools*, thanks to the ***hardy*** option.
+
+If you'd like to try, load the *vcftools* module in the *SCC*:
+
+```{bash, eval = F, echo = T, class.source="sccCode"}
+module load vcftools
+```
+
+Now, enter the following code. This is essentially telling *vcftools* to run the "true" HWE test on each variant site, and to give the output as a file called "**TMPRSS2_YRI.hwe**":
+
+```{bash, eval = F, echo = T, class.source="sccCode"}
+vcftools --gzvcf TMPRSS2_YRI.vcf.gz --hardy --out TMPRSS2_YRI
+```
+
+Once it's run, you can read the output file using the *less* command:
+
+```{bash, eval = F, echo = T, class.source="sccCode"}
+less TMPRSS2_YRI.hwe
+```
+
+<br>
+Notice that the output is giving us both more and less information than our analysis in *R Studio*. Rather than the variant name, we're given just the variant position ('POS') on which chromosome ('CHR'). We're also, however, given the observed ('OBS(HOM1/HET/HOM2)') and expected ('E(HOM1/HET/HOM2)') counts of individuals under "true" HWE with each genotype, along with the "true" HWE Chi-Squared ('ChiSq_HWE') and P-values ('P_HWE'). It's also giving us P-values regarding whether there is a significant deficit ('P_HET_DEFICIT') or excess ('P_HET_EXCESS') in heterozygotes, which can tell us a bit more about *why* the population is out of Hardy-Weinberg equilibrium (we'll learn more about this in class).
+
+To see only the significant SNPs for this output, we just need to import the file into *R*:
+```{r}
+vcftools.HWE<-read.table("TMPRSS2_YRI.hwe",header=TRUE)
+head(vcftools.HWE)
+```
+
+And then filter by `P_HWE`, which represents the HWE p-value:
+```{r,warning=FALSE,message=FALSE}
+library(tidyverse)
+vcftools.HWE.sig <-
+  vcftools.HWE %>%
+  as_tibble(vcftools.HWE) %>%
+  select(CHR,POS,ChiSq_HWE,P_HWE) %>%
+  filter(P_HWE <= 0.05)
+vcftools.HWE.sig
+```
+
+<br>
+<br>

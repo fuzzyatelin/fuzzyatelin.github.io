@@ -1,0 +1,49 @@
+---
+title: "Lab 1 NOTES"
+author: "Becca DeCamp"
+date: "5/31/2018"
+output: html_document
+---
+
+### Before lab starts: Population Assignment Priorities
+<br>
+Here's the prioritized list of populations to assign, AKA the ones that will be the most interesting to look at in this class. I personally thought that the interesting ones to look at were those populations from warmer climates (such as many of the African populations) since they are more likely to have developed a mutation (or I guess since most of them are intron variants it would be a splicing variation) that would affect the functionality of UCP1 since they don't need it. 
+<br>
+
+* STU - Sri Lankan Tamil in the UK. The only population that has a SNP out of HWE that's not an intron SNP. Could have possible implications in adaptations to UK environment from the native environment. 
+
+* ITU - Indian Telugu in UK. This is the ONLY population in which A-3826G SNP is NOT in HWE. Possible implications for adaptations to UK environment? 
+
+* LWK - Luhya in Webuye, Kenya. Interesting because it has two false positives, one of which has a "true" P value VERY different from the Chisq. P-value. It does have one SNP truly out of HWE which is interesting for a warmer climate. It is an intron variant, so perhaps it affects the splicing of the gene. 
+
+* FIN - Finnish in Finland. Interesting because all of the SNPs out of HWE are false positives. You would think there would be something here because Finland is a cold place, but I guess not...
+
+* GBR - British in England and Scotland. No SNPs out of HWE. Similar to FIN, you might expect some change to be occurring, but it's not. Note: This is not a super super high priority population, it might be just more interesting to talk about why no SNPs are out of HWE here. 
+
+* ESN - Esan in Nigeria. Has one SNP that is truly not in HWE. Interesting again because this is an African population. 
+
+* TSI - Toscani in Italy. Interesting because Italy is one of the more temperate European climates, so that could be of interest. 
+
+* GWD - Gambian in Western Divisions in the Gambia. Has one false positive SNP and one SNP truly in HWE. Again, interesting because of the warm climate. 
+
+* ASW - Americans of African Ancestry in Southwest USA. Two false positive SNPs and one truly HWE SNP. Interesting because this population moved from one warm climate to another, so there shouldn't really be a difference in their need for UCP1. 
+
+* ACB - African Caribbeans in Barbados. One false positive SNP, one true HWE. Similar to ASW, very few climate changes from Africa to Caribbean, so it is interesting that there is a SNP in true HWE. 
+
+* CHS - Southern Han Chinese. One SNP, false positive. May be interesting to discuss in relation to location. Not sure of the South China climate, so maybe research that before assigning this population as a priority. 
+<br>
+
+I think this is a good list of priority populations, since there's not gonna be a huge number of kids in the class. If there does end up being more kids, you can pretty much just choose any ones you like. The one thing I would suggest is maybe throwing in a few more populations from the Americas and East Asia to get a more even spread. You don't have to do this, since those populations might not be super interesting to look at. So for now, just stick to the list. 
+<br>
+<br>
+
+### Stuff that I may not have explained clearly enough
+<br>
+I tried to explain some concepts, such as alignment and the difference between the GRCh37 and GRCh38 Ensembl versions, but I'm not sure if I conveyed it clearly. You are welcome to edit these parts to make more sense to undergrads, or you may have to field questions about these topics.
+<br>
+<br>
+If you or the students are concerned about it, I don't really think it's that great of a concern that the data slicer is only available for GRCh37. I gave the explicit coordinates of the GRCh37 coordinates for UCP1, so all they really need to do is copy and paste. That's all I have to say about that. 
+
+
+
+

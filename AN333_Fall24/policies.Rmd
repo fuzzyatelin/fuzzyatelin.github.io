@@ -1,0 +1,71 @@
+---
+title: "AN/BI 333/733: Course Policies"
+date: "September 3, 2020"
+output: 
+  rmarkdown::html_document:
+    theme: cosmo
+---
+***
+
+### [Course Overview](https://fuzzyatelin.github.io/AN333_Fall20/overview.html)
+### [Syllabus](https://fuzzyatelin.github.io/AN333_Fall20/Syllabus.html)
+### [Modules](https://fuzzyatelin.github.io/AN333_Fall20/LabSyllabus.html)
+### [Exam](https://fuzzyatelin.github.io/AN333_Fall20/Midterm2.html)
+### [Final Project](https://fuzzyatelin.github.io/AN333_Fall20/FinalProject.html)
+
+***
+
+<b>Learn *from* Anywhere</b>:
+
+For the duration of the COVID-19 pandemic, courses will be taught using a hybrid in person/remote style called Learn *from* Anywhere (L*f*A). Under this system, students may attend class either in person or remotely and synchronously via Zoom. Videos of course Zoom lectures will also be recorded and posted on a course Blackboard site so that students living in different time zones for the duration of the pandemic may attend class remotely and asynchronously. Students choosing to attend class in person must keep up with their required twice-weekly COVID-19 testing by the univeristy, as well as their daily Attestation. This will be ensured by the instructor by checking Symptom Confirmation badges prior to being permitted to enter the classroom. Students without a green Symptom Confirmation badge will not be permitted to enter and must attend class remotely. Due to the digital nature of the majority of this course, it should translate well to L*f*A.
+
+
+***
+
+<b>The community at Boston University has adopted the following Academic Conduct Code</b>:  
+“All students entering Boston University are expected to maintain high standards of academic honesty and integrity.”  Obviously, the full text is more detailed. The expectation is that you will adhere to this code, as your instructor pledges to do as well.  For more information, please visit [this website](http://www.bu.edu/academics/policies/academic-conduct-code/). In keeping with this code, cheating, plagiarism, or any other form of academic dishonesty will not be tolerated (ACC III).<br>
+
+***
+
+<b>Email policy</b>:  
+The instructor will respond to emails within 24 hours from 8am on Monday through 5pm on Friday. You will not receive email replies over the weekend. Although email is available to you 24 hours a day 7 days a week, I unfortunately cannot be. Please keep this in mind. If you would like to discuss a confidential issue with Dr. Schmitt, please request a meeting via email or set up a meeting in person.<br>
+
+You must sign your email with the official name you use with the University and/or use your email address registered with the University. If I cannot tell that you are officially a student at BU and enrolled in AN/BI333 this semester, I will not reply to your email.  THIS INCLUDES MESSAGES SENT FROM CELL PHONES.<br>
+
+Please use proper grammar and complete sentences so that your request is clearly understandable.<br>
+
+***
+
+<b>Policy on accommodation of religious holidays and other scheduling conflicts</b>:  
+In compliance with Massachusetts General Laws Chapter 151C, Section 2B, it is the official policy of Boston University to permit any student to undergo a test or examination, without penalty, at a time when that activity would not violate the student's religious creed, unless administering the examination at an alternative time would impose an undue hardship which could not reasonably have been avoided.<br>
+
+All deadlines and exam dates are noted on this syllabus. It is your responsibility to note any conflicts with exams and due dates and let the instructor know. If you have other scheduling conflicts, please see the guidelines [here](http://www.bu.edu/cfa/files/pdf/BUPolicyonstudentabsenceduetoreligiousobservance.pdf).
+
+***
+
+<b>Policy on the final assignments</b>:  
+Only a documented illness or some other unforeseeable emergency will allow me to grant you a later due date for the final assignment than what is posted on this syllabus. Anticipated events do not count as acceptable reasons for turning in your paper late (even if it is a University-approved one), as you can and should plan ahead and turn your paper in early.<br>
+
+***
+
+<b>Policy on Homework</b>:
+Homework done in a group may be submitted later than the due date if a member of the group has extenuating circumstances that require this, but it must be agreed upon by all members of the group ahead of time. I urge all groups to consider that late assignments *will* hurt you in the end... you do not want to spend your time catching up on homework... please try to keep on schedule!
+
+***
+
+<b>Policy on attendance for lecture</b>:  
+You must come to this class every day.<br>
+
+***
+
+<b>Policy on cell phones</b>:  
+All cell phones need to be silenced during class. We all understand that there may be occasional situations in which you need to receive or send a text, but keep in mind that excessive texting or other use of your phones is distracting to other people in the class. If your cell phone activity becomes disruptive, you will be asked to leave.<br>  
+
+***
+
+<b>Policy on students with disabilities</b>:  
+In order to adequately accommodate students with disabilities that require additional services, I need to know who you are and what your needs are by <b>September 30th</b>. If you delay processing your paperwork, I will not be able to accommodate you until your letter is in my hands. The Office of Disability Services (ODS) requires a significant amount of lead-time. Do not delay in finalizing and confirming your accommodations. For more information, visit the [ODS website](http://www.bu.edu/disability/).<br><br>
+
+***
+<center><p><img src="https://media.giphy.com/media/5WqhJc7LD4NRS/giphy.gif" style="border:5px solid black"></p>
+</center><br>  
