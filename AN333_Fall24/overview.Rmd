@@ -37,7 +37,7 @@ output:
 ### Course Description
 ***
 <p>
-<img src=https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/ADMIXTURE_analysis_of_Horn_of_Africa_populations_in_a_broad_context.png/640px-ADMIXTURE_analysis_of_Horn_of_Africa_populations_in_a_broad_context.png style="float:right" width="365" hspace="40">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/ADMIXTURE_analysis_of_Horn_of_Africa_populations_in_a_broad_context.png/640px-ADMIXTURE_analysis_of_Horn_of_Africa_populations_in_a_broad_context.png" style="float:right" width="365" hspace="20">
 This course uses human genomic and population variation as a framework within which to better understand human evolutionary history. We do this by familiarizing ourselves with the methods, techniques, and biology that allow us to understand human variation at its most basic level: the genome. Throughout the course, we will download, analyze, and draw conclusions about human evolutionary and population history from open-source human genomic datasets derived from the [1000 Genomes Project](http://www.internationalgenome.org). From there, we expand our view to better grasp human diversity and what it can tell us about our evolutionary history from our last common ancestor with other apes to how modern human populations have diverged, specialized and then interacted during our spread from East Africa to every part of the globe. Finally, we take a close look at the biological underpinnings of contemporary human variation and what impact our knowledge of these systems can have on our conceptions of public policy, health and disease. 
 </p>  
 
@@ -54,13 +54,14 @@ This is a 4-unit lecture course with some lab-like classes held in lieu of lectu
 ***
 ### Assessment
 ***
-Performance will be based on a total of 500 possible points distributed across five assessments:
+Performance will be based on a total of 500 possible points distributed across six assessments:
 <ol>
-1.	Exam 1: 100 points,	Wednesday, 9 October, 2024
-2.	Exam 2: 100 points,	Friday, 11 November, 2024
-3.	Exam 3: 100 points,	Monday, 9 December, 2024
+1.	Exam 1: 100 points,	Friday, 11 October, 2024
+2.	Exam 2: 100 points,	Friday, 08 November, 2024
+3.	Exam 3: 100 points,	Monday, 09 December, 2024
 4.  Module Homework: 60 points (see below)
-5.  Final Project: 140 points, due Wednesday, 18 December, 2024
+5.  Final Presentation: 40 points (TBD)
+5.  Final Project: 100 points, due Wednesday, 18 December, 2024
 </ol>
 
 ***
@@ -68,7 +69,7 @@ Performance will be based on a total of 500 possible points distributed across f
 ***
 The course text is be available for purchase at [BU Barnes & Noble](https://bu.bncollege.com), and is also on library reserve at the [Science and Engineering Library](http://www.bu.edu/library/sel/).
 <ul><li>Hartl DL & Clark AG. 2007. <i>[Principles of Population Genetics, Fourth Edition](https://global.oup.com/ushe/product/principles-of-population-genetics-9780878933082?lang=en&cc=ca)</i>. Oxford: Oxford University Press.</li><br>  
-<center><p><img src="https://global.oup.com/academic/covers/pdp/9780878933082" height="168" width="140"></p></center></ul><br>
+<center><p><img src="https://m.media-amazon.com/images/I/51Qd1g0I9vL._AC_UF350,350_QL50_.jpg" height="168" width="140"></p></center></ul><br>
 
 ***
 ### [BU HUB](http://www.bu.edu/hub/about-the-hub/) Learning Outcomes
@@ -104,5 +105,5 @@ This course has been added to the **BU HUB** General Education Curriculum as **C
 
 * **Learning Outcome 1**: Students will learn and compare multiple methods of accessing free online repositories of contemporary and ancient human genomic data while also assessing the quality of those samples through a rigorous interpretation of the published literature on their origins and analysis. To this end, students will read primary literature regarding the creation of genomic data repositories and data types, which will discuss the relative merits of accessing different genomic data types (for example, constructing de novo genome assembly from raw sequence data versus using pre-constructed variant call formats and other, more processed methods of storing genomic data), and even reference assemblies (i.e., those stored in Ensembl, the UCSC Genome Browser, and GenBank), recognizing the variable levels of skill and knowledge required to adequately access and assess the quality of data from such resources.  Through the process downloading and analyzing their own chosen genomic region, students must also repeatedly assess the quality of their own data, and critically reflect on how their processing techniques may have altered the information content of their genomic dataset (indeed, in past courses, data corruption often lead to untrustworthy outcomes, which students must detect and remedy using the tools provided in their modules). These studies will be supplemented by discussions of social and ethical issues surrounding data collection, analysis and presentation unique to human genomic datasets, including discussions of data from indigenous and non-Western populations and how the results from analyses of these populations are presented and interpreted. This includes reflections on how they choose their own population to interrogate, what cultural or biological assumptions may do to bias such choices, and how their choice of population may also alter how their analytical results can adequately address their question.
 
-* **Learning Outcome 2**: •	Online exercises with in-class troubleshooting sessions guide students through the process of human population genomic research. This process follows a sequence from relatively low-stakes assignments familiarizing students with data sources, interfaces, and processing, leading gradually to a complete project in which students choose a gene to analyze comparatively across human populations, with an eye towards understanding how the data and resources available necessarily limit their scope of inquiry. This process is mediated by online modules which guide students through the initial process of data acquisition through increasingly complex methods of data processing and manipulation for population genetic assessments. Students will learn quickly to ensure that, with each modification of the dataset, the quality of their data remains high, and has not been compromised by faulty coding (a very common outcome) or by not meeting analytical assumptions. Upon successful completion of the training modules, students then work with the instructor to independently develop a question related to human genomic variation that is limited to the resources provided (the available 1000 Genomes Project dataset). Ultimately, students present their work in class in an American Association of Physical Anthropologists-formatted presentation where they gain peer-review of their work. The final paper involves a submission process in which students must attach a cover letter directly addressing critiques raised by their peers during their presentation. This process prepares students for the entirety of the scientific process, from literature review and hypothesis formation through peer-review and presentation.
+* **Learning Outcome 2**: •	Online exercises with in-class troubleshooting sessions guide students through the process of human population genomic research. This process follows a sequence from relatively low-stakes assignments familiarizing students with data sources, interfaces, and processing, leading gradually to a complete project in which students choose a gene to analyze comparatively across human populations, with an eye towards understanding how the data and resources available necessarily limit their scope of inquiry. This process is mediated by online modules which guide students through the initial process of data acquisition through increasingly complex methods of data processing and manipulation for population genetic assessments. Students will learn quickly to ensure that, with each modification of the dataset, the quality of their data remains high, and has not been compromised by faulty coding (a very common outcome) or by not meeting analytical assumptions. Upon successful completion of the training modules, students then work with the instructor to independently develop a question related to human genomic variation that is limited to the resources provided (the available 1000 Genomes Project dataset). Ultimately, students present their work in class in an American Association of Biological Anthropologists-formatted presentation where they gain peer-review of their work. The final paper involves a submission process in which students must attach a cover letter directly addressing critiques raised by their peers during their presentation. This process prepares students for the entirety of the scientific process, from literature review and hypothesis formation through peer-review and presentation.
 
