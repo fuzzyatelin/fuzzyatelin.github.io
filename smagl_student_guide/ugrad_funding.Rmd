@@ -1,0 +1,386 @@
+---
+title: "Undergraduate Funding in the SMAGL"
+author: "Christopher A Schmitt</br>Boston University"
+date: "August 15, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+Research is great, but it isn't cheap - expenses like reagents for the wet lab and plane tickets for field work can add up. Fortunately, there are numerous sources of funding for undergraduates interested in conducting research at Boston University!
+
+***
+
+# Undergraduate Research Opportunities Program (UROP) 
+
+***
+
+***UROP*** is a funding mechanism providing wage-level pay for student hourly research effort with faculty across BU. In SMAGL, both Prof. Garrett and Prof. Schmitt have sponsored multiple UROP students for museum work, wet bench work, *in silico* analyses, and field research in both Africa and Latin America.
+
+UROP applications can be filed at the [BU UROP website](https://www.bu.edu/urop/), which also regularly posts updated information and due dates, and updated calls for student researchers (should you seek a UROP in another lab, or if you’re not yet affiliated with the SMAGL).
+
+**To apply for a UROP project in SMAGL, we require at least one semester of research on a volunteer basis in the lab, with a commitment of 10 hours per week. Attendance at lab meetings is mandatory but summer research negotiable during this period.**
+
+UROP provides help with applications upon request ([you can book a session on their Calendly page](https://calendly.com/bu-urop)), so that students submit the most fundable applications.
+
+Students who receive UROP funding must also present a poster outlining their funded research at the UROP Undergraduate Research Symposium. The deadline for abstract submission is typically mid-August. [Details on the next UROP Undergraduate Research Symposium are available here](https://www.bu.edu/urop/symposium/). 
+
+Some important limits to keep in mind with respect to UROP funding:
+
+* There is a limit to how many students a PI may sponsor for UROP funding. This limit is typically around 2 students per PI per semester, but in certain semesters may be fewer.
+* There is a limit to how many times a student may receive UROP funding. Currently, the limit has been placed at TWO awards for an individual student.
+* This funding cannot fund students once they’ve graduated. If you would like to use UROP Summer funding to support fieldwork at a SMAGL field site, it must take place in a summer prior to your graduation date.
+* Students receiving academic credit for their research (e.g., [Honors Research]() or [Research for Credit]()) cannot simultaneously receive UROP funding.
+
+UROP provides the following categories of Awards:
+
+## Research Awards
+
+Your UROP Research Award application must be centered on a research project in the SMAGL under the supervision of either Prof. Garrett and Prof. Schmitt. Your application must be written in association with your supervisor! This means that they must review your application prior to submission. You may not submit without the direct approval by your SMAGL supervisor of your UROP application. If you are working on a group project with other UROP applicants, you must each make this clear in your respective applications and describe each individual’s unique role in the project. Identical applications are not accepted.
+
+Funding: UROP awards currently pay minimum wage salary for 10-20 hours per week up to a maximum of \$4,400 dollars in Summer semesters, and for 5-10 hours per week up to a maximum of \$1,350 for Fall/Spring semesters. Reduced amounts may also be requested based on time planned for research.
+
+[Deadlines for UROP](https://www.bu.edu/urop/get-involved/deadlines/): 
+
+*	Fall: Second week of September.
+*	Spring: First week of December.
+*	Summer: First week of March.
+
+
+***
+
+# Special Awards at BU
+
+***
+
+## UROP-Related Awards
+
+### [Clare Boothe Luce STEM Scholar Award](https://www.bu.edu/urop/opportunities/special-awards/clare-boothe-luce/) 
+
+Supports summer research in the sciences, open to female U.S. Citizens or Permanent Residents. Provided through the [Henry Luce Foundation](https://www.hluce.org/programs/clare-boothe-luce-program/).
+
+Funding: \$4,800 for Summer Research.
+
+Deadline: Awardees are selected from the funded UROP applicant pool (i.e., no application available).
+
+### [Loren E. Wold Research Award](https://www.bu.edu/urop/opportunities/special-awards/loren-e-wold-research-award/)
+
+Supports summer research in the biological sciences, open to Biology majors working in research labs of faculty in the Department of Biology and other departments in the College of Arts and Sciences, the School of Medicine, or the School of Public Health, and students from other majors working in Department of Biology laboratories. Four (4) awards are given annually.
+
+Funding: \$6,000 for Summer Research, \$200 Conference Travel Award.
+
+Deadline: Awardees are selected from the funded UROP applicant pool, in consultation with the Chair of Biology and the Biology Honors Committee (i.e., no application available).
+
+### [New England BioLabs Award](https://www.bu.edu/urop/opportunities/special-awards/corporate-awards/)
+
+Provides direct support to one funded UROP student in the form of stipends, based on selection by New England BioLabs.
+
+Funding: Up to \$1,500 during the academic year, and \$6,000 during the summer.
+
+Deadline: Awardees are selected from the funded UROP applicant pool (i.e., no application available).
+
+### [Newbury Award](https://www.bu.edu/urop/opportunities/special-awards/newbury-award/)
+
+The Newbury Award is provided by Boston University’s [Newbury Center](https://www.bu.edu/newbury-center/) to support first-generation college students conducting summer research through UROP. The Newbury Center was founded in January 2021 with the aim to become a highly visible, transformative unit of the University, offering programming and services designed to ensure that first-generation students experience the same sense of well-being, belonging, self-efficacy, and academic accomplishment as their continuing-generation peers.
+
+Deadline: Awardees are selected from the funded UROP applicant pool (i.e., no application available).
+
+### [Mark W. Reiman Summer Research Prize](https://www.bu.edu/urop/opportunities/special-awards/riemen/)
+
+The award supports an undergraduate summer research project in the amount of \$6,000 for salary and a \$500 Supplies Award. The award alternates annually between students working with faculty members from CAS Chemistry one year and Biology the next. Criteria for the award include research experience and academic achievement.
+
+Deadline: Awardees are selected from the funded UROP applicant pool (i.e., no application available).
+
+## Travel Awards
+
+### [Biology Department Undergraduate Travel Grant](https://www.bu.edu/biology/undergrad/awards/grant/)
+
+Must be a Biology major, seniors are given priority and may apply for activities taking place in senior year or the summer after graduation. Students are only eligible once per academic year.
+
+Funding: variable.
+
+Deadline: Mid-to-Late February.
+
+### [Honors Research Travel Award](https://www.bu.edu/cas/academics/undergraduate-education/special-academic-opportunities/honors-in-the-major/cas-honors-research-travel-awards/)
+
+The CAS Honors Research Travel Award program funds grants of up to \$1,000 for travel to conduct research by advanced undergraduates pursuing the B.A. with honors in any College of Arts & Sciences major. These awards recognize outstanding student scholars and enable them to execute Senior Honors Projects that require travel in the course of research. The specific purpose of the travel may be any kind of fieldwork required for the project, including activities such as consulting archival or library materials, conducting interviews, collecting data of any sort, attending performances, exhibitions, or other cultural events, or working with scholars in the relevant field. Up to 10 Honors Scholar Research Travel grants will be awarded each year.
+
+Honors research travel may be scheduled for any point during the student’s junior or senior year or the intervening summer, provided that the student has an approved Honors Project proposal on file in his or her major department. The best time for research travel will vary by field and by project. Each student works with the faculty mentor supervising his/her Honors Project to formulate an overall research plan and timeline where the benefits of research travel can be most fully realized in the final thesis or paper.
+
+These awards are restricted to travel for the purpose of conducting honors research.
+
+Funding: Up to \$1,000 for travel related to research.
+
+Deadline: Rolling.
+
+### [Student Academic Enhancement Fund](https://www.bu.edu/cas/student-life/undergraduate-students/ospl/saef/)
+
+Designed to support undergraduate CAS students in the pursuit of academic interests, endeavors, and achievements outside of the classroom. CAS students are eligible for funding once per BU career. Common uses of funds include but are not limited to travel and registration fees for academic conferences (only if presenting), materials/equipment for academic work outside the classroom. These funds may not be used for summer research/travel or events more appropriately funded by honors research mechanisms or UROP.
+
+Funding: \$500-\$700
+
+Deadline: At least 4 weeks prior to the event/need.
+
+## Internal BU Scholarships
+
+### [Ada Draper Award](https://www.bu.edu/cas/academics/undergraduate-education/academic-advising/advising/ada-draper-award/)
+
+This award will be granted to an outstanding CAS senior woman (minimum grade point average of 3.5) to be used for traveling or studying abroad after graduation.  The fund stipulates “such income shall be applied to establish scholarships and to enable the most meritorious and needy female students to be sent abroad after graduation to complete their studies.”  Implicit is the recognition that learning, in Ms. Draper’s opinion, should extend beyond the classroom walls and take place in foreign climes. This would be an ideal grant for funding summer field research after graduation.
+
+Funding: variable.
+
+Deadline: Early March.
+
+### [Dean Elsbeth Melville Scholarship](https://www.bu.edu/advising/fellowships-scholarships/opportunities/bu-scholarships-for-undergraduates/dean-elsbeth-melville-scholarship/)
+
+Only two scholarships are awarded each year to top-ranked women in the junior class. Minimum GPA of 3.5. All nationalities may apply, but only U.S. citizens are eligible for awards greater than \$3,000. Scholarship recipients receive a minimum of \$3,000.00 depending on financial need. Funds can only be applied to undergraduate study.
+
+Funding: variable.
+
+Deadline: Mid-to-Late March.
+
+### [Harold C. Case Scholarship](https://www.bu.edu/advising/fellowships-scholarships/opportunities/bu-scholarships-for-undergraduates/harold-c-case-scholarship/)
+
+For juniors in support of their senior year. Recognizes scholarly accomplishment and potential as well as extra-curricular activities which contribute to the University; SMAGL members with strong research records who also are very active in extra-curricular activities should consider applying. Minimum 3.5 GPA. All nationalities may apply, but only U.S. citizens are eligible for awards greater than \$3,000.
+
+Funding: variable, up to \$3,000 or full tuition (depending on financial need).
+
+Deadline: Mid-to-Late March.
+
+### [Provost’s Scholars Award](https://www.bu.edu/advising/fellowships-scholarships/opportunities/bu-scholarships-for-undergraduates/provosts-scholars-award/)
+
+The Provost’s Scholars Awards celebrate the achievements of students who have demonstrated their willingness in their first two years of college to stretch themselves intellectually, to push beyond what they already know they can do, to take significant risk by pursuing the unknown and unpredictable–in short, to demonstrate the spirit of a true scholar at a research university.
+
+Up to twenty (20) awards are given annually, each carrying \$1000 of funding for research/creative activity expenses such as travel to conferences and archives or for research-related equipment and supplies. Awards are distributed through the Undergraduate Research Opportunity Program (UROP). Winners are selected in the Spring Semester, and recognized at the Provost’s Academic Awards Ceremony during Family & Friends Weekend in October.
+
+Applicants must be second-semester sophomores with a 3.0 GPA or higher and a record of taking on intellectual challenges. For second-semester sophomores who have already conducted research in their first two years and have at least a 3.0 GPA.
+
+Funding: \$1,000 of funding for research expenses, distributed via UROP.
+
+Deadline: Mid-to-Late February. [Application details here](http://www.bu.edu/bufellow/provosts-scholars/).
+
+***
+
+# Other Undergraduate Scholarships/Awards
+
+***
+
+NOTE: Students interested in many of the below scholarships should contact Jeff Berg,  Director of National & International Scholarships, to discuss which scholarship would be appropriate for them! Jeff is great, and very helpful! You can do so by entering an [Intent to Apply](https://www.bu.edu/advising/fellowships-scholarships/contact-us/).
+
+[**Read about national scholarship opportunities that Jeff can help you with here!**](https://www.bu.edu/advising/fellowships-scholarships/opportunities/national-fellowships-scholarships-for-undergraduates/)
+
+## [Barry Goldwater Scholarship](https://goldwater.scholarsapply.org/)
+
+For undergraduate students pursuing research during their undergraduate career. Students must be a U.S. citizen or national. Jeffrey Berg (jberg@bu.edu) is our current campus representative. Students must be nominated to apply for the award by the campus representative, and so must reach out before applying. See the website for details.
+
+Funding: Up to \$7,500 per year for costs associated with tuition, mandatory fees, books, room and board.
+
+Deadlines: 1) First Tuesday in September, Goldwater Online Application Opens. You may submit a pre-application at this point, and/or contact the campus representative. 2) Last Friday in January, 5:00pm, last acceptance of nomination submissions. 3) Last Friday in March, Scholars and Honorable Mentions Announced.
+
+## [Out to Innovate Scholarship](https://www.nogltsp.org/programs-projects/scholarships/)
+
+Funded by the National Organization of Gay and Lesbian Scientists and Technical Professionals (NOGLSTP), these awards fund undergraduate and graduate students who are ‘out’ members of the LGBTQ+ community and who are conducting research in STEM fields. To be eligible, applicants must have completed at least two years of undergraduate studies, have a minimum GPA of 3.0, be majoring in a STEM or STEM-related field, and be an active supporter of an participant in programs or organizations that promote LGBTQ+ inclusion and visibility.
+
+Funding: \$5000
+
+Deadline: First Saturday of June.
+
+## [Point Foundation Scholarship](https://pointfoundation.org/point-apply/apply-now/)
+
+For ‘out’ members of the LGBTQ+ community with a strong academic record pursuing scholarly research with a proven track record of leadership and community involvement working for the betterment of the LGBTQ+ community. Demonstrated financial need is also considered.
+
+Funding: variable.
+
+Deadline: January 28
+
+***
+
+# Open Research Funding
+
+***
+
+## [American Society of Primatologists General Small Research Grant](https://asp.org/grants/research/index.cfm)
+
+ASP Research awards will be given to training initiatives, start-up funds, supplementary funding for students, and innovations in animal care and research technology. Research Award amounts range from \$500 to \$1500, and will be for a period of one year.
+
+Funding: \$500-\$1500
+
+Deadline: May 1.
+
+## [International Society of Primatologists Research Grant](http://www.internationalprimatologicalsociety.org/research.cfm)
+
+The IPS Research Committee awards grants of up to \$1500 to support primate-oriented research projects with a strong theoretical component. These projects can be conducted in the field or in captivity.
+
+Funding: Up to \$1500
+
+Deadline: March 1.
+
+
+***
+
+# Field School Funding
+
+***
+
+## [Field Projects International Scholarships](https://fieldprojects.org/participate/scholarships/#:~:text=We%20offer%20several%20full%20scholarships,body%20that%20enriches%20the%20experience)
+
+FPI offers scholarships for field courses and other field training programs. FPI offers several full scholarships to their programs in field biology and conservation for three principal reasons: 1) to ensure that there are opportunities for attending our courses and field programs that do not depend on payment of the course fee; 2) to ensure a more diverse student body that enriches the experience for everyone; 3) to provide opportunities for field training and networking to residents of the various countries in which they operate.
+
+Awards available:
+
+* Future Black Scientists: Awarded to persons who identify as Black, regardless of nationality, and are pursuing studies in biological sciences or conservation.
+
+* Local Opportunity Scholarship: Awarded to an individual with nationality and current residence in the country where a given field program is taking place.
+
+* Global Studies Scholarship: Awarded regardless of age, nationality, socioeconomic status, religion, or any other aspect of an individual’s personal identity.
+
+## [Maderas Rainforest Conservancy Scholarship for Education and Training in Field Primatology](https://asp.org/grants/scholarship/index.cfm)
+
+One scholarship annually to outstanding undergraduate and/or graduate students for research and career training in a field course at La Suerte Biological Research Station, Costa Rica or Ometepe Biological Research Station, Nicaragua. The scholarship provides full tuition for an approximately one-month basic field course including room and board (3 meals/day), instruction, access to all facilities at the field site and in-country transportation to and from the field site. 
+
+See the [Maderas Rainforest Conservancy website](http://www.maderasrfc.org) for more information on the field courses available.
+
+Funding: Tuition for one field course, with room and board.
+
+Deadline: March 1.
+
+***
+
+# Conference-Specific Awards
+
+***
+
+## [William S. Pollitzer Student Travel Award](http://physanth.org/about/awards-funding-and-other-opportunities/william-s-pollitzer-student-travel-award/)
+
+Designed to help students defray the costs of attending the American Association of Physical Anthropologists (AAPA) meetings. This award is open to all AAPA student members (undergraduate and graduate) who are attending the annual meeting. You do not have to be presenting, nor be a member. 
+
+Students from underrepresented groups in biological anthropology, those who are the first in their family to go to college, or are undergraduate students at two-year and four-year colleges (without graduate programs) are strongly encouraged to apply.
+
+Application and Essay: The essay question changes each year. Awards are made on the basis of an essay of no more than 750 words long (excluding references). Any submission over 750 words will be automatically disqualified. References are not counted towards the 750 words and should be included in the same text box with the essay.
+
+Funding: Up to \$500 to defray travel costs to the meetings.
+
+Deadline: January 1.
+
+## [American Association of Biological Anthropologists IDEAS Workshop](http://physanth.org/about/committees/diversity/cod-ideas-increasing-diversity-evolutionary-anthropological-sciences/)
+
+The IDEAS (Increasing Diversity in Evolutionary Anthropological Sciences) Workshop is a one-day research and mentoring workshop in advance of the AAPA annual meeting and a mentoring network throughout the meeting. The workshop is open to undergraduate and graduate students with an interest in biological anthropology who are members of a group traditionally disenfranchised and currently underrepresented in biological anthropology (e.g., first generation college students, BIPOC students, LGBTQ+ students).
+
+Funding: Scholars invited to the workshop receive lodging at the conference venue, travel to and from the conference, and funds for poster printing (if necessary).
+
+Deadline: November 15
+
+## [American Society of Primatologists Student Competition](https://asp.org/grants/studentprizeawards/index.cfm)
+
+The student competition of the American Society of Primatologists takes place at their annual meeting. Students must register for the meeting and indicate when they register and submit their abstract that they would like to participate in the Student Competition. To be considered, students must be the first author of an accepted paper/poster abstract who has not previously won.
+
+Funding: variable, free membership to ASP.
+
+Deadline: March 31.
+
+## [American Society of Primatologists Ruppenthal Student Travel Award](https://www.asp.org/grants/travel/index.cfm)
+
+All current, active student members of ASP are eligible for \$500.00 awards to offset the cost of travel and accommodation to ASP meetings. The awards are designed to help students who would otherwise not be able to attend the meeting. Students must be presenting as first author on an abstract, and never have previously won a Ruppenthal Award.
+
+Funding: Up to \$500 to travel to ASP Conference.
+
+Deadline: March 31.
+
+***
+
+# Funding for Research Outside SMAGL
+
+***
+
+## [National Science Foundation Research Experience for Undergraduates](https://www.nsf.gov/crssprgm/reu/list_result.jsp?unitid=5047)
+
+Note that these are paid research positions for undergraduates in outside labs (not within SMAGL). Students must apply to each individual project in which they might be interested. There are some NSF REU's available at BU (see below), but these are generally hosted through other universities and labs.
+
+Funding: variable.
+
+Deadline: variable.
+
+## [Research Experience for Undergraduates – Bioinformatics (BRITE REU)](http://sites.bu.edu/britereu/)
+
+The BRITE REU at BU Bioinformatics focuses on computational and mathematical fundamentals of bioinformatics analysis through research projects in a broad range of topics. Participants receive a weekly stipend and free on-campus housing. Applications are due in March.
+
+## [Summer Institute for Training in Biostatistics (SIBS)](http://www.bu.edu/sph/academics/departments/biostatistics/summer-institute-for-training-in-biostatistics/)
+
+The SIBS program is designed for undergraduates interested in mathematics, statistics, biology, or health sciences. Students receive classroom training and perform hands-on research with practicing biostatisticians, epidemiologists, and statistical geneticists. Costs (housing, tuition, meals, extra-curricular activities) are covered by the program.
+
+## [Summer Undergraduate Research Fellowship (SURF)](http://www.bu.edu/surf/)
+
+The SURF program is a 10-week summer program for undergraduates, offering research projects in areas related to Biology and the control of gene expression for biological outcomes.
+
+## [Summer Training as Research Scholars (STaRS)](http://www.bumc.bu.edu/gms/admissions/stars/)
+
+The Division of Graduate Medical Sciences (GMS) offers a summer research program to academically talented students who aspire to become medical or research scientists. Members of groups traditionally underrepresented in biomedical sciences are particularly encouraged to apply.
+
+## [Sankofa Scholars Undergraduate Research Program](https://www.bu.edu/urop/opportunities/sankofa-scholars-undergraduate-research-program/)
+
+The Sankofa Scholars Undergraduate Research Program offers exciting research opportunities for first and second year students across all majors. Scholars complete 5-10 hours of impactful research each week during the fall and spring semesters and can also participate in summer research.
+
+Sankofa Scholars is open to first and second year students across all majors at Boston University. The program strongly encourages first-generation students to apply. First-generation is defined as neither parent received an undergraduate degree. A strong applicant will have a 2.8 GPA or higher (1st year students) or a 3.0 or higher (2nd year students).
+
+***
+
+# Funding for SMAGL Undergraduate Students Planning Graduate Research
+
+***
+
+SMAGL Undergraduates who wish to apply for any of these scholarships should meet with their PI to discuss doing so by May 1st of their junior year.
+
+## [National Science Foundation Graduate Research Fellowship Program](http://www.bu.edu/bufellow/nsf-grfp/)
+
+The National Science Foundation Graduate Research Fellowships Program funds graduate study for research-oriented graduate degrees in STEM fields. For seniors, recent alumni, and grad students early in their studies. October deadline(s). Past awards for projects in Biological Anthropology have been awarded by the Social Sciences division.
+
+## [DAAD (German Academic Exchange Service Grants) for Study and Research in Germany](http://www.bu.edu/bufellow/daad-study-research)
+
+DAAD provides graduating seniors and current graduate students the opportunity to apply for full graduate degree study or independent research scholarships in Germany. October deadline. Requires university nomination. Contact Jeff Berg about this program.
+
+## [Fulbright U.S. Student Program](http://www.bu.edu/bufellow/fulbright-u-s-student-program/)
+
+One year of independent research, study, or English teaching abroad. Open to rising seniors, graduate students, and recent alumni. August deadline. Requires university evaluation. Contact Jeff Berg about this program.
+
+## [Gates Cambridge Scholarship](http://www.bu.edu/bufellow/gates-cambridge-scholarship/)
+
+Graduate study in all fields at Cambridge University for those with a capacity for leadership and a commitment to improving the lives of others.  For seniors and recent alumni. October deadline. COntact Jeff Berg about this program.
+
+## [Marshall Scholarship](http://www.bu.edu/bufellow/marshall-scholarship/)
+
+One or two years of postgraduate degree studies anywhere in the UK. For seniors and recent alumni. July-August deadline. Requires university endorsement. Contact Jeff Berg about this program.
+
+## [Point Foundation Scholarship](https://pointfoundation.org/point-apply/apply-now/)
+
+For ‘out’ members of the LGBTQ+ community with a strong academic record pursuing scholarly research with a proven track record of leadership and community involvement working for the betterment of the LGBTQ+ community. Demonstrated financial need is also considered.
+
+## [Rhodes Scholarship](http://www.bu.edu/bufellow/rhodes-scholarship/)
+
+Two or three years of graduate study at Oxford University. For seniors and recent alumni. July-August deadline. Requires university endorsement. Contact Jeff Berg about this program.
+
+## [Soros Fellowship for New Americans](http://www.bu.edu/bufellow/soros)
+
+Graduate school funding for immigrants and children of immigrants in the United States. Open to graduating seniors, recent alums, and graduate students early in their studies. Apply directly in November.
+
+## [Ben Barres Fellowship](http://noglstp.org/)
+
+The National Organization of Gay and Lesbian Scientists and Technical Professionals (NOGLSTP) funds this award for trans, intersex, and non-binary graduate students and postdoctoral fellows in STEM fields. This may fund research, conference attendance and travel, or other professional uses.
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+***
+
+# [**Back to the Guide**](https://fuzzyatelin.github.io/smagl_student_guide/overview.html)
+
+***
+# [**Back to SMAGL *Undergraduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_ugrad.html)
+***

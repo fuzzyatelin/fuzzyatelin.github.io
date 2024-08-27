@@ -1,0 +1,107 @@
+---
+title: "SMAGL Trainings"
+author: "Christopher A Schmitt</br>Boston University"
+date: "August 15, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+Once you’ve joined us at the SMAGL, there are a few things you should know, and a few responsibilities to take care of…
+
+# Biosafety Training and BioRaft
+
+Access to the SMAGL is predicated on your being aware of the health and safety risks involved in being exposed to the chemical and biological hazards present in the lab. As such, there are a number of trainings and medical clearances that you *must* complete prior to accessing the SMAGL Wet Lab space.
+
+The SMAGL Wet Lab space is a [BioSafety Level 2 (BSL2)](https://www.vumc.org/safety/bio/basics-biosafety-level-2) lab. This means that the lab works with tissues or biological materials that may have potential to cause disease in humans (i.e., non-human primate feces, blood, and other tissues). As such, all students who join the SMAGL must complete a set of trainings so that they are aware of appropriate safety procedures.
+
+All safety trainings are done through an online interface known as [**BioRaft**](http://bu.bioraft.com). Once you’ve joined the lab, I will add your BU login to the BioRaft lab page, at which point you will get an email notifying you of your addition. Log in to BioRaft using your BU login and password, and it will take you to the lab page, where there will be notifications regarding which training modules you must complete to be in compliance.
+
+All safety trainings are done through an online interface known as [BioRAFT](http://bu.bioraft.com). I have already added your BU login to the Schmitt Lab BioRAFT page, at which point you got an email notifying you of your addition. Use the link in that email (or go to the webpage linked above) to log in to BioRAFT using your BU login and password, and it will take you to the Schmitt Lab page, where there will be notifications regarding which training modules you must complete to be in compliance.
+
+I require *all personnel conducting research in STO 251* to complete the following modules:
+
+* **Biosafety Level 1 & 2 Training**
+* **Laboratory Safety Training**
+* **Chemical Safety Training**
+* **Bloodborne Pathogen (BBP) Training**
+* **Working Safely with Non-Human Primates** 
+* **Health Risks and Safety Procedures for Working with Non-Human Primates**
+
+Students conducting field research with wild non-human primates must also complete the following:
+
+* **IACUC Orientation** 
+* **Working with the IACUC**
+
+*You will only be allowed to enter the wet lab once you’ve completed all trainings in BioRAFT!*
+
+Please note that I understand that we are not working with macaques nor with actual non-human primates in the wet lab. After many years BU Environmental Health & Safety (EH&S) still insists that if we work with non-human primate tissues (which includes feces, urine, and blood) that we are required to take the two modules listed above on working with non-human primates (note that there is *no risk* of Herpes B in our study taxa).
+ 
+In addition to the above, you *must* conduct an orientation to the lab with your PI (that’s me!) before beginning work in the lab.
+
+# Research and Occupational Health (ROHP)
+
+All students conducting research in the SMAGL *must* be cleared by the [BU Research and Occupational Health Program (ROHP)](https://www.bu.edu/research/ethics-compliance/safety/rohp/) *prior to* working in the lab!
+
+To remain in compliance with ROHP, you must submit an initial health questionnaire, called a [Job Risk Assessment](http://www.bu.edu/research/forms-policies/rohp-job-risk-assessment/), followed by an [Annual Health Questionnaire](http://www.bu.edu/research/forms-policies/rohp-health-questionnaire/) every year afterwards. ROHP should follow up by contacting you via phone or email to ask clarifying questions. If they don’t (which at times they do not) you must follow up with them yourself to keep the process going. The majority of you are not yet cleared by ROHP! Sam can help us with this aspect of compliance.
+ 
+To access these questionnaires, you may use the following links:
+
+* [Job Risk Assessment](http://www.bu.edu/research/forms-policies/rohp-job-risk-assessment/) (for students just starting in the lab or who do not yet have ROHP clearance)
+* [Health Questionnaire](http://www.bu.edu/research/forms-policies/rohp-health-questionnaire/) (for students who have submitted the initial JRA and need to renew annual clearance)
+* [Occupational Health Portal](https://webchartnow.com/bostonuniv/webchart.cgi) (for employees; i.e., postdoctoral research associates)
+ 
+If you've already filled out my Assessment and nobody from ROHP has followed up, you have to email **ROHP[at]bu[dot]edu** to follow up yourself. I know it’s an added burden to keep track of this process yourself, particularly since when we don’t hear back we don’t know where they are in their own process, but that appears to be the current state of ROHP. Again, Sam can help with follow-up!
+ 
+In the case that you're already cleared by ROHP to work in another lab, I'm sorry to say that your ROHP approval is specific to the particular conditions of that lab/project, and so that clearance does *not* clear you for work in the SMAGL. This means that working in a new/different lab – even if you have ROHP clearance for another lab already – requires a new/different ROHP approval to account for the unique health risks of the new lab/setting/project. If this situation applies to you, please follow up with ROHP regarding your SMAGL-specific approval.
+ 
+If you're not sure where you are in this process, you can contact ROHP by phone (617-414-7647) or email (ROHP[at]bu[dot]edu).
+ 
+Please note for your ROHP paperwork that the Schmitt Lab has a few approved protocol numbers you may need to enter on your so that ROHP is aware of the risks involved with our activities. These include:
+
+* **IBC: 22-2111** (all wet bench work in STO 251, so if you’re doing wet bench work this semester you must list this!)
+* **IACUC: PROTO201900027** (only for field work with yellow-tailed woolly monkeys: Evelyn, Sofia, Noam)
+* **IACUC: PROTO20180061** (only for field work with vervet monkeys in South Africa: Jess, Jimmy, Reese)
+ 
+If you have any questions, please contact me or Lab Coordinator Sam Kelley.
+
+# Responsible Conduct of Research (RCR)
+
+All lab members are required to take the [**RCR (Responsible Conduct of Research) online course**](http://www.bu.edu/orc/programs-committees/rcr/). This training provides good advice and resources covering topics such as: authorship, data acquisition and management, peer review, and research misconduct. When you have completed your training, please email me the completion information and add the training to your CV. 
+
+***Undergraduate students*** should take the *first* level of RCR training. 
+
+***Graduate students and PRAs*** should take the advanced level, which includes four (4) in-person workshops. Graduate students should complete these by the end of their fourth year, but ideally by the end of the second year prior to initiating dissertation research. PDAs should complete these during their first semester in the SMAGL.
+
+# Registration with Global Programs
+
+All SMAGL members who have student status with plans to conduct international field research must register with [**Global Programs**](https://www.bu.edu/globalprograms/) via the [**International Travel Registry**](https://www.bu.edu/globalprograms/manage/international-travel/) prior to leaving the country. Global Programs will contact you regarding any potential health or safety concerns regarding your planned travel, which will vary depending on the country and area to which you plan to travel, as well as depending on the nature of your fieldwork. 
+
+You may also purchase [**supplemental travel insurance**](https://www.bu.edu/globalprograms/manage/international-travel/health-insurance/) (including evacuation and emergency travel assistance) via Global Programs that will augment your current BU student insurance. I strongly recommend this! If you’re interested in this option, please contact **Kevin Kugel (kkugel@bu.edu)**, Associate Director of Health, Safety, and Security at Global Programs.
+
+# Intellectual Property Policy
+
+All students working in BU labs *must* sign BU's Intellectual Property Policy. ]You can sign it here.](http://bostonuniversity.policytech.com/)
+
+
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+***
+
+# [**Back to the Guide**](https://fuzzyatelin.github.io/smagl_student_guide/overview.html)
+
+***
+# [**SMAGL *Undergraduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_ugrad.html)
+***
+# [**SMAGL *Graduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_grad.html)
+***

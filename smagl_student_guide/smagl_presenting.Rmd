@@ -1,0 +1,72 @@
+---
+title: "Presenting Research from the SMAGL"
+author: "Christopher A Schmitt</br>Boston University"
+date: "August 15, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+Attending workshops and conferences as a student in the SMAGL is important for a variety of reasons: learning new techniques and recent developments in the field, sharing your research, networking with other students and professionals, and increasing your own professional communication skills. If we have funds to support your travel, we will use them. Please keep in mind, however, that there may be multiple travel needs within the lab and thus we need to fairly distribute them. See our section on [undergraduate scholarships and funding sources](https://fuzzyatelin.github.io/smagl_student_guide/ugrad_funding.html) or [graduate scholarships and funding sources](https://fuzzyatelin.github.io/smagl_student_guide/grad_funding.html) for options to obtain your own funding.
+
+***
+
+# Local Conferences
+
+***
+
+Undergraduate and Graduate students in SMAGL are strongly encouraged to attend and present at the annual meeting of the [Northeastern Evolutionary Primatologists (NEEP)](http://www.neevolprimatol.org/), and those conducting genomics research are encouraged to present at the [Genome Science Institute (GSI)](https://www.bumc.bu.edu/gsi/) Research Symposium on the BUMC.
+
+## NEEP
+
+The [10th Annual Meeting of the Northeastern Evolutionary Primatologists](https://efficient-yucca-3lxwhc.mystrikingly.com) will be held jointly with on August 30-31, 2024, and sponsored by Dartmouth College in Hanover, New Hampshire. We encourage all members of the SMAGL to attend, and to present if their research is ready. Students may register to attend up to the day of the conference at the link above.
+
+## GSI
+
+The [16th Annual Genome Science Institute Research Symposium](https://www.bumc.bu.edu/gsi/initiatives/research-symposium/) occurs on the BUMC on November 12 of 2024 from 11:00 am to 3:00 pm. Students conducting genetics/genomics research are encouraged to present a poster. A select number of presentations may be chosen to be given as short “lightening” talks. Students may register and submit abstracts for free at the link, above.
+
+***
+
+# National and International Conferences
+
+***
+
+Undergraduate and Graduate students are also encouraged to present their research at a national or international conference, and there are funding sources available at BU to fund undergraduates presenting at national venues. The SMAGL home conferences, which we consider to be the most suitable national and international conferences for the submission of your research, include the [American Association of Biological Anthropologists](http://bioanth.org/), the [American Society of Primatologists](https://asp.org/index.cfm), and the [International Primatological Society](http://www.internationalprimatologicalsociety.org/).
+
+## AABA
+
+The [94th Annual Meeting of the American Association of Biological Anthropologists](https://bioanth.org/meetings-and-webinars/93rd-annual-meeting-los-angeles-california-2024/) will be in Baltimore, Maryland. The abstract deadline for consideration of your research is October 15, 2024.
+
+## ASP
+
+The [46th Annual Meeting of the American Society of Primatologists](https://asp.org/asp-meetings/) will be September 8-11, 2024 at the Iberostar Paraíso Beach in Riviera Maya, Mexico. Abstracts were due in spring 2024.
+
+## IPS
+
+The [XXX Congress of the International Primatological Society](https://ipsquito.com/) will be in Antananarivo, Madagascar in the summer of 2026.
+
+If you are interested in attending or presenting your research at any of these conferences, please contact your PI.
+
+
+
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+***
+
+# [**Back to the Guide**](https://fuzzyatelin.github.io/smagl_student_guide/overview.html)
+
+***
+# [**SMAGL *Undergraduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_ugrad.html)
+***
+# [**SMAGL *Graduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_grad.html)
+***

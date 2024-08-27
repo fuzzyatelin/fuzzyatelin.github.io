@@ -1,0 +1,62 @@
+---
+title: "SMAGL Online Resources"
+author: "Christopher A Schmitt</br>Boston University"
+date: "August 15, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+# Shared SMAGL Drive 
+
+We maintain a shared Google Drive in which you are encouraged to enter your contact information and to establish a personal folder to hold lab-related documents for secure storage. [Access to a Google Drive account is free once you’re registered as a BU student](https://www.bu.edu/tech/services/infrastructure/storage-backup/cloud-file-storage/backup-your-data-with-bu-google-drive/), using your BU login info. Please use this account to access any lab materials on Google Drive.
+
+# Schmitt Lab BU SMAGL Drive 
+
+The [Schmitt Lab BU SMAGL Drive]() folder is maintained separately from the Shared SMAGL Drive and contains datasets, code from lab members, SOPs and protocols for lab and field-based research, past theses and dissertations conducted in the lab, published papers from the lab and associated research, lab poster and podium presentation slides from past conferences, successfully funded grant proposals from the lab, and more. Access the Schmitt Lab BU SMAGL Drive is restricted to current lab members, and you must use your BU login to access it. If you need access, please contact me.
+
+# Shared Computing Cluster
+
+Schmitt Lab members conducting bioinformatics/genomic research may need portable access to online storage and analytical power that personal laptops simply cannot provide. For this, we have access to BU’s **Shared Computing Cluster (SCC)**, which can be accessed either through the command line of your laptop or on the [**SCC On Demand**](https://www.bu.edu/tech/support/research/system-usage/connect-scc/scc-ondemand/) via a project called ***vervpop*** (although different projects may have different SCC projects; current SMAGL Schmitt Lab projects also include ***vervmb*** for our microbiome analyses). If you require access to the SCC, please contact me to set up an account. 
+
+# RCS Tutorials
+
+All students who wish to work on the SCC must take the [Research Computing Services](https://www.bu.edu/tech/support/research/training-consulting/) tutorials *Introduction to LINUX*, *Introduction to BU’s Shared Computing Cluster (Hands On)* and *Intermediate Use of the SCC*.
+
+The RCS offers *free* tutorials in a number of analytical techniques and skills that are helpful for research in the SMAGL Schmitt Lab. Recommended tutorials that are offered at the beginning of each semester include:
+
+-	Tuesday, September 5 (10-12pm; Zoom): [Introduction to Linux (Hands-On)](http://www.bu.edu/tech/about/training/classroom/rcs-tutorials/#LINUX_INTRO)
+-	Wednesday, September 6 (9:30-11:30 am; 2 Cummington Mall, room 107): [Introduction to LINUX (Hands-On)](http://www.bu.edu/tech/about/training/classroom/rcs-tutorials/#LINUX_INTRO)
+-	Tuesday, September 5 (1-3pm; Zoom): [Introduction to BU’s Shared Computing Cluster (Hands-On)](http://www.bu.edu/tech/about/training/classroom/rcs-tutorials/#SCC_INTRO)
+-	Wednesday, September 6 (12-2pm; 2 Cummington Mall, room 107): [Introduction to BU’s Shared Computing Cluster (Hand-On)](http://www.bu.edu/tech/about/training/classroom/rcs-tutorials/#SCC_INTRO)
+-	Friday, September 8 (1-3pm, Zoom): [Intermediate Usage of the SCC (Lecture)](http://www.bu.edu/tech/about/training/classroom/rcs-tutorials/#SCC_ADVANCED)
+-	Monday, September 11 (9:30-11:30am; 2 Cummington Mall, room 107): [Intermediate Usage of the SCC (Lecture)](http://www.bu.edu/tech/about/training/classroom/rcs-tutorials/#SCC_ADVANCED)
+-	Tuesday, September 5 (10-12pm; 2 Cummington Mall, room 107): [Introduction to R (Hands-on)](http://www.bu.edu/tech/about/training/classroom/rcs-tutorials/#R_INTRO)
+-	Tuesday, September 12 (1-3pm; Zoom): [Introduction to R (Hands-on)](http://www.bu.edu/tech/about/training/classroom/rcs-tutorials/#R_INTRO)
+-	Thursday, September 7 (10-12pm; 2 Cummington Mall, room 107): [Data Wrangling in R (Hands-on)](http://www.bu.edu/tech/about/training/classroom/rcs-tutorials/#R_DATAWRANGLING)
+-	Friday, September 15 (1-3pm; Zoom): [Data Wrangling in R (Hands-on)](http://www.bu.edu/tech/about/training/classroom/rcs-tutorials/#R_DATAWRANGLING)
+-	Tuesday, September 12 (10-12pm; 2 Cummington Mall, room 107): [Graphics Using Base R Packages (Hands-on)](http://www.bu.edu/tech/about/training/classroom/rcs-tutorials/#R_GRAPHICS)
+-	Tuesday, September 19 (1-3pm; Zoom): [Graphics Using Base R Packages (Hands-on)](http://www.bu.edu/tech/about/training/classroom/rcs-tutorials/#R_GRAPHICS)
+-	Thursday, September 14 (10-12pm; 2 Cummington Mall, room 107): [Graphics in R: ggplot2 (Hands-on)](http://www.bu.edu/tech/about/training/classroom/rcs-tutorials/#R_GGPLOT)
+-think 	Thursday, September 21 (1-3pm; Zoom): [Graphics in R: ggplot2 (Hands-on)](http://www.bu.edu/tech/about/training/classroom/rcs-tutorials/#R_GGPLOT)
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+***
+
+# [**Back to the Guide**](https://fuzzyatelin.github.io/smagl_student_guide/overview.html)
+
+***
+# [**SMAGL *Undergraduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_ugrad.html)
+***
+# [**SMAGL *Graduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_grad.html)
+***

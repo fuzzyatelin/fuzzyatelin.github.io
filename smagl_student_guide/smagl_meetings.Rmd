@@ -1,0 +1,114 @@
+---
+title: "SMAGL Meetings"
+author: "Christopher A Schmitt</br>Boston University"
+date: "August 15, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+# General Communications
+
+The preferred mode of contact for quick or simple questions in the SMAGL Schmitt Lab is via the **SMAGL Schmitt Lab Slack** page (link at the top of the page). To join, please let me know your preferred email address and I’ll add you. This is also my preferred medium for sharing documents, as there are no size restrictions. Longer questions or communications that require some explanation should be shared via email (you may use Slack to give me a heads up to read an email if I haven’t responded in a timely manner – emails can get lost in the flood, particularly during the teaching semester).
+
+# SMAGL Lab Meetings
+
+Attendance at SMAGL Lab Meetings is *strongly suggested* for undergraduate students in their volunteer period (their first semester associated with the lab), and *mandatory* for all undergraduate students earning academic credit, Honors, or UROP funding in association with the SMAGL.
+
+Schmitt Lab Meetings typically last an hour and occur every week during the academic year. Although the format of Lab Meetings may change over the semester, they typically consist of the following:
+-	Recent SMAGL news and updates
+-	A 15-minute, conference-style podium presentation by a member of the SMAGL, based on their research in the lab.
+-	A discussion of a published research article of interest to the lab, typically chosen by the lab member presenting that week. Discussion of the paper will be led by the member who chose the reading.
+-	Strategizing SMAGL research goals and activities for the next week (this will be entered on a spreadsheet so that we can hold ourselves accountable to our goals).
+
+You are strongly encouraged to attend all lab meetings in person, but if you’re feeling ill or are off campus, you may also attend via Zoom. There is a set zoom link for Schmitt Lab meetings at the top of this page.
+
+# Lab Meeting Schedule (Fall 2024)
+
+For the Fall 2024 Semester, SMAGL Schmitt Lab Meetings occur on **Mondays from 4:00pm to 5:00pm in STO 243** for the following dates (please block these times off on your calendar, with a reminder to ensure attendance): 
+
+-	Monday, September 9, 2024 [Lab Welcome]
+-	Monday, September 16, 2024 [Summer Slideshows!]
+-	Monday, September 23, 2024 
+-	Monday, September 30, 2024
+-	Monday, October 07, 2024
+-	Tuesday, October 15, 2024
+-	Monday, October 21, 2024
+-	Monday, October 28, 2024
+-	Monday, November 04, 2024
+-	Monday, November 11, 2024
+-	Monday, November 18, 2024
+-	Monday, November 25, 2024
+-	Monday, December 02, 2024
+- Monday, December 09, 2024 [Last Lab Meeting!]
+
+For our last SMAGL Lab Meeting of the semester, we typically go out on the town! Past end-of-semester Lab Meetings have included Candle-Pin Bowling in Somerville, an Escape Room downtown (we killed it, of course), Karaoke in Chinatown, and potlucks at PI homes. During times of high COVID-19 transmissibility, we will celebrate remotely.
+
+# Individual Meetings
+
+**Undergraduate students in the SMAGL Schmitt Lab should *only* expected to meet regularly with their PI or project supervisor if they are conducting a *UROP*, *Honors*, or *Research for Credit* project in the lab.** In such cases, you and your project supervisor will work together to find a regular time to meet at the beginning of the semester in which the project is ongoing. Meetings are meant to set priorities for the week-long period and to catch up on progress in research goals, along with checking in personally. Such meetings are expected to last one hour. Meetings will PI Schmitt typically take place in his office (STO 247E) but may also be scheduled to take place in the lab (STO 251), depending on the nature of the check-in. If you are being supervised by a PRA or graduate student, please check with them regarding the time and place that best suits both your needs.
+
+You are strongly encouraged to attend individual meetings in person, but there will be times when that may not be possible for either or both of us. In those cases, you and your supervisor can meet over zoom. 
+
+For individual meetings with PI Schmitt, we will meet at my personal meeting link:
+
+>https://bostonu.zoom.us/j/5889909469?pwd=N3hUYXFhZ00wR1pkNnZYb3RuZ0lidz09
+>Meeting ID: 588 990 9469
+>Passcode: 186538
+
+A large part of our individual meetings will be discussions regarding your career and professional development. We can and should also use these meeings as a way of helping you to think about your eventual career goals and identify needed skills and competencies that I may help you to attain to make those goals a reality.
+
+# Individual Meeting Schedule (Fall 2024)
+
+The individual meeting schedule for the Fall 2024 semester includes:
+
+-	Evelyn Pain: **TBD**
+-	Mel Zarate: **TBD**
+-	Warrenkevin Henderson: **TBD**
+- Zoe Albert: **TBD**
+-	Jess Martin: **TBD**
+-	Jimmy Erkens: **TBD**
+-	Soumalya Ghorui: **TBD**
+-	Nicole Merullo: **TBD**
+-	Sam Vee: **TBD**
+-	Carla Rojas: **TBD**
+-	Yinuo Mao: **TBD**
+-	Sofia Weaver: **TBD**
+-	Reese Hotten-Somers: **TBD**
+
+### SMAGL Meetings during Fieldwork
+
+Most of us in the Schmitt Lab will be conducting fieldwork in the (northern hemisphere) summer months, and Ph.D. students may be gone for over a year in the field. As such, whether or not we hold lab meetings in the summer will depend on who is in Boston, who is in which time zone, who has stable wifi, and who is has interest in keeping them going. 
+
+Generally, I will not be available for regular lab meetings while doing fieldwork; and students conducting their fieldwork are not required to attend regular meetings or lab meetings. However, students in the field are encouraged to attend lab meetings if/when possible. Although I encourage fieldwork to be a time for student independence, I also encourage each student to consider regular individual meetings with me while in the field. Such check-ins, even if held only once a month, can be helpful to maintain sanity, a clear eye towards goals, and a connection to our community. I strongly encourage students conducting fieldwork to connect with me over WhatsApp or Slack for rapid communication.
+
+In cases where I am in the field for the summer and potentially out of easy internet range (i.e., 6 hours ahead in South Africa or without wifi in Perú), Schmitt Lab students are encouraged to organize meetings among themselves – particularly those conducting research in the lab. For those conducting research, you’re encouraged to do regular check-ins as during the semester. However, given potential extra time in the summer, such meetings may also involve journal clubs (choosing and reading papers relevant to research interests) or a reading club for popular books related to our research.
+
+# Meetings with the Biological Anthropology Community at BU
+
+As evolutionary primatologists, we are tightly affiliated with the biological anthropology community. There are several meetings that take place outside the SMAGL/Schmitt Lab but that you are strongly recommended to attend so that you’ll be part of the larger Biological Anthropology community at BU. 
+
+For the Fall 2024 semester, you are strongly encouraged to attend the following meetings with the broader biological anthropology community at BU (note that these may not be the only meetings; I will send updates as further seminars are announced during the semester):
+
+* **TBD**
+* **TBD**
+* **TBD**
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+***
+# [**Back to the Guide**](https://fuzzyatelin.github.io/smagl_student_guide/overview.html)
+***
+# [**SMAGL *Undergraduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_ugrad.html)
+***
+# [**SMAGL *Graduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_grad.html)
+***

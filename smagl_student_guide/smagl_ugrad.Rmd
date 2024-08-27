@@ -1,0 +1,120 @@
+---
+title: 'SMAGL *Undergraduate* Student Guide<br>Fall 2024'
+author: "Christopher A Schmitt</br>Boston University"
+date: "August 15, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+***
+<center>
+![](img/bu_smagl.png)
+</center>
+
+***
+<center>
+**SMAGL Lab Meetings** will be held on **Mondays, 4:00 - 5:00pm** in *STO 243*<br>**Lab Meeting Zoom Link** is [here](https://bostonu.zoom.us/j/365502724?pwd=Zm1SSjgxMlA1SmYrWDRnbnhIamFwdz09)<br>**SMAGL Schmitt Lab Slack** is [here](https://schmitt-smgal-bu.slack.com/)<br>
+</center>
+***
+
+# Getting Started in the Sensory Morphology and Anthropological Genomics Lab
+
+***
+
+Congrats on being accepted into your provisional undergraduate semester with the SMAGL! As noted elsewhere in this guide, undergraduate members of the lab typically take is easy their first semester, exclusively attending lab meetings with no expectation of research involvement. This is to give you time to figure out what you’d like to get out of membership in the lab and whether we’re a good fit for your interests and needs (compared to any of the other labs at BU in Anthropology, Biology, or other disciplines). You don’t need to spend your provisional semester only observing – you can certainly work with someone to begin a project if you’ve got one in mind and the resources are there – but we find that the provisional semester is a welcome option for many who are not yet sure what they want to get out of a research lab experience.
+
+This portion of the guide is to help you think through what you want to get out of your experience in the SMAGL. Many students think of this through the lens of research ideas and accomplishments – learning genomics methods, studying wild primates, scanning fossils – and that’s a big part of it, but there are other considerations to think through, as well…
+
+Some questions to ask yourself as you get started in the SMAGL:
+
+*	What skills do I want to develop in the SMAGL?
+
+*	What am I interested in learning in my time here?
+
+*	Do I want to do lab work?
+
+There are opportunities in the SMAGL/Schmitt Lab to conduct any number of what we call “wet bench” methods in molecular biology/anthropology: DNA/RNA extraction, PCR and RT-qPCR, gel electrophoresis, DNA/RNA quantification, and DNA/RNA sequencing. What project you might do in the lab as an undergraduate depends on what research is currently being conducted by postdoctoral trainees or graduate students in the lab – it is rare for an undergraduate student to have funding to carry out their own completely independent genetics project, meaning that most undergraduate projects are either in aid of or a subcomponent of already-existing research projects in the lab. This means that wet bench research opportunities may also not be available while you are in the lab if there is not currently funding for such projects. We may also have opportunities for field-based genetics/genomics lab work in both South Africa (with the Faculty of Microbiology at North West University in Potchefstroom) and Perú (with the Wildlife Conservation Lab at the Los Amigos Biological Station in Manú National Park). These opportunities are also contingent on funding (although Field Projects International does have scholarships available for undergraduate genomics training at the Wildlife Conservation Lab, which Schmitt Lab members have previously won). For these options, see below regarding field work.
+
+*	Do I want to do field work?
+
+The SMAGL/Schmitt Lab currently has [active field projects](https://fuzzyatelin.github.io/smagl_student_guide/smagl_fieldwork.html) studying wild primates in South Africa and Perú, both of which have opportunities for undergraduate field experiences. These experiences are usually available in the summer months (May – August) and are typically reserved for long-standing members of the lab, with priority given to students interested in developing their own projects and/or interested in continuing to conduct primate research as a career option. 
+
+Currently, these experiences for *undergraduates* include:
+
+* Studying vervet monkeys in South Africa: our fieldwork in South Africa focuses on trapping wild vervet monkeys (Chlorocebus pygerythrus pygerythrus) in order to collect biological samples that address a number of questions, including how they adapt to periodic droughts and to intense human impacts on diet and stress.
+
+The field sites include a small university town (Potchefstroom, Northwest) where we follow and trap an urban vervet monkey troop; the Southford Stud Ranch (!Gariep Dam, Free State) where we follow and trap a vervet troop living on agricultural fields; and Soetdoring Nature Reserve (Soutpan, Free State) where we follow and trap several vervet troops living under more or less ancestral/natural conditions. We also conduct genetics lab research in Potch at North West University in the Faculty of Microbiology, with our collaborator Prudent Mokgokong.
+
+*	Studying yellow-tailed woolly monkeys in Perú: our fieldwork in Perú focuses on the behavioral ecology, genetics, and conservation of Critically Endangered wild yellow-tailed woolly monkeys (Lagothrix flavicauda). This research seeks to better understand how this species has adapted to high altitudes, how variation in altitude influences diet and behavior, and how this and human impacts influence conservation concerns for the species.
+
+The primary field site is Hierba Buena-Allpaycu, a private conservation concession which is an 8-hour hike through the mountains outside the town of Beirut, in Corosha. Staying at the field site, itself, may involve sleeping in a small wooden shed with several others, or camping in a tent – field researchers must carry everything on their backs and cook all their own meals; there is no electricity or running water at the field site! 
+
+
+*	Do I want to learn how to code?
+
+There are plenty of opportunities to learn coding in the SMAGL! The primary coding language for research conducted in our lab is R, which we use for bioinformatics and statistical analyses. Students who wish to conduct research in the SMAGL are strongly encouraged to take Project Design and Statistics for Biological Anthropology (CAS AN/BI 588), which Prof. Schmitt teaches every other year and in which you’ll learn how to run statistical analyses using R. Alternatively, you may learn R on your own during your provisional semester using the web-based modules developed by Prof. Schmitt (linked above). Students conducting genomics research may also get experience with other coding languages, including LINUX/UNIX and python. These coding languages have broader utility beyond what we use them for in lab, and coding is a generally sought-after skills on the job market.
+
+Although students who wish to conduct their own research projects in the SMAGL must learn how to code (to analyze their data), students who prefer to not learn how to code may still gain valuable experience and develop other skillsets by assisting on the projects of others.
+
+*	Do I want to make my own project, or contribute to a larger project in the lab?
+
+You do not need to create or conduct your own project to be an undergraduate member of the SMAGL/Schmitt Lab, but many students have enjoyed doing so. If you have an idea for a project, talk to Prof. Schmitt, Dr. Pain, or one of the graduate students about it to see if it might work (some ideas work out, and some do not, and that’s ok). If you do choose to conduct your own project, there are a number of ways to get credit and recognition for doing so (UROP, Research for Credit, as an Honors Thesis, or using all three mechanisms); however, this is not necessary to be a student in the SMAGL. You are also welcome to simply help out on established projects in the lab to gain skills or just be a part of the lab. It’s ultimately up to you what you get out of the SMAGL.
+
+
+*	Do I want to conduct a thesis project?
+
+Conducting a thesis is a wonderful experience. It’s also not a necessary part of being in the SMAGL (nor is it necessary to apply to graduate school). If you plan to do a research project in the lab, however, I strongly encourage you to consider making it a thesis! This is the best way to credit and recognition for the research you’re conducting (although there are other ways, including Research for Credit and UROP). To learn more about conducting thesis research in the lab, see the section on Undergraduate Honors in this guide.
+
+*	Do I want to go to graduate school?
+
+Let’s be very clear on this point: you do not need to have plans for graduate school to get a lot of value out of conducting research in our lab. The skills you learn conducting research (project development and management, literary research skills, teamwork, critical thinking, coding and analytical skills, and more) can be applied in a lot of other contexts and be very attractive to various employers. Conducting your own research project can also be very gratifying, even if the research itself doesn’t necessarily work out the way you planned (and many projects don’t!). Some students who conduct undergraduate research find they love it and want to continue conducting research – this can be done in graduate school or in any number of research-based industries (that often pay a lot more). Some students find pretty quickly that they don’t like conducting their own research projects and decide to either provide support for another project already being run in the lab (i.e., by pipetting in the lab, or by being a field assistant, or by doing a lit review for someone else’s project; those are all good options), or by leaving the lab for other opportunities (that’s ok, too).
+
+
+Follow the links below to learn about all of these opportunities and more!
+
+
+# General Links
+
+***
+
+## [SMAGL People](https://fuzzyatelin.github.io/smagl_student_guide/smagl_people.html)
+
+***
+
+## [SMAGL Meetings](https://fuzzyatelin.github.io/smagl_student_guide/smagl_meetings.html)
+
+
+***
+
+## [SMAGL Trainings](https://fuzzyatelin.github.io/smagl_student_guide/smagl_trainings.html)
+
+***
+
+## [SMAGL Facilities and Use of Space](https://fuzzyatelin.github.io/smagl_student_guide/smagl_facilities.html)
+
+***
+
+## [SMAGL Online Resources](https://fuzzyatelin.github.io/smagl_student_guide/smagl_online.html)
+
+***
+
+## [SMAGL Schmitt Lab Field Sites and Experiences](https://fuzzyatelin.github.io/smagl_student_guide/smagl_fieldwork.html)
+
+***
+
+# Undergraduate Links
+
+***
+
+## [Undergraduate Funding](https://fuzzyatelin.github.io/smagl_student_guide/ugrad_funding.html)
+
+***
+
+## [Undergraduate Research for Credit in the SMAGL](https://fuzzyatelin.github.io/smagl_student_guide/ugrad_rescredit.html)
+
+***
+
+## [Honors Research in the SMAGL](https://fuzzyatelin.github.io/smagl_student_guide/ugrad_honors.html)
+
+***

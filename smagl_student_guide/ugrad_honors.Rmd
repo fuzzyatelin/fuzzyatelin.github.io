@@ -1,0 +1,119 @@
+---
+title: "Honors Research in the SMAGL"
+author: "Christopher A Schmitt</br>Boston University"
+date: "August 15, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+Students can, and are encouraged to, conduct Honors research in the SMAGL in either Anthropology (Biological Anthropology or Anthropology, Health, and Medicine), or Biology (Ecology, Behavior, & Evolution). Prior to applying for Honors, each student must discuss their potential project with either Prof. Garrett or Prof. Schmitt.
+
+# [Honors Research in Anthropology](https://www.bu.edu/anthrop/academics/undergraduate-program/honors-in-the-major/)
+
+Juniors with a 3.5 GPA or higher are eligible to apply for the Honors Program in Anthropology for their Senior year (if your GPA is between 3.2 and 3.5, you may petition to work towards Honors, although acceptance is not guaranteed). Students should contact the current Director of Undergraduate Studies (Prof. Merav Shohet) to apply. Requirements include:
+
+*Junior Year*:
+
+*	Enrollment in either AN 595 or a 500-level Biological Anthropology course related to their thesis. Students may also conduct research for credit or summer research between their junior or senior year.
+
+*Senior Year*:
+
+*	With either Prof. Garrett or Prof. Schmitt, students must develop a 2-3 page Plan of Work and attach it to their Honors Research Form, signed by their faculty mentor, the DUS, and submitted to the Office of Anthropology.
+*	Undertake a significant research project under the supervision of either Prof. Garrett or Prof. Schmitt
+*	Research should be done while enrolled for honors research credit: AN 401 and AN 402 (junior or senior year)
+*	The thesis must be 25-40 pages, depending on the scope, and of such quality that it could be submitted to a refereed journal.
+*	Student must defend their thesis to a committee of 2-3 faculty members
+
+You can find out more about Honors in Anthropology by wathcing our most recent Q&A session about the program [here](https://www.youtube.com/watch?v=xirq7SiAWxE).
+
+# [Honors Research in Biology](https://www.bu.edu/biology/research-credit/)
+
+Seniors with a 3.5 GPA or higher are eligible to apply for Honors Research in Biology. Honors students also participate in a 2-credit research seminar (BI 497/498), which provides exposure to a broad range of current science in the Biology research community. The Honors Program culminates in the defense of a written senior thesis defended before a faculty committee. A minimum of 12 hours per week of research effort in SMAGL is expected when enrolled for Honors in Biology.
+
+You may access the [Honors application here](http://www.bu.edu/biology/research-app/).
+
+Requirements include:
+
+*	Completion of two semesters of honors research for credit: BI 401 and BI 402 (summer UROP research or a semester of directed research may replace one of these courses)
+*	Participation in one semester of BI 497 or BI 498, a two-credit research seminar (minimum grade of B+ required)
+*	Attendance one of the following weekly research seminar series in Biology, with the completion of five (5) 2-3 page reviews of seminars:
+    +	Biology Department Seminar (LSE 103 Mon 12:00-1:00)
+    +	Progress in Ecology, Behavior, Evolution, and Marine Biology Seminar (BRB 113 Wed 12:00-1:30pm)
+    +	Systems Biology (Bioinformatics) seminar (LSE 103 Thurs 12:45-1:45)
+*	Completion and defense of a written senior thesis
+*	Graduation with a GPA of 3.5 or higher
+
+# Funding for Honors Research
+
+[CAS Honors Research Travel Awards](https://www.bu.edu/cas/academics/undergraduate-education/special-academic-opportunities/honors-in-the-major/cas-honors-research-travel-awards/): funds grants of up to \$1,000 for travel to conduct research by advanced undergraduates pursuing the B.A. with honors in any College of Arts & Sciences major. The specific purpose of the travel may be any kind of fieldwork required for the project. Up to 10 Honors Scholar Research Travel grants will be awarded each year.
+
+Honors research travel may be scheduled for any point during the student’s junior or senior year or the intervening summer, provided that the student has an approved Honors Project proposal on file in his or her major department.
+These awards are restricted to travel for the purpose of conducting honors research. Students whose projects entail costs for a) research supplies (books, subscriptions, software, consumables, etc.) or b) travel to professional meetings to present results may apply for funding in those categories to [BU’s Undergraduate Research Opportunities Program (UROP)](http://www.bu.edu/urop/). The [Student Academic Enhancement Fund (SAEF)](https://www.bu.edu/cas/current-students/undergraduate/special-opportunities/saef/) can also provide funding for travel to professional meetings in which the applicant is presenting or has a leadership role.
+
+Funding:
+
+*	Local/regional travel: maximum $300 per student
+*	National travel: maximum $600 per student
+*	International travel: maximum $1,000 per student
+
+Deadlines:
+
+*	For fall semester travel: mid-September.
+*	For travel during Winter Break: November 1.
+*	For spring semester travel: January 6.
+*	For summer travel: March 31.
+
+Special Guidelines for International Fieldwork:
+
+*	Student researchers will need to [register their travel](https://www.bu.edu/globalprograms/manage/international-travel/registry/) with the Office of Global Programs
+*	Student researchers will work with the CAS Dean’s Office to procure proper insurance (to be provided by the College in some cases)
+* Student researchers will attend a pre-departure meeting with the Office of Global Programs
+
+
+# Past and Current SMAGL Honors Projects
+
+**Eleni Constantinou** (Honors in Biological Anthropology, 2019; Schmitt Lab)<br>
+*Gene Flow and Juvenile Paget’s Disease in the Cypriot Population*
+
+**Joseph O’Sullivan** (Honors in Biology, EBE, 2020; Schmitt Lab)<br>
+*Behavioral Indicators of Infanticide in Wild White-Bellied Spider Monkeys (Ateles belzebuth)*
+
+**Becca DeCamp** (Honors in Biological Anthropology, 2020; Garrett Lab)<br>
+*Investigating the Genetic Evolution of Olfaction in Strepsirrhine Primates*
+
+**C Vega** (Honors in Biological Anthropology, 2021; Garrett Lab)<br>
+*Eulemur Nasal Cavity Variation across Latitude and Forest Type*
+
+**Will Pudlo** (Honors in Biology, 2023; Schmitt Lab)<br>
+*Variation in the UCP3 Gene Region in Wild Savanna Monkeys (Chlorocebus spp.)*
+
+**Luke Buza** (Honors in Biology, 2024; Garrett Lab)<br>
+*Morphological Distinction of Visual Pathways in Cheetahs (Acinonyx jubatus), Pumas (Puma concolor) and Leopards (Panthera pardus)*
+
+**Sofia Weaver** (Honors in Biology, 2025; Schmitt Lab)<br>
+*TBA*.
+
+**Reese Hotten-Somers** (Honors in Anthropology, 2026; Schmitt Lab)<br>
+*TBA*.
+
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+***
+
+# [**Back to the Guide**](https://fuzzyatelin.github.io/smagl_student_guide/overview.html)
+
+***
+# [**SMAGL *Undergraduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_ugrad.html)
+***
+

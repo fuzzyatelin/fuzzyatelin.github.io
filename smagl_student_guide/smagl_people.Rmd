@@ -1,0 +1,118 @@
+---
+title: "SMAGL People"
+author: "Christopher A Schmitt</br>Boston University"
+date: "August 15, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+***
+
+# SMAGL Principal Investigators
+
+***
+
+By now, you’ve probably already spoken to at least one of the two Principal Investigators (PI) in the SMAGL: **Dr. Eva C. Garrett** and **Dr. Christopher A. Schmitt**.
+
+If you need them, you can contact and learn more about the SMAGL PIs in the following ways:
+
+>[Prof. Eva C. Garrett](https://www.bu.edu/anthrop/profile/eva-garrett/) (she/her)<br>
+>    Office: Stone Science Building, 675 Commonwealth Ave, Room 247C<br>
+>    Phone: (617) 353-7709<br>
+>    Email: garrette@bu.edu<br>
+>    Webpage: http://www.ecgarrett.com<br>
+>    Twitter/X: @Shmevapithecus <br>
+
+
+>[Prof. Christopher A. Schmitt](https://www.bu.edu/anthrop/profile/christopher-schmitt/). (he/they)<br>
+    Office: Stone Science Building 675 Commonwealth Ave, Room 247E<br>
+    Phone: (617) 353-5026<br>
+    Email: caschmit@bu.edu<br>
+    Webpage: http://www.evopropinquitous.net<br>
+    Twitter/X: @fuzzyatelin <br>
+
+***
+
+# SMAGL Students and Personnel
+
+***
+
+## SMAGL Lab Coordinator
+
+The SMAGL Laboratory Coordinator and Lab Safety Coordinator is **Samantha Kelley**. Sam is the Lab Coordinator for all the labs associated with the Department of Anthropology, and can help with any safety or equipment concerns in the lab, the ordering of necessary supplies and many other day-to-day lab tasks. 
+
+She can be reached via phone (617-353-5521), email (srkell19@bu.edu) or in her office (STO 241).
+
+
+## Postdoctoral Research Associates
+
+
+[**Dr. Evelyn L. Pain**](https://evelynpain.weebly.com) is currently a **Postdoctoral Associate Teaching Scholar** in the Department of Biology affiliated with the Schmitt Lab, with a focus on our primate projects in Perú. Dr. Pain’s current office space is in BRB 511.
+
+**Dr. Amy M. Scott** is a **Postdoctoral Research Associate** with the [Gunung Palung Orangutan Conservation Project](https://savegporangutans.org) and [Knott Lab](https://www.cherylknott.com) who will also be conducting research in the SMAGL. Dr. Scott’s current office space is in STO 250.
+
+When PRAs are working with the lab, please keep in mind that they are professional scientists with extensive field and lab experience, who have already earned a Ph.D., and who already run research programs of their own in addition to the research they conduct in the SMAGL. We ask that you respect the authority of our PRAs as strongly as you respect that of Prof. Garrett or Prof. Schmitt. 
+
+
+## Graduate Students
+
+
+The SMAGL also trains graduate students at both the Master’s and Doctoral level. During your time in the SMAGL, one of the more senior graduate students may be assigned to be your immediate mentor.
+
+Current graduate students you may meet include:
+
+### Doctoral Students
+
+- **Soumalya Ghorui** (Ph.D. program, Biological Anthropology; Schmitt Lab; he/him)
+- **Jimmy Erkens** (Ph.D. program, Biological Anthropology; Schmitt Lab; he/they)
+- **Nicole Merullo** (Ph.D. Program, Biological Anthropology; Hodges-Simeon and Schmitt Labs; she/her)
+- **Jess Martin** (Ph.D. Program, Biological Anthropology; Schmitt Lab; she/her)
+- **Zoe Albert** (Ph.D. Program, Biological Anthropology, Knott and Schmitt Labs; she/her)
+- **Warrenkevin Henderson** (Ph.D. Program, Biological Anthropology; Garrett and Schmitt Labs; he/him)
+- **Mel Zarate** (Ph.D. Program, Biological Anthropology; Schmitt Lab; she/her). 
+
+### Masters Students
+
+- **Carla Rojas** (MS program, Biology – EBE; she/her)
+- **Yinuo Mao** (MS program, Biology – CMB; she/her)
+- **Sofia Weaver** (BA/MS program, Biology – EBE; she/her)
+
+## Undergraduate Students
+
+There are also several undergraduate students currently working in the SMAGL. These include, for the **Fall 2024** semester:
+
+### Garrett Lab Undergrads
+
+- **Samia Nelson** (Anthropology, Specialization in Biological Anthropology)
+-	**Alex Pissios** (Anthropology, Specialization in Biological Anthropology)
+
+### Schmitt Lab Undergrads
+
+-	**Sofia Weaver** (BA/MS Biology, Specialization in Behavioral Biology; she/her)
+-	**Reese Hotten-Somers** (Anthropology, Specialization in Biological Anthropology; she/they)
+-	**Noam Aviv** (Biology, Specialization in Behavioral Biology; he/him)
+-	**Merilyn Amponsah-Asamoah** (Anthropology, Specialization in Anthropology, Health, and Medicine; she/her)
+-	**Bailey Christian** (*provisional*; Anthropology, Specialization in Anthropology, Health, and Medicine; they/them)
+
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+***
+
+# [**Back to the Guide**](https://fuzzyatelin.github.io/smagl_student_guide/overview.html)
+
+***
+# [**SMAGL *Undergraduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_ugrad.html)
+***
+# [**SMAGL *Graduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_grad.html)
+***

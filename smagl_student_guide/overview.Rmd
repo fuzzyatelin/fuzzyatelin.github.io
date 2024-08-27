@@ -1,0 +1,124 @@
+---
+title: 'SMAGL Student Guide<br>Fall 2024'
+author: "Christopher A Schmitt</br>Boston University"
+date: "August 15, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+***
+<center>
+![](img/bu_smagl.png)
+</center>
+
+***
+<center>
+**SMAGL Lab Meetings** will be held on **Mondays, 4:00 - 5:00pm** in *STO 243*<br>**Lab Meeting Zoom Link** is [here](https://bostonu.zoom.us/j/365502724?pwd=Zm1SSjgxMlA1SmYrWDRnbnhIamFwdz09)<br>**SMAGL Schmitt Lab Slack** is [here](https://schmitt-smgal-bu.slack.com/)<br>
+</center>
+***
+
+# Getting Started in the Sensory Morphology and Anthropological Genomics Lab
+
+Welcome to the **Sensory Morphology and Anthropological Genomics Lab** (**SMAGL**, pronounced “Smaegol”), in the **Boston University Departments of [Anthropology](https://www.bu.edu/anthrop/) and [Biology](https://www.bu.edu/biology/)**! 
+
+This web guide is designed to help you get the most out of working with us. The SMAGL is located on the second floor of the Stone Science Building on the Charles River Campus:
+
+>BU Sensory Morphology and Anthropological Genomics Lab<br>
+>Stone Science Building, 675 Commonwealth Ave, Room 251<br>
+>Boston, MA 02215<br>
+>Phone: (617) 353-1281<br>
+>Twitter/X: @SMAGL_BU<br>
+>Slack: SMAGL@BU<br>
+
+***
+
+## SMAGL Principal Investigators
+
+***
+
+By now, you’ve probably already spoken to at least one of the two Principal Investigators (PI) in the SMAGL: **Dr. Eva C. Garrett** and **Dr. Christopher A. Schmitt**.
+
+If you need them, you can contact and learn more about the SMAGL PIs in the following ways:
+
+>[Prof. Eva C. Garrett](https://www.bu.edu/anthrop/profile/eva-garrett/) (she/her)<br>
+>    Office: Stone Science Building, 675 Commonwealth Ave, Room 247C<br>
+>    Phone: (617) 353-7709<br>
+>    Email: garrette@bu.edu<br>
+>    Webpage: http://www.ecgarrett.com<br>
+>    Twitter/X: @Shmevapithecus <br>
+
+
+>[Prof. Christopher A. Schmitt](https://www.bu.edu/anthrop/profile/christopher-schmitt/). (he/they)<br>
+    Office: Stone Science Building 675 Commonwealth Ave, Room 247E<br>
+    Phone: (617) 353-5026<br>
+    Email: caschmit@bu.edu<br>
+    Webpage: http://www.evopropinquitous.net<br>
+    Twitter/X: @fuzzyatelin <br>
+
+***
+
+## Into to the **Schmitt Lab**
+
+***
+
+The **Schmitt Lab** is run by Associate Professor [Christopher A. Schmitt](http://www.evopropinquitous.net), and is part of the **Sensory Morphology and Anthropological Genomics Lab** (**SMAGL**, pronounced “Smaegol”), in the **Boston University Departments of [Anthropology](https://www.bu.edu/anthrop/) and [Biology](https://www.bu.edu/biology/)**. 
+
+The goal of the Schmitt Lab research group is to better illuminate the links between genotype, phenotype, and environment using non-human primates as model systems. In our lab, we accomplish this through a number of model systems, primarily the two taxa:
+
+**Savanna monkeys, the genus *Chlorocebus* **
+
+<center>
+![(represented here by a vervet monkey, *Chlorocebus pygerythrus pygerythrus*, in Soetdoring Nature Reserve, South Africa)](img/vervet.png)
+</center>
+
+<br>
+
+**Woolly monkeys, the genus *Lagothrix* **
+
+<center>
+![(represented here by a yellow-tailed woolly monkey, *Lagothrix flavicauda*, in Distrito Corosha, Perú)](img/ytwm.png)
+</center>
+<br>
+
+We study these model systems using tools from a number of different disciplines (biological anthropology, ecology, biology) and methodologies (behavioral ecology, molecular genetics, genomics and bioinformatics, and morphology). As a consequence, our lab has a diversity of backgrounds, personal and professional experiences, and strengths. 
+
+You have been invited to work with us because you, too, have unique and exciting interests, skills, ideas, and potential to contribute to both our science and society. Being in our lab will require you to have not only an open mind, but also a willingness to learn how to engage with others who may not have your similar skillset or perspective. We'll work on all of this together.
+
+To make the most of your time in the SMAGL Schmitt Lab, we recommend you bookmark this web page so that you can refer back to it easily, as it contains a lot of useful information on how to best succeed as an undergraduate or graduate student in the SMAGL Schmitt Lab.
+
+To learn more about the SMAGL - who we are, what we do, where we do it, and how - please follow the below links. At the bottom of the page, please note that there are links that will take you to content specific to *Graduate* and *Undergraduate* students in the SMAGL
+
+***
+
+## [SMAGL People](https://fuzzyatelin.github.io/smagl_student_guide/smagl_people.html)
+
+***
+
+## [SMAGL Meetings](https://fuzzyatelin.github.io/smagl_student_guide/smagl_meetings.html)
+
+***
+
+## [SMAGL Trainings](https://fuzzyatelin.github.io/smagl_student_guide/smagl_trainings.html)
+
+***
+
+## [SMAGL Facilities and Use of Space](https://fuzzyatelin.github.io/smagl_student_guide/smagl_facilities.html)
+
+***
+
+## [SMAGL Online Resources](https://fuzzyatelin.github.io/smagl_student_guide/smagl_online.html)
+
+***
+
+## [SMAGL Schmitt Lab Field Work](https://fuzzyatelin.github.io/smagl_student_guide/smagl_fieldwork.html)
+
+***
+
+
+
+***
+# [**SMAGL *Undergraduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_ugrad.html)
+***
+# [**SMAGL *Graduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_grad.html)
+***

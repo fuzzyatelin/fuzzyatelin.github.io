@@ -1,0 +1,121 @@
+---
+title: "SMAGL Graduate Student Compact"
+author: "Christopher A Schmitt</br>Boston University"
+date: "August 15, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+# Advising Agreement
+
+*This advising agreement is meant to serve as a broad set of guidelines for the student-advisor relationship. This document will be reviewed and signed at the start of each academic year along with the annual meeting document.*
+
+***
+
+# **As a graduate student in the SMAGL Schmitt Lab, I make a commitment to do the following:**
+
+***
+
+*Take ownership over my educational experience. This includes:*
+
+* **Taking primary responsibility for successful completion of my degree** through dedication to my education through my efforts in the classroom, lab and/or fieldwork, research and writing. You may learn more about specific requirements for the degree using the [**Department of Anthropology Ph.D. Student Handbook**](https://www.bu.edu/anthrop/student-resources/graduate-student-resources/graduate-student-handbook/), or the [**Department of Biology Graduate Program Guide**](https://www.bu.edu/biology/files/2022/08/BiologyGradGuide22-23.pdf).
+* **Meeting with my advisor regularly and *coming prepared*.**  My advisor and I will share a Google Drive or Dropbox folder where I will keep all documents that we are working on together. I will come to meetings *with an agenda* and will follow-up with a written summary of what we discussed and any action items that either of us will take. This document will be stored in our shared folder and referred to during subsequent meetings.  
+* **Providing my advisor with updates** on my workload in lab, teaching, and courses. I realize that there is a heavy workload in academia, but will make my advisor aware if I am unable to handle the workload assigned to or expected of me in the lab or courses.
+* **Seeking guidance** from my faculty/research advisor, thesis/dissertation committee, other advisors and mentors, and any other resources available for advice on career plans.
+* **Working with my advisor to develop a thesis/dissertation project**, including a timeline for each phase of my work, and meeting established deadlines. 
+* **Working with my advisor to select a thesis/dissertation committee**; holding meetings annually after completion of the comprehensive exam or more frequently. 
+*	**Being responsive to advice, constructive criticism and guidance**. I acknowledge that I am not yet an expert on my topic and that the learning process will involve receiving constructive criticism on my work and my performance as a researcher and a teacher. 
+*	**Maintaining a high level of professionalism**, self-motivation, engagement, scientific curiosity, and ethical standards.
+*	**Devoting the time and effort needed to be scientifically productive** and accomplish my research goals in a timely manner.  I will work with my advisor to set deadlines and to achieve those deadlines.
+*	**Applying for funding to support my research**. I understand that although the field and lab will help support/enable my research, I need to raise grant funding to support my own dissertation/thesis research.
+*	**Discussing policies on authorship with my advisor**. I will work with my advisor to submit all relevant research results for publication in a timely manner prior to graduation.  If my results have not been submitted prior to graduation I will make a plan with my advisor for submission of these papers and will adhere to this plan. I will discuss with my advisor who else should be included on publications and abstracts before asking or including those individuals. I acknowledge that I have an obligation to my funders, collaborators and advisor to publish my dissertation work.
+*	**Acknowledging the contributions of other people and funders to my work**. In my paper and abstract acknowledgements, I will discuss with my advisor which people, institutions and funders should be acknowledged. 
+*	**Being knowledgeable of the policies and requirements of my program, school, and institution**, and to meet these requirements, including teaching responsibilities. I will discuss with my advisor BU's policies regarding ownership of data and research materials.
+*	**Complying with the letter and spirit of all institutional policies**, including program milestones, safe lab practices, and animal/human-research policies.  I am aware that any violations of lab or animal/human research policies may compromise the research clearance for my advisor, other students in my lab, the department, and the university.
+*	**Completing all required Biosafety trainings and RCR modules**. These are found at [**BioRaft**](http://bu.bioraft.com) and the [**RCR Page**](http://www.bu.edu/orc/programs-committees/rcr/).
+*	**Attending all Department of Anthropology Professional Development Seminars**. These seminars have been implemented at the request of and identified needs of past Ph.D. students; they are for *you*. These are scheduled to not conflict with courses; consider them to be *mandatory*.
+*	**Acknowledging that career development after my degree is primarily my responsibility**, and seek guidance from my advisor, career counseling, dissertation committee, other mentors, and any other resources available.
+*	**Meeting individually with my advisor at the end of each year** to discuss the contents of my annual report and progress toward my target degree and my adherence to this agreement.
+*	**Presenting my work at scientific conferences**. I understand that students are normally expected to attend at least one scientific conference each year. From year 2 I will plan to present a poster or paper at least one meeting per year based on my research.
+
+*Be a team player in the Schmitt Lab community. This includes:*
+
+*	**Participating in lab meetings, seminars and journal clubs** that are part of my educational program.  I will make every attempt to participate in these events as organized by my advisor or my program.  If I am unable to attend a lab meeting, I will let my advisor know ahead of time. In addition to presenting my own work, I will contribute my insights to the work of others. I will also give my attention to others in my lab and refrain from using digital devices during these meetings. Even if you are using your computer to augment discussion you should keep it closed, unless looking something up, to be respectful to others who are talking.
+*	**Acting as a good lab citizen**.  I will share in the responsibilities that involve data or samples that I am using or that I expect to use for my dissertation. These responsibilities may include data entry, data management, data cleaning, data copying, data scanning, dry lab organization, sample inventory, sample sorting, wet lab cleaning and organization.
+*	**Using resources carefully and frugally**; maintain a safe and clean lab space, and show respect, tolerance, and collegiality to all personnel. This the includes sound and mindful design of experiments to not waste communal lab resources with needless experimentation.
+*	**Being mindful of the time constraints and other responsibilities of my advisor and others**. I will accept and remain aware that my advisor may need to reschedule or change our meeting times dependent on his other responsibilities and may not be able to provide immediate feedback. I will remain aware that email or Slack communication may need to occur on the weekend or evenings.
+*	**Helping other lab members and students**. As I progress in the program, I will help train/mentor my fellow graduate students and undergraduates as part of my educational training.
+
+*Communicate Clearly and Efficiently. This includes:*
+
+*	**Being responsive**. I will respond promptly (in most cases, within 48 hours) to emails from anyone in our lab group and show up on time and prepared for meetings. If you need time to gather information in response to an email, please acknowledge receipt of the message and indicate when you will be able to provide the requested information.
+*	**Discussing policies on work hours, sick leave, and vacation with my advisor**. I will let my advisor know about any planned absences, both while in residence and while in the field.  I understand that my advisor expects me to take time off to recharge and supports this need. I also realize that my advisor will need to know if I won’t be available or, for safety purposes, if I’m not at the field site.
+*	**Seeking resolution if I am unhappy with my current advising experience**. Not all people can get along all the time; I agree to accept this, and to take responsibility for my own potential role in such dynamics. I also agree to follow best practices for resolution, which includes speaking to my advisor first if there is a disagreement or if I feel I have been treated unfairly in some way, with a good faith effort to resolve the situation. If that does not resolve the situation, I agree to approach either 1) my other internal committee members or 2) the Director of Graduate Studies to mediate. Ultimately, if these avenues do not appear to work, or if I feel uncomfortable with a one-on-one discussion of the issue, I agree to discuss the issue with a university Ombuds to attempt resolution.
+
+***
+
+# **As your research advisor I make a commitment to do the following:**
+
+***
+
+*Guide you through the graduate school process. This includes:*
+
+*	**Supporting your research project**: I will work with you to help identify a promising research topic; help you to plan and direct the project, set reasonable and attainable goals, and establish a timeline for completion. After agreeing on a thesis topic, I will strive to support your dissertation research project to the best of my ability.
+*	**Providing Feedback**: I will provide constructive feedback on your project ideas and hypotheses, study design, and interpretation of data. I will also provide feedback on your general progress in developing as a scientist and as a teacher.
+*	**Discussing with you your individual scientific interests** and how they may coincide or overlap with the long-term direction of my research and others in my research group.
+*	**Providing advice and guidance on finding appropriate grant/fellowship opportunities** and provide constructive feedback on applications. 
+*	**Providing and facilitating training** in skills needed to be a successful scientist, such as oral and written communication, grant writing, lab management, animal and human research policies, ethical conduct, and scientific professionalism. 
+*	**Helping you identify additional advisors, resources and opportunities** that will aid in your career development and training.
+*	**Providing life-long career advising**, including education and training as a practicing scientist or in related career.
+*	**Being knowledgeable of requirements and deadlines for the program and institution**, including teaching requirements, human resources guidelines, grant agency and university training policies, and help guide you through the program. I will discuss with you BU's policies regarding ownership of data and research materials. If I don't know the answer, I will direct you to others that do.
+*	**Discussing policies on work hours, sick leave, and vacation with you**. I will let you know of my planned absences and travel dates, both while in residence and while in the field. 
+*	**Working with you on selecting an appropriate thesis/dissertation committee** and help arrange annual meetings with your committee on your thesis.
+*	**Holding regular one-on-one meetings** to discuss progress in courses, thesis development, lab work and fieldwork, as well as lab and teaching workload. Please be sure you are communicating new ideas about your work and challenges that you are facing so I can help you address these.
+*	**Holding bi-annual meetings to discuss your annual reports and degree progress**.
+*	**Expecting you to share in managing lab and project resources** that you are utilizing, or will utilize. 
+*	**Encouraging your attendance at scientific meetings**, provide feedback on abstracts and help you obtain funding if possible.
+*	**Introducing you in person or in email to other colleagues and scientists** who may help you with your thesis or later career.  
+*	**Discussing authorship issues**; acknowledging your scientific contributions to work in my lab and working with you to publish your work in a timely manner.
+*	**Providing an environment that is intellectually stimulating, supportive, safe, and free of harassment**. Please come to me with any concerns you may have.
+*	**Being mindful of your time constraints** and accommodating your needs for my time to the best of my ability, while also balancing my other responsibilities.  
+*	**Being responsive**. You can expect to get feedback on small items, such as abstracts within one week, and larger items such as grant proposal and manuscripts within 3 weeks.  If a shorter turn-around time is needed, please let me know. I also welcome your reminders!
+*	**Being your advocate**. If you have a problem, come and see me. I will do my best to help you solve it.
+*	**Providing career advice and assisting you in finding a position following graduation**; I will provide letters of recommendation for your next phase of professional development that are honest and objective, and I will continue to be accessible and give advice and feedback on career goals. 
+*	**Creating an encouraging and supportive scientific environment**; I view my role as fostering your professional development and encouraging critical thinking and creativity. I will try my best to understand your unique situation, and mentor you accordingly. I am mindful that each student comes from a different background and has different professional goals. It will help if you keep me informed about your experiences and remember that graduate school is a job with very high expectations. If my attempts to do this are not effective for you, I am open to talking with you about other ways to achieve these goals.
+*	**Helping you navigate your graduate program of study**. Remember that all of us are “new” at various points in our careers. If you feel uncertain, overwhelmed, or want additional support, please overtly ask for it. I welcome these conversations and view them as necessary.
+*	**Finding the best communication style to work with you**. Please let me know the style of communication or schedule of meetings that you prefer. If there is something about my mentoring style that is proving difficult for you, please tell me so that you give me an opportunity to find an approach that works for you. No single style works for everyone; no one style is expected to work in all situations.
+
+
+<br><br><br>
+
+***
+Graduate Student Name			Signature				Date
+
+<br><br><br>
+
+***
+Advisor Name					Signature				Date
+
+<br><br>
+
+*These guidelines are based on the ‘Mentoring Compact’ published by the Graduate Research, Education and Training (GREAT) group of the Association of Medical Colleges (AAMC), on the IDP (Individual Development Plan) developed by the Federation of American Societies for Experimental Biology (FASEB), on the IDP developed by the Stanford Biosciences program, on material developed by the National Postdoctoral Association, on the Guide to Mentoring Graduate Students, published by the Rackham Graduate School at the University of Michigan, on "Entering Mentoring" by Prof Trina McMahon (2014), and the BU Biology Department graduate student mentoring contracts.*
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+***
+
+# [**Back to the Guide**](https://fuzzyatelin.github.io/smagl_student_guide/overview.html)
+
+***
+# [**Back to SMAGL *Graduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_grad.html)
+***

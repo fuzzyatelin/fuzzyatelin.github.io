@@ -1,0 +1,88 @@
+---
+title: "Undergraduate Research for Credit in the SMAGL"
+author: "Christopher A Schmitt</br>Boston University"
+date: "August 15, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+Undergraduates with **sophomore, junior or senior status** may conduct research in the SMAGL for credit under the supervision of either Prof. Garrett (via the Department of Anthropology, for Biological Anthropology credit) or Prof. Schmitt (via either the Department of Anthropology, for Biological Anthropology credit; or the Department of Biology, for EBE credit).
+
+Prior to conducting research for credit, we require at least two semesters of research on a volunteer basis in the lab, with a commitment of 10 hours per week. Attendance at SMAGL Lab Meetings is mandatory, but summer research negotiable during this period.
+
+You must have a defined project in the SMAGL conducted under the supervision of either Prof. Garrett, Prof. Schmitt, or a SMAGL Postdoctoral Research Associate (Dr. Evelyn Pain) to conduct research for credit. This project must be discussed and agreed upon by your supervisor. You may not register for research credit without the direct approval of either Prof. Garrett or Prof. Schmitt.
+
+During a research-for-credit semester in the SMAGL during fall or spring semester, students are expected to conduct research for **3 hours/week per credit**. During the Summer 1 or Summer 2 session, students are expected to work **8 hours/week per credit**. This includes a 30-minute or one-hour, one-on-one meeting with your supervisor. Attendance at SMAGL Lab Meetings is mandatory during this period, as well, and does not count towards research credit hours. *All students gaining credit for research must present their research for at least one SMAGL Lab Meeting during their research semester.*
+
+***Students may NOT conduct research for credit in the same semester in which they receive UROP funding.***
+
+If you are interested in conducting research for credit, please set up a meeting with Prof. Garrett or Prof. Schmitt ***at least three weeks before registration***. You also *must* discuss and receive approval for conducting research for credit in the SMAGL with your formal academic advisor in your major department, and/or the Academic Advising Center.
+
+Students conducting research for credit must register for one of the following:
+
+# Directed Study in Anthropology
+
+**AN 491/492 (1-4 credits)**
+
+Prerequisites: declared major or minor in Anthropology, junior or senior status, consent of instructor, and approval of the Academic Advising Center. Course involves ndividual instruction and directed research in Anthropology. Variable credit depending on intended effort, 4 credits maximum in a given semester.
+
+# [Research for Credit in Biology](https://www.bu.edu/biology/research-credit/)
+
+**First Year BI 140/141  (2 credits)**
+**Sophomore BI 240/241  (2 credits)**
+**Junior BI 340/341 (2 credits), BI 350/351/352 (4 credits)**
+**Senior BI 450/451/452/453 (4 credits)**
+
+Note: Up to two 4-credit courses may be counted as Biology major electives and one of those may count toward the three-lab requirement. Students do not need to take two consecutive semesters of research (e.g., students can take BI 350 and BI 451).
+
+Students wishing to receive credit for Undergraduate Research in Biology must fill out an [Undergraduate Research application](http://www.bu.edu/biology/research-app/) form.
+
+If you are a Biology major working in SMAGL, you will also need to ask a Biology faculty member to sponsor you. Your sponsor for SMAGL will usually be Prof. Schmitt, but could also be another faculty member with whom you have a good relationship and who is familiar with the field of research in which you will be engaged. Both your PI and the Biology faculty sponsor must approve your application.
+
+During fall or spring semester, students are expected to conduct research for **3-4 hours/week per credit**. During the summer 1 or summer 2 session, students are expected to work **6-8 hours/week per credit**. This time can include other research-related work like attending group lab meetings.
+
+Undergraduate Research in Biology Guidelines and Expectations are available [here](https://www.bu.edu/biology/files/2018/08/Biology-Research-Guidelines-8-8-2018.pdf) and [here](https://www.bu.edu/biology/research-credit/). These apply for both students earning credit in Biology and Anthropology.
+
+In research for credit in Biology, students register dependent on their research experience, which can include prior research for credit or UROP. Other opportunities may be considered to count with the consent of the lab mentor. To determine which research course to register for, use the following formula: BI XYZ, where:
+
+*	BI = Biology department code
+*	X = students’s standing (1 = first year, 2 = sophomore, 3 = junior, 4 = senior)
+*	Y = number of credits (4 = 2 credits, 5 = 4 credits)
+*	Z = number of prior semesters of research (0 = 0, 1 = 1, 2 = 2, 3 = 3)
+*	Note that BI 401 and 402 are the course registrations for Honors research.
+
+**Juniors and above** are *required* to attend lab meetings if enrolled in research for credit, and must present their work at least once each semester enrolled. They are also *required* to keep a lab notebook (in SMAGL, this will be an R Markdown document capable or being knitted for  regular submission to the PI, or a Benchling document) and write a formal lab report at the end of the semester (in SMAGL, this will be in the form of the final, knitted R Markdown file outlining the research progress made during the semester).
+
+Juniors and seniors may also earn BU HUB units in their research for credit courses, as follows:
+
+*	BI 340: RIL
+*	BI 341: RIL/OSC
+*	BI 350/450: RIL/OSC
+*	BI 351/451: RIL/CRI
+*	BI 352/452: CRI/WIN
+*	BI 453: DME
+*	BI 401: RIL/OSC
+*	BI 402: RIL/CRI/WIN
+*	BI 497/498 (Honors Seminar): DME
+
+For information on credit for research leading to Honors in either Anthropology or Biology, see the section on [Honors in the SMAGL](http://fuzzyatelin.github.io/smagl_student_guide/ugrad_honors.html). 
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+***
+
+# [**Back to the Guide**](https://fuzzyatelin.github.io/smagl_student_guide/overview.html)
+
+***
+# [**SMAGL *Undergraduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_ugrad.html)
+***

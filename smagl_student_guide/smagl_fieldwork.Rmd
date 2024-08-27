@@ -1,0 +1,66 @@
+---
+title: "SMAGL Schmitt Lab Field Sites and Experiences"
+author: "Christopher A Schmitt</br>Boston University"
+date: "August 15, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+The Schmitt Lab has two major field-based projects that each focus on different elements of how wild primates adapt to ecological extremes: one is focused on the conservation genetics and high-elevation adaptations of Critically Endangered yellow-tailed woolly monkeys (*Lagothrix flavicauda*) in Perú (current lab members on this project include Pain, Zarate, Weaver, and Aviv), and the other focuses on various metabolic adaptations and evolutionary genomics in wild savanna monkeys (*Chlorocebus* spp.), with a focus on vervet monkeys (*Chlorocebus pygerythrus*) in South Africa (current lab members working on this project include Martin, Erkens, and Hotten-Somers). Each project has different emphases, and each has multiple associated field sites that are potentially open to student research.
+
+***
+
+## Perú
+
+***
+
+Although our research in Perú focuses on yellow-tailed woolly monkeys, there are several other Peruvian field sites that are open to Schmitt Lab students, each with a unique suite of available primate species to study across a range of ecological and anthropogenic conditions. 
+
+We access these sites primarily though several collaborative groups, which means that working at these sites comes with the expectation of continued collaboration with these groups (noted below). Undergraduate and Graduate students interested in working at these field sites should keep in mind that community priorities may need to guide potential research project objectives, and that the endangered status of many of these primates may impose constraints against more invasive research methods.
+
+### Cocha Cashu Biological Station
+
+### Distrito Corosha, Amazonas
+
+### Wildlife Conservation Lab at Los Amigos Biological Station
+
+### Reserva Nacional de Tumbes
+
+### Huiquilla, Amazonas
+
+***
+
+## South Africa
+
+***
+
+### Faculty of Microbiology, North West University, Potchefstroom (North West)
+
+### Soetdoring Nature Reserve, Free State
+
+### Southford Stud Horse Farm, Northern Cape
+
+
+
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+***
+
+# [**Back to the Guide**](https://fuzzyatelin.github.io/smagl_student_guide/overview.html)
+
+***
+# [**SMAGL *Undergraduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_ugrad.html)
+***
+# [**SMAGL *Graduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_grad.html)
+***

@@ -1,0 +1,210 @@
+---
+title: "SMAGL Facilities & Use of Space"
+author: "Christopher A Schmitt</br>Boston University"
+date: "August 15, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+# SMAGL
+
+## Access to SMAGL
+
+The SMAGL has both a wet bench lab and a dry computational lab at our space in the Stone Science Building (STO), Room 251. See the section on [COVID-19 Protocols and Emergency Preparedness]() for the Sensory Morphology and Anthropological Genomics Lab for information on SMAGL facilities that are put into place during the COVID-19 pandemic lockdowns.
+
+Access to the SMAGL is regulated by swipe card access. If you require access to the Dry or Wet Lab, please let Prof. Schmitt know. With his permission, Lab Coordinator Sam Kelley can give access on a semester-by-semester basis.
+
+**All individuals who require access to the SMAGL lab space *must* [complete the required trainings](https://fuzzyatelin.github.io/smagl_student_guide/smagl_trainings.html) *before* entering!** 
+
+## SMAGL Dry Lab
+
+The dry lab has four (4) workstations, and no special restrictions regarding food and drink, or proper apparel. Priority of access to these workstations generally goes to Ph.D. students conducting dissertation research first, then to other graduate students, then to undergraduate students. *Students not affiliated with the SMAGL should not be using these workstations without permission of a SMAGL PI*.
+
+- **Workstation A** (nearest the wet lab entrance) is dedicated to Garrett Lab use for the analysis of 3D morphological scans. This is the only workstation with the hardware, memory, and software necessary for these kinds of analyses. Work that requires this equipment receives priority over all other uses. For day-to-day concerns, [**please contact Warrenkevin Henderson regarding use of Workstation A**]().
+- **Workstation B** (on the interior wall immediately next to A) is a flexible workstation with a monitor and large external drive that SMAGL students may plug their laptops in to for ease of work. There is a sign-up list for this station on the [Schmitt Lab Drive]().
+- **Workstation C** (on the interior wall across from Workstation B) is dedicated to Schmitt Lab use for bioinformatics or high-computational capacity research. This is the only workstation that currently has the hardware, memory, and software necessary for these kinds of analyses in the Dry Lab. Research/work that requires this equipment receives priority over all other uses. [**Please contact Mel Zarate regarding use of this workstation**]().
+- **Workstation D** (nearest the hallway entrance) is a flexible workstation with a monitor and large external drive that SMAGL students may plug their laptops in to for ease of work. There is a sign-up list for this station on the [Schmitt Lab Drive]().
+
+***We ask that students only use the workstations if they require the use of SMAGL computers for SMAGL research!*** If a student is occupying a workstation with a computer but using their laptop, and another student requires the SMAGL computer, the student on the laptop must allow them to use the space.
+
+If you are working at a station and someone with priority (according to the rules above) asks you to leave, please do so without complaint.
+
+## SMAGL Wet Lab
+
+The **SMAGL Wet Lab** space is a **Biosafety Level 2 (BSL2)** lab. [*To work in this space, you must have completed all BioRaft training modules online*](https://fuzzyatelin.github.io/smagl_student_guide/smagl_trainings.html), and adhere to BSL2 dress code and behaviors:
+
+-	No food or drink is allowed. If you have food or drink, please keep them in the Suite 247 Lounge, down the hall (not in the Dry Lab space).
+-	Do not handle contact lenses or apply cosmetics while in the Wet Lab. If you use corrective lenses, it is best to wear glasses while conducting work in the Wet Lab.
+-	Shorts, skirts, or other clothing that exposes the legs and open-toed shoes or sandals must not be worn in the Wet Lab. In the summer months, we recommend keeping a pair of shoes and pants/scrubs on campus if you intend to work in the Wet Lab.
+-	Please avoid loose, dangling jewelry, as it could get caught in the equipment.
+-	Please keep longer hair tied back.
+
+The wet lab has eight (8) workstations. Six (6) of these workstations are dedicated to specific tasks and cannot be occupied by students unless they are conducting those specific tasks. These include:
+
+-	The **Freezer Workstation** is closest to the freezers (to the far left upon entering the Wet Lab). This station is dedicated to sorting through or weighing samples temporarily removed from freezer storage and should not be used as a regular workstation.
+-	The **DNA Extraction Workstation** is closest to the BioSafety Cabinet (to the far right upon entering the Wet Lab). This station is dedicated to the extraction of DNA from nonhuman primate feces and other tissues and should be used for no other purposes.
+-	The **Sequencing and Quantitation Workstations** are behind the Extraction Workstation (back side of the same island). This station is dedicated to DNA quantitation and size selection (half nearest the windows) and ONT MinION sequencing (half nearest the aisle) and should be used for no other purposes.
+-	The **PCR Workstation** is opposite the Sequencing and Quantitation Workstations. This station is dedicated to the amplification of DNA using PCR and should be used for no other purposes.
+-	The **RNA Workstation** is behind the PCR Workstation. This station is dedicated to RNA extraction and library preparation. RNA work is highly prone to contamination, so this station should never be used for other purposes.
+-	The **Gel Workstation** is between the sinks (with the curtain surrounding it, next to the autoclave). This station is dedicated to the running, visualization, and recording of gel electrophoresis and should be used for no other purposes.
+
+The other two (2) workstations (E and F; each on the backside of the Freezer Workstation), are dedicated for use by Schmitt Lab conducting bioinformatics research. If you want access to one of these workstations, please contact PI Schmitt.
+
+Swipe card access is available for the STO 251 space and must be renewed each semester. If you require swipe card access to use STO 251 spaces and resources, please discuss with PI Schmitt and Lab Coordinator Sam Kelley.
+
+### SMAGL Scheduling
+
+We'll be very busy in the SMAGL this semester! We have several projects ongoing, and few new ones, including:
+
+* DNA metabarcoding for *Lagothrix* (Schmitt/Pain/Dippel)
+* Microbiome in *Lagothrix* (Schmitt/Pain/Martin)
+* Mitogenomics in *Lagothrix* (Schmitt/Zarate)
+* RNA cleanup and RT-qPCR in *Chlorocebus* (Schmitt/Gagnon/Hotten-Somers)
+* Urinary DNA in *Pongo* (Knott/Scott)
+* Microbiome prep for *Pongo* (Knott/Albert)
+
+As such, we'll need to coordinate to make sure that we aren't over-crowding the lab!
+
+Please use the [SMAGL Workstation Sign-Up Sheet](https://docs.google.com/spreadsheets/d/12-o30-oCeGAHl3amz4il1lfdzjZGCoRYMB6TRXN6VMQ/edit#gid=0) to book a particular workstation or piece of equipment ahead of time. If you haven't booked and someone else is already using the Workstation or equipment, you will have to wait! Plan ahead, particularly for time-sensitive protocols!
+
+### PPE in the SMAGL
+
+Appropriate attire and PPE (personal protective equipment) are required when working in the SMAGL Wet Lab. This includes:
+
+*	Lab coat (these must be buttoned up while conducting lab work), and are available just inside the Wet Lab door.
+* Goggles or safety glasses (these must be worn over prescription lenses; eye glasses are *not* safety glasses)
+*	Nitrile or latex gloves (one layer is fine)
+*	Face masks (these must be used when working at the BSC or on extraction processes and should be used whenever working with DNA/RNA more generally)
+*	Long pants (no exposed legs in the lab)
+*	Closed toe shoes (no exposed feet in the lab)
+*	No dangling jewelry (please tuck in or take off any dangling necklaces, earrings, or bracelets)
+
+In addition to PPE, there are certain behavioral practices that can help to prevent you from contaminating your person in the lab:
+
+*	No eating, smoking, drinking, storing food, applying cosmetics, or handling contact lenses while in the lab! It should go without saying, but *do not use the lab microwave for food*.
+*	Minimize cell phone and earbud use in the lab to avoid contamination. If you’d like to listen to music while working, please bring in a Bluetooth speaker and be respectful of other lab workers’ preferences regarding genre and volume. If you must use your cell phone (i.e., to photograph a gel), remember to take off your gloves first!
+
+### BioSafety Level 2 Best Practices
+
+In addition to PPE, BSL2 spaces require standard microbiological practices while working in the Wet Lab space, including:
+
+* Again, always wear appropriate PPE when in the Wet Lab!
+* Keep work area neat and clean:
+    +	Put unused materials or items you’re finished with back where you found them (not in the middle of the bench)
+    +	Dispose of waste in the appropriate receptacle; do NOT leave lab waste out or garbage in hoods, on benches, or out in the open.
+    +	Turn off any equipment that you turn on; do not leave equipment in mid-use or open (with notable exceptions, like overnight PCRs or sequencing).
+    +	Tidy up your workspace when you’re finished with it.
+    +	Do any and all recommended cleanup procedures prior to leaving the lab:
+        +	Wipe work surfaces with 70% ethanol, water, and then 10% bleach (new bottles of bleach must be mixed every day; new bottles of ethanol every month).
+        +	Wipe down equipment with 10% bleach (mixed fresh daily).
+        +	Autoclave pipettes if contamination occurs (tip touches bench or surface; using non-filter pipette tips).
+*	Limited access to the lab space – do NOT give entry to the lab to people who are not cleared for lab use! Keep the inner lab door closed.
+*	Biohazard warnings should be on all equipment exposed to animal tissues, if you notice one is missing, please notify Sam Kelley.
+*	A Class II Biological Safety Cabinet (BSC) for use when working directly with tissues, particularly those that may become aerosolized.
+*	Medical surveillance of lab personnel – this is done via ROHP clearance.
+*	An eyewash station and chemical shower must be present and up to date.
+*	All biohazardous waste must be disposed of properly – solids in a red biohazard bag (under the extraction bench), sharps in the red biohazard sharps containers, and liquids in the appropriate receptacle.
+*	*Always wash your hands with soap and water before leaving the lab!*
+
+### If there is a spill...
+
+Accidents occasionally happen, especially when learning new skills. If necessary, emergency instructions are by the door to the Dry Lab! If you do happen to spill biological samples or reagents and it's not cause for serious alarm, however, please remember to follow these steps:
+
+* Isolate the area
+* Make sure you’re wearing appropriate PPE
+* Cover the spill with paper towels (available by the sink)
+* Soak with disinfectant (70% ethanol or 10% bleach; the latter is best)
+* Let sit for at least 20 minutes
+* Clean up with paper towels
+* Dispose of in a biohazard container (red bags)
+* Disinfect the spill area using disinfectant and paper towels.
+
+If, for some reason, the spill splashes in your eyes, use the eye wash!
+
+### Restricted Equipment
+
+**Do not** use the following equipent without explicit clearance/training from Prof. Schmitt, a PRA (Dr. Pain or Dr. Scott), or senior Ph.D. studnet Mel Zarate:
+
+* BioSafety Cabinet (BSC)
+* Autoclave (Gel Workstation)
+* Centrifuges
+* Hula Shaker (Extraction Station)
+* MinION sequencer (Sequencing Station)
+
+### Biological Safety Cabinet (BSC)
+
+The BSC is for use when working directly with human and non-human primate tissues (blood, urine, feces, etc). It is NOT for chemical mixing; any mixing of chemicals – i.e., for reagents in kits or to create buffers – must be done in the appropriate fume hood in the Chemical Anthropology Lab (STO 249).
+
+To use the BSC, please use the following steps:
+
+*	Before beginning: 
+    +	Turn BSC on and let it run for 15 minutes.
+    +	Clear all objects from the cabinet (please place them on paper towels on the adjacent counter, near the sink).
+    +	Wipe down the inside of the BSC with 70% Ethanol, then water (from the sterilized water bin), then 10% bleach.
+    +	Let the BSC run for 5 more minutes.
+    +	During this last run, wipe all items with a disinfectant (10% bleach) before placing them back in the BSC.
+*	While working: 
+    +	Avoid airflow disruption that could affect the level of protection provided by the BSC - do not block grilles, and keep all materials at least 4-inches inside sash.
+    +	Keep the BSC free of clutter.
+    +	Move arms slowly when removing or introducing items.  Avoid sweeping arm motions.
+    +	Keep clean and dirty materials well apart (i.e., keep your discard cups at the other end of the BSC from where you are working with samples).
+    +	If you spill in the BSC: stop work, and clean the BSC (following all steps above).
+*	When finished:
+    +	Discard your gloves and put on new ones.
+    +	Wipe down all items in 10% bleach.
+    +	Wash your hands.
+
+# Suite 247 Lounge
+
+Active SMAGL members are encouraged to use the **Biological Anthropology Collaboration Space**, or lounge, in Suite 247 of the Stone Science Building, which has a refrigerator, microwave, dishes and utensils, and several comfortable places to sit, work, eat, and relax. This space is also home to Biological Anthropology faculty offices (Profs. Garrett, Knott, Schmitt, and Hodges-Simeon) and the **Biological Anthropology Graduate Student Space**, which has assigned desk/work seating and also a communal area in which graduate students are encouraged to hold office hours. 
+
+The following Schmitt Lab graduate students have dedicated space in the Biological Anthropology Graduate Student Space for the Fall 2024 semester:
+
+-	**Mel Zarate**: the rightmost workstation closest to the windows on the wall opposite the entrance into the Graduate Student Space.
+-	**Jess Martin**: the workstation on the wall opposite the entrance into the Graduate Student Space, next to Mel's workstation.
+-	**Jimmy Erkens**: the leftmost workstation on the wall opposite the entrance into the Graduate Student Space.
+
+Please keep in mind that Schmitt Lab use of this space is provisional and will be re-assessed for each semester. Those currently with space here may not continue in this space given the needs of other students with priority of access. Those of you with current assigned seats must contact Samantha to get swipe card access specific to the Biological Anthropology Graduate Student Space.
+
+The four (4) workspaces along the windows of this room are available on a first-come-first-served basis and are not reserved for long-term personal use.
+
+Access to the Suite 247 area is open from 8am to 6pm M-F, and after-hours swipe card access is available upon request for those actively conducting research in the SMAGL (please discuss with PI Schmitt and/or Lab Coordinator Samantha Kelley).
+
+Please use this space respectfully, be tidy and keep it clean, and be aware that many non-SMAGL faculty, staff, and students also use this area.
+
+# Restrooms
+
+The Center for Gender and Sexuality Activism lists several gender-neutral/all-gender bathrooms in our building. The closest to the SMAGL is on the first floor of the CAS building. Walk down the hall and around the corner to the Commonwealth Ave side of the building, and go down one flight of stairs, it’s to the immediate left of the stair exit on the first floor. There is also a men’s bathroom in the same hallway as the SMAGL on the lab-side of the doors to CAS, and a women’s bathroom on the CAS-side of the same doors.
+
+# Chemical Anthropology Lab
+
+Next door to the SMAGL in STO 249 is the **Chemical Anthropology Lab**. This lab is open for use by anyone in Anthropology and Archaeology given access, and is primarily intended for use with hazardous chemicals.
+
+SMAGL members use this space for the fume hoods and other equipment needed for mixing chemicals and buffers. For example, we use this lab to mix our recipe for home-made DNA preservation buffer, and to mix reagents necessary for some of our extraction kits.
+
+You can ask Sam Kelley for swipe access, if required.
+
+
+
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+***
+
+# [**Back to the Guide**](https://fuzzyatelin.github.io/smagl_student_guide/overview.html)
+
+***
+# [**SMAGL *Undergraduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_ugrad.html)
+***
+# [**SMAGL *Graduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_grad.html)
+***
