@@ -1,0 +1,52 @@
+---
+title: "Letters of Recommendation from the SMAGL"
+author: "Christopher A Schmitt</br>Boston University"
+date: "August 15, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+Prof. Schmitt, Prof. Garrett, and the Postdoctoral Research Associates of the SMAGL are thrilled to write letters of recommendation for SMAGL undergraduate and graduate students who have shown their finest qualities and abilities conducting research in the lab. We encourage students to request letters for grants, UROP funding, graduate or professional school applications, employment applications, and other needs.
+
+For undergraduates, you must spend at least one full semester volunteering in SMAGL to request a letter of recommendation from your PI. Prior to that point, please do not ask for a letter unless you have also had 300-level or above course with the SMAGL PI from whom you request the letter.
+
+**We ask is that you adhere to the following guidelines when requesting letters of recommendation:**
+
+*	**Please alert your PI of the need for a letter at least four (4) weeks prior to the due date.** Plan ahead! If shorter notice is given, your PI may not have time to write your letter, and has every right to say 'no'!
+*	When requesting a letter of recommendation, we ask that you email us with the following:
+    +	The header of the email should be “SMAGL Letter Request, Scholarship/Position Name, Due X”, with the date entered in lieu of ‘X’.
+    +	If you have primarily worked with a Postdoctoral Scholar or graduate student in SMAGL as your mentor, you must ‘cc’ them on the email.
+    +	In the email, please give details regarding what the letter is for, so that your PI can write the letter appropriately. Include any information regarding the person/institute/program requesting the letter, what you hope to gain/accomplish should you gain what the letter is recommending you to, and any specific instructions for submission of the letter (i.e., due date, will they send a link to the PI so that they can upload the letter, must the PI email it themselves?)
+    +	Please attach to the request email the following items:
+        -	Your current CV/Resume
+        -	An unofficial academic transcript
+        -	A one-paragraph description of your role in SMAGL, including projects you have worked on and any posters or publications
+        -	A link to the webpage of, or attachment describing the funding call or job listing for the grant/program/job to which you are applying
+        -	Any essays or other materials you are submitting with your application to the grant/program/job to which you are applying.
+*	**Please email your PI again one week before the letter is due, as a reminder!**
+
+This may sound like a lot of detail, but this will allow us the time and resources to write you the best letter of recommendation we can!
+
+
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+***
+
+# [**Back to the Guide**](https://fuzzyatelin.github.io/smagl_student_guide/overview.html)
+
+***
+# [**SMAGL *Undergraduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_ugrad.html)
+***
+# [**SMAGL *Graduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_grad.html)
+***

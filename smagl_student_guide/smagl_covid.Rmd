@@ -1,0 +1,48 @@
+---
+title: "SMAGL COVID-19 Protocols and Emergency Preparedness"
+author: "Christopher A Schmitt</br>Boston University"
+date: "August 15, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+***This protocol will go into effect during formal lockdowns in order to prevent transmission of SARS-CoV-2 in the lab and associated areas. This protocol is NOT in effect (at the moment) for Fall 2024, but you should be aware of it should it become necessary.***
+
+# Getting Ready for Lab Work
+
+Before coming into the lab, you must let us know you intend to do so! We will have to get you cleared for lab entry.
+
+Once approved to work in the lab, you must sign up for a time/seat. You should not be in the lab space if you are not previously on the schedule. The signup sheet will be available in the lab Google Drive. Go to [*Lab Contact and Sign-Up > SMAGL Workstation Sign Up*](https://docs.google.com/spreadsheets/d/12-o30-oCeGAHl3amz4il1lfdzjZGCoRYMB6TRXN6VMQ/edit#gid=0) to claim a spot. In cases where two individuals wish to use the same space at the same time, priority will be given to students who cannot do the work required elsewhere, and all things being equal priority will be based on academic seniority and/or amount of time as a lab member.
+
+# Working in the Lab
+
+In keeping with University policy, **during lockdowns all individuals on campus *must* wear a face mask at all times**. This is non-negotiable. The only time when it is acceptable to take off the mask is, briefly, when eating or drinking.
+
+**All individuals in the lab are expected to maintain physical distances of at least 6 feet at all times.** This will limit lab space during lockdowns, during which:
+
+*	**No more than two people may be in the dry lab at a given time.**
+*	**No more than three people may be in the wet lab at a given time.**
+
+**Individuals must clean and disinfect their work surfaces prior to and after use.** The lab manager will provide Lysol spray for use on doors and desktops, and there will also be disinfectant wipes available in the dry and wet lab areas for disinfecting purposes.
+
+**You are *strongly encouraged* to wear gloves while in the dry lab, and are *required* to wear gloves in the wet lab.** Nitrile gloves (S, M, L, XL) will be available in the dry lab and wet lab. If you would rather not wear gloves during your entire time in the dry lab, keyboard covers are a viable alternative. These cost ~$2-3. Please bring your own keyboard cover rather than using the bare keyboard at shared computing spaces. You may also use them to prevent contaminating your personal laptop. Don’t forget to disinfect your keyboard cover before you leave the lab!
+
+# Other Safety Measures
+
+**If you are conducting wet bench work involving any chemical usage, we require that two of you be present at all times.** This helper/observer may either be in the dry lab or wet lab. This is to ensure that there’s a second person present to be a helper who can call for emergency assistance if something goes awry. If the emergency involves the use of the eye wash or shower, the helper should also contact the offices/labs on the floor below the lab regarding potential flooding.
+
+Should an emergency occur that soaks or burns clothing, or otherwise requires its removal, we have a set of extra clothing (scrub tops and bottoms), a towel, and slippers available in the lab under the sink. If, for some reason, these are not available, please use one of the extra-large lab coats.
+
+Our Research Safety Officer is **Dawn Hengl** (**dmhengl@bu.edu; 617-353-4094**). If your PI is not available to address a safety concern, she may be reached as a last resort.
+
+
+***
+
+# [**Back to the Guide**](https://fuzzyatelin.github.io/smagl_student_guide/overview.html)
+
+***
+# [**SMAGL *Undergraduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_ugrad.html)
+***
+# [**SMAGL *Graduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_grad.html)
+***

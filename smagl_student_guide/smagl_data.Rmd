@@ -1,0 +1,29 @@
+---
+title: "SMAGL Policy on Samples, Data, and Code"
+author: "Christopher A Schmitt</br>Boston University"
+date: "August 15, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+**No data, code, or samples from the Schmitt Lab may be accessed, moved, used, or shared with anyone outside the lab without the express permission of Prof. Schmitt.** 
+
+This policy includes data, code, and samples already present in the lab, or those generated as part of a project in the lab over which Prof. Schmitt is PI or supervisor. In keeping with BU policy, all data, code, and samples generated as part of M.S. theses or Ph.D. dissertations over which Prof. Schmitt is primary supervisor are considered the property of the Schmitt Lab and Boston University. None should be shared without prior discussion with Prof. Schmitt nor without his express permission. This is both to protect the interests of the lab and BU, as well as the interests of collaborators who may have helped us to collect and generate these data and trust Prof. Schmitt to curate them appropriately.
+
+Undergraduate and graduate students interested in taking data, code, and samples with them to a subsequent position (even those generated with funding in the student’s name while conducting research in the Schmitt Lab) must discuss the idea of doing so with Prof. Schmitt prior to doing so. If the data, code, and samples would be used to conduct research with another PI, Prof. Schmitt will have to discuss their use with that PI and they will together write an appropriate Material Transfer Agreement (MTA) and Memorandum of Understanding (MOU) concerning how those data are to be used, each of which need to be filed with Boston University and the receiving institution. It is possible that such arrangements cannot easily be made, so please discuss such an idea with Prof. Schmitt prior to making promises with other potential employers or collaborators. This kind of transfer is generally not permissible for undergraduates moving to another school for their graduate degree, but may be possible for graduate students moving to another institution for a postdoc or faculty position.
+
+There may be data and code on our servers and samples in the lab from collaborators and other PIs, including Prof. Eva Garrett (SMAGL co-Director), Prof. Cheryl Knott, Dr. Alicia Rich (former Schmitt Lab Postdoctoral Research Associate), Dr. Stephanie Poindexter (former Garrett Lab Postdoctoral Research Associate), Dr. Christian Gagnon (former Schmitt Lab Ph.D. student), Dr. Anthony Di Fiore (external Schmitt Lab collaborator), Dr. Kelsey Ellis (external Schmitt Lab collaborator), and Dr. Liz Mallott (external Schmitt Lab collaborator). Under no circumstances should these be accessed, moved, or used without the express permission of Prof. Schmitt or that of the associated PI. Prior to reaching out to those investigators, you *must first discuss any use of such samples with Prof. Schmitt*.
+
+Schmitt Lab data that has previously been published and uploaded to public data repositories (e.g., Dryad, GenBank, Gene Expression Omnibus, etc.) are open to the public and freely available for public use and sharing. In such cases the links to the public repositories should be shared with interested parties, *not the raw data* housed on SMAGL lab servers.
+
+
+***
+
+# [**Back to the Guide**](https://fuzzyatelin.github.io/smagl_student_guide/overview.html)
+
+***
+# [**SMAGL *Undergraduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_ugrad.html)
+***
+# [**SMAGL *Graduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_grad.html)
+***

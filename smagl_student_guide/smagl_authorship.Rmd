@@ -1,0 +1,47 @@
+---
+title: "Authorship and Collaboration in the SMAGL"
+author: "Christopher A Schmitt</br>Boston University"
+date: "August 15, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+Any scholarly work leaving the lab (e.g., abstracts, workshop applications, funding proposals, etc) *must* have the explicit approval of your PI (either Prof. Garrett or Prof. Schmitt). **Never submit any of these items without letting your PI read/edit them first.** If you are submitting an abstract to a meeting (including the UROP Undergraduate Research Symposium), please send it to your PI *at least 1 week in advance* so they have time to go back and forth with you on edits. If you are submitting a funding proposal it should be sent to your PI *at least 3 weeks in advance* so they can work together with you to edit it. No scholarly writing (outside course assignments) should be sent to another professor or colleague unless your PI has given approval.
+
+**Authorship is a privilege, not a right**. When you make a significant *intellectual* or *experimental design* contribution to a project, then you will typically be given acknowledgement for that contribution via authorship on the manuscript. However, in many cases there have often been considerable resources devoted to a project *before* you were involved, and so others may also deserve authorship. Authorship (including order of authors) is always discussed before a manuscript is submitted from the SMAGL. 
+
+**Prof. Schmitt, as PI, reserves the ultimate decision on authorship regarding research outputs from his lab.** 
+
+As a general rule of thumb, to be considered for authorship you need to substantially contribute to *at least three* of the following: 
+
+1.	Intellectual development of the idea and/or experimental design.
+2.	Funding for the work through proposal development and writing.
+3.	Significant time in the field collecting samples and/or in the lab analyzing samples.
+4.	Significant time statistically analyzing data and preparing it for publication.
+5.	Manuscript development including outlining and text writing, as well as contributing to figures/tables.
+
+As Schmitt Lab PI, *I must be a co-author on any publication arising from research conducted in my lab* (including conference abstracts, published thesis/dissertation chapters, etc). Typically, I will be last author and/or corresponding author on research on which I have secured funding or on projects initiated by members of my lab, although there will be cases where, if I’ve contributed a large amount of the intellectual and written contribution, I may choose to also be first author.
+
+**Before you discuss initiating a potential collaboration with a member from another research group, *speak with Prof. Schmitt*. **Although it is not required that you speak with him before you make a request of others, he would prefer that you send him a draft of a potential request before you send it to an outside researcher. Requests by others for materials/information from the SMAGL Schmitt Lab *must* be discussed with Prof. Schmitt before they are distributed. If there is a misunderstanding or a conflict with a collaborator – talk to Prof. Schmitt Remember that the lab may have multiple interactions with the potential collaborating lab or individual that could be impacted by your actions. Prof. Schmitt may also know something about the lab/collaborator that would be helpful as you engage with them.
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+***
+
+# [**Back to the Guide**](https://fuzzyatelin.github.io/smagl_student_guide/overview.html)
+
+***
+# [**SMAGL *Undergraduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_ugrad.html)
+***
+# [**SMAGL *Graduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_grad.html)
+***

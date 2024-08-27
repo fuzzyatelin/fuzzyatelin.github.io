@@ -123,4 +123,22 @@ Follow the links below to learn about all of these opportunities and more!
 
 ***
 
-## []()
+## [Letters of Recommendation from the SMAGL](https://fuzzyatelin.github.io/smagl_student_guide/smagl_letter.html)
+
+***
+
+## [Authorship and Collaboration in the SMAGL](https://fuzzyatelin.github.io/smagl_student_guide/smagl_authorship.html)
+
+***
+
+## [SMAGL Policy on Samples, Data, and Code](https://fuzzyatelin.github.io/smagl_student_guide/smagl_data.html)
+
+***
+
+## [SMAGL Contract and Code of Conduct](https://fuzzyatelin.github.io/smagl_student_guide/smagl_conduct.html)
+
+***
+
+## [SMAGL COVID-19 Protocols and Emergency Preparedness](https://fuzzyatelin.github.io/smagl_student_guide/smagl_covid.html)
+
+***
