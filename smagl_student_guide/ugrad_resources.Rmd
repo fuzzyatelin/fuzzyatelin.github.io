@@ -1,0 +1,115 @@
+---
+title: "Other Resources for Undergraduates in the SMAGL"
+author: "Christopher A Schmitt</br>Boston University"
+date: "August 15, 2024"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+# Tutoring Services
+
+[Educational Resource Center (ERC)](www.bu.edu/erc)<br>
+100 Bay State Road, 6th Floor<br>
+617-353-5960<br>
+erc@bu.edu<br>
+
+# Academic Advising Services
+
+[Academic Advising](http://www.bu.edu/casadvising/)<br>
+100 Bay State Road, Room 401<br>
+617-353-2400<br>
+casadv@bu.edu<br>
+
+# Writing Assistance
+
+## Educational Resource Center (ERC)
+
+Writing assistance is offered through the ERC (see above). Students must make an appointment in advance on the ERC website or by phone. Appointments may be traditional (45 minutes), or drop-in (20 minutes).
+
+##	[CAS Writing Center](http://www.bu.edu/writingprogram/the-writing-center/)
+
+100 Bay State Road, 3rd Floor (satellite location at Mugar Library)<br>
+(617) 358-1500<br>
+writing@bu.edu<br>
+
+The Writing Center offers both scheduled appointments (made on their website) and walk-in sessions. Sessions are 45-mintes long and are typically set up for weekly returns and draft revisions. Central purpose is to support the CAS Writing Program, but they also offer open tutoring proffered primarily by undergraduate peer writing consultants, but also graduate consultants. There are also designated and trained ESL specialists to help L2 students.
+The Writing Center also offers training on disciplinary and academic conventions.
+
+# [Sexual Misconduct and Harassment](https://www.bu.edu/eoo/sexual-misconduct-title-ix/title-ix-team/)
+
+University Title IX Coordinator<br>
+Jean Estevez, Executive Director of Equal Opportunity<br>
+(617) 353-1796<br>
+titleix@bu.edu<br>
+
+All faculty and TFs (including Postdoctoral Research Associates) are “responsible employees” of BU, and as such are mandatory reporters of sexual misconduct or harassment if they hear of such behaviors, and must report them to Kim Randall, the Title IX Coordinator, or a Deputy Title IX Coordinator (see below). See the links above for a comprehensive list of definitions outlining which behaviors qualify. Due to our role as mandatory reporters, we cannot guarantee confidentiality if a student tells us about harassment or sexual misconduct.
+
+Within CAS, mandatory reporting may also be made to the following CAS Deputy Title IX Coordinators:
+
+CAS Title IX Coordinator<br>
+Danielle Kane, Deputy Title IX & DEI Outreach<br>
+(617) 353-2401<br>
+dnkane@bu.edu<br>
+
+For confidential reporting of sexual misconduct or harassment, students have a number of resources available to them (listed in the links above), including the [Sexual Assault Response and Prevention Center (SARP)](https://www.bu.edu/shs/sarp/), (617) 353-SARP, sarp@bu.edu; [Student Health Services (SHS)](https://www.bu.edu/shs/), and the [University Chaplains](https://www.bu.edu/chapel/about/staff/chaplains/).
+
+# [Enrollment and Retention Concerns](http://www.bu.edu/usc/)
+
+University Enrollment and Services Center (USC)<br>
+881 Commonwealth Ave<br>
+Kris Gilchrist-Minasidis, Director<br>
+617-358-1818<br>
+usc@bu.edu<br>
+[Make an appointment!](https://www.bu.edu/usc/contact-us/)
+
+The general role of the USC is to untangle complex student concerns, take a big picture focus on how to handle the transition to college, and serve as a clearing house to handle leaves of absence and withdrawals from undergraduate students. They think of themselves as a retention office. They have drop-in hours 4 days a week, and take appointments from students. If you have any complex concerns that are wrapped up in multiple domains at BU (e.g., financial aid, study abroad, leave of absence, severe or long-term illness accommodations, familial illness or emergencies, etc), this office can help you to navigate them. They are also responsible for reaching out to students with lapsed records (e.g., missing tuition payments, scholarship losses).
+
+# [First-Generation College Students](https://www.bu.edu/newbury-center/)
+
+[The Newbury Center](https://www.bu.edu/newbury-center/) is dedicated to the success of first-generation college students at BU. This program is explicitly made to welcome and prepare first generation undergraduate and graduate students. If you are experiencing stress or issues related to being a first-generation student, contact the center, if not already involved.
+
+111 Cummington Mall Suite B27 (Basement Level)<br>
+Maria Erb, executive director<br>
+(617) 353-3400<br>
+newburycenter@bu.edu<br>
+[Make an appointment!](https://www.bu.edu/newbury-center/about/meet-the-staff/)
+
+# Out in STEM (oSTEM) at BU
+
+[Out in Science, Technology, Engineering, and Mathematics (oSTEM), Inc.](https://ostem.org) is a national non-profit professional society focused on LGBTQ people in the STEM community. With more than 75 student chapters at colleges/universities and professional chapters in cities across the United States and abroad, oSTEM is the largest chapter-based organization focused on LGBTQ people in STEM.
+
+BU has two oSTEM chapters: one for undergraduate students ([UoSTEM@BU](https://outinstem.neocities.org)), and one for graduate students ([oSTEM@BU](https://sites.bu.edu/ostem/)). Prof. Schmitt has been the faculty advisor for both groups.
+
+The undergraduate oSTEM chapter is run via the Student Activities Office, and can most easily be contacted through their website.
+
+# ARROWS and GWiSE at BU
+
+[Advance, Recruit, Retain & Organize Women in STEM (ARROWS)](https://www.bu.edu/arrows/) is an initiative in the Office of the Provost to support the retention and recruitment of women in STEM fields. They have many scholarships and support programs working towards this goal. 
+
+[Graduate Women in Science + Engineering (GWiSE)](https://www.bu.edu/gwise/) strives to create a community to support and promote women in science, technology, engineering, and math fields. Through professional development seminars and workshops, social events, mentoring, and outreach, GWISE fosters interaction across disciplines at Boston University and connects graduate students to postdocs, faculty, and broader networks in Boston and beyond. GWISE is open to all who support this cause. 
+
+[WISEguys](https://www.bu.edu/gwise/wiseguys/) is a group looking to engage men in allyship with and advocacy for women in STEM. Reaching gender parity in the professional world requires the participation of all genders, and intervention at the individual and organizational levels. WISEguys aims to recruit male graduate students in this cause through events and resources centered on education, conversation, and action in cooperation with GWISE. We also aim to involve more men in the GWISE community, as GWISE events and volunteer opportunities are open to all who support women in STEM.
+
+
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+***
+
+# [**Back to the Guide**](https://fuzzyatelin.github.io/smagl_student_guide/overview.html)
+
+***
+# [**SMAGL *Undergraduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_ugrad.html)
+***
+# [**SMAGL *Graduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_grad.html)
+***

@@ -103,22 +103,6 @@ Follow the links below to learn about all of these opportunities and more!
 
 ***
 
-# Undergraduate Links
-
-***
-
-## [Undergraduate Funding](https://fuzzyatelin.github.io/smagl_student_guide/ugrad_funding.html)
-
-***
-
-## [Undergraduate Research for Credit in the SMAGL](https://fuzzyatelin.github.io/smagl_student_guide/ugrad_rescredit.html)
-
-***
-
-## [Honors Research in the SMAGL](https://fuzzyatelin.github.io/smagl_student_guide/ugrad_honors.html)
-
-***
-
 ## [Presenting Research from the SMAGL](https://fuzzyatelin.github.io/smagl_student_guide/smagl_presenting.html)
 
 ***
@@ -135,10 +119,30 @@ Follow the links below to learn about all of these opportunities and more!
 
 ***
 
-## [SMAGL Contract and Code of Conduct](https://fuzzyatelin.github.io/smagl_student_guide/smagl_conduct.html)
+## [SMAGL COVID-19 Protocols and Emergency Preparedness](https://fuzzyatelin.github.io/smagl_student_guide/smagl_covid.html)
 
 ***
 
-## [SMAGL COVID-19 Protocols and Emergency Preparedness](https://fuzzyatelin.github.io/smagl_student_guide/smagl_covid.html)
+# Undergraduate Links
+
+***
+
+## [Undergraduate Funding](https://fuzzyatelin.github.io/smagl_student_guide/ugrad_funding.html)
+
+***
+
+## [Undergraduate Research for Credit in the SMAGL](https://fuzzyatelin.github.io/smagl_student_guide/ugrad_rescredit.html)
+
+***
+
+## [Honors Research in the SMAGL](https://fuzzyatelin.github.io/smagl_student_guide/ugrad_honors.html)
+
+***
+
+## [Other Resources for Undergraduates in the SMAGL](https://fuzzyatelin.github.io/smagl_student_guide/ugrad_resources.html)
+
+***
+
+# [SMAGL Contract and Code of Conduct](https://fuzzyatelin.github.io/smagl_student_guide/smagl_conduct.html)
 
 ***
