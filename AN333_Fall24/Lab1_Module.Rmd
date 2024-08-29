@@ -19,17 +19,15 @@ color: white;
 
 ***
 
-### [Homework for Lab 1: DUE Friday, September 25th](https://fuzzyatelin.github.io/AN333_Fall20/Lab1_Homework.html)
+### [Homework for Lab 1: DUE Friday, September 27th](https://fuzzyatelin.github.io/AN333_Fall24/Lab1_Homework.html)
 
 ***
 
 **Readings**:<ul>
 <li>[The 1000 Genomes Project Consortium. 2015. A global reference for human genetic variation. *Nature* 526: 68-74.](https://www.nature.com/articles/nature15393)</li><br>
 <li>[Danecek P, Auton A, Abecasis G, Albers CA, Banks E, DePristo MA, Handsaker RE, Lunter G, Marth GT, Sherry ST, McVean G, Durbin R, 1000 Genomes Project Analysis Group. 2011. The variant call format and VCFtools. *Bioinformatics App Note* 27: 2156-2158.](https://academic.oup.com/bioinformatics/article/27/15/2156/402296)</li><br>
-<li>[Gheblawi M, Wang K, Viveiros A, Nguyen Q, Zhong J-C, Turner AJ, Raizada MK, Grant MB, Oudit GY. 2020. Angiotensin-Converting Enzyme 2: SARS-CoV-2 Receptor and Regulator of the Renin-Angiotensin System. *Circulation Research*, 126(10):1456-1474](https://www.ahajournals.org/doi/full/10.1161/CIRCRESAHA.120.317015)</li><br>
-<li>[Hoffmann M, et al. 2020. SARS-CoV-2 cell entry depends on *ACE2* and *TMPRSS2* and is blocked by a clinically proven protease inhibitor. *Cell*, 181(2):271-280.e8 ](https://www.sciencedirect.com/science/article/pii/S0092867420302294)</li><br>
-<li>[David A, Khanna T, Beykou M, Hanna G, Sternberg MJE. [Preprint]. Structure, function and variants analysis of the androgen-regulated TMPRSS2, a drug target candidate for COVID-19 infection. *bioRxiv*, accessed 10SEP20, DOI: 10.1101/2020.05.26.116608](https://www.biorxiv.org/content/10.1101/2020.05.26.116608v1)</li><br>
-<li>[Sriram K, Insel P, Loomba R. May 14, 2020. What is the ACE2 receptor, how is it connected to coronavirus and why might it be key to treating COVID-19? The experts explain. *The Conversation*.](https://theconversation.com/what-is-the-ace2-receptor-how-is-it-connected-to-coronavirus-and-why-might-it-be-key-to-treating-covid-19-the-experts-explain-136928)</li></ul><br>
+<li>[Gonzalez-Barroso MDM, Ricquier D, Cassard-Doulcier AM. 2000. The human uncoupling protein-1 gene (UCP1): present status and perspectives in obesity research. *Obesity Rev* 1: 61-72.](https://onlinelibrary.wiley.com/doi/full/10.1046/j.1467-789x.2000.00009.x)</li></ul>
+
 
 ***
 
@@ -93,12 +91,12 @@ One last thing to note is that each of these populations falls under a "super po
 * <b>SAS</b> - South Asian
 <br>
 
-For the in-class labs this semester, each of you will be assigned a focal sub-population for our investigations into *ACE2* and *TMPRSS2*. Unless told otherwise, this is the population you'll be tracking variation in for the remainder of our time investigating our two genes of interest. 
+For the in-class labs this semester, each of you will be assigned a focal sub-population for our investigations into *UCP1*. Unless told otherwise, this is the population you'll be tracking variation in for the remainder of our time learning these methods via our investigations of *UCP1*.
 
 <br>
 <center>
 
-### [You can find your assigned population here!](https://fuzzyatelin.github.io/AN333_Fall20/1KG_SubPop_Fall2020.html)
+### [You can find your assigned population here!](https://fuzzyatelin.github.io/AN333_Fall24/1KG_SubPop_Fall2024.html)
 
 </center>
 <br>
@@ -110,7 +108,7 @@ For more information about 1000 Genomes and IGSR, visit <http://www.internationa
 <br>
 Bioinformatics is the "science of developing methods and software tools for collecting and understanding biological data." It's become huge academic and professional field in a relatively short time as big datasets proliferate in biology, thanks to rapid developments in sequencing technology and the advances in the various '-omics' fields.<br>
 
-BU has an interdisciplinary [**Master's Program in Bioinformatics**](http://www.bu.edu/bioinformatics/), a [**Bioinformatics Research and Interdisciplinary Training Experience (BRITE REU)**](http://sites.bu.edu/britereu/) for undergraduate students, as well as a [**Collaborative for Applied Bioinformatics (the CAB)**](http://bubhub.bumc.bu.edu/) meant to support faculty and students conducting research in bioinformatics. These might be good resources if you decide you like this kind of work and want to pursue it further.<br>
+BU has an interdisciplinary [**Master's Program in Bioinformatics**](http://www.bu.edu/bioinformatics/), a [**Bioinformatics Research and Interdisciplinary Training Experience (BRITE REU)**](http://sites.bu.edu/britereu/) for undergraduate students that runs during the summer semester, as well as a [**Collaborative for Applied Bioinformatics (the CAB)**](http://bubhub.bumc.bu.edu/) meant to support faculty and students conducting research in bioinformatics. These might be good resources if you decide you like this kind of work and want to pursue it further.<br>
 
 There's also a student-led **Biology/Bioinformatics Peer Coding Hour** here at BU, where undergraduate and graduate students help each other with bioinformatics and statistical coding issues. The Peer Coding Hour will have their first meet-and-greet of the semester on **TBA**. I recommend everyone join!<br>
 
@@ -129,13 +127,13 @@ DNA sequence reads don't come out of the machine nicely put together and cleaned
 **Alignment** is the process of taking a chunk of DNA sequence and using a statistical algorithm to compare that chunk to a reference genome to figure out what section of the genome that chunk most likely represents. This is done with all the small sequence chunks that come from the initial Fastq file until you have a fully aligned genome. Once you have aligned your Fastq sequence to a reference sequence, you have a **BAM** file. A BAM file therefore not only contains an entire genome's worth of genetic code, but also gives information about where any particular piece of code falls within the genome. These files are good to work with if you need an entire genome's worth of information, or detailed information about every nucleotide in a region.
 <br>
 <br>
-The final step in the flowchart is the **VCF** file, which is what we will be working with in our class. VCF files are the result of picking out just the *variant* nucleotide positions (in other words, loci where individual sequences differ from the reference) from a BAM file. Below, we will look at the VCF file format in more depth, as we will be using VCF files in this class. 
+The final step in the flowchart is the **VCF** file, which is what we will be working with in our class. VCF files are the result of picking out just the *variant* nucleotide positions (in other words, loci where individual sequences differ from the reference) from a BAM file. Below, we will look at the VCF file format in more depth, as we will almost exclusively be using VCF files to perform our analyses in this class. 
 <br>
  
 ## Overview of the Variant Call Format (VCF) 
 <br>
 
-In our modules, we will be using VCF files to look at our candidate genes, *ACE2* and *TMPRSS2*. The VCF file format is a computer file format in which variant genetic information can be stored. VCF files in particular are a way of formatting SNP-only information without having to deal with the rest of the sequence that the SNPs come from. Other file types, such as BAM files, have their own uses, but for the purposes of our work in class (and most population genetics studies) they simply contain way more information than we need: a single BAM file containing an entire genome can be almost a terabyte (1000 gigabytes) in size!<br>
+In our modules, we will be using VCF files to look at our candidate gene, *UCP1*. The VCF file format is a computer file format in which variant genetic information can be stored. VCF files in particular are a way of formatting SNP-only information without having to deal with the rest of the sequence that the SNPs come from. Other file types, such as BAM files, have their own uses, but for the purposes of our work in class (and most population genetics studies) they simply contain way more information than we need: a single BAM file containing an entire genome can be almost a terabyte (1000 gigabytes) in size!<br>
 
 VCF files are a text-file format which can be opened with a plain text editor on your computer, and can be analyzed using various softwares. Below I have included an example screenshot of what a VCF file looks like when opened in a plain text editor. This example compares what a simple representation of the sequence itself aligned to the reference ('*Alignment*') looks like in VCF format ('*VCF representation*'):
 <br>
@@ -152,9 +150,9 @@ As you can see from parts (b-g) of the figure, there are different notations use
 Links to, and information for, all of the genome browsers that feature 1000 Genomes data can be found [here](http://www.internationalgenome.org/1000-genomes-browsers). 
 <br>
 <br>
-The most up-to-date genomic alignments for the 1000 Genomes data are generated by and stored in *Ensembl*. *Ensembl* is a genome database that is maintained by the [European Bioinformatics Institute](https://www.ebi.ac.uk/), and houses genomic data for many dozens of different species, including humans and my own study species (savanna monkeys, or vervets). *Ensembl* also has several versions of each dataset, which are updated as new alignment information becomes available.<br>
+The most up-to-date genomic alignments for the 1000 Genomes data are generated by and stored in *Ensembl*. *Ensembl* is a genome database that is maintained by the [European Bioinformatics Institute](https://www.ebi.ac.uk/), and houses genomic data for many dozens of different species, including humans and one of my own study species (savanna monkeys, or vervets). *Ensembl* also has several versions of each dataset, which are updated as new alignment information becomes available.<br>
 
-For this class, we will be using the most up-to-date version of the *Ensembl* human geneome browser, the **GRCh38.p13** browser, to look at one of our genes of interest, *ACE2* (note that the screen shots may be from a slightly older version). 
+For this class, we will be using the most up-to-date version of the *Ensembl* human geneome browser, the **GRCh38.p13** browser, to look at one of our genes of interest, *UCP1* (note that the screen shots may be from a slightly older version). 
 <br>
 
 ### Step-by-step Instructions for Using *Ensembl*
@@ -163,7 +161,7 @@ For this class, we will be using the most up-to-date version of the *Ensembl* hu
 <br>
 <br>
 
-#### Step 1: Finding *ACE2*
+#### Step 1: Finding *UCP1*
 
 * Go to the website: <http://useast.ensembl.org/Homo_sapiens/Info/Index>
 
