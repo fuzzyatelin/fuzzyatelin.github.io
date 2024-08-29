@@ -1,7 +1,7 @@
 ---
 title: "AN/BI 333/733: Final Projects"
 author: "Christopher A Schmitt"
-date: "September 3, 2020"
+date: "September 3, 2024"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -9,37 +9,37 @@ output:
 
 ***
 
-### [Syllabus](https://fuzzyatelin.github.io/AN333_Fall20/Syllabus.html)
-### [Modules](https://fuzzyatelin.github.io/AN333_Fall20/LabSyllabus.html)
+### [Syllabus](https://fuzzyatelin.github.io/AN333_Fall24/Syllabus.html)
+### [Modules](https://fuzzyatelin.github.io/AN333_Fall24/LabSyllabus.html)
 ### [Exam]()
-### [Policies](https://fuzzyatelin.github.io/AN333_Fall20/policies.html)
-### [Final Project](https://fuzzyatelin.github.io/AN333_Fall20/FinalProject.html)
+### [Policies](https://fuzzyatelin.github.io/AN333_Fall24/policies.html)
+### [Final Project](https://fuzzyatelin.github.io/AN333_Fall24/FinalProject.html)
 
 ***
 
 ## Final Projects for AN333/733
 
-Your final project is a critically important part of this course. Once you’ve learned population genetic methods and how to use them on human *ACE2* data, it’s time to choose a candidate gene of your own to analyze!
+Your final project is a critically important part of this course. Once you’ve learned population genetic methods and how to use them on human *UCP1* data, it’s time to choose a candidate gene of your own to analyze!
 
 Choose a gene that you can show is related to a trait that is integral to why you are interested in human population and evolutionary history. You will establish hypotheses, based on your knowledge of human population and evolutionary history, regarding how that gene should vary across the *1000 Genomes Project* dataset, and then test your hypotheses using the analytical methods learned in class.
 
-We will choose loci together as part of [Lab 7](https://fuzzyatelin.github.io/AN333_Fall18/Lab7-newlocus.html), but this guide is to help you through the process of preparing an writing your final paper.
+We will choose loci together as part of [Lab 7](https://fuzzyatelin.github.io/AN333_Fall24/Lab7-newlocus.html), but this guide is to help you through the process of preparing an writing your final paper.
 
 <center>
-## [**Please submit your Final Project paper as a single saved Google Doc file (downloaded as a Microsoft Word, or *.docx* file) at this link by 5:00pm of Thursday, December 17**](https://goo.gl/forms/3WFuWsI9A2jHeE123)
+## [**Please submit your Final Project paper as a single saved Google Doc file (downloaded as a Microsoft Word, or *.docx* file) at this link by 5:00pm of Thursday, December 19**](https://goo.gl/forms/3WFuWsI9A2jHeE123)
 </center>
 
 ## Final Project Paper Formatting
 
-The body of your paper should no less than 7 and no more than 10 pages long using 12-point font, double-spaced, with 1-inch margins (*not* including title/author lines, abstract, tables, figures, or references).
+The body of your paper should no less than 7 and no more than 10 pages long using 12-point font, double-spaced, with 1-inch margins (*not* including title/author lines, abstract, tables, figures, or references). For graduate students, this may be extended to 15 pages, but *no longer*.
 
-Final papers will have formatting similar to a paper submitted to the [*American Journal of Physical Anthropology*](https://onlinelibrary.wiley.com/journal/10968644). This will include:
+Final papers will have formatting similar to a paper submitted to the [*American Journal of Biological Anthropology*](https://onlinelibrary.wiley.com/journal/10968644). This will include:
 
-1)  **Title and Author List**: Your title should be short and describe the central idea of your paper. See other titles published in the *AJPA* for some helpful examples. All projects should be *single authored*!
+1)  **Title and Author List**: Your title should be short and describe the central idea of your paper. See other titles published in the *AJBA* for some helpful examples. All projects should include yourself as first author and myself, as your instructor, as final author. Unless otherwise arranged, these should be the only two authors!
 
 2)	**Abstract**: Please provide an abstract of 250 words or fewer containing the major keywords summarizing the article, structured with the following headings in bold, separated by line breaks: *Objectives*, *Materials and Methods*, *Results*, *Discussion*.
 
-3)	**Introduction**: The *Introduction* should provide enough background for the reader to understand the objectives and motivation of the study. Extensive literature review is unnecessary and should be avoided.
+3)	**Introduction**: The *Introduction* should provide enough background for the reader to understand the objectives and motivation of the study. *Extensive literature review is unnecessary and should be avoided*, but please do include key readings that contextualize the project.
 
 4)	**Materials and Methods**: This section should include all the information that would be necessary for a replication of the study as well as for a generally informed reader to evaluate the study and its results. Highly specialized procedures or forms of analysis may need explication so as to be understood by a generalist. A clear statement of approval by relevant ethics panels must be included for your dataset (see original publication of the *1000 Genomes Project* Consortium to find their ethics statement).
 
@@ -47,7 +47,7 @@ Final papers will have formatting similar to a paper submitted to the [*American
 
 6)	**Discussion**: The *Discussion* section is the appropriate place for all interpretation of the study results, comparison with the results of previous studies, conclusions and hypotheses based on those comparisons, and suggestions for future research. No new analyses or results should appear in this section. Interpretations and conclusions should be restrained and justified by the results.
 
-7)	**References**: For the *References section*, we’ll follow AAPA guidelines:
+7)	**References**: For the *References section*, we’ll follow AABA guidelines:
 
 >As of 2017, the references of the journal should be prepared according to the [Publication Manual of the American Psychological Association (APA) (6th edition)](https://www.apastyle.org/). This means in text citations should follow the author-date method whereby the author's last name and the year of publication for the source should appear in the text, for example, (Jones, 1998). Use of et al. is determined by the number of authors and whether it is the first time a reference has been cited in the paper. Specifically, articles with one or two authors include all names in every in-text citation; articles with three, four, or five authors include all names in the first in-text citation but are abbreviated to the first author name plus et al. upon subsequent citations; and articles with six or more authors are abbreviated to the first author name plus et al. for all in-text citations.
 >
