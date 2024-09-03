@@ -19,7 +19,7 @@ color: white;
 
 ***
 
-### [Homework for Lab 1: DUE Friday, September 27th](https://fuzzyatelin.github.io/AN333_Fall24/Lab1_Homework.html)
+### [Homework for Lab 1: DUE Friday, October 4th](https://fuzzyatelin.github.io/AN333_Fall24/Lab1_Homework.html)
 
 ***
 
@@ -165,51 +165,53 @@ For this class, we will be using the most up-to-date version of the *Ensembl* hu
 
 * Go to the website: <http://useast.ensembl.org/Homo_sapiens/Info/Index>
 
-* Find the search bar in the top left-hand corner and type in "ACE2" Make sure the "category" drop-down menu is set to "Search all categories." Click "Go."
+* Find the search bar in the top left-hand corner and type in "UCP1" Make sure the "category" drop-down menu is set to "Search all categories." Click "Go."
 <br>
 
 ![](img/search.png)
 <br>
 
-* The first result to come up should be called "ACE2 (Human Gene)" and should look like this: 
+* The first result to come up should be called "UCP1 (Human Gene)" and should look like this: 
 <br>
 
 ![](img/result.png)
 <br>
 
-* Clicking on that will bring you to the "home page" for the gene *ACE2*, which will look like this: 
+* Clicking on that will bring you to the "home page" for the gene *UCP1*, which will look like this: 
 <br>
 <br>
 
 ![](img/homepage.png)
 <br>
 
-Congratulations, you've found a gene of interest in *Ensembl*! As you can see, we're already getting some interesting information on *ACE2* in humans. For example, *ACE2* is apparently on the X chromosome (meaning women typically have two copies, while men typically only have one), and the gene itself is from position 15,561,033 to position 15,602,148 on the reverse strand of the DNA. This means it's comprised of all the sequence between the 15,561,033 base pair (bp) from the start of the X chromosome to the 15,602,148 bp. But since the protein code is on the *reverse* strand, transcription of this gene actually starts at the 15,602,148 bp and goes backwards to the 15,561,033 bp.
+Congratulations, you've found a gene of interest in *Ensembl*! 
 
-We can also see that there are 5 *transcripts* of the gene. This means that there are some mutations that lead to entirely different proteins, but from the same gene; these could also lead to entirely different *phenotypes*, or traits based on the function of these differing transcripts (we'll keep this in mind when we start analyzing our data).
+As you can see, we're already getting some interesting information on *UCP1* in humans. For example, *UCP1* is apparently on human chromosome 4, and the gene itself is from position 140,559,434 to position 140,568,805 on the reverse strand of the DNA. This means it's comprised of all the sequence between the 140,559,434th base pair (bp) from the start of human chromosome 4 to the 140,568,805th bp. But since the protein code or reading frame for the gene is on the *reverse* strand, transcription of this gene actually starts (meaning it has its transcription start site, or TSS) at the 140,568,805th bp and goes backwards to the 140,559,434th bp.
 
-Now, let's explore the genomic information available for *ACE2* with a bit more depth... 
+We can also see that there is only 1 *transcript* of the gene. This means that, unlike many other genes, there are no mutations or splice variants in human *UCP1* that lead to entirely different functional proteins from the same gene; in many genes where these *do* exist, they can lead to entirely different *phenotypes*, or traits based on the function of these differing transcripts (keep this in mind when we start analyzing the gene of your own choice later in the class).
+
+Now, let's explore the genomic information available for *UCP1* with a bit more depth... 
 <br>
 <br>
 
-#### Step 2: Visualizing *ACE2* and its Variants
+#### Step 2: Visualizing *UCP1* and its Variants
 
-* If you scroll down on the first page, you will see an interactive map of the *ACE2* coding region of the genome. 
+* If you scroll down on the first page, you will see an interactive map of the *UCP1* coding region of the genome. 
 <br>
 
 ![](img/Human_ACE2.png)
 <br>
 
-If you click on the "Go to Region in Detail" option directly above this image, you will get a more detailed visual of the coding region. If you're interested, you can do this on your own time; we will not be using this more detailed view for the purposes of this class. What we will look at, however, is more detailed information on all of the *variants* present in the 1000 Genomes populations within the *ACE2* gene region. 
+If you click on the "Go to Region in Detail" option directly above this image, you will get a more detailed visual of the coding region. If you're interested, you can do this on your own time; we will not be using this more detailed view for the purposes of this class. What we will look at, however, is more detailed information on all of the *variants* present in the 1000 Genomes populations within the *UCP1* gene region. 
 <br>
 
-* One way to do this is by going directly to a specific *transcript*. If we want to actually see what a transcript (or transcribed amino acid sequence) looks like, we can click on the button `Show transcript table`. This will show us the five known transcripts for *ACE2*. Let's click on the standard transcript, **ACE2-201**.
+* One way to do this is by going directly to a specific *transcript*. If we want to actually see what a transcript (or transcribed amino acid sequence) looks like, we can click on the button `Show transcript table`. This will show us the five known transcripts for *UCP1*. Let's click on the standard transcript, **UCP1-201**.
 
 ![](img/transcript.png)
 
 <br>
 
-As we can see, the standard *ACE2* transcript has 18 different exons (and 17 introns, which are spliced out). If we want to see what the transcript actually *codes* for, we can go to the left menu and click on the *Sequence > cDNA* link:
+As we can see, the standard *UCP1* transcript has 6 different exons (and 5 introns, which are spliced out at the mRNA stage). If we want to see what the transcript actually *codes* for, we can go to the left menu and click on the *Sequence > cDNA* link:
 
 ![](img/cDNA.png)
 
@@ -225,7 +227,7 @@ The red color of the amino acid typeface indicates that it's a potentially varia
 
 Although this can be really helpful in characterizing exonic coding variants and discovering the consequences of those variants for a given transcript, there's another search method that is both broader and more specific for finding relevant variants in a gene region...
 
-* To get to the **variant table**, make sure you are once again in the `Gene:ACE2` tab (rather than the `Transcript:ACE2-201` tab), and simply go to the tab in the lefthand sidebar and click on "Variant Table"
+* To get to the **variant table**, make sure you are once again in the `Gene:UCP1` tab (rather than the `Transcript:UCP1-201` tab), and simply go to the tab in the lefthand sidebar and click on "Variant Table"
 <br>
 
 ![](img/sidebar3.png)
@@ -237,7 +239,7 @@ You will get a table that looks like this:
 ![](img/varianttable.png)
 <br>
 
-As you can see under the Consequence Type ("Conseq. Type") column, all of the variants at the top of the table are 3 prime UTR variants (e.g., variants that are technically in the gene region, but upstream of the transcription start site of the *ACE2* protein coding region, and so are untranslated - UTR stands for "UnTranslated Region"). 
+As you can see under the Consequence Type ("Conseq. Type") column, all of the variants at the top of the table are 3 prime UTR variants (e.g., variants that are technically in the gene region, but upstream of the transcription start site of the *UCP1* protein coding region, and so are untranslated - UTR stands for "UnTranslated Region"). 
 <br>
 <br>
 Let's do a little exercise, shall we? Above the table, there are some filtering options. Click on the "Consequences" filtering option and hit "Turn All Off"
@@ -259,12 +261,12 @@ Let's learn how to get useful information about a specific SNP that we may use i
 <br>
 <br>
 
-#### Step 3: Exploring a SNP of Choice - rs147311723
+#### Step 3: Exploring a SNP of Choice - rs45539933
 
 The first thing we'll look is the Global Minor Allele Frequency (MAF). MAF is simply the frequency at which the second most common *variant* allele from the reference genome (i.e. the minor allele) occurs in a population. We will be able to get population breakdowns of the MAF, but first we'll look at the Global MAF. 
 <br>
  
-* To do this, look at variant table with the results you filtered and find the "Global MAF" column. Click on the small grey 'down' arrow by the column header to sort the SNPs from highest-to-lowest MAF. The example SNP in the picture below has a Global MAF of 0.005, which means that 0.5% of the 1000 Genomes participants have the minor "A" allele as opposed to the major "G" allele. In the "Alleles" column, the *major* allele will always be listed first. 
+* To do this, look at variant table with the results you filtered and find the "Global MAF" column. Click on the small grey 'down' arrow by the column header to sort the SNPs from highest-to-lowest MAF. The example SNP in the picture below has a Global MAF of 0.086, which means that 8.6% of the 1000 Genomes participants have the minor "T" allele as opposed to the major "C" allele. In the "Alleles" column, the major allele will always be listed first. 
 <br>
 
 ![](img/MAF.png)
@@ -276,7 +278,7 @@ The first thing we'll look is the Global Minor Allele Frequency (MAF). MAF is si
 ![](img/Variant.png)
 <br>
 
-* Under the variant tab `Variant: rs147311723` there are several buttons that will tell us different things about the SNP. In this class, we will be using two of these features: "**Population Genetics**" and "**Linkage Disequilibrium**". Right now, we will do a quick tour of these buttons so you can see how they work. 
+* Under the variant tab `Variant: rs45539933` there are several buttons that will tell us different things about the SNP. In this class, we will be using two of these features: "**Population Genetics**" and "**Linkage Disequilibrium**". Right now, we will do a quick tour of these buttons so you can see how they work. 
 
 * First, click on the "Population Genetics" icon. You will get this page: 
 <br>
@@ -284,7 +286,7 @@ The first thing we'll look is the Global Minor Allele Frequency (MAF). MAF is si
 ![](img/popgen.png)
 <br>
 
-* As you can see in these pie charts, there appear to be some differences in the allele frequencies for this SNP in each population and sub-population, with only African and Amerindian populations showing the variant, and within Africans Yorubans appear to show the highest frequency of the variant. 
+* As you can see in these pie charts that there appear to be differences in the allele frequencies for this SNP in each population and sub-population.  
 
 * Scroll down to the table that gives you the allele frequency breakdown for all the 1000 Genomes populations. Here is an example section of the 1000 Genomes data table: 
 <br>
@@ -295,12 +297,12 @@ The first thing we'll look is the Global Minor Allele Frequency (MAF). MAF is si
 * From left to right, you can see the frequencies and count numbers (in parentheses) of how many G and A alleles reside in each population, as well as the heterozygous and homozygous genotype frequencies and counts for each population. 
 <br>
 
-As an exercise, find *your* population in this table. Make sure you can find the allele and genotype counts. This will come in handy when we do our [Hardy-Weinberg Module](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Module.html). 
+As an exercise, find *your* population in this table. Make sure you can find the allele and genotype counts. This will come in handy when we do our [Hardy-Weinberg Module](https://fuzzyatelin.github.io/AN333_Fall24/Lab2_Module.html). 
 <br>
 
 The final page we'll explore is the "Linkage Disequilibrium" page.
 
-* To do this, navigate back back to the rs147311723 SNP page and click on the "Linkage Disequilibrium" button. It will take you to this page: 
+* To do this, navigate back back to the rs45539933 SNP page and click on the "Linkage Disequilibrium" button. It will take you to this page: 
 <br>
 
 ![](img/LD.png)
@@ -310,7 +312,7 @@ The final page we'll explore is the "Linkage Disequilibrium" page.
 
 * First, click on the right-most "View Plot" link for your population. The icon is a reddish triangle. A few things will come up on this page. 
 
-* The first thing you should see on the page is an image of Chromosome X, with a red line marking the locus of our SNP of interest: 
+* The first thing you should see on the page is an image of Chromosome 4, with a red line marking the locus of our SNP of interest: 
 <br>
 
 ![](img/chromsnp.png)
@@ -333,7 +335,7 @@ The final page we'll explore is the "Linkage Disequilibrium" page.
 * This table shows us a couple of things that will come in handy, like how many base pairs away a linked SNP is from the SNP of interest ("Distance (bp)"), what effect the linked SNP has on transcription/translation and subsequent phneotype, and in which gene coding region, if any, the linked SNP falls ("Located in gene(s)"). 
 <br>
 
-If your population *doesn't* have SNPs in high Linkage Disequilibrium, think about what that might tell us about the importance of this variant within *ACE2*, and of *ACE2* more generally in your population. 
+If your population *doesn't* have SNPs in high Linkage Disequilibrium, think about what that might tell us about the importance of this variant within *UCP1* more generally in your population. 
 <br>
 <br>
 Now that we have explored some important features of the *Ensembl* website, we can learn how to download some more focused datasets of our own that we'll use here in our Labs!
@@ -342,13 +344,13 @@ Now that we have explored some important features of the *Ensembl* website, we c
 
 #### Step 4: Getting Genetic Data for your Sub-Population {.tabset .tabset-fade}
 
-Usually when you are working with genomic information, you are given a whole chromosome or even a whole genome's worth of information in either a BAM file or a VCF file. If you only need to look at one small part of the genome, it can be very annoying (and very slow) to work with a lot of extra data. The *Data Slicer* in *Ensembl* is a convenient way to get only the amount of data that you want without using a separate program to cut it out yourself. We will use this tool to get the data for our analyses of *ACE2* and *TMPRSS2*. We will be taking one slice of data as part of this module: one that contains all of the SNPs in *ACE2*. 
+Usually when you are working with genomic information, you are given a whole chromosome or even a whole genome's worth of information in either a BAM file or a VCF file. If you only need to look at one small part of the genome, it can be very annoying (and very slow) to work with a lot of extra data. The *Data Slicer* in *Ensembl* is a convenient way to get only the amount of data that you want without using a separate program to cut it out yourself. We will use this tool to get the data for our analyses of *UCP1*. We will be taking one slice of data as part of this module: one that contains all of the SNPs in *UCP1*. 
 <br>
 <br>
 The link to the *Data Slicer* is available here: <https://useast.ensembl.org/Homo_sapiens/Tools/DataSlicer>. 
 <br>
 <br>
-**IMPORTANT NOTE**: Sometimes *Data Slicer* (when run in the *SCC*) sucks and forgets how to link to the Phase 3 dataset appropriately. This makes things a bit more complicated. As such, I've appended a few methods, below, for getting the data we need. The first tab - *Data Slicer WINS!* - contains instructions for when *Data Slicer* works as it is supposed to (note: it will probably work if you run it on your home computer - in this case, the resulting zipped VCF files are each less than 1 MB; I recommend trying this and moving the files to your *SCC* space via CyberDuck) . The second tab - *Data Slicer SUCKS!* - is for when *Data Slicer* fails us (again, this is likely to happen in the *SCC* for some reason). The second method isn't harder, just a bit tedious, and might take a wee smidge longer. The third tab - *It's TABIX time!* - uses bioinformatics tools (namely a program named *tabix*) to download and partition the data. <br>
+**IMPORTANT NOTE**: Sometimes *Data Slicer* (when run in the *SCC*) sucks and forgets how to link to the Phase 3 dataset appropriately. This makes things a bit more complicated. As such, I've appended a few methods, below, for getting the data we need. The first tab - *Data Slicer WINS!* - contains instructions for when *Data Slicer* works as it is supposed to (note: it will probably work if you run it on your own laptop/computer - in this case, the resulting zipped VCF files are each less than 1 MB; I recommend trying this and moving the files to your *SCC* space via CyberDuck or MobaXTerm) . The second tab - *Data Slicer SUCKS!* - is for when *Data Slicer* fails us (again, this is likely to happen in the *SCC* for some reason). The second method isn't harder, just a bit tedious, and might take a smidge longer. The third tab - *It's TABIX time!* - uses bioinformatics tools (namely a program named *tabix*) to download and partition the data. This is the fastest and most useful method, IMHO. <br>
 
 Try the *Data Slicer WINS!* method first in the *SCC*; if that fails, try the web browser of your own computer. If both fail, it's time to move on the the *Data Slicer SUCKS!* method. Folks more comfortable with coding will find the *tabix* method to be the easiest and fastest option. I encourage everyone to try it. If you'd like to be thorough, you can try all of them (but keep only *one* final VCF file)!<br>
 
@@ -361,11 +363,11 @@ Now, on to the tutorial!
 <br>
 <br>
 
-* First off, in the "Name for this job" category, let's name it after our assigned population. I'll be working with the Yoruba population, so I'll name mine "**YRI_ACE2**".
+* First off, in the "Name for this job" category, let's name it after our assigned population. I'll be working with the Yoruba population, so I'll name mine "**YRI_UCP1**".
 
 * The file format should be set for VCF. If it's not, click the drop-down menu and select VCF. 
 
-* In the "region lookup" bar, copy and paste in the location **X:15561033-15602148**. These are the GRCh38.p13 version alignment coordinates for the gene *ACE2*.
+* In the "region lookup" bar, copy and paste in the location **4:140559434-140568805**. These are the GRCh38.p13 version alignment coordinates for the gene *UCP1*.
 
 * In in the "Choose data collections..." dropdown list, make sure "Phase 3" is selected. This will ensure you get data from the last phase of the 1000 Genomes Project. 
 
@@ -408,7 +410,7 @@ We check our file to see if the body is there because sometimes the server will 
 
 * Once you've checked your files to make sure everything is there, click on "Download results file", which should save these files in *filename.vcf.gz* format in the 'Downloads' folder in your *anth333* workspace on the *SCC*.
 
-* Once in your workspace, change your filenames to make things easier. Rename the full *TMPRSS2* file with the acronym for your population. Remember, to rename a file in the *SCC* workspace, you use the *mv* command (e.g., '*mv oldname.vcf.gz YRI.vcf.gz*')
+* Once in your workspace, change your filenames to make things easier. Rename the full *UCP1* file with the acronym for your population. Remember, to rename a file in the *SCC* workspace, you use the *mv* command (e.g., '*mv oldname.vcf.gz YRI.vcf.gz*')
 
 <br> 
 
@@ -427,7 +429,7 @@ Now, some students have noticed that this second process literally takes forever
 
 * In the blank box that opens up next to "Genotype file URL", copy the following URL and paste it into the box:<br>
 
-ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/GRCh38_positions/ALL.chrX_GRCh38.genotypes.20170504.vcf.gz
+ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/GRCh38_positions/ALL.chr4_GRCh38.genotypes.20170504.vcf.gz
 
 * Now, click on the "By populations" button for "Filters", and a new error message will crop up asking for a sample population mapping file URL. When that happens, paste this URL into the "Sample population mapping file URL" box:<br>
 
@@ -467,7 +469,7 @@ We check our file to see if the body is there because sometimes the server will 
 
 * Once you've checked your file to make sure everything is there, click on "Download results file", which should save it in *filename.vcf.gz* format in the 'Downloads' folder in your *anth333* workspace on the *SCC*.
 
-* Once in your workspace, change your filenames to make things easier. Rename the *ACE2* VCF file with the acronym for your population. For example, I downloaded data from the **YRI** population, so I named the file "ACE2_YRI.vcf.gz". Remember, to rename a file in the *SCC* workspace, you use the *mv* command (e.g., '*mv oldname.vcf.gz ACE2_YRI.vcf.gz*')
+* Once in your workspace, change your filenames to make things easier. Rename the *ACE2* VCF file with the acronym for your population. For example, I downloaded data from the **YRI** population, so I named the file "UCP1_YRI.vcf.gz". Remember, to rename a file in the *SCC* workspace, you use the *mv* command (e.g., '*mv oldname.vcf.gz UCP1_YRI.vcf.gz*')
 
 <br> 
 
@@ -491,7 +493,7 @@ module load htslib
 
 * First, we can download the data from an online repository. In this case, let's download *TMPRSS2*. Remember, my population of interest is YRI, so I'll use that abbreviation in my code. Where you see 'YRI' in my code, insert the three-letter code of *your* population instead. Use the following command, *making sure that your positions are correct* for TMPRSS2 (21:41464300-41531116), and that the *chromosome* designation is correct, both in the filename *and* in the positions (for example, if you were downloading a gene region on chromosome 8, you would replace all occurrences of `chr21` in the code below - there are two of them - with `chr8`):
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-tabix -h http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr21.filtered.shapeit2-duohmm-phased.vcf.gz chr21:41464300-41531116 > TMPRSS2_YRI_all.vcf
+tabix -h http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.filtered.shapeit2-duohmm-phased.vcf.gz chr4:140559434-140568805 > UCP1_YRI_all.vcf
 ```
 
 * Notice the syntax in that command? It's basically:
@@ -499,11 +501,11 @@ tabix -h http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_h
 tabix -h [VCF file URL] [desired region] > [filename].vcf
 ```
 
-* This has saved the *TMPRSS2* region as a VCF formatted file into your working directory!
+* This has saved the *UCP1* region as a VCF formatted file into your working directory!
 
 * If you want to take a look at the file, and see that it's all there, you can use the '*less*' command and scroll with the 'down arrow' key to see the file itself. The screenshot below is of the first look, before you start scrolling. Notice there are A LOT of individuals (over 2,500), with names starting with '*HG*' or '*NA*'. To leave the scrolling and go back to the prompt, press '*q*':
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-less TMPRSS2_YRI_all.vcf
+less UCP1_YRI_all.vcf
 ```
 
 ![](img/YRI_all_view.png)
@@ -545,17 +547,17 @@ module load vcftools
 
 * Now we can use *vcftools* to subset our dataset:
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-vcftools --vcf TMPRSS2_YRI_all.vcf --keep YRI.samples.list --recode --out TMPRSS2_YRI
+vcftools --vcf UCP1_YRI_all.vcf --keep YRI.samples.list --recode --out UCP1_YRI
 ```
 
 * My *new* VCF file is called ***YRI_TMPRSS2.recode.vcf***. Again, yours should be similar but with *your* population three-letter name. Rename this, as follows:
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-mv TMPRSS2_YRI.recode.vcf TMPRSS2_YRI.vcf
+mv UCP1_YRI.recode.vcf UCP1_YRI.vcf
 ```
 
-* Great! You now have your *TMPRSS2* data file for just your population, which should be named ***TMPRSS2_YRI.vcf*** (but with your population name)! If you take a look at the VCF file and scroll, you should see a list of IDs that match your samples list, meaning that the only genotypes included are those from your sample population:
+* Great! You now have your *UCP1* data file for just your population, which should be named ***UCP1_YRI.vcf*** (but with your population name)! If you take a look at the VCF file and scroll, you should see a list of IDs that match your samples list, meaning that the only genotypes included are those from your sample population:
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-less TMPRSS2_YRI.vcf
+less UCP1_YRI.vcf
 ```
 
 ![](img/YRIvcf.png)
@@ -565,7 +567,7 @@ less TMPRSS2_YRI.vcf
 <br>
 <br> 
 
-# Congratulations, you now have your genetic data for *TMPRSS2*!
+# Congratulations, you now have your genetic data for *UCP1*!
 
 <br>
 <br>

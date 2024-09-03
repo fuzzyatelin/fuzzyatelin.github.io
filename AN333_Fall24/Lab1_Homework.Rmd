@@ -1,7 +1,7 @@
 ---
 title: 'Module 1: Homework'
 author: "Christopher A Schmitt"
-date: "September 1, 2020"
+date: "September 1, 2024"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -16,10 +16,7 @@ output:
 **Readings**:<ul>
 <li>[The 1000 Genomes Project Consortium. 2015. A global reference for human genetic variation. *Nature* 526: 68-74.](https://www.nature.com/articles/nature15393)</li><br>
 <li>[Danecek P, Auton A, Abecasis G, Albers CA, Banks E, DePristo MA, Handsaker RE, Lunter G, Marth GT, Sherry ST, McVean G, Durbin R, 1000 Genomes Project Analysis Group. 2011. The variant call format and VCFtools. *Bioinformatics App Note* 27: 2156-2158.](https://academic.oup.com/bioinformatics/article/27/15/2156/402296)</li><br>
-<li>[Gheblawi M, Wang K, Viveiros A, Nguyen Q, Zhong J-C, Turner AJ, Raizada MK, Grant MB, Oudit GY. 2020. Angiotensin-Converting Enzyme 2: SARS-CoV-2 Receptor and Regulator of the Renin-Angiotensin System. *Circulation Research*, 126(10):1456-1474](https://www.ahajournals.org/doi/full/10.1161/CIRCRESAHA.120.317015)</li><br>
-<li>[Hoffmann M, et al. 2020. SARS-CoV-2 cell entry depends on *ACE2* and *TMPRSS2* and is blocked by a clinically proven protease inhibitor. *Cell*, 181(2):271-280.e8 ](https://www.sciencedirect.com/science/article/pii/S0092867420302294)</li><br>
-<li>[David A, Khanna T, Beykou M, Hanna G, Sternberg MJE. [Preprint]. Structure, function and variants analysis of the androgen-regulated TMPRSS2, a drug target candidate for COVID-19 infection. *bioRxiv*, accessed 10SEP20, DOI: 10.1101/2020.05.26.116608](https://www.biorxiv.org/content/10.1101/2020.05.26.116608v1)</li><br>
-<li>[Sriram K, Insel P, Loomba R. May 14, 2020. What is the ACE2 receptor, how is it connected to coronavirus and why might it be key to treating COVID-19? The experts explain. *The Conversation*.](https://theconversation.com/what-is-the-ace2-receptor-how-is-it-connected-to-coronavirus-and-why-might-it-be-key-to-treating-covid-19-the-experts-explain-136928)</li></ul><br>
+<li><li>[Gonzalez-Barroso MDM, Ricquier D, Cassard-Doulcier AM. 2000. The human uncoupling protein-1 gene (UCP1): present status and perspectives in obesity research. *Obesity Rev* 1: 61-72.](https://onlinelibrary.wiley.com/doi/full/10.1046/j.1467-789x.2000.00009.x)</li></ul><br>
 
 ***
 
@@ -41,20 +38,22 @@ To make things easier, I've also created an online interface where you can answe
 
 ### Question 1 (25 points): 
 
-Go to the *Ensembl* web page for the human *ACE2* gene, and look at the *variant table*.<br> 
+Go to the *Ensembl* web page for the human *UCP1* gene, and look at the *variant table*.<br> 
 
-* How many variants code for a missense mutation within the coding region of *ACE2* for the 1000 Genomes population?
-* Sort the variants by base pair location from first to last (e.g., lowest bp number to highest on chromosome X), and list the first *five* variants (if there are less than five, list them all).
+* How many variants code for a missense mutation within the coding region of *UCP1* for the 1000 Genomes population?
+* Sort the variants by base pair location from first to last (e.g., lowest bp number to highest on chromosome 4), and list the first *five* variants (if there are less than five, list them all).
 * What is the highest Global MAF (minor allele frequency) among the loci listed?
 * Does *your* 1000 Genomes population have any of these missense variant minor alleles?
 * How many individuals in *your* 1000 Genomes population have the minor allele at each of the variant sites you've listed here?
 
 ```{r, eval = FALSE, echo = FALSE}
-They should use Consequences, turn all off, and only turn on 'inframe deletion' Once that's done, there are 3 SNPs left. The SNPs themselves are, in order from lowest bp location to highest:
+They should use Consequences, turn all off, and only turn on 'inframe deletion' Once that's done, there are X SNPs left. The SNPs themselves are, in order from lowest bp location to highest:
 
-rs527369932
-rs763504112
-rs1157298629
+X
+X
+X
+X
+X
 
 The average size of the deletion at these variant sites is 3 bp.
 
@@ -85,9 +84,9 @@ rs539685692 (MAF = 0; )
 
 We should *probably* get a little more practice with the *tabix* and *vcftools* coding for downloading data into our *SCC* space.<br>
 
-* Please download the *TMPRSS2* data (for the whole gene) for your assigned population. Of all the files generated, you should keep *ONLY the final VCF file*. Send the file to me via the homework interface.<br>
+* Please download the *UCP3* data (for the whole gene) for your assigned population. Of all the files generated, you should keep *ONLY the final VCF file*. Send the file to me via the homework interface.<br>
 
-* **Additionally, the final VCF file must be in your *SCC* working directory by the time we meet in class on Friday, September 25th!**
+* **Additionally, the final VCF file must be in your *SCC* working directory by the time we meet in class on Friday, October 4th!**
 
 
 
