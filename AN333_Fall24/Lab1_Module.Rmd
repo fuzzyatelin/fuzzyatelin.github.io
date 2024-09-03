@@ -39,9 +39,9 @@ color: white;
 <br>
 <br>
 
-**The 1000 Genomes Project**, which ran between 2008 and 2015, is as close as it comes to a "catalogue of human variation." The output of this initiative is a database of whole genome sequences from 26 distinct populations from around the world, all aligned to the same human reference sequence. This data is free to use, and is an excellent resource for researchers who want to study genetic variation in a gene across populations, but cannot afford to collect their own samples. 
+With the exception of the very recent [**Human PanGenome Reference Consortium**](https://humanpangenome.org), **The 1000 Genomes Project**, which ran between 2008 and 2015, is as close as it comes to a "catalogue of human variation." The output of this initiative is a database of whole genome sequences from 26 distinct populations from around the world, all aligned to the same human reference sequence. This data is free to use, and is an excellent resource for researchers who want to study genetic variation in a gene across populations, but cannot afford to collect their own samples. 
 
-While it was active, The 1000 Genomes Project published their data in several phases; by the final phase (Phase 3), they had gathered samples from 2,504 individuals from the 26 targeted populations. In 2015, the **International Genome Sample Resource** (**IGSR**) was established to "ensure the future usability and accessibility of the 1000 Genomes data." In keeping with this goal, the IGSR has: re-mapped the Phase 3 data to the latest two human reference sequences, **GRCh37** and **GRCh38**, incorporated externally generated, published genomic data (such as *RNA-seq* data) into their own dataset, and begun adding previously unsampled populations the database. 
+While it was active, The 1000 Genomes Project published their data in several phases; by the final phase (Phase 3), they had gathered samples from 2,504 individuals from 26 targeted populations. In 2015, the **International Genome Sample Resource** (**IGSR**) was established to "ensure the future usability and accessibility of the 1000 Genomes data." In keeping with this goal, the IGSR has: re-mapped the Phase 3 data to the latest two human reference sequences, **GRCh37** and **GRCh38**, incorporated externally generated, published genomic data (such as *RNA-seq* data) into their own dataset, and began adding previously unsampled populations the database. 
 
 Below is a map of the current populations represented in the 1000 Genomes Project dataset, as well as a reference list of the abbreviations used to identify these populations.  
 <br>
@@ -80,7 +80,7 @@ Below is a map of the current populations represented in the 1000 Genomes Projec
 * <b>ITU</b> - Indian Telugu in the UK
 <br>
 
-One last thing to note is that each of these populations falls under a "super population" which denotes the general area of the world each population is from. Many times, you will see information split up by these super populations instead of by each individual population. These super populations are as follows: 
+Note that each of these populations falls under a "super population" which denotes the general area of the world each population is from. Many times, you will see information split up by these super populations instead of by each individual population. These super populations are as follows: 
 <br>
 <br>
 
@@ -91,7 +91,7 @@ One last thing to note is that each of these populations falls under a "super po
 * <b>SAS</b> - South Asian
 <br>
 
-For the in-class labs this semester, each of you will be assigned a focal sub-population for our investigations into *UCP1*. Unless told otherwise, this is the population you'll be tracking variation in for the remainder of our time learning these methods via our investigations of *UCP1*.
+For the in-class lab activities this semester, each of you will be assigned a focal sub-population for our investigations into human *UCP1*. Unless told otherwise, this is the population you'll be tracking variation in for the remainder of our time learning these methods via our investigations of *UCP1*.
 
 <br>
 <center>
@@ -110,25 +110,25 @@ Bioinformatics is the "science of developing methods and software tools for coll
 
 BU has an interdisciplinary [**Master's Program in Bioinformatics**](http://www.bu.edu/bioinformatics/), a [**Bioinformatics Research and Interdisciplinary Training Experience (BRITE REU)**](http://sites.bu.edu/britereu/) for undergraduate students that runs during the summer semester, as well as a [**Collaborative for Applied Bioinformatics (the CAB)**](http://bubhub.bumc.bu.edu/) meant to support faculty and students conducting research in bioinformatics. These might be good resources if you decide you like this kind of work and want to pursue it further.<br>
 
-There's also a student-led **Biology/Bioinformatics Peer Coding Hour** here at BU, where undergraduate and graduate students help each other with bioinformatics and statistical coding issues. The Peer Coding Hour will have their first meet-and-greet of the semester on **TBA**. I recommend everyone join!<br>
-
-The 1000 Genomes Project, or even digitally recording the information DNA gives us, would not have been possible without this field. To understand the files that we will be working with (such as VCF files, which we will discuss later), it is beneficial to know how raw data is transformed in to digital information. In order to explain this process, I have included a simple flowchart that I will walk us through. 
+The 1000 Genomes Project, or even digitally recording the information DNA gives us, would not have been possible without this field. To understand the files that we will be working with (such as VCF files, which we will discuss later), it is beneficial to know how raw genomic data is transformed into digital information. In order to explain this process, I have included a simple flowchart that I will walk us through. 
 <br> 
 
 ![](img/fastq-vcf.jpg)
 <br>
 
-The first step in this flowchart is the DNA sequencing itself. There are several kinds of sequencing, but we know from the 1000 Genomes Project paper that they used what is called an Illumina platform. Illumina uses a specific method of **next-generation sequencing** (NGS on the diagram). NGS is is a fast, efficient, and in-depth process of sequencing that is based on shearing the genome into small pieces and then reconstructing it en masse and in parallel (in other words, multiple times at once) using various proprietary technologies before mapping those pieces to a **reference genome** (typically the first, highest quality, or most completely sequenced individual genome of a species; this does *not* mean this is the perfect, representative, average, or most common version of the genome!). The proprietary Illumina platform was invented by [Illumina](https://www.illumina.com/), and uses a unique method of sequencing that makes it among the most efficient, affordable, and accurate ways of sequencing that we have today. BU has it's own [Illumina sequencing facility on campus](http://www.bumc.bu.edu/microarray/services/illumina-library-prep-sequencing/). Illumina sequencing itself is an incredibly complex process that we won't talk about in detail here, but if you're curious a good video explaining the process can be found [here](https://www.youtube.com/watch?annotation_id=annotation_228575861&feature=iv&src_vid=womKfikWlxM&v=fCd6B5HRaZ8). 
+The first step in this flowchart is the DNA sequencing itself. There are several kinds of sequencing, but we know from the 1000 Genomes Project paper that they used [Illumina-based Next-Generation Sequencing](https://www.illumina.com/content/dam/illumina-marketing/documents/products/illumina_sequencing_introduction.pdf). [Illumina](https://www.illumina.com/science/technology/next-generation-sequencing.html) uses a specific method of **next-generation sequencing** (NGS on the diagram). NGS is is a fast, efficient, and in-depth process of sequencing that is based on shearing the genome into small pieces and then reconstructing it en masse and in parallel (in other words, multiple times at once) using various proprietary technologies before mapping those pieces to a **reference genome** (typically the first, highest quality, or most completely sequenced individual genome of a species; this does *not* mean this is the perfect, representative, average, or most common version of the genome!). The proprietary Illumina platform was invented by [Illumina](https://www.illumina.com/), and uses a unique method of sequencing that makes it among the most efficient, affordable, and accurate ways of sequencing that we have today. BU has it's own [Illumina sequencing facility on campus](http://www.bumc.bu.edu/microarray/services/illumina-library-prep-sequencing/). Illumina sequencing itself is an incredibly complex process that we won't talk about in detail here, but if you're curious a good video explaining the process can be found [here](https://www.youtube.com/watch?annotation_id=annotation_228575861&feature=iv&src_vid=womKfikWlxM&v=fCd6B5HRaZ8). 
 <br>
 <br>
-DNA sequence reads don't come out of the machine nicely put together and cleaned, like the files we'll be using in this course. There are a few steps required to turn them in to easily readable and analyzable files. As shown in the diagram, the output of a sequencing machine is called a **Fastq** file. A Fastq file consists of a raw nucleotide sequence that is not yet aligned to a reference genome, and accompanying **quality scores**, which are scores that tell us how reliable the sequencing read for each base is. You can work with these files, but without aligning them to a reference genome we won't be able to get as much from them as we want. That's where the next step in the diagram comes in... 
+DNA sequence reads don't come out of the machine nicely put together and cleaned, like the files we'll be using in this course. There are a few steps required to turn them into easily readable and analyzable files. As shown in the diagram, the data output of a sequencing machine is called a **Fastq** file. A Fastq file consists of a raw nucleotide sequence that is not yet aligned to a reference genome, and accompanying **quality scores**, which tell us how reliable the sequencing read for each base is. You can work with these files, but without aligning them to a reference genome we won't be able to get as much from them as we want. That's where the next step in the diagram comes in... 
 <br>
 <br>
-**Alignment** is the process of taking a chunk of DNA sequence and using a statistical algorithm to compare that chunk to a reference genome to figure out what section of the genome that chunk most likely represents. This is done with all the small sequence chunks that come from the initial Fastq file until you have a fully aligned genome. Once you have aligned your Fastq sequence to a reference sequence, you have a **BAM** file. A BAM file therefore not only contains an entire genome's worth of genetic code, but also gives information about where any particular piece of code falls within the genome. These files are good to work with if you need an entire genome's worth of information, or detailed information about every nucleotide in a region.
+**Alignment** is the process of taking a chunk of DNA sequence and using a statistical algorithm to compare that chunk to a reference genome to figure out what section of the genome that chunk most likely represents. This is done with all the small sequence chunks that come from the initial Fastq file until you have a fully-aligned genome. Once you have aligned your Fastq sequence to a reference sequence (and so referenced *positions* for each base pair), you have a **BAM** file. A BAM file therefore not only contains an entire genome's worth of genetic code, but also gives information about where any particular piece of code falls within the accepted reference genome. These files are good to work with if you need an entire genome's worth of information, or detailed information about every nucleotide in a region.
 <br>
 <br>
 The final step in the flowchart is the **VCF** file, which is what we will be working with in our class. VCF files are the result of picking out just the *variant* nucleotide positions (in other words, loci where individual sequences differ from the reference) from a BAM file. Below, we will look at the VCF file format in more depth, as we will almost exclusively be using VCF files to perform our analyses in this class. 
 <br>
+<br>
+**Other sequencing methods** may also be used to create genomic datasets. For example, in my lab - the **Sensory Morphology and Anthrpolgical Genomics Lab**, or **SMAGL** - we predominantly use a **third-generation** sequencing technology created by [Oxford Nanopore Technologies](https://nanoporetech.com). This technology relies on biologically engineered pores that latch onto DNA and 'read' bases one-by-one as they zip through the pore, based on the unique disruptions each base in the genome causes to an electric current in which the pore is embedded, It might be [easier to understand with a helpful video](https://youtu.be/qzusVw4Dp8w?si=9aaeLm039H9z4-sm). The end result from this method are longer (if somewhat lower-quality) sequencing reads, which may also be aligned to a reference to create variant calls (among many other uses). We may talk about this more later in the course.
  
 ## Overview of the Variant Call Format (VCF) 
 <br>
@@ -145,17 +145,17 @@ As you can see from parts (b-g) of the figure, there are different notations use
 <br>
 <br>
 
-## How to Use *Ensembl* to Get VCF Data Files from the 1000 Genomes Dataset
+## How to Use *EnsEMBL* to Get VCF Data Files from the 1000 Genomes Dataset
 
 Links to, and information for, all of the genome browsers that feature 1000 Genomes data can be found [here](http://www.internationalgenome.org/1000-genomes-browsers). 
 <br>
 <br>
-The most up-to-date genomic alignments for the 1000 Genomes data are generated by and stored in *Ensembl*. *Ensembl* is a genome database that is maintained by the [European Bioinformatics Institute](https://www.ebi.ac.uk/), and houses genomic data for many dozens of different species, including humans and one of my own study species (savanna monkeys, or vervets). *Ensembl* also has several versions of each dataset, which are updated as new alignment information becomes available.<br>
+The most up-to-date genomic alignments for the 1000 Genomes data are generated by and stored in *EnsEMBL*. *EnsEMBL* is a genome database that is maintained by the [European Bioinformatics Institute](https://www.ebi.ac.uk/), and houses genomic data for many dozens of different species, including humans and one of my own study species (savanna monkeys, or vervets). *EnsEMBL* also has several versions of each dataset, which are updated as new alignment information becomes available.<br>
 
-For this class, we will be using the most up-to-date version of the *Ensembl* human geneome browser, the **GRCh38.p13** browser, to look at one of our genes of interest, *UCP1* (note that the screen shots may be from a slightly older version). 
+For this class, we will be using the most up-to-date version of the *EnsEMBL* human geneome browser, the **GRCh38.p14** browser, to look at one of our genes of interest, *UCP1* (note that the screen shots may be from a slightly older version). 
 <br>
 
-### Step-by-step Instructions for Using *Ensembl*
+### Step-by-step Instructions for Using *EnsEMBL*
 <br>
 ![](img/Ensemblheader.png)
 <br>
@@ -184,7 +184,7 @@ For this class, we will be using the most up-to-date version of the *Ensembl* hu
 ![](img/homepage.png)
 <br>
 
-Congratulations, you've found a gene of interest in *Ensembl*! 
+Congratulations, you've found a gene of interest in *EnsEMBL*! 
 
 As you can see, we're already getting some interesting information on *UCP1* in humans. For example, *UCP1* is apparently on human chromosome 4, and the gene itself is from position 140,559,434 to position 140,568,805 on the reverse strand of the DNA. This means it's comprised of all the sequence between the 140,559,434th base pair (bp) from the start of human chromosome 4 to the 140,568,805th bp. But since the protein code or reading frame for the gene is on the *reverse* strand, transcription of this gene actually starts (meaning it has its transcription start site, or TSS) at the 140,568,805th bp and goes backwards to the 140,559,434th bp.
 
@@ -199,13 +199,13 @@ Now, let's explore the genomic information available for *UCP1* with a bit more 
 * If you scroll down on the first page, you will see an interactive map of the *UCP1* coding region of the genome. 
 <br>
 
-![](img/Human_ACE2.png)
+![](img/Human_UCP1.png)
 <br>
 
 If you click on the "Go to Region in Detail" option directly above this image, you will get a more detailed visual of the coding region. If you're interested, you can do this on your own time; we will not be using this more detailed view for the purposes of this class. What we will look at, however, is more detailed information on all of the *variants* present in the 1000 Genomes populations within the *UCP1* gene region. 
 <br>
 
-* One way to do this is by going directly to a specific *transcript*. If we want to actually see what a transcript (or transcribed amino acid sequence) looks like, we can click on the button `Show transcript table`. This will show us the five known transcripts for *UCP1*. Let's click on the standard transcript, **UCP1-201**.
+* One way to do this is by going directly to a specific *transcript*. If we want to actually see what a transcript (or transcribed amino acid sequence) looks like, we can click on the button `Show transcript table` on the main page for *UCP1*. This will show us the one known transcript for *UCP1*. Let's click on the standard transcript, **UCP1-201**.
 
 ![](img/transcript.png)
 
@@ -215,11 +215,11 @@ As we can see, the standard *UCP1* transcript has 6 different exons (and 5 intro
 
 ![](img/cDNA.png)
 
-The **cDNA** view allows you to see where variants lie in the transcript, and what effects they have for the DNA gene region (line 1), the DNA sequence of the transcript (line 2), and the amino acid sequence (line 3). As you may have already noticed, these lines are numbered from the first nucleotide/amino acid onward, and color coded by alternating codons (white and yellow), as well as for structural and functional variants (red for stop gained; gold for missense; orange for splice region; etc). This makes it very easy to interpret variation in the transcript. 
+The **cDNA** view allows you to see where variants lie in the transcript, and what effects they have (first line), the baseline reference sequence (line 2), and the amino acid sequence of the subsequent protein (line 3). As you may have already noticed, these lines are numbered from the first nucleotide/amino acid onward, and color coded by alternating codons (white and yellow), as well as for structural and functional variants (red for stop gained; gold for missense; orange for splice region; etc). This makes it very easy to interpret variation in the transcript. 
 
-For example, if you were wondering if there are any mutations in the 25th amino acid, you can look for it using the numbering on the third line (it's one to the right of 24), and see that it's normally A (alanine, or Ala; for help translating the amino acid codes, [see this helpful chart](https://i0.wp.com/www.compoundchem.com/wp-content/uploads/2014/09/20-Common-Amino-Acids-v3.png?ssl=1)). 
+For example, if you were wondering if there are any mutations in the 25th amino acid, you can look for it using the numbering on the third line (it's one to the right of 24), and see that it's normally C (cycsteine, or Cys; for help translating the amino acid codes, [see this helpful chart](https://i0.wp.com/www.compoundchem.com/wp-content/uploads/2014/09/20-Common-Amino-Acids-v3.png?ssl=1)). 
 
-The red color of the amino acid typeface indicates that it's a potentially variant amino acid site. You can also see here that the first base pair in the codon is a gold color, indicating that it codes for a missense mutation. If you click on the nucleotide itself, a window will pop up showing you that this is a known SNP called *rs1434130600* at position X:15600839, wherein rather than the C allele normally present at that locus some individuals have a variant T, which in turn changes the codon and the amino acid from A (alanine, or Ala) to T (threonine, or Thr):
+The red color of the 25th amino acid typeface indicates that it's a potentially variant amino acid site. You can also see here that the third base pair in the codon is a gold color, indicating that it codes for a missense mutation. If you click on the nucleotide itself, a window will pop up showing you that this is a known SNP called *rs1735859807* at position 4:140568655, wherein rather than the G allele normally present at that locus some individuals have a variant C, which in turn changes the codon and the amino acid from C (cysteine, or Cys) to W (tryptophan, or Trp):
 
 ![](img/transcriptsnp.png)
 
@@ -252,10 +252,10 @@ Let's do a little exercise, shall we? Above the table, there are some filtering 
 Now, turn back on *all of the mutations that lie within the coding region* of the gene that might also potentially *cause a change in the protein* (hint: this will likely include missense variants, frameshifts, insertions/deletions, and stop/start gained/lost). After you're done choosing, hit "Apply".
 <br>
 <br>
-Now, there are more datasets than the 1000 Genomes here in *Ensembl*. Let's also filter so that we'll only see variants present in the data we'll be working with. Click on the "Filter other columns" option, and choose "Evidence". Once you've chosen it, an "Evidence" filter will appear. In that filter, click "Turn All Off" and then click back on "1000Genomes". Press "Apply".
+Now, there are more datasets than the 1000 Genomes here in *EnsEMBL*. Let's also filter so that we'll only see variants present in the data we'll be working with. Click on the "Filter other columns" option, and choose "Evidence". Once you've chosen it, an "Evidence" filter will appear. In that filter, click "Turn All Off" and then click back on "1000Genomes". Press "Apply".
 <br>
 <br>
-The result is a shortlist of SNPs within the 1000 Genomes dataset that will actually come in handy for understanding variation in the protein output of *ACE2*. Although changes in the amino acid sequence of the protein do not necessarily translate into changes in function, they certainly *can* do so. 
+The result is a shortlist of SNPs within the 1000 Genomes dataset that will actually come in handy for understanding variation in the protein output of *UCP1*. Although changes in the amino acid sequence of the protein do not necessarily translate into changes in function, they certainly *can* do so. 
 
 Let's learn how to get useful information about a specific SNP that we may use in later modules. 
 <br>
@@ -294,7 +294,7 @@ The first thing we'll look is the Global Minor Allele Frequency (MAF). MAF is si
 ![](img/allelefreq.png)
 <br>
 
-* From left to right, you can see the frequencies and count numbers (in parentheses) of how many G and A alleles reside in each population, as well as the heterozygous and homozygous genotype frequencies and counts for each population. 
+* From left to right, you can see the frequencies and count numbers (in parentheses) of how many C and T alleles reside in each population, as well as the heterozygous and homozygous genotype frequencies and counts for each population. 
 <br>
 
 As an exercise, find *your* population in this table. Make sure you can find the allele and genotype counts. This will come in handy when we do our [Hardy-Weinberg Module](https://fuzzyatelin.github.io/AN333_Fall24/Lab2_Module.html). 
@@ -326,25 +326,13 @@ The final page we'll explore is the "Linkage Disequilibrium" page.
 
 * This plot represents Linkage Disequilibrium blocks. When we talk about Linkage Disequilibrium, we will learn more about how to read one of these blocks (and create some plots like this for ourselves). For now, it's enough to know what it looks like, and to know that the red regions represent SNPs with relatively *high* linkage with our SNP of interest. 
 
-* Now, navigate back to the table on the previous page. For your population, click on the "Show" link under the "Variants in High LD" column. If your population has SNPs in high Linkage Disequilibrium, you will get a table that looks like this: 
-<br>
-
-![](img/highLD.png)
-<br>
-
-* This table shows us a couple of things that will come in handy, like how many base pairs away a linked SNP is from the SNP of interest ("Distance (bp)"), what effect the linked SNP has on transcription/translation and subsequent phneotype, and in which gene coding region, if any, the linked SNP falls ("Located in gene(s)"). 
-<br>
-
-If your population *doesn't* have SNPs in high Linkage Disequilibrium, think about what that might tell us about the importance of this variant within *UCP1* more generally in your population. 
-<br>
-<br>
-Now that we have explored some important features of the *Ensembl* website, we can learn how to download some more focused datasets of our own that we'll use here in our Labs!
+Now that we have explored some important features of the *EnsEMBL* website, we can learn how to download some more focused datasets of our own that we'll use here in our Labs!
 <br>
 <br>
 
 #### Step 4: Getting Genetic Data for your Sub-Population {.tabset .tabset-fade}
 
-Usually when you are working with genomic information, you are given a whole chromosome or even a whole genome's worth of information in either a BAM file or a VCF file. If you only need to look at one small part of the genome, it can be very annoying (and very slow) to work with a lot of extra data. The *Data Slicer* in *Ensembl* is a convenient way to get only the amount of data that you want without using a separate program to cut it out yourself. We will use this tool to get the data for our analyses of *UCP1*. We will be taking one slice of data as part of this module: one that contains all of the SNPs in *UCP1*. 
+Usually when you are working with genomic information, you are given a whole chromosome or even a whole genome's worth of information in either a BAM file or a VCF file. If you only need to look at one small part of the genome, it can be very annoying (and very slow) to work with a lot of extra data. The *Data Slicer* in *EnsEMBL* is a convenient way to get only the amount of data that you want without using a separate program to cut it out yourself. We will use this tool to get the data for our analyses of *UCP1*. We will be taking one slice of data as part of this module: one that contains all of the SNPs in *UCP1*. 
 <br>
 <br>
 The link to the *Data Slicer* is available here: <https://useast.ensembl.org/Homo_sapiens/Tools/DataSlicer>. 
@@ -416,12 +404,14 @@ We check our file to see if the body is there because sometimes the server will 
 
 If this hasn't worked and *Data Slicer* is giving you some kind of error message asking for some URL or other... well... *Data Slicer* sucks and it's time to get resourceful, so click on that tab and check out what to do next...
 
-Now, some students have noticed that this second process literally takes forever... in that case, if all else fails...  use ***tabix***. You can click on one of the three tabs below to choose your own way forward. If Data Slicer is working, that's the most user-friendly way forward; for those students interested in doing more work in bioformatics in future, I strongly recommend at least trying the *tabix* method.
+Now, some students have noticed that this second process literally takes forever, and sometimes if the WIFI is bad, the website will time out and you'll be unable to even start this process... in that case, if all else fails...  use ***tabix***. 
+
+You can click on one of the three tabs below to choose your own way forward. If Data Slicer is working, that's the most user-friendly way forward; for those students interested in doing more work in bioformatics in future, I strongly recommend at least trying the *tabix* method.
 
 
 ##### ***Data Slicer SUCKS!***
 
-*Gah... this bug in Data Slicer is THE WORST*. But it's also not the end of the world. We can still get what we need from *Ensembl*, it'll just take a bit longer. The bonus is that we'll learn how to use a couple extra bioinformatics tools that are actually *preferred* over *Data Slicer* by folks who work frequently with human genomic data.
+*Gah... this bug in Data Slicer is THE WORST*. But it's also not the end of the world. We can still get what we need from *EnsEMBL*, it'll just take a bit longer. The bonus is that we'll learn how to use a couple extra bioinformatics tools that are actually *preferred* over *Data Slicer* by folks who work frequently with human genomic data.
 
 * Retrace your steps to get to the *Data Slicer* and re-enter all the naming and coordinate information you had before.
 
@@ -491,7 +481,7 @@ There's a solution: ***tabix***!<br>
 module load htslib
 ```
 
-* First, we can download the data from an online repository. In this case, let's download *TMPRSS2*. Remember, my population of interest is YRI, so I'll use that abbreviation in my code. Where you see 'YRI' in my code, insert the three-letter code of *your* population instead. Use the following command, *making sure that your positions are correct* for TMPRSS2 (21:41464300-41531116), and that the *chromosome* designation is correct, both in the filename *and* in the positions (for example, if you were downloading a gene region on chromosome 8, you would replace all occurrences of `chr21` in the code below - there are two of them - with `chr8`):
+* First, we can download the data from an online repository. In this case, let's download *UCP1*. Remember, my population of interest is YRI, so I'll use that abbreviation in my code. Where you see 'YRI' in my code, insert the three-letter code of *your* population instead. Use the following command, *making sure that your positions are correct* for UCP1 (4:140559434-140568805), and that the *chromosome* designation is correct, both in the filename *and* in the positions (for example, if you were downloading a gene region on chromosome 8, you would replace all occurrences of `chr4` in the code below - there are two of them - with `chr8`):
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
 tabix -h http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.filtered.shapeit2-duohmm-phased.vcf.gz chr4:140559434-140568805 > UCP1_YRI_all.vcf
 ```
