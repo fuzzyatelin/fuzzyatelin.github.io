@@ -13,29 +13,32 @@ output:
 These are your assigned 1000 Genomes Project sub-populations for our investigations of *UCP1* this semester! I've tried my best to accommodate personal interests in a particular sub-population, but there are always some that are more popular than others. If there's another sub-population you'd rather work on, please contact me directly to discuss switching.
 
 <ul>
-<li>Ainur Adeshova - **TBD**
-<li>Lily Brumbaugh - **TBD**
-<li>Fiona Brymer - **TBD**
-<li>Yashi Cai - **TBD**
-<li>Tiffany Chen - **TBD**
-<li>Kathryn Christianson - **TBD**
-<li>Senbo Cui - **TBD**
-<li>Isabel Di Donna - **TBD**
-<li>Jimmy Erkens - **TBD**
-<li>Soumalya Ghorui - **TBD**
-<li>Chloe Leaman - **TBD**
-<li>Melissa Martinez - **TBD**
-<li>Nicole Merullo - **TBD**
-<li>Maia Minto - **TBD**
-<li>Basil Mitchell - **TBD**
-<li>Shayna Parikh - **TBD**
-<li>Karmyn Shreeve - **TBD**
-<li>Olivia Sznewajs - **TBD**
-<li>Madeline Tahnk - **TBD**
-<li>Emma Timms - ***TBD**
-<li>Baylee Wheelock - **TBD**
-<li>Rowan Whelan - **TBD**
-<li>Warren Wiriadjaja - **TBD**
-<li>Steven Zicolella - **TBD**
-<li>Zoe Zucker - **TBD**
+<li>Ainur Adeshova - **BEB**
+<li>Lily Brumbaugh - **CHS**
+<li>Spenser Braverman - **CHB**
+<li>Fiona Brymer - **CDX**
+<li>Molly Bunting - **LWK**
+<li>Yashi Cai - **KHV**
+<li>Tiffany Chen - **GWD**
+<li>Kathryn Christianson - **PEL**
+<li>Daphne Cuevas - **ACB**
+<li>Isabel Di Donna - **ASW**
+<li>Jimmy Erkens - **CEU**
+<li>Soumalya Ghorui - **PJL**
+<li>Divya Jayvas - **MSL**
+<li>Chloe Leaman - **ESN**
+<li>Nicole Merullo - **TSI**
+<li>Maia Minto - **MXL**
+<li>Sarah Shin - **PUR**
+<li>Karmyn Shreeve - **IBS**
+<li>Elizabeth Sprague - **CLM**
+<li>Janna Swanson-Block - **GIH**
+<li>Via Sznewajs - **FIN**
+<li>Madeline Tahnk - **STU**
+<li>Baylee Wheelock - **ITU**
+<li>Rowan Whelan - **FIN**
+<li>Warren Wiriadjaja - **JPT**
+<li>Akiva Zeff - **GBR**
+<li>Steven Zicolella - **IBS**
+<li>Zoe Zucker - **GIH**
 </ul>

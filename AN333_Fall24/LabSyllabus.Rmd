@@ -1,7 +1,7 @@
 ---
 title: 'AN/BI 333/733: Modules'
 author: "Christopher A Schmitt"
-date: "October 1, 2020"
+date: "September 3, 2024"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -9,16 +9,16 @@ output:
 
 ***
 
-### [Course Overview](https://fuzzyatelin.github.io/AN333_Fall20/overview.html)
-### [Syllabus](https://fuzzyatelin.github.io/AN333_Fall20/Syllabus.html)
-### [Exam](https://fuzzyatelin.github.io/AN333_Fall20/Midterm2.html)
-### [Policies](https://fuzzyatelin.github.io/AN333_Fall20/policies.html)
-### [Final Project](https://fuzzyatelin.github.io/AN333_Fall20/FinalProject.html)
+### [Course Overview](https://fuzzyatelin.github.io/AN333_Fall24/overview.html)
+### [Syllabus](https://fuzzyatelin.github.io/AN333_Fall24/Syllabus.html)
+### [Exam]()
+### [Policies](https://fuzzyatelin.github.io/AN333_Fall24/policies.html)
+### [Final Project](https://fuzzyatelin.github.io/AN333_Fall24/FinalProject.html)
 
 ***
 
 ### *Pre-Module: BU Shared Computing Cluster Tutorial*
-**September 11**<br>
+**September 13**<br>
 
 ***
 
@@ -38,88 +38,85 @@ life population genetic analyses.</li>
 
 **RCS Tutorials**: Research Computing Services offers many [helpful (free) tutorials](http://www.bu.edu/tech/about/training/classroom/rcs-tutorials/) during the month of September that may make a huge difference for how well and quickly you are able to learn this material. I strongly recommend the tutorials Introduction to BU’s Shared Computing Cluster and Introduction to R (although they are *not* required for the course), and the remainder I recommend if you would like to learn more about the systems we'll be working with:
 
-* Thu, Sep  3 10:00am ‐ 12:00pm  Introduction to BU’s Shared Computing Cluster (Hands‐on)
-* Wed, Sep  3 12:15pm ‐ 12:45pm  Using (Python, MATLAB, R, SAS, Stata, or ML) on the SCC
-* Fri, Sep  4  1:00pm ‐  3:00pm  Introduction to Linux (Hands‐on)
-* Tue, Sep  1  3:30pm ‐  5:30pm  Introduction to R (Hands‐on)
-* Tue, Sep  8  3:30pm ‐  5:30pm  Introduction to R (Hands‐on)
-* Thu, Sep  3  3:30pm ‐  5:30pm  Data Wrangling in R (Hands‐on)
-* Wed, Sep  9  3:30pm ‐  5:30pm  Data Wrangling in R (Hands‐on)
-* Thu, Sep 10  3:30pm ‐  5:30pm  Graphics Using Base R Packages (Hands‐on)
-* Fri, Sep 11  3:30pm ‐  5:30pm  Graphics in R: ggplot2 (Hands‐on)
-* Mon, Sep 14  3:30pm ‐  5:30pm  Programming in R (Hands‐on)
-
+* Tue, Sep  3  1:00pm ‐ 3:00pm  Introduction to BU’s Shared Computing Cluster (Hands‐on)
+* Wed, Sep  4  12:00pm ‐ 2:00pm  Introduction to BU’s Shared Computing Cluster (Hands‐on)
+* Wed, Sep  4  2:30pm ‐  4:30pm  Introduction to Linux (Hands‐on)
+* Thu, Sep  5  10:00am ‐ 12:00pm  Intermediate Usage of the SCC (Lecture)
+* Thu, Sep  5  4:00pm ‐  6:00pm  Intermediate Usage of the SCC (Lecture)
+* Tue, Sep  10  4:00pm ‐  6:00pm  Introduction to R (Hands‐on)
+* Thu, Sep  12  4:00pm ‐  6:00pm  Data Wrangling in R (Hands‐on)
+* Thu, Sep  19  4:00pm ‐  6:00pm  Graphics in R: ggplot2 (Hands‐on)
+* Tue, Sep  24  4:00pm ‐  6:00pm  Programming in R (Hands‐on)
 
 ***
 
-### [*Module 1: Accessing Human Candidate Gene Region Data* – *ACE2* and *TMPRSS2*](https://fuzzyatelin.github.io/AN333_Fall20/Lab1_Module.html)
-**September 18**<br>
+### [*Module 1: Accessing Human Candidate Gene Region Data* – *UCP1*](https://fuzzyatelin.github.io/AN333_Fall24/Lab1_Module.html)
+**September 20**<br>
 
 ***
 
-**Material covered**: Introduction to the *1000 Genomes Project* dataset, and tutorial on using *Ensembl* to access the 1000 Genomes dataset. For illustrative purposes, we’ll focus on both the angiotensin-converting enzyme 2 (*ACE2*) gene and the transmembrane serine protease 2 (*TMPRSS2*) gene, each of which code for the key receptors the coronavirus SARS-CoV-2 uses to enter cells, leading to the disease known as COVID-19.<br><br>
+**Material covered**: Introduction to the *1000 Genomes Project* dataset, and tutorial on using *Ensembl* to access the 1000 Genomes dataset. For illustrative purposes, we’ll focus on uncoupling protein 1 (*UCP1*), which is responsioble for burning body fat to generate heat in a process known as non-shivering thermogenesis.<br><br>
 **Readings**:<ul>
 <li>[The 1000 Genomes Project Consortium. 2015. A global reference for human genetic variation. *Nature* 526: 68-74.](https://www.nature.com/articles/nature15393)</li><br>
 <li>[Danecek P, Auton A, Abecasis G, Albers CA, Banks E, DePristo MA, Handsaker RE, Lunter G, Marth GT, Sherry ST, McVean G, Durbin R, 1000 Genomes Project Analysis Group. 2011. The variant call format and VCFtools. *Bioinformatics App Note* 27: 2156-2158.](https://academic.oup.com/bioinformatics/article/27/15/2156/402296)</li><br>
-<li>[Gheblawi M, Wang K, Viveiros A, Nguyen Q, Zhong J-C, Turner AJ, Raizada MK, Grant MB, Oudit GY. 2020. Angiotensin-Converting Enzyme 2: SARS-CoV-2 Receptor and Regulator of the Renin-Angiotensin System. *Circulation Research*, 126(10):1456-1474](https://www.ahajournals.org/doi/full/10.1161/CIRCRESAHA.120.317015)</li><br>
-<li>[Hoffmann M, et al. 2020. SARS-CoV-2 cell entry depends on *ACE2* and *TMPRSS2* and is blocked by a clinically proven protease inhibitor. *Cell*, 181(2):271-280.e8 ](https://www.sciencedirect.com/science/article/pii/S0092867420302294)</li><br>
-<li>[David A, Khanna T, Beykou M, Hanna G, Sternberg MJE. [Preprint]. Structure, function and variants analysis of the androgen-regulated TMPRSS2, a drug target candidate for COVID-19 infection. *bioRxiv*, accessed 10SEP20, DOI: 10.1101/2020.05.26.116608](https://www.biorxiv.org/content/10.1101/2020.05.26.116608v1)</li><br>
-<li>[Sriram K, Insel P, Loomba R. May 14, 2020. What is the ACE2 receptor, how is it connected to coronavirus and why might it be key to treating COVID-19? The experts explain. *The Conversation*.](https://theconversation.com/what-is-the-ace2-receptor-how-is-it-connected-to-coronavirus-and-why-might-it-be-key-to-treating-covid-19-the-experts-explain-136928)</li></ul><br>
-**Activities**: We’ll learn how to use the *Ensembl* database to navigate our candidate genes, *ACE2* and *TMPRSS2*, and find more information about them. [**Each student will be assigned a single 1000 Genomes sub-population**](https://fuzzyatelin.github.io/AN333_Fall20/1KG_SubPop_Fall2020.html) that they will look at over the course of the modules, and we will use the *Data Slicer* within *Ensembl* to download data for each gene from those populations into our *SCC* accounts.<br><br>
-**Assignment**: Students must turn in a homework assignment – with questions related to *ACE2* and *TMPRSS2* variation in humans and related to the downloaded dataset – the following Friday **Pre-Module Homework Assignment is due today.**<br><br>
+<li>[Nedergaard J, Golozoubova V, Matthias A, Asadi A, Jacobsson A, Cannon B. 2001. UCP1: the only protein able to mediate adaptive non-shivering thermogenesis and metabolic inefficiency. *Biochimica et Biophysica Acta - Bioenergetics* 1504(1): 82-106.](https://www.sciencedirect.com/science/article/pii/S0005272800002474)</li><br>
+<li>[Gonzalez-Barroso MDM, Ricquier D, Cassard-Doulcier AM. 2000. The human uncoupling protein-1 gene (UCP1): present status and perspectives in obesity research. *Obesity Rev* 1: 61-72.](https://onlinelibrary.wiley.com/doi/full/10.1046/j.1467-789x.2000.00009.x)
+</li></ul><br>
+**Activities**: We’ll learn how to use the *EnsEMBL* database to navigate our candidate gene, *UCP1*, and find more information about it. [**Each student will be assigned a single 1000 Genomes sub-population**](https://fuzzyatelin.github.io/AN333_Fall20/1KG_SubPop_Fall24.html) that they will look at over the course of the modules, and we will use the *Data Slicer* within *Ensembl* to download data for each gene from those populations into our *SCC* accounts.<br><br>
+**Assignment**: Students must turn in a homework assignment – with questions related to *UCP1* variation in humans and related to the downloaded dataset – the following Friday **Pre-Module Homework Assignment is due today.**<br><br>
 **Learning Outcomes**:<ul>
 <li>Learn about the basics of bioinformatics and how genetic data is transformed from raw sequencing reads in to a VCF file, which is the file type we will be working with.</li>
 <li>Learn about the public data on human genomes available via the 1000 Genomes Project, and how to access it via *Ensembl*.</li>
-<li>Learn about the role of *ACE2* and *TMPRSS2* variation in humans, and how they are implicated in SARS-CoV-2 infection, and their roles in other bodily systems.</li>
-<li>Learn how to download specific regions of genomic data – or candidate gene regions – from 1000 Genome populations in VCF format using the *Data Slicer* in *Ensembl* and move them on to the *SCC*.</li>
+<li>Learn about the role of *UCP1* variation in the evolutionary history of mammals and in human physiology and evolution.</li>
+<li>Learn how to download specific regions of genomic data – or candidate gene regions – from 1000 Genome populations in VCF format using the *Data Slicer* in *EnsEMBL* and move them on to the *SCC*.</li>
 
 ***
 
-### [Homework for Module 1: DUE Friday, September 25th at 5:00 pm](https://fuzzyatelin.github.io/AN333_Fall20/Lab1_Homework.html)
+### [Homework for Module 1: DUE Friday, September 27th at 5:00 pm](https://fuzzyatelin.github.io/AN333_Fall24/Lab1_Homework.html)
 
 ***
 
-### [*Module 2: ACE2/TMPRSS2 Variants and Hardy-Weinberg Equilibrium*](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Module.html)
-**September 25**<br>
+### [*Module 2: UCP1 Variants and Hardy-Weinberg Equilibrium*](https://fuzzyatelin.github.io/AN333_Fall24/Lab2_Module.html)
+**September 27**<br>
 
 ***
 
-**Material covered**: Using *R* and *RStudio* via the *SCC* to run pre-written code that will perform our analyses. Assessing allelic variation in SNPs within and across populations. Testing **Hardy-Weinberg equilibrium (HWE)** and understanding what it means if violated, which involves knowing the assumptions of the model. Using downloaded candidate region data from 1000 Genomes Project to assess HWE in living human populations using a Chi-Squared test. Using *Ensembl* to obtain genotype count information in order to use the Wigginton and Cutler method of HWE calculation on selected SNPs.<br><br> 
+**Material covered**: Using *R* and *RStudio* via the *SCC* to run pre-written code that will perform our analyses. Assessing allelic variation in SNPs within and across populations. Testing **Hardy-Weinberg equilibrium (HWE)** and understanding what it means if violated, which involves knowing the assumptions of the model. Using downloaded candidate region data from 1000 Genomes Project to assess HWE in living human populations using a Chi-Squared test. Using *EnsEMBL* to obtain genotype count information in order to use the Wigginton and Cutler method of HWE calculation on selected SNPs.<br><br> 
 **Readings**:<ul> 
 <li>[Chen J. The Hardy-Weinberg Principle and Its Applications in Modern Population Genetics. *Frontiers in Biology* 5(4): 348-53.](https://link.springer.com/article/10.1007/s11515-010-0580-x)</li><br>
-<li>[Benetti E, et al. 2020. ACE2 gene variants may underlie interindividual variability and susceptibility to COVID-19 in the Italian population. *European Journal of Human Genetics* ](https://www.nature.com/articles/s41431-020-0691-z)</li><br>
+<li>[Nishimura T, Katsumura T, Motoi M, Oota H, Watanuki S. Experimental evidence reveals the UCP1 genotype changes the oxygen consumption attributed to non-shivering thermogenesis in humans. *Scientific Reports* 7(5570): 348-53.](https://www.nature.com/articles/s41598-017-05766-3)</li><br>
 <li>[Wigginton JE, Cutler DJ, Abecasis GR. 2005. A note on exact tests of Hardy-Weinberg equilibrium. *Am J Hum Genet* 76: 887-893.](https://www.cell.com/ajhg/fulltext/S0002-9297(07)60735-6?code=ajhg-site)</li></ul><br>
-**Activities**: We will use the *R* coding language to test HWE in the dataset on *ACE2* we downloaded from *Ensembl*. We will assess whether or not SNPs in this genomic region are in Hardy-Weinberg equilibrium based on a Chi-Squared test in assigned human populations. We will then re-test selected SNPs using the "True HWE" method described in Wigginton and Cutler. We will then discuss what our results mean, in accordance with what we know about those populations, HWE, and the effects of these *ACE2* variants on disease expression.<br><br>
-**Assignment**: Students must turn in a worksheet – with questions related to *ACE2* variation in humans and related to the downloaded dataset –  in class the following Monday. **Module 1 Homework Assignment is due today.**<br><br>
+**Activities**: We will use the *R* coding language to test HWE in the dataset on *ACE2* we downloaded from *EnsEMBL*. We will assess whether or not SNPs in this genomic region are in Hardy-Weinberg equilibrium based on a Chi-Squared test in assigned human populations. We will then re-test selected SNPs using the "True HWE" method described in Wigginton and Cutler. We will then discuss what our results mean, in accordance with what we know about those populations, HWE, and the effects of these *UCP1* variants on trait expression.<br><br>
+**Assignment**: Students must turn in a worksheet – with questions related to *UCP1* variation in humans and related to the downloaded dataset –  in class the following Monday. **Module 1 Homework Assignment is due today.**<br><br>
 **Learning Outcomes**:<ul>
-<li>Learn how to use the *SCC* and *R* coding language to observe and understand population differences in *ACE2* variation.</li>
-<li>Calculate Hardy-Weinberg Equilibrium for all *ACE2* SNPs in individual populations using a traditional Chi-Square test.</li>
+<li>Learn how to use the *SCC* and *R* coding language to observe and understand population differences in *UCP1* variation.</li>
+<li>Calculate Hardy-Weinberg Equilibrium for all *UCP1* SNPs in individual populations using a traditional Chi-Square test.</li>
 <li>Perform a check on all SNPs not in Hardy-Weinberg Equilibrium by calculating "True" Hardy-Weinberg with the built-in Shiny App.</li> 
 <li>Research the consequence types of these SNPs in order to understand how these SNPs might affect the genome itself, and how they might affect genotype.</li> 
-<li>Calculate the "true" Hardy-Weinberg Equilibrium using the Shiny App for *Lys26Arg*, a SNP that may be implicated in less severe SARS-CoV-2 infections, and determine what the Hardy-Weinberg Equilibrium says about this SNP in your population.</li>
+<li>Calculate the "true" Hardy-Weinberg Equilibrium using the Shiny App for *rs1800592*, a SNP that may be implicated in adaptations to cold in humans, and determine what the Hardy-Weinberg Equilibrium says about this SNP in your population.</li>
 
 ***
 
-### [Homework for Module 2: DUE Friday, October 2nd at 5:00 pm](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Homework.html)
+### [Homework for Module 2: DUE Friday, October 3rd at 5:00 pm](https://fuzzyatelin.github.io/AN333_Fall24/Lab2_Homework.html)
 
 ***
 
-### [*Module 3: Linkage Disequilibrium (LD) in ACE2 and TMPRSS2*](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Module.html)
-**October 16**<br>
+### [*Module 3: Linkage Disequilibrium (LD) in UCP1*](https://fuzzyatelin.github.io/AN333_Fall24/Lab3_Module.html)
+**October 03**<br>
 
 ***
 
-**Material covered**: In this module, we'll be assessing linkage disequilibrium (LD) in the *ACE2* genomic regions of the 1000 Genomes populations using *R* coding language. We'll also work on calculating LD by hand between two known loci in *ACE2*. All of this will help us work towards understanding factors that increase LD in the human genome.<br><br> 
+**Material covered**: In this module, we'll be assessing linkage disequilibrium (LD) in the *UCP1* genomic regions of the 1000 Genomes populations using *R* coding language. We'll also work on calculating LD by hand between two known loci in *UCP1*. All of this will help us work towards understanding factors that increase LD in the human genome.<br><br> 
 **Readings**:<ul> 
-<li>[Wooster L, Nicholson CJ, Sigurslid HH, Lino Cardenas CL, Malhotra R. *Preprint accessed 31AUG20*. Polymorphisms in the ACE2 locus associate with severity of COVID-19 infection. *medRxiv* doi:10.1101/2020.06.18.20135152](https://www.medrxiv.org/content/10.1101/2020.06.18.20135152v1.full.pdf)</li><br>
-<li>[Cheng Z., et al. 2015. Identification of *TMPRSS2* as a susceptibility gene for severe 2009 pandemic A(H1N1) influenza and A(H7N9) influenza. *The Journal of Infectious Diseases*, 212(8):1214–1221.](https://academic.oup.com/jid/article/212/8/1214/2193475)</li><br>
+<li>[2]()</li><br>
+<li>[]()</li><br>
 <li>[Slatkin M. 2008. Linkage disequilibrium – understanding the evolutionary past and mapping the medical future. *Nat Rev Genet* 9: 477-485.](https://www.nature.com/articles/nrg2361)</li><br>
-<li>[Zeberg H, Pääbo S. 2020. The major genetic risk factor for severe COVID-19 is inherited from Neanderthals. *Nature* 2998 ](https://www.nature.com/articles/s41586-020-2818-3)</li><br>
+<li>[]()</li><br>
 <li>[Claiborne Stephens J, Schneider JA, Tanguay DA, Choi J, Acharya Y, Stanley SE, Jiang R, *et al*. 2001. Haplotype variation and linkage disequilibrium in 313 human genes. *Science* 293: 489-93.](http://science.sciencemag.org/content/293/5529/489)</li></ul><br>
-**Activities**: We'll assess linkage disequilibrium across the *ACE2* and *TMPRSS2* loci using our datasets downloaded from *Ensembl*, with a focus on the SNPs that are defined in Wooster *et al*. (2020) and Cheng *et al*. (2015). We will then discuss what high linkage disequilibrium in our populations could mean regarding potential for selection having occurred within our populations.<br><br>
-**Assignment**: Students must turn in homeowork – with questions related to *ACE2* and *TMPRSS2* variation in humans and related to the downloaded dataset –  online by the following Friday. **Module 2 Homework Assignment is due today.**<br><br>
+**Activities**: We'll assess linkage disequilibrium across the *UCP1* loci using our datasets downloaded from *EnsEMBL*, with a focus on the SNPs that are defined in Nishimura et al. (2017). We will then discuss what linkage disequilibrium values in our populations could mean regarding potential for selection having occurred within our populations.<br><br>
+**Assignment**: Students must turn in homeowork – with questions related to *UCP1* variation in humans and related to the downloaded dataset –  online by the following Friday. **Module 2 Homework Assignment is due today.**<br><br>
 **Learning Outcomes**:<ul>
-<li>Learn about the SNPs *rs1548474* and *rs4240157* for *ACE2*, and *rs383510* and *rs2070788* for *TMPRSS2*, and their roles in viral susceptibility.</li>
+<li>Learn about the SNPs *rs1800592* and *rs4240157* for *UCP1*, and their roles in human thermoregulation and metabolism.</li>
 <li>Learn how to use the *R* package *SNPStats* to perform LD analysis in a population, including constructing LD matrices and LD heatmaps.</li> 
 <li>Learn about the two statistics *D'* and *R<sup>2</sup>*, which are the most commonly used statistics to evaluate LD between SNPs. Learn what each can tell us about a population, and apply the two statistics to our own populations</li> 
 <li>Learn how to use *Ensembl* to look at long-distance LD between SNPs in *ACE2* and *TMPRSS2*, as well as for SNPs in other genes. 
