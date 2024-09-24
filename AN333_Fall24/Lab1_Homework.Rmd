@@ -16,7 +16,8 @@ output:
 **Readings**:<ul>
 <li>[The 1000 Genomes Project Consortium. 2015. A global reference for human genetic variation. *Nature* 526: 68-74.](https://www.nature.com/articles/nature15393)</li><br>
 <li>[Danecek P, Auton A, Abecasis G, Albers CA, Banks E, DePristo MA, Handsaker RE, Lunter G, Marth GT, Sherry ST, McVean G, Durbin R, 1000 Genomes Project Analysis Group. 2011. The variant call format and VCFtools. *Bioinformatics App Note* 27: 2156-2158.](https://academic.oup.com/bioinformatics/article/27/15/2156/402296)</li><br>
-<li><li>[Gonzalez-Barroso MDM, Ricquier D, Cassard-Doulcier AM. 2000. The human uncoupling protein-1 gene (UCP1): present status and perspectives in obesity research. *Obesity Rev* 1: 61-72.](https://onlinelibrary.wiley.com/doi/full/10.1046/j.1467-789x.2000.00009.x)</li></ul><br>
+<li>[Nedergaard J, Golozoubova V, Matthias A, Asadi A, Jacobsson A, Cannon B. 2001. UCP1: the only protein able to mediate adaptive non-shivering thermogenesis and metabolic inefficiency. *Biochimica et Biophysica Acta - Bioenergetics* 1504(1): 82-106.](https://www.sciencedirect.com/science/article/pii/S0005272800002474)</li><br>
+<li>[Gonzalez-Barroso MDM, Ricquier D, Cassard-Doulcier AM. 2000. The human uncoupling protein-1 gene (UCP1): present status and perspectives in obesity research. *Obesity Rev* 1: 61-72.](https://onlinelibrary.wiley.com/doi/full/10.1046/j.1467-789x.2000.00009.x)</li></ul><br>
 
 ***
 
@@ -24,15 +25,15 @@ output:
 <br>
 <br>
 
-At this point, technical difficulties aside, we've got a bit more knowledge regarding how to navigate the *SCC* and how to gather data of various kinds from *Ensembl*, so let's put that knowledge to use with some practice!<br> 
+At this point, technical difficulties aside, we've got a bit more knowledge regarding how to navigate the *SCC* and how to gather data of various kinds from *EnsEMBL*, so let's put that knowledge to use with some practice!<br> 
 
-This homework assignment is meant to both stretch your abilities from the past two modules, and prepare you for what's coming in the next module. If you can't remember how to do something, check your Pre-Module slides/notes and [Module 1](Lab1_Module.html).<br>
+This homework assignment is meant to both stretch your abilities from the past two modules, and prepare you for what's coming in the next module. If you can't remember how to do something, check your Pre-Module slides/notes and [Module 1](https://fuzzyatelin.github.io/AN333_Fall24/Lab1_Module.html).<br>
 
 To make things easier, I've also created an online interface where you can answer the questions.
 
 <br><br>
 <center>
-### [Access the online interface to submit your homework answers here.](https://forms.gle/NSUZZ91fnRkh9jrt8)
+### [Access the online interface to submit your homework answers here.](https://forms.gle/KLTq8iNPhUAuhqDD8)
 </center>
 <br><br>
 
@@ -42,18 +43,16 @@ Go to the *Ensembl* web page for the human *UCP1* gene, and look at the *variant
 
 * How many variants code for a missense mutation within the coding region of *UCP1* for the 1000 Genomes population?
 * Sort the variants by base pair location from first to last (e.g., lowest bp number to highest on chromosome 4), and list the first *five* variants (if there are less than five, list them all).
-* What is the highest Global MAF (minor allele frequency) among the loci listed?
+* How many *multi-allelic* variant sites (more than two alleles) are among the loci listed?
 * Does *your* 1000 Genomes population have any of these missense variant minor alleles?
 * How many individuals in *your* 1000 Genomes population have the minor allele at each of the variant sites you've listed here?
 
 ```{r, eval = FALSE, echo = FALSE}
-They should use Consequences, turn all off, and only turn on 'inframe deletion' Once that's done, there are X SNPs left. The SNPs themselves are, in order from lowest bp location to highest:
+They should use Consequences, turn all off, and only turn on 'missense variant' Once that is done, there are 30 SNPs left. The SNPs themselves are, in order from lowest bp location to highest:
+  
+rs146114327, rs140138182, rs2270565, rs148598275, rs565496720
 
-X
-X
-X
-X
-X
+There are 16 multi-allelic sites among the missense variants listed.
 
 The average size of the deletion at these variant sites is 3 bp.
 
@@ -62,21 +61,21 @@ Nobody should have the deletion allele of these variants.
 
 ### Question 2 (50 points):
 
-Go back to the variant table, and filter and sort it to find the *Stop Gained* variant with the highest *minor allele frequency (MAF)*.
+Go back to the variant table, and filter and sort it to find *Stop Gained* variants.
 
-* How many SNPs that cause a stop gain are present in the 1000 Genomes populations?  
-* Name them, using the Variant ID, in order of MAF from highest to lowest.
-* What is the MAF for the SNP with the highest MAF? And what is the *minor* allele for that SNP? 
+* How many SNPs that cause a stop gain in *UCP1* are present in the 1000 Genomes populations?  
+* Name them, using the Variant ID, in order from lowest to highest position number.
+* What is the *minor* allele (which causes the stop codon) for the stop-gained SNP that has the highest position number? 
 * What does a stop gain mutation do, and why might it be selected for or against in population?  
-* Does YOUR 1000 Genomes population have the minor allele?
-* Given the readings for Module 1 regarding the function of *ACE2*, what might having the minor allele mean for the phenotype of individuals who have it?
+* Does an individual in YOUR 1000 Genomes population have the minor allele?
+* Given the readings for Module 1 regarding the function of *UCP1*, what might having the minor allele mean for the phenotype of individuals who have it?
 
 ```{r, eval = FALSE, echo = FALSE}
-They should use Consequences, turn all off, and only turn on 'stop gain' Once that's done, there are 2 SNPs left that are part of the 1KG populations (but 15 total). The SNPs themselves are, in order from highest MAF to lowest:
+They should use Consequences, turn all off, and only turn on 'stop gain' Once that's done, there are 3 SNPs left that are part of the 1KG populations. The SNPs themselves are, in position order:
 
-rs530774350 (MAF = 0.01; G/C)
-rs539685692 (MAF = 0; )
-
+rs565496720 - A
+rs530774350 - C
+rs539685692 - A
 
 ```
 
@@ -84,7 +83,7 @@ rs539685692 (MAF = 0; )
 
 We should *probably* get a little more practice with the *tabix* and *vcftools* coding for downloading data into our *SCC* space.<br>
 
-* Please download the *UCP3* data (for the whole gene) for your assigned population. Of all the files generated, you should keep *ONLY the final VCF file*. Send the file to me via the homework interface.<br>
+* Please download an extended version of the *UCP1* gene region that includes 5,000 bp up- and down-stream of the gene region for your assigned population (i.e., add 5000 to the end position of the gene, and subtract 5000 from the starting position), and name it UCP1_REGION. Of all the files generated, you should keep *ONLY the final VCF file*. Send the file to me via the homework interface.<br>
 
 * **Additionally, the final VCF file must be in your *SCC* working directory by the time we meet in class on Friday, October 4th!**
 
