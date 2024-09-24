@@ -13,7 +13,7 @@ output:
 
 ***
 <center>
-<b>Fall 2024, Lecture is held on MWF, 10:10 - 11:00am in CAS 229</b>
+<b>Fall 2024, Lecture is held on MWF, 10:10 - 11:00am in CAS 233</b>
 </center>
 ***
 ### Faculty Instructor:
