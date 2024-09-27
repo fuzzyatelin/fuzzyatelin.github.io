@@ -72,12 +72,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 1: DUE Friday, September 27th at 5:00 pm](https://fuzzyatelin.github.io/AN333_Fall24/Lab1_Homework.html)
+### [Homework for Module 1: DUE Friday, Octover 4th at 5:00 pm](https://fuzzyatelin.github.io/AN333_Fall24/Lab1_Homework.html)
 
 ***
 
 ### [*Module 2: UCP1 Variants and Hardy-Weinberg Equilibrium*](https://fuzzyatelin.github.io/AN333_Fall24/Lab2_Module.html)
-**September 27**<br>
+**October 4**<br>
 
 ***
 
@@ -97,12 +97,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 2: DUE Friday, October 3rd at 5:00 pm](https://fuzzyatelin.github.io/AN333_Fall24/Lab2_Homework.html)
+### [Homework for Module 2: DUE Friday, October 11th at 5:00 pm](https://fuzzyatelin.github.io/AN333_Fall24/Lab2_Homework.html)
 
 ***
 
 ### [*Module 3: Linkage Disequilibrium (LD) in UCP1*](https://fuzzyatelin.github.io/AN333_Fall24/Lab3_Module.html)
-**October 03**<br>
+**October 11**<br>
 
 ***
 
@@ -124,12 +124,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 3: DUE Monday, October 26th](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Homework.html)
+### [Homework for Module 3: DUE Monday, October 25th](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Homework.html)
 
 ***
 
 ### [*Module 4: Introduction to Nearest-Neighbor Joining and Phylogenetics*](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Module.html)
-**October 30th**<br>
+**October 25th**<br>
 
 ***
 
@@ -150,12 +150,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 4: DUE Friday, November 6th](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Homework.html)
+### [Homework for Module 4: DUE Friday, November 8th](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Homework.html)
 
 ***
 
 ### [*Module 5: Introduction to Neutrality Statistics and Signs of Selection*](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Module.html)
-**November 6th**<br>
+**November 8th**<br>
 
 ***
 
@@ -180,12 +180,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 5: DUE Friday, November 13th](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Homework.html)
+### [Homework for Module 5: DUE Friday, November 15th](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Homework.html)
 
 ***
 
 ### [*Module 6: A Brief Digression from COVID-19 for Quantitative Genetics*](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Module.html)
-**November 20**<br>
+**November 15**<br>
 
 ***
 
@@ -208,12 +208,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 6: DUE Friday, November 27th](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Homework.html)
+### [Homework for Module 6: DUE Friday, November 22nd](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Homework.html)
 
 ***
 
 ### [*Module 7: Finding a New Locus…*](https://fuzzyatelin.github.io/AN333_Fall20/Lab7_Module.html)
-**November 02**<br>
+**November 8**<br>
 
 ***
 
@@ -224,7 +224,7 @@ life population genetic analyses.</li>
 <li>[Patnala R, Clements J, Batra J. 2013. Candidate gene association studies: a comprehensive guide to useful in silico tools. *BMC Genet* 14:39.](https://bmcgenet.biomedcentral.com/articles/10.1186/1471-2156-14-39)</li><br></ul>
 <br>
 **Activities**: We will go over a brief tutorial on how to think about finding a new locus of interest to study on your own, and we will have a class discussion on final project topic ideas.<br><br>
-**Assignment**: Students must choose a gene of interest for their final project by the following **Friday, November 13**.
+**Assignment**: Students must choose a gene of interest for their final project by the following **Friday, November 15**.
 **Learning Outcomes**:<ul>
 <li>Learn how to use the resources provided to you in this class to find a new genetic locus for study.</li>
 <li>Assess the merits/flaws of using a candidate gene approach to understand trait histories in human populations.</li><br><br> 
