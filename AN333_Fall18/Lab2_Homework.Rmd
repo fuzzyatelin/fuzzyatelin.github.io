@@ -1,7 +1,7 @@
 ---
 title: 'Lab 2: Homework'
 author: "Christopher A Schmitt"
-date: "October 5, 2018"
+date: "October 2, 2024"
 output: html_document
 ---
 
@@ -14,6 +14,7 @@ output: html_document
 **Readings**:<ul> 
 <li>[Chen J. The Hardy-Weinberg Principle and Its Applications in Modern Population Genetics. *Frontiers in Biology* 5(4): 348-53.](https://link.springer.com/article/10.1007/s11515-010-0580-x)</li><br>
 <li>[Rose G, Crocco O, D'Aquila P, Montesanto A, Bellizi D, Passarino G. 2011. Two variants located in the upstream enhancer region of human UCP1 gene affect gene expression and are correlated with human longevity. *Experimental Gerontology* 46(11): 897-904.](https://www.sciencedirect.com/science/article/pii/S0531556511001987?via%3Dihub)</li><br>
+<li>[Nishimura T, Katsumura T, Motoi M, Oota H, Watanuki S. 2017. Experimental evidence reveals the UCP1 genotype changes the oxygen consumption attributed to non-shivering thermogenesis in humans. *Scientific Reports* 7(5570): 348-53.](https://www.nature.com/articles/s41598-017-05766-3)</li><br>
 <li>[Wigginton JE, Cutler DJ, Abecasis GR. 2005. A note on exact tests of Hardy-Weinberg equilibrium. *Am J Hum Genet* 76: 887-893.](https://www.cell.com/ajhg/fulltext/S0002-9297(07)60735-6?code=ajhg-site)</li></ul>
 
 ***
@@ -23,7 +24,7 @@ Now that many of us have a little more facility with working with *Ensembl* and 
 As before, you'll be turning in your homework via an online interface.  I recommend writing your essays in a document on your laptop and only engaging with the online interface when you're ready to turn in *all* of your completed answers.
 
 <center>
-###[Access the online interface to submit your homework answers here.](https://goo.gl/forms/JTrXZDh0KaXvoOHm1)
+### [Access the online interface to submit your homework answers here.](https://goo.gl/forms/JTrXZDh0KaXvoOHm1)
 </center><br>
 
 * What does it mean if there is a SNP in the gene *UCP1* that is not in Hardy-Weinberg equilibrium? Think not only about the phenotypic consequences, but what it says about the environment of the population.
@@ -35,7 +36,7 @@ As before, you'll be turning in your homework via an online interface.  I recomm
 ![](genemap.png)
 <br>
 
-* Imagine that gene map above represents *UCP1*. Based on the Rose et al. (2011) article, where on the map is the SNP A-3826G? How would the placement of this SNP affect *UCP1* phenotype?
+* Imagine that gene map above represents *UCP1*. Based on the Rose et al. (2011) article, where on the map is the SNP A-3826G? How could the placement of this SNP affect *UCP1* phenotype?
 
 * Where on the map above is the SNP in *your* population that most significantly deviates from Hardy-Weinberg equilibrium? How would that SNP affect *UCP1* phenotype? If you don't have any SNPs that deviate, choose one at random. 
 
