@@ -115,7 +115,7 @@ Click on `Connect to RStudio Server`.  Once your *R Studio* interface launches, 
 <br>
 The pane on the left is your *console*, which is where you will enter code to run. The pane on the upper right is your (*environment*), which is where anything running, or any datasets or items running in *R* will be shown. Finally, the pane on the lower right is your *working directory*. It should be your *SCC* home space when you first log in. 
 
-If you want to change your working directory to your `anth333` project space, you may nagivate there by clicking on the `...` button on the upper right side of the pane and entering your project space name:
+If you want to change your working directory to your `/projectnb/anth333` project space (`/projectnb/anth333/username/`), you may nagivate there by clicking on the `...` button on the upper right side of the pane and entering your project space name:
 <br>
 <br>
 ![](img/rstudionavigate.png)
@@ -127,7 +127,7 @@ Finally, once you've navigated to the correct folder, you'll want to set this as
 ![](img/rstudiosetwd.png)
 <br>
 <br>
-Conveniently enough, you can also access your space *SCC* via a Terminal window in this *R Studio* session using the *Terminal* tab next to your *console*. Please note that you may need to set your proper working directory in the Terminal, as well, using the `cd` command (e.g., `cd /project/anth333/caschmit`).
+Conveniently enough, you can also access your space *SCC* via a Terminal window in this *R Studio* session using the *Terminal* tab next to your *console*. Please note that you may need to set your proper working directory in the Terminal, as well, using the `cd` command (e.g., `cd /projectnb/anth333/caschmit`).
 
 ## Step 2: Calculating Hardy-Weinberg Equilibrium Using Chi-Squared
 <br> 
@@ -137,6 +137,7 @@ Now that we are in *R Studio* and have our data in place in our working director
 In *R* space, packages are essentially bundles of functions that *R* users have written to perform analyses that do not come with the base program. In this class we will be using packages that were designed specifically for population genetics analysis. To install these packages, run these two lines of code in the console (this may take a few minutes!): 
 <br>
 ```{r, eval=F, echo=T}
+install.packages("adegenet")
 install.packages("vcfR")
 install.packages("pegas")
 ```
@@ -144,23 +145,24 @@ install.packages("pegas")
 We only need to install these packages once, but we need to load them in to our workspace every time we open the program. To do this, use the following code: 
 <br>
 ```{r, results = 'hide', message=F, warning=F}
+library(adegenet)
 library(vcfR)
 library(pegas)
 ```
 
 Now that we have all our packages loaded, we can get to the analysis! In the "files" tab in the bottom left quadrant, you should see the VCF files you downloaded in your folder (give you put them there properly). 
 
-**Try these exercises *first* with your *UCP1* VCF file.**
+**Try these exercises *first* with your *UCP1_POP.vcf* file.**
 
 We will need to load our VCF file into our *R* workspace much like we did with our packages. Unlike the packages, however, we need to give a name to the file. To make things simple, it would be a good idea to name this file in accordance with the acronym of your population. I will use the YRI population as an example. Use one of the two options below to enter your VCF data into the *R* space: 
 <br>
-```{r}
+```{r, eval = F, echo=T, results='hide'}
 #If your file is zipped (e.g., ends in '.vcf.gz') then use this code:
 
 UCP1_YRI <- read.vcfR("UCP1_YRI.vcf.gz", verbose = TRUE)
 ```
 
-```{r, eval = F, echo=T, results='hide'}
+```{r}
 #If your file is unzipped (e.g., ends in just '.vcf') then use this code:
 
 UCP1_YRI <- read.vcfR("UCP1_YRI.vcf", verbose = TRUE)
@@ -214,7 +216,7 @@ HWE.sig <-
 HWE.sig
 ```
 
-In this case the YRI population has X SNPs out of HWE in *UCP1*. Record the SNP ID numbers that have significant P-values for your population, because they will be important for what we do next. 
+In this case the YRI population has 3 SNPs out of HWE in *UCP1*: 4:140560750 (C:CAAAA, an indel), 4:140563611 (A:AT, another indel), and 4:140565377 (T:G, a bi-allelic SNP). Record the SNP positions that have significant P-values for your population, because they will be important for what we do next. 
 <br>
 <br>
 Hopefully, some of you have found that there are SNPs in your population that are not in Hardy-Weinberg Equilibrium. That's exciting! But, think back to the Wigginton paper. There is a large *Type 1 Error* rate for Hardy-Weinberg tests performed using a Chi-Squared test. To account for this, we will test our significant SNPs for Type 1 Error using the Shiny App calculator Becca De Camp (formerly a BU undergrad who took this course in 2017, now a Biological Anthropology Ph.D. student at Rutgers University!) created for us. Here's how we will do that: 
@@ -224,24 +226,24 @@ Hopefully, some of you have found that there are SNPs in your population that ar
 Here, you will be interacting with a user interface on this webpage that was created to calculate "true" Hardy-Weinberg Equilibrium P-values for one SNP at a time. The input for this UI will be the genotype frequencies from your population (i.e. the number of people from the population with the heterozygous genotype, the number of people with one homozygous genotype, etc.). You will find this information on *EnsEMBL* by doing the following: 
 <br> 
 
-* Make a shortlist of ***FOUR*** SNP ID numbers of the SNPs that you found *not* to be in Hardy-Weinberg Equilibrium. When making this list, check the *degrees of freedom*, column. This UI will only accept SNPs with only *two* alleles, or *one* degree of freedom. Therefore, even though there are SNPs with more than two alleles that are not in Hardy-Weinberg Equilibrium, please ignore them for now. If you do *not* have four SNPs that meet these criteria, fill in your list with SNPs at random. Ultimately, EVERYONE should be looking at FOUR SNPs each. 
+* Make a shortlist of ***FOUR*** SNP ID numbers, preferably of the SNPs that you found *not* to be in Hardy-Weinberg Equilibrium (if you have that many... if you don't, you may pick as many SNPs at random as you need to get to four). When making this list, check the *degrees of freedom*, column. This UI will only accept SNPs with only *two* alleles (*bi-allelic* SNPs), or *one* degree of freedom. Therefore, even though there are SNPs with more than two alleles that are not in Hardy-Weinberg Equilibrium, please ignore them for now. Again, if you do *not* have four SNPs that meet these criteria, fill in your list with SNPs at random. Ultimately, EVERYONE should be looking at FOUR SNPs each. 
 
-* Go to the *UCP1* gene page on *Ensembl* and click on the *Variant Table* tab so you get this familiar page: 
+* Go to the *UCP1* gene page on *EnsEMBL* and click on the *Variant Table* tab.
 
-* In the search bar at the top right of the variant table, type in the SNP ID number for one of your SNPs that's not in Hardy-Weinberg Equilibrium and search it. I will use the *UCP1* SNP **X** to demonstrate this. 
+* In the search bar at the top right of the variant table, type in the position number for one of your SNPs that's not in Hardy-Weinberg Equilibrium and search it. I will use the *UCP1* SNP **rs139894150** to demonstrate this. 
 <br> 
 
-![](img/rs2074192.png)
+![](rs139894150.png)
 <br>
 
-* When you have found your SNP in the table, you should first make note of the consequence type of the SNP. For example, *X* is an intronic variant. How do you think the consequence type will affect the phenotypic outcome of this SNP? 
+* When you have found your SNP in the table, you should first make note of the consequence type of the SNP. For example, *rs139894150* is an intronic variant. How do you think the consequence type will affect the phenotypic outcome of this SNP? 
 
 * Next, click on the SNP ID to get to the SNP page. From there, click on the *Population Genetics* tab to get the population genetics table. 
 
 * Find the *Genotype Frequency* column in this table: 
 <br>
 
-![](img/genotypefreq_rs2074192.png)
+![](img/genotypefreq_rs139894150.png)
 <br>
 
 * Find *your* population in the table. Record the genotype frequency count numbers (heterozygous, homozygous 1 and homozygous 2). These will be your input to the UI below. Using this method, find these genotype frequencies for each SNP you want to test.
@@ -402,7 +404,7 @@ module load vcftools
 Now, enter the following code. This is essentially telling *vcftools* to run the "true" HWE test on each variant site, and to give the output as a file called "**UCP1_YRI.hwe**":
 
 ```{bash, eval = F, echo = T, class.source="sccCode"}
-vcftools --gzvcf UCP1_YRI.vcf.gz --hardy --out UCP1_YRI
+vcftools --vcf UCP1_YRI.vcf --hardy --out UCP1_YRI
 ```
 
 Once it's run, you can read the output file using the *less* command:
@@ -425,11 +427,12 @@ And then filter by `P_HWE`, which represents the HWE p-value:
 library(tidyverse)
 vcftools.HWE.sig <-
   vcftools.HWE %>%
-  as_tibble(vcftools.HWE) %>%
   select(CHR,POS,ChiSq_HWE,P_HWE) %>%
   filter(P_HWE <= 0.05)
 vcftools.HWE.sig
 ```
+
+Are you getting the same significant SNPs? Why or why not?
 
 <br>
 <br>
