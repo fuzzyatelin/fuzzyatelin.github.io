@@ -476,6 +476,21 @@ There's a solution: ***tabix***!<br>
 [caschmit@scc1 ~]$
 ```
 
+* Now, you'll need to move to the `anth333` project space:
+```{bash, eval = F, , echo = T, class.source="sccCode"}
+cd /projectnb/anth333
+```
+
+* Once in the `anth333` project space, if you haven't already, you must create a directory for your specific username (the brackets just indicate that you should include *your* BU username; do not include the brackets in your command... for example, my command would be `mkdir caschmit`):
+```{bash, eval = F, , echo = T, class.source="sccCode"}
+mkdir username
+```
+
+* Then, navigate to the new directory you created:
+```{bash, eval = F, , echo = T, class.source="sccCode"}
+cd username
+```
+
 * Enter this code in your prompt to load *htslib*, the module from which *tabix* can be loaded:
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
 module load htslib
@@ -484,7 +499,7 @@ module load htslib
 * First, we can download the data from an online repository. In this case, let's download just the *UCP1* gene. Remember, my population of interest is YRI, so I'll use that abbreviation in my code. Where you see 'YRI' in my code, insert the three-letter code of *your* population instead. Use the following command, *making sure that your positions are correct* for UCP1 (4:140559434-140568805), and that the *chromosome* designation is correct, both in the filename *and* in the positions (for example, if you were downloading a gene region on chromosome 8, you would replace all occurrences of `chr4` in the code below - there are two of them - with `chr8`):
 
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.filtered.shapeit2-duohmm-phased.vcf.gz chr4:140559434-140568805 > UCP1_YRI_all.vcf
+tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.filtered.shapeit2-duohmm-phased.vcf.gz chr4:140559434-140568805 > /projectnb/anth333/username/UCP1_YRI_all.vcf
 ```
 
 * Notice the syntax in that command? It's basically:
@@ -496,7 +511,7 @@ tabix -h [VCF file URL] [desired region] > [filename].vcf
 
 * If you want to take a look at the file, and see that it's all there, you can use the '*less*' command and scroll with the 'down arrow' key to see the file itself. The screenshot below is of the first look, before you start scrolling. Notice there are A LOT of individuals (over 2,500), with names starting with '*HG*' or '*NA*'. To leave the scrolling and go back to the prompt, press '*q*':
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-less UCP1_YRI_all.vcf
+less /projectnb/anth333/username/UCP1_YRI_all.vcf
 ```
 
 ![](img/YRI_all_view.png)
@@ -512,7 +527,7 @@ wget http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_
 
 * Let's take a look at this file, as well. Notice that each sample has it's sub-population ('*pop*'), population ('*super_pop*'), and gender noted here. Scroll down and take a look at what sample ID numbers are associated with your population. To leave the scrolling and go back to the prompt, press '*q*':
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-less integrated_call_samples_v3.20130502.ALL.panel
+less /projectnb/anth333/username/integrated_call_samples_v3.20130502.ALL.panel
 ```
 
 ![](img/10kg_poppanel.png)
@@ -520,12 +535,12 @@ less integrated_call_samples_v3.20130502.ALL.panel
 
 * Now, we need to make a list of IDs just from our population of interest, so we can tell a program called *vcftools* to only keep those individuals in the VCF file and cut out everyone else. Remember, mine is YRI, so I'll use that code. Where you see 'YRI' in my code, insert the three-letter code of *your* population:
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-grep YRI integrated_call_samples_v3.20130502.ALL.panel | cut -f1 > YRI.samples.list
+grep YRI /projectnb/anth333/username/integrated_call_samples_v3.20130502.ALL.panel | cut -f1 > /projectnb/anth333/username/YRI.samples.list
 ```
 
 * Let's take a quick look at our samples list. It should have a single column of sample names, and these sample names should match those you saw in your population. To leave the scrolling and go back to the prompt, press '*q*':
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-less YRI.samples.list
+less /projectnb/anth333/username/YRI.samples.list
 ```
 
 ![](img/YRIsampleslist.png)
@@ -538,17 +553,17 @@ module load vcftools
 
 * Now we can use *vcftools* to subset our dataset:
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-vcftools --vcf UCP1_YRI_all.vcf --keep YRI.samples.list --recode --out UCP1_YRI
+vcftools --vcf /projectnb/anth333/username/UCP1_YRI_all.vcf --keep /projectnb/anth333/username/YRI.samples.list --recode --out /projectnb/anth333/username/UCP1_YRI
 ```
 
 * My *new* VCF file is called ***YRI_UCP1.recode.vcf***. Again, yours should be similar but with *your* population three-letter name. Rename this, as follows:
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-mv UCP1_YRI.recode.vcf UCP1_YRI.vcf
+mv /projectnb/anth333/username/UCP1_YRI.recode.vcf /projectnb/anth333/username/UCP1_YRI.vcf
 ```
 
 * Great! You now have your *UCP1* data file for just your population, which should be named ***UCP1_YRI.vcf*** (but with your population name)! If you take a look at the VCF file and scroll, you should see a list of IDs that match your samples list, meaning that the only genotypes included are those from your sample population:
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-less UCP1_YRI.vcf
+less /projectnb/anth333/username/UCP1_YRI.vcf
 ```
 
 ![](img/YRIvcf.png)
