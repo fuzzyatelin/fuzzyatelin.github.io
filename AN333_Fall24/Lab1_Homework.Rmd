@@ -61,13 +61,13 @@ Nobody should have the deletion allele of these variants.
 
 ### Question 2 (50 points):
 
-Go back to the variant table, and filter and sort it to find *Stop Gained* variants.
+Go back to the Variant Table, and filter and sort it to find *Stop Gained* variants.
 
 * How many SNPs that cause a stop gain in *UCP1* are present in the 1000 Genomes populations?  
 * Name them, using the Variant ID, in order from lowest to highest position number.
 * What is the *minor* allele (which causes the stop codon) for the stop-gained SNP that has the highest position number? 
 * What does a stop gain mutation do, and why might it be selected for or against in population?  
-* Does an individual in YOUR 1000 Genomes population have the minor allele?
+* Does an individual in *your* 1000 Genomes population have the minor allele?
 * Given the readings for Module 1 regarding the function of *UCP1*, what might having the minor allele mean for the phenotype of individuals who have it?
 
 ```{r, eval = FALSE, echo = FALSE}
