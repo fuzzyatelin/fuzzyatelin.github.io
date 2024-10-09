@@ -83,7 +83,7 @@ rs539685692 - A
 
 We should *probably* get a little more practice with the *tabix* and *vcftools* coding for downloading data into our *SCC* space.<br>
 
-* Please download an extended version of the *UCP1* gene region that includes 5,000 bp up- and down-stream of the gene region for your assigned population (i.e., add 5000 to the end position of the gene, and subtract 5000 from the starting position), and name it UCP1_REGION. Of all the files generated, you should keep *ONLY the final VCF file*. Send the file to me via the homework interface.<br>
+* Please download an extended version of the *UCP1* gene region that includes 10,000 bp up- and down-stream of the gene region for your assigned population (i.e., add 10,000 to the end position of the gene, and subtract 10,000 from the starting position), and name it `UCP1_POP_REGION_username.vcf` (where `POP` is *your* study population's three-letter code, and `username` is your BU login name). Of all the files generated, you should keep *ONLY the final VCF file*. Send the file to me via the homework interface.<br>
 
 * **Additionally, the final VCF file must be in your *SCC* working directory by the time we meet in class on Friday, October 4th!**
 
