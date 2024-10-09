@@ -332,151 +332,28 @@ Now that we have explored some important features of the *EnsEMBL* website, we c
 
 #### Step 4: Getting Genetic Data for your Sub-Population {.tabset .tabset-fade}
 
-Usually when you are working with genomic information, you are given a whole chromosome or even a whole genome's worth of information in either a BAM file or a VCF file. If you only need to look at one small part of the genome, it can be very annoying (and very slow) to work with a lot of extra data. The *Data Slicer* in *EnsEMBL* is a convenient way to get only the amount of data that you want without using a separate program to cut it out yourself. We will use this tool to get the data for our analyses of *UCP1*. We will be taking one slice of data as part of this module: one that contains all of the SNPs in *UCP1*. 
+Usually when you are working with genomic information, you are given a whole chromosome or even a whole genome's worth of information in either a BAM file or a VCF file. If you only need to look at one small part of the genome, it can be very annoying (and very slow) to work with a lot of extra data. The ***tabix*** function provides an easy and convenient way to download a user-defined subset of a genomic region directly from *EnsEMBL*; it's a convenient way to get only the amount of data that you want without using a separate program to cut it out yourself. We will use this tool to get the data for our analyses of *UCP1* that *only* contains all of the SNPs in *UCP1*. 
 <br>
 <br>
-The link to the *Data Slicer* is available here: <https://useast.ensembl.org/Homo_sapiens/Tools/DataSlicer>. 
-<br>
-<br>
-**IMPORTANT NOTE**: Sometimes *Data Slicer* (when run in the *SCC*) sucks and forgets how to link to the Phase 3 dataset appropriately. This makes things a bit more complicated. As such, I've appended a few methods, below, for getting the data we need. The first tab - *Data Slicer WINS!* - contains instructions for when *Data Slicer* works as it is supposed to (note: it will probably work if you run it on your own laptop/computer - in this case, the resulting zipped VCF files are each less than 1 MB; I recommend trying this and moving the files to your *SCC* space via CyberDuck or MobaXTerm) . The second tab - *Data Slicer SUCKS!* - is for when *Data Slicer* fails us (again, this is likely to happen in the *SCC* for some reason). The second method isn't harder, just a bit tedious, and might take a smidge longer. The third tab - *It's TABIX time!* - uses bioinformatics tools (namely a program named *tabix*) to download and partition the data. This is the fastest and most useful method, IMHO. <br>
 
-Try the *Data Slicer WINS!* method first in the *SCC*; if that fails, try the web browser of your own computer. If both fail, it's time to move on the the *Data Slicer SUCKS!* method. Folks more comfortable with coding will find the *tabix* method to be the easiest and fastest option. I encourage everyone to try it. If you'd like to be thorough, you can try all of them (but keep only *one* final VCF file)!<br>
+**IMPORTANT NOTE**: Sometimes our wifi connection might be a bit dodgy, or *EnsEMBL* might be too slow for other reasons. This makes things a bit more complicated when trying to access data remotely. As such, I've appended a second method, below, for getting the data we need. The first tab - *Downloading 1KG Data from FTP* - contains instructions for when the data connection to *EnsEMBL* works as it is supposed to. The second tab - *NOTHING Works!* - is for when connecting to *EnsEMBL* fails us. The second method isn't harder, it just takes a few more steps to access genomic data already present in the `/project/anth333/` workspace, and so might take a smidge longer. <br>
+
+Try the *Downloading 1KG Data from FTP* method first in the *SCC*. If that fails, it's time to move on the the *NOTHING Works!* method. If you'd like to be thorough, you can try both of them (but keep only *one* final VCF file)!<br>
 
 Now, on to the tutorial!
 
-* Click on the link provided above. It will take you to the Data Slicer interface: 
-<br>
+##### ***Downloading 1KG Data from FTP***
 
-![](img/dataslicer.png)
-<br>
-<br>
-
-* First off, in the "Name for this job" category, let's name it after our assigned population. I'll be working with the Yoruba population, so I'll name mine "**YRI_UCP1**".
-
-* The file format should be set for VCF. If it's not, click the drop-down menu and select VCF. 
-
-* In the "region lookup" bar, copy and paste in the location **4:140559434-140568805**. These are the GRCh38.p13 version alignment coordinates for the gene *UCP1*.
-
-* In in the "Choose data collections..." dropdown list, make sure "Phase 3" is selected. This will ensure you get data from the last phase of the 1000 Genomes Project. 
-
-* In the "filters" category, select "By populations". This will give you a dropdown menu of all of the 1000 Genomes populations. Select the population that you were assigned by its three letter code, so that you only get the data for that population. 
-
-* The filled-in interface should look like this: 
-<br>
-
-![](img/dataslicer3.png)
-<br>
-
-<br>
-<br>
-<br>
-<br>
-
-##### ***Data Slicer WINS!***
-
-If this has worked, and your window looks more or less like the image above, then *Data Slicer* is winning so far!
-
-* You can continue by pressing "Run". It may take a few moments, but when the job is done a bright green "Done" button will appear next to your job name. 
-
-![](img/job.png)
-<br>
-
-* Next to the "Done" button, press the "View results" link. You will get this page: 
-<br>
-
-![](img/results.png)
-<vr>
-
-* Scroll down to the bottom of the results preview. Recall from earlier that there is a "head" and a "body" section of a VCF file. Check to make sure that the "body" of the file is there. It will typically only show a preview of 5 or 6 SNPs, but the preview body will look like this: 
-<br>
-
-![](img/body.png)
-<br>
-
-We check our file to see if the body is there because sometimes the server will malfunction and give you only the head of the VCF file. If that happens, repeat the *Data Slicer* process.
-<br>
-
-* Once you've checked your files to make sure everything is there, click on "Download results file", which should save these files in *filename.vcf.gz* format in the 'Downloads' folder in your *anth333* workspace on the *SCC*.
-
-* Once in your workspace, change your filenames to make things easier. Rename the full *UCP1* file with the acronym for your population. Remember, to rename a file in the *SCC* workspace, you use the *mv* command (e.g., '*mv oldname.vcf.gz YRI.vcf.gz*')
-
-<br> 
-
-If this hasn't worked and *Data Slicer* is giving you some kind of error message asking for some URL or other... well... *Data Slicer* sucks and it's time to get resourceful, so click on that tab and check out what to do next...
-
-Now, some students have noticed that this second process literally takes forever, and sometimes if the WIFI is bad, the website will time out and you'll be unable to even start this process... in that case, if all else fails...  use ***tabix***. 
-
-You can click on one of the three tabs below to choose your own way forward. If Data Slicer is working, that's the most user-friendly way forward; for those students interested in doing more work in bioformatics in future, I strongly recommend at least trying the *tabix* method.
-
-
-##### ***Data Slicer SUCKS!***
-
-*Gah... this bug in Data Slicer is THE WORST*. But it's also not the end of the world. We can still get what we need from *EnsEMBL*, it'll just take a bit longer. The bonus is that we'll learn how to use a couple extra bioinformatics tools that are actually *preferred* over *Data Slicer* by folks who work frequently with human genomic data.
-
-* Retrace your steps to get to the *Data Slicer* and re-enter all the naming and coordinate information you had before.
-
-* In in the "Choose data collections..." dropdown list, where it says "Phase 3", click and choose "Provide file URLs".
-
-* In the blank box that opens up next to "Genotype file URL", copy the following URL and paste it into the box:<br>
-
-ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/GRCh38_positions/ALL.chr4_GRCh38.genotypes.20170504.vcf.gz
-
-* Now, click on the "By populations" button for "Filters", and a new error message will crop up asking for a sample population mapping file URL. When that happens, paste this URL into the "Sample population mapping file URL" box:<br>
-
-ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/integrated_call_samples_v3.20130502.ALL.panel
-
-* Once that's done, your *Data Slicer* entry should look like this (notice the green highlighted areas):
-
-<br>
-
-![](img/dataslicer4.png)
-
-<br>
-
-* Hit the "run" button at the bottom of the page.
-
-* When you have clicked "Run", you will see this table pop up, which will eventually tell you when your job has been processed. Click "View Results" to look at your results. 
-<br>
-
-![](img/job.png)
-<br>
-<br>
-
-* You will get this page: 
-<br>
-
-![](img/results.png)
-<br>
-
-* Scroll down to the bottom of the results preview. Recall from earlier that there is a "head" and a "body" section of a VCF file. Check to make sure that the "body" of the file is there. It will look like this: 
-<br>
-
-![](img/body.png)
-<br>
-
-We check our file to see if the body is there because sometimes the server will malfunction and give you only the head of the VCF file. If that happens, repeat the *Data Slicer* process. Check both files in this same way.  
-<br>
-
-* Once you've checked your file to make sure everything is there, click on "Download results file", which should save it in *filename.vcf.gz* format in the 'Downloads' folder in your *anth333* workspace on the *SCC*.
-
-* Once in your workspace, change your filenames to make things easier. Rename the *ACE2* VCF file with the acronym for your population. For example, I downloaded data from the **YRI** population, so I named the file "UCP1_YRI.vcf.gz". Remember, to rename a file in the *SCC* workspace, you use the *mv* command (e.g., '*mv oldname.vcf.gz UCP1_YRI.vcf.gz*')
-
-<br> 
-
-##### ***It's TABIX time!***
-
-Ok, so nothing has worked... we're tired of working with *Data Slicer*! OR we think easy user interfaces are for suckers and we really want to just do this using cold, hard code...<br>
-
-There's a solution: ***tabix***!<br>
+We can use a wonderful program called ***tabix*** to download 1000 Genomes Project data directly modified for our gene region from an *FTP* archive of the genomic data available online!<br>
 
 *tabix* is a module that you can load into your *SCC* workspace, like any other module.
 
-* Make sure you're in your home directory on the *SCC*, meaning your prompt should look like this (if it doesn't, enter '**cd ..**', and that should take you back to your home directory):
+* Make sure you've logged in to your home directory on the *SCC*, meaning your prompt should look like this (if it doesn't, enter '**cd ..**', and that should take you back to your home directory):
 ```{bash, eval = F, , echo = T, class.source="sccCode"}
 [caschmit@scc1 ~]$
 ```
 
-* Now, you'll need to move to the `anth333` project space:
+* Now, you'll need to navigate to the `anth333` project space:
 ```{bash, eval = F, , echo = T, class.source="sccCode"}
 cd /projectnb/anth333
 ```
@@ -553,7 +430,7 @@ module load vcftools
 
 * Now we can use *vcftools* to subset our dataset:
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-vcftools --vcf /projectnb/anth333/username/UCP1_YRI_all.vcf --keep /projectnb/anth333/username/YRI.samples.list --recode --out /projectnb/anth333/username/UCP1_YRI
+vcftools --vcf /projectnb/anth333/username/UCP1_YRI_all.vcf --keep /projectnb/anth333/username/YRI.samples.list --recode --out /projectnb/anth333/username/UCP1_YRI --non-ref-ac-any 1
 ```
 
 * My *new* VCF file is called ***YRI_UCP1.recode.vcf***. Again, yours should be similar but with *your* population three-letter name. Rename this, as follows:
@@ -589,14 +466,14 @@ In this case, we can still use *tabix* and *vcftools* as in the above method, bu
 cd /projectnb/anth333
 ```
 
-* Once in the `anth333` project space, if you haven't already, you must create a directory for your specific username (the brackets just indicate that you should include *your* BU username; do not include the brackets in your command... for example, my command would be `mkdir caschmit`):
+* Once in the `anth333` project space, if you haven't already, you must create a directory for your specific username (for example, my command would be `mkdir caschmit`):
 ```{bash, eval = F, , echo = T, class.source="sccCode"}
-mkdir [username]
+mkdir username
 ```
 
 * Then, navigate to the new directory you created:
 ```{bash, eval = F, , echo = T, class.source="sccCode"}
-cd [username]
+cd username
 ```
 
 * Enter this code in your prompt to load *htslib*, the module from which *tabix* can be loaded:
@@ -606,7 +483,7 @@ module load htslib
 
 * Now, within the `anth333` project space, we already have the 1KG chromosome 4 data present, in a directory called `1KG_Chrom4`. We'll work with those data now using tabix to create a VCF file of just the *UCP1* gene in our personal directory using the following (**note in the code below, that you must change two things** - you must add your username directory, again, without the brackets (mine would be `caschmit`), and you must add your three-letter population code, also without the brackets (mine would be `YRI`!):
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-tabix -h /projectnb/anth333/1KG_Chrom4/CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.filtered.shapeit2-duohmm-phased.vcf.gz chr4:140559434-140568805 > /projectnb/anth333/[username]/UCP1_[POP]_all.vcf
+tabix -h /projectnb/anth333/1KG_Chrom4/CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.filtered.shapeit2-duohmm-phased.vcf.gz chr4:140559434-140568805 > /projectnb/anth333/username/UCP1_POP_all.vcf
 ```
 
 * Notice the syntax in the *tabix* command? It's basically:
@@ -654,7 +531,7 @@ module load vcftools
 
 * Now we can use *vcftools* to subset our dataset. Where you see `YRI` in my code, insert the three-letter code of *your* population, and where you see `caschmit`, insert your own username:
 ```{bash, eval = FALSE, echo = T, class.source="sccCode"}
-vcftools --vcf /projectnb/anth333/caschmit/UCP1_YRI_all.vcf --keep /projectnb/anth333/caschmit/YRI.samples.list --recode --out /projectnb/anth333/caschmit/UCP1_YRI
+vcftools --vcf /projectnb/anth333/caschmit/UCP1_YRI_all.vcf --keep /projectnb/anth333/caschmit/YRI.samples.list --recode --out /projectnb/anth333/caschmit/UCP1_YRI --non-ref-ac-any 1
 ```
 
 * My *new* VCF file is called ***YRI_UCP1.recode.vcf***. Again, yours should be similar but with *your* population three-letter name and *your* username. Rename this, as follows:
