@@ -178,7 +178,7 @@ R2heatmapUCP1 <- LDheatmap(UCP1matrix$data,
                                       "4:140563980:G:A", "4:140569265:T:G",
                                       "4:140572807:T:C"),
                            color=rgb.palette(18), newpage=TRUE,
-                           name="UCP1 LD Heatmap (R^2)")
+                           name="R2heatmapUCP1")
 
 #There is USUALLY a way to add the gene map to this... but UCSC Genome Browser recently changed they way their website works, so this is broken, for now.
 #addGenes <- LDheatmap.addGenes(R2heatmapUCP1, chromosome="chr4",genome="hg38")
@@ -194,11 +194,52 @@ dev.off()
 
 ![](R2heatmapUCP1_YRI.png)
 
-As you can see on first glance, there are *potentially* two large linkage blocks in the *UCP1* region of the YRI population: one downstream (near the beginning) of the region (remember, *UCP1* is on the reverse strand, so lower position numbers are downstream), and one upstream. It also looks like there may be a small region of linkage in the middle.
+We can also add in an outline of the gene region, if that helps you to imagine where exactly all this LD is occurring:
+```{r,results="hide",message=F}
+#This code establishes the color palette for the heatmap
+rgb.palette <- colorRampPalette(rev(c("grey85", "green", "darkgreen")), space = "rgb")
 
-There are a few things we can do to figure out exactly where these linkage regions are...
+#This code will save the subsequent plot
+png(filename="R2heatmapUCP1_YRI_Gene.png",units="in",res=600,width=6,height=5)
 
-Maybe the easiest is a tool in the {gpart} package for statistically pulling out the positions of independent linkage blocks:
+#Here's the code for the heatmap itself
+R2heatmapUCP1 <- LDheatmap(UCP1matrix$data,
+                           genetic.distances=UCP1matrix$genetic.distances,
+                           distances="physical",
+                           LDmeasure="r",
+                           title="Pairwise LD in UCP1 for YRI using R^2",
+                           add.map=TRUE, add.key=TRUE,
+                           geneMapLocation=0.15,
+                           SNP.name=c("4:140560427:T:C", "4:140562317:T:A",
+                                      "4:140563980:G:A", "4:140569265:T:G",
+                                      "4:140572807:T:C"),
+                           color=rgb.palette(18), newpage=TRUE,
+                           name="R2heatmapUCP1")
+
+#There is USUALLY a way to add the gene map to this... but UCSC Genome Browser recently changed they way their website works, so this is broken, for now.
+#addGenes <- LDheatmap.addGenes(R2heatmapUCP1, chromosome="chr4",genome="hg38")
+#addRecomb <- LDheatmap.addRecombRate(R2heatmapUCP1, chr="chr4", genome="hg38")
+
+#Highlight UCP1 gene region... remember, it's 4:140559431-140568961. In my SNPMatrix, this translates to rows 35-93; it may translate to *different* rows in your own!:
+
+LDheatmap.highlight(R2heatmapUCP1, i = 35, j = 93, fill = "NA", col = "black", lwd = 0.5,lty = 1,flipOutline=FALSE, crissCross = TRUE)
+
+#Here we're editing the symbols
+grid::grid.edit("symbols", pch = 16, gp = grid::gpar(cex = 0.5,col="darkgreen"))
+#And here we're editing the SNP names
+grid::grid.edit("SNPnames", gp = grid::gpar(cex=0.75,col="darkgreen"))
+#and this closes the plot
+dev.off()
+```
+
+![](R2heatmapUCP1_YRI_Gene.png)
+
+
+As you can see on first glance, there is *potentially* one large linkage block in the *UCP1* region of the YRI population, starting downstream (beyond the end) of the gene region. Remember, *UCP1* is on the reverse strand, so the gene is read from higher positions to lower positions, meaning that positions lower than the lowest numner in the gene's position range are are *downstream* of the gene). It also looks like there may be a few small regions of LD in the *upstream* region of the gene, near our regulatory SNPs from the Cha *et al.* (2008) paper... one immediately upstream of the gene (in what may be the promoter region), and one much further.
+
+There are a few things we can do to figure out exactly where these significant regions of LD actually are beyond just eyeballing them...
+
+Maybe the easiest is a tool in the {gpart} package called `BigLD`, which will help us statistically identify the positions of independent linkage blocks in our gene region:
 ```{r,message=F,warning=F,eval=F}
 library(gpart)
 ucp1_res = BigLD(genofile = "/projectnb/anth333/caschmit/UCP1_YRI_REGION.vcf",LD="r2")
@@ -209,11 +250,65 @@ library(gpart)
 ucp1_res = BigLD(genofile = "UCP1_YRI_REGION.vcf",LD="r2")
 ucp1_res
 ```
-As you can see, {gpart} has identified *four* linkage blocks in the YRI population across the *UCP1* gene region... the first, which runs from positions 140554683-140568842, appears to represent that first block we can visually identify in the downstream region of the heatmap; it contains our three SNPs we learned about from Ramos *et al.*, and indeed also contains almost the entire gene region (remember, *UCP1* runs from 140559431-140568961 on the reverse strand) and its downstream enhancer region (which runs from 140556002-140559199). 
+As you can see, {gpart} has identified *four* significant blocks of LD in the YRI population across our *UCP1* gene region... let's take a look at where these regions are by mapping them onto our `LDheatmap` object:
+```{r}
+#This code establishes the color palette for the heatmap
+rgb.palette <- colorRampPalette(rev(c("grey85", "green", "darkgreen")), space = "rgb")
 
-The second linkage block, which runs from 140569304-140569826, is immediately upstream of the coding region for *UCP1*, and may represent the promoter, which runs from 140568951-140569599. How do I know that's where the promoter is? It's on *EnsEMBL*! You can see the promoter, enhancers, and their associated positions in the **Region in Detail** view on the human *UCP1* gene page.
+#This code will save the subsequent plot (notice the name change!)
+png(filename="R2heatmapUCP1_YRI_LDblocks.png",units="in",res=600,width=6,height=5)
 
-Although the other two linkage blocks further upstream from the gene are not annotated on *EnsEMBL*, the loci from the Cha *et al.* paper give us a clue regarding what these linkage blocks might represent: each appear to contain the two regulatory loci Cha *et al.* identified as having a large impact on abdominal obesity in Koren women, suggesting that these may also be either full regulatory regions for *UCP1* that have not yet been identified as such, or that there may be LD around these two SNPs because of selection based on their regulatory effects on *UCP1* function.
+#Here's the code for the heatmap itself (nothing's changed here):
+R2heatmapUCP1 <- LDheatmap(UCP1matrix$data,
+                           genetic.distances=UCP1matrix$genetic.distances,
+                           distances="physical",
+                           LDmeasure="r",
+                           title="Pairwise LD in UCP1 for YRI using R^2",
+                           add.map=TRUE, add.key=TRUE,
+                           geneMapLocation=0.15,
+                           SNP.name=c("4:140560427:T:C", "4:140562317:T:A",
+                                      "4:140563980:G:A", "4:140569265:T:G",
+                                      "4:140572807:T:C"),
+                           color=rgb.palette(18), newpage=TRUE,
+                           name="R2heatmapUCP1")
+
+#There is USUALLY a way to add the gene map to this... but UCSC Genome Browser recently changed they way their website works, so this is broken, for now.
+#addGenes <- LDheatmap.addGenes(R2heatmapUCP1, chromosome="chr4",genome="hg38")
+#addRecomb <- LDheatmap.addRecombRate(R2heatmapUCP1, chr="chr4", genome="hg38")
+
+#Highlight UCP1 gene region... remember, it's 4:140559431-140568961. In my SNPMatrix, this translates to rows 35-93; it may translate to *different* rows in your own!:
+
+LDheatmap.highlight(R2heatmapUCP1, i = 35, j = 93, fill = "NA", col = "black", lwd = 0.5,lty = 1,flipOutline=FALSE, crissCross = TRUE)
+
+#Here we're adding our linkage blocks using the start/end index numbers in the {gpart} output, and choosing a different color for each block:
+
+#Block 1:
+LDheatmap.highlight(R2heatmapUCP1, i = 2, j = 91, fill = "NA", col = "gold", lwd = 2,lty = 1,flipOutline=FALSE, crissCross = FALSE)
+
+#Block 2:
+LDheatmap.highlight(R2heatmapUCP1, i = 98, j = 102, fill = "NA", col = "gold3", lwd = 2,lty = 1,flipOutline=FALSE, crissCross = FALSE)
+
+#Block 3:
+LDheatmap.highlight(R2heatmapUCP1, i = 107, j = 108, fill = "NA", col = "gold4", lwd = 2,lty = 1,flipOutline=FALSE, crissCross = FALSE)
+
+#Block 4:
+LDheatmap.highlight(R2heatmapUCP1, i = 124, j = 150, fill = "NA", col = "goldenrod", lwd = 2,lty = 1,flipOutline=FALSE, crissCross = FALSE)
+
+#Here we're editing the symbols
+grid::grid.edit("symbols", pch = 16, gp = grid::gpar(cex = 0.5,col="darkgreen"))
+#And here we're editing the SNP names
+grid::grid.edit("SNPnames", gp = grid::gpar(cex=0.75,col="darkgreen"))
+#and this closes the plot
+dev.off()
+```
+
+![](R2heatmapUCP1_YRI_LDblocks.png)
+
+The first, which runs from positions 140554683-140568842, appears to represent that first block we can visually identify in the downstream region of the heatmap; it contains our three SNPs we learned about from Ramos *et al.*, and indeed also contains almost the entire gene region (remember, *UCP1* runs from 140559431-140568961 on the reverse strand) and its downstream enhancer region (which runs from 140556002-140559199). 
+
+The second linkage block, which runs from 140569304-140569826, is immediately upstream of the coding region for *UCP1*, and may represent the promoter, which runs from 140568951-140569599. How do I know that's where the promoter is? It's on *EnsEMBL*! You can see the promoter, enhancers, and their associated positions in the **Region in Detail** view on the human *UCP1* gene page. As you can see, the -412A>C variant site (rs3811787) from the Cha *et al.* (2008) paper is right near the promoter, which might explain how it affects *UCP1* function: if one of the variants at that locus alters how the promoter initiates transcription of *UCP1*, it could change *UCP1* expression.
+
+Although the other two linkage blocks further upstream from the gene are not annotated on *EnsEMBL*, the final locus from the Cha *et al.* (2008) paper also gives us a clue regarding what these linkage blocks might represent: the larger of the two contains the famous regulatory locus Cha *et al.* identified as also having a large impact on abdominal obesity in Koren women, -3826A>G (rs1800592), suggesting that these may also be either full regulatory regions for *UCP1* that have not yet been identified as such, or that there may be LD in these areas due to selection on the regulatory effects of variants in these regions on *UCP1* function.
 
 Next, we'll calculate and visualize LD using the *D'* statistic: 
 <br>
@@ -243,6 +338,10 @@ DheatmapUCP1 <- LDheatmap(UCP1matrix$data,
 #addGenes <- LDheatmap.addGenes(R2heatmapUCP1, chromosome="chr4")
 #addRecomb <- LDheatmap.addRecombRate(R2heatmapUCP1, chr="chr4", genome="hg38")
 
+#Highlight UCP1 gene region... remember, it's 4:140559431-140568961. In my SNPMatrix, this translates to rows 35-93; it may translate to *different* rows in your own!:
+
+LDheatmap.highlight(DheatmapUCP1, i = 35, j = 93, fill = "NA", col = "black", lwd = 0.5,lty = 1,flipOutline=FALSE, crissCross = TRUE)
+
 #Here we're editing the symbols
 grid.edit("symbols", pch = 16, gp = gpar(cex = 0.5,col="red"))
 #And here we're editing the SNP names
@@ -266,7 +365,73 @@ ucp1_res1 = BigLD(genofile = "UCP1_YRI_REGION.vcf", LD="Dprime")
 ucp1_res1
 ```
 
-Here, we can see that, using the *D'* measure, the `BigLD` algorithm has divided the *UCP1* genomic region for the YRI population into 8 distinct linkage blocks, giving us both starting and ending positions for each.  Using the row number (1-8) to name them, which linkage block(s) contain our SNPs of interest? Are any of our SNPs now in different linkage blocks than before?
+Here, we can see that, using the *D'* measure, the `BigLD` algorithm has divided the *UCP1* genomic region for the YRI population into 8 distinct linkage blocks, giving us both starting and ending positions for each.  Using the row number (1-8) to name them, which linkage block(s) contain our SNPs of interest? Are any of our SNPs now in different linkage blocks than before?  
+
+Let's take a look (for this plot, I'll make the highlighted linkage blocks solid so that they can be seen better):
+```{r,results="hide",message=F}
+#This code establishes the color palette for the heatmap
+rgb.palette <- colorRampPalette(rev(c("grey85", "pink", "red")), space = "rgb")
+
+#This code will save the subsequent plot
+png(filename="DheatmapUCP1_YRI_LDblocks.png",units="in",res=600,width=6,height=5)
+
+#Here's the code for the heatmap itself
+DheatmapUCP1 <- LDheatmap(UCP1matrix$data,
+                           genetic.distances=UCP1matrix$genetic.distances,
+                           distances="physical",
+                           LDmeasure="D",
+                           title="Pairwise LD in UCP1 for YRI using D'",
+                           add.map=TRUE, add.key=TRUE,
+                           geneMapLocation=0.15,
+                           SNP.name=c("4:140560427:T:C", "4:140562317:T:A",
+                                      "4:140563980:G:A", "4:140569265:T:G",
+                                      "4:140572807:T:C"),
+                           color=rgb.palette(18), newpage=TRUE,
+                           name="UCP1 LD Heatmap (D')")
+
+#There is USUALLY a way to add the gene map to this... but UCSC Genome Browser recently changed they way their website works, so this is broken, for now.
+#addGenes <- LDheatmap.addGenes(R2heatmapUCP1, chromosome="chr4")
+#addRecomb <- LDheatmap.addRecombRate(R2heatmapUCP1, chr="chr4", genome="hg38")
+
+#Highlight UCP1 gene region... remember, it's 4:140559431-140568961. In my SNPMatrix, this translates to rows 35-93; it may translate to *different* rows in your own!:
+
+LDheatmap.highlight(DheatmapUCP1, i = 35, j = 93, fill = "NA", col = "black", lwd = 0.5,lty = 1,flipOutline=FALSE, crissCross = TRUE)
+
+#Here we're adding our linkage blocks using the start/end index numbers in the {gpart} output, and choosing a different color for each block:
+
+#Block 1:
+LDheatmap.highlight(R2heatmapUCP1, i = 2, j = 78, fill = "gold", col = "gold", lwd = 2,lty = 1,flipOutline=FALSE, crissCross = FALSE)
+
+#Block 2:
+LDheatmap.highlight(R2heatmapUCP1, i = 79, j = 80, fill = "gold3", col = "gold3", lwd = 2,lty = 1,flipOutline=FALSE, crissCross = FALSE)
+
+#Block 3:
+LDheatmap.highlight(R2heatmapUCP1, i = 97, j = 98, fill = "gold4", col = "gold4", lwd = 2,lty = 1,flipOutline=FALSE, crissCross = FALSE)
+
+#Block 4:
+LDheatmap.highlight(R2heatmapUCP1, i = 100, j = 102, fill = "goldenrod", col = "goldenrod", lwd = 2,lty = 1,flipOutline=FALSE, crissCross = FALSE)
+
+#Block 5:
+LDheatmap.highlight(R2heatmapUCP1, i = 107, j = 108, fill = "gold", col = "gold", lwd = 2,lty = 1,flipOutline=FALSE, crissCross = FALSE)
+
+#Block 6:
+LDheatmap.highlight(R2heatmapUCP1, i = 113, j = 139, fill = "gold3", col = "gold3", lwd = 2,lty = 1,flipOutline=FALSE, crissCross = FALSE)
+
+#Block 7:
+LDheatmap.highlight(R2heatmapUCP1, i = 140, j = 141, fill = "gold4", col = "gold4", lwd = 2,lty = 1,flipOutline=FALSE, crissCross = FALSE)
+
+#Block 8:
+LDheatmap.highlight(R2heatmapUCP1, i = 145, j = 150, fill = "goldenrod", col = "goldenrod", lwd = 2,lty = 1,flipOutline=FALSE, crissCross = FALSE)
+
+#Here we're editing the symbols
+grid.edit("symbols", pch = 16, gp = gpar(cex = 0.5,col="red"))
+#And here we're editing the SNP names
+grid.edit("SNPnames", gp = gpar(cex=0.75,col="red"))
+#and this closes the plot
+dev.off()
+```
+
+![](DheatmapUCP1_YRI_LDblocks.png)
 
 Now you've got several graphs that you can use to investigate LD in *your* population's gene region! You can see specifically whether or not the SNPs of interest (the labelled SNPs) are in LD by finding where on the graph their paths intersect, or by looking for their linkage block by position in the LD block analysis output. 
 
