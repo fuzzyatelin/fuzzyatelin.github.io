@@ -1,7 +1,7 @@
 ---
 title: 'AN/BI 333/733: Modules'
 author: "Christopher A Schmitt"
-date: "September 3, 2024"
+date: "October 10, 2024"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -102,29 +102,28 @@ life population genetic analyses.</li>
 ***
 
 ### [*Module 3: Linkage Disequilibrium (LD) in UCP1*](https://fuzzyatelin.github.io/AN333_Fall24/Lab3_Module.html)
-**October 11**<br>
+**October 18**<br>
 
 ***
 
 **Material covered**: In this module, we'll be assessing linkage disequilibrium (LD) in the *UCP1* genomic regions of the 1000 Genomes populations using *R* coding language. We'll also work on calculating LD by hand between two known loci in *UCP1*. All of this will help us work towards understanding factors that increase LD in the human genome.<br><br> 
 **Readings**:<ul> 
-<li>[2]()</li><br>
-<li>[]()</li><br>
+<li>[Cha MH, Kim KS, Suh D, Chung S-I, Yoon Y. 2008. A UCP1-412A>C polymorphism is associated with abdominal fat area in Korean women. *Hereditas* 145(5): 231-237.](https://onlinelibrary.wiley.com/doi/full/10.1111/j.1601-5223.2008.02071.x)</li><br>
+<li>[Ramos AV, Bastos-Rodriguez L, Resende BA, Friedman E, Campanha-Versiani L, Miranda DM, Sarquis M, De Marco L. 2012. The contribution of *FTO* and *UCP-1* SNPs to extreme obesity, diabetes and cardiovascular risk in Brazilian individuals. *BMC Med Genet* 13:101.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3526455/)</li><br>
 <li>[Slatkin M. 2008. Linkage disequilibrium – understanding the evolutionary past and mapping the medical future. *Nat Rev Genet* 9: 477-485.](https://www.nature.com/articles/nrg2361)</li><br>
-<li>[]()</li><br>
 <li>[Claiborne Stephens J, Schneider JA, Tanguay DA, Choi J, Acharya Y, Stanley SE, Jiang R, *et al*. 2001. Haplotype variation and linkage disequilibrium in 313 human genes. *Science* 293: 489-93.](http://science.sciencemag.org/content/293/5529/489)</li></ul><br>
-**Activities**: We'll assess linkage disequilibrium across the *UCP1* loci using our datasets downloaded from *EnsEMBL*, with a focus on the SNPs that are defined in Nishimura et al. (2017). We will then discuss what linkage disequilibrium values in our populations could mean regarding potential for selection having occurred within our populations.<br><br>
-**Assignment**: Students must turn in homeowork – with questions related to *UCP1* variation in humans and related to the downloaded dataset –  online by the following Friday. **Module 2 Homework Assignment is due today.**<br><br>
+**Activities**: We'll assess linkage disequilibrium across the *UCP1* loci using our datasets downloaded from *EnsEMBL*, with a focus on the SNPs that are defined in our readings. We will then discuss what linkage disequilibrium values in our populations could mean regarding potential for selection having occurred within our populations.<br><br>
+**Assignment**: Students must turn in homeowork – with questions related to *UCP1* variation in humans and related to the downloaded dataset –  online by the following Friday.<br><br>
 **Learning Outcomes**:<ul>
-<li>Learn about the SNPs *rs1800592* and *rs4240157* for *UCP1*, and their roles in human thermoregulation and metabolism.</li>
-<li>Learn how to use the *R* package *SNPStats* to perform LD analysis in a population, including constructing LD matrices and LD heatmaps.</li> 
-<li>Learn about the two statistics *D'* and *R<sup>2</sup>*, which are the most commonly used statistics to evaluate LD between SNPs. Learn what each can tell us about a population, and apply the two statistics to our own populations</li> 
-<li>Learn how to use *Ensembl* to look at long-distance LD between SNPs in *ACE2* and *TMPRSS2*, as well as for SNPs in other genes. 
+<li>Learn about the SNPs *rs6536991*, *rs2270565*, *rs12502572*, *rs3811787*, and *rs1800592* and their roles in human obesity.</li>
+<li>Learn how to use various *R* packages to perform LD analysis in a population, including constructing LD matrices and LD heatmaps.</li> 
+<li>Learn about the two statistics *D'* and *r<sup>2</sup>*, which are the most commonly used statistics to evaluate LD between SNPs. Learn what each can tell us about a population, and apply the two statistics to our own populations.</li> 
+<li>Learn how to use *EnsEMBL* to look at long-distance LD between SNPs in *UCP1*, as well as for SNPs in other genes that show LD with *UCP1* variants. 
 </li>
 
 ***
 
-### [Homework for Module 3: DUE Monday, October 25th](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Homework.html)
+### [Homework for Module 3: DUE Monday, October 28th](https://fuzzyatelin.github.io/AN333_Fall24/Lab3_Homework.html)
 
 ***
 
