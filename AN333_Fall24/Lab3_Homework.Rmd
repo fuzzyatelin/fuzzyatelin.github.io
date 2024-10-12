@@ -1,35 +1,34 @@
 ---
 title: 'Module 3: Homework'
 author: "Christopher A Schmitt"
-date: "October 22, 2020"
+date: "October 11, 2024"
 output: 
   rmarkdown::html_document:
     theme: cosmo
 ---
 
-## Introduction to Linkage Disequilibrium (LD)
+## Linkage Disequilibrium (LD) in *UCP1*
 
 ***
 
 **Readings**:<ul> 
-<li>[Wooster L, Nicholson CJ, Sigurslid HH, Lino Cardenas CL, Malhotra R. *Preprint accessed 31AUG20*. Polymorphisms in the ACE2 locus associate with severity of COVID-19 infection. *medRxiv* doi:10.1101/2020.06.18.20135152](https://www.medrxiv.org/content/10.1101/2020.06.18.20135152v1.full.pdf)</li><br>
-<li>[Cheng Z., et al. 2015. Identification of *TMPRSS2* as a susceptibility gene for severe 2009 pandemic A(H1N1) influenza and A(H7N9) influenza. *The Journal of Infectious Diseases*, 212(8):1214–1221.](https://academic.oup.com/jid/article/212/8/1214/2193475)</li><br>
+<li>[Cha MH, Kim KS, Suh D, Chung S-I, Yoon Y. 2008. A UCP1-412A>C polymorphism is associated with abdominal fat area in Korean women. *Hereditas* 145(5): 231-237.](https://onlinelibrary.wiley.com/doi/full/10.1111/j.1601-5223.2008.02071.x)</li><br>
+<li>[Ramos AV, Bastos-Rodriguez L, Resende BA, Friedman E, Campanha-Versiani L, Miranda DM, Sarquis M, De Marco L. 2012. The contribution of *FTO* and *UCP-1* SNPs to extreme obesity, diabetes and cardiovascular risk in Brazilian individuals. *BMC Med Genet* 13:101.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3526455/)</li><br>
 <li>[Slatkin M. 2008. Linkage disequilibrium – understanding the evolutionary past and mapping the medical future. *Nat Rev Genet* 9: 477-485.](https://www.nature.com/articles/nrg2361)</li><br>
-<li>[Zeberg H, Pääbo S. 2020. The major genetic risk factor for severe COVID-19 is inherited from Neanderthals. *Nature* 2998 ](https://www.nature.com/articles/s41586-020-2818-3)</li><br>
-<li>[Claiborne Stephens J, Schneider JA, Tanguay DA, Choi J, Acharya Y, Stanley SE, Jiang R, *et al*. 2001. Haplotype variation and linkage disequilibrium in 313 human genes. *Science* 293: 489-93.](http://science.sciencemag.org/content/293/5529/489)</li></ul><br>
+<li>[Claiborne Stephens J, Schneider JA, Tanguay DA, Choi J, Acharya Y, Stanley SE, Jiang R, *et al*. 2001. Haplotype variation and linkage disequilibrium in 313 human genes. *Science* 293: 489-93.](http://science.sciencemag.org/content/293/5529/489)</li></ul>
 
 ***
 
-For our homework, we'll be digging a little further into ***linkage disequilibrium (LD)***. Now, this is a sometimes difficult concept to grasp (even I needed a refresher in order to teach it), so we'll be focusing on the assigned readings in this homework to hopefully working through this concept and fill any gaps in understanding left by leture and the lab.
+For our homework, we'll be digging a little further into ***linkage disequilibrium (LD)***. Now, this is a sometimes difficult concept to grasp (even I needed a refresher in order to teach it), so we'll be focusing on the assigned readings in this homework to hopefully work through this concept and fill any gaps in understanding left by leture and the module.
 
-As before, you'll be turning in your homework via an online interface.  I recommend writing your essays in a document on your laptop and only engaging with the online interface when you're ready to turn in *all* of your completed answers. 
+As before, you'll be turning in your homework via an online interface. I recommend writing your essays in a document on your laptop and only engaging with the online interface when you're ready to turn in *all* of your completed answers. 
 
 <br>
 
 <center>
 ### [Access the online interface to submit your homework answers here.](https://goo.gl/forms/HVN5KaCMlzbzeAHK2)
 
-<br>**This homework will be due before class (1:25pm) on Monday, October 26th.**
+<br>**This homework will be due at 5:00 pm on Monday, October 28th.**
 
 </center><br>
 
@@ -39,21 +38,17 @@ As before, you'll be turning in your homework via an online interface.  I recomm
 
 * We already know what HWE (and deviations from it) is telling us about a particular locus. According to Slatkin (2008), how is LD telling us both similar - and different - things about the loci we're investigating?
 
-* What is the effect of genetic drift (like population bottlenecks) on LD? Why is this important to for understanding human evolutionary history?
+* What is the effect of genetic drift (like population bottlenecks) on LD? Why is this important for understanding human evolutionary history?
 
-* According to the Claiborne Stephens et al. (2001) article why are rare variants (with low MAF) important to understanding recent population processes?
+* According to the Claiborne Stephens *et al.* (2001) article why are rare variants (with low MAF) important to understanding recent population processes?
 
 * According to the readings, will a *haplotype* be a region with high or low mutual LD between all the loci that comprise it?
 
 * According to the readings, are loci that are physically close to each other (i.e., only a few base pairs away) more likely to be in LD than loci that are further away from each other on the chromosome? Why might this be?
 
-* Based on the **D'** LD heatmap you created in Module 3 for *your* 1000 Genomes population, which SNPs are linked? Please take a screenshot or save a PNG or PDF file of your heatmap and upload it as part of your answer. *NOTE: If you're having trouble interpreting the LD heatmaps, [this link can help](https://estrip.org/articles/read/tinypliny/44920/Linkage_Disequilibrium_Blocks_Triangles.html)!*<br>
+* Based on the **r<sup>2</sup>** LD heatmap you created in Module 3 for *your* 1000 Genomes population, which of the five *UCP1*-related SNPs from our readings are linked? Please take a screenshot or save a PNG or PDF file of your heatmap and upload to the homework interface as part of your answer. *NOTE: If you're having trouble interpreting the LD heatmaps, [this link can help](https://estrip.org/articles/read/tinypliny/44920/Linkage_Disequilibrium_Blocks_Triangles.html)!*<br>
 
-* Take a look at the LD matrix you created in the last portion of Module 3. List the linkage block that each SNP of interest is a part of, and which SNPs are in LD with each other among our four SNPs of interest.
-
-* In the Zeberg & Pääbo (2020) paper, they focus on a linkage block around an index SNP *rs35044562*, the minor allele of which has been found to be associated with severe COVID-19 symptoms. Which genomic region is associated with increased severity of COVID-19 (please give a range in Mb)?  Name the genes found in this region.
-
-* According to Zeberg & Pääbo (2020), what is evolutionarily interesting about 1) the haplotype (or linkage block) containing the risk allele, and 2) the populations that have this particular haplotype?
+* Take a look at the LD matrix and various other outputs you created in Module 3 for *your* population. List the linkage block that each SNP of interest is a part of, and which SNPs are in LD with each other among our five SNPs of interest.
 
 ***
 
@@ -69,4 +64,4 @@ The following questions are for those students registered for ***AN 733***. Stud
 
 * What effect does selection have on LD? How might you use LD to detect natural selection in a genomic locus?
 
-* Create a VCF file of *SLC6A20* for *your* 1000 Genomes population, and re-run the linkage analysis from Module 3 with the index SNP *rs35044562* in mind, using *D'*. Is it in linkage with our SNP of interest from the midterm, *rs202158371*? How about [the risk allele for severe COVID-19 in Italian and Spanish populations, *rs11385942*](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7315890/)? <br><br><br>
+* [Kim KS *et al.* (2005)](https://www.sciencedirect.com/science/article/pii/S0925443904002212) report a previously uncharacterized variant upstream of *UCP1*, A-1766G (*rs3811791*, or 4:140570619), for which the G allele (C on the forward strand) is associated with significantly greater waist-to-hip ratio, body fat mass, and percent body fat in a Korean population. Use the extended VCF file for *your* 1000 Genomes population, and re-run the linkage analysis from Module 3 with the index SNP *rs3811791* in mind, using *r<sup>2</sup>*. Is it in LD with any of our five other variants of interest? How about another noted *UCP1* regulator, -112A/C or [*rs10011540*](https://pubmed.ncbi.nlm.nih.gov/16338218/)? What might you results mean regarding the potential effects or histories of these variants in *your* population? <br><br><br>
