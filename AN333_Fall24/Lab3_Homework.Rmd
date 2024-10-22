@@ -48,7 +48,7 @@ As before, you'll be turning in your homework via an online interface. I recomme
 
 * Based on the **r<sup>2</sup>** LD heatmap you created in Module 3 for *your* 1000 Genomes population, which of the five *UCP1*-related SNPs from our readings are linked? Please take a screenshot or save a PNG or PDF file of your heatmap and upload to the homework interface as part of your answer. *NOTE: If you're having trouble interpreting the LD heatmaps, [this link can help](https://estrip.org/articles/read/tinypliny/44920/Linkage_Disequilibrium_Blocks_Triangles.html)!*<br>
 
-* Take a look at the LD matrix and various other outputs you created in Module 3 for *your* population. List the linkage block that each SNP of interest is a part of, and which SNPs are in LD with each other among our five SNPs of interest.
+* Take a look at **D'** LD matrix and various other outputs you created in Module 3 for *your* population. List the linkage block that each SNP of interest is a part of, and which SNPs are in LD with each other among our five SNPs of interest.
 
 ***
 
@@ -64,4 +64,6 @@ The following questions are for those students registered for ***AN 733***. Stud
 
 * What effect does selection have on LD? How might you use LD to detect natural selection in a genomic locus?
 
-* [Kim KS *et al.* (2005)](https://www.sciencedirect.com/science/article/pii/S0925443904002212) report a previously uncharacterized variant upstream of *UCP1*, A-1766G (*rs3811791*, or 4:140570619), for which the G allele (C on the forward strand) is associated with significantly greater waist-to-hip ratio, body fat mass, and percent body fat in a Korean population. Use the extended VCF file for *your* 1000 Genomes population, and re-run the linkage analysis from Module 3 with the index SNP *rs3811791* in mind, using *r<sup>2</sup>*. Is it in LD with any of our five other variants of interest? How about another noted *UCP1* regulator, -112A/C or [*rs10011540*](https://pubmed.ncbi.nlm.nih.gov/16338218/)? What might you results mean regarding the potential effects or histories of these variants in *your* population? <br><br><br>
+* [Kim KS *et al.* (2005)](https://www.sciencedirect.com/science/article/pii/S0925443904002212) report a previously uncharacterized variant upstream of *UCP1*, A-1766G (*rs3811791*, or 4:140570619), for which the G allele (C on the forward strand) is associated with significantly greater waist-to-hip ratio, body fat mass, and percent body fat in a Korean population. Use the extended VCF file for *your* 1000 Genomes population, and re-run the linkage analysis from Module 3 with the index SNP *rs3811791* in mind, using *r<sup>2</sup>*. Is it in LD with any of our five other variants of interest? How about another noted *UCP1* regulator, -112A/C or [*rs10011540*](https://pubmed.ncbi.nlm.nih.gov/16338218/)? What might you results mean regarding the potential effects or histories of these variants in *your* population?
+
+* Please take a screenshot or save a PNG or PDF file of your r^2 LD heatmap for the extended UCP1 gene region for your population (with the gene region outlined, all LD heat blocks highlighted, and our two new SNPs of interest labeled along with the others) and upload it as part of your answer. Your file size must not exceed 10 MB.<br><br><br>
