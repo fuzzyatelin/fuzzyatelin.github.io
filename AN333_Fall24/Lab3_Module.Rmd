@@ -479,6 +479,8 @@ Does LD appear to correlate with physical distance among these SNPs, according t
 
 ## Step 4: Thinking about LD using Haplotypes
 
+**NOTE: I added this section as an experiment for the Fall 2024 semester. If you cannot get it to work, don't worry! There are no homework questions related to this section, in case the coding is a disaster!**
+
 Remember that when we think about LD, we can also think about *haplotypes*. A haplotype is a set of DNA variants along a single chromosome that tend to be inherited together. Given this definition, we can think of the linkage blocks we've identified as potential haplotypes. These are important because, since they tend to be inherited together recombination between them is rare; this, in turn, is important because it compels us to ask: why is recombination between alleles in this block rare?
 
 Haplotypes can also be useful for conducting downstream geneti analyses that we'll become more familiar with later in the course, including phylogenetic analyses, because these random changes that stick in haplotypes can be used to trace population relatedness over evolutionary time.
