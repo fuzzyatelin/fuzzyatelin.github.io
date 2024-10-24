@@ -557,3 +557,37 @@ less /projectnb/anth333/caschmit/UCP1_YRI.vcf
 <br>
 <br>
 <br>
+
+```{bash, eval = FALSE, echo = F, class.source="sccCode"}
+#NOTE TO SELF: here's some loops to create the VCF files for each population:
+
+cd /projectnb/anth333/sampleVCF/
+
+module load htslib
+module load vcftools
+
+tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.filtered.shapeit2-duohmm-phased.vcf.gz chr4:140559434-140568805 > /projectnb/anth333/sampleVCF/UCP1_all.vcf
+
+tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.filtered.shapeit2-duohmm-phased.vcf.gz chr4:140549434-140578805 > /projectnb/anth333/sampleVCF/UCP1_REGION_all.vcf
+
+wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/integrated_call_samples_v3.20130502.ALL.panel
+
+#create doc with just population codes
+awk 'NR>1 {print $2}' integrated_call_samples_v3.20130502.ALL.panel | sort -u > pop.txt
+
+#create all pop sample lists and vcf files:
+while read line; do
+  echo "$line"
+  grep "$line" integrated_call_samples_v3.20130502.ALL.panel | cut -f1 > "$line".samples.list
+  vcftools --vcf UCP1_all.vcf --keep "$line".samples.list --recode --out UCP1_"$line" --non-ref-ac-any 1
+  mv UCP1_"$line".recode.vcf UCP1_"$line".vcf
+  done < "pop.txt"
+  
+#create the REGION vcf files:
+while read line; do
+  echo "$line"
+  grep "$line" integrated_call_samples_v3.20130502.ALL.panel | cut -f1 > "$line".samples.list
+  vcftools --vcf UCP1_REGION_all.vcf --keep "$line".samples.list --recode --out UCP1_"$line"_REGION --non-ref-ac-any 1
+  mv UCP1_"$line"_REGION.recode.vcf UCP1_"$line"_REGION.vcf
+  done < "pop.txt"
+```
