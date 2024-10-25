@@ -165,13 +165,31 @@ cp /projectnb/anth333/sampleVCF/filename.vcf /project/anth333/username/filename.
 
 In the above instructions, `filename` should be replaced by the three-letter acronym for the population whose data you'd like to download, and `username` should be replaced by your BUID-named directory in the *SCC* project space.<br><br>
 
-Now you have the data for two new populations in your working directory! You can now return to your *R Studio* screen, where you should see the new files in your directory in the bottom right screen (click on the "Files" tab). We will now use these files to create trees that we can compare to our original population. 
+Now you have the data for two new populations in your working directory!
+
+The next step is to merge your three VCF files, which can be accomplished using a combination of *vcftools*, *htslib* and another package called *bcftools*:
+```{bash, eval = F, echo = T, class.source="sccCode"}
+#first load the modules
+module load vcftools
+module load htslib/1.16
+module load bcftools/1.16
+
+#then compress your three VCF files:
+bgzip -ci UCP1_YRI_REGION.vcf > UCP1_YRI_REGION.vcf.gz
+bgzip -ci UCP1_LWK_REGION.vcf > UCP1_LWK_REGION.vcf.gz
+bgzip -ci UCP1_ASW_REGION.vcf > UCP1_ASW_REGION.vcf.gz
+
+#then merge them:
+bcftools merge -0 UCP1_YRI_REGION.vcf.gz UCP1_LWK_REGION.vcf.gz UCP1_ASW_REGION.vcf.gz | bgzip -c > UCP1_AFR_REGION.vcf.gz
+```
+
+You can now return to your *R Studio* screen, where you should see the new files in your directory in the bottom right screen (click on the "Files" tab). We will now use these files to create trees that we can compare to our original population. 
 <br><br>
 
 First, we will create our new trees with the same code we used before. Remember to name your *R* files after each separate population to keep everything in order! In my case, since my focal population is the Yoruba in Ibadan (YRI), I copied the files for the LWK and ASW populations, which are both also African (AFR) populations:
 ```{r}
 #Tree 1
-LWK <- read.vcfR("UCP1_LWK.vcf")
+LWK <- read.vcfR("UCP1_LWK_REGION.vcf")
 
 LWKdna <- vcfR2DNAbin(LWK)
 LWKdna
@@ -183,7 +201,7 @@ LWKtree <- nj(D)
 class(LWKtree) 
 
 #Tree 2
-ASW <- read.vcfR("UCP1_ASW.vcf")
+ASW <- read.vcfR("UCP1_ASW_REGION.vcf")
 
 ASWdna <- vcfR2DNAbin(ASW)
 ASWdna
@@ -196,6 +214,7 @@ class(ASWtree)
 
 ```
 <br>
+
 Next, let's make a *multiPhylo* object, which we can use to combine our populations into one handy visual. For a name, use your populations' larger-scale geographic location; I'm using 'Africa': 
 
 ```{r}
@@ -215,9 +234,15 @@ This might look confusing at first, especially without a legend. Unfortunately, 
 Now that you can tell which tree is which, let's take a closer look at your trees. How does your tree compare with the other two? Does it have more diversity, a similar amount of diversity, or less diversity (and how can you tell)? Look at the shape of each tree. Is there a similar number of larger clusters in each tree, or not? Does any one tree have the *oldest* genotypes according to the timescale listed below the trees (typically, older branches on a phylogeny belong to extinct species, but in the context of our data they represent older genotypes)? 
 <br><br>
 
-## Part 5: What Do Your Results Mean? Discuss with a partner from class: 
+## Part 5: A Unified Phylogeny
 
-Now that we've assessed the molecular diversity of our populations, we can talk about what this means in the context of the *TMPRSS2* gene. Here are some guiding questions to help you: 
+**UNDER CONSTRUCTION**
+
+Unfortuantely, this section of the module appears to be broken. We'll hopefully be able to run this in the next iteration of the course!
+
+## Part 6: What Do Your Results Mean? Discuss with a partner from class: 
+
+Now that we've assessed the molecular diversity of our populations, we can talk about what this means in the context of the *UCP1* gene. Here are some guiding questions to help you: 
 <br>
 
 * Based on what you know about human migration during our evolutionary history, did you expect the amount of diversity that was present in your population? If not, was there more or less diversity than you expected? 
