@@ -127,12 +127,12 @@ life population genetic analyses.</li>
 
 ***
 
-### [*Module 4: Introduction to Nearest-Neighbor Joining and Phylogenetics*](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Module.html)
+### [*Module 4: Introduction to Nearest-Neighbor Joining and Phylogenetics*](https://fuzzyatelin.github.io/AN333_Fall24/Lab4_Module.html)
 **October 25th**<br>
 
 ***
 
-**Material covered**: In this module, we'll be using Nearest-Neighbor Joining to see which individuals within our assigned 1000 Genomes populations are most related to each other (at least insofar as *ACE2* variation indicates). We'll also plot these *phylogenetic trees* to better understand the patterns of molecular variation and amount of diversity in *ACE2* within our populations. 
+**Material covered**: In this module, we'll be using Nearest-Neighbor Joining to see which individuals within our assigned 1000 Genomes populations are most related to each other (at least insofar as *UCP1* variation indicates). We'll also plot these *phylogenetic trees* to better understand the patterns of molecular variation and amount of diversity in *UCP1* within our populations. 
 <br><br> 
 **Readings**:<ul> 
 <li>[Kimura M. 1980. A simple method for estimating evolutionary rates of base substitutions through comparative studies of nucleotide sequences. *J Mol Evol* 16: 111–120.](http://www.nematodes.org/teaching/tutorials/phylogenetics/Bayesian_Workshop/PDFs/Kimura%20J%20Mol%20Evol%201980.pdf)</li><br>
@@ -140,7 +140,7 @@ life population genetic analyses.</li>
 <li>[Liu Z, et al. 2020. Composition and divergence of coronavirus spike proteins and host *ACE2* receptors predict potential intermediate hosts of SARS‐CoV‐2. *J Med Virol* 92(6): 595-601.](https://onlinelibrary.wiley.com/doi/full/10.1002/jmv.25726?casa_token=sRQv7aBlsVkAAAAA%3AXR8hCMvVMokbFW7aX9KNkBUo0wK5trNsx3KK0t0c4TRk4ORWOJ-9zyBjz9vC6_NEWRJIXlgxoRJbjw)</li></ul><br>
 
 **Activities**: We'll learn how to create a phylogenetic tree with simple neighbor-joining methods using the *ape* package in *R*. We'll then learn how to make a tree from multiple populations, which will allow us to compare those different populations’ structures in a qualitative way. We will also use these phylogenetic trees to assess the diversity of *ACE2* in each population, and discuss what that means. <br><br>
-**Assignment**: Students must turn in a worksheet – with questions related to *ACE2* variation in humans and related to the downloaded dataset –  in class the following Friday.<br><br>
+**Assignment**: Students must turn in a worksheet – with questions related to *UCP1* variation in humans and related to the downloaded dataset –  in class the following Friday.<br><br>
 **Learning Outcomes**:<ul>
 <li>Learn how to apply Kimura's Neutral Theory to our populations to create a matrix of genetic distances between individuals in a population.</li>
 <li>Learn how to use the *ape* package's Nearest Neighbor Joining algorithm to create a Nearest Neighbor Joining tree, and learn how to use the package *phangorn* to manipulate phylogenetic trees.</li> 
@@ -149,7 +149,7 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 4: DUE Friday, November 8th](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Homework.html)
+### [Homework for Module 4: DUE Friday, November 8th](https://fuzzyatelin.github.io/AN333_Fall24/Lab4_Homework.html)
 
 ***
 
