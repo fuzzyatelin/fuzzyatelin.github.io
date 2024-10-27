@@ -137,7 +137,7 @@ life population genetic analyses.</li>
 **Readings**:<ul> 
 <li>[Kimura M. 1980. A simple method for estimating evolutionary rates of base substitutions through comparative studies of nucleotide sequences. *J Mol Evol* 16: 111–120.](http://www.nematodes.org/teaching/tutorials/phylogenetics/Bayesian_Workshop/PDFs/Kimura%20J%20Mol%20Evol%201980.pdf)</li><br>
 <li>[Saitou N, Nei M. 1987. The neighbor-joining method: a new method for reconstructing phylogenetic trees. *Mol Biol Evol* 4: 406–425.](https://academic.oup.com/mbe/article/4/4/406/1029664)</li><br>
-<li>[Liu Z, et al. 2020. Composition and divergence of coronavirus spike proteins and host *ACE2* receptors predict potential intermediate hosts of SARS‐CoV‐2. *J Med Virol* 92(6): 595-601.](https://onlinelibrary.wiley.com/doi/full/10.1002/jmv.25726?casa_token=sRQv7aBlsVkAAAAA%3AXR8hCMvVMokbFW7aX9KNkBUo0wK5trNsx3KK0t0c4TRk4ORWOJ-9zyBjz9vC6_NEWRJIXlgxoRJbjw)</li></ul><br>
+<li>[Klingenspor M, et al. 2008. An ancient look at UCP1. *J Biochimica et Biophysica Acta - Bioenergetics* 92(6): 637-641.](https://www.sciencedirect.com/science/article/pii/S0005272808000480)</li></ul><br>
 
 **Activities**: We'll learn how to create a phylogenetic tree with simple neighbor-joining methods using the *ape* package in *R*. We'll then learn how to make a tree from multiple populations, which will allow us to compare those different populations’ structures in a qualitative way. We will also use these phylogenetic trees to assess the diversity of *ACE2* in each population, and discuss what that means. <br><br>
 **Assignment**: Students must turn in a worksheet – with questions related to *UCP1* variation in humans and related to the downloaded dataset –  in class the following Friday.<br><br>

@@ -28,6 +28,7 @@ color: white;
 
 **Readings**:<ul> 
 <li>[Kimura M. 1980. A simple method for estimating evolutionary rates of base substitutions through comparative studies of nucleotide sequences. *J Mol Evol* 16: 111–120.](http://www.nematodes.org/teaching/tutorials/phylogenetics/Bayesian_Workshop/PDFs/Kimura%20J%20Mol%20Evol%201980.pdf)</li>
+<li>[Klingenspor M, et al. 2008. An ancient look at UCP1. *J Biochimica et Biophysica Acta - Bioenergetics* 92(6): 637-641.](https://www.sciencedirect.com/science/article/pii/S0005272808000480)</li>
 <li>[NextStrain (SARS-CoV-2): Genomic epidemiology of novel coronavirus - Global subsampling](https://nextstrain.org/ncov/global)</li>
 <li>[Saitou N, Nei M. 1987. The neighbor-joining method: a new method for reconstructing phylogenetic trees. *Mol Biol Evol* 4: 406–425.](https://academic.oup.com/mbe/article/4/4/406/1029664)</li></ul>
 
