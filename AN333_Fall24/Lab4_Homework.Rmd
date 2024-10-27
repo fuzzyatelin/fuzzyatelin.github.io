@@ -1,7 +1,7 @@
 ---
 title: 'Module 4: Homework'
 author: "Christopher A Schmitt"
-date: "10/23/2020"
+date: "10/24/2024"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -50,11 +50,11 @@ As before, you'll be turning in your homework via an online interface.  I recomm
 
 * According to Saitou & Nei (1987), when the rate of nucleotide substitution (i.e., mutation) differs from lineage to lineage,  how does that influence the probability of obtaining the correct tree?
 
-* Please take a screenshot or save a PNG or PDF file of the neighbor-joining tree for your population and upload it as part of your answer. Your file size must not exceed 10 MB. Think about the diversity you see in terms of *TMPRSS2*. If there was an unexpected amount of diversity in your population, what would that mean for *TMPRSS2*? For example, if there is a lot of diversity in your population, does that mean there is selection occurring?
+* Please take a screenshot or save a PNG or PDF file of the neighbor-joining tree for your population and upload it as part of your answer. Your file size must not exceed 10 MB. Think about the diversity you see in terms of *UCP1*. If there was an unexpected amount of diversity in your population, what would that mean for *UCP1*? For example, if there is a lot of diversity in your population, does that mean there is selection occurring?
 
 * What two populations did you choose to compare to your own? Please take a screenshot or save a PNG or PDF file of your small final comparative tree of the three populations and upload it as part of your answer. Your file size must not exceed 10 MB. What do you think your trees are telling you about the comparative variation of these three populations? Which is the most variable? Why might that be?
 
 ## Extra Credit
 
-* Take a look at the interactive phylogenetic trees on the Next Strain website for SARS-CoV-2. Explore the tree. What is the most deviated/changed viral sample? How many mutations from the original virus does it have? What country was it sampled in? When was it collected?
+* Take a look at the interactive phylogenetic trees on the Next Strain website for SARS-CoV-2. Explore the tree. If you restrict the Date Range to the 10 day period from October 15-25, 2024, you'll see two samples sequenced... one is more recently detected than the other. How many nucleotide changes have occured since the original virus in Wuhan does this sample have? What country was it sampled in? When was it collected?
 
