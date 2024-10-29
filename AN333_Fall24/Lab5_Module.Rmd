@@ -1,7 +1,7 @@
 ---
-title: "Lab 5 - Neutrality Statistics and Selection"
-author: "Becca DeCamp & Christopher Schmitt"
-date: "November 1, 2020"
+title: "Lab 5 - Neutrality Statistics, Haplotype Homozygosity, and Selection"
+author: "Christopher Schmitt"
+date: "October 27, 2024"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -22,20 +22,20 @@ color: white;
 
 ***
 
-### [Homework for Lab 5: DUE Friday, November 9th](https://fuzzyatelin.github.io/AN333_Fall18/Lab5_Homework.html)
+### [Homework for Lab 5: DUE Friday, November 15th](https://fuzzyatelin.github.io/AN333_Fall24/Lab5_Homework.html)
 
 ***
 
 **Readings**:<ul> 
 <li>[Garrigan DR, Lewontin R, Wakeley J. 2010. Measuring the sensitivity of single-locus “neutrality tests” using a direct perturbation approach. *Mol Biol Evol* 27(1): 73-89.](https://academic.oup.com/mbe/article/27/1/73/1125718)</li><br>
-<li>[The Severe COVID-19 GWAS Group. 2020. Genomewide Association Study of Severe Covid-19 with Respiratory Failure. *New England Journal of Medicine*, 383, 1522-1534.](https://www.nejm.org/doi/full/10.1056/NEJMoa2020283)</li><br>
-<li>[Genetics and COVID-19 Pandemic. 2020. The American Society of Human Genetics.](https://medicalxpress.com/news/2020-10-genetics-covid-pandemic.html)</li><br>
+<li>[Hughes DA, et al. 2009. Molecular evolution of UCP1 and the evolutionary history of mammalian non-shivering thermogenesis. *BMC Ecology & Evolution* 9: 4](https://bmcecolevol.biomedcentral.com/articles/10.1186/1471-2148-9-4)</li><br>
+<li>[Yin N, Zhang D, Wang J. 2024. The *FTO* variant conferring enhanced *UCP1* expression is linked to human migration out of Africa. *Life Metabolism* 3(6): loae027](https://doi.org/10.1093/lifemeta/loae027)</li><br>
 <li>[Sabeti PC, et al. 2002. Detecting recent positive selection in the human genome from haplotype structure. Nature 419(6909): 832-837.](https://www.nature.com/articles/nature01140)</li><br>
 <li>[Tajima F. 1989. Statistical method for testing the neutral mutation hypothesis by DNA polymorphism. *Genetics* 123(3): 585–595.](http://www.genetics.org/content/123/3/585)</li></ul>
 
 ***
 
-In this module, we we'll take our first look at *neutrality statistics*, which are statistical tests designed to measure if whether SNPs appear to be undergoing selection within a population. We'll go over what each of the statistics are, what they mean, and how to interpret them, and then we'll use them on our own data.
+In this module, we we'll take our first look at site frequency spectrum *neutrality statistics*, which are statistical tests designed to measure if whether SNPs appear to be undergoing selection within a population. We'll go over the most popular of these statistics, **Tajima's D**, what it means, and how to interpret it, and then we'll use it to characterize our own data. We'll also take a look at *linkage-based* selection statistics, like *integrated haplotype scores* and *extended haplotype homozygosity*, which use similarly extended regions of LD across a population to infer the action of *selective sweeps* in the genome.
 <br>
 <br>
 First, let's get an understanding of what each of these statistics might mean when calculated for our populations...
@@ -51,120 +51,65 @@ An excess of low frequency polymorphisms will lead to a *negative* Tajima's D. T
 
 With Tajima’s D, the closer to 0 the D statistic is, the closer the locus being tested is to meeting the assumptions of neutrality.
 
-Today, we'll calculate Tajima's D values for *our* populations in order to determine if any directional selection is happening in the severe COVID-19 association region. 
+Today, we'll calculate Tajima's D values for *our* populations in order to determine if any directional selection is happening in the *UCP1* region. 
 <br>
-
-### Fu and Li's D and F
-
-Fu and Li's D and F are also fairly straightforward tests derived from the same $\Theta$ statistics as Tajima's D. Like Tajima's D, these statistics are also based upon Kimura's neutrality statistic, again meaning that anything deviating from 0 is a violation of neutrality. What these statistics do, specifically, is measure the number of *singleton* or *private* mutations (i.e., the number of people within a sample that have a novel mutation specific to themselves). While the *D statistic* is based on the difference between the number of singletons in the population and the *total number of mutations in population*, the *F statistic* is based on the difference between the number of singletons and the *average number of nucleotide differences between pairs of sequences*. This difference in how they're derived makes it possible for one statistic to be positive while the other is negative in the same population.<br><br>
-We can interpret these statistics like so:
-
-* If the statistics are strongly negative, this shows an *excess of singletons* in the population. This means there are quite a few people whose genomic variants don't match each other. Such a situation could be from rapid population growth (meaning everyone is closely related and so there's been no time for mutation to catch up to the increased numbers) or a *selective sweep* (see below for a formal definition) further back in the population's history, meaning that strong directional selection for a certain mutation led to an overrepresentation of that mutation (at the expense of other variants at that SNP).
-
-* If the statistics are positive, this indicates an *excess of old/ancestral variants*, that have been selected for in the past. In other words, there are very few unique variants, and the variants that are present are carried by a lot of individuals.
-<br><br>
-
-We will calculate Fu and Li's D and F statistics for our data today. 
 
 ### Integrated Haplotype Score (iHS)
 
-Recent positive selection usually happens by *selective sweeps* (i.e. the rapid spread of a particular haplotype, driven by selection for particular alleles within that haplotype), which not only act upon the SNP that corresponds to the phenotype under selection, but the *entire haplotype* or *linkage region* in which that SNP is found. When this happens, the alleles in these selected haplotypes become almost entirely homozygous, because selection on this region of the genome is so strong. An *iHS score*, or an *Integrated Haplotype Score*, is a test that can be used to measure the amount of recent positive selection experienced by an allele indirectly by looking for evidence of selective sweeps, while we can also directly measure extended haplotype homozygosity (EHH) in the population to assess hard selective sweeps. These tests identify *extended haplotypes* (large sets of alleles on a single region of the chromosome that are identical across individuals) and looking at how many of the haplotypes are homozygous within the population. Mass homozygosity across individuals for a particular haplotype is recorded as a *high* iHS score, while low levels of haplotype homozygosity is recorded as a *low* iHS score. We can (and will) also visualize EHH directly.<br> 
+Recent positive selection usually happens by *positive selective sweeps* (i.e. the rapid spread of a particular haplotype, driven by selection for particular alleles within that haplotype), which not only act upon the SNP that corresponds to the phenotype under selection, but the *entire haplotype* or *linkage region* in which that SNP is found. This can lead to *extended haplotype homozygosity (or EHH)* in a population, in which we see a high frequency of long, identical haplotypes in the genome around the SNP experiencing selection. An *iHS score*, or an *Integrated Haplotype Score*, is a test that can be used to measure recent positive selective sweeps around on particular allele indirectly by looking for evidence of extended haplotype homozygosity, while we can also directly measure extended haplotype homozygosity (EHH) itself in the population to assess hard selective sweeps. These tests identify *extended haplotypes* (large sets of alleles on a single region of the chromosome that are identical across individuals) and looking at how many of the haplotypes are homozygous within the population. Mass homozygosity across individuals for a particular haplotype is recorded as a *high* iHS score, while low levels of haplotype homozygosity is recorded as a *low* iHS score. We can (and will) also visualize EHH directly.<br> 
 
 ## Learning Outcomes
 
-* Learn what Fu and Li's D and F, Tajima's D, and iHS scores mean, and how to interpret them. 
+* Learn what Tajima's D, and iHS scores mean, and how to interpret them. 
 
-* Learn to use the *PopGenome* package to calculate neutrality statistics such as Fu and Li's D and F, and Tajima's D.
+* Learn to use the *pegas* package to calculate Tajima's D.
 
-* Learn to use the *pegas* package to explore our Tajima's D statistic further.
+* Learn about iHS by calculate iHS and EHH in *R*, and reflect on what the iHS score for your population's *UCP1* region looks like. 
 
-* Learn about iHS by calculate iHS and EHH in *R*, and reflect on what the iHS score for our population's COVID-19 severity haplotype looks like. 
-
-* Learn about whether or not selection is happening in our populations based on these statistics, and relate it to environments that may cause these alleles in this region to be selected for or against.
+* Learn about whether or not (and what kind of) selection is happening in our populations based on these statistics, and relate it to environments that may cause these alleles in this region to be selected for or against.
 
 ## Part 1: Getting Started
 
-Log in to the *SCC* and bring up the *R Studio* window [as usual](https://fuzzyatelin.github.io/AN333_Fall20/Lab2_Module.html).
-
-In Terminal using the Tabix method from [Module 1](https://fuzzyatelin.github.io/AN333_Fall20/Lab1_Module.html), download the severe COVID-19 associated region only for *your* 1000 Genomes population at **3p21.31** identified by [The Severe COVID-19 GWAS Group](https://www.nejm.org/doi/full/10.1056/NEJMoa2020283) in your readings for this week. This genomic region has the positions **3:45800446-46135604**, and includes the indicator SNP rs11385942, and genes *SLC6A20*, *LZTFL1*, *FYCO1*, *CXCR6*, *XCR1*, and *CCR9*. I recommend naming it `COVIDRISK_YRI.vcf`, with *YRI* replaced with your own population's ID. The other severe COVID-19 associated region included *ABO*, and is comprised of positions **9:133257521-133279871**; we won't work with this region today.
+Log in to the *SCC* and bring up the *R Studio* window [as usual](https://fuzzyatelin.github.io/AN333_Fall24/Lab2_Module.html).
 
 Next, we need to install the package *PopGenome* in our *R Studio* space, because the SCC doesn't have it pre-installed.
 ```{r, eval=F, echo=T}
 #We need to install this package
-install.packages("PopGenome")
+install.packages("rehh")
+install.packages("pegas")
 ```
 
 Next, load in the packages we need to use:
 ```{r, results='hide', message=F, warning=F}
 library(vcfR)
-library(PopGenome)
+library(rehh)
 library(pegas)
 ```
 
-Finally, we need to format our data for analysis. *PopGenome* is a bit funky about how they look for the files in your directory, so we need to move some files around in our folders to make the *GENOME* object that the *PopGenome* package will work with. Specifically, if you haven't already done so, we need to make a new directory within our working directory, and put a copy of our data into that folder. Do this in your *SCC* space using the *mkdir* and *cp* commands (remember to use *your* population name rather than YRI!):
-```{bash, eval = F, echo = T, class.source="sccCode"}
-mkdir COVIDRISK_YRI
-cp COVIDRISK_YRI.vcf COVIDRISK_YRI/COVIDRISK_YRI.vcf
-```
-
-Now, we can make our *GENOME* object by directing the function to the folder we just created. Additionally, we'll make a *DNAbin* object ([as we have done before](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Module.html)) to save for later... 
-<br>
-Here we'll make our *GENOME* object:
+Finally, we need to format our data for analysis. We'll make a *DNAbin* object ([as we have done before](https://fuzzyatelin.github.io/AN333_Fall24/Lab4_Module.html)) from our extended `UCP1_POP_REGION.vcf` file:
 ```{r}
-YRIgenome <- readData("COVIDRISK_YRI", format = "VCF")
-YRIgenome
-```
-
-And here we'll make our *DNAbin* object:
-```{r}
-YRI <- read.vcfR("COVIDRISK_YRI/COVIDRISK_YRI.vcf")
+YRI <- read.vcfR("UCP1_YRI_REGION.vcf")
 YRIdna <- vcfR2DNAbin(YRI)
 YRIdna
 ```
 
-## Part 2: Fu and Li's D and F
+## Part 2: Tajima's D
 
-The function `neutrality.stats` from *PopGenome* conveniently calculates several different neutrality statistics for a given population. We'll use it now to calculate Fu and Li's D and F: 
-
-```{r}
-#Remember to replace the varible name with your own GENOME object!
-neut <- neutrality.stats(YRIgenome)
-get.neutrality(neut)
-
-#To see results: 
-
-neut@Fu.Li.F
-neut@Fu.Li.D
-```
-
-As we can see here, the YRI population has D and F statistics that are negative. This suggests an excess of singleton mutations in this risk region in this population, as well as an excess of ancestral mutations. Put simply, the severe COVID-19 risk region in the Yoruban population from Ibadan may have experienced an historical positive selective sweep.
-<br>
-<br>
-Before we move on, think about what the results for *your* population means, based on how we interpret Fu and Li's D. Is there an excess of singletons? Is there an excess of old/ancestral mutations? What does that tell you about *your* population's history? We will come back to this at the end of class. 
-<br>
-
-## Part 3: Tajima's D
-
-Now we'll look at Tajima's D! When we ran the `neutrality.stats` function in *PopGenome*, it also calcuated our Tajima's D statistic. We can *preview* our Tajima's D results from the *PopGenome* output... 
-```{r}
-neut@Tajima.D
-```
-
-But, we can get more useful information by using the `tajima.test` function in the *pegas* package. This function will use the *DNAbin* object that we created earlier as an input. It will not only give us the same D statistic as was calculated by the `neutrality.stats` function, which is all well and good, but will also give us a *P-value* associated with our test. This is important, because it will give us a sense of how significant the results are of our neutrality test. 
+Now we'll look at Tajima's D! We can get some useful information by using the `tajima.test` function in the {pegas} package. This function will use the *DNAbin* object that we created as an input. It will not only give us the D statistic, but also a *p-value* associated with the test. This is important, because it will give us a sense of how significant the results are of our neutrality test. 
 <br>
 ```{r}
 tajima <- tajima.test(YRIdna)
 tajima
 ```
 
-What we see from YRI for Tajima's D is that this population does not appear to be subject to selection in the severe COVID-19 risk region. This suggests that the only *evolution* (remember, that's a change in allele frequencies over generations, and does *not* have to be due to selection) happening in the population is selectively neutral. 
+What we see from YRI for Tajima's D is that this population does not appear to be subject to selection in the extended *UCP1* gene region. This suggests that if there is *evolution* happening in the YRI population's *UCP1* region (remember, that's a change in allele frequencies over generations, and does *not* have to be due to selection), then it is likely selectively neutral. 
 <br>
 <br>
-Interpret your own population's Tajima's D value. First, compare the D value given by this function and the one given by the `neutrality.stats` function. Are they the same? What is the D statistic for your population, and what does it mean in terms of whether and what kind of selection might be occurring on your population? We will revisit this question at the end of the lab.
+Interpret your own population's Tajima's D value. What is the D statistic for your population, and what does it mean in terms of whether and what kind of selection might be occurring on your population? We will revisit this question at the end of the module.
 
-## Part 4: Positive selective sweeps using iHS and EHH
+## Part 3: Positive selective sweeps using iHS and EHH
 
-Now, we will run our *iHS* and *EHH* analyses to assess recent positive selective sweeps in an expanded area surrounding the severe COVID-19 risk region on chromosome 3 (NOTE: you MUST download a new VCF file to run this analysis). To run this example, I'm using the *rehh* package, which is specifically designed to look for *Extended Haplotype Homozygosity*, or evidence of hard positive selective sweeps. To do this, we'll have to do some data transformations. This is relatively simple to do, but it involves using some unfamiliar *python* and *unix* code that may be confusing. It also can take *a lot* of memory, so I'll ask you to delete files along the way as you try this out!
+Now, we will run our *iHS* and *EHH* analyses to assess recent positive selective sweeps in an expanded area surrounding *UCP1* on chromosome 4 (NOTE: you MUST download a new VCF file to run this analysis). To run this example, I'm using the *rehh* package, which is specifically designed to look for *Extended Haplotype Homozygosity*, or evidence of hard positive selective sweeps. To do this, we'll have to do some data transformations. This is relatively simple to do, but it involves using some unfamiliar *python* and *unix* code that may be confusing. It also can take *a lot* of memory, so I'll ask you to delete files along the way as you try this out!
 
 To do this, we'll first need to load our *modules*. This will include *tabix* to download the data, *vcftools* and *bcftools* to modify it. We'll also need to load the programming language *python* for a few short commands later:
 
@@ -175,21 +120,26 @@ module load bcftools
 module load python3
 ```
 
-Now, to save on space, we'll download our extended positions (roughly 1 Mb above and below our region of interest) from chromosome 3 into a *zipped* file using a familiar *tabix* command:
+Now, to save on space, we'll download our extended positions (roughly 1 Mb above and below our gene region of interest) from chromosome 4 into a *zipped* file using a familiar *tabix* command. You might note that the web FTP where we're downloading this from is different from in Module 01... this is because to estimate EHH we need an *ancestral allele* estimate; these were included in earlier versions of the 1KG data, but not for the latest iteration:
 ```{bash, eval = F, echo = T, class.source="sccCode"}
-tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/GRCh38_positions/ALL.chr3_GRCh38.genotypes.20170504.vcf.gz 3:44800446-47135604 | bgzip -c > COVIDRISK_all.vcf.gz
+tabix -h https://ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/supporting/GRCh38_positions/ALL.chr4.phase3_shapeit2_mvncall_integrated_v3plus_nounphased.rsID.genotypes.GRCh38_dbSNP_no_SVs.vcf.gz 4:139559434-141568805 | bgzip -c > UCP1_YRI_EXTENDED_all.vcf.gz
 ```
 
 Then, we'll subset the zipped file for *just* the YRI data with a familiar *vcftools* command. While we're at it, we'll also filter out all indels and SNPs with a MAF lower than 5% while keeping the ancestral allele information:
 ```{bash, eval = F, echo = T, class.source="sccCode"}
-vcftools --gzvcf COVIDRISK_all.vcf.gz --keep YRI.samples.list --maf 0.05 --remove-indels --recode-INFO AA --recode --stdout | bgzip -c > COVIDRISK_YRI.vcf.gz
+vcftools --gzvcf UCP1_YRI_EXTENDED_all.vcf.gz --keep YRI.samples.list --maf 0.05 --remove-indels --recode-INFO AA --recode --stdout | bgzip -c > UCP1_YRI_EXTENDED.vcf.gz
+```
+
+You can take a look to make sure this went well (i.e., you've got *your* sample individuals and the right subset of loci) using the following code (press `q` to leave the `less` view when you're done):
+```{bash, eval = F, echo = T, class.source="sccCode"}
+gunzip -c UCP1_YRI_EXTENDED.vcf.gz | less
 ```
 
 Now we're ready to convert this into a haplotype file and a genome map file for {rehh} using a few relatively unfamiliar steps... these are modified from the [Informatics Portal website](https://csprojects.me/481/tools.php). 
 
-First, we'll extract our INFO on ancestral alleles that are embedded in the VCF already:
+First, we'll extract our INFO on ancestral alleles that are embedded in the VCF already (this will create a file called `out.INFO`, which gives us the CHROM, POS, EF, AA:
 ```{bash, eval = F, echo = T, class.source="sccCode"}
-vcftools --gzvcf COVIDRISK_YRI.vcf.gz --get-INFO AA
+vcftools --gzvcf UCP1_YRI_EXTENDED.vcf.gz --get-INFO AA
 ```
 
 Next, we'll change lower- to upper-case letters in our INFO file:
@@ -197,16 +147,11 @@ Next, we'll change lower- to upper-case letters in our INFO file:
 cat out.INFO | tr '[:lower:]' '[:upper:]' > out2.INFO
 ```
 
-Given your data looks good, now let's erase the larger file with all the *1000 Genomes Project* individuals, along with other files we're done with:
-```{bash, eval = F, echo = T, class.source="sccCode"}
-rm COVIDRISK_all.vcf.gz
-```
-
 I have to note that this step is - conceptually - a little complicated because the way the *1000 Genomes Project* estimates the ancestral allele at a given position is a bit different from how folks *usually* think about an ancestral allele (i.e., the allele state of the LCA of the groups you're testing). You don't have to worry about it, for now, but [you can learn more about it here if you want](https://www.biostars.org/p/61267/).
 
 Export the VCF file in IMPUTE format, which is what groups alleles into haplotypes:
 ```{bash, eval = F, echo = T, class.source="sccCode"}
-vcftools --gzvcf COVIDRISK_YRI.vcf.gz --IMPUTE
+vcftools --gzvcf UCP1_YRI_EXTENDED.vcf.gz --IMPUTE
 ```
 
 Delete the first row in our INFO file and replace tabs for spaces:
@@ -231,7 +176,7 @@ awk '{for(i=7;i<=NF;i++)if($i==0)$i=3; else $i=4; print}' merged.out | awk '{if(
 
 Prepare {rehh} `map` file using information from the first 2 columns:
 ```{bash, eval = F, echo = T, class.source="sccCode"}
-awk '{print $1"-"$2,$1,$2,"1","2"}' merged2.out > mapCOVIDRISK_YRI.out
+awk '{print $1"-"$2,$1,$2,"1","2"}' merged2.out > mapUCP1_YRI.out
 
 #change label 3 to 1 when reference allele = ancestral allele (yes)
 #change label 4 to 2 when reference allele = ancestral allele (yes)
@@ -249,7 +194,7 @@ python -c "import sys; print('\n'.join(' '.join(c) for c in zip(*(l.split() for 
 
 Add first column with numbers in increasing order:
 ```{bash, eval = F, echo = T, class.source="sccCode"}
-awk '{print NR " "$0}' merged4.out > hapCOVIDRISK_YRI.out
+awk '{print NR " "$0}' merged4.out > hapUCP1_YRI.out
 ```
 
 An finally, remove intermediate files you won't use anymore:
@@ -267,7 +212,7 @@ rm out3.INFO
 rm out4.INFO
 ```
 
-After this whole process, the files `mapCH4_FIN.out` and `hapCH4_FIN.out` are the input files for our {rehh} analysis!
+After this whole process, the files `mapUCP1_YRI.out` and `hapUCP1_YRI.out` are the input files for our {rehh} analysis!
 
 Ok... now let's open *Rstudio* and try it!
 
@@ -278,10 +223,10 @@ library(rehh)
 
 Then, we need to import our newly made files for the Finns:
 ```{r}
-hap<-data2haplohh(hap_file="hapCOVIDRISK_YRI.out",map_file="mapCOVIDRISK_YRI.out",chr.name="3")
+hap<-data2haplohh(hap_file="hapUCP1_YRI.out",map_file="mapUCP1_YRI.out",chr.name="4")
 ```
 
-Once those are read in, you should see that our dataset consists of 62510 SNPs split into 198 haplotypes.
+Once those are read in, you should see that our dataset consists of 6046 SNPs split into 216 haplotypes.
 
 Now we can run our extended haplotype homozygosity assessment (this step might take a while, be patient):
 ```{r}
@@ -298,14 +243,19 @@ We can then look for candidate regions potentially under selection using the iHS
 cr.se<-calc_candidate_regions(ihs,threshold=2,pval=TRUE,window_size=3000,overlap=300,min_n_extr_mrk=1)
 cr.se
 ```
-Looks like, in the YRI population, we have perhaps 15 regions that are potentially under selection in this region.
+Looks like, in the YRI population, we have perhaps 32 regions that are potentially under selection in this region.
 
 Let's plot them:
 ```{r}
-manhattanplot(ihs,pval=TRUE,threshold=2,pch=16, chr.name="3",cr=cr.se,main="iHS")
+manhattanplot(ihs,pval=TRUE,threshold=2,pch=16, chr.name="4",cr=cr.se,cr.col="yellow",main="iHS")
 ```
 
-Now, remember... in this figure we've added 1 Mb above and below, so the only spots of selection that are relevant are between 3:45800446-46135604, which may include the potential selective sweeps identified in the figure as numbers 5-13. These appear to be immediately up- and down-stream of the region of interest.
+As you can see, there are a lot of potential positive selective sweeps across this extended region!  However, we also need to rememberr... in this figure we've added 1 Mb (a million bases) above and below our *UCP1* region, so the only spots of selection that are relevant are between 4:140559434-140568805 (the *UCP1* region) and 10 kb up and downstream of them... let's look at those, specifically:
+```{r}
+manhattanplot(ihs,pval=TRUE,threshold=2,pch=16, chr.name="4",cr=cr.se,cr.col="yellow",main="iHS",xlim=c(140549434,140578805))
+```
+
+As you can see, in the YRI population it looks like there's evidence for one clear positive selective sweep in the area of *UCP1* near the TSS and the upstream region.
 
 Let's actually check the SNPs making up these significant regions:
 ```{r}
@@ -318,65 +268,111 @@ sig.pihs<-
 sig.pihs
 ```
 
-Now we can take a closer look at the EHH of an actual *SNP* of interest.
+Now we can take a closer look at the EHH of an actual *SNP* of interest. Let's try some of our SNPs of interest from [Module 3](https://fuzzyatelin.github.io/AN333_Fall24/Lab3_Module.html): *rs6536991* (4:140560427), *rs2270565* (4:140562317), *rs12502572* (4:140563980), *rs3811787* (4:140569265), and *rs1800592* (4:140572807).
 
-We can't actually investigate whether the derived version of the index SNP, *rs11385942*, identified for this region is under selection because it's an indel. However, we can look at some of these significant SNPs within the region of interest. Let's take a look at 3:46053334, which has among the higher p<sub>iHS</sub> in the severe COVID-19 risk region (p<sub>iHS</sub> = 2.129540).
+Let's start with the famous -3826A<G SNP, *rs1800592*.
+
+First, though, let's get a sense of what we're looking for... we can look at some of these significant SNPs within the region of interest to set expectations. Let's take a look at 140343413, which has among the higher p<sub>iHS</sub> in our extended region (p<sub>iHS</sub> = 4.076775). In this case, I'm zooming in on 60 kb up- and down-stream of the focal SNP using the `xlim` option: 
 
 ```{r}
-ehh_46053334<-calc_ehh(hap,mrk="3-46053334")
-plot(ehh_46053334,
-     main="EHH at 3:46053334",
+ehh_140343413<-calc_ehh(hap,mrk="4-140343413")
+plot(ehh_140343413,
+     main="EHH at 4:140343413",
      col=c("blue2","gold2"))
 ```
 
-We can see here that EHH (on the y-axis) for the haplotypes surrounding the ancestral allele is consistently higher than the EHH surrounding the derived allele, with that EHH getting higher as we approach the SNP along the genome. This suggests that recombination has not yet broken up the linkage block/haplotype surrounding the ancestral allele. In other words, it would appear that the SNP is in a large ancestral haplotype with extensive haplotype homozygosity, suggesting that the ancestral SNP may have experienced a positive selective sweep.
+Wow... we can see here that EHH (on the y-axis) for the haplotypes surrounding the ancestral allele is consistently higher than the EHH surrounding the derived allele, with that EHH being consistently high as we approach the SNP along the genome, particularly upstream of our focal SNP. This suggests that recombination has not yet broken up the linkage block/haplotype surrounding the ancestral allele anywhere where the EHH is equal to 1. In other words, it would appear that the focal SNP here is in a *very* large ancestral haplotype with extensive haplotype homozygosity, suggesting that the ancestral SNP and associated SNPs have largely been sheilded from recombination.
 
-Let's actually visualize the haplotype structure around our SNP of interest to give us a better idea of the observed effect of selection. The original use of this kind of graph - called a *bifurcation graph* - is in a paper by [Sabeti et al. (2002)](https://www.nature.com/articles/nature01140), in our readings for this module. This will look like a bifurcating tree, with the thicker branches representing the relative number of individuals maintaining that particular haplotype (thicker = more people in the sample have that haplotype) surrounding the core allele (which is at the vertical dashed line). The nodes of the tree are where the haplotype/linkage is broken by a variant outside the original haplotype. Let's check it out:
+Let's actually visualize the haplotype structure around this SNP of interest to give us a better idea of the observed effect of selection. The original use of this kind of graph - called a *bifurcation graph* - is in a paper by [Sabeti et al. (2002)](https://www.nature.com/articles/nature01140), in our readings for this module. This will look like a bifurcating tree, with the thicker branches representing the relative number of individuals maintaining that particular haplotype (thicker = more people in the sample have that haplotype) surrounding the core allele (which is at the vertical dashed line). The nodes of the tree are where the haplotype/linkage is broken by a variant outside the original haplotype. Let's check it out (in this case, I'm again zooming in on 30 kb up- and down-stream of the focal SNP using the `xlim` option):
 
 ```{r}
-furcation_46053334<-calc_furcation(hap,mrk="3-46053334")
-plot(furcation_46053334,
+furcation_140343413<-calc_furcation(hap,mrk="4-140343413")
+plot(furcation_140343413,
      lwd=0.1,
      col=c("blue2","gold2"),
      cex.lab=0.3,
-     main="Bifurcation 3:46053334",
+     main="Bifurcation 4:140343413",
      legend.xy.coords="none")
 ```
 
-Here, we can see that there are a lot of individuals in the YRI population that have the derived allele, but that there's some extensive haplotype homozygosity around the ancestral allele. We can see this because the thicker the branch, the more individuals share haplotypes along that branch. So when we see a very thick branch extend many Mb along the genome, this suggests a selective sweep. In this case, it perhaps looks like a relatively limited selective sweep, given that not eveyrone has this haplotype. For a very clear selective sweep, we would see almost the entire population showing the extended haplotype (e.g., a very large, thick line extending across a large portion of the genomic region).
+Here, we can see that there are a lot of individuals in the YRI population that have the derived allele, but the haplotype breaks down pretty quickly (or the haplotypes *bifurcate* each time anyone has a mutation as you move away from the focal SNP) but that there's some clear extensive haplotype homozygosity around the ancestral allele (no bifurcations means no mutations). We can see this because the thicker the branch, the more individuals share haplotypes along that branch. So when we see a very thick branch extend many Mb along the genome, this suggests a selective sweep. In this case, it perhaps looks like a relatively limited selective sweep, given that not eveyrone has this haplotype. For a very clear selective sweep, we would see almost the entire population showing the extended haplotype (e.g., a very large, thick line extending across a large portion of the genomic region).
 
-Now, our most significant iHS hit in this region is 3:46150577, which is just outside the severe COVID-19 GWAS linkage area. Let's take a look:
+We can also zoom in on the EHH block using the `xlim` option:
 ```{r}
-ehh_46150577<-calc_ehh(hap,mrk="3-46150577")
-plot(ehh_46150577,
-     main="EHH at 3:46150577",
-     col=c("blue2","gold2"))
+ehh_140343413<-calc_ehh(hap,mrk="4-140343413")
+plot(ehh_140343413,
+     main="EHH at 4:140343413",
+     col=c("blue2","gold2"),
+     xlim=c(140323413,140583413))
 ```
-
-Ok, this looks like another case where the *ancestral* allele appears to have more extensive haplotype homozygosity than the derived allele (e.g., the blue line is higher than the gold line across most of the region). Let's look at the bifurcation diagram:
 ```{r}
-furcation_46150577<-calc_furcation(hap,mrk="3-46150577")
-plot(furcation_46150577,
+furcation_140343413<-calc_furcation(hap,mrk="4-140343413")
+plot(furcation_140343413,
      lwd=0.1,
      col=c("blue2","gold2"),
      cex.lab=0.3,
-     main="Bifurcation 3:46150577",
-     legend.xy.coords="none")
+     main="Bifurcation 4:140343413",
+     legend.xy.coords="none",
+     xlim=c(140323413,140583413))
 ```
 
-That's more like it!  Although linkage isn't preserved well in all individuals, particularly on the left (as the we follow the genome towards the centromere), the majority of individuals have preserved the haplotype associated with the ancestral allele. For a subset of the population, this haplotype is very well preserved for about 0.4 Mb downstream of the SNP. The previous SNP looks *more* like a clear case of positive selection around the SNP itself based on iHS, but this one looks like there has been some clearer preservation of the extended haplotype via selection.
+Now, let's look at a random SNP we for which we have no reason to believe there is selection. The position 4:140560607 in the *UCP1* region has a very low p<sub>iHS</sub> value (p<sub>iHS</sub> = 0.0384). Let's take a look. Here, I'll zoom in to ~30 kb up- and down-stream of this SNP using `xlim`:
+```{r}
+ehh_140560607<-calc_ehh(hap,mrk="4-140560607")
+plot(ehh_140560607,
+     main="EHH at 4:140560607",
+     col=c("blue2","gold2"),
+     xlim=c(140530607,140590607))
+```
 
-Try this with *your* population. Are there any SNPs that look like clear positive selective sweeps in the severe COVID-19 GWAS region?
+Ok, this looks like another case where the *ancestral* allele appears to have slightly more haplotype homozygosity than the derived allele (e.g., the blue line is higher than the gold line across most of the region), but that EHH doesn't extend very far from our SNP of interest before falling away, suggesting that there is no selection keeping recombination from breaking up the haplotypes around our focal SNP.
+
+Let's look at the bifurcation diagram:
+```{r}
+furcation_140560607<-calc_furcation(hap,mrk="4-140560607")
+plot(furcation_140560607,
+     lwd=0.1,
+     col=c("blue2","gold2"),
+     cex.lab=0.3,
+     main="Bifurcation 4:140560607",
+     legend.xy.coords="none",
+     xlim=c(140530607,140590607))
+```
+
+As you can see by the extensive branching, our haplotypes around both the ancestral and the derived allele are breaking down pretty quickly at this locus! There does appear to be a bit of haplotype homozygosity around the ancestral allele, but it's not so extensive compared to the derived (nor compared to our top hit, above!).
+
+Now, let's try our SNP of interest, -3826A<G or *rs1800592* (4:140572807).	
+
+```{r}
+ehh_140572807<-calc_ehh(hap,mrk="4-140572807")
+plot(ehh_140572807,
+     main="EHH at 4:140572807",
+     col=c("blue2","gold2"),
+     xlim=c(140552807,140592807))
+```
+
+```{r}
+furcation_140572807<-calc_furcation(hap,mrk="4-140572807")
+plot(furcation_140572807,
+     lwd=0.1,
+     col=c("blue2","gold2"),
+     cex.lab=0.3,
+     main="Bifurcation 4:140572807",
+     legend.xy.coords="none",
+     xlim=c(140552807,140592807))
+```
+
+How would you interpret these graphs?  Is there EHH?  How extensive is it?  Can you find the p<sub>iHS</sub> for this SNP?  How about for the other SNPs of interest from Module 3? 
+
+Try this with *your* population. Are there any SNPs that look like clear positive selective sweeps in the *UCP1* region? Can you infer from the SNP positions and *EnsEMBL* if these are in any functional regions?
 
 ## Part 5: What Do Your Results Mean? Discuss with a partner from class:
 
 As we wrap up this lab, think about the results you've generated. You have already been prompted to think about what your results might mean as we've gone along; now you have the opportunity to talk to a partner about what you think your results might mean.
 
-* Think about what your results mean, based on how we interpret Fu and Li's D. Is there an excess of singletons in your population? Is there an excess of old/ancestral mutations? What might that tell you about your population's history? 
-
 * What is the Tajima's D statistic and accompanying P-value for your population, and what does that mean regarding potential selection happening on your population?
 
-* What do you think of the iHS scores in the COVID-19 risk region in your data? Does this fit with your results based on Tajima's D or Fu & Li's D and F? Based on what we've discovered today about selection happening in our populations, do you think that a selective sweep may have happened in the severe COVID-19 risk region for you population? Is there anything that you know about the disease ecology and history of your population that you can use to aid in understanding why there may or may not have been a recent positive selective sweep in your population in this region?
+* What do you think of the iHS scores in *UCP1* in your data? Does this fit with your results based on Tajima's D? Based on what we've discovered today about selection happening in our populations, do you think that a recent positive selective sweep may have happened in *UCP1* for you population? Is there anything that you know about the climate and history of your population that you can use to aid in understanding why there may or may not have been a recent positive selective sweep in your population in this region?
 <br>
 <br>
 <br>
@@ -389,57 +385,59 @@ As we wrap up this lab, think about the results you've generated. You have alrea
 A perhaps more helpful method for assessing Tajima’s D can be done using {vcftools} in the SCC/Terminal workspace. This version analyses Tajima’s D in small sliding windows (here, I've chosen 500 bp windows) along the gene region of interest, allowing us to better pinpoint exactly where in the gene region selection may be occurring:
 ```{bash, eval = F, echo = T, class.source="sccCode"}
 module load vcftools
-vcftools --vcf COVIDRISK_YRI.vcf --TajimaD 500 # We chose 500 as the window size
-mv out.Tajima.D COVIDRISK_YRI.Tajima.D #rename the output file 
-mv out.log COVIDRISK_YRITD.log #rename log file 
-less COVIDRISK_YRI.Tajima.D 
+vcftools --gzvcf UCP1_YRI_EXTENDED.vcf.gz --TajimaD 500 # We chose 500 as the window size
+mv out.Tajima.D UCP1_YRI_REGION.Tajima.D #rename the output file 
+mv out.log UCP1_YRI_REGION.TD.log #rename log file 
+less UCP1_YRI_REGION.Tajima.D 
 ```
 
 With this sliding window, we can see that certain sections of our severe COVID-19 risk region have very different values for Tajima’s D. A good rule of thumb is that a Tajima's D value above 2 or below -2 is significant. For example, the 500 bp windows starting at position 45823000 has 4 SNPs in it and is negative but not quite significant (D = -1.56823000).
 
 Let’s take a closer look by bringing the output from this analysis into *R* so that we can filter it according to this significance threshold:
 ```{r}
-slide.covid<-read.table("COVIDRISK_YRI.Tajima.D",header=TRUE)
-head(slide.covid)
+slide.ucp1<-read.table("UCP1_YRI_REGION.Tajima.D",header=TRUE)
+head(slide.ucp1)
 ```
 
 Now we can filter it by our significance threshold using the {tidyverse} package:
 ```{r,warning=F,message=F}
 library(tidyverse)
-slide.covid.sig<-
-  slide.covid %>%
-  filter(TajimaD >= 2 | TajimaD <= -2)
-slide.covid.sig
+slide.ucp1.sig<-
+  slide.ucp1 %>%
+  filter(TajimaD <= -2 | TajimaD >= 2) %>%
+  arrange(TajimaD)
+slide.ucp1.sig
 ```
 
-Here, we can see that we have 12 500-bp windows in the severe COVID-19 risk region that have significant Tajima's D values for the Yoruban population. All of these values are positive, suggesting purifying selection on at least one of the SNPs in each of these regions. The most significant region is **3:46101500-46102000** (row 9 in our table), and there are 5 SNPs in that region that could be the potential focus for selection. Going back to *Ensembl*, it looks like this 500 bp window is in an *intergenic* region (between genes), so if it is experiencing purifying selection, it is most likely on an as-yet-unannotated regulatory region for a gene (although, of course, it may also simply be in high LD with a functional region elsewhere). I found this functional information by searching for the 500 bp window, 3:46101500-46102000, in the human reference genome on *Ensembl* and looking at the Variant Table. Remember, if your population had no variants at certain SNPs, then those SNPs were dropped from your VCF file; this means there may be more SNPs listed on *Ensembl* than are actually in your sliding window for your population.
+Here, we can see that we have 232 (!) 500-bp windows in the extended *UCP1* region that have significant Tajima's D values for the Yoruban population. All of these values are positive, suggesting purifying selection on at least one of the SNPs in each of these regions. The most significant region is **4:140922000-140922500** (the last row in our table), and there are 6 SNPs in that region that could be the potential focus for selection. Going back to *EnsEMBL*, it looks like this 500 bp window is in an *intronic* region of the gene *RNF150*, so if it is experiencing purifying selection, it is most likely related to the function of this particular gene (although, of course, it may also simply be in high LD with a functional region elsewhere). I found this functional information by searching for the 500 bp window, 4:140922000-140922500, in the human reference genome on *EnsEMBL* and looking at the **Region In Detail** and **Variant Table**. Remember, if your population had no variants at certain SNPs, then those SNPs were dropped from your VCF file; this means there may be more SNPs listed on *EnsEMBL* than are actually in your sliding window for your population.
 
-The remaining windows listed in our table include intronic variants in the gene *LZTFL1* (row 1), intronic variants in the gene *FYCO1* (row 2), known regulatory region variants (part of a [CTCF](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1894-x) binding domain) and transcription factor binding sites (*rs535236997*, *rs553123352*, and *rs374572137*) for the gene *NFATC1* (this plays a role in cytokine expression in T-cells) (row 10), an intergenic region containing a variant (*rs13063635*) known to significantly decrease the eosinophil percentage among granulocytes (these are white blood cells important to modulating inflammatory processes) (row 12), and more functionally unknown intergenic variants (rows 3, 4, 5, 6, 7, 8, 9, 11).
-
-These are some very interesting phenotypes, with potential importance to COVID-19 response (severe COVID-19 has, after all, been characterized as a 'cytokine storm', and in part a disease of inflammation)! Because of this, it might be interesting to see if there could be any evidence of haplotype homozygosity around the loci found within these windows to bolster support for selection in these regions. 
-
-Let's check out *rs6772051* (3:46101567), which is an intergenic variant in our window (row 9; 3:46101500-46102000) that shows the highest value for Tajima's D:
+Let's check out *rs184151696* (4:140922224), which is an intronic variant in our window (4:140922000-140922500) that shows the highest value for Tajima's D:
 ```{r}
-ehh_46101567<-calc_ehh(hap,mrk="3-46101567")
-plot(ehh_46101567,
-     main="EHH at 3:46101567",
-     col=c("blue2","gold2"))
+ehh_140922224<-calc_ehh(hap,mrk="4-140922224")
+plot(ehh_140922224,
+     main="EHH at 4:140922224",
+     col=c("blue2","gold2"),
+     xlim=c(140894224,140950224))
 ```
 
-Definitely looks like the *ancestral* allele has some more extensive haplotype homozygosity than the derived allele (e.g., the blue line is higher than the gold line across most of the region). Let's look at the bifurcation diagram:
+Definitely looks like there is *no* differential extensive haplotype homozygosity between the ancestral and derived alleles. Let's look at the bifurcation diagram:
 ```{r}
-furcation_46101567<-calc_furcation(hap,mrk="3-46101567")
-plot(furcation_46101567,
+furcation_140922224<-calc_furcation(hap,mrk="4-140922224")
+plot(furcation_140922224,
      lwd=0.1,
      col=c("blue2","gold2"),
      cex.lab=0.3,
-     main="Bifurcation Diagram\nrs6772051 in YRI",
-     legend.xy.coords="none")
+     main="Bifurcation Diagram\nrs184151696 in YRI",
+     legend.xy.coords="none",
+     xlim=c(140894224,140950224))
 ```
 
-And yes, we can see some very clear extended haplotype homozygosity for the haplotype containing the ancestral allele! Particularly downstream of the variant.
+Hmmm... looks like a lot of bifurcation, suggesting a lot of broken haplotypes (with a little EHH around the ancestral variant).
 
 What regions show significantly positive or negative Tajima's D in your population?  Are they the same as in the YRI population? Are they implicated in similar traits or genomic functions?
+
+Why do you think there can be significant site frequency spectrum-based evidence of selection in a genomic region, but NOT linkage-based evidence of a positive selective sweep?  How are these two processes different, and how do they lead to different patterns in a genomic region around the variant specifically under selection?
+
 <br>
 <br>
 <br>

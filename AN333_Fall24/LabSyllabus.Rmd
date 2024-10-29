@@ -1,7 +1,7 @@
 ---
 title: 'AN/BI 333/733: Modules'
 author: "Christopher A Schmitt"
-date: "October 10, 2024"
+date: "October 27, 2024"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -153,7 +153,7 @@ life population genetic analyses.</li>
 
 ***
 
-### [*Module 5: Introduction to Neutrality Statistics and Signs of Selection*](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Module.html)
+### [*Module 5: Neutrality Statistics, Haplotype Homozygosity, and Signs of Selection*](https://fuzzyatelin.github.io/AN333_Fall24/Lab5_Module.html)
 **November 8th**<br>
 
 ***
@@ -162,12 +162,12 @@ life population genetic analyses.</li>
 <br><br> 
 **Readings**:<ul> 
 <li>[Garrigan DR, Lewontin R, Wakeley J. 2010. Measuring the sensitivity of single-locus “neutrality tests” using a direct perturbation approach. *Mol Biol Evol* 27(1): 73-89.](https://academic.oup.com/mbe/article/27/1/73/1125718)</li><br>
-<li>[The Severe COVID-19 GWAS Group. 2020. Genomewide Association Study of Severe Covid-19 with Respiratory Failure. *New England Journal of Medicine*, 383, 1522-1534.](https://www.nejm.org/doi/full/10.1056/NEJMoa2020283)</li><br>
-<li>[Genetics and COVID-19 Pandemic. 2020. The American Society of Human Genetics.](https://medicalxpress.com/news/2020-10-genetics-covid-pandemic.html)</li><br>
+<li>[Hughes DA, et al. 2009. Molecular evolution of UCP1 and the evolutionary history of mammalian non-shivering thermogenesis. *BMC Ecology & Evolution* 9: 4](https://bmcecolevol.biomedcentral.com/articles/10.1186/1471-2148-9-4)</li><br>
+<li>[Yin N, Zhang D, Wang J. 2024. The *FTO* variant conferring enhanced *UCP1* expression is linked to human migration out of Africa. *Life Metabolism* 3(6): loae027](https://doi.org/10.1093/lifemeta/loae027)</li><br>
 <li>[Sabeti PC, et al. 2002. Detecting recent positive selection in the human genome from haplotype structure. Nature 419(6909): 832-837.](https://www.nature.com/articles/nature01140)</li><br>
 <li>[Tajima F. 1989. Statistical method for testing the neutral mutation hypothesis by DNA polymorphism. *Genetics* 123(3): 585–595.](http://www.genetics.org/content/123/3/585)</li></ul>
 <br>
-**Activities**: We'll use the packages *PopGenome* and *pegas* to cauclate Fu and Li’s D and F, as well as Tajima’s D for the severe COVID-19 susceptibility region (3p21.3) identified by The Severe COVID-19 GWAS Group in our respective 1000 Genomes populations. We'll also look for positive selective sweeps in each of our 1000 Genomes populations using iHS score and EHH using the *rehh* package. Finally, we will take ample time to understand what the Fu and Li’s D and F and Tajima’s D test results tell us about how our populations are evolving, and use the example of iHS to predict whether or not our populations underwent a selective sweep in this susceptibility region. <br><br>
+**Activities**: We'll use the packages *PopGenome* and *pegas* to cauclate Fu and Li’s D and F, as well as Tajima’s D for the *UCP1* region in our respective 1000 Genomes populations. We'll also look for positive selective sweeps in each of our 1000 Genomes populations using iHS score and EHH using the *rehh* package. Finally, we will take ample time to understand what the Fu and Li’s D and F and Tajima’s D test results tell us about how our populations are evolving, and use the example of iHS to predict whether or not our populations underwent a positive selective sweep in the *UCP1* region. <br><br>
 **Assignment**: Students must turn in a homework assignment – with questions related to this module and associated readings in humans and related to the downloaded dataset – in class the following Friday. **Module 4 Homework Assignment is due today.**<br><br>
 **Learning Outcomes**:<ul>
 <li>Learn what Fu and Li's D and F, Tajima's D, and iHS scores and EHH means, and how to interpret them.</li>
@@ -179,11 +179,11 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 5: DUE Friday, November 15th](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Homework.html)
+### [Homework for Module 5: DUE Friday, November 15th](https://fuzzyatelin.github.io/AN333_Fall24/Lab5_Homework.html)
 
 ***
 
-### [*Module 6: A Brief Digression from COVID-19 for Quantitative Genetics*](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Module.html)
+### [*Module 6: A Brief Digression from COVID-19 for Quantitative Genetics*](https://fuzzyatelin.github.io/AN333_Fall24/Lab6_Module.html)
 **November 15**<br>
 
 ***
@@ -207,11 +207,11 @@ life population genetic analyses.</li>
 
 ***
 
-### [Homework for Module 6: DUE Friday, November 22nd](https://fuzzyatelin.github.io/AN333_Fall20/Lab6_Homework.html)
+### [Homework for Module 6: DUE Friday, November 22nd](https://fuzzyatelin.github.io/AN333_Fall24/Lab6_Homework.html)
 
 ***
 
-### [*Module 7: Finding a New Locus…*](https://fuzzyatelin.github.io/AN333_Fall20/Lab7_Module.html)
+### [*Module 7: Finding a New Locus…*](https://fuzzyatelin.github.io/AN333_Fall24/Lab7_Module.html)
 **November 8**<br>
 
 ***

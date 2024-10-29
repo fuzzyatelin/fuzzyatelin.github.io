@@ -68,6 +68,20 @@ library(ade4)
 
 Now, let's prepare our data! As usual, I will be using the population **YRI** as an example. Remember to name your data according to your own population!
 
+Before the next step, we need to actually count how many SNPs we have in our VCF file. To do that, we'll use a program called {bcftools}, which we can access on the *SCC* from our Terminal (which also requires loading a specific version of {htslib}:
+```{bash, eval = F, echo = T, class.source="sccCode"}
+module load htslib/1.16
+module load bcftools/1.16
+```
+
+Once you're in the working directory containing the VCF file you want to summarize, enter the following code:
+```{bash, eval = F, echo = T, class.source="sccCode"}
+bcftools stats /projectnb/anth333/caschmit/UCP1_YRI_REGION.vcf
+```
+
+In your output, you'll see a lot of details... the one piece of information you'll need is near the top of your output, `number of records`. For YRI, it's `150`. If you look further down, you'll see that these records are divided into `number of SNPs` (117), and `number of indels` (33). That may be important later, but for now we just need the `number of records`.
+
+Onc eyou have that, we're ready to head back to *R Studio* and import our VCF. In your `read.vcfR` call, enter the number from `number of records` for *your* VCF file into the `nrows` argument, as below:
 ```{r}
 #read in data
 YRI <- read.vcfR("UCP1_YRI_REGION.vcf",verbose=T,nrows=150)
@@ -77,7 +91,7 @@ YRIdna <- vcfR2DNAbin(YRI)
 YRIdna
 ```
 
-Notice that the output messages tell us that the DNAbin format is ignoring all *indel* variants. This is important to our genetic distance estimates because we need our sequences to be identical in length so that nucleotide positions can be read a single point mutation.<br><br>
+Notice that the output messages tell us that the DNAbin format is ignoring all *indel* variants. This is important to our genetic distance estimates because we need our sequences to be identical in length so that nucleotide positions can be read as single point mutations.<br><br>
 If you want to actually take a look at the variation in your population's *UCP1* sequence, you can do so using this code:
 ```{r,fig.height=25}
 par(mar=c(5,8,4,2))
