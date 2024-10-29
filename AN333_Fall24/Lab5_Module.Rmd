@@ -109,18 +109,21 @@ Interpret your own population's Tajima's D value. What is the D statistic for yo
 
 ## Part 3: Positive selective sweeps using iHS and EHH
 
-Now, we will run our *iHS* and *EHH* analyses to assess recent positive selective sweeps in an expanded area surrounding *UCP1* on chromosome 4 (NOTE: you MUST download a new VCF file to run this analysis). To run this example, I'm using the *rehh* package, which is specifically designed to look for *Extended Haplotype Homozygosity*, or evidence of hard positive selective sweeps. To do this, we'll have to do some data transformations. This is relatively simple to do, but it involves using some unfamiliar *python* and *unix* code that may be confusing. It also can take *a lot* of memory, so I'll ask you to delete files along the way as you try this out!
+Now, we will run our *iHS* and *EHH* analyses to assess recent positive selective sweeps in an expanded area surrounding *UCP1* on chromosome 4 (NOTE: you MUST download a new VCF file to run this analysis). To run this example, I'm using the *rehh* package, which is specifically designed to look for *Extended Haplotype Homozygosity*, or evidence of hard positive selective sweeps.
 
-To do this, we'll first need to load our *modules*. This will include *tabix* to download the data, *vcftools* and *bcftools* to modify it. We'll also need to load the programming language *python* for a few short commands later:
+To do this, we'll first need to load our *modules*. This will include *tabix* to download the data, *vcftools* and *bcftools* to modify it:
 
 ```{bash, eval = F, echo = T, class.source="sccCode"}
-module load htslib
+module load htslib/1.16
 module load vcftools
-module load bcftools
-module load python3
+module load bcftools/1.16
 ```
 
 Now, to save on space, we'll download our extended positions (roughly 1 Mb above and below our gene region of interest) from chromosome 4 into a *zipped* file using a familiar *tabix* command. You might note that the web FTP where we're downloading this from is different from in Module 01... this is because to estimate EHH we need an *ancestral allele* estimate; these were included in earlier versions of the 1KG data, but not for the latest iteration:
+```{bash, eval = F, echo = F, class.source="sccCode"}
+# I feel like I'm going insane... I got AA from the URL in the next chunk one night, and the next morning the VCF did NOT have the AA INFO tag... but in this chunk this URL has the tag but is mapped to HG37... so the positions don't match the rest of the course. Keeping it here for reference.
+tabix -h https://ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr4.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz  4:139559434-141568805 | bgzip -c > UCP1_YRI_EXTENDED_all.vcf.gz
+```
 ```{bash, eval = F, echo = T, class.source="sccCode"}
 tabix -h https://ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/supporting/GRCh38_positions/ALL.chr4.phase3_shapeit2_mvncall_integrated_v3plus_nounphased.rsID.genotypes.GRCh38_dbSNP_no_SVs.vcf.gz 4:139559434-141568805 | bgzip -c > UCP1_YRI_EXTENDED_all.vcf.gz
 ```
@@ -135,98 +138,23 @@ You can take a look to make sure this went well (i.e., you've got *your* sample 
 gunzip -c UCP1_YRI_EXTENDED.vcf.gz | less
 ```
 
-Now we're ready to convert this into a haplotype file and a genome map file for {rehh} using a few relatively unfamiliar steps... these are modified from the [Informatics Portal website](https://csprojects.me/481/tools.php). 
-
-First, we'll extract our INFO on ancestral alleles that are embedded in the VCF already (this will create a file called `out.INFO`, which gives us the CHROM, POS, EF, AA:
-```{bash, eval = F, echo = T, class.source="sccCode"}
-vcftools --gzvcf UCP1_YRI_EXTENDED.vcf.gz --get-INFO AA
-```
-
-Next, we'll change lower- to upper-case letters in our INFO file:
-```{bash, eval = F, echo = T, class.source="sccCode"}
-cat out.INFO | tr '[:lower:]' '[:upper:]' > out2.INFO
-```
-
-I have to note that this step is - conceptually - a little complicated because the way the *1000 Genomes Project* estimates the ancestral allele at a given position is a bit different from how folks *usually* think about an ancestral allele (i.e., the allele state of the LCA of the groups you're testing). You don't have to worry about it, for now, but [you can learn more about it here if you want](https://www.biostars.org/p/61267/).
-
-Export the VCF file in IMPUTE format, which is what groups alleles into haplotypes:
-```{bash, eval = F, echo = T, class.source="sccCode"}
-vcftools --gzvcf UCP1_YRI_EXTENDED.vcf.gz --IMPUTE
-```
-
-Delete the first row in our INFO file and replace tabs for spaces:
-```{bash, eval = F, echo = T, class.source="sccCode"}
-cat out2.INFO | awk '{gsub(/\|/,"",$5)}1' | awk 'NR>1{if($3==$5) print$0,"yes";if($3!=$5) print$0,"no";}' | sed -e 's/\t/ /g' > out3.INFO
-```
-
-Now, there's a problem here in that IMPUTE is deleting a few loci from the sample. We need to use the 'join' command to merge the properly matched columns based on position (column 2 in out3.INFO and column 2 in out.impute.legend), which will automatically then delete non-matches in the output file (both files need to be sorted by the position name for this to work):
-```{bash, eval = F, echo = T, class.source="sccCode"}
-join -j 2 -o 1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8 out3.INFO <(sort -k2 out.impute.legend) > out4.INFO
-```
-
-Merge most recent INFO file and our IMPUTE `hap` file, then eliminate from the merged file those markers with no ancestral allele info (".") or ("N") or ("-"):
-```{bash, eval = F, echo = T, class.source="sccCode"}
-paste out4.INFO out.impute.hap | awk '($5!="." && $5!="N" && $5!="-")' > merged.out
-```
-
-Change the allele codes (0 to 3 and 1 to 4) starting in column 7, and remove potential duplicates:
-```{bash, eval = F, echo = T, class.source="sccCode"}
-awk '{for(i=7;i<=NF;i++)if($i==0)$i=3; else $i=4; print}' merged.out | awk '{if(ip[$2]=="") print; ip [$2]=1}' > merged2.out
-```
-
-Prepare {rehh} `map` file using information from the first 2 columns:
-```{bash, eval = F, echo = T, class.source="sccCode"}
-awk '{print $1"-"$2,$1,$2,"1","2"}' merged2.out > mapUCP1_YRI.out
-
-#change label 3 to 1 when reference allele = ancestral allele (yes)
-#change label 4 to 2 when reference allele = ancestral allele (yes)
-#change label 3 to 2 when reference allele = derived allele (no)
-#change label 4 to 1 when reference allele = derived allele (no)
-#eliminate 6 initial fields in hap file to prepare rehh input hap file
-
-sed -e '/yes/ s/3/1/g' -e '/yes/ s/4/2/g' -e '/no/ s/3/2/g' -e '/no/ s/4/1/g' merged2.out | cut -d " " -f7-  > merged3.out
-```
-
-Transpose to create final haplotype file for {rehh} input:
-```{bash, eval = F, echo = T, class.source="sccCode"}
-python -c "import sys; print('\n'.join(' '.join(c) for c in zip(*(l.split() for l in sys.stdin.readlines() if l.strip()))))" < merged3.out > merged4.out
-```
-
-Add first column with numbers in increasing order:
-```{bash, eval = F, echo = T, class.source="sccCode"}
-awk '{print NR " "$0}' merged4.out > hapUCP1_YRI.out
-```
-
-An finally, remove intermediate files you won't use anymore:
-```{bash, eval = F, echo = T, class.source="sccCode"}
-rm merged.out
-rm merged2.out
-rm merged3.out
-rm merged4.out
-rm out.INFO
-rm out.impute.hap
-rm out.impute.hap.indv
-rm out.log
-rm out2.INFO
-rm out3.INFO
-rm out4.INFO
-```
-
-After this whole process, the files `mapUCP1_YRI.out` and `hapUCP1_YRI.out` are the input files for our {rehh} analysis!
-
 Ok... now let's open *Rstudio* and try it!
 
-Once you're in *R*, load the {rehh} library (if it throws an error, you may need to install {rehh}):
+Once you're in *R*, load the {rehh} library (if it throws an error, you may need to install {rehh}, which you can do through the `Packages` tab):
 ```{r}
 library(rehh)
 ```
 
-Then, we need to import our newly made files for the Finns:
-```{r}
+Then, we need to import our newly made `Extended` VCF file for our population:
+```{r,eval=F, echo=F}
+#This only works with the INFO AA tags... see the last semester's processing information to get these files.
 hap<-data2haplohh(hap_file="hapUCP1_YRI.out",map_file="mapUCP1_YRI.out",chr.name="4")
 ```
+```{r}
+hap<-data2haplohh(hap_file="UCP1_YRI_EXTENDED.vcf.gz",polarize_vcf = FALSE)
+```
 
-Once those are read in, you should see that our dataset consists of 6046 SNPs split into 216 haplotypes.
+Once those are read in, you should see that our dataset consists of 6052 markers, consisting of 6046 SNPs split into 216 haplotypes.
 
 Now we can run our extended haplotype homozygosity assessment (this step might take a while, be patient):
 ```{r}
@@ -243,19 +171,35 @@ We can then look for candidate regions potentially under selection using the iHS
 cr.se<-calc_candidate_regions(ihs,threshold=2,pval=TRUE,window_size=3000,overlap=300,min_n_extr_mrk=1)
 cr.se
 ```
-Looks like, in the YRI population, we have perhaps 32 regions that are potentially under selection in this region.
+Looks like, in the YRI population, we have perhaps 31 regions that have potentially experienced a hard selective sweep.
 
 Let's plot them:
 ```{r}
-manhattanplot(ihs,pval=TRUE,threshold=2,pch=16, chr.name="4",cr=cr.se,cr.col="yellow",main="iHS")
+manhattanplot(ihs,pval=TRUE,threshold=2,pch=16, chr.name="4",cr=cr.se,cr.col="skyblue",main="iHS")
 ```
 
-As you can see, there are a lot of potential positive selective sweeps across this extended region!  However, we also need to rememberr... in this figure we've added 1 Mb (a million bases) above and below our *UCP1* region, so the only spots of selection that are relevant are between 4:140559434-140568805 (the *UCP1* region) and 10 kb up and downstream of them... let's look at those, specifically:
+As you can see, there are a lot of potential positive selective sweeps across this extended region!  However, we also need to remember... in this figure we've added 1 Mb (a million bases) above and below our *UCP1* region, so the only spots of selection that are relevant are between 4:140559434-140568805 (the *UCP1* region) and 10 kb up and downstream of them... let's look at those, specifically:
 ```{r}
-manhattanplot(ihs,pval=TRUE,threshold=2,pch=16, chr.name="4",cr=cr.se,cr.col="yellow",main="iHS",xlim=c(140549434,140578805))
+manhattanplot(ihs, pval=TRUE, threshold=2, pch=16, chr.name="4", cr=cr.se, cr.col="skyblue", main="iHS", xlim=c(140549434,140578805))
 ```
 
-As you can see, in the YRI population it looks like there's evidence for one clear positive selective sweep in the area of *UCP1* near the TSS and the upstream region.
+As you can see, in the YRI population it looks like there's evidence for one clear positive selective sweep in the upstream area of *UCP1* region.
+
+We can also try to map our SNPs of interest from Module 3 to the figure. We'll start by making a dataframe with the position information for these loci of interest, called `loi`, which gives thier VariantID, chromosome, and position:
+```{r}
+CHR<-c(4,4,4,4,4)
+POSITION<-c(140560427,140562317,140563980,140569265,140572807)
+loi<-as.data.frame(cbind(CHR,POSITION))
+rownames(loi)<-c("rs6536991","rs2270565","rs12502572","rs3811787","rs1800592")
+loi
+```
+
+Then, we can insert this information into our figure using the series of `mrk` options, below:
+```{r}
+manhattanplot(ihs, pval=TRUE, threshold=2, pch=16, chr.name="4", cr=cr.se, cr.col="skyblue", main="iHS", xlim=c(140549434,140578805), mrk=loi, mrk.col="blue", mrk.pch=20, mrk.lab.pos=3)
+```
+
+You may notice that one of our SNPs of interest, *rs2270565*, is missing here (and, indeed, that it looks like we don't have all 117 of the SNPs we should). This may be because some of these had a low minor allele frequency (MAF < 0.05). You may also notice that our SNPs of interest that are present appear to have relatively low iHS scores... suggesting that, if they are under selection, it's likely not a hard selective sweep.
 
 Let's actually check the SNPs making up these significant regions:
 ```{r}
@@ -264,7 +208,8 @@ pihs<-as_tibble(ihs$ihs[,c(2,4)])
 
 sig.pihs<-
   pihs %>%
-  filter(LOGPVALUE >= 2)
+  filter(LOGPVALUE >= 2) %>%
+  arrange(LOGPVALUE)
 sig.pihs
 ```
 
@@ -272,21 +217,19 @@ Now we can take a closer look at the EHH of an actual *SNP* of interest. Let's t
 
 Let's start with the famous -3826A<G SNP, *rs1800592*.
 
-First, though, let's get a sense of what we're looking for... we can look at some of these significant SNPs within the region of interest to set expectations. Let's take a look at 140343413, which has among the higher p<sub>iHS</sub> in our extended region (p<sub>iHS</sub> = 4.076775). In this case, I'm zooming in on 60 kb up- and down-stream of the focal SNP using the `xlim` option: 
-
+First, though, let's get a sense of what we're looking for... we can look at some of these significant SNPs within the region of interest to set expectations. Let's take a look at 140343413, also known as [*rs9996243*](https://www.ncbi.nlm.nih.gov/snp/?term=4%3A140343413), which has among the higher p<sub>iHS</sub> in our extended region (p<sub>iHS</sub> = 4.073600). In this case, I'm zooming in on 60 kb up- and down-stream of the focal SNP using the `xlim` option: 
 ```{r}
-ehh_140343413<-calc_ehh(hap,mrk="4-140343413")
+ehh_140343413<-calc_ehh(hap,mrk="rs9996243",polarized=FALSE,include_nhaplo=TRUE)
 plot(ehh_140343413,
      main="EHH at 4:140343413",
      col=c("blue2","gold2"))
 ```
 
-Wow... we can see here that EHH (on the y-axis) for the haplotypes surrounding the ancestral allele is consistently higher than the EHH surrounding the derived allele, with that EHH being consistently high as we approach the SNP along the genome, particularly upstream of our focal SNP. This suggests that recombination has not yet broken up the linkage block/haplotype surrounding the ancestral allele anywhere where the EHH is equal to 1. In other words, it would appear that the focal SNP here is in a *very* large ancestral haplotype with extensive haplotype homozygosity, suggesting that the ancestral SNP and associated SNPs have largely been sheilded from recombination.
+Wow... we can see here that EHH (on the y-axis) for the haplotypes surrounding the minor allele is consistently higher than the EHH surrounding the major allele, with that EHH being consistently high as we approach the SNP along the genome, particularly upstream of our focal SNP. This suggests that recombination has not yet broken up the linkage block/haplotype surrounding the ancestral allele anywhere where the EHH is equal to 1. In other words, it would appear that the minor allele for our SNP here is in a *very* long haplotype with extensive haplotype homozygosity, suggesting that the minor allelle associated SNPs have largely been shielded from recombination.
 
-Let's actually visualize the haplotype structure around this SNP of interest to give us a better idea of the observed effect of selection. The original use of this kind of graph - called a *bifurcation graph* - is in a paper by [Sabeti et al. (2002)](https://www.nature.com/articles/nature01140), in our readings for this module. This will look like a bifurcating tree, with the thicker branches representing the relative number of individuals maintaining that particular haplotype (thicker = more people in the sample have that haplotype) surrounding the core allele (which is at the vertical dashed line). The nodes of the tree are where the haplotype/linkage is broken by a variant outside the original haplotype. Let's check it out (in this case, I'm again zooming in on 30 kb up- and down-stream of the focal SNP using the `xlim` option):
-
+Let's actually visualize the haplotype structure around this SNP of interest to give us a better idea of the observed effect of selection. The original use of this kind of graph - called a *bifurcation graph* - is in a paper by [Sabeti et al. (2002)](https://www.nature.com/articles/nature01140), in our readings for this module. This will look like a bifurcating tree, with the thicker branches representing the relative number of individuals maintaining that particular haplotype (thicker = more people in the sample have that haplotype) surrounding the core allele (which is at the vertical dashed line). The nodes of the tree are where the haplotype/linkage is broken by a variant outside the original haplotype. Let's check it out:
 ```{r}
-furcation_140343413<-calc_furcation(hap,mrk="4-140343413")
+furcation_140343413<-calc_furcation(hap,mrk="rs9996243",polarized=FALSE)
 plot(furcation_140343413,
      lwd=0.1,
      col=c("blue2","gold2"),
@@ -295,18 +238,18 @@ plot(furcation_140343413,
      legend.xy.coords="none")
 ```
 
-Here, we can see that there are a lot of individuals in the YRI population that have the derived allele, but the haplotype breaks down pretty quickly (or the haplotypes *bifurcate* each time anyone has a mutation as you move away from the focal SNP) but that there's some clear extensive haplotype homozygosity around the ancestral allele (no bifurcations means no mutations). We can see this because the thicker the branch, the more individuals share haplotypes along that branch. So when we see a very thick branch extend many Mb along the genome, this suggests a selective sweep. In this case, it perhaps looks like a relatively limited selective sweep, given that not eveyrone has this haplotype. For a very clear selective sweep, we would see almost the entire population showing the extended haplotype (e.g., a very large, thick line extending across a large portion of the genomic region).
+Here, we can see that there are a lot of individuals in the YRI population that have the major allele, but the haplotype breaks down pretty quickly (or the haplotypes *bifurcate* each time anyone has a mutation as you move away from the focal SNP) but that there's some clear extensive haplotype homozygosity around the minor allele (no bifurcations means no mutations). We can see this because the thicker the branch, the more individuals share haplotypes along that branch. So when we see a very thick branch extend many Mb along the genome, this suggests a hard selective sweep. In this case, it perhaps looks like a relatively limited selective sweep, given that not eveyrone has this haplotype. For a very clear selective sweep, we would see almost the entire population showing the extended haplotype (e.g., a very large, thick line extending across a large portion of the genomic region).
 
 We can also zoom in on the EHH block using the `xlim` option:
 ```{r}
-ehh_140343413<-calc_ehh(hap,mrk="4-140343413")
+ehh_140343413<-calc_ehh(hap,mrk="rs9996243",polarized=FALSE,include_nhaplo=TRUE)
 plot(ehh_140343413,
      main="EHH at 4:140343413",
      col=c("blue2","gold2"),
      xlim=c(140323413,140583413))
 ```
 ```{r}
-furcation_140343413<-calc_furcation(hap,mrk="4-140343413")
+furcation_140343413<-calc_furcation(hap,mrk="rs9996243",polarized=FALSE)
 plot(furcation_140343413,
      lwd=0.1,
      col=c("blue2","gold2"),
@@ -316,20 +259,20 @@ plot(furcation_140343413,
      xlim=c(140323413,140583413))
 ```
 
-Now, let's look at a random SNP we for which we have no reason to believe there is selection. The position 4:140560607 in the *UCP1* region has a very low p<sub>iHS</sub> value (p<sub>iHS</sub> = 0.0384). Let's take a look. Here, I'll zoom in to ~30 kb up- and down-stream of this SNP using `xlim`:
+Now, let's look at a random SNP we for which we have no reason to believe there is *no* selective sweep. The position 4:140560607, also known as [*rs726989*](https://www.ncbi.nlm.nih.gov/snp/?term=4%3A140560607), in the *UCP1* region has a very low p<sub>iHS</sub> value (p<sub>iHS</sub> = 0.0391). Let's take a look. Here, I'll zoom in to ~30 kb up- and down-stream of this SNP using `xlim`:
 ```{r}
-ehh_140560607<-calc_ehh(hap,mrk="4-140560607")
+ehh_140560607<-calc_ehh(hap,mrk="rs726989",polarized=FALSE,include_nhaplo=TRUE)
 plot(ehh_140560607,
      main="EHH at 4:140560607",
      col=c("blue2","gold2"),
      xlim=c(140530607,140590607))
 ```
 
-Ok, this looks like another case where the *ancestral* allele appears to have slightly more haplotype homozygosity than the derived allele (e.g., the blue line is higher than the gold line across most of the region), but that EHH doesn't extend very far from our SNP of interest before falling away, suggesting that there is no selection keeping recombination from breaking up the haplotypes around our focal SNP.
+Ok, this looks like another case where the minor allele appears to have slightly more haplotype homozygosity than the major allele (e.g., the gold line is higher than the blue line across most of the region), but that EHH doesn't extend very far from our SNP of interest before falling away, suggesting that there is no selection keeping recombination from breaking up the haplotypes around our focal SNP.
 
 Let's look at the bifurcation diagram:
 ```{r}
-furcation_140560607<-calc_furcation(hap,mrk="4-140560607")
+furcation_140560607<-calc_furcation(hap,mrk="rs726989",polarized=FALSE)
 plot(furcation_140560607,
      lwd=0.1,
      col=c("blue2","gold2"),
@@ -344,7 +287,7 @@ As you can see by the extensive branching, our haplotypes around both the ancest
 Now, let's try our SNP of interest, -3826A<G or *rs1800592* (4:140572807).	
 
 ```{r}
-ehh_140572807<-calc_ehh(hap,mrk="4-140572807")
+ehh_140572807<-calc_ehh(hap,mrk="rs1800592",polarized=FALSE,include_nhaplo=TRUE)
 plot(ehh_140572807,
      main="EHH at 4:140572807",
      col=c("blue2","gold2"),
@@ -352,7 +295,7 @@ plot(ehh_140572807,
 ```
 
 ```{r}
-furcation_140572807<-calc_furcation(hap,mrk="4-140572807")
+furcation_140572807<-calc_furcation(hap,mrk="rs1800592",polarized=FALSE)
 plot(furcation_140572807,
      lwd=0.1,
      col=c("blue2","gold2"),
@@ -413,7 +356,7 @@ Here, we can see that we have 232 (!) 500-bp windows in the extended *UCP1* regi
 
 Let's check out *rs184151696* (4:140922224), which is an intronic variant in our window (4:140922000-140922500) that shows the highest value for Tajima's D:
 ```{r}
-ehh_140922224<-calc_ehh(hap,mrk="4-140922224")
+ehh_140922224<-calc_ehh(hap,mrk="rs184151696",polarized=FALSE,include_nhaplo=TRUE)
 plot(ehh_140922224,
      main="EHH at 4:140922224",
      col=c("blue2","gold2"),
@@ -422,7 +365,7 @@ plot(ehh_140922224,
 
 Definitely looks like there is *no* differential extensive haplotype homozygosity between the ancestral and derived alleles. Let's look at the bifurcation diagram:
 ```{r}
-furcation_140922224<-calc_furcation(hap,mrk="4-140922224")
+furcation_140922224<-calc_furcation(hap,mrk="rs184151696",polarized=FALSE)
 plot(furcation_140922224,
      lwd=0.1,
      col=c("blue2","gold2"),
@@ -432,7 +375,7 @@ plot(furcation_140922224,
      xlim=c(140894224,140950224))
 ```
 
-Hmmm... looks like a lot of bifurcation, suggesting a lot of broken haplotypes (with a little EHH around the ancestral variant).
+Hmmm... looks like a lot of bifurcation, suggesting a lot of broken haplotypes (with a little EHH around the major allele).
 
 What regions show significantly positive or negative Tajima's D in your population?  Are they the same as in the YRI population? Are they implicated in similar traits or genomic functions?
 

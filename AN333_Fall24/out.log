@@ -1,0 +1,39 @@
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf UCP1_YRI_EXTENDED_all.vcf.gz
+	--keep YRI.samples.list
+	--maf 0.05
+	--recode
+	--remove-indels
+	--stdout
+	--recode-INFO AA
+
+Using zlib version: 1.2.11
+Warning: Expected at least 2 parts in INFO entry: ID=MEINFO,Number=4,Type=String,Description="Mobile element info of the form NAME,START,END<POLARITY; If there is only 5' OR 3' support for this call, will be NULL NULL for START and END">
+Warning: Expected at least 2 parts in INFO entry: ID=MEINFO,Number=4,Type=String,Description="Mobile element info of the form NAME,START,END<POLARITY; If there is only 5' OR 3' support for this call, will be NULL NULL for START and END">
+Warning: Expected at least 2 parts in INFO entry: ID=MEINFO,Number=4,Type=String,Description="Mobile element info of the form NAME,START,END<POLARITY; If there is only 5' OR 3' support for this call, will be NULL NULL for START and END">
+Warning: Expected at least 2 parts in INFO entry: ID=TSD,Number=1,Type=String,Description="Precise Target Site Duplication for bases, if unknown, value will be NULL">
+Warning: Expected at least 2 parts in INFO entry: ID=TSD,Number=1,Type=String,Description="Precise Target Site Duplication for bases, if unknown, value will be NULL">
+Warning: Expected at least 2 parts in INFO entry: ID=AF,Number=A,Type=Float,Description="Estimated allele frequency in the range (0,1)">
+Warning: Expected at least 2 parts in INFO entry: ID=EAS_AF,Number=A,Type=Float,Description="Allele frequency in the EAS populations calculated from AC and AN, in the range (0,1)">
+Warning: Expected at least 2 parts in INFO entry: ID=EAS_AF,Number=A,Type=Float,Description="Allele frequency in the EAS populations calculated from AC and AN, in the range (0,1)">
+Warning: Expected at least 2 parts in INFO entry: ID=EUR_AF,Number=A,Type=Float,Description="Allele frequency in the EUR populations calculated from AC and AN, in the range (0,1)">
+Warning: Expected at least 2 parts in INFO entry: ID=EUR_AF,Number=A,Type=Float,Description="Allele frequency in the EUR populations calculated from AC and AN, in the range (0,1)">
+Warning: Expected at least 2 parts in INFO entry: ID=AFR_AF,Number=A,Type=Float,Description="Allele frequency in the AFR populations calculated from AC and AN, in the range (0,1)">
+Warning: Expected at least 2 parts in INFO entry: ID=AFR_AF,Number=A,Type=Float,Description="Allele frequency in the AFR populations calculated from AC and AN, in the range (0,1)">
+Warning: Expected at least 2 parts in INFO entry: ID=AMR_AF,Number=A,Type=Float,Description="Allele frequency in the AMR populations calculated from AC and AN, in the range (0,1)">
+Warning: Expected at least 2 parts in INFO entry: ID=AMR_AF,Number=A,Type=Float,Description="Allele frequency in the AMR populations calculated from AC and AN, in the range (0,1)">
+Warning: Expected at least 2 parts in INFO entry: ID=SAS_AF,Number=A,Type=Float,Description="Allele frequency in the SAS populations calculated from AC and AN, in the range (0,1)">
+Warning: Expected at least 2 parts in INFO entry: ID=SAS_AF,Number=A,Type=Float,Description="Allele frequency in the SAS populations calculated from AC and AN, in the range (0,1)">
+Warning: Expected at least 2 parts in INFO entry: ID=WGT,Number=1,Type=Integer,Description="Weight, 00 - unmapped, 1 - weight 1, 2 - weight 2, 3 - weight 3 or more (dbSNP flag)">
+Warning: Expected at least 2 parts in INFO entry: ID=WGT,Number=1,Type=Integer,Description="Weight, 00 - unmapped, 1 - weight 1, 2 - weight 2, 3 - weight 3 or more (dbSNP flag)">
+Warning: Expected at least 2 parts in INFO entry: ID=WGT,Number=1,Type=Integer,Description="Weight, 00 - unmapped, 1 - weight 1, 2 - weight 2, 3 - weight 3 or more (dbSNP flag)">
+Warning: Expected at least 2 parts in INFO entry: ID=WGT,Number=1,Type=Integer,Description="Weight, 00 - unmapped, 1 - weight 1, 2 - weight 2, 3 - weight 3 or more (dbSNP flag)">
+Keeping individuals in 'keep' list
+After filtering, kept 108 out of 2504 Individuals
+Outputting VCF file...
+After filtering, kept 6052 out of a possible 56425 Sites
+Run Time = 10.00 seconds
