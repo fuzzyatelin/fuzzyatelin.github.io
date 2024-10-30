@@ -1,20 +1,20 @@
 ---
 title: 'Module 5: Homework'
 author: "Christopher A Schmitt"
-date: "November 1, 2020"
+date: "October 27, 2024"
 output: 
   rmarkdown::html_document:
     theme: cosmo
 ---
 
-## Introduction to Neutrality Statistics and Signs of Selection
+## Neutrality Statistics, Haplotype Homozygosity, and Signs of Selection
 
 ***
 
 **Readings**:<ul> 
 <li>[Garrigan DR, Lewontin R, Wakeley J. 2010. Measuring the sensitivity of single-locus “neutrality tests” using a direct perturbation approach. *Mol Biol Evol* 27(1): 73-89.](https://academic.oup.com/mbe/article/27/1/73/1125718)</li><br>
-<li>[The Severe COVID-19 GWAS Group. 2020. Genomewide Association Study of Severe Covid-19 with Respiratory Failure. *New England Journal of Medicine*, 383, 1522-1534.](https://www.nejm.org/doi/full/10.1056/NEJMoa2020283)</li><br>
-<li>[Genetics and COVID-19 Pandemic. 2020. The American Society of Human Genetics.](https://medicalxpress.com/news/2020-10-genetics-covid-pandemic.html)</li><br>
+<li>[Hughes DA, et al. 2009. Molecular evolution of UCP1 and the evolutionary history of mammalian non-shivering thermogenesis. *BMC Ecology & Evolution* 9: 4](https://bmcecolevol.biomedcentral.com/articles/10.1186/1471-2148-9-4)</li><br>
+<li>[Yin N, Zhang D, Wang J. 2024. The *FTO* variant conferring enhanced *UCP1* expression is linked to human migration out of Africa. *Life Metabolism* 3(6): loae027](https://doi.org/10.1093/lifemeta/loae027)</li><br>
 <li>[Sabeti PC, et al. 2002. Detecting recent positive selection in the human genome from haplotype structure. Nature 419(6909): 832-837.](https://www.nature.com/articles/nature01140)</li><br>
 <li>[Tajima F. 1989. Statistical method for testing the neutral mutation hypothesis by DNA polymorphism. *Genetics* 123(3): 585–595.](http://www.genetics.org/content/123/3/585)</li></ul>
 
@@ -38,17 +38,9 @@ As before, you'll be turning in your homework via an online interface.  I recomm
 
 * Of the genes based on restriction sites Tajima tested in fruit flies (*Drosophila melanogaster*), which showed signs of selection based on his D statistic?
 
-* According to your lab exercises, what was the value of Tajima's D for *your* study population? Is this a significant deviation from the assumptions of neutrality (please give p-value)?
+* According to your lab exercises with {pegas}, what was the value of Tajima's D for *your* study population? Is this a significant deviation from the assumptions of neutrality (please give your Tajima's D value and p-value)?
 
 * Based on this value, what kind of selection does Tajima's D imply your population might be experiencing in *UCP1* (if any)?
-
-* Match the statistic to its appropriate descriptor. Both of Fu and Li's statistics compare the number of private mutations in a given population to some other value. Which test goes with which comparative measure/value?
-
-* What was Fu & Li's F for your population?
-
-* What was Fu * Li's D for your population?
-
-* What does this say about potential selection in your population?
 
 * According to the Garrigan et al. (2010) paper, which of the test statistics we used today is the least reliable to random perturbations in allele frequencies that are NOT selection?
 
@@ -58,28 +50,28 @@ As before, you'll be turning in your homework via an online interface.  I recomm
 
 * Match the kind of selective sweep (hard, soft, partial) to the kind of variant under selection. Ancestral, novel, or one of several involved in a polygenic trait?
 
-* In the Severe COVID-19 GWAS Group paper (2020), the authors tried to find regions of the genome associated with severe COVID-19 symptoms in Italian and Spanish populations, and found two candidate regions. One on chromosome 3 (which we studied here), and one on chromosome 9. Which showed a stronger association with severe COVID-19?
+* In the Yin et al. paper (2024), the authors, in investigating an *FTO* intronic variant known to alter expression of *UCP1*, "found that the number of SNPs highly linked to *rs1421085* (R² > 0.8) was the highest in European populations, followed by Asian populations, and the lowest in African populations". In the context of their paper, why is this population-based pattern of LD important?
 
-* What made the authors focus on *rs11385942* as a focal risk allele? Can you find out on Ensembl what gene this variant actually resides in?
+* What made the authors focus on *rs1421085* as a focal allele for understanding human evolution and migration patterns?
 
-* Why do the authors focus on *SLC6A20* as a potential candidate gene in this region that might be affecting suceptibility?
+* How do the authors explain the functional link between *rs1421085*, the *FTO* gene generally, and *UCP1* as regions of importance to human evolution?
 
-* Upload the image of your 1) EHH and 2) Bifurcation diagram for the best (highest p<sub>iHS</sub> value) candidate for a selective sweep in your population in the severe COVID-19 GWAS region.
+* Upload the image of a) your iHS plot for your population in the extended *UCP1* region (with putative selective sweeps highlighted in a color of your choice, and with the five focal SNPs from Module 3 highlighted); b) the EHH and c) the Bifurcation diagram for the best (highest p<sub>iHS</sub> value) candidate for a selective sweep in the *UCP1* extended gene region for your population.
 
-* Given what *you* know about your study population, iHS, and how it assesses selection in the genome, would *you* expect to see signs of selection in the severe COVID-19 GWAS region? Why or why not?
-<br>
-<br>
+* Given what you know about your study population, iHS, and how it assesses selection in the genome, are the results of your analyses on this population surprising? Why or why not?
 <br>
 
 ## Extra Credit (required for students taking CAS AN 733)
 
-* What is the 500-bp window of the severe COVID-19 risk region that has the highest value for Tajima's D in your population?
+* What is the 500-bp window of the extended *UCP1* region that has the highest value for Tajima's D in your population?
 
-* What is the functional annotation for the SNPs in this window?
+* What is the functional annotation for the SNPs in this window (i.e., are they synonymous or non-synonymous variants, intronic or exonic, etc)?
+
+* Do any of your significance windows for Tajima's D contain any of the SNPs identified as potential selective sweeps (as indicated by significant p<sub>iHS</sub>) from your previous analysis? If so, please list the SNP (by position) and which window (also by position range) contains it, as well as the annotation (i.e., is it in a gene, is it intronic or exonic, etc).
 
 * Does any of your significance windows contain any of the SNPs identified as potential selective sweeps via significant p<sub>iHS</sub> score from your previous analysis?
 
-* Upload the image of your 1) EHH and 2) Bifurcation diagram for a representative SNP from this window, or for a particularly interesting SNP in one of your significance windows based on potential functionality.
+* Upload the image of your a) EHH and b) Bifurcation diagram for a representative SNP from the most significant 500 bp window from your Tajima's D analysis, or for a particularly interesting SNP in one of your significance windows based on potential functionality.
 
 <br>
 <br>
