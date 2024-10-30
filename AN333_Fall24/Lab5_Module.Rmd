@@ -334,7 +334,7 @@ mv out.log UCP1_YRI_REGION.TD.log #rename log file
 less UCP1_YRI_REGION.Tajima.D 
 ```
 
-With this sliding window, we can see that certain sections of our severe COVID-19 risk region have very different values for Tajima’s D. A good rule of thumb is that a Tajima's D value above 2 or below -2 is significant. For example, the 500 bp windows starting at position 45823000 has 4 SNPs in it and is negative but not quite significant (D = -1.56823000).
+With this sliding window, we can see that certain sections of our *UCP1* region have very different values for Tajima’s D. A good rule of thumb is that a Tajima's D value above 2 or below -2 is significant. For example, the 500 bp windows starting at position 139564000 has 3 SNPs in it and is positive and significant (D = 2.00251).
 
 Let’s take a closer look by bringing the output from this analysis into *R* so that we can filter it according to this significance threshold:
 ```{r}
