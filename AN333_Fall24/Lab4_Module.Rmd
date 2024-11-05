@@ -172,7 +172,7 @@ How does *your* tree compare to the example tree from the YRI population? Is it 
 In the next part of the module, we'll make two more trees of populations from the same larger geographic region as your study population, and compare the tree from *your* population to these other two trees. In this way, we'll be able to qualitatively compare the amount of diversity in *your* population to the diversity in populations of the same region. Refer to [Module 1](https://fuzzyatelin.github.io/AN333_Fall24/Lab1_Module.html) for population names and regions and pick TWO other populations that are from the same region (i.e., Africa, Europe, East Asia, etc.) as your study population. 
 <br>
 <br>
-The first step for this part of the lab will be to download the *UCP1* data from these other two populations in your region. Instead of downloading more data from *EnsEMBL*, you can get the data from the `/projectnb/anth333/` directory called "*sampleVCF*". This directory contains downloads of *UCP1* data from all of the 1000 Genomes populations. This process will be similar to what we did in [Module 1](https://fuzzyatelin.github.io/AN333_Fall24/Lab1_Module.html) to get our data in to our *SCC* folders. Just in case, here's how you would copy this files from the "*sampleVCF*" folder to your working directory:
+The first step for this part of the lab will be to download the *UCP1* data from these other two populations in your region. Instead of downloading more data from *EnsEMBL*, you can get the data from the `/projectnb/anth333/` directory called "*sampleVCF*". This directory contains downloads of *UCP1* data from all of the 1000 Genomes populations. This process will be similar to what we did in [Module 1](https://fuzzyatelin.github.io/AN333_Fall24/Lab1_Module.html) to get our data in to our *SCC* folders. Just in case, here's how you would copy this files from the "*sampleVCF*" folder to your working directory (make sure that the `filename` is the same for both sections of this code... i.e., `UCP1_CLM.vcf` from the `sampleVCF` folder is being copied as `UCP1_CLM.vcf` to your `username` folder) :
 
 ```{bash, eval = F, echo = T, class.source="sccCode"}
 cp /projectnb/anth333/sampleVCF/filename.vcf /project/anth333/username/filename.vcf
@@ -186,6 +186,11 @@ The next step is to merge your three VCF files, which can be accomplished using 
 ```{bash, eval = F, echo = T, class.source="sccCode"}
 #first load the modules
 module load vcftools
+module load htslib
+```
+
+```{bash, eval = F, echo = F, class.source="sccCode"}
+#This isn't working!!!
 module load htslib/1.16
 module load bcftools/1.16
 
@@ -197,7 +202,6 @@ bgzip -ci UCP1_ASW_REGION.vcf > UCP1_ASW_REGION.vcf.gz
 #then merge them:
 bcftools merge -0 UCP1_YRI_REGION.vcf.gz UCP1_LWK_REGION.vcf.gz UCP1_ASW_REGION.vcf.gz | bgzip -c > UCP1_AFR_REGION.vcf.gz
 ```
-
 You can now return to your *R Studio* screen, where you should see the new files in your directory in the bottom right screen (click on the "Files" tab). We will now use these files to create trees that we can compare to our original population. 
 <br><br>
 
