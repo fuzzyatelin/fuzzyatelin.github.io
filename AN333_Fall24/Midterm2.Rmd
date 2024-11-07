@@ -1,7 +1,7 @@
 ---
 title: "Midterm 2"
 author: "Christopher A Schmitt"
-date: "November 13, 2020"
+date: "November 7, 2024"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -11,27 +11,27 @@ output:
 
 This midterm is **open notes, open textbook, open Lab tutorial** and will cover genetics review concepts (insofar as they are relevant to our newer work), linkage disequilibrium, genetic drift, heterozygosity, and detecting and measuring selection in the genome. <br>
 
-You may begin the exam when the submission link (below) becomes active at class time on **Friday, November 13**, and work on the exam until the link closes at midnight of the exam due date, **Friday, November 20**.<br>
+You may begin the exam when the submission link (below) becomes active at class time on **Monday, November 8**, and work on the exam until the link closes at midnight of the exam due date, **Friday, November 15**.<br>
 
 *No late responses will be accepted!*<br><br>
 
 <center>
-### [Access the online interface to submit your Midterm 2 answers here.](https://forms.gle/roGNmMGmjMp8hoRP6)
+### [Access the online interface to submit your Midterm 2 answers here.](https://forms.gle/xuoRmLV8ubGjukPdA)
 </center><br>
 
-Parts of this exam will require downloading, processing, and analyzing data from *Ensembl* in ways that should, by now, be familiar to you; these may involve interfacing with *R/R Studio*, *tabix*, *vcftools*, and other modules in the *SCC*. If you've forgotten how to use these modules, you should use your online module tutorials as guides (this is an open notes exam, after all).<br>
+Parts of this exam will require downloading, processing, and analyzing data from *EnsEMBL* in ways that should, by now, be familiar to you; these may involve interfacing with *R/R Studio*, *tabix*, *vcftools*, and other modules in the *SCC*. If you've forgotten how to use these modules, you should use your online module tutorials as guides (this is an open notes exam, after all).<br>
 
-All *SCC*-based files associated with exam analyses should be uploaded to your named a folder in the general *anth333* project space. Doing this will be part of the exam, and involves commands you've already learned and used in the context of class.<br>
+All *SCC*-based files associated with exam analyses should be uploaded to your named a folder in the general `/projectnb/anth333/` project space. Doing this will be part of the exam, and involves commands you've already learned and used in the context of class.<br>
 
-NOTE: I will *not* help you directly with exam questions in office hours. However, I *will* help you with exercises already present on Lab tutorials or previous homework assignments. *Please do not ask for help on exam questions*. Also, although you are encouraged to do your homework in cooperation with other students, you should be doing your take-home exam *alone*.<br>
+NOTE: I will *not* help you directly with exam questions in office hours or during our class time with the midterm. However, I *will* help you with exercises already present on Lab tutorials or previous homework assignments. *Please do not ask for help on exam questions directly*. Also, although you are encouraged to do your *homework* in cooperation with other students, you should be doing your take-home exam *alone*.<br>
 
 ***
 
 ###Part 1: Preparing your Workspace for Midterm 2 (5 points)
 
-<ol>1. Log in to your *SCC* working directory in the `anth333` project space. **(1 point)**<br><br>
+<ol>1. Log in to your *SCC* working directory in the `/projectnb/anth333/` project space. **(1 point)**<br><br>
 
-<ol>2. In the directory *anth333*, you should already have a shared project space named after your BU login. In that directory, create a new directory named '**Midterm2**'. **(2 points)**</ol><br>
+<ol>2. In the directory `/projectnb/anth333/`, you should already have a shared project space named after your BU login. In that directory, create a new directory named '**Midterm2**'. **(2 points)**</ol><br>
 
 <ol>3. Now, navigate to your newly named directory so that it's your current directory (i.e., where all of the files you process in *R* will be deposited and saved). *Conduct all work for the midterm from this directory*. At the end of the exam, all your newly created or saved files associated with Midterm 2 *must* be in this folder. **(2 points)**<br><br>
 
@@ -43,7 +43,7 @@ HINT: Given you answered these first questions correctly, your *SCC* prompt will
 
 And your *SCC On Demand* file pane and console pathways should look like this:
 ```{r,eval=F}
-~/project/anth333/BUlogin/Midterm2/
+~/projectnb/anth333/username/Midterm2/
 ```
 
 Now, all of the analyses and processing you do will be done *within* this single named directory, allowing me to grade your individual progress.</ol>
@@ -52,11 +52,11 @@ Now, all of the analyses and processing you do will be done *within* this single
 
 ###Part 2: Linkage in a New Population (40 points)
 
-So far in our labs, we've been focusing on the human *TMPRSS2* gene in our own assigned *1000 Genomes Project* populations. To better demonstrate what we've learned, let's take a look at this gene in a novel population.<br><br>
+So far in our labs, we've been focusing on the human *UCP1* gene in our own assigned *1000 Genomes Project* populations. To better demonstrate what we've learned, let's take a look at the *UCP1* gene region in a population where we know cold to be a potentially strong selective force: the *Finnish from Finland*.<br><br>
 
-Now, I'm already convinced that we all know how to properly download a dataset from *Ensembl*, so for this exam, please copy the data for the **Bengali in Bangladesh** population from the *SampleVCF* folder into your *Midterm2* folder. **(5 points)**<br><br>
+Now, I'm already convinced that we all know how to properly download a dataset from *EnsEMBL*, so please just copy your VCF file for the **Finnish in Finland** from the `sampleVCF` folder. Make sure it's the version that includes 10,000 bp up- and down-stream of the gene region (i.e., the file called `UCP1_FIN_REGION.vcf`. **(5 points)**<br><br>
 
-HINT: We last did something like this in [Module 4](https://fuzzyatelin.github.io/AN333_Fall20/Lab4_Module.html)
+HINT: If you're having trouble with the `cp` command (last seen in [Module 4](https://fuzzyatelin.github.io/AN333_Fall24/Lab4_Module.html)), you can always go back to [Module 1](https://fuzzyatelin.github.io/AN333_Fall24/Lab1_Module.html) to create this region from scatch!
 
 The next few questions will have to do with the concept of *linkage*.
 
@@ -138,15 +138,15 @@ The next few questions will have to do with the concept of *linkage*.
 
 <ol>8. What is *D*, the measure of LD, for the problem above? **(2 points)**</ol><br>
 
-For the next few questions, we'll interrogate the dataset we copied for the Bengali from Bangladesh population from the *1000 Genomes Project* dataset. Using the methods in [Module 3](https://fuzzyatelin.github.io/AN333_Fall20/Lab3_Module.html), create an LD heatmap for the Bengali from Bangladesh using the **D'** test statistic. <br>
+For the next few questions, we'll interrogate the dataset we copied for the extended *UCP1* gene region the *Finnish in Finland* population from the *1000 Genomes Project* dataset. Using the methods in [Module 3](https://fuzzyatelin.github.io/AN333_Fall24/Lab3_Module.html), create an LD heatmap for the Finnish in Finland using the **r<sup>2</sup>** test statistic. <br>
 
-<ol>9. Upload your *D'* heatmap for the Bengali from Bangladesh population **(10 points)**</ol><br>
+<ol>9. Upload your *r<sup>2</sup>* heatmap for the entended *UCP1* gene region for the *Finnish in Finland* population **(10 points)**</ol><br>
 
-<ol>10. Which of the SNPs of interest from the LD module (*rs2070788*, *rs383510*, *rs4816720*, *rs12329760*) are in linkage disequilibrium (LD > 0.8) in the Bengali from Bangladesh population? **(6 points)**</ol><br>
+<ol>10. Which of the *UCP1* SNPs of interest from the LD module - *rs6536991* (4:140560427), *rs2270565* (4:140562317), *rs12502572* (4:140563980), *rs3811787* (4:140569265), and *rs1800592* (4:140572807) - are in linkage disequilibrium (LD > 0.8) in the *Finnish in Finland* population? **(6 points)**</ol><br>
 
 ###Part 3: Genetic Drift (10 points)
 
-<ol>11. Imagine you're studying a small population of critically endangered yellow-tailed woolly monkeys (*Lagothrix flavicauda*). You manage to genotype the 8 remaining individuals in an isolated population in the Andes at SNP rs16534 (C/A), and find it's in Hardy-Weinberg equilibrium with the frequency of the C allele at 0.35. A few years later, you return and genotype the next generation of 8 individuals. Given this information, what is the probability that this next generation of yellow-tailed woolly monkeys will be fixed for the C allele at rs16534? **(4 points)**</ol><br>
+<ol>11. Imagine you're studying a small population of critically endangered yellow-tailed woolly monkeys (*Lagothrix flavicauda*) in Perú. You manage to genotype the 8 remaining individuals in an isolated population in the Andes at SNP rs16534 (C/A), and find it's in Hardy-Weinberg equilibrium with the frequency of the C allele at 0.35. A few years later, you return and genotype the *next generation* of 8 individuals. Given this information, what is the probability that this next generation of yellow-tailed woolly monkeys will be fixed for the C allele at rs16534? **(4 points)**</ol><br>
 
 <ol>12. Which of the following is a potential consequence of this reduced population size in yellow-tailed woolly monkeys? **(2 points)**
 
@@ -160,7 +160,7 @@ For the next few questions, we'll interrogate the dataset we copied for the Beng
 
 </ol><br>
 
-<ol>13. If the remnant yellow-tailed woolly monkey population you studied had only 2 males and 6 females, what is the effective population size (N<sub>e</sub>)? **(2 points)**</ol><br>
+<ol>13. If the remnant yellow-tailed woolly monkey population you studied had only 2 males and 6 females, what is the *effective population size (N<sub>e</sub>)*? **(2 points)**</ol><br>
 
 <ol>14. In the second generation of the remnant yellow-tailed woolly monkey population you studied, you genotype them to better understand how many offspring that generation were from each of the six females. You find that there's a rather large variance in the number. Would that increase or decrease the effective population size? **(2 points)**</ol><br>
 
@@ -168,7 +168,7 @@ For the next few questions, we'll interrogate the dataset we copied for the Beng
 
 <ol>15. In your yellow-tailed woolly monkey population, given that the SNP rs16534 is fixed for the C allele, and a mutation rate of 0.00025, what would the frequency of the C allele be after 10,000 generations? **(2 points)**</ol><br>
 
-<ol>16. In which mutation model, in which each mutation considered to be novel, does one simply count the number of difference and assume that represents the total number of mutations that have occured? **(2 points)**
+<ol>16. In which mutation model, in which each mutation is considered to be novel, does one simply count the number of difference and assume that represents the total number of mutations that have occured? **(2 points)**
 
 <ol>a) Infinite alleles model</ol>
 
@@ -194,9 +194,9 @@ For the next few questions, we'll interrogate the dataset we copied for the Beng
 
 <ol>18. In Module 4, we used the Neighbor-Joining method to construct a tree based on an infinite alleles mutation model. Does the neighbor-joining method always give you the evolutionarily 'correct' tree? Why or why not? **(5 points)**</ol><br>
 
-<ol>19. Please take a screenshot or save a PNG or PDF file of the neighbor-joining tree for the Bengali in Bangladesh population (as done in Lab 4) and upload it here. Your file size must not exceed 10 MB. **(10 points)**</ol><br>
+<ol>19. Please take a screenshot or save a PNG or PDF file of a neighbor-joining tree for the *Finnish in Finland* population (as done in Module 4) and upload it here. Your file size must not exceed 10 MB. **(10 points)**</ol><br>
 
-<ol>20. If we align several individual sequences, and see a site that has multiple bases at that locus, what do we call it? **(2 points)**
+<ol>20. If we align several individual sequences, and see a site that has multiple bases at that locus, what do we call it (of the following options)? **(2 points)**
 
 <ol>a) Segregating site</ol>
 
@@ -208,7 +208,7 @@ For the next few questions, we'll interrogate the dataset we copied for the Beng
 
 </ol><br>
 
-Imagine that we all, as a class, submitted samples to the Sensory Morphology and Anthropological Genomics Lab for sequencing of our individual *TMPRSS2* genes. For a 20-bp sequence, we get the following information regarding *segregating sites* in that region:<br><br> 
+Imagine that we all, as a class, submitted samples to the Sensory Morphology and Anthropological Genomics Lab for sequencing of our individual *UCP1* genes. For a 20-bp sequence, we get the following information regarding *segregating sites* in that region:<br><br> 
 
 <center>
 ![](img/hetsel.png)
@@ -216,7 +216,7 @@ Imagine that we all, as a class, submitted samples to the Sensory Morphology and
 
 <ol>21. What is the *observed heterozygosity* (Ѳ<sub>π</sub>) of this sample?  **(2 points)**</ol><br>
 
-<ol>22. The *estimated heterozygosity* (Ѳ<sub>k</sub>) of this sample is 0.86. What is Tajima's D for this region of the genome in our class population? **(2 points)**
+<ol>22. The *estimated heterozygosity* (Ѳ<sub>k</sub>) of this sample is 0.86. Given this, what would we calculate Tajima's D to be for this region of the genome in our class population? **(2 points)**
 
 <ol>a) Positive</ol>
 
@@ -238,7 +238,7 @@ Imagine that we all, as a class, submitted samples to the Sensory Morphology and
 
 </ol><br>
 
-<ol>24. We also calculated Tajima's D, in a different and much faster way, in [Module 5](https://fuzzyatelin.github.io/AN333_Fall20/Lab5_Module.html). Calculate Tajima's D for the Bengali in Bangladesh population. **(5 points)**</ol><br>
+<ol>24. We also calculated Tajima's D, in a different and much faster way, in [Module 5](https://fuzzyatelin.github.io/AN333_Fall24/Lab5_Module.html). Calculate Tajima's D for the *Finnish in Finland* population for our extended *UCP1* region. **(5 points)**</ol><br>
 
 <ol>25. Is this value for Tajima's D statistically significant? **(2 points)**
 
@@ -248,7 +248,7 @@ Imagine that we all, as a class, submitted samples to the Sensory Morphology and
 
 </ol><br>
 
-<ol>26. Given the value of Tajima's D for the Bengali in Bangladesh, what kind of selection might be occurring around *TMPRSS2* in this population? **(2 points)**
+<ol>26. Given the value of Tajima's D for the *Finnish in Finland*, what kind of selection might be occurring around *UCP1* in this population? **(2 points)**
 
 <ol>a) No selection</ol>
 
@@ -270,7 +270,7 @@ Answer the following questions based on these genotype results.
 
 <ol>28. Which population has a positive F-value? **(2 points)**</ol><br>
 
-<ol>29. What does a positive F-value impy for that population? **(2 points)**</ol><br>
+<ol>29. What does a positive F-value imply for that population? **(2 points)**</ol><br>
 
 <ol>30. According to the F<sub>ST</sub> for these populations, what is the proportion of variation at this locus that is due to differences between subpopulations? **(2 points)**</ol><br>
 
@@ -333,7 +333,7 @@ Answer the following questions based on these genotype results.
 </ol><br>
 
 
-<ol>37. Match the convergent mutations for a selected trait in human evolutionary history with the trait they were selected for... **(8 points)**<br>
+<ol>37. Based on the several case studies discussed in lecture, match the convergent mutations for a selected trait in human evolutionary history with the trait they were selected for... **(8 points)**<br>
 
 Traits: lactase persistence, lighter skin pigmentation, hypoxia
 
@@ -345,7 +345,7 @@ Traits: lactase persistence, lighter skin pigmentation, hypoxia
 <ol>Extended haplotype homozygosity around *EGLN1* in Tibetans</ol>
 </ol><br>
 
-<ol>38. Explain, to the best of your ability, why the positive selective sweep around the *PPARA* gene, implicated in high altitude adaptations in Tibetans, is probably an adaptation related to cold tolerance rather than hypoxia. **(6 points)**</ol><br>
+<ol>38. Explain, to the best of your ability, why the positive selective sweep around the *PPARA* gene, implicated in high-elevation adaptations in Tibetans, is probably an adaptation related to cold tolerance rather than hypoxia. **(6 points)**</ol><br>
 
 ###Part 5: Quantitative Genetics (25 points)
 
