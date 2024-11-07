@@ -11,7 +11,7 @@ output:
 
 ### [Course Overview](https://fuzzyatelin.github.io/AN333_Fall24/overview.html)
 ### [Syllabus](https://fuzzyatelin.github.io/AN333_Fall24/Syllabus.html)
-### [Exam](https://fuzzyatelin.github.io/AN333_Fall24/Midterm1.html)
+### [**Midterm 2**](https://fuzzyatelin.github.io/AN333_Fall24/Midterm2.html)
 ### [Policies](https://fuzzyatelin.github.io/AN333_Fall24/policies.html)
 ### [Final Project](https://fuzzyatelin.github.io/AN333_Fall24/FinalProject.html)
 
