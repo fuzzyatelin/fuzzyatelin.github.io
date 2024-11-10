@@ -188,7 +188,7 @@ life population genetic analyses.</li>
 
 ***
 
-**Material covered**: Quantitative genetics and partitioning variance in phenotypes between genetic and environmental signals. To do this, we'll be working with some captive vervet monkey (*Chlorocebus sabaeus*) data I collected at Wake Forest College of Medicine's Vervet Research Colony (VRC). We'll also learn about the *SOLAR* work environment, which is a (relatively) easy interface for doing quantitative genetics analysis in the *SCC* space. Through this, we'll learn a bit about the quantitative genetics of BMI and body mass.
+**Material covered**: Quantitative genetics and partitioning variance in phenotypes between genetic and environmental signals. To do this, we'll be working with some vervet monkey (*Chlorocebus sabaeus*) data I (pretend) collected in the Caribbean. We'll also learn about the *SOLAR* work environment, which is a (relatively) easy interface for doing quantitative genetics analysis in the *SCC* space. Through this, we'll learn a bit about the quantitative genetics of BMI and body mass.
 <br><br> 
 **Readings**:<ul> 
 <li>[Almasy L, Blangero J. 2010. Variance component methods for analysis of complex phenotypes *Cold Spring Harbor Protocols* 2010(5): pdb.top77.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3064490/pdf/nihms253587.pdf)</li><br>
