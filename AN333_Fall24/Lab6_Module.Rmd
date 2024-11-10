@@ -1,7 +1,7 @@
 ---
 title: "Lab 6 - Quantitative Genetics"
 author: "Christopher A Schmitt"
-date: "November 18, 2020"
+date: "November 10, 2024"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -29,7 +29,7 @@ color: white;
 
 ***
 
-### [Homework for Lab 6: DUE Friday, November 27th](https://fuzzyatelin.github.io/AN333_Fall18/Lab6_Homework.html)
+### [Homework for Lab 6: DUE Friday, November 22nd](https://fuzzyatelin.github.io/AN333_Fall18/Lab6_Homework.html)
 
 ***
 
@@ -85,19 +85,30 @@ How much of the variation in body weight and BMI for the monkeys on St. Kitts ge
 
 Here's where we come in!  We're going to use an analytical program called [*SOLAR-Eclipse*](http://solar-eclipse-genetics.org/index.html) (which is really good at handling messy pedigrees like the vervets') to conduct a variance components quantitative genetics analysis in the VRC to better understand how much of the colony-wide variance in average adult body weight is controlled by additive genetic variance (on other words, by differences in allele frequencies across the genome), and how much is controlled by environmental covariates (like diet).
 
-The first thing we need to do is log in to the *SCC*, and then navigate to the *anth333* project directory, where there's a folder called *vervet*:
+The first thing we need to do is log in to the *SCC*, and then navigate to your personal project folder (where `username` is your personal project directory):
+```{bash,eval=F, class.source="sccCode"}
+cd /projectnb/anth333/username/
+```
 
+Once there, create a new directory called `vervet`:
+```{bash,eval=F, class.source="sccCode"}
+mkdir vervet
+```
+
+Now, navigate to a directory called `/project/anth333/vervet`:
 ```{bash,eval=F, class.source="sccCode"}
 cd /project/anth333/vervet/
 ```
 
-Once there, copy both the files from the vervet folder to your personal folder in the project directory. These files include the wild vervet pedigree, and the population dataset on BW, BMI and the dietary covariate. You can use the following code, as an example (in this case, replace 'filename' with the name of the file, and 'BUID' with *your* BUID, so that the file will be copied to your named folder):
+Once there, copy both the files from the `vervet` directory to the new `vervet` directory you created in your personal project directory. These files include the wild vervet pedigree (`vervped.csv`), and the population dataset (`vervdat.csv`) on BW, BMI and the dietary covariate. You can use the following code, as an example (in this case, replace 'filename' with the name of the file, and 'BUID' with *your* BUID, so that the file will be copied to your named folder):
 
 ```{bash,eval=F, class.source="sccCode"}
-cp /project/anth333/vervet/filename /project/anth333/BUID/
+cp /project/anth333/vervet/filename /projectnb/anth333/BUID/filename
 ```
 
-Before continuing, let's take a look at our vervet data. Use the `less` command to take a look at the pedigree file, `vervped.csv` (remember, you can press 'q' at any time to get back to your prompt):
+Finally, navigate back to your new `vervet` directory in your personal project directory at `/projectnb/anth333/username/vervet/` to make sure that the file copied properly.
+
+Before continuing, let's take a look at the vervet data we've copied to our directories. Use the `less` command to take a look at the pedigree file, `vervped.csv` (remember, you can press 'q' at any time to get back to your prompt):
 
 ```{bash, eval=F, class.source="sccCode"}
 less vervped.csv
