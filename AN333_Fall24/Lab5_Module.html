@@ -676,7 +676,7 @@ step might take a while, be patient):</p>
 using the iHS score. Here we’re considering a piHS (on the y-axis)
 greater than 2 as a significant score:</p>
 <pre class="r"><code>cr.se&lt;-calc_candidate_regions(ihs,threshold=2,pval=TRUE,window_size=3000,overlap=300,min_n_extr_mrk=1)
-cr.se</code></pre>
+print(cr.se,max.print=T)</code></pre>
 <pre><code>##    CHR     START       END N_MRK  MEAN_MRK  MAX_MRK N_EXTR_MRK PERC_EXTR_MRK
 ## 1    4 139676400 139684200    30 0.9470904 2.511278          4         13.33
 ## 2    4 139770000 139775700    34 0.4702569 2.070137          1          2.94
@@ -803,21 +803,21 @@ regions:</p>
 sig.pihs&lt;-
   pihs %&gt;%
   filter(LOGPVALUE &gt;= 2) %&gt;%
-  arrange(LOGPVALUE)
-sig.pihs</code></pre>
+  arrange(-LOGPVALUE)
+print(sig.pihs,max.print=T)</code></pre>
 <pre><code>## # A tibble: 55 × 2
 ##     POSITION LOGPVALUE
 ##        &lt;dbl&gt;     &lt;dbl&gt;
-##  1 141214636      2.00
-##  2 140920276      2.00
-##  3 140344767      2.00
-##  4 140258887      2.02
-##  5 139932510      2.03
-##  6 141398754      2.04
-##  7 140606655      2.04
-##  8 141155694      2.04
-##  9 140717271      2.05
-## 10 139828296      2.05
+##  1 140343413      4.07
+##  2 140577813      3.95
+##  3 141394693      3.19
+##  4 139828022      3.01
+##  5 140570066      3.00
+##  6 140660676      2.70
+##  7 140779994      2.64
+##  8 140299008      2.62
+##  9 140343088      2.58
+## 10 140615078      2.55
 ## # ℹ 45 more rows</code></pre>
 <p>Now we can take a closer look at the EHH of an actual <em>SNP</em> of
 interest. Let’s try some of our SNPs of interest from <a href="https://fuzzyatelin.github.io/AN333_Fall24/Lab3_Module.html">Module
@@ -1012,7 +1012,7 @@ slide.ucp1.sig&lt;-
   slide.ucp1 %&gt;%
   filter(TajimaD &lt;= -2 | TajimaD &gt;= 2) %&gt;%
   arrange(TajimaD)
-slide.ucp1.sig</code></pre>
+print(slide.ucp1.sig,max.print=T)</code></pre>
 <pre><code>##     CHROM BIN_START N_SNPS TajimaD
 ## 1       4 139564000      3 2.00251
 ## 2       4 140707500      3 2.00616

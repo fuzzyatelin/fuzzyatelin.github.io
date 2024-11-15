@@ -169,7 +169,7 @@ ihs <- ihh2ihs(ehh,freqbin=0.025)
 We can then look for candidate regions potentially under selection using the iHS score. Here we’re considering a piHS (on the y-axis) greater than 2 as a significant score:
 ```{r}
 cr.se<-calc_candidate_regions(ihs,threshold=2,pval=TRUE,window_size=3000,overlap=300,min_n_extr_mrk=1)
-cr.se
+print(cr.se,max.print=T)
 ```
 Looks like, in the YRI population, we have perhaps 31 regions that have potentially experienced a hard selective sweep.
 
@@ -209,8 +209,8 @@ pihs<-as_tibble(ihs$ihs[,c(2,4)])
 sig.pihs<-
   pihs %>%
   filter(LOGPVALUE >= 2) %>%
-  arrange(LOGPVALUE)
-sig.pihs
+  arrange(-LOGPVALUE)
+print(sig.pihs,max.print=T)
 ```
 
 Now we can take a closer look at the EHH of an actual *SNP* of interest. Let's try some of our SNPs of interest from [Module 3](https://fuzzyatelin.github.io/AN333_Fall24/Lab3_Module.html): *rs6536991* (4:140560427), *rs2270565* (4:140562317), *rs12502572* (4:140563980), *rs3811787* (4:140569265), and *rs1800592* (4:140572807).
@@ -349,7 +349,7 @@ slide.ucp1.sig<-
   slide.ucp1 %>%
   filter(TajimaD <= -2 | TajimaD >= 2) %>%
   arrange(TajimaD)
-slide.ucp1.sig
+print(slide.ucp1.sig,max.print=T)
 ```
 
 Here, we can see that we have 232 (!) 500-bp windows in the extended *UCP1* region that have significant Tajima's D values for the Yoruban population. All of these values are positive, suggesting purifying selection on at least one of the SNPs in each of these regions. The most significant region is **4:140922000-140922500** (the last row in our table), and there are 6 SNPs in that region that could be the potential focus for selection. Going back to *EnsEMBL*, it looks like this 500 bp window is in an *intronic* region of the gene *RNF150*, so if it is experiencing purifying selection, it is most likely related to the function of this particular gene (although, of course, it may also simply be in high LD with a functional region elsewhere). I found this functional information by searching for the 500 bp window, 4:140922000-140922500, in the human reference genome on *EnsEMBL* and looking at the **Region In Detail** and **Variant Table**. Remember, if your population had no variants at certain SNPs, then those SNPs were dropped from your VCF file; this means there may be more SNPs listed on *EnsEMBL* than are actually in your sliding window for your population.
