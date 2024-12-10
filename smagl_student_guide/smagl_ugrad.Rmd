@@ -42,18 +42,18 @@ The SMAGL/Schmitt Lab currently has [active field projects](https://fuzzyatelin.
 
 Currently, these experiences for *undergraduates* include:
 
-* Studying vervet monkeys in South Africa: our fieldwork in South Africa focuses on trapping wild vervet monkeys (Chlorocebus pygerythrus pygerythrus) in order to collect biological samples that address a number of questions, including how they adapt to periodic droughts and to intense human impacts on diet and stress.
+* Studying vervet monkeys in South Africa: our fieldwork in South Africa focuses on trapping wild vervet monkeys (*Chlorocebus pygerythrus pygerythrus*) in order to collect biological samples that address a number of questions, including how they adapt to periodic droughts and to intense human impacts on diet and stress.
 
 The field sites include a small university town (Potchefstroom, Northwest) where we follow and trap an urban vervet monkey troop; the Southford Stud Ranch (!Gariep Dam, Free State) where we follow and trap a vervet troop living on agricultural fields; and Soetdoring Nature Reserve (Soutpan, Free State) where we follow and trap several vervet troops living under more or less ancestral/natural conditions. We also conduct genetics lab research in Potch at North West University in the Faculty of Microbiology, with our collaborator Prudent Mokgokong.
 
-*	Studying yellow-tailed woolly monkeys in Perú: our fieldwork in Perú focuses on the behavioral ecology, genetics, and conservation of Critically Endangered wild yellow-tailed woolly monkeys (Lagothrix flavicauda). This research seeks to better understand how this species has adapted to high altitudes, how variation in altitude influences diet and behavior, and how this and human impacts influence conservation concerns for the species.
+*	Studying yellow-tailed woolly monkeys in Perú: our fieldwork in Perú focuses on the behavioral ecology, genetics, and conservation of Critically Endangered wild yellow-tailed woolly monkeys (*Lagothrix flavicauda*). This research seeks to better understand how this species has adapted to high altitudes, how variation in altitude influences diet and behavior, and how this and human impacts influence conservation concerns for the species.
 
 The primary field site is Hierba Buena-Allpaycu, a private conservation concession which is an 8-hour hike through the mountains outside the town of Beirut, in Corosha. Staying at the field site, itself, may involve sleeping in a small wooden shed with several others, or camping in a tent – field researchers must carry everything on their backs and cook all their own meals; there is no electricity or running water at the field site! 
 
 
 *	Do I want to learn how to code?
 
-There are plenty of opportunities to learn coding in the SMAGL! The primary coding language for research conducted in our lab is R, which we use for bioinformatics and statistical analyses. Students who wish to conduct research in the SMAGL are strongly encouraged to take Project Design and Statistics for Biological Anthropology (CAS AN/BI 588), which Prof. Schmitt teaches every other year and in which you’ll learn how to run statistical analyses using R. Alternatively, you may learn R on your own during your provisional semester using the web-based modules developed by Prof. Schmitt (linked above). Students conducting genomics research may also get experience with other coding languages, including LINUX/UNIX and python. These coding languages have broader utility beyond what we use them for in lab, and coding is a generally sought-after skills on the job market.
+There are plenty of opportunities to learn coding in the SMAGL! The primary coding language for research conducted in our lab is R, which we use for bioinformatics and statistical analyses. Students who wish to conduct research in the SMAGL are strongly encouraged to take [Project Design and Statistics for Biological Anthropology](https://fuzzyatelin.github.io/bioanth-stats/overview.html) ([CAS AN/BI 588](https://www.bu.edu/academics/grs/courses/cas-an-588/)), which Prof. Schmitt teaches every other year and in which you’ll learn how to run statistical analyses using R. Alternatively, you may learn R on your own during your provisional semester using the web-based modules developed by Prof. Schmitt (linked above). Students conducting genomics research may also get experience with other coding languages, including LINUX/UNIX and python. These coding languages have broader utility beyond what we use them for in lab, and coding is a generally sought-after skills on the job market.
 
 Although students who wish to conduct their own research projects in the SMAGL must learn how to code (to analyze their data), students who prefer to not learn how to code may still gain valuable experience and develop other skillsets by assisting on the projects of others.
 
@@ -64,7 +64,7 @@ You do not need to create or conduct your own project to be an undergraduate mem
 
 *	Do I want to conduct a thesis project?
 
-Conducting a thesis is a wonderful experience. It’s also not a necessary part of being in the SMAGL (nor is it necessary to apply to graduate school). If you plan to do a research project in the lab, however, I strongly encourage you to consider making it a thesis! This is the best way to credit and recognition for the research you’re conducting (although there are other ways, including Research for Credit and UROP). To learn more about conducting thesis research in the lab, see the section on Undergraduate Honors in this guide.
+Conducting a thesis is a wonderful experience. It’s also not a necessary part of being in the SMAGL (nor is it necessary to apply to graduate school). If you plan to do a research project in the lab, however, I strongly encourage you to consider making it a thesis! This is the best way to get credit and recognition for the research you’re conducting (although there are other ways, including Research for Credit and UROP). To learn more about conducting thesis research in the lab, see the section on Undergraduate Honors in this guide.
 
 *	Do I want to go to graduate school?
 
