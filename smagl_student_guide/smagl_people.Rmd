@@ -17,20 +17,24 @@ By now, you’ve probably already spoken to at least one of the two Principal In
 
 If you need them, you can contact and learn more about the SMAGL PIs in the following ways:
 
->[Prof. Eva C. Garrett](https://www.bu.edu/anthrop/profile/eva-garrett/) (she/her)<br>
->    Office: Stone Science Building, 675 Commonwealth Ave, Room 247C<br>
->    Phone: (617) 353-7709<br>
->    Email: garrette@bu.edu<br>
->    Webpage: http://www.ecgarrett.com<br>
->    Twitter/X: @Shmevapithecus <br>
+<img style="float: left;" width="110" height="155" src="https://www.bu.edu/anthrop/files/2019/08/Garrett-Profile-Pic.jpg">
+
+>&nbsp;&nbsp;&nbsp; [Prof. Eva C. Garrett](https://www.bu.edu/anthrop/profile/eva-garrett/) (she/her)<br>
+>&nbsp;&nbsp;&nbsp;    Office: Stone Science Building, 675 Commonwealth Ave, Room 247C<br>
+>&nbsp;&nbsp;&nbsp;    Phone: (617) 353-7709<br>
+>&nbsp;&nbsp;&nbsp;    Email: garrette@bu.edu<br>
+>&nbsp;&nbsp;&nbsp;    Webpage: http://www.ecgarrett.com<br>
+>&nbsp;&nbsp;&nbsp;    SocialMedia: @Shmevapithecus <br>
 
 
->[Prof. Christopher A. Schmitt](https://www.bu.edu/anthrop/profile/christopher-schmitt/). (he/they)<br>
-    Office: Stone Science Building 675 Commonwealth Ave, Room 247E<br>
-    Phone: (617) 353-5026<br>
-    Email: caschmit@bu.edu<br>
-    Webpage: http://www.evopropinquitous.net<br>
-    SocialMedia: @fuzzyatelin <br>
+<img style="float: left;" width="110" height="155" src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/editor/chris-cochacashu2.jpg?1581383522">
+
+>&nbsp;&nbsp;&nbsp; [Prof. Christopher A. Schmitt](https://www.bu.edu/anthrop/profile/christopher-schmitt/). (he/they)<br>
+    &nbsp;&nbsp;&nbsp; Office: Stone Science Building 675 Commonwealth Ave, Room 247E<br>
+    &nbsp;&nbsp;&nbsp; Phone: (617) 353-5026<br>
+    &nbsp;&nbsp;&nbsp; Email: caschmit@bu.edu<br>
+    &nbsp;&nbsp;&nbsp; Webpage: http://www.evopropinquitous.net<br>
+    &nbsp;&nbsp;&nbsp; SocialMedia: @fuzzyatelin <br>
 
 ***
 
@@ -40,10 +44,24 @@ If you need them, you can contact and learn more about the SMAGL PIs in the foll
 
 ## SMAGL Lab Coordinator
 
+<div class="wrap">
+<img src="https://sites.bu.edu/zooarchlab/files/2017/10/IMG_2956-636x487.jpeg"> 
+</div>
+
+```{css, echo=FALSE}
+.wrap {
+    float: left;
+    height: 400px;
+    width: 550px;
+    clip-path: inset(100px 240px 125px 200px round 50px);
+    margin: -100px -210px -100px -200px;
+}
+```
+
 The SMAGL Laboratory Coordinator and Lab Safety Coordinator is **Samantha Kelley**. Sam is the Lab Coordinator for all the labs associated with the Department of Anthropology, and can help with any safety or equipment concerns in the lab, the ordering of necessary supplies and many other day-to-day lab tasks. 
 
 She can be reached via phone (617-353-5521), email (srkell19@bu.edu) or in her office (STO 241).
-
+<br><br>
 
 ## Postdoctoral Research Associates
 
