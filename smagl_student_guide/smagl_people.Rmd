@@ -79,7 +79,7 @@ She can be reached via phone (617-353-5521), email (srkell19@bu.edu) or in her o
 }
 ```
 
-[**Dr. Evelyn L. Pain**](https://evelynpain.weebly.com) is currently a **Postdoctoral Associate Teaching Scholar** in the Department of Biology affiliated with the Schmitt Lab, and Reserach Coordinator for the conservation NGO Yunkawasi Perú. Her focus is on our primate projects in Perú, inclusing with yellow-tailed woolly monkeys (*Lagothrix flavicauda*) and Andean night monkeys (*Aotus miconax*). Dr. Pain’s current office space is in BRB 511.
+[**Dr. Evelyn L. Pain**](https://evelynpain.weebly.com) is currently a **Postdoctoral Associate Teaching Scholar** in the Department of Biology affiliated with the Schmitt Lab, and Reserach Coordinator for the conservation NGO [Yunkawasi Perú](https://yunkawasiperu.org/en/). Her focus is on our primate projects in Perú, inclusing with yellow-tailed woolly monkeys (*Lagothrix flavicauda*) and Andean night monkeys (*Aotus miconax*). Dr. Pain’s current office space is in BRB 511.
 
 <br>
 
@@ -181,20 +181,96 @@ There are also several undergraduate students currently working in the SMAGL. Th
 
 ### Garrett Lab Undergrads
 
-- **Samia Nelson** (Anthropology, Specialization in Biological Anthropology)
--	**Alex Pissios** (Anthropology, Specialization in Biological Anthropology)
+<div class="wrap2">
+<img src="https://greatergood.org/hubfs/loris4-1.jpg">
+</div>
+
+<br>
+**Alex Pissios** (Anthropology, Specialization in Biological Anthropology)
+<br><br><br>
 
 ### Schmitt Lab Undergrads
 
--	**Reese Hotten-Somers** (Anthropology, Specialization in Biological Anthropology; she/they)
--	**Noam Aviv** (Biology, Specialization in Behavioral Biology; he/him)
--	**Merilyn Amponsah-Asamoah** (Anthropology, Specialization in Anthropology, Health, and Medicine; she/her)
-- **Shaotai (Max) Hu** (Data Science, Minor in Statistical Methods; he/him)
-- **Chloe Leaman** (Biology; she/her)
-- **Claire Zhang** (Anthropology, Specialization in Biological Anthropology; she/her)
--	**Bailey Christian** (*provisional*; Anthropology, Specialization in Anthropology, Health, and Medicine; they/them)
-- **Matteo Finnerty** (*provisional*; Biology; he/him)
-- **Cian Dowling** (*provisional*; Biology; he/him)
+<div class="wrap3">
+<img src="https://www.bu.edu/anthrop/files/2024/10/464620678_10111139243054430_467850716193938337_n-400x300.jpg">
+</div>
+```{css, echo=FALSE}
+.wrap3 {
+    float: left;
+    height: 135px;
+    width: 135px;
+    clip-path: inset(10px 10px 30px 30px round 20px);
+    margin: -10px 30px -20px -20px;
+}
+```
+
+<br>
+**Reese Hotten-Somers** (Anthropology, Specialization in Biological Anthropology; she/they)
+<br><br><br>
+
+<div class="wrap2">
+<img src="https://observation.org/media/photo/12572422.jpg">
+</div>
+
+<br>
+**Noam Aviv** (Biology, Specialization in Behavioral Biology; he/him)
+<br><br><br>
+
+<div class="wrap2">
+<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/screen-shot-2023-05-22-at-7-36-25-am_orig.png">
+</div>
+
+<br>
+**Merilyn Amponsah-Asamoah** (Anthropology, Specialization in Anthropology, Health, and Medicine; she/her)
+<br><br>
+
+<div class="wrap2">
+<img src="https://observation.org/media/photo/12572422.jpg">
+</div>
+
+<br>
+**Shaotai (Max) Hu** (Data Science, Minor in Statistical Methods; he/him)
+<br><br><br>
+
+<div class="wrap2">
+<img src="https://media.licdn.com/dms/image/v2/D4D03AQFc7WjMD5-Ssw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1725050916858?e=2147483647&v=beta&t=YjVN_RS2mk_bm8GAojCEWx32azIwy_m8IZgnZT4ZriU">
+</div>
+
+<br>
+**Chloe Leaman** (Biology; she/her)
+<br><br><br>
+
+<div class="wrap2">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Cola_amarilla.jpg">
+</div>
+
+<br>
+**Claire Zhang** (Anthropology, Specialization in Biological Anthropology; she/her)
+<br><br><br>
+
+<div class="wrap2">
+<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/schmittlabnopic_8.jpg">
+</div>
+
+<br>
+**Bailey Christian** (*provisional*; Anthropology, Specialization in Anthropology, Health, and Medicine; they/them)
+<br><br>
+
+<div class="wrap2">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Cola_amarilla.jpg">
+</div>
+
+<br>
+**Matteo Finnerty** (*provisional*; Biology; he/him)
+<br><br><br>
+
+<div class="wrap2">
+<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/schmittlabnopic_8.jpg">
+</div>
+
+<br>
+**Cian Dowling** (*provisional*; Biology; he/him)
+<br><br><br>
 
 #
 #
