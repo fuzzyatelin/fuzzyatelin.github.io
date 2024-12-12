@@ -65,10 +65,41 @@ She can be reached via phone (617-353-5521), email (srkell19@bu.edu) or in her o
 
 ## Postdoctoral Research Associates
 
+<div class="wrap1">
+<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/editor/evelynpain.jpeg?1666991670"> 
+</div>
 
-[**Dr. Evelyn L. Pain**](https://evelynpain.weebly.com) is currently a **Postdoctoral Associate Teaching Scholar** in the Department of Biology affiliated with the Schmitt Lab, with a focus on our primate projects in Perú. Dr. Pain’s current office space is in BRB 511.
+```{css, echo=FALSE}
+.wrap1 {
+    float: left;
+    height: 100px;
+    width: 100px;
+    clip-path: inset(0px 0px 0px 0px round 25px);
+    margin: 10px 30px 10px 10px;
+}
+```
 
-**Dr. Amy M. Scott** is a **Postdoctoral Research Associate** with the [Gunung Palung Orangutan Conservation Project](https://savegporangutans.org) and [Knott Lab](https://www.cherylknott.com) who will also be conducting research in the SMAGL. Dr. Scott’s current office space is in STO 250.
+[**Dr. Evelyn L. Pain**](https://evelynpain.weebly.com) is currently a **Postdoctoral Associate Teaching Scholar** in the Department of Biology affiliated with the Schmitt Lab, and Reserach Coordinator for the conservation NGO Yunkawasi Perú. Her focus is on our primate projects in Perú, inclusing with yellow-tailed woolly monkeys (*Lagothrix flavicauda*) and Andean night monkeys (*Aotus miconax*). Dr. Pain’s current office space is in BRB 511.
+
+<br>
+
+<div class="wrap2">
+<img src="https://i1.rgstatic.net/ii/profile.image/11431281271762035-1723729917471_Q512/Amy-Scott-15.jpg"> 
+</div>
+
+```{css, echo=FALSE}
+.wrap2 {
+    float: left;
+    height: 100px;
+    width: 100px;
+    clip-path: inset(0px 0px 0px 0px round 25px);
+    margin: 0px 30px 10px 10px;
+}
+```
+
+**Dr. Amy M. Scott** is a **Postdoctoral Research Associate** with the [Gunung Palung Orangutan Conservation Project](https://savegporangutans.org) and [Knott Lab](https://www.cherylknott.com) who will also be conducting research in the SMAGL. She's currently working on extracting DNA from archived urine samples from wild Bornean orangutans (*Pongo pygmaeus wurmbii*). Dr. Scott’s current office space is in STO 250.
+
+<br>
 
 When PRAs are working with the lab, please keep in mind that they are professional scientists with extensive field and lab experience, who have already earned a Ph.D., and who already run research programs of their own in addition to the research they conduct in the SMAGL. We ask that you respect the authority of our PRAs as strongly as you respect that of Prof. Garrett or Prof. Schmitt. 
 
@@ -82,19 +113,67 @@ Current graduate students you may meet include:
 
 ### Doctoral Students
 
-- **Soumalya Ghorui** (Ph.D. program, Biological Anthropology; Schmitt Lab; he/him)
-- **Jimmy Erkens** (Ph.D. program, Biological Anthropology; Schmitt Lab; he/they)
-- **Nicole Merullo** (Ph.D. Program, Biological Anthropology; Hodges-Simeon and Schmitt Labs; she/her)
-- **Jess Martin** (Ph.D. Program, Biological Anthropology; Schmitt Lab; she/her)
-- **Zoe Albert** (Ph.D. Program, Biological Anthropology, Knott and Schmitt Labs; she/her)
-- **Warrenkevin Henderson** (Ph.D. Program, Biological Anthropology; Garrett and Schmitt Labs; he/him)
-- **Mel Zarate** (Ph.D. Program, Biological Anthropology; Schmitt Lab; she/her). 
+<div class="wrap1">
+<img src="https://www.bu.edu/anthrop/files/2024/09/SoumalyaGhorui-ProfilePic.png"> 
+</div>
+
+**Soumalya Ghorui** (Ph.D. program, Biological Anthropology; Schmitt Lab; he/him). Soumalya began in the Anthropology Ph.D. program in 2024. His research will focus on foraging behavior and diet as adaptations to the energetic constraints of high elevation living in wild Himalayan langurs (*Semnopithecus schistaceus*) with the [Himalayan Langur Project](https://www.himalayanlangur.com). His office is in the Biological Anthropology Graduate Student Space (STO 247). 
+
+<div class="wrap1">
+<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/746567289_orig.jpg"> 
+</div>
+
+**Jimmy Erkens** (Ph.D. program, Biological Anthropology; Schmitt Lab; he/they). Jimmy began in the Anthropology Ph.D. program in 2023. His research will focus on bioinformatics-based investigations of genetic drift and selection in relation to immune function in wild savanna monkeys (*Chlorocebus* spp.). His office is in the Biological Anthropology Graduate Student Space (STO 247). 
+
+<div class="wrap1">
+<img src="https://mit-museum-cms-files--production.s3.us-east-2.amazonaws.com/Images/_280x280_crop_center%20center_none/Nicole-Merullo.jpg?v=1732774729"> 
+</div>
+
+**Nicole Merullo** (Ph.D. Program, Biological Anthropology; Hodges-Simeon and Schmitt Labs; she/her). Nicole began in the Anthropology Ph.D. program in 2023, in the Hodges-Simeon Lab. Her research will focus on the evolutionary biology of blood pressure phenotypes in humans, focsed on a population in Utila, Honduras. Her office is in the Biological Anthropology Graduate Student Space (STO 247).
+
+<div class="wrap1">
+<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/published/jessicamartin.jpg?1684755318"> 
+</div>
+
+**Jess Martin** (Ph.D. Program, Biological Anthropology; Schmitt Lab; she/her). Jess began in the Anthropology Ph.D. program in 2022. Her research focuses on dietary effects on the microbiome of wild vervet monkeys (*Chlroocebus pygerythrus pygerythrus*) across urban, farm, and Nature Reserve populations in South Africa. Her office is in the Biological Anthropology Graduate Student Space (STO 247).
+
+<div class="wrap1">
+<img src="https://www.bu.edu/ciss/files/2022/10/Happy-Zoe-with-Poop-565x636.jpg"> 
+</div>
+
+**Zoe Albert** (Ph.D. Program, Biological Anthropology, Knott and Schmitt Labs; she/her). Zoe began in the Anthropology Ph.D. program in 2021, in the Knott Lab. Her research focuses on dietary and environmental effects on the microbiome of wild Bornean orangutans (*Pongo pygmaeus wurmbii*) in Gunung Palung National park, Indonesia. Her office is in the Biological Anthropology Graduate Student Space (STO 247).
+
+<div class="wrap1">
+<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/hendersonwb_orig.jpeg"> 
+</div>
+
+**Warrenkevin Henderson** (Ph.D. Program, Biological Anthropology; Garrett and Schmitt Labs; he/him). Warrenkevin began in the Anthropology Ph.D. program in 2021, in the Garrett Lab. His research focuses on convergence related to cold adaptation in nasal morphology and associated genomic regions in ursids, phocids, equuids, and hominids. His office is in the SMAGL Dry Lab (STO 251).
+
+<div class="wrap1">
+<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/melzarate-lab_orig.png">
+</div>
+
+**Mel Zarate** (Ph.D. Program, Biological Anthropology; Schmitt Lab; she/her). Mel began in the Anthropology Ph.D. program in 2020, after having completed her MS in Biology in the Schmitt Lab. His research focuses on high-elevation adaptations and conservation genetics in wild yellow-tailed woolly monkeys (*Lagothrix flavicauda*). Her office is in the Biological Anthropology Graduate Student Space (STO 247).
 
 ### Masters Students
 
-- **Carla Rojas** (MS program, Biology – EBE; she/her)
-- **Yinuo Mao** (MS program, Biology – CMB; she/her)
-- **Sofia Weaver** (BA/MS program, Biology – EBE; she/her)
+<div class="wrap2">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9NDPQhF-J41jlJOkyg1uoRSovlJZOzjlHD9M0_wF7E9Zg9Xx5t5V_Cv7b8HqdXPBANg2tG_RrEhmuF6MxMU7PD_7l1pqU67WgtBqRmUB5-w1EPHcyrsQ3TFFdQ_8K2fnDGwmOmJMtpKsOOjuTChvjmM27SUTj2QdVTVv2UTgyl4wfW7m_4AtWhkM2qOA/w195-h260/Carla%20Rojas.JPG">
+</div>
+
+**Carla Rojas** (MS program, Biology – EBE; she/her). Carla began in the Biology M.S. program in 2024, joining us from Universidad San Francisco de Quito in Ecuador, where she studied wild mantled howler monkeys (*Alouatta palliata aequatorialis*). She plans to work on diet in yellow-tailed woolly monkeys (*Lagothrix flavicauda*).
+
+<div class="wrap2">
+<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/schmittlabnopic_8.jpg">
+</div>
+
+**Yinuo Mao** (MS program, Biology – CMB; she/her). Yinuo began in the Biology M.S. program in 2024, joining us from UC Davis after some time in industry work. She will be conducting research into selection in wild savanna monkeys (*Chlorocebus* spp.) using our genomics pipeline. 
+
+<div class="wrap2">
+<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/sofiaweaver_orig.jpeg">
+</div>
+
+**Sofia Weaver** (BA/MS program, Biology – EBE; she/her). Sofia joined the Schmitt Lab as an undergraduate, and joined the B.A./M.S. program in Biology in 2024. Sofia's research in the lab has been wide-ranging, but her M.S. thesis work will focus on high-elevation adaptation in lowland Peruvian woolly monkeys (*Lagothrix lagotricha tschudii*).
 
 ## Undergraduate Students
 
