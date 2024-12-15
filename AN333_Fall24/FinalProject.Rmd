@@ -23,21 +23,38 @@ Your final project is a critically important part of this course. Once you’ve 
 
 Choose a gene that you can show is related to a trait that is integral to why you are interested in human population and evolutionary history. You will establish hypotheses, based on your knowledge of human population and evolutionary history, regarding how that gene should vary across the *1000 Genomes Project* dataset, and then test your hypotheses using the analytical methods learned in class.
 
-We will choose loci together as part of [Lab 7](https://fuzzyatelin.github.io/AN333_Fall24/Lab7-newlocus.html), but this guide is to help you through the process of preparing an writing your final paper.
+We will choose loci together as part of [Module 7](https://fuzzyatelin.github.io/AN333_Fall24/Lab7-newlocus.html), but this guide is to help you through the process of preparing an writing your final paper.
 
 <center>
-## [**Please submit your Final Project paper as a single saved Google Doc file (downloaded as a Microsoft Word, or *.docx* file) at this link by 5:00pm of Thursday, December 19**](https://goo.gl/forms/3WFuWsI9A2jHeE123)
+## [**Please submit your Final Project paper as a single saved Google Doc file (downloaded as a Microsoft Word, or *.docx* file) at this link by 5:00pm of Thursday, December 19**](https://drive.google.com/drive/folders/0B-JPsQ7TL_bUflJveXdFTUVXaHgyeElCYmstYXlsME1xclhaZ280VW9BRm1VZnVKWldmbkE?resourcekey=0-GnTNRw3ClqpqFns6dQ-3GQ&usp=share_link)
 </center>
 
 ## Final Project Paper Formatting
 
+For this semester, we'll be submitting the final project as if it were a manuscript for publication in the open-access MDPI-published journal [*Genes*](https://www.mdpi.com/journal/genes). *Genes* is a convenient journal to submit to because they have a pre-established formatting template that we can use to prepare our submission, available to you [on Blackboard](https://learn.bu.edu/ultra/courses/_119228_1/outline/file/_14784464_1) in the Final Project folder.
+
+All formatting requirements are available in the formatting document, which *must* be opened with Microsoft Word (Word is available for free for all BU students [here](https://www.bu.edu/tech/services/cccs/desktop/distribution/microsoft/studentoffice/)).
+
+You may either work directly with the template itself, or work first in a Google Doc and then paste your text into the template. Should you opt for the former, the formatting guidelines below apply to the Google Doc - this will look very different in the *Genes* template (i.e., text will be more condensed, the paper will, overall, likely be shorter; that's ok!).
+
+Some other details to keep in mind:
+
+* Please list the *Type of Paper* as an *Article*
+* For you affiliation, please list the **Department of *your major*, Boston University**. Mine is the *Department of Anthropology, Boston University*.
+* You do *not* need to include anything in the section on Patents.
+* Please *do* include appropriate information in the *Author Contributions* section.
+* You should get IRB and Informed Consent information from the original 1000 Genomes Project publications we read for class.
+
+Most importantly, *please include your code for your final project analyses as an Appendix*. I know this will potetnially be a lot of code, so the best way to include it may be as **a link to a Google Doc that contains all your final project code**.
+
+
+### Guidelines for a Google Doc draft
+
 The body of your paper should no less than 7 and no more than 10 pages long using 12-point font, double-spaced, with 1-inch margins (*not* including title/author lines, abstract, tables, figures, or references). For graduate students, this may be extended to 15 pages, but *no longer*.
 
-Final papers will have formatting similar to a paper submitted to the [*American Journal of Biological Anthropology*](https://onlinelibrary.wiley.com/journal/10968644). This will include:
+1)  **Title and Author List**: Your title should be short and describe the central idea of your paper. See other titles published in *Genes* for some helpful examples. All projects should include yourself as first author and myself, as your instructor, as final author. Unless otherwise arranged, these should be the only two authors!
 
-1)  **Title and Author List**: Your title should be short and describe the central idea of your paper. See other titles published in the *AJBA* for some helpful examples. All projects should include yourself as first author and myself, as your instructor, as final author. Unless otherwise arranged, these should be the only two authors!
-
-2)	**Abstract**: Please provide an abstract of 250 words or fewer containing the major keywords summarizing the article, structured with the following headings in bold, separated by line breaks: *Objectives*, *Materials and Methods*, *Results*, *Discussion*.
+2)	**Abstract**: Please provide an abstract of 250 words or fewer containing the major keywords summarizing the article, structured with the following headings in bold, separated by line breaks: *Background/Objectives*, *Methods*, *Results*, *Conclusions*.
 
 3)	**Introduction**: The *Introduction* should provide enough background for the reader to understand the objectives and motivation of the study. *Extensive literature review is unnecessary and should be avoided*, but please do include key readings that contextualize the project.
 
@@ -45,31 +62,18 @@ Final papers will have formatting similar to a paper submitted to the [*American
 
 5)	**Results**: The *Results* section should present the findings of the study without excessive interpretation.
 
-6)	**Discussion**: The *Discussion* section is the appropriate place for all interpretation of the study results, comparison with the results of previous studies, conclusions and hypotheses based on those comparisons, and suggestions for future research. No new analyses or results should appear in this section. Interpretations and conclusions should be restrained and justified by the results.
+6)	**Discussion/Conclusions**: The *Discussion* section is the appropriate place for all interpretation of the study results, comparison with the results of previous studies, conclusions and hypotheses based on those comparisons, and suggestions for future research. No new analyses or results should appear in this section. Interpretations and conclusions should be restrained and justified by the results.
 
-7)	**References**: For the *References section*, we’ll follow AABA guidelines:
-
->As of 2017, the references of the journal should be prepared according to the [Publication Manual of the American Psychological Association (APA) (6th edition)](https://www.apastyle.org/). This means in text citations should follow the author-date method whereby the author's last name and the year of publication for the source should appear in the text, for example, (Jones, 1998). Use of et al. is determined by the number of authors and whether it is the first time a reference has been cited in the paper. Specifically, articles with one or two authors include all names in every in-text citation; articles with three, four, or five authors include all names in the first in-text citation but are abbreviated to the first author name plus et al. upon subsequent citations; and articles with six or more authors are abbreviated to the first author name plus et al. for all in-text citations.
->
->The complete reference list should appear alphabetically by name at the end of the paper. Please note that for journal articles, issue numbers are not included unless each issue in the volume begins with page 1, and a DOI should be provided for all references where available. For more information about APA referencing style, please refer to the APA FAQ.
->
->Reference examples follow:
->
->Journal:
->Scruton, R. (1996). The eclipse of listening.The New Criterion, 15(3), 5-13.
->
->Book:
->Calfee, R. C., & Valencia, R. R. (1991). APA guide to preparing manuscripts for journal publication.Washington, DC: American Psychological Association.
+7)	**References**: For the *References section*, please follow the guidelines in the manuscript template.
 
 8)  **Tables and Figures**: The best way to represent your data may be in a figure or table (for example, an image of the linkage blocks in your gene of interest, or of a neighbor-joining tree, or a table summarizing relavant neutrality statistics with their p-values). If you plan to include tables and figures, please number them in the order they appear in the text (Figure 1, Figure 2, etc; Table 1, Table 2, etc) with a descriptive caption describing/explaining what the table or figure is meant to show us that is relevant to your hypotheses (e.g., "Figure 1: Linkage block of the gene *ESPN3*, notice that there is high linkage between SNP of interest rs31459 and SNP rs44444, which is a candidate gene for obesity").
 
-<ul><li>For guidance on how to include and caption a **figure** in a Google Doc, please [see this helpful guide](https://docs.google.com/document/d/1HYgCxV7noTwBJ70uh7uSHtmUfUSzoI5A5XWunWgRVaU/edit).</li>
+<ul><li>For guidance on how to include and caption a **figure**, see the template itself which has good guidance!</li>
 
-<li>For guidance on how to add and edit a **table** in a Google Doc, please [see this helpful guide](https://support.google.com/docs/answer/1696711?co=GENIE.Platform%3DDesktop&hl=en).</li></ul>
+<li>For guidance on how to add and edit a **table**, see the template!</li></ul>
 
-To see an example article written by your professor in the *American Journal of Physical Anthropology*, check out this citation (written in APA format):
+9) Remember, you *must* submit your final project paper as a Word document using the template! So if you do make this in a Google Doc, please copy and paste all elements to the template and submit that as your final project paper!
 
-[Turner, T.R., Schmitt, C.A., Cramer, J.D., Lorenz, J., Grobler, J.P., Jolly, C.J., & Freimer, N.B. (2018). Morphological variation in the genus *Chlorocebus*: Ecogeographic and anthropogenically mediated variation in body mass, postcranial morphology, and growth. *Am J Phys Anthropol* 166(3), 682-707.](https://onlinelibrary.wiley.com/doi/full/10.1002/ajpa.23459)
 
 
 <br>
