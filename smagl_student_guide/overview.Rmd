@@ -1,7 +1,7 @@
 ---
-title: 'SMAGL Student Guide<br>Fall 2024'
+title: 'SMAGL Student Guide<br>Spring 2025'
 author: "Christopher A Schmitt</br>Boston University"
-date: "August 15, 2024"
+date: "January 15, 2025"
 output: 
   rmdformats::readthedown:
     toc_depth: 5
@@ -14,7 +14,7 @@ output:
 
 ***
 <center>
-**SMAGL Lab Meetings** will be held on **Mondays, 4:00 - 5:00pm** in *STO 243*<br>**Lab Meeting Zoom Link** is [here](https://bostonu.zoom.us/j/365502724?pwd=Zm1SSjgxMlA1SmYrWDRnbnhIamFwdz09)<br>**SMAGL Schmitt Lab Slack** is [here](https://schmitt-smgal-bu.slack.com/)<br>
+**SMAGL Lab Meetings** will be held on<br>**Mondays, 4:00 - 5:00pm** in *STO 243*<br>**Lab Meeting Zoom Link** is [here](https://bostonu.zoom.us/j/365502724?pwd=Zm1SSjgxMlA1SmYrWDRnbnhIamFwdz09)<br>**SMAGL Schmitt Lab Slack** is [here](https://schmitt-smgal-bu.slack.com/)<br>
 </center>
 ***
 
@@ -28,7 +28,6 @@ This web guide is designed to help you get the most out of working with us. The 
 >Stone Science Building, 675 Commonwealth Ave, Room 251<br>
 >Boston, MA 02215<br>
 >Phone: (617) 353-1281<br>
->Twitter/X: @SMAGL_BU<br>
 >Slack: SMAGL@BU<br>
 
 ***
@@ -119,4 +118,6 @@ To learn more about the SMAGL - who we are, what we do, where we do it, and how 
 # [**SMAGL *Undergraduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_ugrad.html)
 ***
 # [**SMAGL *Graduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_grad.html)
+***
+# [**SMAGL Code of Conduct**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_conduct.html)
 ***

@@ -1,7 +1,7 @@
 ---
 title: "AN/BI 588: Project Design and Statistics</br> in Biological Anthopology"
 author: "Christopher A Schmitt</br>Boston University"
-date: "September 7, 2023"
+date: "January 15, 2025"
 output: 
   html_document:
     theme: cosmo
@@ -11,18 +11,18 @@ output:
 
 ***
 <center>
-**Fall 2023, Seminar will be held on Thursdays, 3:30 - 6:15pm in *CAS 335* <br>(that's on the third floor of the CAS Building, 725 Commonwealth Ave)**
+**Spring 2025, Seminar will be held on Tuesdays, 3:30 - 6:15pm in *EOP 262* <br>(that's on the third floor of the CAS Building, 725 Commonwealth Ave)**
 </center>
 ***
 
 ### Faculty Instructor:
   **Christopher A. Schmitt**  
-  Assistant Professor of Anthropology, Biology, Women's Gender & Sexuality Studies <br>
+  Associate Professor of Anthropology, Biology, Women's Gender & Sexuality Studies <br>
   Office: Stone Science Building (STO), 675 Commonwealth Ave, Rm 247E  
-  Office Hours: Mondays 1:00 - 3:30pm <br>
+  Office Hours: Mondays 1:00 - 3:00 pm, Tuesdays 1:00 - 2:00 pm <br>
   Web: http://www.evopropinquitous.net  
   Email: caschmit[at]bu[dot]edu  
-  Twitter: http://www.twitter.com/fuzzyatelin  
+  Social Media: fuzzyatelin  
   
 ***
 
