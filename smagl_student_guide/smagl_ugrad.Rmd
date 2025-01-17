@@ -1,7 +1,7 @@
 ---
 title: 'SMAGL *Undergraduate* Student Guide<br>Fall 2024'
 author: "Christopher A Schmitt</br>Boston University"
-date: "August 15, 2024"
+date: "January 15, 2025"
 output: 
   rmdformats::readthedown:
     toc_depth: 5
