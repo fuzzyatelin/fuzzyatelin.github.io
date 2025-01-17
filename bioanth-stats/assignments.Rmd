@@ -42,7 +42,7 @@ Each assignment listed is linked to another page containing instructions (you ca
 
 ***
 
-## [Analysis Replication Assignment](https://fuzzyatelin.github.io/bioanth-stats/data-reanalysis-assignment.html) due **May 6, 2025**.
+## [Analysis Replication Assignment](https://fuzzyatelin.github.io/bioanth-stats/data-reanalysis-assignment.html) due **May 01, 2025**.
 
 You must choose the paper/dataset for the Analysis Replication Assignment by Week 5 (Tuesday, February 18, 2025).
 
@@ -54,6 +54,6 @@ You must choose your group and analysis/vignette for the Group Presentation by W
 
 ***
 
-## [Self Evaluation](https://fuzzyatelin.github.io/bioanth-stats/selfevaluation.html) due **May 6, 2025**
+## [Self Evaluation](https://fuzzyatelin.github.io/bioanth-stats/selfevaluation.html) due **May 06, 2025**
 
 ***

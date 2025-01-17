@@ -13,7 +13,7 @@
 
 <title>AN/BI 588: Data Replication Assignment</title>
 
-<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -104,8 +104,8 @@ pre code {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -113,16 +113,9 @@ pre code {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -218,8 +211,8 @@ Coding Problems</a></h3>
 <hr />
 <center>
 <p><br></p>
-<p><font size="+2"><b>Final Homework DUE at 5:00 pm of December 14,
-2023.</b></font></p>
+<p><font size="+2"><b>Final Homework DUE at 5:00 pm of May 01,
+2025.</b></font></p>
 </center>
 <p><br></p>
 <hr />
@@ -231,7 +224,7 @@ objective of this assignment is to use your skills in
 statistical analyses and results reported in a published paper of your
 choosing.</p>
 <p>You should select and confirm with me a paper and dataset you will
-replicate by <strong>October 05, 2023</strong>!</p>
+replicate by <strong>February 18, 2025</strong>!</p>
 <p>You do not need to replicate ALL of the analyses presented in the
 paper, <em>but at minimum you must replicate at least 3 analyses</em>,
 including at least one <em>descriptive</em> statistical analysis and one
@@ -240,8 +233,7 @@ you must also replicate to the best of your abilities at least one
 figure.</p>
 For this assignment, you should prepare several files to share with me
 via <strong><em>GitHub</em></strong> in a new repo, shared with me as a
-collaborator, called
-“<strong>BUlogin-data-replication-assignment</strong>”:
+collaborator, called “<strong>BUlogin-AN588-Replication</strong>”:
 <ol>
 <li>
 A PDF copy of the paper from which you are replicating analyses.
@@ -270,7 +262,7 @@ file, e.g., “figure-1.png” and <em>###</em> with a integer number of
 pixels, e.g., width=“200px”.</p>
 <p>A simpler option with fewer formatting possibilities is to include
 the picture using this markdown code:</p>
-<p><code>![]("img/imagename.filetype")</code></p>
+<p><code>![](img/imagename.filetype)</code></p>
 <p>If you include the following chunk at the beginning of your Rmd
 document with the headline <code>{r setup, include=FALSE}</code> (which
 lays out for <strong><em>R</em></strong> a particular set of
@@ -307,10 +299,11 @@ href="https://fuzzyatelin.github.io/bioanth-stats/codlin_replication.html">here<
 class="section level2">
 <h2>Where to find data (and their associated paper)</h2>
 <p>Students in the past have had a lot of trouble actually
-<em>finding</em> a relevant article that has associated open-access
-data. This makes replication much more difficult, and is increasing
-frowned upon, but is standard operating procedure in the sciences
-(especially when data are proprietary). However, there is <a
+<em>finding</em> a relevant article that has associated open-access data
+available online. This makes replication much more difficult, and is
+increasingly frowned upon by the scientific community, but is often the
+standard operating procedure in the sciences (especially when data are
+proprietary). However, there is <a
 href="https://blogs.scientificamerican.com/observations/how-freely-should-scientists-share-their-data/">much
 debate about</a> and increasing calls for open-access data, both for
 replication and more general equity purposes. The <a
@@ -321,9 +314,73 @@ repositories.</p>
 <p>Rather than searching for a paper you like and finding that the
 authors have - for various reasons - not made their data public, you can
 instead search a public data repository relevant to your field for an
-appropriate dataset along with the associated published paper <a
+appropriate dataset along with the associated published paper. The
+journal <em>Nature</em> has pulled together links for several such
+repositories <a
 href="https://www.nature.com/sdata/policies/repositories#general">at
 this handy website</a>.</p>
+<p>I strongly recommend starting your search at <a
+href="https://datadryad.org/stash">Dryad</a>. This is a general purpose
+scientific data repository that is pretty well-liked and well-used by
+biolgoical anthropologists and biologists more generally.</p>
+<p>For example, if I were interested in doing research on the primate
+microbiome for my thesis, and so wanted to learn a bit more about the
+methods and the baboon (genus <em>Papio</em>) microbiome by replicating
+a study on it, I would enter the following into the Dryad
+<code>Explore Data</code> tab:</p>
+<p><br><br> <img src="img/dryad_search1.png" /></p>
+<p><br><br></p>
+<p>Upon pressing <code>Search</code>, it will take me to every dataset
+in Dryad that’s flagged for those two search terms (<code>Papio</code>
+and <code>microbiome</code>):</p>
+<p><br><br> <img src="img/dryad_search2.png" /></p>
+<p><br><br></p>
+<p>As you can see, there are quite a few! If I’m more interested in
+social behavior, I might choose the second option on the list by
+clicking on the title of the dataset (i.e.,
+<code>Data from: Social networks predict...</code>), which will take me
+to the individual data page for that particular dataset:</p>
+<p><br><br> <img src="img/dryad_search3.png" /></p>
+<p><br><br> On the data page, I can read an abstract of the article
+associated with the data (to see if it’s what I’m looking for),
+access/download the data as the authors have uploaded it to the
+repository (see the arrow in green, above; note that some datasets may
+have multiple versions of the data… in such cases, I recommend
+downloading the most recent!), and also the you can follow a link to the
+published article (see the arrow in blue, above).</p>
+<p>You probably won’t find a paper that interests you on the first
+search, but that’s ok. It takes some time to find a paper that both
+interests you AND contains the kinds of analyses that you 1) would like
+to replicate, and 2) are actually <em>prepared</em> to replicate.</p>
+<p>Please keep that latter point in mind: <strong>do not try to
+replicate something that is too far out of your depth!</strong> Think
+about what you’ve learned (or will learn) in this class and take it from
+there. If the above paper uses methods you’re not familiar with with
+(like social network analysis and microbiome analysis), you can check
+for other modules on the course webpage to see if you can figure it out
+(for example, there <em>is</em> a Social Network Analysis module…
+<em>but</em> we do not learn how to analyze microbiome data in this
+course).</p>
+<p>If you want to treat yourself nicely (and we all should) and avoid
+anxiety (which we all want to do), it would probably be best for you to
+find another paper with analyses that you <em>will</em> be able to
+replicate given the tools I’ll help you learn in this course via the
+standard modules (regression, mixed models, etc).</p>
+<p>Additionally, very often authors <em>say</em> they’ve posted open
+access data - and there is, indeed, a file posted on <em>Dryad</em> -
+but when you download the file it may turn out to be a huge,
+incomprehensible mess or in a format that requires proprietary programs
+to access. Sadly, this is very common. Make sure to actually inspect the
+data after downloading it to see if you can figure out which variables
+are where, and to ensure you can envision <em>how</em> you would
+practically use these data to replicate the analyses in the paper. This
+is where students often realize they may have to change papers, so make
+sure to do this before committing to a replication! If you think it’s
+close to what you want, but you’re not yet sure (for example, if there’s
+a mixed model and you’re unsure of what you’ll need for it since the
+module is in April!)… come to my office hours and I’ll help you figure
+out if it’s appropriate.</p>
+<p><br><br><br><br></p>
 </div>
 
 
