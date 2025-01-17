@@ -1,7 +1,7 @@
 ---
 title: "SMAGL Graduate Student Compact"
 author: "Christopher A Schmitt</br>Boston University"
-date: "August 15, 2024"
+date: "January 15, 2025"
 output: 
   rmdformats::readthedown:
     toc_depth: 5
@@ -33,13 +33,13 @@ output:
 *	**Acknowledging the contributions of other people and funders to my work**. In my paper and abstract acknowledgements, I will discuss with my advisor which people, institutions and funders should be acknowledged. 
 *	**Being knowledgeable of the policies and requirements of my program, school, and institution**, and to meet these requirements, including teaching responsibilities. I will discuss with my advisor BU's policies regarding ownership of data and research materials.
 *	**Complying with the letter and spirit of all institutional policies**, including program milestones, safe lab practices, and animal/human-research policies.  I am aware that any violations of lab or animal/human research policies may compromise the research clearance for my advisor, other students in my lab, the department, and the university.
-*	**Completing all required Biosafety trainings and RCR modules**. These are found at [**BioRaft**](http://bu.bioraft.com) and the [**RCR Page**](http://www.bu.edu/orc/programs-committees/rcr/).
+*	**Completing all required Biosafety trainings and RCR modules**. These are found at [**SciShield**](http://bu.scishield.com) and the [**RCR Page**](http://www.bu.edu/orc/programs-committees/rcr/).
 *	**Attending all Department of Anthropology Professional Development Seminars**. These seminars have been implemented at the request of and identified needs of past Ph.D. students; they are for *you*. These are scheduled to not conflict with courses; consider them to be *mandatory*.
 *	**Acknowledging that career development after my degree is primarily my responsibility**, and seek guidance from my advisor, career counseling, dissertation committee, other mentors, and any other resources available.
 *	**Meeting individually with my advisor at the end of each year** to discuss the contents of my annual report and progress toward my target degree and my adherence to this agreement.
 *	**Presenting my work at scientific conferences**. I understand that students are normally expected to attend at least one scientific conference each year. From year 2 I will plan to present a poster or paper at least one meeting per year based on my research.
 
-*Be a team player in the Schmitt Lab community. This includes:*
+*Be a team player in the SMAGL Schmitt Lab community. This includes:*
 
 *	**Participating in lab meetings, seminars and journal clubs** that are part of my educational program.  I will make every attempt to participate in these events as organized by my advisor or my program.  If I am unable to attend a lab meeting, I will let my advisor know ahead of time. In addition to presenting my own work, I will contribute my insights to the work of others. I will also give my attention to others in my lab and refrain from using digital devices during these meetings. Even if you are using your computer to augment discussion you should keep it closed, unless looking something up, to be respectful to others who are talking.
 *	**Acting as a good lab citizen**.  I will share in the responsibilities that involve data or samples that I am using or that I expect to use for my dissertation. These responsibilities may include data entry, data management, data cleaning, data copying, data scanning, dry lab organization, sample inventory, sample sorting, wet lab cleaning and organization.
@@ -50,7 +50,7 @@ output:
 *Communicate Clearly and Efficiently. This includes:*
 
 *	**Being responsive**. I will respond promptly (in most cases, within 48 hours) to emails from anyone in our lab group and show up on time and prepared for meetings. If you need time to gather information in response to an email, please acknowledge receipt of the message and indicate when you will be able to provide the requested information.
-*	**Discussing policies on work hours, sick leave, and vacation with my advisor**. I will let my advisor know about any planned absences, both while in residence and while in the field.  I understand that my advisor expects me to take time off to recharge and supports this need. I also realize that my advisor will need to know if I won’t be available or, for safety purposes, if I’m not at the field site.
+*	**Discussing policies on work hours, sick leave, and vacation with my advisor**. I will let my advisor know about any planned absences, both while in residence and while in the field.  I understand that my advisor expects me to take time off to recharge and supports this need. I also realize that my advisor will need to know if I won’t be available or, for safety purposes, if I’m not at the field site while conducting fieldwork.
 *	**Seeking resolution if I am unhappy with my current advising experience**. Not all people can get along all the time; I agree to accept this, and to take responsibility for my own potential role in such dynamics. I also agree to follow best practices for resolution, which includes speaking to my advisor first if there is a disagreement or if I feel I have been treated unfairly in some way, with a good faith effort to resolve the situation. If that does not resolve the situation, I agree to approach either 1) my other internal committee members or 2) the Director of Graduate Studies to mediate. Ultimately, if these avenues do not appear to work, or if I feel uncomfortable with a one-on-one discussion of the issue, I agree to discuss the issue with a university Ombuds to attempt resolution.
 
 ***
