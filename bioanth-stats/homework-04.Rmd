@@ -1,6 +1,6 @@
 ---
 title: "AN/BI588: Homework 04"
-date: "October 17, 2023"
+date: "January 17, 2025"
 output:
   html_document:
     theme: cosmo
@@ -43,13 +43,13 @@ knitr::opts_chunk$set(
 
 <center>
 
-<font size="+2"><b>Must be submitted for Peer Commentary by 8:00 pm Wednesday, October 25th.</b></font>
+<font size="+2"><b>Must be submitted for Peer Commentary by 8:00 pm Wednesday, March 12.</b></font>
 
 </center><br>
 
 <center>
 
-<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Wednesday, November 1st.</b></font>
+<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Monday, March 17.</b></font>
 
 </center><br>
 
@@ -77,7 +77,7 @@ Create a new ***GitHub*** repo and git-referenced ***Rstudio*** Project called "
 
 ### **Your Final Assignment for Homework 03**
 
-Your final assignment, due to me by 5:00 pm on November 1st, is to have in your *AN588_Malfunction_BUlogin* repo only the following files (aside from repo basics like an `.Rproj` and `README` file):
+Your final assignment, due to me by 5:00 pm on March 17, is to have in your *AN588_Malfunction_BUlogin* repo only the following files (aside from repo basics like an `.Rproj` and `README` file):
 <ol>
 1. The *FINAL PUSH* of your Original Homework Code, including the five challenges you faced, as pushed to your repo by 5:00 pm on Wednesday, November 1st, an R Markdown file named *BUlogin_OriginalHomeworkCode_04*.
 2. The *FINAL PUSH* of the [Peer Commentary](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) made on *your* code, an R Markdown file named *Peerlogin_PeerCommentary_BUlogin_04* or *PeerGroupX_PeerCommentary_BUlogin_04*.
@@ -86,7 +86,7 @@ Your final assignment, due to me by 5:00 pm on November 1st, is to have in your 
 
 ***
 
-### [Homework 04 Solutions](https://fuzzyatelin.github.io/bioanth-stats/homework-04-key.html) will be posted on November 2nd.
+### [Homework 04 Solutions]() will be posted on March 18.
 
 ***
 

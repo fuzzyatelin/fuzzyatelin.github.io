@@ -1,7 +1,7 @@
 ---
 title: "AN/BI 588: Peer Commentary Assignments"
 author: "Christopher A Schmitt"
-date: "September 15, 2023"
+date: "January 17, 2025"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -60,7 +60,7 @@ Once you're an active collaborator, you can clone your *Peer's* repository to yo
 
 ### **What you're critiquing...**
 
-As noted in the homework instructions, while completing your homework each of you will compile a list of the five most impactful challenges faced while coding it, along with how you overcame them (or what you attempted if you couldn't overcome them). You, as a peer commenter, must spend *at least an hour* reviewing and testing your peer's code with an eye towards understanding the challenges they faced, and in the process write down the following:
+As noted in the homework instructions, while completing your homework each of you will compile a list of the most impactful challenges faced while coding it (up to five), along with how you overcame them (or what you attempted if you couldn't overcome them). You, as a peer commenter, must spend *at least an hour* reviewing and testing your peer's code with an eye towards understanding the challenges they faced, and in the process write down the following:
 <br><ol>
 1. What you learned from running their Original Homework Code that helped improve your own code.
 2. What you did in your own code that might help to improve theirs.
@@ -71,38 +71,42 @@ Although not required, you are encouraged to meet outside class so that you may 
 
 Ideally, as peer commenter you will give your comments back to your peer with enough time for them to take into account your comments and turn in an improved (and hopefully functional) Final Homework Code.
 
-**Students must have their Original Homework Code (with Challenges noted), Peer Commentaries, and Final Homework Code in their Homework repo by 5:00 pm on the Due Date (see the [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html), [Assignments](https://fuzzyatelin.github.io/bioanth-stats/assignments.html), and below for all due dates!)**
+**Students must have (1) their Original Homework Code (with Challenges noted), (2) Peer Commentaries, and (3) Final Homework Code in their Homework repo by 5:00 pm on the Due Date (see the [Course Outline](https://fuzzyatelin.github.io/bioanth-stats/outline.html), [Assignments](https://fuzzyatelin.github.io/bioanth-stats/assignments.html), and below for all due dates!)**
 
 In class, for 10 minutes, you will be given a chance to meet with your Peer Group in order to prioritize questions or challenges that your group would like to bring to the attention of the whole class.
 
 We will then take 30 minutes of each class to address these challenges together, and see if other Peer Groups faced similar challanges or found unique solutions to each problem, and together will do our best to solve them.
 
-Although grades will not be assigned for Peer Commentaries, if it comes to my attention that particular students are not actively participating in this process, it will be considered when negotiating their argument for their final grade.
+Although *grades will not be assigned* for Peer Commentaries, if it comes to my attention that particular students are not actively participating in this process, it will be considered when negotiating their argument for their final grade.
 
 ### **Who you're working with...**
 
-The students currently enrolled in Fall 2023 (and their associated GitHub accounts) include:
+The students currently enrolled in Spring 2025 (and their associated GitHub accounts) include:
 
-* Erin Anderson: [erin1928](https://github.com/erin1928)
-* Chuhan "Lia" Bao: [cbao2397](https://github.com/cbao2397)
-* Paige Becker: [paigebecker1](https://github.com/paigebecker1)
-* Julianna Dick: [juliannad0929](https://github.com/juliannad0929)
-* Jimmy Erkens: [jrerkens](https://github.com/jrerkens)
-* Emiley Garcia-Zych: [EmileyGarciaZych](https://github.com/EmileyGarciaZych)
-* Lillian Holden: [lilliansoccer10](https://github.com/lilliansoccer10)
-* Reese Hotten-Somers: [rhottensomers](https://github.com/rhottensomers)
-* Angelique Lindberg: [angeliquelindberg](https://github.com/angeliquelindberg)
-* Abdullah "Allister" Malik: [A-Malik03](https://github.com/A-Malik03)
-* Jessica "Jess" Martin: [JessMartin1](https://github.com/JessMartin1)
-* Nicole Merullo: [nmerullo](https://github.com/nmerullo)
-* Caroline "Cat" Metcalf: [cattuccino](https://github.com/cattuccino)
-* Brooke Rothamer: [Brothamer](https://github.com/Brothamer)
-* Ritika Sibal: [ritikasibal](https://github.com/ritikasibal)
-* Bhavya Vadavalli: [bhavya-dv](https://github.com/bhavya-dv)
-* Samantha "Sam" Vee: [samanthavee](https://github.com/samanthavee)
-* Sofia Weaver: [sofimofii](https://github.com/sofimofii)
-* Amanda Wu: [amandafwu](https://github.com/amandafwu)
-* Yu "Emily" Yang: [YYangEmily](https://github.com/YYangEmily)
+* Sylvie Adams: [](https://github.com/)
+* Yongliang Cen: [](https://github.com/)
+* Matteo Finnerty: [](https://github.com/)
+* Amita Ganesh: [](https://github.com/)
+* Soumalya Ghorui: [](https://github.com/)
+* Brenda Kim: [](https://github.com/)
+* Sunmin Kim: [](https://github.com/)
+* Pingwen Lin: [](https://github.com/)
+* Carly McDermott: [](https://github.com/)
+* Christian Mei: [](https://github.com/)
+* Jaclyn Meyer: [](https://github.com/)
+* Gentry Miller: [](https://github.com/)
+* Benjamin Peters: [](https://github.com/)
+* Faria Shahriar: [](https://github.com/)
+* Megna Sriram: [](https://github.com/)
+* Alexandra Walsh: [](https://github.com/)
+* Lindsay Warrell: [](https://github.com/)
+* Yuanruo Xie: [](https://github.com/)
+* Charles Yung: [](https://github.com/)
+* Akiva Zeff: [](https://github.com/)
+* Jason Zeng: [](https://github.com/)
+* Claire Zhang: [](https://github.com/)
+* Jonathan Zhang: [](https://github.com/)
+* Yunhua Zhu: [](https://github.com/)
 
 And my own GitHub account is:
 
@@ -113,109 +117,113 @@ And my own GitHub account is:
 
 ***
 
-#### **Homework 01: [Push It!](https://fuzzyatelin.github.io/bioanth-stats/homework-01.html) (Assigned 14SEP, Due 20SEP)**
+#### **Homework 01: [Push It!](https://fuzzyatelin.github.io/bioanth-stats/homework-01.html) (Assigned 28JAN, Peer Comments by 31JAN, Due 03FEB)**
 
 ***
 
-Peer Group 1: Julianna Dick, Soia Weaver, Paige Becker
+Peer Group 1: Sylvie Adams, Carly McDermott, Lindsay Warrell
 
-Peer Group 2: Amanda Wu, Angelique Lindberg, Emily Yang
+Peer Group 2: Yongliang Cen, Christian Mei, Yuanruo Xie
 
-Peer Group 3: Jess Martin, Bhavya Vadavalli, Brooke Rothamer
+Peer Group 3: Matteo Finnerty, Jaclyn Meyer, Charles Yung
 
-Peer Group 4: Ritika Sibal, Emiley Garcia-Zych
+Peer Group 4: Amita Ganesh, Gentry Miller, Jonathan Zhang
 
-Peer Group 5: Genesis Velasco, Jimmy Erkens, Samantha Vee
+Peer Group 5: Soumalya Ghorui, Benjamin Peters, Akiva Zeff
 
-Peer Group 6: Reese Hotten-Somers, Nicole Merullo, Erin Anderson
+Peer Group 6: Brenda Kim, Faria Shahriar, Jason Zeng
 
-Peer Group 7: Lia Bao, Cat Metcalf
+Peer Group 7: Sunmin Kim, Megna Sriram, Yunhua Zhu
 
-Peer Group 8: Billy Sanders, Allister Malik, Lillian Holden
-
-***
-
-#### **Homework 02: [Titis in the Mist](https://fuzzyatelin.github.io/bioanth-stats/homework-02.html) (Assigned 21SEP, Due 04OCT)**
+Peer Group 8: Pingwen Lin, Alexandra Walsh, Claire Zhang
 
 ***
 
-Peer Group 1: Emily Yang, Allister Malik, Ritika Sibal
-
-Peer Group 2: Emiley Garcia-Zych, Cat Metcalf, Jess Martin 
-
-Peer Group 3: Lia Bao, Nicole Merullo, Lillian Holden
-
-Peer Group 4: Bhavya Vadavalli, Billy Sanders
-
-Peer Group 5: Sofia Weaver, Erin Anderson, Julianna Dick
-
-Peer Group 6: Angelique Lindberg, Jimmy Erkens
-
-Peer Group 7: Genesis Velasco, Samantha Vee, Reese Hotten-Somers
-
-Peer Group 8: Amanda Wu, Paige Becker, Brooke Rothamer
+#### **Homework 02: [Titis in the Mist](https://fuzzyatelin.github.io/bioanth-stats/homework-02.html) (Assigned 04FEB, Peer Comments by 07FEB , Due 10FEB)**
 
 ***
 
-#### **Homework 03: [Some of My Best Friends are Zombies](https://fuzzyatelin.github.io/bioanth-stats/homework-03.html) (Assigned 05OCT, Due 18OCT)**
+Peer Group 1: Yuanruo Xie, Alexandra Walsh, Amita Ganesh
+
+Peer Group 2: Gentry Miller, Megna Sriram, Matteo Finnerty 
+
+Peer Group 3: Sunmin Kim, Faria Shahriar, Claire Zhang
+
+Peer Group 4: Jaclyn Meyer, Pingwen Lin, Jonathan Zhang
+
+Peer Group 5: Carly McDermott, Jason Zeng, Sylvie Adams
+
+Peer Group 6: Christian Mei, Benjamin Peters, Yunhua Zhu
+
+Peer Group 7: Soumalya Ghorui, Akiva Zeff, Brenda Kim
+
+Peer Group 8: Yongliang Cen, Lindsay Warrell, Charles Yung
 
 ***
 
-Peer Group 1: Lia Bao, Emily Yang
-
-Peer Group 2: Reese Hotten-Somers, Bhavya Vadavalli
-
-Peer Group 3: Sofia Weaver, Emiley Garcia-Zych, Amanda Wu
-
-Peer Group 4: Angelique Lindberg, Brooke Rothamer, Paige Becker
-
-Peer Group 5: Jimmy Erkens, Erin Anderson
-
-Peer Group 6: Allister Malik, Jess Martin, Ritika Sibal
-
-Peer Group 7: Samantha Vee, Cat Metcalf
-
-Peer Group 8: Nicole Merullo, Julianna Dick, Lillian Holden
+#### **Homework 03: [Some of My Best Friends are Zombies](https://fuzzyatelin.github.io/bioanth-stats/homework-03.html) (Assigned 18FEB, Peer Comments by 26FEB, Due 03MAR)**
 
 ***
 
-#### **Homework 04: [What's Your Malfunction?](https://fuzzyatelin.github.io/bioanth-stats/homework-04.html) (Assigned 19OCT, Due 02NOV)**
+Peer Group 1: Sunmin Kim, Yuanruo Xie, Pingwen Lin
+
+Peer Group 2: Brenda Kim, Jaclyn Meyer, Yunhua Zhu
+
+Peer Group 3: Carly McDermott, Gentry Miller, Jonathan Zhang
+
+Peer Group 4: Christian Mei, Charles Yung, Lindsay Warrell
+
+Peer Group 5: Benjamin Peters, Jason Zeng, Yongliang Cen
+
+Peer Group 6: Alexandra Walsh, Matteo Finnerty, Amita Ganesh
+
+Peer Group 7: Akiva Zeff, Megna Sriram, Soumalya Ghorui
+
+Peer Group 8: Faria Shahriar, Sylvie Adams, Claire Zhang
 
 ***
 
-Peer Group 1: Reese Hotten-Somers, Erin Anderson, Cat Metcalf
-
-Peer Group 2: Samantha Vee, Sofia Weaver, Bhavya Vadavalli
-
-Peer Group 3: Amanda Wu, Paige Becker, Lillian Holden
-
-Peer Group 4: , Jess Martin, Nicole Merullo, Emily Garcia-Zych
-
-Peer Group 5: Allister Malik, Jimmy Erkens, Lia Bao
-
-Peer Group 6: Angelique Lindberg, Julianna Dick, Emily Yang
-
-Peer Group 7: Brooke Rothamer, Ritika Sibal
+#### **Homework 04: [What's Your Malfunction?](https://fuzzyatelin.github.io/bioanth-stats/homework-04.html) (Assigned 04MAR, Peer Comments by 12MAR, Due 17MAR)**
 
 ***
 
-#### **Homework 05: [Boots for Days!](https://fuzzyatelin.github.io/bioanth-stats/homework-05.html) (Assigned 09NOV, Due 22NOV)**
+Peer Group 1: Brenda Kim, Jason Zeng, Megna Sriram
+
+Peer Group 2: Akiva Zeff, Carly McDermott, Jaclyn Meyer
+
+Peer Group 3: Yongliang Cen, Lindsay Warrell, Claire Zhang
+
+Peer Group 4: , Matteo Finnerty, Faria Shahriar, Gentry Miller
+
+Peer Group 5: Alexandra Walsh, Benjamin Peters, Sunmin Kim
+
+Peer Group 6: Christian Mei, Sylvie Adams, Yuanruo Xie
+
+Peer Group 7: Charles Yung, Amita Ganesh, Soumalya Ghorui
+
+Peer Group 8: Pingwen Lin, Jonathan Zhang, Yunhua Zhu
 
 ***
 
-Peer Group 1: Julianna Dick, Amanda Wu, Bhavya Vadavalli
+#### **Homework 05: [Boots for Days!](https://fuzzyatelin.github.io/bioanth-stats/homework-05.html) (Assigned 01APR, Peer Comments by 09APR, Due 14APR)**
 
-Peer Group 2: Emiley Garcia-Zych, Samantha Vee, Ritika Sibal
+***
 
-Peer Group 3: Brooke Rothamer, Angelique Lindberg, Lillian Holden
+Peer Group 1: Sylvie Adams, Yongliang Cen, Jaclyn Meyer
 
-Peer Group 4: Jess Martin, Sofia Weaver, Reese Hotten-Somers
+Peer Group 2: Gentry Miller, Akiva Zeff, Amita Ganesh
 
-Peer Group 5: Lia Bao, Jimmy Erkens, Nicole Merullo
+Peer Group 3: Charles Yung, Christian Mei, Claire Zhang
 
-Peer Group 6: Emily Yang, Paige Becker, Cat Metcalf
+Peer Group 4: Matteo Finnerty, Carly McDermott, Brenda Kim
 
-Peer Group 7: Allister Malik, Erin Anderson
+Peer Group 5: Sunmin Kim, Benjamin Peters, Faria Shahriar
+
+Peer Group 6: Yuanruo Xie, Lindsay Warrell, Yunhua Zhu
+
+Peer Group 7: Alexandra Walsh, Jason Zeng, Soumalya Ghorui
+
+Peer Group 8: Pingwen Lin, Megna Sriram, Yongliang Cen
 
 ***
 

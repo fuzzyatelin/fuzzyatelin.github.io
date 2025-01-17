@@ -13,8 +13,8 @@
 
 <title>AN/BI 588: Useful Data Science Resources</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -60,6 +60,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -81,6 +82,9 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+details > summary > p:only-child {
+  display: inline;
+}
 pre code {
   padding: 0;
 }
@@ -100,8 +104,8 @@ pre code {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -109,16 +113,9 @@ pre code {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -163,31 +160,42 @@ pre code {
 
 
 
-<h1 class="title toc-ignore">AN/BI 588: Useful Data Science Resources</h1>
+<h1 class="title toc-ignore">AN/BI 588: Useful Data Science
+Resources</h1>
 
 </div>
 
 
 <div id="course-overview" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/overview.html">Course Overview</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/overview.html">Course
+Overview</a></h3>
 </div>
 <div id="course-outline" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/outline.html">Course Outline</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/outline.html">Course
+Outline</a></h3>
 </div>
 <div id="modules" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/modules.html">Modules</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/modules.html">Modules</a></h3>
 </div>
 <div id="assignments" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/assignments.html">Assignments</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/assignments.html">Assignments</a></h3>
 </div>
 <div id="policies" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/policies.html">Policies</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/policies.html">Policies</a></h3>
 </div>
 <div id="insurmountable-coding-problems" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html">Insurmountable Coding Problems</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html">Insurmountable
+Coding Problems</a></h3>
 <hr />
 <center>
-<font size="+2"><b>Use These Resources to Hone Your Data Science Skills</b></font>
+<font size="+2"><b>Use These Resources to Hone Your Data Science
+Skills</b></font>
 </center>
 <p><br></p>
 <center>
@@ -216,10 +224,12 @@ pre code {
 <h4>Text Editors</h4>
 <ul>
 <li>
-<a href="https://atom.io">Atom</a> (MacOS, Windows)
+<a href="https://pulsar-edit.dev">Pulsar</a> (MacOS, Windows)
 </li>
 <li>
-<a href="http://www.barebones.com/products/textwrangler/download.html">TextWrangler</a> (MacOS)
+<a
+href="http://www.barebones.com/products/textwrangler/download.html">TextWrangler</a>
+(MacOS)
 </li>
 <li>
 <a href="http://brettterpstra.com/projects/nvalt/">nvAlt</a> (MacOS)
@@ -229,6 +239,11 @@ pre code {
 </li>
 <li>
 <a href="https://vim.sourceforge.io">Vim</a> (MacOS, Windows)
+</li>
+<li>
+<a
+href="https://www.barebones.com/products/bbedit/index.html">BBedit</a>
+(MacOS)
 </li>
 </ul>
 </div>
@@ -241,16 +256,22 @@ pre code {
 <li>
 <a href="http://markdownpad.com/">MarkdownPad2</a> (Windows)
 </li>
+<li>
+<a href="https://quarto.org">Quarto</a> (MacOS, Windows)
+</li>
 </ul>
 </div>
 <div id="ides" class="section level4">
 <h4>IDEs</h4>
 <ul>
 <li>
-<a href="https://www.rstudio.com/">RStudio</a> for <strong>R</strong> (current version is 1.0.136) (MacOS, Windows)
+<a href="https://www.rstudio.com/">RStudio</a> for <strong>R</strong>
+(current version is 1.0.136) (MacOS, Windows)
 </li>
 <li>
-<a href="https://www.yhat.com/products/rodeo">y-hat Rodeo</a> for <strong>Python</strong> (current version is 2.4.10) (MacOS, Windows, Linux)
+<a href="https://www.yhat.com/products/rodeo">y-hat Rodeo</a> for
+<strong>Python</strong> (current version is 2.4.10) (MacOS, Windows,
+Linux)
 </li>
 </ul>
 </div>
@@ -261,7 +282,8 @@ pre code {
 <a href="https://github.com/">GitHub</a> (Website)
 </li>
 <li>
-<a href="https://desktop.github.com/">GitHub Desktop</a> (MacOS, Windows)
+<a href="https://desktop.github.com/">GitHub Desktop</a> (MacOS,
+Windows)
 </li>
 </ul>
 </div>
@@ -271,7 +293,8 @@ pre code {
 <hr />
 <ul>
 <li>
-<a href="https://cran.r-project.org/">CRAN (Comprehensive R Archive Network)</a>
+<a href="https://cran.r-project.org/">CRAN (Comprehensive R Archive
+Network)</a>
 </li>
 <li>
 <a href="https://www.datacamp.com/">DataCamp</a>
@@ -292,7 +315,8 @@ pre code {
 <a href="http://stackexchange.com">Stack Exchange</a>
 </li>
 <li>
-<a href="http://r-exercises.com/start-here-to-learn-r/">Online R Exercises</a>
+<a href="http://r-exercises.com/start-here-to-learn-r/">Online R
+Exercises</a>
 </li>
 <li>
 <a href="https://www.r-bloggers.com/">R-bloggers</a>
@@ -309,13 +333,16 @@ pre code {
 <h4>Statistical Modeling in Biology</h4>
 <ul>
 <li>
-Bolker BM. 2008. <em>Ecological Models and Data in R</em>. Princeton, NJ: Princeton University Press.
+Bolker BM. 2008. <em>Ecological Models and Data in R</em>. Princeton,
+NJ: Princeton University Press.
 </li>
 <li>
-Irizarry RA, Love MI. 2015. <em>Data Analysis for the Life Sciences</em>. Lean Publishing.
+Irizarry RA, Love MI. 2015. <em>Data Analysis for the Life
+Sciences</em>. Lean Publishing.
 </li>
 <li>
-Quinn GP, Keough MJ. 2002. <em>Experimental Design and Data Analysis for Biologists</em>. Cambridge, UK: Cambridge University Press.
+Quinn GP, Keough MJ. 2002. <em>Experimental Design and Data Analysis for
+Biologists</em>. Cambridge, UK: Cambridge University Press.
 </li>
 </ul>
 </div>
@@ -323,16 +350,29 @@ Quinn GP, Keough MJ. 2002. <em>Experimental Design and Data Analysis for Biologi
 <h4>R and Basic Statistics</h4>
 <ul>
 <li>
-Caffo B. 2015. <em>Statistical Inference for Data Science</em>. Lean Publishing.
+Caffo B. 2015. <em>Statistical Inference for Data Science</em>. Lean
+Publishing.
 </li>
 <li>
-Caffo B. 2016. <em>Regression Models for Data Science in R</em>. Lean Publishing.
+Caffo B. 2016. <em>Regression Models for Data Science in R</em>. Lean
+Publishing.
 </li>
 <li>
-Dalgaard P. 2008. <em>Introductory Statistics with R (Second Edition)</em>. New York: Springer.
+Dalgaard P. 2008. <em>Introductory Statistics with R (Second
+Edition)</em>. New York: Springer.
+</li>
+<li>
+Navarro DJ. 2024. <a
+href="https://learningstatisticswithr.com"><em>Learning Statistics with
+R (v. 0.6)</em></a>. CC BY-SA 4.0
 </li>
 <li>
 Shahbaba B. 2012. <em>Biostatistics with R</em>. New York: Springer.
+</li>
+<li>
+Thulin M. 2024. <a
+href="https://www.modernstatisticswithr.com"><em>Modern Statistics with
+R (Second Edition)</em></a>. New York: Springer.
 </li>
 </ul>
 </div>
@@ -343,19 +383,23 @@ Shahbaba B. 2012. <em>Biostatistics with R</em>. New York: Springer.
 Adler J. 2009. <em>R in a Nutshell</em>. Sebastopol, CA: O’Reilly Media.
 </li>
 <li>
-Kabacoff RI. 2011. <em>R in Action: Data Analysis and Graphics with R</em>. Shelter Island, NY: Manning Publications Co.
+Kabacoff RI. 2011. <em>R in Action: Data Analysis and Graphics with
+R</em>. Shelter Island, NY: Manning Publications Co.
 </li>
 <li>
-Matloff N. 2011. <em>The Art of R Programming: A Tour of Statistical Software Design</em>. San Francisco: No Starch Press.
+Matloff N. 2011. <em>The Art of R Programming: A Tour of Statistical
+Software Design</em>. San Francisco: No Starch Press.
 </li>
 <li>
 Peng R. 2016. <em>R Programming for Data Science</em>. Lean Publishing.
 </li>
 <li>
-Peng R. 2016. <em>Exploratory Data Analysis with R</em>. Lean Publishing.
+Peng R. 2016. <em>Exploratory Data Analysis with R</em>. Lean
+Publishing.
 </li>
 <li>
-Zuur AF, Ieno EN, Meesters EHWG. 2009. <em>A Beginner’s Guide to R</em>. New York: Springer.
+Zuur AF, Ieno EN, Meesters EHWG. 2009. <em>A Beginner’s Guide to R</em>.
+New York: Springer.
 </li>
 </ul>
 </div>
@@ -363,10 +407,12 @@ Zuur AF, Ieno EN, Meesters EHWG. 2009. <em>A Beginner’s Guide to R</em>. New Y
 <h4>R Reference</h4>
 <ul>
 <li>
-Crawley MJ. 2012. <em>The R Book (Second Edition)</em>. Chichester, UK: John Wiley &amp; Sons Ltd.
+Crawley MJ. 2012. <em>The R Book (Second Edition)</em>. Chichester, UK:
+John Wiley &amp; Sons Ltd.
 </li>
 <li>
-Gardener M. 2012. <em>The Essential R Reference</em>. Indianapolis, IN: John Wiley &amp; Sons, Inc.
+Gardener M. 2012. <em>The Essential R Reference</em>. Indianapolis, IN:
+John Wiley &amp; Sons, Inc.
 </li>
 <li>
 Teetor P. 2011. <em>R Cookbook</em>. Sebastopol, CA: O’Reilly Media.
@@ -377,10 +423,12 @@ Teetor P. 2011. <em>R Cookbook</em>. Sebastopol, CA: O’Reilly Media.
 <h4>R Graphics</h4>
 <ul>
 <li>
-Chang W. 2013. <em>R Graphics Cookbook</em>. Sebastopol, CA: O’Reilly Media.
+Chang W. 2013. <em>R Graphics Cookbook</em>. Sebastopol, CA: O’Reilly
+Media.
 </li>
 <li>
-Wickham H. 2016. <em>ggplot2: Elegant Graphics for Data Analysis (Second Edition)</em>. Springer International Publishing.
+Wickham H. 2016. <em>ggplot2: Elegant Graphics for Data Analysis (Second
+Edition)</em>. Springer International Publishing.
 </li>
 </ul>
 </div>
@@ -388,19 +436,24 @@ Wickham H. 2016. <em>ggplot2: Elegant Graphics for Data Analysis (Second Edition
 <h4>Data Science and Visualization</h4>
 <ul>
 <li>
-Dale K. 2016. <em>Data Visualization with Python and JavaScript</em>. Sebastopol, CA: O’Reilly Media.
+Dale K. 2016. <em>Data Visualization with Python and JavaScript</em>.
+Sebastopol, CA: O’Reilly Media.
 </li>
 <li>
-Grus J. 2015. <em>Data Science from Scratch</em>. Sebastopol, CA: O’Reilly.
+Grus J. 2015. <em>Data Science from Scratch</em>. Sebastopol, CA:
+O’Reilly.
 </li>
 <li>
-Kazil J, Jarmul K. 2016. <em>Data Wrangling with Python</em>. Sebastopol, CA: O’Reilly.
+Kazil J, Jarmul K. 2016. <em>Data Wrangling with Python</em>.
+Sebastopol, CA: O’Reilly.
 </li>
 <li>
-Peng RD, Matsui E. 2015. <em>The Art of Data Science</em>. Lean Publishing.
+Peng RD, Matsui E. 2015. <em>The Art of Data Science</em>. Lean
+Publishing.
 </li>
 <li>
-Zumel N, Mount J. 2014. <em>Practical Data Science with R</em>. Shelter Island, NY: Manning Publications Co.
+Zumel N, Mount J. 2014. <em>Practical Data Science with R</em>. Shelter
+Island, NY: Manning Publications Co.
 </li>
 </ul>
 </div>
@@ -408,10 +461,12 @@ Zumel N, Mount J. 2014. <em>Practical Data Science with R</em>. Shelter Island, 
 <h4>Spatial Analysis</h4>
 <ul>
 <li>
-Bivand RS, Pebesma E, Gómez-Rubio V. 2013. <em>Applied Spatial Data Analysis with R (Second Edition)</em>. New York: Springer.
+Bivand RS, Pebesma E, Gómez-Rubio V. 2013. <em>Applied Spatial Data
+Analysis with R (Second Edition)</em>. New York: Springer.
 </li>
 <li>
-Brundson C, Comber L. 2015. <em>An Introduction to R for Spatial Analysis and Mapping</em>. London: SAGE Publications, Ltd.
+Brundson C, Comber L. 2015. <em>An Introduction to R for Spatial
+Analysis and Mapping</em>. London: SAGE Publications, Ltd.
 </li>
 </ul>
 </div>
@@ -419,13 +474,17 @@ Brundson C, Comber L. 2015. <em>An Introduction to R for Spatial Analysis and Ma
 <h4>Mixed Effects Models</h4>
 <ul>
 <li>
-Garamszegi LZ. 2014. <em>Modern Phylogenetic Comparative Methods and Their Application in Evolutionary Biology</em>. Berlin: Springer.
+Garamszegi LZ. 2014. <em>Modern Phylogenetic Comparative Methods and
+Their Application in Evolutionary Biology</em>. Berlin: Springer.
 </li>
 <li>
-Pinheiro JC, Bates DM. 2000. <em>Mixed-Effects Models in S and S-Plus</em>. New York: Springer.
+Pinheiro JC, Bates DM. 2000. <em>Mixed-Effects Models in S and
+S-Plus</em>. New York: Springer.
 </li>
 <li>
-Zuur AF, Ieno EN, Walker NJ, Savaliev AA, Smith GM. 2009. <em>Mixed Effects Models and Extensions in Ecology with R</em>. New York: Springer.
+Zuur AF, Ieno EN, Walker NJ, Savaliev AA, Smith GM. 2009. <em>Mixed
+Effects Models and Extensions in Ecology with R</em>. New York:
+Springer.
 </li>
 </ul>
 </div>
@@ -433,13 +492,16 @@ Zuur AF, Ieno EN, Walker NJ, Savaliev AA, Smith GM. 2009. <em>Mixed Effects Mode
 <h4>Web Scraping and Text Mining</h4>
 <ul>
 <li>
-Friedl JEF. 2000. Mastering Regular Expressions (Third Edition). Sebastopol, CA: O’Reilly Media.
+Friedl JEF. 2000. Mastering Regular Expressions (Third Edition).
+Sebastopol, CA: O’Reilly Media.
 </li>
 <li>
-Mitchell R. 2015. Web Scraping with Python. Sebastopol, CA: O’Reilly Media.
+Mitchell R. 2015. Web Scraping with Python. Sebastopol, CA: O’Reilly
+Media.
 </li>
 <li>
-Nolan D, Temple Lang D. 2014. XML and Web Technologies for Data Sciences with R. New York: Springer.
+Nolan D, Temple Lang D. 2014. XML and Web Technologies for Data Sciences
+with R. New York: Springer.
 </li>
 </ul>
 </div>
@@ -447,7 +509,8 @@ Nolan D, Temple Lang D. 2014. XML and Web Technologies for Data Sciences with R.
 <h4>Statistics and Programming in Python</h4>
 <ul>
 <li>
-Downey A. 2014. Think Stats (Second Edition). Sebastopol, CA: O’Reilly Media.
+Downey A. 2014. Think Stats (Second Edition). Sebastopol, CA: O’Reilly
+Media.
 </li>
 <li>
 Lubanovic B. 2014. Introducing Python. Sebastopol, CA: O’Reilly Media.

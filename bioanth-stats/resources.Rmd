@@ -34,17 +34,19 @@ output:
 
 #### Text Editors
 <ul>
-<li>[Atom](https://atom.io) (MacOS, Windows)</li>
+<li>[Pulsar](https://pulsar-edit.dev) (MacOS, Windows)</li>
 <li>[TextWrangler](http://www.barebones.com/products/textwrangler/download.html) (MacOS)</li>
 <li>[nvAlt](http://brettterpstra.com/projects/nvalt/) (MacOS)</li>
 <li>[Notepad++](https://notepad-plus-plus.org/) (Windows)</li>
 <li>[Vim](https://vim.sourceforge.io) (MacOS, Windows)</li>
+<li>[BBedit](https://www.barebones.com/products/bbedit/index.html) (MacOS)</li>
 </ul>
 
 #### Markdown Editors
 <ul>
 <li>[MacDown](http://macdown.uranusjr.com/) (MacOS)</li>
 <li>[MarkdownPad2](http://markdownpad.com/) (Windows)</li>
+<li>[Quarto](https://quarto.org) (MacOS, Windows)</li>
 </ul>
 
 #### IDEs
@@ -89,7 +91,9 @@ output:
 <li>Caffo B. 2015. *Statistical Inference for Data Science*. Lean Publishing.</li>
 <li>Caffo B. 2016. *Regression Models for Data Science in R*. Lean Publishing.</li>
 <li>Dalgaard P. 2008. *Introductory Statistics with R (Second Edition)*. New York: Springer.</li>
+<li>Navarro DJ. 2024. [*Learning Statistics with R (v. 0.6)*](https://learningstatisticswithr.com). CC BY-SA 4.0</li>
 <li>Shahbaba B. 2012. *Biostatistics with R*. New York: Springer.</li>
+<li>Thulin M. 2024. [*Modern Statistics with R (Second Edition)*](https://www.modernstatisticswithr.com). New York: Springer.</li>
 </ul>
 
 #### R Programming

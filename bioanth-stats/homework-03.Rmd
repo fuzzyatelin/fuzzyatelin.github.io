@@ -1,6 +1,6 @@
 ---
 title: "AN/BI 588: Homework 03"
-date: "August 18, 2023"
+date: "January 17, 2025"
 output:
   html_document:
     theme: cosmo
@@ -43,13 +43,13 @@ knitr::opts_chunk$set(
 
 <center>
 
-<font size="+2"><b>Must be submitted for Peer Commentary by 5:00 pm Wednesday, October 11th.</b></font>
+<font size="+2"><b>Must be submitted for Peer Commentary by 5:00 pm Wednesday, February 26.</b></font>
 
 </center><br>
 
 <center>
 
-<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Wednesday, October 18th.</b></font>
+<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Monday, March 03.</b></font>
 
 </center><br>
 
@@ -57,7 +57,7 @@ knitr::opts_chunk$set(
 
 Create a new ***GitHub*** repo and git-referenced ***Rstudio*** Project called "**AN588_Zombies_BUlogin**". Within that repo, create a new `.Rmd` file called "**BUlogin_OriginalHomeworkCode_03**". [Modules 03-08](https://fuzzyatelin.github.io/bioanth-stats/modules.html) will each have concepts and example code that will help you complete this assignment. Don't forget to add your [Peer Group](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) and instructor as collaborators, and to accept their invitations to you. Making sure to push both the markdown and knitted `.html` files to your repository, do the following:
 
-Load in the dataset "zombies.csv" from [my ***GitHub*** repo](https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fall23/). This data includes the first name, last name, and gender of the entire population of 1000 people who have *survived* the zombie apocalypse and are now ekeing out an existence somewhere on the East Coast, along with several other variables (height, weight, age, number of years of education, number of zombies they have killed, and college major; [see here for info on important post-zombie apocalypse majors](http://www.thebestschools.org/magazine/best-majors-surviving-zombie-apocalypse/)).
+Load in the dataset "zombies.csv" from [my ***GitHub*** repo](https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Spring25/). This data includes the first name, last name, and gender of the entire population of 1000 people who have *survived* the zombie apocalypse and are now ekeing out an existence somewhere on the East Coast, along with several other variables (height, weight, age, number of years of education, number of zombies they have killed, and college major; [see here for info on important post-zombie apocalypse majors](https://zombieresearchsociety.com/archives/27548)).
 
 <ol><li>Calculate the *population* mean and standard deviation for each quantitative random variable (height, weight, age, number of zombies killed, and years of education). NOTE: You will not want to use the built in `var()` and `sd()` commands as these are for *samples*.</li>
 
@@ -75,9 +75,9 @@ Load in the dataset "zombies.csv" from [my ***GitHub*** repo](https://github.com
 
 ### **Your Final Assignment for Homework 03**
 
-Your final assignment, due to me by 5:00 pm on October 18th, is to have in your *AN588_Zombies_BUlogin* repo only the following files (aside from repo basics like an `.Rproj` and `README` file):
+Your final assignment, due to me by 5:00 pm on March 03, is to have in your *AN588_Zombies_BUlogin* repo only the following files (aside from repo basics like an `.Rproj` and `README` file):
 <ol>
-1. The *FINAL PUSH* of your Original Homework Code, including the five challenges you faced, as pushed to your repo by 5:00 pm on Wednesday October 18th, an R Markdown file named *BUlogin_OriginalHomeworkCode_03*.
+1. The *FINAL PUSH* of your Original Homework Code, including the five challenges you faced, as pushed to your repo by 5:00 pm on Monday, March 03, an R Markdown file named *BUlogin_OriginalHomeworkCode_03*.
 2. The *FINAL PUSH* of the [Peer Commentary](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) made on *your* code, an R Markdown file named *Peerlogin_PeerCommentary_BUlogin_03* or *PeerGroupX_PeerCommentary_BUlogin_03*.
 3. The *FINAL PUSH* of your Final Homework Code, which has taken into account any changes recommended from the Peer Commentary and notes, an R Markdown file named *BUlogin_FinalHomeworkCode_03*.
 </ol>
@@ -86,7 +86,7 @@ Your final assignment, due to me by 5:00 pm on October 18th, is to have in your 
 
 ***
 
-### [Homework 03 Solutions](https://fuzzyatelin.github.io/bioanth-stats/homework-03-key.html) will be posted on October 18th.
+### [Homework 03 Solutions]() will be posted on March 04.
 
 ***
 

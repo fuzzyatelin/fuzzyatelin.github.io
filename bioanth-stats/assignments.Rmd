@@ -1,7 +1,7 @@
 ---
 title: 'AN/BI 588: Course Assignments'
 author: "Christopher A Schmitt"
-date: "August 17, 2023"
+date: "January 17, 2025"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -32,28 +32,28 @@ Each assignment listed is linked to another page containing instructions (you ca
 
 ## Homework Assignments
 
-* [Homework 1: Push It!](http://fuzzyatelin.github.io/bioanth-stats/homework-01.html) final due 5pm **September 20, 2023**
-* [Homework 2: Titis in the Mist...](http://fuzzyatelin.github.io/bioanth-stats/homework-02.html) final due 5pm **October 04, 2023**
-* [Homework 3: Some of my Best Friends are Zombies...](http://fuzzyatelin.github.io/bioanth-stats/homework-03.html) final due 5pm **October 18, 2023**
-* [Homework 4: What's Your Malfunction?](http://fuzzyatelin.github.io/bioanth-stats/homework-04.html) final due 5pm **November 02, 2023**
-* [Homework 5: Boots for Days!](http://fuzzyatelin.github.io/bioanth-stats/homework-05.html) final due 5pm **November 22, 2023**
+* [Homework 1: Push It!](http://fuzzyatelin.github.io/bioanth-stats/homework-01.html) final due 5pm **February 03, 2025**
+* [Homework 2: Titis in the Mist...](http://fuzzyatelin.github.io/bioanth-stats/homework-02.html) final due 5pm **February 10, 2025**
+* [Homework 3: Some of my Best Friends are Zombies...](http://fuzzyatelin.github.io/bioanth-stats/homework-03.html) final due 5pm **March 03, 2025**
+* [Homework 4: What's Your Malfunction?](http://fuzzyatelin.github.io/bioanth-stats/homework-04.html) final due 5pm **March 17, 2025**
+* [Homework 5: Boots for Days!](http://fuzzyatelin.github.io/bioanth-stats/homework-05.html) final due 5pm **April 14, 2025**
 
 ## [Peer Commentary](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) due with *each Homework assignment!*
 
 ***
 
-## [Analysis Replication Assignment](https://fuzzyatelin.github.io/bioanth-stats/data-reanalysis-assignment.html) due **December 14, 2023**.
+## [Analysis Replication Assignment](https://fuzzyatelin.github.io/bioanth-stats/data-reanalysis-assignment.html) due **May 6, 2025**.
 
-You must choose the paper/dataset for the Analysis Replication Assignment by Week 5 (Thursday, October 05, 2023).
-
-***
-
-## [Group Presentation and R Vignette]() due **November 27, 2023**
-
-You must choose your group and analysis/vignette for the Group Presentation by Week 9 (Thursday, November 02, 2023).
+You must choose the paper/dataset for the Analysis Replication Assignment by Week 5 (Tuesday, February 18, 2025).
 
 ***
 
-## [Self Evaluation](https://fuzzyatelin.github.io/bioanth-stats/selfevaluation.html) due **December 14, 2023**
+## [Group Presentation and R Vignette]() due **April 22, 2025**
+
+You must choose your group and analysis/vignette for the Group Presentation by Week 9 (Tuesday, March 18, 2025).
+
+***
+
+## [Self Evaluation](https://fuzzyatelin.github.io/bioanth-stats/selfevaluation.html) due **May 6, 2025**
 
 ***

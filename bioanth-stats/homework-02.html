@@ -10,12 +10,12 @@
 
 
 
-<meta name="date" content="2023-08-18" />
+<meta name="date" content="2025-01-17" />
 
 <title>AN/BI 588: Homework 02</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -61,6 +61,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -82,6 +83,9 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+details > summary > p:only-child {
+  display: inline;
+}
 pre code {
   padding: 0;
 }
@@ -101,8 +105,8 @@ pre code {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -110,16 +114,9 @@ pre code {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -165,32 +162,42 @@ pre code {
 
 
 <h1 class="title toc-ignore">AN/BI 588: Homework 02</h1>
-<h4 class="date">August 18, 2023</h4>
+<h4 class="date">January 17, 2025</h4>
 
 </div>
 
 
 <hr />
 <div id="course-outline" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/outline.html">Course Outline</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/outline.html">Course
+Outline</a></h3>
 </div>
 <div id="course-overview" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/overview.html">Course Overview</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/overview.html">Course
+Overview</a></h3>
 </div>
 <div id="modules" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/modules.html">Modules</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/modules.html">Modules</a></h3>
 </div>
 <div id="assignments" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/assignments.html">Assignments</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/assignments.html">Assignments</a></h3>
 </div>
 <div id="resources" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/resources.html">Resources</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/resources.html">Resources</a></h3>
 </div>
 <div id="policies" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/policies.html">Policies</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/policies.html">Policies</a></h3>
 </div>
 <div id="insurmountable-coding-problems" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html">Insurmountable Coding Problems</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html">Insurmountable
+Coding Problems</a></h3>
 <hr />
 <center>
 <font size="+2"><b>Titis in the Mist…</b></font>
@@ -204,70 +211,125 @@ pre code {
 <p><br></p>
 <hr />
 <center>
-<p><font size="+2"><b>Must be submitted for Peer Commentary by 5:00 pm Friday, September 29th.</b></font></p>
+<p><font size="+2"><b>Must be submitted for Peer Commentary by 5:00 pm
+Friday, February 07.</b></font></p>
 </center>
 <p><br></p>
 <center>
-<p><font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Wednesday, October 04th.</b></font></p>
+<p><font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm
+Monday, February 10.</b></font></p>
 </center>
 <p><br></p>
 <hr />
-<p>Every Saturday morning, at the same time, a primatologist goes and sits in the forest to listen for titi monkey calls, counting the number of calls they hear in a 2 hour window from 5am to 7am. Based on previous knowledge, she believes that the mean number of calls she will hear in that time is exactly 15. Let X represent the appropriate Poisson random variable of the number of calls heard in each monitoring session.</p>
+<p>Every Saturday morning, at the same time, a primatologist goes and
+sits in the forest to listen for titi monkey calls, counting the number
+of calls they hear in a 2 hour window from 5am to 7am. Based on previous
+knowledge, she believes that the mean number of calls she will hear in
+that time is exactly 15. Let X represent the appropriate Poisson random
+variable of the number of calls heard in each monitoring session.</p>
 <ul>
-<li>What is the probability that she will hear more than 8 calls during any given session?</li>
-<li>What is the probability that she will hear no calls in a session?</li>
-<li>What is the probability that she will hear exactly 3 calls in a session?</li>
-<li>Plot the relevant Poisson mass function over the values in range 0 ≤ x ≤ 30.</li>
-<li>Simulate 104 results from this distribution (i.e., 2 years of Saturday monitoring sessions).</li>
-<li>Plot the simulated results using hist() and use xlim() to set the horizontal limits to be from 0 to 30. How does your histogram compare to the shape of the probability mass function you plotted above?</li>
+<li>What is the probability that she will hear more than 8 calls during
+any given session?</li>
+<li>What is the probability that she will hear no calls in a
+session?</li>
+<li>What is the probability that she will hear exactly 3 calls in a
+session?</li>
+<li>Plot the relevant Poisson mass function over the values in range 0 ≤
+x ≤ 30.</li>
+<li>Simulate 104 results from this distribution (i.e., 2 years of
+Saturday monitoring sessions).</li>
+<li>Plot the simulated results using hist() and use xlim() to set the
+horizontal limits to be from 0 to 30. How does your histogram compare to
+the shape of the probability mass function you plotted above?</li>
 </ul>
 <hr />
 </div>
 <div id="your-final-assignment-for-homework-02" class="section level3">
 <h3><strong>Your Final Assignment for Homework 02</strong></h3>
-Your final assignment, due to me by 5:00 pm on October 04th, is to have in your <em>AN588-Week-3-BUlogin</em> repo only the following six (6) files (aside from repo basics like an <code>.Rproj</code> and <code>README</code> file):
+Your final assignment, due to me by 5:00 pm on February 10, is to have
+in your <em>AN588-Titis-BUlogin</em> repo only the following six (6)
+files (aside from repo basics like an <code>.Rproj</code> and
+<code>README</code> file):
 <ol>
 <ol style="list-style-type: decimal">
-<li>The <em>FINAL PUSH</em> of your Original Homework Code, including the five challenges you faced, as pushed to your repo by 5:00 pm on Friday September 29th, an R Markdown <em>and</em> HTML file named <em>BUlogin_OriginalHomeworkCode_02</em>.</li>
-<li>The <em>FINAL PUSH</em> of the <a href="https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html">Peer Commentary</a> made on <em>your</em> code, an R Markdown <em>and</em> HTML file named <em>Peerlogin_PeerCommentary_BUlogin_02</em> or <em>PeerGroupX_PeerCommentary_BUlogin_02</em>.</li>
-<li>The <em>FINAL PUSH</em> of your Final Homework Code, which has taken into account any changes recommended from the Peer Commentary and notes, an R Markdown <em>and</em> HTML file named <em>BUlogin_FinalHomeworkCode_02</em>.</li>
+<li>The <em>FINAL PUSH</em> of your Original Homework Code, including
+the five challenges you faced, as pushed to your repo by 5:00 pm on
+Monday February 10, an R Markdown <em>and</em> HTML file named
+<em>BUlogin_OriginalHomeworkCode_02</em>.</li>
+<li>The <em>FINAL PUSH</em> of the <a
+href="https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html">Peer
+Commentary</a> made on <em>your</em> code, an R Markdown <em>and</em>
+HTML file named <em>Peerlogin_PeerCommentary_BUlogin_02</em> or
+<em>PeerGroupX_PeerCommentary_BUlogin_02</em>.</li>
+<li>The <em>FINAL PUSH</em> of your Final Homework Code, which has taken
+into account any changes recommended from the Peer Commentary and notes,
+an R Markdown <em>and</em> HTML file named
+<em>BUlogin_FinalHomeworkCode_02</em>.</li>
 </ol>
 </ol>
-<p><strong>Formatting Instructions</strong>: Please use the <code>cayman</code> theme (from the {prettydoc} package) in your Final Homework Code, with a <code>Header 2</code> title for each question you answer. These headers should be organized in a Table of Contents. Add to the top of the document, under your title, your favorite picture or video of a titi monkey that you’re able to find online.</p>
+<p><strong>Formatting Instructions</strong>: Please use the
+<code>cayman</code> theme (from the {prettydoc} package) in your Final
+Homework Code, with a <code>Header 2</code> title for each question you
+answer. These headers should be organized in a Table of Contents. Add to
+the top of the document, under your title, your favorite picture or
+video of a titi monkey that you’re able to find online.</p>
 <hr />
 </div>
-<div id="homework-02-solutions-will-be-posted-on-october-5th." class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/homework-02-key.html">Homework 02 Solutions</a> will be posted on October 5th.</h3>
+<div id="homework-02-solutions-will-be-posted-on-february-11."
+class="section level3">
+<h3><a href="">Homework 02 Solutions</a> will be posted on February
+11.</h3>
 <hr />
-<p>NOTE: If you want your homework code to look nice (beyond being <em>very</em> well annotated and commented), and be easy to use by others, you can check out the relatively simply example <strong>R Markdown</strong> templates in the <a href="https://github.com/fuzzyatelin/AN588_Week_3_caschmit">AN588_Week_3_caschmit</a> repo.</p>
-Please also consider consulting the following helpful guidelines on how to write effective <strong>R Markdown</strong> documents (also available at the end of <a href="https://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html">Module 03</a>), which go well beyond the simple formatting of the templates.
+<p>NOTE: If you want your homework code to look nice (beyond being
+<em>very</em> well annotated and commented), and be easy to use by
+others, you can check out the relatively simply example <strong>R
+Markdown</strong> templates in the <a
+href="https://github.com/fuzzyatelin/AN588_Week_3_caschmit">AN588_Week_3_caschmit</a>
+repo.</p>
+Please also consider consulting the following helpful guidelines on how
+to write effective <strong>R Markdown</strong> documents (also available
+at the end of <a
+href="https://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html">Module
+03</a>), which go well beyond the simple formatting of the templates.
 <ul>
 <li>
-An introduction to <a href="https://rmarkdown.rstudio.com/">R Markdown</a>
+An introduction to <a href="https://rmarkdown.rstudio.com/">R
+Markdown</a>
 </li>
 <li>
-<a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a>
+<a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The
+Definitive Guide</a>
 </li>
 <li>
-<a href="https://rmarkdown.rstudio.com/lesson-15.html">R Markdown Cheatsheet</a>
+<a href="https://rmarkdown.rstudio.com/lesson-15.html">R Markdown
+Cheatsheet</a>
 </li>
 <li>
-<a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">Another R Markdown Cheatsheet</a>
+<a
+href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">Another
+R Markdown Cheatsheet</a>
 </li>
 <li>
-<a href="https://holtzy.github.io/Pimp-my-rmd/">Pimp my RMD: A Few Tips for R Markdown</a>
+<a href="https://holtzy.github.io/Pimp-my-rmd/">Pimp my RMD: A Few Tips
+for R Markdown</a>
 </li>
 <li>
-<a href="https://github.com/rstudio/rticles/tree/master/inst/rmarkdown/templates">R Markdown Templates for Journal Submissions</a>
+<a
+href="https://github.com/rstudio/rticles/tree/master/inst/rmarkdown/templates">R
+Markdown Templates for Journal Submissions</a>
 </li>
 <li>
-<a href="https://www.stat.cmu.edu/~cshalizi/rmarkdown/">Using R Markdown for Class Reports</a>
+<a href="https://www.stat.cmu.edu/~cshalizi/rmarkdown/">Using R Markdown
+for Class Reports</a>
 </li>
 <li>
-<a href="http://www.datadreaming.org/post/r-markdown-theme-gallery/">R Markdown Theme Gallery</a>
+<a href="http://www.datadreaming.org/post/r-markdown-theme-gallery/">R
+Markdown Theme Gallery</a>
 </li>
 <li>
-<a href="https://cran.r-project.org/web/packages/prettydoc/vignettes/architect.html">Creating Pretty Documents from R Markdown</a>
+<a
+href="https://cran.r-project.org/web/packages/prettydoc/vignettes/architect.html">Creating
+Pretty Documents from R Markdown</a>
 </li>
 </ul>
 <p><br></p>

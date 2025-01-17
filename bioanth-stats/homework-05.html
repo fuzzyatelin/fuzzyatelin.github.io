@@ -10,12 +10,12 @@
 
 
 
-<meta name="date" content="2023-10-17" />
+<meta name="date" content="2025-01-17" />
 
 <title>AN/BI588: Homework 05</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -61,6 +61,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -82,6 +83,9 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+details > summary > p:only-child {
+  display: inline;
+}
 pre code {
   padding: 0;
 }
@@ -101,8 +105,8 @@ pre code {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -110,16 +114,9 @@ pre code {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -165,32 +162,42 @@ pre code {
 
 
 <h1 class="title toc-ignore">AN/BI588: Homework 05</h1>
-<h4 class="date">October 17, 2023</h4>
+<h4 class="date">January 17, 2025</h4>
 
 </div>
 
 
 <hr />
 <div id="course-outline" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/outline.html">Course Outline</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/outline.html">Course
+Outline</a></h3>
 </div>
 <div id="course-overview" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/overview.html">Course Overview</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/overview.html">Course
+Overview</a></h3>
 </div>
 <div id="modules" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/modules.html">Modules</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/modules.html">Modules</a></h3>
 </div>
 <div id="assignments" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/assignments.html">Assignments</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/assignments.html">Assignments</a></h3>
 </div>
 <div id="resources" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/resources.html">Resources</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/resources.html">Resources</a></h3>
 </div>
 <div id="policies" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/policies.html">Policies</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/policies.html">Policies</a></h3>
 </div>
 <div id="insurmountable-coding-problems" class="section level3">
-<h3><a href="https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html">Insurmountable Coding Problems</a></h3>
+<h3><a
+href="https://fuzzyatelin.github.io/bioanth-stats/studentproblems.html">Insurmountable
+Coding Problems</a></h3>
 <hr />
 <center>
 <font size="+2"><b>Boots for Days!</b></font>
@@ -204,77 +211,159 @@ pre code {
 <p><br></p>
 <hr />
 <center>
-<p><font size="+2"><b>Must be submitted for Peer Commentary by 8:00 pm Tuesday, November 9th.</b></font></p>
+<p><font size="+2"><b>Must be submitted for Peer Commentary by 8:00 pm
+Wednesday, April 09.</b></font></p>
 </center>
 <p><br></p>
 <center>
-<p><font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Wednesday, November 22nd.</b></font></p>
+<p><font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm
+Monday, April 14.</b></font></p>
 </center>
 <p><br></p>
 <hr />
-<p>Create a new <strong><em>GitHub</em></strong> repo and git-referenced <strong><em>Rstudio</em></strong> Project called “<strong>AN588_Boots_BUlogin</strong>”. Within that repo, create a new <code>.Rmd</code> file called “<strong>BUlogin_OriginalHomeworkCode_04</strong>”. Don’t forget to add your <a href="https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html">Peer Group</a> and instructor as collaborators, and to accept their invitations to you. Making sure to push both the markdown and knitted <code>.html</code> files to your repository, do the following:</p>
-<p>You are welcome to work <em>with your Peer Group together</em> on this homework assignment or on your own. If you work with someone else, please include all of your names in the header information for your <code>.Rmd</code> file.</p>
+<p>Create a new <strong><em>GitHub</em></strong> repo and git-referenced
+<strong><em>Rstudio</em></strong> Project called
+“<strong>AN588_Boots_BUlogin</strong>”. Within that repo, create a new
+<code>.Rmd</code> file called
+“<strong>BUlogin_OriginalHomeworkCode_04</strong>”. Don’t forget to add
+your <a
+href="https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html">Peer
+Group</a> and instructor as collaborators, and to accept their
+invitations to you. Making sure to push both the markdown and knitted
+<code>.html</code> files to your repository, do the following:</p>
+<p>You are welcome to work <em>with your Peer Group together</em> on
+this homework assignment or on your own. If you work with someone else,
+please include all of your names in the header information for your
+<code>.Rmd</code> file.</p>
 </div>
-<div id="bootstrapping-standard-errors-and-cis-for-linear-models." class="section level3">
+<div id="bootstrapping-standard-errors-and-cis-for-linear-models."
+class="section level3">
 <h3>Bootstrapping Standard Errors and CIs for Linear Models.</h3>
-<p>When we initially discussed the central limit theorem and confidence intervals, we showed how we could use bootstrapping to estimate standard errors and confidence intervals around certain parameter values, like the mean. Using bootstrapping, we could also do the same for estimating standard errors and CIs around regression parameters, such as <span class="math inline">\(\beta\)</span> coefficients.</p>
-<p>[1] Using the “KamilarAndCooperData.csv” dataset, run a linear regression looking at log(HomeRange_km2) in relation to log(Body_mass_female_mean) and report your <span class="math inline">\(\beta\)</span> coeffiecients (slope and intercept).</p>
-<p>[2] Then, use bootstrapping to sample from your data 1000 times with replacement, each time fitting the same model and calculating the same coefficients. This generates a sampling distribution for each <span class="math inline">\(\beta\)</span> coefficient.</p>
+<p>When we initially discussed the central limit theorem and confidence
+intervals, we showed how we could use bootstrapping to estimate standard
+errors and confidence intervals around certain parameter values, like
+the mean. Using bootstrapping, we could also do the same for estimating
+standard errors and CIs around regression parameters, such as <span
+class="math inline">\(\beta\)</span> coefficients.</p>
+<p>[1] Using the “KamilarAndCooperData.csv” dataset, run a linear
+regression looking at log(HomeRange_km2) in relation to
+log(Body_mass_female_mean) and report your <span
+class="math inline">\(\beta\)</span> coeffiecients (slope and
+intercept).</p>
+<p>[2] Then, use bootstrapping to sample from your data 1000 times with
+replacement, each time fitting the same model and calculating the same
+coefficients. This generates a sampling distribution for each <span
+class="math inline">\(\beta\)</span> coefficient.</p>
 <ul>
-<li><p>Estimate the standard error for each of your <span class="math inline">\(\beta\)</span> coefficients as the standard deviation of the sampling distribution from your bootstrap and determine the 95% CI for each of your <span class="math inline">\(\beta\)</span> coefficients based on the appropriate quantiles from your sampling distribution.</p></li>
-<li><p>How does the former compare to the SE estimated from your entire dataset using the formula for standard error implemented in <code>lm()</code>?</p></li>
-<li><p>How does the latter compare to the 95% CI estimated from your entire dataset?</p></li>
+<li><p>Estimate the standard error for each of your <span
+class="math inline">\(\beta\)</span> coefficients as the standard
+deviation of the sampling distribution from your bootstrap and determine
+the 95% CI for each of your <span class="math inline">\(\beta\)</span>
+coefficients based on the appropriate quantiles from your sampling
+distribution.</p></li>
+<li><p>How does the former compare to the SE estimated from your entire
+dataset using the formula for standard error implemented in
+<code>lm()</code>?</p></li>
+<li><p>How does the latter compare to the 95% CI estimated from your
+entire dataset?</p></li>
 </ul>
 <p><strong>EXTRA CREDIT</strong></p>
-<p>Write a FUNCTION that takes as its arguments a dataframe, “d”, a linear model, “m” (as a character string, e.g., “logHR~logBM”), a user-defined confidence interval level, “conf.level” (with default = 0.95), and a number of bootstrap replicates, “n” (with default = 1000). Your function should return a dataframe that includes: beta coefficient names; beta coefficients, standard errors, and upper and lower CI limits for the linear model based on your entire dataset; and mean beta coefficient estimates, SEs, and CI limits for those coefficients based on your bootstrap.</p>
+<p>Write a FUNCTION that takes as its arguments a dataframe, “d”, a
+linear model, “m” (as a character string, e.g., “logHR~logBM”), a
+user-defined confidence interval level, “conf.level” (with default =
+0.95), and a number of bootstrap replicates, “n” (with default = 1000).
+Your function should return a dataframe that includes: beta coefficient
+names; beta coefficients, standard errors, and upper and lower CI limits
+for the linear model based on your entire dataset; and mean beta
+coefficient estimates, SEs, and CI limits for those coefficients based
+on your bootstrap.</p>
 <p><strong>EXTRA EXTRA CREDIT</strong></p>
-<p>Graph each beta value from the linear model and its corresponding mean value, lower CI and upper CI from a bootstrap as a function of number of bootstraps from 10 to 200 by 10s. HINT: the beta value from the linear model will be the same for all bootstraps and the mean beta value may not differ that much!</p>
+<p>Graph each beta value from the linear model and its corresponding
+mean value, lower CI and upper CI from a bootstrap as a function of
+number of bootstraps from 10 to 200 by 10s. HINT: the beta value from
+the linear model will be the same for all bootstraps and the mean beta
+value may not differ that much!</p>
 <hr />
 </div>
 <div id="your-final-assignment-for-homework-03" class="section level3">
 <h3><strong>Your Final Assignment for Homework 03</strong></h3>
-Your final assignment, due to me by 5:00 pm on November 22nd, is to have in your <em>AN588_Zombies_BUlogin</em> repo only the following files (aside from repo basics like an <code>.Rproj</code> and <code>README</code> file):
+Your final assignment, due to me by 5:00 pm on April 14, is to have in
+your <em>AN588_Zombies_BUlogin</em> repo only the following files (aside
+from repo basics like an <code>.Rproj</code> and <code>README</code>
+file):
 <ol>
 <ol style="list-style-type: decimal">
-<li>The <em>FINAL PUSH</em> of your Original Homework Code, including the five challenges you faced, as pushed to your repo by 5:00 pm on Wednesday November 22nd, an R Markdown file named <em>BUlogin_OriginalHomeworkCode_05</em>.</li>
-<li>The <em>FINAL PUSH</em> of the <a href="https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html">Peer Commentary</a> made on <em>your</em> code, an R Markdown file named <em>Peerlogin_PeerCommentary_BUlogin_05</em> or <em>PeerGroupX_PeerCommentary_BUlogin_05</em>.</li>
-<li>The <em>FINAL PUSH</em> of your Final Homework Code, which has taken into account any changes recommended from the Peer Commentary and notes, an R Markdown file named <em>BUlogin_FinalHomeworkCode_05</em>.</li>
+<li>The <em>FINAL PUSH</em> of your Original Homework Code, including
+the five challenges you faced, as pushed to your repo by 5:00 pm on
+Wednesday November 22nd, an R Markdown file named
+<em>BUlogin_OriginalHomeworkCode_05</em>.</li>
+<li>The <em>FINAL PUSH</em> of the <a
+href="https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html">Peer
+Commentary</a> made on <em>your</em> code, an R Markdown file named
+<em>Peerlogin_PeerCommentary_BUlogin_05</em> or
+<em>PeerGroupX_PeerCommentary_BUlogin_05</em>.</li>
+<li>The <em>FINAL PUSH</em> of your Final Homework Code, which has taken
+into account any changes recommended from the Peer Commentary and notes,
+an R Markdown file named <em>BUlogin_FinalHomeworkCode_05</em>.</li>
 </ol>
 </ol>
 <hr />
 </div>
-<div id="homework-05-solutions-will-be-posted-on-november-5th." class="section level3">
-<h3><a href="">Homework 05 Solutions</a> will be posted on November 5th.</h3>
+<div id="homework-05-solutions-will-be-posted-on-april-15."
+class="section level3">
+<h3><a href="">Homework 05 Solutions</a> will be posted on April
+15.</h3>
 <hr />
-<p>NOTE: If you want your homework code to look nice (beyond being <em>very</em> well annotated and commented), and be easy to use by others, you can check out the relatively simply example <strong>R Markdown</strong> templates in the <a href="https://github.com/fuzzyatelin/AN597_Week_3_caschmit">AN588_Week_3_caschmit</a> repo.</p>
-Please also consider consulting the following helpful guidelines on how to write effective <strong>R Markdown</strong> documents (also available at the end of <a href="https://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html">Module 03</a>), which go well beyond the simple formatting of the templates.
+<p>NOTE: If you want your homework code to look nice (beyond being
+<em>very</em> well annotated and commented), and be easy to use by
+others, you can check out the relatively simply example <strong>R
+Markdown</strong> templates in the <a
+href="https://github.com/fuzzyatelin/AN588_Week_3_caschmit">AN588_Week_3_caschmit</a>
+repo.</p>
+Please also consider consulting the following helpful guidelines on how
+to write effective <strong>R Markdown</strong> documents (also available
+at the end of <a
+href="https://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html">Module
+03</a>), which go well beyond the simple formatting of the templates.
 <ul>
 <li>
-An introduction to <a href="https://rmarkdown.rstudio.com/">R Markdown</a>
+An introduction to <a href="https://rmarkdown.rstudio.com/">R
+Markdown</a>
 </li>
 <li>
-<a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a>
+<a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The
+Definitive Guide</a>
 </li>
 <li>
-<a href="https://rmarkdown.rstudio.com/lesson-15.html">R Markdown Cheatsheet</a>
+<a href="https://rmarkdown.rstudio.com/lesson-15.html">R Markdown
+Cheatsheet</a>
 </li>
 <li>
-<a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">Another R Markdown Cheatsheet</a>
+<a
+href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">Another
+R Markdown Cheatsheet</a>
 </li>
 <li>
-<a href="https://holtzy.github.io/Pimp-my-rmd/">Pimp my RMD: A Few Tips for R Markdown</a>
+<a href="https://holtzy.github.io/Pimp-my-rmd/">Pimp my RMD: A Few Tips
+for R Markdown</a>
 </li>
 <li>
-<a href="https://github.com/rstudio/rticles/tree/master/inst/rmarkdown/templates">R Markdown Templates for Journal Submissions</a>
+<a
+href="https://github.com/rstudio/rticles/tree/master/inst/rmarkdown/templates">R
+Markdown Templates for Journal Submissions</a>
 </li>
 <li>
-<a href="https://www.stat.cmu.edu/~cshalizi/rmarkdown/">Using R Markdown for Class Reports</a>
+<a href="https://www.stat.cmu.edu/~cshalizi/rmarkdown/">Using R Markdown
+for Class Reports</a>
 </li>
 <li>
-<a href="http://www.datadreaming.org/post/r-markdown-theme-gallery/">R Markdown Theme Gallery</a>
+<a href="http://www.datadreaming.org/post/r-markdown-theme-gallery/">R
+Markdown Theme Gallery</a>
 </li>
 <li>
-<a href="https://cran.r-project.org/web/packages/prettydoc/vignettes/architect.html">Creating Pretty Documents from R Markdown</a>
+<a
+href="https://cran.r-project.org/web/packages/prettydoc/vignettes/architect.html">Creating
+Pretty Documents from R Markdown</a>
 </li>
 </ul>
 <p><br></p>

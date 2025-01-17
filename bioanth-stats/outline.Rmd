@@ -1,6 +1,6 @@
 ---
 title: "AN/BI 588: Course Outline"
-date: "August 17, 2023"
+date: "January 17, 2025"
 output: 
   html_document:
     theme: cosmo
@@ -23,7 +23,7 @@ output:
 
 ***
 
-### **Week 01 (2023-09-07)**
+### **Week 01 (2025-01-21)**
 ***
 
 ### An Introduction to R
@@ -98,10 +98,10 @@ output:
 
 ***
 
-### **Week 02 (2023-09-14)**
+### **Week 02 (2025-01-28)**
 ***
 
-[***Homework 1 assigned - DUE 5pm 2023-09-20***](http://fuzzyatelin.github.io/bioanth-stats/homework-01.html)
+[***Homework 1 assigned - DUE 5pm 2025-02-03***](http://fuzzyatelin.github.io/bioanth-stats/homework-01.html)
 
 ### Data Science Preliminaries
 
@@ -179,10 +179,10 @@ output:
 </ul>
 ***
 
-### **Week 03 (2021-09-21)**
+### **Week 03 (2025-02-04)**
 ***
 
-[***Homework 2 assigned - DUE 5pm 2023-10-04***](http://fuzzyatelin.github.io/bioanth-stats/homework-02.html)
+[***Homework 2 assigned - DUE 5pm 2023-02-10***](http://fuzzyatelin.github.io/bioanth-stats/homework-02.html)
 
 ### Statistics Fundamentals - Exploratory Data Analysis, Central Tendency, and Variance
 
@@ -241,7 +241,7 @@ output:
 <li>Chapter 14 - Basic Data Visualization</li></ul>
 ***
 
-### **Week 04 (2023-09-28)**
+### **Week 04 (2025-02-11)**
 ***
 
 ### Statistics Fundamentals - Probability and Distributions
@@ -286,10 +286,10 @@ output:
 
 ***
 
-### **Week 05 (2023-10-05)**
+### **Week 05 (2025-02-18)**
 ***
 
-[***Homework 3 assigned - DUE 5pm 2023-10-18***](http://fuzzyatelin.github.io/bioanth-stats/homework-03.html)
+[***Homework 3 assigned - DUE 5pm 2025-03-03***](http://fuzzyatelin.github.io/bioanth-stats/homework-03.html)
 <br><br>
 
 **IMPORTANT! Today is the deadline for choosing a paper from the primary literature from which to replicate analyses.**
@@ -328,7 +328,7 @@ output:
 
 ***
 
-### **Week 06 (2023-10-12)**
+### **Week 06 (2025-02-25)**
 ***
 
 ### Introduction to Linear Regression
@@ -371,10 +371,10 @@ output:
 
 ***
 
-### **Week 07 (2023-10-19)**
+### **Week 07 (2025-03-04)**
 ***
 
-[***Homework 4 assigned - DUE 5pm 2022-11-02***](http://fuzzyatelin.github.io/bioanth-stats/homework-04.html)
+[***Homework 4 assigned - DUE 5pm 2025-03-17***](http://fuzzyatelin.github.io/bioanth-stats/homework-04.html)
 
 ### Elements of Regression Analysis
 
@@ -398,8 +398,19 @@ output:
 
 ***
 
-### **Week 08 (2023-10-26)**
+### **Week 08 (2025-03-11)**
+
+**NO CLASS: SPRING RECESS**
+
 ***
+
+
+***
+
+### **Week 09 (2025-03-18)**
+***
+
+**IMPORTANT! Deadline for choosing your team and topic for group statistical methods presentation and vignette**
 
 ### Basic Categorical Data Analysis and ANOVA
 
@@ -435,10 +446,8 @@ output:
 
 ***
 
-### **Week 09 (2023-11-02)**
+### **Week 10 (2025-03-25)**
 ***
-
-**IMPORTANT! Deadline for choosing your team and topic for group statistical methods presentation and vignette**
 
 ### Multiple Regression and ANCOVA
 
@@ -465,10 +474,10 @@ output:
 
 ***
 
-### **Week 10 (2023-11-09)**
+### **Week 11 (2025-04-01)**
 ***
 
-[***Homework 5 assigned - DUE 5pm 2023-11-22***](http://fuzzyatelin.github.io/bioanth-stats/homework-05.html)
+[***Homework 5 assigned - DUE 5pm 2025-04-14***](http://fuzzyatelin.github.io/bioanth-stats/homework-05.html)
 
 ### Model Selection, Generalized Linear Modeling, and Mixed Effects Modeling
 
@@ -504,7 +513,7 @@ output:
 
 ***
 
-### **Week 11 (2023-11-16)**
+### **Week 12 (2025-04-08)**
 ***
 
 Same readings as last week, plus:
@@ -513,10 +522,8 @@ Same readings as last week, plus:
 
 ***
 
-### **Week 12 (2023-11-23)**
+### **Week 13 (2025-04-15)**
 ***
-
-**OPTIONAL FOR THANKSGIVING BREAK**
 
 ### A Very Brief Introduction to Bayesian Methods
 
@@ -538,14 +545,14 @@ More details coming soon!
 
 - [Ellison, A.M. (1996). An introduction to Bayesian inference for ecological research and environmental decision-making. *Ecological Applications* 6(4):1036-1046.](http://byrneslab.net/classes/biol607/readings/Ellison_1996_ecol_app.pdf)
 
-#### Useful but (also )Optional Readings
+#### Useful but (also) Optional Readings
 
 - [Hadfield, J. (2016) *MCMCglmm* Course Notes](https://cran.r-project.org/web/packages/MCMCglmm/vignettes/CourseNotes.pdf)
 - Package descriptions for [{MCMCglmm}](https://cran.r-project.org/web/packages/MCMCglmm/MCMCglmm.pdf) and [{rethinking}](http://xcelab.net/R/rethinking_package.pdf)
 
 ***
 
-### **Week 13 (2023-11-30)**
+### **Week 14 (2025-04-22)**
 ***
 
 Group Presentations and Vignettes
@@ -554,15 +561,19 @@ Group Presentations and Vignettes
 
 ### [Module 23 - **TBA**]()
 
+### [Module 24 - **TBA**]()
+
 ***
 
-### **Week 14 (2023-12-07)**
+### **Week 14 (2025-04-29)**
 ***
 
 Group Presentations and Vignettes
 
-### [Module 24 - **TBA**]()
+### [Module 25 - **TBA**]()
 
-### [Module 25 - **TBA**]() 
+### [Module 26 - **TBA**]() 
+
+### [Module 27 - **TBA**]() 
 
 ***

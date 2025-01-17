@@ -1,6 +1,6 @@
 ---
 title: "AN/BI588: Homework 05"
-date: "October 17, 2023"
+date: "January 17, 2025"
 output:
   html_document:
     theme: cosmo
@@ -43,13 +43,13 @@ knitr::opts_chunk$set(
 
 <center>
 
-<font size="+2"><b>Must be submitted for Peer Commentary by 8:00 pm Tuesday, November 9th.</b></font>
+<font size="+2"><b>Must be submitted for Peer Commentary by 8:00 pm Wednesday, April 09.</b></font>
 
 </center><br>
 
 <center>
 
-<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Wednesday, November 22nd.</b></font>
+<font size="+2"><b>Peer Commentary and Final Homework DUE at 5:00 pm Monday, April 14.</b></font>
 
 </center><br>
 
@@ -85,7 +85,7 @@ Graph each beta value from the linear model and its corresponding mean value, lo
 
 ### **Your Final Assignment for Homework 03**
 
-Your final assignment, due to me by 5:00 pm on November 22nd, is to have in your *AN588_Zombies_BUlogin* repo only the following files (aside from repo basics like an `.Rproj` and `README` file):
+Your final assignment, due to me by 5:00 pm on April 14, is to have in your *AN588_Zombies_BUlogin* repo only the following files (aside from repo basics like an `.Rproj` and `README` file):
 <ol>
 1. The *FINAL PUSH* of your Original Homework Code, including the five challenges you faced, as pushed to your repo by 5:00 pm on Wednesday November 22nd, an R Markdown file named *BUlogin_OriginalHomeworkCode_05*.
 2. The *FINAL PUSH* of the [Peer Commentary](https://fuzzyatelin.github.io/bioanth-stats/peercommentary.html) made on *your* code, an R Markdown file named *Peerlogin_PeerCommentary_BUlogin_05* or *PeerGroupX_PeerCommentary_BUlogin_05*.
@@ -94,11 +94,11 @@ Your final assignment, due to me by 5:00 pm on November 22nd, is to have in your
 
 ***
 
-### [Homework 05 Solutions]() will be posted on November 5th.
+### [Homework 05 Solutions]() will be posted on April 15.
 
 ***
 
-NOTE: If you want your homework code to look nice (beyond being *very* well annotated and commented), and be easy to use by others, you can check out the relatively simply example **R Markdown** templates in the [AN588_Week_3_caschmit](https://github.com/fuzzyatelin/AN597_Week_3_caschmit) repo.
+NOTE: If you want your homework code to look nice (beyond being *very* well annotated and commented), and be easy to use by others, you can check out the relatively simply example **R Markdown** templates in the [AN588_Week_3_caschmit](https://github.com/fuzzyatelin/AN588_Week_3_caschmit) repo.
 
 Please also consider consulting the following helpful guidelines on how to write effective **R Markdown** documents (also available at the end of [Module 03](https://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html)), which go well beyond the simple formatting of the templates.
 <ul>
