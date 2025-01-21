@@ -80,7 +80,7 @@ We are going to introduce several of these ways of working with ***R***, but the
 <img src="img/RGui-windows.png" width="500px"/>
 </center><br>
 
-- NOTE: I am currently running ***R*** version *4.2.0 "Vigorous Calisthenics"* in ***RStudio*** version *2023.06.0+421* on a Mac OS Big Sur v. 11.7.4. If you're running different versions, you may have a slightly different experience with the code!
+- NOTE: For the beginning of the Spring 2025 semster, I am running ***R*** version *4.4.2 "Pile of Leaves"* in ***RStudio*** version *2024.12.0+467* on an Intel Mac OS Sonoma v. 14.5. If you're running different versions, you may have a slightly different experience with the code!
 
 ## Taking Our First Steps in ***R***
 - ***R*** can be used as an interactive calculator from the console line
