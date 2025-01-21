@@ -1,6 +1,6 @@
 ---
 title: 'AN/BI 588: Course Modules'
-date: "August 17, 2023"
+date: "January 21, 2025"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -29,7 +29,7 @@ Each module listed is linked to another page containing instructions and helpful
 </center>
 ***
 
-### **Week 01 (2023-09-07)**
+### **Week 01 (2025-01-21)**
 (No Peer Commentary due)
 
 ***
@@ -39,7 +39,7 @@ Each module listed is linked to another page containing instructions and helpful
 ### [Module 02 - **Basics of Version Control**](http://fuzzyatelin.github.io/bioanth-stats/module-02/module-02.html)
 ***
 
-### **Week 02 (2023-09-14)**
+### **Week 02 (2025-01-28)**
 ***
 
 ### [Module 03 - **Reproducible Research using RMarkdown**](http://fuzzyatelin.github.io/bioanth-stats/module-03/module-03.html)
@@ -49,7 +49,7 @@ Each module listed is linked to another page containing instructions and helpful
 ### [Module 05 - **Getting Data into <i>R</i>**](http://fuzzyatelin.github.io/bioanth-stats/module-05/module-05.html)
 ***
 
-### **Week 03 (2023-09-21)**
+### **Week 03 (2025-02-04)**
 ***
 
 ### [Module 06 - **Exploratory Data Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-06/module-06.html)
@@ -57,13 +57,13 @@ Each module listed is linked to another page containing instructions and helpful
 ### [Module 07 - **Central Tendency and Variance**](http://fuzzyatelin.github.io/bioanth-stats/module-07/module-07.html)
 ***
 
-### **Week 04 (2023-09-28)**
+### **Week 04 (2025-02-11)**
 ***
 
 ### [Module 08 - **Probabilities and Distributions**](http://fuzzyatelin.github.io/bioanth-stats/module-08/module-08.html)
 ***
 
-### **Week 05 (2023-10-05)**
+### **Week 05 (2025-02-18)**
 ***
 
 ### [Module 09 - **Introduction to Statistical Inference**](http://fuzzyatelin.github.io/bioanth-stats/module-09/module-09.html)
@@ -71,7 +71,7 @@ Each module listed is linked to another page containing instructions and helpful
 ### [Module 10 - **Classical Hypothesis Testing**](http://fuzzyatelin.github.io/bioanth-stats/module-10/module-10.html)
 ***
 
-### **Week 06 (2023-10-12)**
+### **Week 06 (2025-02-25)**
 ***
 
 ### [Module 11 - **Type I and Type II Error and Power**](http://fuzzyatelin.github.io/bioanth-stats/module-11/module-11.html)
@@ -80,7 +80,7 @@ Each module listed is linked to another page containing instructions and helpful
 
 ***
 
-### **Week 07 (2023-10-19)**
+### **Week 07 (2025-03-04)**
 
 ***
 
@@ -88,21 +88,29 @@ Each module listed is linked to another page containing instructions and helpful
 
 ***
 
-### **Week 08 (2023-10-26)**
+### **Week 08 (2025-03-11)**
+***
+
+**NO CLASS: SPRING RECESS**
+
+***
+
+### **Week 09 (2025-03-18)**
 ***
 
 ### [Module 14 - **Basic Categorical Data Analysis and ANOVA**](http://fuzzyatelin.github.io/bioanth-stats/module-14/module-14.html)
 
+
 ***
 
-### **Week 09 (2023-11-02)**
+### **Week 10 (2025-03-25)**
 ***
 
 ### [Module 15 - **Multiple Regression and ANCOVA**](http://fuzzyatelin.github.io/bioanth-stats/module-15/module-15.html)
 
 ***
 
-### **Week 10 (2023-11-09)**
+### **Week 11 (2025-04-01)**
 ***
 
 ### [Module 16 - **Model Selection in General Linear Regression**](http://fuzzyatelin.github.io/bioanth-stats/module-16/module-16.html)
@@ -111,42 +119,39 @@ Each module listed is linked to another page containing instructions and helpful
 
 ***
 
-### **Week 11 (2023-11-16)**
+### **Week 12 (2025-04-08)**
 ***
 
 ### [Module 18 - **Mixed Effects Modeling**](http://fuzzyatelin.github.io/bioanth-stats/module-18/module-18.html)
 
 ***
 
-### **Week 12 (2023-11-23)**
+### **Week 13 (2025-04-15)**
 ***
 
-**No Class - Thanksgiving Break**
-
-***
-
-### **Week 13 (2019-11-30)**
-***
-
-### [Module 19 - **Spit Chain: Social Network Analysis in Nonhuman Primates**](http://fuzzyatelin.github.io/bioanth-stats/module-F23-Group1/module-F23-Group1.html)
-(Sam Vee, Nicole Merullo, Jess Martin, Bhavya Vadavalli, & Brooke Rothamer; Fall 2023)
-
-### [Module 20 - **An Introduction to Bayesian Analysis for Biological Anthropologists**](http://fuzzyatelin.github.io/bioanth-stats/module-F23-Group2/module-F23-Group2.html)
-(Jimmy Erkens; Fall 2023)
+### [Module 19: **A Very Brief Introduction to Bayesian Methods**]()
 
 ***
 
-### **Week 14 (2023-12-07)**
+### **Week 14 (2025-04-22)**
 ***
 
-### [Module 21 - **Goodness-of-Fit Tests**](http://fuzzyatelin.github.io/bioanth-stats/module-F23-Group3/module-F23-Group3.html)
-(Erin Anderson, Lillian Holden, Amanda Wu, Emily Yang; Fall 2023)
+### [Module 20 - **TBA**]()
 
-### [Module 22 - **Machine Learning**](http://fuzzyatelin.github.io/bioanth-stats/module-F23-Group4/module-F23-Group4.html)
-(Lia Bao, Julianna Dick, Emiley Garcia-Zych, Cat Metcalf, Angelique Lindberg; Fall 2023)
+### [Module 21 - **TBA**]()
 
-### [Module 23 - **Bioacoustics**](http://fuzzyatelin.github.io/bioanth-stats/module-F23-Group5/module-F23-Group5.html)
-(Reese Hotten-Somers, Ritika Sibal, Sofia Weaver, Paige Becker, Allister Malik; Fall 2023)
+### [Module 22 - **TBA**]()
+
+***
+
+### **Week 15 (2025-04-29)**
+***
+
+### [Module 23 - **TBA**]()
+
+### [Module 24 - **TBA**]()
+
+### [Module 25 - **TBA**]()
 
 ***
 
@@ -156,6 +161,21 @@ Each module listed is linked to another page containing instructions and helpful
 
 ### [**Introduction to GIS and Spatial Analysis in R**](http://fuzzyatelin.github.io/bioanth-stats/module-GIS/module-GIS.html)
 (Prof. Schmitt; Fall 2019)
+
+### [**Spit Chain: Social Network Analysis in Nonhuman Primates**](http://fuzzyatelin.github.io/bioanth-stats/module-F23-Group1/module-F23-Group1.html)
+(Sam Vee, Nicole Merullo, Jess Martin, Bhavya Vadavalli, & Brooke Rothamer; Fall 2023)
+
+### [**An Introduction to Bayesian Analysis for Biological Anthropologists**](http://fuzzyatelin.github.io/bioanth-stats/module-F23-Group2/module-F23-Group2.html)
+(Jimmy Erkens; Fall 2023)
+
+### [**Goodness-of-Fit Tests**](http://fuzzyatelin.github.io/bioanth-stats/module-F23-Group3/module-F23-Group3.html)
+(Erin Anderson, Lillian Holden, Amanda Wu, Emily Yang; Fall 2023)
+
+### [**Machine Learning**](http://fuzzyatelin.github.io/bioanth-stats/module-F23-Group4/module-F23-Group4.html)
+(Lia Bao, Julianna Dick, Emiley Garcia-Zych, Cat Metcalf, Angelique Lindberg; Fall 2023)
+
+### [**Bioacoustics**](http://fuzzyatelin.github.io/bioanth-stats/module-F23-Group5/module-F23-Group5.html)
+(Reese Hotten-Somers, Ritika Sibal, Sofia Weaver, Paige Becker, Allister Malik; Fall 2023)
 
 ### [**Continuous-Time Movement Modeling**](http://fuzzyatelin.github.io/bioanth-stats/module-F21-Group3/module-F21-Group3.html)
 (Zoe Albert, Natalia Kelley, Frank Short & Victoria Zdanowicz; Fall 2021)
@@ -184,8 +204,6 @@ Each module listed is linked to another page containing instructions and helpful
 ### [**Species Distribution Modeling in R**](http://fuzzyatelin.github.io/bioanth-stats/module-F19-Group5/module-F19-Group5.html)
 (Frank Azorsa Salazar, MaJo Salazar Nicholls, Feiya Wang; Fall 2019)
 
-### [**Introduction to Spatial Data Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-22/module-22.html)
-
 ### [**Factor Analysis (and MAYBE Principal Components Analysis)**](http://fuzzyatelin.github.io/bioanth-stats/module-27/module-27.html) 
 (Graham Albert, Becca DeCamp, Faye Harwell, Zeynep Senveli; Fall 2017)
 
@@ -197,3 +215,5 @@ Each module listed is linked to another page containing instructions and helpful
 
 ### [**Phylogenetic Tree Construction**](http://fuzzyatelin.github.io/bioanth-stats/module-24/module-24.html)
 (Brandon Guell, Isabella Muratore, Danielle Antos; Fall 2017)
+
+### [**Introduction to Spatial Data Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-22/module-22.html)

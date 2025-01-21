@@ -557,11 +557,11 @@ More details coming soon!
 
 Group Presentations and Vignettes
 
-### [Module 22 - **TBA**]() 
+### [Module 20 - **TBA**]() 
 
-### [Module 23 - **TBA**]()
+### [Module 21 - **TBA**]()
 
-### [Module 24 - **TBA**]()
+### [Module 22 - **TBA**]()
 
 ***
 
@@ -570,10 +570,10 @@ Group Presentations and Vignettes
 
 Group Presentations and Vignettes
 
-### [Module 25 - **TBA**]()
+### [Module 23 - **TBA**]()
 
-### [Module 26 - **TBA**]() 
+### [Module 24 - **TBA**]() 
 
-### [Module 27 - **TBA**]() 
+### [Module 25 - **TBA**]() 
 
 ***
