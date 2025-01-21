@@ -92,6 +92,7 @@ The students currently enrolled in Spring 2025 (and their associated GitHub acco
 * Sunmin Kim: [](https://github.com/)
 * Pingwen Lin: [](https://github.com/)
 * Carly McDermott: [](https://github.com/)
+* Yinuo Mao: [](https://github.com/)
 * Christian Mei: [](https://github.com/)
 * Jaclyn Meyer: [](https://github.com/)
 * Gentry Miller: [](https://github.com/)
@@ -121,7 +122,7 @@ And my own GitHub account is:
 
 ***
 
-Peer Group 1: Sylvie Adams, Carly McDermott, Lindsay Warrell
+Peer Group 1: Sylvie Adams, Carly McDermott, Lindsay Warrell, Yinuo Mao
 
 Peer Group 2: Yongliang Cen, Christian Mei, Yuanruo Xie
 
@@ -147,7 +148,7 @@ Peer Group 1: Yuanruo Xie, Alexandra Walsh, Amita Ganesh
 
 Peer Group 2: Gentry Miller, Megna Sriram, Matteo Finnerty 
 
-Peer Group 3: Sunmin Kim, Faria Shahriar, Claire Zhang
+Peer Group 3: Sunmin Kim, Faria Shahriar, Claire Zhang, Yinuo Mao
 
 Peer Group 4: Jaclyn Meyer, Pingwen Lin, Jonathan Zhang
 
@@ -173,7 +174,7 @@ Peer Group 3: Carly McDermott, Gentry Miller, Jonathan Zhang
 
 Peer Group 4: Christian Mei, Charles Yung, Lindsay Warrell
 
-Peer Group 5: Benjamin Peters, Jason Zeng, Yongliang Cen
+Peer Group 5: Benjamin Peters, Jason Zeng, Yongliang Cen, Yinuo Mao
 
 Peer Group 6: Alexandra Walsh, Matteo Finnerty, Amita Ganesh
 
@@ -189,7 +190,7 @@ Peer Group 8: Faria Shahriar, Sylvie Adams, Claire Zhang
 
 Peer Group 1: Brenda Kim, Jason Zeng, Megna Sriram
 
-Peer Group 2: Akiva Zeff, Carly McDermott, Jaclyn Meyer
+Peer Group 2: Akiva Zeff, Carly McDermott, Jaclyn Meyer, Yinuo Mao
 
 Peer Group 3: Yongliang Cen, Lindsay Warrell, Claire Zhang
 
@@ -219,7 +220,7 @@ Peer Group 4: Matteo Finnerty, Carly McDermott, Brenda Kim
 
 Peer Group 5: Sunmin Kim, Benjamin Peters, Faria Shahriar
 
-Peer Group 6: Yuanruo Xie, Lindsay Warrell, Yunhua Zhu
+Peer Group 6: Yuanruo Xie, Lindsay Warrell, Yunhua Zhu, Yinuo Mao
 
 Peer Group 7: Alexandra Walsh, Jason Zeng, Soumalya Ghorui
 
