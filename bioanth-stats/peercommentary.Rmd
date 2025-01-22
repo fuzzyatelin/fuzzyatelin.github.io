@@ -83,31 +83,31 @@ Although *grades will not be assigned* for Peer Commentaries, if it comes to my 
 
 The students currently enrolled in Spring 2025 (and their associated GitHub accounts) include:
 
-* Sylvie Adams: [](https://github.com/)
-* Yongliang Cen: [](https://github.com/)
+* Sylvie Adams: [sadams32](https://github.com/sadams32)
+* Yongliang Cen: [yong417](https://github.com/ yong417)
 * Matteo Finnerty: [](https://github.com/)
 * Amita Ganesh: [](https://github.com/)
-* Soumalya Ghorui: [](https://github.com/)
-* Brenda Kim: [](https://github.com/)
-* Sunmin Kim: [](https://github.com/)
+* Soumalya Ghorui: [koseiarima](https://github.com/koseiarima)
+* Brenda Kim: [msbrendakim](https://github.com/msbrendakim)
+* Sunmin (Sunny) Kim: [sunnykim2000](https://github.com/sunnykim2000)
 * Pingwen Lin: [](https://github.com/)
-* Carly McDermott: [](https://github.com/)
+* Carly McDermott: [carlyshea26](https://github.com/carlyshea26)
 * Yinuo Mao: [](https://github.com/)
-* Christian Mei: [](https://github.com/)
-* Jaclyn Meyer: [](https://github.com/)
+* Christian Mei: [ChrisMei22](https://github.com/ChrisMei22)
+* Jaclyn Meyer: [JaclynNoel](https://github.com/JaclynNoel)
 * Gentry Miller: [](https://github.com/)
-* Benjamin Peters: [](https://github.com/)
-* Carla Rojas: [](https://github.com/)
-* Faria Shahriar: [](https://github.com/)
-* Megna Sriram: [](https://github.com/)
-* Alexandra Walsh: [](https://github.com/)
+* Ben Peters: [Boissonneaua](https://github.com/Boissonneaua)
+* Carla Rojas: [imcarlyy](https://github.com/imcarlyy)
+* Faria Shahriar: [fariash](https://github.com/fariash)
+* Megna Sriram: [meg-sri](https://github.com/meg-sri)
+* Alexandra Walsh: [alexandrawalsh28](https://github.com/alexandrawalsh28)
 * Lindsay Warrell: [](https://github.com/)
-* Yuanruo Xie: [](https://github.com/)
+* Yuanruo (Sherry) Xie: [Yuanruo-Sherry-Xie](https://github.com/Yuanruo-Sherry-Xie)
 * Charles Yung: [](https://github.com/)
-* Akiva Zeff: [](https://github.com/)
-* Jason Zeng: [](https://github.com/)
+* Akiva Zeff: [auzeff](https://github.com/auzeff)
+* Jason Zeng: [jzeng21](https://github.com/jzeng21)
 * Claire Zhang: [](https://github.com/)
-* Jonathan Zhang: [](https://github.com/)
+* Jonathan Zhang: [ZeddyCraft](https://github.com/ZeddyCraft)
 * Yunhua Zhu: [](https://github.com/)
 
 And my own GitHub account is:
@@ -125,7 +125,7 @@ And my own GitHub account is:
 
 Peer Group 1: Sylvie Adams, Carly McDermott, Lindsay Warrell, Yinuo Mao
 
-Peer Group 2: Yongliang Cen, Christian Mei, Yuanruo Xie, Carla Rojas
+Peer Group 2: Yongliang Cen, Christian Mei, Sherry Xie, Carla Rojas
 
 Peer Group 3: Matteo Finnerty, Jaclyn Meyer, Charles Yung
 
@@ -135,7 +135,7 @@ Peer Group 5: Soumalya Ghorui, Benjamin Peters, Akiva Zeff
 
 Peer Group 6: Brenda Kim, Faria Shahriar, Jason Zeng
 
-Peer Group 7: Sunmin Kim, Megna Sriram, Yunhua Zhu
+Peer Group 7: Sunny Kim, Megna Sriram, Yunhua Zhu
 
 Peer Group 8: Pingwen Lin, Alexandra Walsh, Claire Zhang
 
@@ -145,11 +145,11 @@ Peer Group 8: Pingwen Lin, Alexandra Walsh, Claire Zhang
 
 ***
 
-Peer Group 1: Yuanruo Xie, Alexandra Walsh, Amita Ganesh
+Peer Group 1: Sherry Xie, Alexandra Walsh, Amita Ganesh
 
 Peer Group 2: Gentry Miller, Megna Sriram, Matteo Finnerty, Carla Rojas
 
-Peer Group 3: Sunmin Kim, Faria Shahriar, Claire Zhang, Yinuo Mao
+Peer Group 3: Sunny Kim, Faria Shahriar, Claire Zhang, Yinuo Mao
 
 Peer Group 4: Jaclyn Meyer, Pingwen Lin, Jonathan Zhang
 
@@ -167,7 +167,7 @@ Peer Group 8: Yongliang Cen, Lindsay Warrell, Charles Yung
 
 ***
 
-Peer Group 1: Sunmin Kim, Yuanruo Xie, Pingwen Lin
+Peer Group 1: Sunny Kim, Sherry Xie, Pingwen Lin
 
 Peer Group 2: Brenda Kim, Jaclyn Meyer, Yunhua Zhu
 
@@ -197,9 +197,9 @@ Peer Group 3: Yongliang Cen, Lindsay Warrell, Claire Zhang
 
 Peer Group 4: , Matteo Finnerty, Faria Shahriar, Gentry Miller
 
-Peer Group 5: Alexandra Walsh, Benjamin Peters, Sunmin Kim, Carla Rojas
+Peer Group 5: Alexandra Walsh, Benjamin Peters, Sunny Kim, Carla Rojas
 
-Peer Group 6: Christian Mei, Sylvie Adams, Yuanruo Xie
+Peer Group 6: Christian Mei, Sylvie Adams, Sherry Xie
 
 Peer Group 7: Charles Yung, Amita Ganesh, Soumalya Ghorui
 
@@ -219,9 +219,9 @@ Peer Group 3: Charles Yung, Christian Mei, Claire Zhang, Carla Rojas
 
 Peer Group 4: Matteo Finnerty, Carly McDermott, Brenda Kim
 
-Peer Group 5: Sunmin Kim, Benjamin Peters, Faria Shahriar
+Peer Group 5: Sunny Kim, Benjamin Peters, Faria Shahriar
 
-Peer Group 6: Yuanruo Xie, Lindsay Warrell, Yunhua Zhu, Yinuo Mao
+Peer Group 6: Sherry Xie, Lindsay Warrell, Yunhua Zhu, Yinuo Mao
 
 Peer Group 7: Alexandra Walsh, Jason Zeng, Soumalya Ghorui
 
