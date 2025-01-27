@@ -108,7 +108,7 @@ The students currently enrolled in Spring 2025 (and their associated GitHub acco
 * Jason Zeng: [jzeng21](https://github.com/jzeng21)
 * Claire Zhang: [](https://github.com/)
 * Jonathan Zhang: [ZeddyCraft](https://github.com/ZeddyCraft)
-* Yunhua Zhu: [](https://github.com/)
+* Yunhua (Tiffany) Zhu: [yunhuaz](https://github.com/yunhuaz)
 
 And my own GitHub account is:
 
@@ -135,7 +135,7 @@ Peer Group 5: Soumalya Ghorui, Benjamin Peters, Akiva Zeff
 
 Peer Group 6: Brenda Kim, Faria Shahriar, Jason Zeng
 
-Peer Group 7: Sunny Kim, Megna Sriram, Yunhua Zhu
+Peer Group 7: Sunny Kim, Megna Sriram, Tiffany Zhu
 
 Peer Group 8: Pingwen Lin, Alexandra Walsh, Claire Zhang
 
@@ -155,7 +155,7 @@ Peer Group 4: Jaclyn Meyer, Pingwen Lin, Jonathan Zhang
 
 Peer Group 5: Carly McDermott, Jason Zeng, Sylvie Adams
 
-Peer Group 6: Christian Mei, Benjamin Peters, Yunhua Zhu
+Peer Group 6: Christian Mei, Benjamin Peters, Tiffany Zhu
 
 Peer Group 7: Soumalya Ghorui, Akiva Zeff, Brenda Kim
 
@@ -169,7 +169,7 @@ Peer Group 8: Yongliang Cen, Lindsay Warrell, Charles Yung
 
 Peer Group 1: Sunny Kim, Sherry Xie, Pingwen Lin
 
-Peer Group 2: Brenda Kim, Jaclyn Meyer, Yunhua Zhu
+Peer Group 2: Brenda Kim, Jaclyn Meyer, Tiffany Zhu
 
 Peer Group 3: Carly McDermott, Gentry Miller, Jonathan Zhang
 
@@ -203,7 +203,7 @@ Peer Group 6: Christian Mei, Sylvie Adams, Sherry Xie
 
 Peer Group 7: Charles Yung, Amita Ganesh, Soumalya Ghorui
 
-Peer Group 8: Pingwen Lin, Jonathan Zhang, Yunhua Zhu
+Peer Group 8: Pingwen Lin, Jonathan Zhang, Tiffany Zhu
 
 ***
 
@@ -221,7 +221,7 @@ Peer Group 4: Matteo Finnerty, Carly McDermott, Brenda Kim
 
 Peer Group 5: Sunny Kim, Benjamin Peters, Faria Shahriar
 
-Peer Group 6: Sherry Xie, Lindsay Warrell, Yunhua Zhu, Yinuo Mao
+Peer Group 6: Sherry Xie, Lindsay Warrell, Tiffany Zhu, Yinuo Mao
 
 Peer Group 7: Alexandra Walsh, Jason Zeng, Soumalya Ghorui
 
