@@ -1554,9 +1554,7 @@ Berne.</p>
 <ul>
 <li>Install these packages in <strong><em>R</em></strong>: <a href="https://cran.r-project.org/web/packages/readr/readr.pdf">{readr}</a>,
 <a href="https://cran.r-project.org/web/packages/curl/curl.pdf">{curl}</a>,
-<a href="https://cran.r-project.org/web/packages/readxl/readxl.pdf">{readxl}</a>,
-<a href="https://cran.r-project.org/web/packages/XLConnect/vignettes/XLConnect.pdf">{XLConnect}</a>,
-<a href="https://cran.r-project.org/web/packages/repmis/repmis.pdf">{repmis}</a>,
+<a href="https://cran.r-project.org/web/packages/readxl/readxl.pdf">{readxl}</a>,<a href="https://cran.r-project.org/web/packages/XLConnect/vignettes/XLConnect.pdf">{XLConnect}</a>,<a href="https://github.com/karthik/rdrop2">{drop2}</a>, <a href="https://cran.r-project.org/web/packages/repmis/repmis.pdf">{repmis}</a>,
 <a href="https://googledrive.tidyverse.org">{googledrive}</a>, <a href="https://googlesheets4.tidyverse.org">{googlesheets4}</a></li>
 </ul>
 </div>
@@ -1969,7 +1967,7 @@ on)</p>
 <pre><code>## The following object is masked from &#39;package:readr&#39;:
 ## 
 ##     parse_date</code></pre>
-<pre class="r"><code>f &lt;- curl(&quot;https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall23/CPDS-1960-2014-reduced.csv&quot;)
+<pre class="r"><code>f &lt;- curl(&quot;https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Spring25/CPDS-1960-2014-reduced.csv&quot;)
 d &lt;- read.csv(f, header = TRUE, sep = &quot;,&quot;, stringsAsFactors = FALSE)
 head(d)</code></pre>
 <pre><code>##   year   country gov_right1 gov_cent1 gov_left1 gov_party      elect vturn
@@ -2083,10 +2081,12 @@ d &lt;- read_tsv(f, col_names = TRUE)</code></pre>
 restricting API access to their servers, it’s become difficult to work
 with files archived on a <strong><em>Dropbox</em></strong> account in
 the <strong><em>RStudio</em></strong> framework. The package we would
-usually use for this, {rdrop2}, has already been archived on CRAN, in
-part because of this and because the maintainers have given it up (as of
-late 2024). However, we can still install the development version, and
-it will work (for now!):</p>
+usually use for this, <a href="(https://github.com/karthik/rdrop2)">{rdrop2}</a>, has already
+been archived on CRAN, in part because of this and because the
+maintainers have given it up (as of late 2024). However, we can still
+install the development version, and it will work (for now!) on the most
+recent version of <strong><em>R</em></strong> (4.4.2) as of January
+2025:</p>
 <pre class="r"><code>devtools::install_github(&quot;karthik/rdrop2&quot;)</code></pre>
 <p><strong>NOTE:</strong> The following code block cannot be “knit” to
 show you the output because it requires an interactive
@@ -2132,7 +2132,7 @@ something odd.</p>
 <pre class="r"><code>d &lt;- source_data(link, header = TRUE, sep = &quot;,&quot;)  # use the same updated link to the raw data as above</code></pre>
 <pre><code>## Downloading data from: https://www.dropbox.com/scl/fi/560bh55pwv3sowbmyygsl/CPDS-1960-2014-reduced.csv?rlkey=sp4xkouegbno3fqrt65o7gb4d&amp;dl=0</code></pre>
 <pre><code>## SHA-1 hash of the downloaded data file is:
-## e69981e3bb3793cbc6fb13aa14108093549729b7</code></pre>
+## 647745ab205a2a5ccfe630d3297b457fbc2d39e4</code></pre>
 <pre class="r"><code>head(d)</code></pre>
 <pre><code>##   requireFallbackBaseUrl: &quot;https://www.dropboxstatic.com/&quot; V2
 ## 1                                 langpack: {locale: &quot;en&quot;} NA

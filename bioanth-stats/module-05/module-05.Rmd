@@ -40,7 +40,7 @@ This is a version of the [*Comparative Political Data Set (CPDS)*](http://www.cp
 
 > **CITATION:** Armingeon K, Isler C, Knöpfel L, Weisstanner D, and Engler S. 2016. Comparative Political Data Set 1960-2014. Bern: Institute of Political Science, University of Berne.
 
-- Install these packages in ***R***: [{readr}](https://cran.r-project.org/web/packages/readr/readr.pdf), [{curl}](https://cran.r-project.org/web/packages/curl/curl.pdf), [{readxl}](https://cran.r-project.org/web/packages/readxl/readxl.pdf), [{XLConnect}](https://cran.r-project.org/web/packages/XLConnect/vignettes/XLConnect.pdf), [{repmis}](https://cran.r-project.org/web/packages/repmis/repmis.pdf), [{googledrive}](https://googledrive.tidyverse.org), [{googlesheets4}](https://googlesheets4.tidyverse.org)
+- Install these packages in ***R***: [{readr}](https://cran.r-project.org/web/packages/readr/readr.pdf), [{curl}](https://cran.r-project.org/web/packages/curl/curl.pdf), [{readxl}](https://cran.r-project.org/web/packages/readxl/readxl.pdf),[{XLConnect}](https://cran.r-project.org/web/packages/XLConnect/vignettes/XLConnect.pdf),[{drop2}](https://github.com/karthik/rdrop2), [{repmis}](https://cran.r-project.org/web/packages/repmis/repmis.pdf), [{googledrive}](https://googledrive.tidyverse.org), [{googlesheets4}](https://googlesheets4.tidyverse.org)
 
 ## The Backstory
 So far, we have seen how to create a variety of data structures by hand (e.g., using the `c()` function), but for larger data sets we will need mechanisms to import data into ***R***. There are many methods for importing tabular data, stored in various formats (like text files, spreadsheets, and databases).
@@ -192,9 +192,9 @@ GO TO: https://github.com/fuzzyatelin/fuzzyatelin.github.io/tree/master/AN588_Fa
 ### Importing data from a file on a remote server using {curl}
 
 For a comma-separated value (`.csv`) text file...
-``` {r}
+```{r}
 library(curl)
-f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall23/CPDS-1960-2014-reduced.csv")
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Spring25/CPDS-1960-2014-reduced.csv")
 d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 head(d)
 # returns a data frame
@@ -225,7 +225,7 @@ head(d)
 
 ### Importing data from a file hosted on ***Dropbox***
 
-Unfortunately, now that ***Dropbox*** is restricting API access to their servers, it's become difficult to work with files archived on a ***Dropbox*** account in the ***RStudio*** framework. The package we would usually use for this, {rdrop2}, has already been archived on CRAN, in part because of this and because the maintainers have given it up (as of late 2024). However, we can still install the development version, and it will work (for now!):
+Unfortunately, now that ***Dropbox*** is restricting API access to their servers, it's become difficult to work with files archived on a ***Dropbox*** account in the ***RStudio*** framework. The package we would usually use for this, [{rdrop2}]((https://github.com/karthik/rdrop2)), has already been archived on CRAN, in part because of this and because the maintainers have given it up (as of late 2024). However, we can still install the development version, and it will work (for now!) on the most recent version of ***R*** (4.4.2) as of January 2025:
 
 ```{r,eval=F}
 devtools::install_github("karthik/rdrop2")
