@@ -84,7 +84,7 @@ Although *grades will not be assigned* for Peer Commentaries, if it comes to my 
 The students currently enrolled in Spring 2025 (and their associated GitHub accounts) include:
 
 * Sylvie Adams: [sadams32](https://github.com/sadams32)
-* Yongliang Cen: [yong417](https://github.com/ yong417)
+* Yongliang Cen: [yong417](https://github.com/yong417)
 * Matteo Finnerty: [matteo](https://github.com/)
 * Amita Ganesh: [amitaganesh](https://github.com/amitaganesh)
 * Soumalya Ghorui: [koseiarima](https://github.com/koseiarima)
@@ -123,21 +123,23 @@ And my own GitHub account is:
 
 ***
 
+**Note that these were shuffled a little on 28JAN to reflect technical difficulties and absences, so please check your Peer Group in case there were changes!**
+
 Peer Group 1: Sylvie Adams, Carly McDermott, Lindsay Warrell, Yinuo Mao
 
-Peer Group 2: Yongliang Cen, Christian Mei, Sherry Xie, Carla Rojas
+Peer Group 2: Yongliang Cen, Christian Mei, Sherry Xie
 
-Peer Group 3: Matteo Finnerty, Jaclyn Meyer, Charles Yung
+Peer Group 3: Claire Zhang, Jaclyn Meyer, Charles Yung
 
 Peer Group 4: Amita Ganesh, Gentry Miller, Jonathan Zhang
 
-Peer Group 5: Soumalya Ghorui, Benjamin Peters, Akiva Zeff
+Peer Group 5: Pingwen Lin, Benjamin Peters, Akiva Zeff
 
 Peer Group 6: Brenda Kim, Faria Shahriar, Jason Zeng
 
 Peer Group 7: Sunny Kim, Megna Sriram, Tiffany Zhu
 
-Peer Group 8: Pingwen Lin, Alexandra Walsh, Claire Zhang
+Peer Group 8: Carla Rojas, Soumalya Ghorui, Alexandra Walsh, Matteo Finnerty
 
 ***
 
