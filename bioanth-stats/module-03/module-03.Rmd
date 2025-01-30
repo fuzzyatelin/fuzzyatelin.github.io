@@ -339,7 +339,7 @@ RStudio provides an interface to the most common version control operations incl
 
 - On all platforms, you can use the **Tools -> Terminal -> New Terminal...** command to open a new Terminal window with the working directory already initialized to your project's root directory.
 
-- On Windows when using ***git***, the **Terminal** command will open **Git Bash**, which is a port of the bash shell to Windows specially configured for use with Msys Git (note you can disable this behavior and use the standard Windows command prompt instead using **Options -> Version Control**).
+- On Windows when using ***git***, the **Terminal** command will open **Git Bash**, which is a port of the bash shell to Windows specially configured for use with *msysGit* (note you can disable this behavior and use the standard Windows command prompt instead using **Options -> Version Control**).
 
 ##### SSH
 
@@ -352,7 +352,7 @@ In many cases the authentication for an **SSH** connection is done using public/
 
 To make working with `RSA` key pairs more straightforward the **RStudio Version Control** options panel can be used to both create new `RSA` public/private key pairs as well as view and copy the current `RSA` public key.
 
-While Linux and Mac OSX both have long included SSH as part of the base system, Windows did not until fairly recently (you can learn more about how to access SSH in Windows [here](https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh)). As a result the standard Windows distribution of ***git*** (Msysgit, referenced above) also includes an SSH client.
+While Linux and Mac OSX both have long included SSH as part of the base system, Windows did not until fairly recently (you can learn more about how to access SSH in Windows [here](https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh)). As a result the standard Windows distribution of ***git*** (msysGit, referenced above) also includes an SSH client.
 
 ***
 
