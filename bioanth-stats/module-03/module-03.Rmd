@@ -64,9 +64,9 @@ Remember, ***git*** is a piece of software running on your own computer, and tha
 
 ### Step 2 - Set up your identity in ***git***
 
-We next need to tell ***git*** (on your local computer) who you are so that when you make commits either locally or remotely, they are associated with a particular user name and email. To do this within ***RStudio***, select **Tools -> Shell...**, which will open up a Terminal window. Alternatively, you can enter these commands directly in a terminal window you open yourself, rather than one opened from within ***RStudio***.
+We next need to tell ***git*** (on your local computer) who you are so that when you make commits either locally or remotely, they are associated with a particular user name and email. To do this within ***RStudio***, select **Tools -> Terminal -> New Terminal...**, which will open up a Terminal window. Alternatively, you can enter these commands directly in a Terminal window you open yourself on your computer outside ***RStudio***, rather than one opened from within ***RStudio***.
 
-- At the shell prompt, enter...
+- At the Terminal prompt, enter...
 
 <pre>
 git config --global user.email <i>your email address</i>
@@ -288,7 +288,7 @@ Now you will want to create a remote repository on ***GitHub*** to which you can
 
 #### Step 4:
 
-- In ***RStudio***, open the project that you want to push to ***GitHub*** and click **Tools -> Shell...** to open a terminal window.
+- In ***RStudio***, open the project that you want to push to ***GitHub*** and click **Tools -> Terminal -> New Terminal...** to open a terminal window (if one is not open already).
 
 <br><center>
 <img src="img/shell-prompt.png" width=500px/>
@@ -296,7 +296,7 @@ Now you will want to create a remote repository on ***GitHub*** to which you can
 
 **NOTE:** Your prompt will almost certainly look different than that in the image above!
 
-[Alternatively, open a separate terminal window and navigate to the directory of the repo you wish to push.] At the shell prompt, enter...
+[Alternatively, open a separate Terminal window and navigate to the directory of the repo you wish to push.] At the *Terminal* prompt (*not* in your ***R*** Console), enter...
 
 <pre>
 git remote add origin git@github.com:<i>your GitHub user name</i>/<i>your repo name</i>.git
@@ -331,15 +331,15 @@ The first line tells ***git*** the remote URL that you are going to push to, and
 
 #### Additional Useful Info
 
-##### Using the Shell
+##### Using Terminal
 
-RStudio provides an interface to the most common version control operations including managing changelists, diffing files, committing, and viewing history. While these features cover basic everyday use of ***git*** and ***Subversion***, you may also occasionally need to use the system shell to access all of their underlying functionality.
+RStudio provides an interface to the most common version control operations including managing changelists, diffing files, committing, and viewing history. While these features cover basic everyday use of ***git*** and ***Subversion***, you may also occasionally need to use Terminal to access all of their underlying functionality.
 
-***RStudio*** includes functionality to make it more straightforward to use the shell with projects under version control. This includes:
+***RStudio*** includes functionality to make it more straightforward to use Terminal with projects under version control. This includes:
 
-- On all platforms, you can use the **Tools -> Shell...** command to open a new system shell with the working directory already initialized to your project's root directory.
+- On all platforms, you can use the **Tools -> Terminal -> New Terminal...** command to open a new Terminal window with the working directory already initialized to your project's root directory.
 
-- On Windows when using ***git***, the **Shell** command will open **Git Bash**, which is a port of the bash shell to Windows specially configured for use with Msys Git (note you can disable this behavior and use the standard Windows command prompt instead using **Options -> Version Control**).
+- On Windows when using ***git***, the **Terminal** command will open **Git Bash**, which is a port of the bash shell to Windows specially configured for use with Msys Git (note you can disable this behavior and use the standard Windows command prompt instead using **Options -> Version Control**).
 
 ##### SSH
 
@@ -352,7 +352,7 @@ In many cases the authentication for an **SSH** connection is done using public/
 
 To make working with `RSA` key pairs more straightforward the **RStudio Version Control** options panel can be used to both create new `RSA` public/private key pairs as well as view and copy the current `RSA` public key.
 
-While Linux and Mac OSX both include SSH as part of the base system, Windows does not. As a result the standard Windows distribution of ***git*** (Msysgit, referenced above) also includes an SSH client.
+While Linux and Mac OSX both have long included SSH as part of the base system, Windows did not until fairly recently (you can learn more about how to access SSH in Windows [here](https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh)). As a result the standard Windows distribution of ***git*** (Msysgit, referenced above) also includes an SSH client.
 
 ***
 
