@@ -40,7 +40,7 @@ This is a version of the [*Comparative Political Data Set (CPDS)*](http://www.cp
 
 > **CITATION:** Armingeon K, Isler C, Knöpfel L, Weisstanner D, and Engler S. 2016. Comparative Political Data Set 1960-2014. Bern: Institute of Political Science, University of Berne.
 
-- Install these packages in ***R***: [{readr}](https://cran.r-project.org/web/packages/readr/readr.pdf), [{curl}](https://cran.r-project.org/web/packages/curl/curl.pdf), [{readxl}](https://cran.r-project.org/web/packages/readxl/readxl.pdf),[{XLConnect}](https://cran.r-project.org/web/packages/XLConnect/vignettes/XLConnect.pdf),[{drop2}](https://github.com/karthik/rdrop2), [{repmis}](https://cran.r-project.org/web/packages/repmis/repmis.pdf), [{googledrive}](https://googledrive.tidyverse.org), [{googlesheets4}](https://googlesheets4.tidyverse.org)
+- Install these packages in ***R***: [{readr}](https://cran.r-project.org/web/packages/readr/readr.pdf), [{curl}](https://cran.r-project.org/web/packages/curl/curl.pdf), [{readxl}](https://cran.r-project.org/web/packages/readxl/readxl.pdf),[{writexl}](https://ropensci.r-universe.dev/writexl),[{drop2}](https://github.com/karthik/rdrop2), [{repmis}](https://cran.r-project.org/web/packages/repmis/repmis.pdf), [{googledrive}](https://googledrive.tidyverse.org), [{googlesheets4}](https://googlesheets4.tidyverse.org)
 
 ## The Backstory
 So far, we have seen how to create a variety of data structures by hand (e.g., using the `c()` function), but for larger data sets we will need mechanisms to import data into ***R***. There are many methods for importing tabular data, stored in various formats (like text files, spreadsheets, and databases).
@@ -150,11 +150,13 @@ head(d)
 
 ## Loading ***Excel*** Files
 
-While you should never need to use ***Excel***, sometimes you will no doubt be given a spreadsheet file with some data in it that you want to analyze in ***R***. There are several packages available that provide functions for loading data into ***R*** from ***Excel*** spreadsheet files: {readxl}, {XLConnect}, {gdata}, and {xlsx}. The first two of these are fast, easy to use, and work well. {gdata} is a bit slower and requires that you have PERL installed someone on your computer (which it is likely to be by default). {xlsx} is much slower.
+While you should never need to use ***Excel***, sometimes you will no doubt be given a spreadsheet file with some data in it that you want to analyze in ***R***. There are several packages available that provide functions for loading data into ***R*** from ***Excel*** spreadsheet files: {readxl}/{writexl}, {XLConnect}, {gdata}, and {xlsx}. The first of these ({readxl}/{writexl}) are fast, easy to use, and work well; on top of that, {readxl} has been integrated into the {tidyverse}, which means we'll be using it a lot anyway. {XLConnect} only works on some systems, {gdata} is a bit slower and requires that you have PERL installed someone on your computer (which it is likely to be by default), and {xlsx} is *much* slower, so you can try them if you like, but we won't be using them in this course.
 
 **NOTE:** always use `str()` to check if your variables come in as the correct data class.
 
-#### Using the {readxl} package
+#### Using the {readxl} and {writexl} packages
+
+With {readxl}, importing ***Excel*** files into ***R*** and converting them to dataframes is very simple. You simply need to specify the PATH to your desired file, make sure to specify which sheet in the file you want to import, and if you want the column names to carry over you need to specify that, as well:
 ``` {r}
 require(readxl)
 f <- "~/Desktop/CPDS-1960-2014-reduced.xlsx"
@@ -163,24 +165,16 @@ head(d)
 str(d)
 ```
 
-#### Using the {XLConnect} package
-``` {r,eval=F}
-require(XLConnect)
-f <- "~/Desktop/CPDS-1960-2014-reduced.xlsx"
-d <- readWorksheetFromFile(f, sheet = 1, header = TRUE)
-head(d)
-str(d)
-```
-
-The {XLConnect} package can also write data frames back out to ***Excel*** worksheets. If the file does not exist, it is created. If it does exist, data is cleared and overwritten. The second process is MUCH slower. I have included a conditional statement (`if(){}`) which will implement the `file.remove()` command here, if needed.
+The {writexl} package can also write data frames back out to ***Excel*** worksheets. If the file does not exist, it is created. If it does exist, data is cleared and overwritten (so be careful!). The second process is MUCH slower. I have included a conditional statement (`if(){}`) which will implement the `file.remove()` command here, if needed (to speed things up).
 
 ``` {r,eval=F}
+library(writexl)
 f <- "~/Desktop/output.xlsx"
-if (file.exists(f)) {file.remove(f)}
-writeWorksheetToFile(f, d, sheet = "myData", clearSheets = TRUE)
+if (file.exists(f)) {
+    file.remove(f)
+}
+write_xlsx(d, f, col_names=TRUE)
 ```
-
-For futher information on using {XLConnect} check out [this helpful documentation](https://www.rdocumentation.org/packages/XLConnect/versions/1.0.7).
 
 ## Loading Files Stored on a Remote Server
 We can also load files stored on a server elsewhere on the web, e.g., ***Dropbox*** or ***GitHub***.

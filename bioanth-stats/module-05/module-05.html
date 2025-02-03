@@ -1554,7 +1554,7 @@ Berne.</p>
 <ul>
 <li>Install these packages in <strong><em>R</em></strong>: <a href="https://cran.r-project.org/web/packages/readr/readr.pdf">{readr}</a>,
 <a href="https://cran.r-project.org/web/packages/curl/curl.pdf">{curl}</a>,
-<a href="https://cran.r-project.org/web/packages/readxl/readxl.pdf">{readxl}</a>,<a href="https://cran.r-project.org/web/packages/XLConnect/vignettes/XLConnect.pdf">{XLConnect}</a>,<a href="https://github.com/karthik/rdrop2">{drop2}</a>, <a href="https://cran.r-project.org/web/packages/repmis/repmis.pdf">{repmis}</a>,
+<a href="https://cran.r-project.org/web/packages/readxl/readxl.pdf">{readxl}</a>,<a href="https://ropensci.r-universe.dev/writexl">{writexl}</a>,<a href="https://github.com/karthik/rdrop2">{drop2}</a>, <a href="https://cran.r-project.org/web/packages/repmis/repmis.pdf">{repmis}</a>,
 <a href="https://googledrive.tidyverse.org">{googledrive}</a>, <a href="https://googlesheets4.tidyverse.org">{googlesheets4}</a></li>
 </ul>
 </div>
@@ -1870,15 +1870,24 @@ sometimes you will no doubt be given a spreadsheet file with some data
 in it that you want to analyze in <strong><em>R</em></strong>. There are
 several packages available that provide functions for loading data into
 <strong><em>R</em></strong> from <strong><em>Excel</em></strong>
-spreadsheet files: {readxl}, {XLConnect}, {gdata}, and {xlsx}. The first
-two of these are fast, easy to use, and work well. {gdata} is a bit
-slower and requires that you have PERL installed someone on your
-computer (which it is likely to be by default). {xlsx} is much
-slower.</p>
+spreadsheet files: {readxl}/{writexl}, {XLConnect}, {gdata}, and {xlsx}.
+The first of these ({readxl}/{writexl}) are fast, easy to use, and work
+well; on top of that, {readxl} has been integrated into the {tidyverse},
+which means we’ll be using it a lot anyway. {XLConnect} only works on
+some systems, {gdata} is a bit slower and requires that you have PERL
+installed someone on your computer (which it is likely to be by
+default), and {xlsx} is <em>much</em> slower, so you can try them if you
+like, but we won’t be using them in this course.</p>
 <p><strong>NOTE:</strong> always use <code>str()</code> to check if your
 variables come in as the correct data class.</p>
-<div id="using-the-readxl-package" class="section level4">
-<h4>Using the {readxl} package</h4>
+<div id="using-the-readxl-and-writexl-packages" class="section level4">
+<h4>Using the {readxl} and {writexl} packages</h4>
+<p>With {readxl}, importing <strong><em>Excel</em></strong> files into
+<strong><em>R</em></strong> and converting them to dataframes is very
+simple. You simply need to specify the PATH to your desired file, make
+sure to specify which sheet in the file you want to import, and if you
+want the column names to carry over you need to specify that, as
+well:</p>
 <pre class="r"><code>require(readxl)</code></pre>
 <pre><code>## Loading required package: readxl</code></pre>
 <pre class="r"><code>f &lt;- &quot;~/Desktop/CPDS-1960-2014-reduced.xlsx&quot;
@@ -1919,27 +1928,19 @@ head(d)</code></pre>
 ##  $ pop15_64  : num [1:1578] 6296 6429 6572 6711 6857 ...
 ##  $ pop65     : num [1:1578] 875 895 914 933 948 ...
 ##  $ elderly   : num [1:1578] 8.51 8.51 8.54 8.55 8.52 ...</code></pre>
-</div>
-<div id="using-the-xlconnect-package" class="section level4">
-<h4>Using the {XLConnect} package</h4>
-<pre class="r"><code>require(XLConnect)
-f &lt;- &quot;~/Desktop/CPDS-1960-2014-reduced.xlsx&quot;
-d &lt;- readWorksheetFromFile(f, sheet = 1, header = TRUE)
-head(d)
-str(d)</code></pre>
-<p>The {XLConnect} package can also write data frames back out to
+<p>The {writexl} package can also write data frames back out to
 <strong><em>Excel</em></strong> worksheets. If the file does not exist,
-it is created. If it does exist, data is cleared and overwritten. The
-second process is MUCH slower. I have included a conditional statement
-(<code>if(){}</code>) which will implement the
-<code>file.remove()</code> command here, if needed.</p>
-<pre class="r"><code>f &lt;- &quot;~/Desktop/output.xlsx&quot;
+it is created. If it does exist, data is cleared and overwritten (so be
+careful!). The second process is MUCH slower. I have included a
+conditional statement (<code>if(){}</code>) which will implement the
+<code>file.remove()</code> command here, if needed (to speed things
+up).</p>
+<pre class="r"><code>library(writexl)
+f &lt;- &quot;~/Desktop/output.xlsx&quot;
 if (file.exists(f)) {
     file.remove(f)
 }
-writeWorksheetToFile(f, d, sheet = &quot;myData&quot;, clearSheets = TRUE)</code></pre>
-<p>For futher information on using {XLConnect} check out <a href="https://www.rdocumentation.org/packages/XLConnect/versions/1.0.7">this
-helpful documentation</a>.</p>
+write_xlsx(d, f, col_names = TRUE)</code></pre>
 </div>
 </div>
 <div id="loading-files-stored-on-a-remote-server" class="section level2">
@@ -2132,15 +2133,16 @@ something odd.</p>
 <pre class="r"><code>d &lt;- source_data(link, header = TRUE, sep = &quot;,&quot;)  # use the same updated link to the raw data as above</code></pre>
 <pre><code>## Downloading data from: https://www.dropbox.com/scl/fi/560bh55pwv3sowbmyygsl/CPDS-1960-2014-reduced.csv?rlkey=sp4xkouegbno3fqrt65o7gb4d&amp;dl=0</code></pre>
 <pre><code>## SHA-1 hash of the downloaded data file is:
-## 647745ab205a2a5ccfe630d3297b457fbc2d39e4</code></pre>
+## ded3e6bd2a06f16c05861b4082bdabcb5c8fade7</code></pre>
 <pre class="r"><code>head(d)</code></pre>
-<pre><code>##   requireFallbackBaseUrl: &quot;https://www.dropboxstatic.com/&quot; V2
-## 1                                 langpack: {locale: &quot;en&quot;} NA
-## 2                                      useReactNext: false NA</code></pre>
+<pre><code>##                                      devServerHostname: &quot;&quot; V2
+## 1 requireFallbackBaseUrl: &quot;https://www.dropboxstatic.com/&quot; NA
+## 2                                 langpack: {locale: &quot;en&quot;} NA
+## 3                                      useReactNext: false NA</code></pre>
 <pre class="r"><code>str(d)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    2 obs. of  2 variables:
-##  $ requireFallbackBaseUrl: &quot;https://www.dropboxstatic.com/&quot;: chr  &quot;langpack: {locale: \&quot;en\&quot;}&quot; &quot;useReactNext: false&quot;
-##  $ V2                                                      : logi  NA NA</code></pre>
+<pre><code>## &#39;data.frame&#39;:    3 obs. of  2 variables:
+##  $ devServerHostname: &quot;&quot;: chr  &quot;requireFallbackBaseUrl: \&quot;https://www.dropboxstatic.com/\&quot;&quot; &quot;langpack: {locale: \&quot;en\&quot;}&quot; &quot;useReactNext: false&quot;
+##  $ V2                   : logi  NA NA NA</code></pre>
 <p>Finally, you can also load data directly from <strong><em>google
 drive</em></strong> into <strong><em>R</em></strong> using either the
 {googledrive} or the {googlesheets4} package. The most seamless way of
