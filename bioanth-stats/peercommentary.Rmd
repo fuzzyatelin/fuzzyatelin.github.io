@@ -1,7 +1,7 @@
 ---
 title: "AN/BI 588: Peer Commentary Assignments"
 author: "Christopher A Schmitt"
-date: "January 17, 2025"
+date: "February 4, 2025"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -92,7 +92,7 @@ The students currently enrolled in Spring 2025 (and their associated GitHub acco
 * Sunmin (Sunny) Kim: [sunnykim2000](https://github.com/sunnykim2000)
 * Pingwen Lin: [plkacy](https://github.com/plkacy)
 * Carly McDermott: [carlyshea26](https://github.com/carlyshea26)
-* Yinuo Mao: [](https://github.com/)
+* Yinuo Mao: [mollymao10](https://github.com/mollymao10)
 * Christian Mei: [ChrisMei22](https://github.com/ChrisMei22)
 * Jaclyn Meyer: [JaclynNoel](https://github.com/JaclynNoel)
 * Gentry Miller: [bygentry](https://github.com/bygentry)
