@@ -1,7 +1,7 @@
 ---
 title: "SMAGL Contract and Code of Conduct"
 author: "Christopher A Schmitt</br>Boston University"
-date: "August 15, 2024"
+date: "Feburary 4, 2025"
 output: 
   rmdformats::readthedown:
     toc_depth: 5
@@ -35,11 +35,11 @@ The Schmitt Lab/SMAGL is committed to creating a safe, diverse, inclusive, and e
 
 ## Discrimination
 
-Discrimination means unequal or unfair treatment in professional opportunities, education, benefits, evaluation, and employment (such as hiring, termination, promotion, compensation) as well as retaliation and various types of harassment. Discriminatory practices can be explicit or implicit, intentional or unintentional. Discrimination on the basis of race, color, ethnicity, religion, sex, national origin, age, ancestry, disability, veteran status, sexual orientation, marital status, parental status, gender identify, gender expression and genetic information is prohibited under federal statutes, and the BU Equal Opportunity/Affirmative Action Policy.
+Discrimination means unequal or unfair treatment in professional opportunities, education, benefits, evaluation, and employment (such as hiring, termination, promotion, compensation) as well as retaliation and various types of harassment. Discriminatory practices can be explicit or implicit, intentional or unintentional. Discrimination on the basis of race, color, ethnicity, religion, sex, national origin, age, ancestry, disability, veteran status, sexual orientation, marital status, parental status, gender identify, gender expression and genetic information is prohibited under federal statutes, state statutes, and the BU Equal Opportunity/Affirmative Action Policy.
 
 ## Harassment
 
-Harassment is a type of discrimination that involves actions, words or physical gestures that could reasonably be perceived to be the cause of another person’s distress or discomfort, or which put the safety of the individual at risk. This includes all behaviors that are unwanted by the recipient, which have the purpose or effect of violating the recipient’s dignity, marginalizing an individual either personally or professionally, or which create an intimidating, hostile, degrading, humiliating or offensive environment. It applies not only to direct interactions, but also other forms of communication including social media. These acts may include epithets, slurs, or negative stereotyping based on gender, race, sexual identity, or other categories, as protected by U.S. federal law. Also included are threatening, intimidating, or hostile acts; stalking; denigrating jokes and displays; or circulation of written or graphic material that denigrates or shows hostility or aversion toward an individual or a group. It becomes unlawful where enduring it becomes a condition of continued employment or when the conduct is severe or pervasive enough that a reasonable person would consider the work environment to be hostile.
+Harassment is a type of discrimination that involves actions, words or physical gestures that could reasonably be perceived to be the cause of another person’s distress or discomfort, or which put the safety of the individual at risk. This includes all behaviors that are unwanted by the recipient, which have the purpose or effect of violating the recipient’s dignity, marginalizing an individual either personally or professionally, or which create an intimidating, hostile, degrading, humiliating or offensive environment. It applies not only to direct interactions, but also other forms of communication including social media. These acts may include epithets, slurs, or negative stereotyping based on gender, race, sexual identity, or other categories, as protected by U.S. federal and MA state law. Also included are threatening, intimidating, or hostile acts; stalking; denigrating jokes and displays; or circulation of written or graphic material that denigrates or shows hostility or aversion toward an individual or a group. It becomes unlawful where enduring it becomes a condition of continued employment or when the conduct is severe or pervasive enough that a reasonable person would consider the work environment to be hostile.
 
 ## Bullying
 
@@ -76,25 +76,24 @@ It is generally appropriate to ask someone out once, but no more than once. The 
 ### Reporting options
 
 **University Title IX Coordinator**
-Kim Randall, Executive Director of Equal Opportunity
-Phone: (617) 353-9286
-Email: krandall[at]bu[dot]edu
+Jean Estevez, Executive Director of Equal Opportunity
+Phone: (617) 358-1796
+Email: titleix[at]bu[dot]edu
 http://www.bu.edu/safety/sexual-misconduct/title-ix-bu-policies/
 http://www.bu.edu/policies/employment/sexual-misconducttitle-ix-policy/
 
-All faculty and TFs (including Postdoctoral Research Associates) are “responsible employees” of BU, and as such are *mandatory reporters* of sexual misconduct or harassment if they hear of such behaviors, and must report them to Kim Randall, the Title IX Coordinator, or a Deputy Title IX Coordinator (see below). See the links above for a comprehensive list of definitions outlining which behaviors qualify. Due to our role as mandatory reporters, we cannot guarantee confidentiality if a student tells us about harassment or sexual misconduct.
+All faculty, Postdoctoral Research Associates, Ph.D. students, and graduate students with teaching responsibilities are “responsible employees” of BU, and as such are *mandatory reporters* of sexual misconduct or harassment if they hear of such behaviors, and must report them to Kim Randall, the Title IX Coordinator, or a Deputy Title IX Coordinator (see below). See the links above for a comprehensive list of definitions outlining which behaviors qualify. Due to our role as mandatory reporters, we cannot guarantee confidentiality if a student tells us about harassment or sexual misconduct.
 
 Within CAS, mandatory reporting may also be made to the following CAS Deputy Title IX Coordinators:
 
-* Kerry Buglio, Director, CAS Academic Services (Undergraduates)
-kbuglio[at]bu[dot]edu / (617) 353-2400
-* Laura Wipf, Graduate Services Administrator (Graduate students)
-lwipf[at]bu[dot]edu / (617) 353-2696
+* Danielle Kane, Deputy Title IX & DEI Outreach (Undergraduates)
+dnkane[at]bu[dot]edu / (617) 353-2401
 
-For confidential reporting of sexual misconduct or harassment, students have a number of resources available to them (listed in the links above), including the Sexual Assault Response and Prevention Center (SARP), (617) 353-SARP, sarp[at]bu[dot]edu; Student Health Services (SHS), and the University Chaplains.
+You may also file an [incident report](https://cm.maxient.com/reportingform.php?BostonUniv&layout_id=2) directory to the Equal Opportunity Office (EOO).
 
-You may also contact the National: National Sexual Assault Hotline, which provides confidential, one-on-one, crisis support 24/7 at (800) 656-4673 
-https://rainn.org/get-help/national-sexual-assault-hotline/
+For confidential reporting of sexual misconduct or harassment, students have a number of resources available to them (listed in the links above), including the [Sexual Assault Response and Prevention Center (SARP)](https://www.bu.edu/shs/sarp/), (617) 353-7277, sarp[at]bu[dot]edu; [Student Health Services (SHS)](https://www.bu.edu/shs/), and the [University Chaplains](https://www.bu.edu/chapel/about/staff/chaplains/).
+
+You may also contact the National: [National Sexual Assault Hotline](https://rainn.org/get-help/national-sexual-assault-hotline/), which provides confidential, one-on-one, crisis support 24/7 at (800) 656-4673.
 
 ### What happens after a report is made
 
@@ -133,7 +132,7 @@ We support you. You have the right to:
 *	Report to your PI, the police, or any of the other reporting options listed above; 
 *	Bring someone with you to provide support during reporting or any resulting discussions; 
 *	To seek reasonable accommodations to minimize the impact of the experience on the success of your work in the SMAGL; 
-*	To seek medical assistance, including medical care and a medical forensic exam. 
+*	To seek medical assistance, including medical care and a medical forensic exam (keep in mind that a forensic exam is a time-limited intervention that could help in court - in MA the limit for an exam to be effective is 120 hours from the event). 
 
 This is not intended to be a comprehensive list. 
 
