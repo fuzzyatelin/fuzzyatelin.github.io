@@ -85,7 +85,7 @@ The students currently enrolled in Spring 2025 (and their associated GitHub acco
 
 * Sylvie Adams: [sadams32](https://github.com/sadams32)
 * Yongliang Cen: [yong417](https://github.com/yong417)
-* Matteo Finnerty: [matteo](https://github.com/)
+* Matteo Finnerty: [matteofinnerty](https://github.com/matteofinnerty)
 * Amita Ganesh: [amitaganesh](https://github.com/amitaganesh)
 * Soumalya Ghorui: [koseiarima](https://github.com/koseiarima)
 * Brenda Kim: [msbrendakim](https://github.com/msbrendakim)
