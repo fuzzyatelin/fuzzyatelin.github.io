@@ -106,7 +106,9 @@ RVAL <- list(method = "Two-Sample Z Test of Proportions",
 }
 ```
 
-Here's a test of it on the one-sample test example using the mist-netted birds data example:
+Ok! Let's test this out using the mist-netting datasets from [Module 10](https://fuzzyatelin.github.io/bioanth-stats/module-10/module-10.html)!
+
+In this first case, we'll do the one-sample test example using the bird data example:
 ```{r}
 v1 <- c(0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0,
     1, 1, 0, 1, 0, 1, 1)
@@ -117,7 +119,7 @@ p0<-0.8
 Z.prop.test(p1=p1,n1=n1,p0=p0,alternative='lower')
 ```
 
-And here's a two-sample test example using the mist-netted bats:
+And here's a two-sample test example using the mist-netting data on bats:
 ```{r}
 v1 <- c(1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0,
     1, 0)
