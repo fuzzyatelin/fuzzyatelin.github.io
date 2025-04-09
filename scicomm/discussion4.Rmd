@@ -1,7 +1,7 @@
 ---
 title: 'Discussion 4:<br>Peer Review'
 author: "Christopher A Schmitt</br>Departments of Anthropology & Biology<br>Boston University"
-date: "March 25, 2024"
+date: "March 25, 2025"
 output: 
   prettydoc::html_pretty:
     theme: cayman
@@ -27,9 +27,9 @@ output:
 
 ***
 
-**By now, all draft SciComm projects should be uploaded to the Discussion on Blackboard and available for Peer Review during Discussion sections on April 22 and 23!**
+**By now, all draft SciComm projects should be uploaded to the Discussion on Blackboard and available for Peer Review during Discussion sections on April 21 and 22!**
 
-If you're in CAS AN/WS 233, **discussions for April 22 and 23 will be done remotely**.
+If you're in CAS AN/WS 233, **discussions for April 21 and 22 will be done remotely**.
 
 We recommend you conduct your Discussion time at home, in a comfortable setting. There will be no zoom meeting, so *you are responsible for partaking in Discussion activities yourself during the appropriate time*. You'll spend your Discussion time on Blackboard, in a Discussion room providing written feedback on your peers' uploaded SciComm projects.  Prof. Schmitt will assign you a particular presentation to provide feedback on, but you are encouraged to spend your Discussion time providing feedback to as many of your peers' projects as you can.
 

@@ -1,7 +1,7 @@
 ---
 title: "Final Essay Prompts"
 author: "Christopher A Schmitt</br>Departments of Anthropology & Biology<br>Boston University"
-date: "March 25, 2024"
+date: "March 25, 2025"
 output: 
   prettydoc::html_pretty:
     theme: cayman
@@ -21,7 +21,7 @@ As part of the final exam for CAS AN/WS 233, we ask you to write responses to th
 
 Please create a text document and copy/paste the three questions, below into it. You should begin working on these essays as soon as you are finished presenting your SciComm on the last day of class, in preparation for entering them into your final exam on Blackboard during our exam time on Monday, May 6. 
 
-**You will, for the final exam, copy and paste your answers into the exam's essay interfaces; there will be one for each Question.** Each will be worth 10 points towards your final exam score, for a total of 30 points of your final exam score.
+**You will, for the third exam, copy and paste your answers into a submission interface on Blackboard on the day of the exam (between 12:00 am and 11:59 pm); there will be one entry in which to paste each Question on the interface.** Each will be worth 10 points towards your third exam score, for a total of 30 points of your third exam score.
 
 ***
 
@@ -41,9 +41,9 @@ Please create a text document and copy/paste the three questions, below into it.
 
 **Aim to write about 250-300 words in response to each question**.  It is ok if you go *a little* over, but please don't go over by more than about 20 words at maximum. We don't want you to take the time to write volumes; we would strongly prefer short, succinct, well-written responses to longer, more convoluted replies. But that said, if you write less than 250 words for each essay, you will not have explored the topic in as much depth as we are looking for. Keep in mind that your TF is really smart. If you just write the same thing over and over again in slightly different ways, as a way to pad the word count, your TF is going to notice!
 
-And speaking of making life easier for your TF, please submit your *best* writing. Proofread your essay responses. This means that **you should write a draft of your responses by May 3** and then put it away for a couple of days. Come back to your responses towards the end of that week with a clear mind and read through your words critically. Read out loud. Does one sentence flow to the next? Is there a logical point for each paragraph and are all of the sentences feeding into the same topic/point? Did you use good grammar and spelling? Adjust as needed. There is nothing quite like a misspelled word or a non sequitur to distract the reader from the message you are trying to convey. If grammatical and spelling mistakes obfuscate your point, you'll get a lower score; our TF is an amazing scholar, but sadly, she still can't read minds or intent if the words don't make them clear. 
+And speaking of making life easier for your TF, please submit your *best* writing. Proofread your essay responses. This means that **you should write a draft of your responses by April 23** and then put it away for a couple of days. Come back to your responses towards the end of that week with a clear mind and read through your words critically. Read out loud. Does one sentence flow to the next? Is there a logical point for each paragraph and are all of the sentences feeding into the same topic/point? Did you use good grammar and spelling? Adjust as needed. There is nothing quite like a misspelled word or a non sequitur to distract the reader from the message you are trying to convey. If grammatical and spelling mistakes obfuscate your point, you'll get a lower score; our TF is an amazing scholar, but sadly, she still can't read minds or intent if the words don't make them clear. 
 
-Remember, the assignment is worth up to 30 points of your final exam (on **May 6 from noon to 2 pm**), 10 points for each question's response. **Your responses *must* be turned in as part of the final exam on Blackboard.**
+Remember, the assignment is worth up to 30 points of your third exam (although the exam is **May 1 in class from 11 to 12:15**, you will turn in you questions that day on Blackboard), 10 points for each question's response. **Your responses *must* be turned in via the Blackboard submission interface on May 1.**
 
 Best of luck with this assignment! We look forward to hearing your reflections on the SciComm project!
 
