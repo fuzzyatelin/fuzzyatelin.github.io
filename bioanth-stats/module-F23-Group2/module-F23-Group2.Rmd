@@ -81,7 +81,7 @@ Enter: [{rjags}](https://CRAN.R-project.org/package=rjags).
 
 To demonstrate, let's check out the titi monkeys from [Homework 2](https://fuzzyatelin.github.io/bioanth-stats/homework-02.html) again, but this time from a Bayesian perspective!
 
-![Titi, she's _mother_](https://www.animal.photos/mamm2/titi-cop_files/redtiti1.jpg)
+![Titi, she's _mother_](https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fnews.yuyang.org%2Fupload%2Fimages%2F2017%2F8%2F2212956783.jpg&f=1&nofb=1&ipt=a6b54fc7040ae8c3ca1496d7737eef134cf57de0ad9652a828d41ab59613a1e8)
 
 ## Let's load some libraries
 
@@ -348,8 +348,6 @@ diffr_prop <- sum(diff_data > 0)/length(diff_data); diffr_prop
 ```
 
 Overall, based on our credibility interval here, it looks like we still can't say with 95% probability that these two methods are different, but compared to the frequentist confidence interval (-1.964508, 6.250222) we're *reducing* uncertainty. The Bayesian method *is* giving us a more precise estimate with less uncertainty. We also can see that 84% of homerange estimates are larger than those provided by playbacks. In this case, we can't blame our sample size... our sample itself tells us that 84% of home range estimates are going to be larger. Is this different enough for you?
-
-![Is this titi monkey visible enough for you?](https://www.animal.photos/mamm2/titi-cop_files/redtiti8.jpg)
 
 Using Bayesian methods, then, I'm able to say that the playback method not only provides a slightly more certain estimate of the number of titi monkeys in a given field site over the home range method. Moreover, I'd say we have reason to think the number of titi monkeys in our field site, using the playback method, is probably less than 15.
 
