@@ -140,9 +140,10 @@ Each module listed is linked to another page containing instructions and helpful
 (Soumalya Ghorui, Kacy Lin, Benjamin Peters, Carly Rojas, Tiffany Zhu)
 
 ### [Module 21 - **Constant-Rate Birth-Death Modeling in {diversitree}**](http://fuzzyatelin.github.io/bioanth-stats/module-S25-Group2/module-S25-Group2.html)
-(Sulvia Adams, Carly McDermott, Christian Mei, Akiva Zeff)
+(Sylvia Adams, Carly McDermott, Christian Mei, Akiva Zeff)
 
 ### [Module 22 - **TBA**]()
+(Brian Cen, Sherry Xie, Charles Yung, Jason Zeng)
 
 ***
 
@@ -153,8 +154,13 @@ Each module listed is linked to another page containing instructions and helpful
 (Lindsay Warrell & Jonathan Zhang)
 
 ### [Module 24 - **TBA**]()
+(Matteo Finnerty, Yinuo Mao, Jaclyn Meyer, Claire Zhang)
 
 ### [Module 25 - **TBA**]()
+(Amita Ganesh, Brenda Kim, Sunny Kim)
+
+### [Module 26 - **TBA**]()
+(Gentry Miller & Alexandra Walsh)
 
 ***
 
