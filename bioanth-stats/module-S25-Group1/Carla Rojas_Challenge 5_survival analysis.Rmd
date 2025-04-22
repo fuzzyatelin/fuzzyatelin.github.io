@@ -1,0 +1,922 @@
+---
+title: "Intro to Survival Analysis"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    theme: readable
+    highlight: tango
+    css: styles.css
+date: "2025-04-20"
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+# **Preliminaries** 
+install.packages("survival")
+install.packages("survminer")
+install.packages("ggplot2")
+install.packages("cmprsk")
+install.packages("dplyr")
+install.packages("tidyr")
+install.packages("tidycmprsk")
+install.packages("patchwork")
+```
+
+# **Introduction to Survival Analysis**
+
+::: {style="text-align: center;"}
+<img src="https://www.acspri.org.au/sites/acspri.org.au/files/Surv%20Analysis.png" alt="Survival Analysis" width="60%"/>
+:::
+
+In this module, we’ll explore how to model time-to-event data using R.
+You’ll learn how to analyze and visualize a variety of methods to
+understand survival patterns — even when we don't have the complete data
+for every individual.
+
+## **Objectives**
+
+The objective of this module is to provide an applied introduction to
+survival analysis using R. To complete this module, prior familiarity
+with R syntax and basic statistical concepts such as regression and
+probability, is expected.
+
+## **What is Survival Analysis?**
+
+Imagine you’re tracking patients in a clinical trial to see how long it
+takes for them to recover. Not all patients finish the study, and some
+will never experience the event (recovery) — that’s where survival
+analysis comes in!
+
+Key Idea: Time-to-Event Data In survival analysis, we care not only
+about what happens, but **when** it happens.
+
+There are two ways to think about time in this framework:\
+- **Points**: The exact time an event occurs (e.g., someone relapses,
+dies, or gets a job)\
+- **Lines**: The duration from the start of observation until the event.
+This could be days, months, or even years.
+
+This structure makes survival analysis unique from other statistical
+models. It is built to handle **incomplete information** and **uncertain
+timing**.
+
+## **Key Concepts**
+
+-   **Time to event**: How long it takes until something happens\
+-   **Censoring**: When the event is not observed, but the data is still
+    usable\
+-   **Survival function**: Probability of surviving past time *t*\
+-   **Hazard function**: Instantaneous risk of the event occurring at
+    time *t*\
+-   **Hazard ratio**: Compares the risk between two groups (e.g.,
+    treated vs control)
+
+## **Types of Censoring**
+
+Survival analysis handles incomplete data using the concept of
+**censoring**:\
+![Censoring
+Example](https://webfocusinfocenter.informationbuilders.com/wfappent/TLs/TL_rstat/source/images/RStat_Censor.gif)
+
+-   **Right censoring (most common)**: The event hasn’t happened yet,
+    and we don't know when (e.g., someone is still alive at study’s
+    end)\
+-   **Left censoring**: The event has already occurred before
+    observation started\
+-   **Interval censoring**: The event happened between two known time
+    points
+
+## **A Bit of History**
+
+Survival analysis has deep historical roots. In 1662, **John Graunt**
+created one of the first **life tables** by analyzing London’s death
+records. His goal was to understand the patterns of mortality and
+lifespan — essentially starting the earliest form of population-based
+survival analysis.
+
+For centuries, survival analysis was primarily used to study death and
+mortality rates, especially in public health. In the last few decades,
+this method has grown beyond medicine.
+
+## **Core Functions**
+
+-   **Survival Function** $S(t) = P(T > t)$:\
+    Represents the probability that an event has **not** occurred by
+    time *t*
+
+-   **Hazard Function** $h(t)$:\
+    Represents the **instantaneous rate** at which the event occurs at
+    time *t*, given that the individual has survived up to that time\
+    \> "If someone has made it to time *t*, how likely are they to
+    experience the event **right now**?"
+
+-   **Hazard Ratio**\
+    $$HR = \frac{\text{Hazard when } x = 1}{\text{Hazard when } x = 0}$$\
+    Compares the risk between two groups\
+    \> Example: An HR = 2 means one group is **twice as likely** to
+    experience the event at a given moment than another group.
+
+## **Why Not Traditional Models?**
+
+![Traditional Models like linear regression
+assume:](https://imgs.xkcd.com/comics/probability.png)
+
+-   Every individual has a known outcome\
+-   No one drops out\
+-   The timing of events isn’t important
+
+But in the **real world**:\
+- Not everyone reaches the event\
+- People drop out\
+- Timing matters
+
+Survival analysis is **designed** for real-world situations!
+
+## **Useful Skills You’ll Learn Today**
+
+We will apply survival analysis techniques to five challenges using data
+from the `survival` package in R, including:\
+- **Kaplan-Meier Estimation**\
+- **Cox Proportional Hazards Model**\
+- **Time-Varying Covariates**\
+- **Group comparison**\
+- **evaluating average survival curves across different modeling
+frameworks**
+
+## **Using R for survival analysis**
+
+In this module, we'll be applying survival techniques using R. We'll
+focus on key functions such as:
+
+-   **survfit():** Estmates survival functions and generates
+    Kaplan-Meier curves.
+
+-   **coxph():** Fits the Cox proportional hazards model to analyze the
+    effects of covariates on survival
+
+These functions allow us to analyze time-to-event data and assess the
+effects of different variables on survival outcomes.
+
+# **Let's begin:**
+
+## **Challenge 1**
+
+### Fitting the Kaplan-Meier Survival Model
+
+The **Kaplan–Meier estimator**, also known as the **product limit
+estimator**, is a non-parametric statistic used to estimate the survival
+function from lifetime data. In medical research, it is often used to
+measure the fraction of patients living for a certain amount of time
+after treatment. In other fields, Kaplan–Meier estimators may be used to
+measure the length of time people remain unemployed after a job loss,
+the time-to-failure of machine parts, or in our case, the amount of time
+a patient survived after being diagnosed for a disease.
+
+For this challenge, we will start with a basic dataset of twelve Colon
+cancer patients in a study who have survived after diagnosis.
+
+We will now read the dataset (Csurv) which I prepared specially for this
+challenge:
+
+```{r}
+library(readxl)
+
+github_url <- "https://raw.githubusercontent.com/imcarlyy/survival_analysis/main/Csurv.xlsx"
+temp_file <- tempfile(fileext = ".xlsx")  # Create a temporary file
+download.file(github_url, temp_file, mode = "wb")  # 'wb' for binary (Excel files)
+Csurv <- read_excel(temp_file)  # Read the downloaded file
+unlink(temp_file)  # Delete the temporary file
+```
+
+Now I will check the names of the variables given in this table.
+
+```{r}
+names(Csurv)
+```
+
+```{r}
+attach(Csurv) #Since, the dataset is small (n=12) we can take a look at it entirely here:
+Csurv
+```
+
+It is very important to know while working with survival analysis
+datasets what the 0 and 1 stands for.
+
+In this example we are considering Death: 1=event has occurred (death)
+and 0=no event (they are censored; meaning they have left the study and
+hence we do not know whether they have data on them at the given point
+of time).
+
+So, in this dataset if we look at first column, the 1st individual died
+at 2 months from the start of the study (Time=2, Death=1), the 2nd
+individual was censored at 3 months (Time=3, Death=0), the 3rd
+individual died at 6 months (Time=6, Death=1) and so on.
+
+Now we will look into the Kaplan-Meier to fit into this dataset.
+
+In order to do this, we need to load the survival library into R. Now,
+the survival library is already built into base R, so we do not need to
+install this package, but we do need to load the package to use these
+survival commands.
+
+```{r}
+library(survival)
+```
+
+Now in order the fit the K-M model, we will use this survfit command and
+so I am going to fit a survival analysis, store it in an object called
+km.model:
+
+```{r}
+km.model<-survfit(Surv(Time, Death)~1, type="kaplan-meier")
+```
+
+Here, I am going to let R know the type is kaplan-meier (if we do not
+specify the type it will fit the kaplan-meier by default so it wouldn't
+have been an issue)
+
+Now the way we specify the survival time or the y variable is using a
+capital S; so it's Surv (survival) and then in parentheses we need to
+give it both the time the individual was followed for as well the
+indicator of whether the event occured (they died) or if they were
+censored {*Surv(Time, Death)* tilde 1} and the reason we have one here
+is that for this dataset we don't actually have any x variables. This is
+the way we let R know that we are just estimating survival without using
+any particular X variables.
+
+Now that the model has been fit, we can ask a few summaries...
+
+```{r}
+km.model #Summary of the K-M model
+```
+
+The output we are getting here is the total number of individuals is 12,
+number of events is 10 (10 deaths and 2 censored observations), median
+survival time so, in this case half the people survived beyond 15
+months, half did not. We have also returned a 95% confidence interval
+for the median which means that we are 95% confident that median
+survival is somewhere between 7 months and infinity. This dataset is
+very small so here we do not have a upper limit for confidence interval
+around the median survival.
+
+We can also ask for the summary of the model:
+
+```{r}
+summary(km.model)
+```
+
+Here we can see that at time 2, there were 12 individuals at risk, 1
+death occurred, the probability of surviving beyond 2 months is 91.7%.
+We also have a standard error associated with that survival (0.0798) as
+well as a 95% CI (ie. we are 95% confident that beyond 2 months the
+patients survival chances are between 77.3% upto a 100%). Similary, at
+time 6, there are 10 individuals at risk, 2 individuals died and so the
+probabilty of surviving beyond 6 months is 73.3%. Again, the standard
+error at 6 months is 0.1324 and we are 95% confident that there's
+somewhere between 51.5 upto 100% chance of surviving 6 months. Now these
+are extremely wide confidence intervals because the sample size is so
+small. This dataset is useful for introducing the idea of Kaplan-Meier
+survival model but for a real study, we would have a same size of much
+greater than 12.
+
+Now we can ask R to make a plot of this model. To do that we can ask R
+to plot the K-M model. So R will plot the Kaplan-Meier model that was
+fit saying confidence interval=F (or False). It tells R to not put a
+confidence interval around the survival function. xlab and ylab are
+giving the plot x-axis and y-axis labels and the main is the title.
+
+```{r}
+plot(km.model, conf.int=F, xlab="Time (months)",ylab="%Alive = S(t)", main="K-M Model")
+```
+
+As we can see, a plot of the Kaplan–Meier is a series of declining
+horizontal steps.
+
+Now if we wanted to we can ask R to put confidence interval or
+confidence bands around this survival function. To do so we would just
+set conf.int=T (or True). I will also set las=1 (this will rotate the
+values on the y-axis. So, here's what it will look like:
+
+```{r}
+plot(km.model, conf.int=T, xlab="Time (months)", ylab="%Alive = S(t)", main="K-M Model", las=1)
+```
+
+We can see now these dashed lines give us confidence interval around the
+survival function and we can also see that las = 1 argument rotated the
+values on y-axis.
+
+Now I am going to add a red horizontal line at S(t) = 50% into this
+plot:
+
+```{r}
+plot(km.model, conf.int=T, xlab="Time (months)", ylab="%Alive = S(t)", main="K-M Model", las=1)
+abline(h=0.5, col="red")
+```
+
+The red line is at 50% meaning 50% surviving 50% not. Hence, this is how
+we look at the median survival. Here the red line crosses the survival
+function right at the 15 months (this is our median). The red line
+passes the dashed line for lower limit at 7 months and it never hits the
+dashed line for upper limit (because of the smaller sample size).
+
+Now, I am going to produce the same plot again but added mark.time=TRUE
+and this will add in little tick marks wherever there was a censored
+observation. So if you remember there was observations censored at 3 and
+at 10 months. So, here's the code:
+
+```{r}
+plot(km.model, conf.int=T, xlab="Time (months)", ylab="%Alive = S(t)", main="K-M Model", las=1, mark.time=TRUE)
+```
+
+This helps us visualize where and when observations are censored.
+
+Now, let's include a x variable into fitting this model. I will continue
+on the same cancer patient dataset (those 12 individuals were all under
+40 years old) and will add in more data points and this is going to be a
+group of individuals who are over 40 years old (another column Over40
+will be added)
+
+```{r}
+rm(Csurv)
+library(readxl)
+
+github_url2 <- "https://raw.githubusercontent.com/imcarlyy/survival_analysis/main/Csurv40.xlsx"
+temp_file2 <- tempfile(fileext = ".xlsx")  # Creates a temporary file path
+download.file(github_url2, temp_file2, mode = "wb")  # Saves to temp_file2 (not temp_file)
+Csurv40 <- read_excel(temp_file2)  # Reads from temp_file2
+unlink(temp_file2)  # Deletes temp_file2
+```
+
+Taking a quick look at the new table:
+
+```{r}
+head(Csurv40)
+```
+
+```{r}
+tail(Csurv40)
+```
+
+Over40=0 : not over 40 years old; Over40=1: Over 40 years old
+
+Now let's fit the K-M Model (say km.model2), relating over/under40 to
+survival and see if there is a relationship between survival and age:
+
+```{r}
+km.model2<-survfit(Surv(Time, Death)~Over40, type="kaplan-meier", data=Csurv40)
+```
+
+Plotting this:
+
+```{r}
+plot(km.model2, conf.int=F, xlab="Time (months)", ylab="%Alive = S(t)", main="K-M Model", data=Csurv40) #conf.int=F, so we will not put the confidence bands on there for now.
+```
+
+As we can see, we clearly see a difference between under 40 and over 40
+groups: Under 40 groups have a higher chance of survival than over 40
+groups.
+
+Let's do some summaries:
+
+```{r}
+summary(km.model2)
+```
+
+```{r}
+km.model2
+```
+
+Now, let's make that same plot again but adding some colours, a legend
+and a tick at the time of censored events:
+
+```{r}
+plot(km.model2, conf.int=F, xlab="Time (months)", ylab="%Alive = S(t)", main="K-M Model", col=c("red","blue"), las=1, lwd=2, mark.time=TRUE, data=Csurv40 )
+
+legend(18, 0.95, legend=c("Under 40 years", "Over 40 years"), lty=1, lwd=2, col=c("red", "blue"), bty="",cex=0.6) #adding a legend
+```
+
+An important question:
+
+Are two survival functions are statistically significantly different? Or
+do you think that the survival differs if someone is over or under 40?
+
+YES! Survival (Probability of surviving beyond a certain time) changes
+depending on if someone's over or under 40. Here I will talk about the
+formal test for doing this.
+
+Here comes the **Log-Rank Test**: It is a way of testing if there is a
+significant difference between the two survival curve. It is also known
+as the Mantle Hansel test.
+
+```{r}
+#Log-Rank Test
+#Null Hypothesis: Survival for two groups is same
+#Hypothesis1: Survival for two groups is not same
+survdiff(Surv(Time, Death)~Over40, data=Csurv40)
+```
+
+Test-statistic is 4.8, the p-value is 0.03. Based on this small p-value,
+we can reject our null hypothesis. We have evidence to believe that
+survival is not the same depending on if you are over or under 40.
+
+## **Challenge 2:**
+
+### Cox proportional hazard model: Checking the proportional hazards assumption
+
+```{r}
+library(survival)
+library(survminer)
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+```
+
+Let's say you want to assess the role of different variables in your
+data in survival times. There are many models and methods to do so but
+the most common is to use the Cox Proportional Hazard model. First
+introduced in 1972, this model allows you to assess the hazard at a
+certain time given a specific covariate. In math terms, under the cox
+model our hazard function is:
+
+![](cox_hazard_function.png) Where the hazard at time t given your
+covariate X is equal to your baseline hazard function (with all
+covariates equal to 0), multiplied by your exponential function exp(BX),
+a multiplicative way of assessing the covariates influence on overall
+hazard.
+
+Let's load in our datasets.
+
+```{r}
+data(cancer)
+```
+
+As before we'll make a survival object based on some of our data. In
+this case let's use the lung cancer survival dataset:
+
+```{r}
+sv1 <- survfit(Surv(time, status) ~ 1, data = lung)
+```
+
+The Survival package makes fitting a CPH model to your data very easy,
+with just the coxph function. Say we wanted to fit a Cox regression
+based on age to our cancer mortality data:
+
+```{r}
+cx_age <- coxph(Surv(time, status) ~ age, data = lung)
+cx_age
+```
+
+However, the CPH model makes some assumptions!
+
+1.  The covariates that you're testing are constant over time.
+
+2.  Hazard ratios/proportions do not vary over time.
+
+The second one is the most important. Put simply it means that the
+proportion of hazard between groups in your model is the same at every
+time point. This is referred to as the "proportional hazards assumption"
+and is the reason it's called the Cox *Proportional Hazard* model. This
+limits the model's utility, and means that we need to test to see if our
+data can be used with the cox model. Luckily the survival package makes
+this pretty straightforward using the cox.zph() function:
+
+```{r}
+cox.zph(cx_age)
+```
+
+The function returns a p value of 0.56, which is far above even our
+least stringent alpha levels so we can be pretty confident that our age
+data does not violate the proportional hazard assumption. Hooray!
+
+Let's have a look at our cox model based on age again:
+
+```{r}
+cx_age
+```
+
+The coefficient is positive, so we're seeing a slight increase in the
+risk of an "event" (in this case death) due to age, with a significant
+p-value of 0.0419. Though note that this p-value is on the higher end,
+so we might want to take this result with a grain of salt.
+
+### Try it on your own!
+
+Fit a CPH model to the cancer data, looking at sex in addition to age.
+Does our model using sex violate the proportional hazard assumption? How
+does it's p-value compare to that of age? What might account for this?
+
+```{r}
+cx_sex <- coxph(Surv(time, status) ~ sex + age, data = lung)
+cox.zph(cx_sex)
+```
+
+```{r}
+cx_sex
+```
+
+Curiously, sex is showing a strong negative coefficient, indicating that
+it's having a strong protective effect (i.e. females are surviving
+longer than males in this dataset), and our p-value for that is 0.002,
+which is significant by most metrics! That said, if we look at the cox
+proportional hazard assumption test our p-value associated with sex is
+pretty low, at 0.11. This is a little concerning, since while we're
+still technically above an alpha threshold of 0.05, we might be
+concerned that our sex covariate is violating the proportional hazard
+assumption. What do our survival curves look like?
+
+```{r}
+plot_1 <- ggsurvplot(
+  survfit(Surv(time, status) ~ sex, data = lung),
+  legend.labs = c("Male", "Female"),
+  palette = c("purple","forestgreen"),
+  conf.int = T
+  )
+plot_1
+```
+
+Hmm, our survival plots seem to be drawing together towards the end of
+the timeframe we're looking at. Perhaps that accounts for the low
+p-value in our proportional hazard test. What happens if we remove the
+individuals near the ends of the curves?
+
+```{r}
+lung_short <- lung %>% 
+  filter(
+    time < 700
+  ) %>% 
+  filter(
+    time > 50
+  )
+cx_sex2 <- coxph(Surv(time, status) ~ sex + age, data = lung_short)
+cox.zph(cx_sex2)
+```
+
+```{r}
+ggsurvplot(
+  survfit(Surv(time, status) ~ sex, data = lung_short),
+  legend.labs = c("Male", "Female"),
+  palette = c("purple","forestgreen"),
+  conf.int = T
+  )
+```
+
+Ahh, interesting! If we omit the mortality events that occurred very
+early and very late in our time series data, the proportional hazard due
+to our sex variable becomes a lot more constant. Interestingly doing
+this also seems to drop our age p-value, but both are now far above what
+we would consider a significant violation of the proportional hazard
+assumption.
+
+## **Challenge 3:**
+
+Now let's try what we've learned with some other data sets. Have a look
+at the colon dataset provided by the survival package. This is a
+survival dataset for patients with colon cancer in a chemotherapy
+treatment trial, with the "rx" column indicating what treatment the
+patients received (either "Obs" for observation only, "rxLev" for
+treatment with just levamisole, or "rxLev + 5FU" for levamisole & the
+chemotherapy agent 5-FU). Does the rx covariate violate the proportional
+hazard assumption? What do the survival curves look like for this data
+when we segregate based on treatment? Does the chemotherapy seem to
+work?
+
+```{r}
+head(colon)
+```
+
+```{r}
+ggsurvplot(
+  survfit(Surv(time, status) ~ 1, data = colon),
+  conf.int = T
+  )
+```
+
+```{r}
+colon_cox <- coxph(Surv(time, status) ~ rx, data = colon)
+cox.zph(colon_cox)
+```
+
+```{r}
+colon_cox
+```
+
+```{r}
+ggsurvplot(
+  survfit(Surv(time, status) ~ rx, data = colon),
+  conf.int = T,
+  pval = T,
+  pval.method = T
+  )
+```
+
+## **Challenge 4:**
+
+One of the most common test in survival analysis is a nonparametric test
+known as **log-rank test,** which compares survival curves under the
+assumption of **proportional hazards**. It tests whether there is a
+**statistically significant difference** in survival between groups over
+time.
+
+$H_0: S_1(t) = S_2(t) \text{ for all } t$
+
+$H_A: S_1(t) \neq S_2(t) \text{ for some } t$
+
+The null hypothesis states that **survival functions** $S_1(t)$ and
+$S_2(t)$ for the two groups are **equal at all time points** $t$**,**
+there is **no difference in survival** between groups over time. While
+the alternative hypothesis states that the **survival functions** are
+**not equal at some time point** $t$, so there is **a difference** in
+survival between the two groups.
+
+How the log-rank test works is that is compares the **observed** number
+of events (e.g., deaths) in each group to the expected number under the
+assumptions that all group have the same survival experience. So it sums
+the differences over the entire study period.
+
+$X^2 = \frac{(O_1 - E_1)^2}{V_1}$
+
+Where:
+
+-   $O_1$ is the observed number of events in group 1
+
+-   $E_1$ is the expected number of events in group 1
+
+-   $V_1$ is the variance of difference
+
+-   This statistic follows the chi-squared distribution with 1 degree of
+    freedom
+
+In R, we will be using the `survdiff()` function from the `{survival}`
+package to perform comparisons between two groups.
+
+Lets first compare survival times between males and females in the
+`Lung` dataset to help us answer the question:
+
+-   Is there a statistically significant difference in survival times
+    between males and females?
+
+```{r}
+head(lung) #Display the first 6 rows of the lung dataset
+```
+
+Lets check if the survival curves follow the proportion hazard
+assumptions.
+
+```{r}
+# Fit a Cox Proportional Hazards model
+cox_m1 <- coxph(Surv(time, status) ~ sex, data = lung)
+
+# Test proportional hazards assumption
+cox_t1 <- cox.zph(cox_m1)
+
+# View the results
+cox_t1
+```
+
+The p-value for sex is greater than 0.05, then there is no evidence that
+proportional hazards assumption is violated for sex. Then we can move
+forward to perform the log-rank test between males and females.
+
+```{r}
+# Convert sex to a factor with appropriate labels
+lung$sex <- factor(lung$sex, levels = c(1, 2), labels = c("Male", "Female"))
+
+# Fit the Kaplan-Meier Survival Curves
+fit1 <- survfit(Surv(time, status) ~ sex, data = lung)
+
+# View the summary of the survival curves
+summary(fit1)
+```
+
+The `summary(fit)` tells us how the survival probabilities change over
+time for each male and female. Lets use our Kaplan-Meier survival curve
+from **Challenge 2** to visual the summary.
+
+```{r}
+# Dervived from Challenge 2
+plot_1
+```
+
+We can see that the female survival curve in the `lung` dataset have a
+higher survival probability as time progresses compared to the male.
+This suggests that females tend to live longer than males in the study.
+However, how do we know this difference is significant? We will perform
+our **log-rank test** using `survdiff()` function from the `{survival}`
+to compare the survival curves of females and males
+
+```{r}
+# Log-Rank Test
+logrank_test <- survdiff(Surv(time, status) ~ sex, data = lung)
+logrank_test
+```
+
+We reject the null hypothesis because the p-value is less than 0.05
+significance level (p = 0.001). There is sufficient enough evidence to
+support that there is a statistically significant difference in survival
+times between males and females in the `lung` dataset.
+
+Next, let's try to to fit a Cox Proportional model using Karnofsky
+performance score rated by physicians (ph.karno) as our predictor.
+
+How do the levels of performance rated by physicians compare to survival
+rate?
+
+First we would have to factor ph.karno into different levels (Low,
+Medium, High) to compare it to the survival rates. Then, we perform our
+Cox Proportional model:
+
+```{r}
+# Splitting the ph.Karno into different groups
+lung$karno_group <- cut(lung$ph.karno, breaks = c(0, 50, 75, 100), labels = c("Low", "Medium", "High"))
+
+# Cox Model with time-varying effect
+cox_m2 <- coxph(Surv(time, status) ~ lung$karno_group, data = lung)
+
+# Check the proportional hazards assumption
+cox.zph(cox_m2)
+```
+
+We see that we violate the proportional hazard assumptions because our
+p-value is less than the 0.05.
+
+So what happens if we violate the proportional hazards assumption?
+
+When we violate the proportion hazard assumption, it means the
+relationship between a covariate and the hazard rate is not constant
+over time. So the effect of that variable on survival changes as time
+progresses.
+
+The Cox Proportional Hazard model assumes that hazard ratios between
+groups are proportional and do not change over time. If this assumption
+is violated, the model may produce biased or misleading results.
+
+A common solution is to include time-varying covariates like we learned
+in challenge 3 to help us model the effects changed over time.
+
+In the lung dataset, a time-varying covariate would be weight loss
+(wt.loss) which we can use to model with the variable ph.karno (since
+this alone violate the assumptions).
+
+```{r}
+# Cox Proportional Model
+cox_m3 <- coxph(Surv(time, status) ~ karno_group + wt.loss, data = lung)
+
+# Checking assumptions 
+cox.zph(cox_m3)
+```
+
+After adding the time-varying co-variate of weight loss in the last 6
+months, we see that the karno_group no longer violates the assumptions
+of proportional hazard model. However, because karno_group alone
+violates the proportional hazard assumptions we cannot perform a
+log-rank test. We would have to use more complex test such as a
+stratified or weighted log-rank test.
+
+## **Challenge 5:**
+
+### Visualizing Competing Risks with CRR
+
+In survival analysis, when we have multiple potential causes of failure (like different types of deaths in our case), we use competing risks models. These models help us estimate the probability of an event happening while considering the influence of other competing events.
+
+CRR focuses on the cause-specific hazard: It models the effect of covariates (like sex) on the risk of death due to lung cancer while considering the competing risk of death due to other causes.
+
+Instead of estimating a single survival curve like we do with CoxPH, the CRR approach gives us Cumulative Incidence Functions (CIF), which represent the probability of experiencing a specific event over time, given the presence of competing risks.
+
+In this challenge, we'll simulate competing risks using the weight loss
+variable as an indicator for increased risk of death from causes other
+than cancer. This will give us a more realistic understanding of
+survival curves and competing risks.
+
+We’ll continue using the lung dataset and compare survival curves for
+sex, just like in Challenge 4, but this time we’ll simulate a competing
+event based on weight loss.
+
+Step 1: We will begin loading our necessary packages:
+
+```{r}
+
+library(cmprsk)  # For competing risks regression
+library(dplyr)   # For data wrangling
+library(ggplot2) # For visualization
+```
+
+Step 2: We will prepare the Lung dataset. Make sure the sex variable is
+treated as a factor (which it should be already, but just to be safe,
+we'll do it here).
+
+```{r}
+# Ensure 'sex' is a factor (in case it’s not already)
+str(lung)
+
+# Check the weight loss data
+summary(lung$wt.loss)
+```
+
+Step 3: We will simulate competing risks based on weight loss
+
+We'll create a competing risks variable (called cr_status) based on
+weight loss. The idea is that significant weight loss may be an
+indicator of more severe health decline, increasing the likelihood of
+death from other causes like cardiovascular issues or infection.
+
+For this challenge, we'll assume that wt.loss \> 5 kg correlates with a
+higher risk of death from other causes. We'll simulate a second event
+(competing risk) for patients who meet this threshold.
+
+So... Let's imagine that we have a group of lung cancer patients, and we
+notice that those who lose more than 5 kg of weight over the course of
+their illness are at a significantly higher risk of death from
+complications like infections or heart disease. This competing risk
+could potentially bias our CoxPH model, which we’ll compare against the
+CRR model.
+
+This is how it would like in our code:
+
+```{r}
+# Simulate a competing risk based on weight loss (wt.loss > 5 kg means a higher risk of death from other causes)
+lung$cr_status <- ifelse(lung$wt.loss > 5, 
+                          sample(c(1, 2), size = nrow(lung), replace = TRUE, prob = c(0.7, 0.3)),
+                          0)
+
+# Check the distribution of the new competing risk status
+table(lung$cr_status)
+```
+
+Here, we: 
+
+- Assign 1 for death from cancer (event of interest).
+
+- Assign 2 for death from another cause (competing event).
+
+- Assign 0 for censored data (patients still alive or lost to follow-up).
+
+
+Step 4: Fitting a Competing Risks Regression (CRR) Model 
+
+Now, we’ll fit the CRR model (Fine and Gray method) using the newly created competing risk variable (cr_status). This model explicitly accounts for the competing risk and helps us understand how survival probabilities change when competing risks are considered.
+
+```{r}
+# Fit a Competing Risks Regression model using Fine and Gray's method
+crr_model <- with(lung, crr(ftime = time, fstatus = cr_status, cov1 = model.matrix(~ sex)[, -1]))
+summary(crr_model)
+
+# Plot the cumulative incidence curves (CRR model)
+cif <- with(lung, cuminc(ftime = time, fstatus = cr_status, group = sex))
+
+# Plot the cumulative incidence curves
+plot(cif, xlab = "Time (Days)", ylab = "Cumulative Incidence",
+     main = "CRR Model: Cumulative Incidence by Sex",
+     col = c("blue", "red"))
+legend("bottomright", legend = names(cif), col = c("blue", "red"), lty = 1)
+
+```
+
+This will generate cumulative incidence functions (CIF), which show the
+probability of death from cancer (the event of interest) and death from
+other causes (competing event) over time, adjusted for sex.
+
+So again, what have we learned of CRR modeling?
+
+The CRR model explicitly accounts for competing risks, giving a more
+realistic picture of survival probabilities when studying specific
+causes of death.
+
+# **Conclusion:**
+
+Survival analysis is a powerful tool for studying the timing of events,
+especially when dealing with incomplete or censored data.\
+In this module, you’ve learned how to apply key survival analysis
+techniques in R, including the Kaplan-Meier estimator and Cox
+proportional hazards model. These methods are essential for analyzing
+real-world data where timing matters.
+
+By the end, all of you should feel more confident working with time-to-event
+data, interpreting survival curves, comparing groups, and understanding
+how risk changes over time! 
+
+# **References:**
+
+Bryan Lau, Stephen R. Cole, Stephen J. Gange, Competing Risk Regression
+Models for Epidemiologic Data, American Journal of Epidemiology, Volume
+170, Issue 2, 15 July 2009, Pages 244–256,
+<https://doi.org/10.1093/aje/kwp107>
+
+Camilleri, L. (2019, March 24). History of survival analysis. The Sunday
+Times of Malta, p. 53. Retrieved from
+<https://www.um.edu.mt/library/oar/handle/123456789/55748>
+
+Wikipedia contributors. (n.d.). Survival analysis. Wikipedia. Retrieved
+April 21, 2025, from <https://en.wikipedia.org/wiki/Survival_analysis>
+
+Zhang Z, Cortese G, Combescure C, Marshall R, Lee M, Lim HJ, Haller B;
+written on behalf of AME Big-Data Clinical Trial Collaborative Group.
+Overview of model validation for survival regression model with
+competing risks using melanoma study data. Ann Transl Med. 2018
+Aug;6(16):325. doi: 10.21037/atm.2018.07.38. PMID: 30364028; PMCID:
+PMC6186983.

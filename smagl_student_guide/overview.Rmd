@@ -112,6 +112,24 @@ To learn more about the SMAGL - who we are, what we do, where we do it, and how 
 
 ***
 
+## [Presenting Research from the SMAGL](https://fuzzyatelin.github.io/smagl_student_guide/smagl_presenting.html)
+
+***
+
+## [Letters of Recommendation from the SMAGL](https://fuzzyatelin.github.io/smagl_student_guide/smagl_letter.html)
+
+***
+
+## [Authorship and Collaboration in the SMAGL](https://fuzzyatelin.github.io/smagl_student_guide/smagl_authorship.html)
+
+***
+
+## [SMAGL Policy on Samples, Data, and Code](https://fuzzyatelin.github.io/smagl_student_guide/smagl_data.html)
+
+***
+
+## [SMAGL COVID-19 Protocols and Emergency Preparedness](https://fuzzyatelin.github.io/smagl_student_guide/smagl_covid.html)
+
 
 
 ***

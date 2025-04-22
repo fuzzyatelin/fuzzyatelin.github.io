@@ -1,0 +1,97 @@
+---
+title: "Intro to Survival Analysis"
+output: 
+  html_document: 
+  theme: readable 
+  toc: true 
+  toc_depth: 2 
+  number_sections: true
+  highlight: tango
+  toc_float: true
+date: "2025-04-20"
+---
+
+# **Preliminaries** 
+*(Packages used in R)* 
+
+# **Introduction to Survival Analysis** 
+<div style="text-align: center;">
+  <img src="https://www.acspri.org.au/sites/acspri.org.au/files/Surv%20Analysis.png" alt="Survival Analysis" width="60%">
+</div>
+In this module, we’ll explore how to model time-to-event data using R. You’ll learn how to analyze and visualize a variety of methods to understand survival patterns — even when we don't have the complete data for every individual.
+
+# **Objectives** 
+The objective of this module is to provide an applied introduction to survival analysis using R. To complete this module, prior familiarity with R syntax and basic statistical concepts such as regression and probability, is expected.
+
+# **What is Survival Analysis?**
+Imagine you’re tracking patients in a clinical trial to see how long it takes for them to recover. Not all patients finish the study, and some will never experience the event (recovery) — that’s where survival analysis comes in!
+
+Key Idea: Time-to-Event Data 
+In survival analysis, we care not only about what happens, but **when** it happens.  
+
+There are two ways to think about time in this framework:  
+- **Points**: The exact time an event occurs (e.g., someone relapses, dies, or gets a job)  
+- **Lines**: The duration from the start of observation until the event. This could be days, months, or even years.  
+
+This structure makes survival analysis unique from other statistical models. It is built to handle **incomplete information** and **uncertain timing**.  
+
+# **Key Concepts**  
+- **Time to event**: How long it takes until something happens  
+- **Censoring**: When the event is not observed, but the data is still usable  
+- **Survival function**: Probability of surviving past time *t*  
+- **Hazard function**: Instantaneous risk of the event occurring at time *t*  
+- **Hazard ratio**: Compares the risk between two groups (e.g., treated vs control)  
+
+# **Types of Censoring**  
+Survival analysis handles incomplete data using the concept of **censoring**:  
+![Censoring Example](https://webfocusinfocenter.informationbuilders.com/wfappent/TLs/TL_rstat/source/images/RStat_Censor.gif)
+
+- **Right censoring (most common)**: The event hasn’t happened yet, and we don't know when (e.g., someone is still alive at study’s end)  
+- **Left censoring**: The event has already occurred before observation started  
+- **Interval censoring**: The event happened between two known time points  
+
+# **A Bit of History**  
+Survival analysis has deep historical roots. In 1662, **John Graunt** created one of the first **life tables** by analyzing London’s death records. His goal was to understand the patterns of mortality and lifespan — essentially starting the earliest form of population-based survival analysis.  
+
+For centuries, survival analysis was primarily used to study death and mortality rates, especially in public health. In the last few decades, this method has grown beyond medicine.  
+
+# **Core Functions**  
+- **Survival Function** $S(t) = P(T > t)$:  
+  Represents the probability that an event has **not** occurred by time *t*  
+
+- **Hazard Function** $h(t)$:  
+  Represents the **instantaneous rate** at which the event occurs at time *t*, given that the individual has survived up to that time  
+  > "If someone has made it to time *t*, how likely are they to experience the event **right now**?"  
+
+- **Hazard Ratio**  
+  $$HR = \frac{\text{Hazard when } x = 1}{\text{Hazard when } x = 0}$$  
+  Compares the risk between two groups  
+  > Example: An HR = 2 means one group is **twice as likely** to experience the event at a given moment than another group.  
+
+# **Why Not Traditional Models?**  
+![Traditional Models like linear regression assume:](https://imgs.xkcd.com/comics/probability.png)
+
+- Every individual has a known outcome  
+- No one drops out  
+- The timing of events isn’t important  
+
+But in the **real world**:  
+- Not everyone reaches the event  
+- People drop out  
+- Timing matters  
+
+Survival analysis is **designed** for real-world situations!  
+
+# **Useful Skills You’ll Learn Today**  
+We will apply survival analysis techniques to five challenges using data from the `survival` package in R, including:  
+- **Kaplan-Meier Estimation**  
+- **Cox Proportional Hazards Model**  
+- **Time-Varying Covariates**  
+- **Group comparison**  
+- **Checking the Proportional Hazards Assumption**  
+
+# **Conclusion**  
+Survival analysis is a powerful tool for studying the timing of events, especially when dealing with incomplete or censored data.  
+In this module, you’ve learned how to apply key survival analysis techniques in R, including the Kaplan-Meier estimator and Cox proportional hazards model. These methods are essential for analyzing real-world data where timing matters.  
+
+By the end, you should feel more confident working with time-to-event data, interpreting survival curves, comparing groups, and understanding how risk changes over time.

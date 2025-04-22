@@ -1,0 +1,175 @@
+---
+title: "Survival Analysis intro part"
+author: "Soumalya"
+format: html
+editor: visual
+---
+
+# Fitting the Kaplan Meier Survival Model
+
+For this challenge, we will start with a basic dataset of twelve Cancer patients in a study who have survived after diagnosis.
+
+We will now read the dataset (Csurv) which I prepared specially for this challenge:
+
+```{r}
+install.packages("readxl", repos = "https://cloud.r-project.org") #Installing this package for reading excel files
+
+library(readxl) # Loading the package
+
+Csurv <- read_excel("/Users/soumalyaghorui/AN 588/Survival Analysis (Group Project)/survival_analysis/Csurv.xlsx") # Reading the Excel file
+```
+
+Now I will check the names of the variables given in this table.
+
+```{r}
+names(Csurv)
+```
+
+```{r}
+attach(Csurv) #Since, the dataset is small (n=12) we can take a look at it entirely here:
+Csurv
+```
+
+It is very important to know while working with survival analysis datasets what the 0 and 1 stands for.
+
+In this example we are considering Death: 1=event has occurred (death) and 0=no event (they are censored; meaning they have left the study and hence we do not know whether they have data on them at the given point of time).
+
+So, in this dataset if we look at first column, the 1st individual died at 2 months from the start of the study (Time=2, Death=1), the 2nd individual was censored at 3 months (Time=3, Death=0), the 3rd individual died at 6 months (Time=6, Death=1) and so on.
+
+Now we will look into the Kaplan-Meier to fit into this dataset.
+
+In order to do this, we need to load the survival library into R. Now, the survival library is already built into base R, so we do not need to install this package, but we do need to load the package to use these survival commands.
+
+```{r}
+library(survival)
+```
+
+Now in order the fit the K-M model, we will use this survfit command and so I am going to fit a survival analysis, store it in an object called km.model:
+
+```{r}
+km.model<-survfit(Surv(Time, Death)~1, type="kaplan-meier")
+```
+
+Here, I am going to let R know the type is kaplan-meier (if we do not specify the type it will fit the kaplan-meier by default so it wouldn't have been an issue)
+
+Now the way we specify the survival time or the y variable is using a capital S; so it's Surv (survival) and then in parentheses we need to give it both the time the individual was followed for as well the indicator of whether the event occured (they died) or if they were censored {*Surv(Time, Death)* tilde 1} and the reason we have one here is that for this dataset we don't actually have any x variables. This is the way we let R know that we are just estimating survival without using any particular X variables.
+
+Now that the model has been fit, we can ask a few summaries...
+
+```{r}
+km.model #Summary of the K-M model
+```
+
+The output we are getting here is the total number of individuals is 12, number of events is 10 (10 deaths and 2 censored observations), median survival time so, in this case half the people survived beyond 15 months, half did not. We have also returned a 95% confidence interval for the median which means that we are 95% confident that median survival is somewhere between 7 months and infinity. This dataset is very small so here we do not have a upper limit for confidence interval around the median survival.
+
+We can also ask for the summary of the model:
+
+```{r}
+summary(km.model)
+```
+
+Here we can see that at time 2, there were 12 individuals at risk, 1 death occurred, the probability of surviving beyond 2 months is 91.7%. We also have a standard error associated with that survival (0.0798) as well as a 95% CI (ie. we are 95% confident that beyond 2 months the patients survival chances are between 77.3% upto a 100%). Similary, at time 6, there are 10 individuals at risk, 2 individuals died and so the probabilty of surviving beyond 6 months is 73.3%. Again, the standard error at 6 months is 0.1324 and we are 95% confident that there's somewhere between 51.5 upto 100% chance of surviving 6 months. Now these are extremely wide confidence intervals because the sample size is so small. This dataset is useful for introducing the idea of Kaplan-Meier survival model but for a real study, we would have a same size of much greater than 12.
+
+Now we can ask R to make a plot of this model. To do that we can ask R to plot the K-M model. So R will plot the Kaplan-Meier model that was fit saying confidence interval=F (or False). It tells R to not put a confidence interval around the survival function. xlab and ylab are giving the plot x-axis and y-axis labels and the main is the title.
+
+```{r}
+plot(km.model, conf.int=F, xlab="Time (months)",ylab="%Alive = S(t)", main="K-M Model")
+```
+
+Now if we wanted to we can ask R to put confidence interval or confidence bands around this survival function. To do so we would just set conf.int=T (or True). I will also set las=1 (this will rotate the values on the y-axis. So, here's what it will look like:
+
+```{r}
+plot(km.model, conf.int=T, xlab="Time (months)", ylab="%Alive = S(t)", main="K-M Model", las=1)
+```
+
+We can see now these dashed lines give us confidence interval around the survival function and we can also see that las = 1 argument rotated the values on y-axis.
+
+Now I am going to add a red horizontal line at S(t) = 50% into this plot:
+
+```{r}
+plot(km.model, conf.int=T, xlab="Time (months)", ylab="%Alive = S(t)", main="K-M Model", las=1)
+abline(h=0.5, col="red")
+```
+
+The red line is at 50% meaning 50% surviving 50% not. Hence, this is how we look at the median survival. Here the red line crosses the survival function right at the 15 months (this is our median). The red line passes the dashed line for lower limit at 7 months and it never hits the dashed line for upper limit (because of the smaller sample size).
+
+Now, I am going to produce the same plot again but added mark.time=TRUE and this will add in little tick marks wherever there was a censored observation. So if you remember there was observations censored at 3 and at 10 months. So, here's the code:
+
+```{r}
+plot(km.model, conf.int=T, xlab="Time (months)", ylab="%Alive = S(t)", main="K-M Model", las=1, mark.time=TRUE)
+```
+
+This helps us visualize where and when observations are censored.
+
+Now, let's include a x variable into fitting this model. I will continue on the same cancer patient dataset (those 12 individuals were all under 40 years old) and will add in more data points and this is going to be a group of individuals who are over 40 years old (another column Over40 will be added)
+
+```{r}
+detach(Csurv)
+rm(Csurv)
+
+library(readxl) # Loading the package
+
+#and then read in the CsurvO40 dataset
+Csurv40 <- read_excel("/Users/soumalyaghorui/AN 588/Survival Analysis (Group Project)/survival_analysis/Csurv40.xlsx")
+```
+
+Taking a quick look at the new table:
+
+```{r}
+head(Csurv40)
+```
+
+```{r}
+tail(Csurv40)
+```
+
+Over40=0 : not over 40 years old; Over40=1: Over 40 years old
+
+Now let's fit the K-M Model (say km.model2), relating over/under40 to survival and see if there is a relationship between survival and age:
+
+```{r}
+km.model2<-survfit(Surv(Time, Death)~Over40, type="kaplan-meier", data=Csurv40)
+```
+
+Plotting this:
+
+```{r}
+plot(km.model2, conf.int=F, xlab="Time (months)", ylab="%Alive = S(t)", main="K-M Model", data=Csurv40) #conf.int=F, so we will not put the confidence bands on there for now.
+```
+
+As we can see, we clearly see a difference between under 40 and over 40 groups: Under 40 groups have a higher chance of survival than over 40 groups.
+
+Let's do some summaries:
+
+```{r}
+summary(km.model2)
+```
+
+```{r}
+km.model2
+```
+
+Now, let's make that same plot again but adding some colours, a legend and a tick at the time of censored events:
+
+```{r}
+plot(km.model2, conf.int=F, xlab="Time (months)", ylab="%Alive = S(t)", main="K-M Model", col=c("red","blue"), las=1, lwd=2, mark.time=TRUE, data=Csurv40 )
+
+legend(18, 0.95, legend=c("Under 40 years", "Over 40 years"), lty=1, lwd=2, col=c("red", "blue"), bty="",cex=0.6) #adding a legend
+```
+
+An important question:
+
+Are two survival functions are statistically significantly different? Or do you think that the survival differs if someone is over or under 40?
+
+YES! Survival (Probabilty of surviving beyond a certain time) changes depending on if someone's over or under 40. Here I will talk about the formal test for doing this.
+
+Here comes the **Log-Rank Test**: It is a way of testing if there is a significant difference between the two survival curve. It is also known as the Mantle Hansel test.
+
+```{r}
+#Log-Rank Test
+#Null Hypothesis: Survival for two groups is same
+#Hypothesis1: Survival for two groups is not same
+survdiff(Surv(Time, Death)~Over40, data=Csurv40)
+```
+
+Test-statistic is 4.8, the p-value is 0.03. Based on this small p-value, we can reject our null hypothesis. We have evidence to believe that survival is not the same depending on if you are over or under 40.

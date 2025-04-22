@@ -1,0 +1,131 @@
+---
+title: "Challenge 4"
+format: html_document
+editor: visual
+---
+
+#### Challenge 4
+
+One of the most common test in survival analysis is a nonparametric test known as **log-rank test,** which compares survival curves under the assumption of **proportional hazards**. It tests whether there is a **statistically significant difference** in survival between $I$ groups over time.
+
+The hypotheses are:
+
+$H_0: S_1(t) = S_2(t) = \dots = S_I(t) \text{ for all } t$
+
+$H_A: S_m(t) \neq S_n(t) \text{ for some } t \text{ and } m \neq n$
+
+where $t$ denotes time. The null hypothesis states that **survival functions** $S_i(t)$ are **equal at all time points** $t$, i.e. there is **no difference in survival** between groups over time; the alternative hypothesis states that the at least two **survival functions** are **not equal at some time point** $t$, i.e. there is **a difference** in survival between some two groups.
+
+The log-rank test compares the **observed** number of events (e.g. deaths) in each group to the **expected** number under the assumptions that all group have the same survival experience. The formula for the test statistics is given by:
+
+$\chi^2_i = \frac{(\sum_{j=1}^{J} O_{ij} - E_{ij})^2}{\sum_{j=1}^{J} V_{ij}}  \text{ for } i = 1,2,..., I$
+
+Where:
+
+-   $I$ is the number of groups, $J$ the number of time points
+
+-   $N_{ij}$ is the number of subjects at risk for group $i$, $N_j = \sum_{i=1}^I N_{ij}$
+
+-   $O_{ij}$ is the observed number of events in group $i$ at time point $j$, $O_j = \sum_{i=1}^{I} O_{ij}$
+
+-   $E_{ij} = O_j \frac{N_{ij}}{N_j}$ is the expected number of events in group $i$ at time point $j$
+
+-   $V_{ij} = E_{ij} (\frac{N_j - O_j}{N_j}) (\frac{N_j - N_{ij}}{N_j - 1})$
+
+This statistic follows the chi-squared distribution with 1 degree of freedom. Typically, we perform the log-rank test in the case where we compare two groups, so $I=2$.
+
+In R, we will be using the `survdiff()` function from the `survival` package to perform comparisons between two groups.
+
+Lets first compare survival times between males and females in the `Lung` dataset to help us answer the question:
+
+-   Is there a statistically significant difference in survival times between males and females?
+
+```{r}
+library(survival)
+head(lung) #Display the first 6 rows of the lung dataset
+```
+
+Lets check if the survival curves follow the proportion hazard assumptions.
+
+```{r}
+# Fit a Cox Proportional Hazards model
+cox_m1 <- coxph(Surv(time, status) ~ sex, data = lung)
+
+# Test proportional hazards assumption
+cox_t1 <- cox.zph(cox_m1)
+
+# View the results
+cox_t1
+```
+
+The p-value for sex is greater than 0.05, then there is no evidence that proportional hazards assumption is violated for sex. Then we can move forward to perform the log-rank test between males and females.
+
+```{r}
+# Convert sex to a factor with appropriate labels
+lung$sex <- factor(lung$sex, levels = c(1, 2), labels = c("Male", "Female"))
+
+# Fit the Kaplan-Meier Survival Curves
+fit1 <- survfit(Surv(time, status) ~ sex, data = lung)
+
+# View the summary of the survival curves
+summary(fit1)
+```
+
+`summary(fit)` tells us how the survival probabilities change over time for each male and female. To visualize this we can plot the the survival curves (Kaplan-Meier) for males and females using `ggsurvplot()` from the `survminer` package.
+
+```{r}
+library(survminer)
+ggsurvplot(fit1, data = lung, pval = TRUE, conf.int = TRUE, 
+           title = "Survival Comparison: Males vs Females",
+           xlab = "Survival Time (Days)", ylab = "Survival Probability")
+```
+
+We can see that the female survival curve in the `lung` dataset have a higher survival probability as time progresses compared to the male. This suggests that females tend to live longer than males in the study. However, how do we know this difference is significant? We will perform our **log-rank test** using `survdiff()` function from the `survival` to compare the survival curves of females and males:
+
+```{r}
+# Log-Rank Test
+logrank_test <- survdiff(Surv(time, status) ~ sex, data = lung)
+logrank_test
+```
+
+Since our p-value of 0.001 is less than the significance level at 0.05, we reject the null hypothesis as there is sufficient evidence to support that there is a statistically significant difference in survival times between males and females in the `lung` dataset.
+
+Next, let's try to to fit a Cox Proportional model using Karnofsky performance score rated by physicians (ph.karno) as our predictor.
+
+How do the levels of performance rated by physicians compare to survival rate?
+
+First we would have to factor ph.karno into different levels (Low, Medium, High) to compare it to the survival rates. Then, we perform our Cox Proportional model:
+
+```{r}
+# Splitting the ph.Karno into different groups
+lung$karno_group <- cut(lung$ph.karno, breaks = c(0, 50, 75, 100), labels = c("Low", "Medium", "High"))
+
+# Cox Model with time-varying effect
+cox_m2 <- coxph(Surv(time, status) ~ lung$karno_group, data = lung)
+
+# Check the proportional hazards assumption
+cox.zph(cox_m2)
+
+```
+
+We see that we violate the proportional hazard assumptions because our p-value is less than the 0.05.
+
+So what happens if we violate the proportional hazards assumption?
+
+When we violate the proportion hazard assumption, it means the relationship between a covariate and the hazard rate is not constant over time. So the effect of that variable on survival changes as time progresses.
+
+The Cox Proportional Hazard model assumes that hazard ratios between groups are proportional and do not change over time. If this assumption is violated, the model may produce biased or misleading results.
+
+A common solution is to include time-varying covariates like we learned in challenge 3 to help us model the effects changed over time.
+
+In the `lung` dataset, a time-varying covariate would be weight loss (wt.loss) which we can use to model with the variable ph.karno (since this alone violate the assumptions).
+
+```{r}
+# Cox Proportional Model
+cox_m3 <- coxph(Surv(time, status) ~ karno_group + wt.loss, data = lung)
+
+# Checking assumptions 
+cox.zph(cox_m3)
+```
+
+After adding the time-varying co-variate of weight loss in the last 6 months, we see that the karno_group no longer violates the assumptions of proportional hazard model. However, because karno_group alone violates the proportional hazard assumptions we cannot perform a log-rank test. We would have to use more complex test such as a stratified or weighted log-rank test.

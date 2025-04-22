@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Introduction to Survival Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Final_Project Code_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Final_Project Code_files/libs/quarto-html/quarto.js"></script>
+<script src="Final_Project Code_files/libs/quarto-html/popper.min.js"></script>
+<script src="Final_Project Code_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Final_Project Code_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Final_Project Code_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Final_Project Code_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Final_Project Code_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Final_Project Code_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Final_Project Code_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Introduction to Survival Analysis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="challenge-4" class="level4">
+<h4 class="anchored" data-anchor-id="challenge-4">Challenge 4</h4>
+<p>One of the most common test in survival analysis is a nonparametric test known as <strong>log-rank test,</strong> which compares survival curves under the assumption of <strong>proportional hazards</strong>. It tests whether there is a <strong>statistically significant difference</strong> in survival between groups over time.</p>
+<p><span class="math inline">\(H_0: S_1(t) = S_2(t) \text{ for all } t\)</span></p>
+<p><span class="math inline">\(H_A: S_1(t) \neq S_2(t) \text{ for some } t\)</span></p>
+<p>The null hypothesis states that <strong>survival functions</strong> <span class="math inline">\(S_1(t)\)</span> and <span class="math inline">\(S_2(t)\)</span> for the two groups are <strong>equal at all time points</strong> <span class="math inline">\(t\)</span><strong>,</strong> there is <strong>no difference in survival</strong> between groups over time. While the alternative hypothesis states that the <strong>survival functions</strong> are <strong>not equal at some time point</strong> <span class="math inline">\(t\)</span>, so there is <strong>a difference</strong> in survival between the two groups.</p>
+<p>How the log-rank test works is that is compares the <strong>observed</strong> number of events (e.g., deaths) in each group to the expected number under the assumptions that all group have the same survival experience. So it sums the differences over the entire study period.</p>
+<p><span class="math inline">\(X^2 = \frac{(O_1 - E_1)^2}{V_1}\)</span></p>
+<p>Where:</p>
+<ul>
+<li><p><span class="math inline">\(O_1\)</span> is the observed number of events in group 1</p></li>
+<li><p><span class="math inline">\(E_1\)</span> is the expected number of events in group 1</p></li>
+<li><p><span class="math inline">\(V_1\)</span> is the variance of difference</p></li>
+<li><p>This statistic follows the chi-squared distribution with 1 degree of freedom</p></li>
+</ul>
+<p>In R, we will be using the <code>survdiff()</code> function from the <code>{survival}</code> package to perform comparisons between two groups.</p>
+<p>Lets first compare survival times between males and females in the <code>Lung</code> dataset to help us answer the question:</p>
+<ul>
+<li>Is there a statistically significant difference in survival times between males and females?</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lung) <span class="co">#Display the first 6 rows of the lung dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  inst time status age sex ph.ecog ph.karno pat.karno meal.cal wt.loss
+1    3  306      2  74   1       1       90       100     1175      NA
+2    3  455      2  68   1       0       90        90     1225      15
+3    3 1010      1  56   1       0       90        90       NA      15
+4    5  210      2  57   1       1       90        60     1150      11
+5    1  883      2  60   1       0      100        90       NA       0
+6   12 1022      1  74   1       1       50        80      513       0</code></pre>
+</div>
+</div>
+<p>Lets check if the survival curves follow the proportion hazard assumptions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a Cox Proportional Hazards model</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>cox_m1 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> sex, <span class="at">data =</span> lung)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Test proportional hazards assumption</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>cox_t1 <span class="ot">&lt;-</span> <span class="fu">cox.zph</span>(cox_m1)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># View the results</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>cox_t1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       chisq df     p
+sex     2.86  1 0.091
+GLOBAL  2.86  1 0.091</code></pre>
+</div>
+</div>
+<p>The p-value for sex is greater than 0.05, then there is no evidence that proportional hazards assumption is violated for sex. Then we can move forward to perform the log-rank test between males and females.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert sex to a factor with appropriate labels</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>lung<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(lung<span class="sc">$</span>sex, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the Kaplan-Meier Survival Curves</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">survfit</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> sex, <span class="at">data =</span> lung)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># View the summary of the survival curves</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call: survfit(formula = Surv(time, status) ~ sex, data = lung)
+
+                sex=Male 
+ time n.risk n.event survival std.err lower 95% CI upper 95% CI
+   11    138       3   0.9783  0.0124       0.9542        1.000
+   12    135       1   0.9710  0.0143       0.9434        0.999
+   13    134       2   0.9565  0.0174       0.9231        0.991
+   15    132       1   0.9493  0.0187       0.9134        0.987
+   26    131       1   0.9420  0.0199       0.9038        0.982
+   30    130       1   0.9348  0.0210       0.8945        0.977
+   31    129       1   0.9275  0.0221       0.8853        0.972
+   53    128       2   0.9130  0.0240       0.8672        0.961
+   54    126       1   0.9058  0.0249       0.8583        0.956
+   59    125       1   0.8986  0.0257       0.8496        0.950
+   60    124       1   0.8913  0.0265       0.8409        0.945
+   65    123       2   0.8768  0.0280       0.8237        0.933
+   71    121       1   0.8696  0.0287       0.8152        0.928
+   81    120       1   0.8623  0.0293       0.8067        0.922
+   88    119       2   0.8478  0.0306       0.7900        0.910
+   92    117       1   0.8406  0.0312       0.7817        0.904
+   93    116       1   0.8333  0.0317       0.7734        0.898
+   95    115       1   0.8261  0.0323       0.7652        0.892
+  105    114       1   0.8188  0.0328       0.7570        0.886
+  107    113       1   0.8116  0.0333       0.7489        0.880
+  110    112       1   0.8043  0.0338       0.7408        0.873
+  116    111       1   0.7971  0.0342       0.7328        0.867
+  118    110       1   0.7899  0.0347       0.7247        0.861
+  131    109       1   0.7826  0.0351       0.7167        0.855
+  132    108       2   0.7681  0.0359       0.7008        0.842
+  135    106       1   0.7609  0.0363       0.6929        0.835
+  142    105       1   0.7536  0.0367       0.6851        0.829
+  144    104       1   0.7464  0.0370       0.6772        0.823
+  147    103       1   0.7391  0.0374       0.6694        0.816
+  156    102       2   0.7246  0.0380       0.6538        0.803
+  163    100       3   0.7029  0.0389       0.6306        0.783
+  166     97       1   0.6957  0.0392       0.6230        0.777
+  170     96       1   0.6884  0.0394       0.6153        0.770
+  175     94       1   0.6811  0.0397       0.6076        0.763
+  176     93       1   0.6738  0.0399       0.5999        0.757
+  177     92       1   0.6664  0.0402       0.5922        0.750
+  179     91       2   0.6518  0.0406       0.5769        0.736
+  180     89       1   0.6445  0.0408       0.5693        0.730
+  181     88       2   0.6298  0.0412       0.5541        0.716
+  183     86       1   0.6225  0.0413       0.5466        0.709
+  189     83       1   0.6150  0.0415       0.5388        0.702
+  197     80       1   0.6073  0.0417       0.5309        0.695
+  202     78       1   0.5995  0.0419       0.5228        0.687
+  207     77       1   0.5917  0.0420       0.5148        0.680
+  210     76       1   0.5839  0.0422       0.5068        0.673
+  212     75       1   0.5762  0.0424       0.4988        0.665
+  218     74       1   0.5684  0.0425       0.4909        0.658
+  222     72       1   0.5605  0.0426       0.4829        0.651
+  223     70       1   0.5525  0.0428       0.4747        0.643
+  229     67       1   0.5442  0.0429       0.4663        0.635
+  230     66       1   0.5360  0.0431       0.4579        0.627
+  239     64       1   0.5276  0.0432       0.4494        0.619
+  246     63       1   0.5192  0.0433       0.4409        0.611
+  267     61       1   0.5107  0.0434       0.4323        0.603
+  269     60       1   0.5022  0.0435       0.4238        0.595
+  270     59       1   0.4937  0.0436       0.4152        0.587
+  283     57       1   0.4850  0.0437       0.4065        0.579
+  284     56       1   0.4764  0.0438       0.3979        0.570
+  285     54       1   0.4676  0.0438       0.3891        0.562
+  286     53       1   0.4587  0.0439       0.3803        0.553
+  288     52       1   0.4499  0.0439       0.3716        0.545
+  291     51       1   0.4411  0.0439       0.3629        0.536
+  301     48       1   0.4319  0.0440       0.3538        0.527
+  303     46       1   0.4225  0.0440       0.3445        0.518
+  306     44       1   0.4129  0.0440       0.3350        0.509
+  310     43       1   0.4033  0.0441       0.3256        0.500
+  320     42       1   0.3937  0.0440       0.3162        0.490
+  329     41       1   0.3841  0.0440       0.3069        0.481
+  337     40       1   0.3745  0.0439       0.2976        0.471
+  353     39       2   0.3553  0.0437       0.2791        0.452
+  363     37       1   0.3457  0.0436       0.2700        0.443
+  364     36       1   0.3361  0.0434       0.2609        0.433
+  371     35       1   0.3265  0.0432       0.2519        0.423
+  387     34       1   0.3169  0.0430       0.2429        0.413
+  390     33       1   0.3073  0.0428       0.2339        0.404
+  394     32       1   0.2977  0.0425       0.2250        0.394
+  428     29       1   0.2874  0.0423       0.2155        0.383
+  429     28       1   0.2771  0.0420       0.2060        0.373
+  442     27       1   0.2669  0.0417       0.1965        0.362
+  455     25       1   0.2562  0.0413       0.1868        0.351
+  457     24       1   0.2455  0.0410       0.1770        0.341
+  460     22       1   0.2344  0.0406       0.1669        0.329
+  477     21       1   0.2232  0.0402       0.1569        0.318
+  519     20       1   0.2121  0.0397       0.1469        0.306
+  524     19       1   0.2009  0.0391       0.1371        0.294
+  533     18       1   0.1897  0.0385       0.1275        0.282
+  558     17       1   0.1786  0.0378       0.1179        0.270
+  567     16       1   0.1674  0.0371       0.1085        0.258
+  574     15       1   0.1562  0.0362       0.0992        0.246
+  583     14       1   0.1451  0.0353       0.0900        0.234
+  613     13       1   0.1339  0.0343       0.0810        0.221
+  624     12       1   0.1228  0.0332       0.0722        0.209
+  643     11       1   0.1116  0.0320       0.0636        0.196
+  655     10       1   0.1004  0.0307       0.0552        0.183
+  689      9       1   0.0893  0.0293       0.0470        0.170
+  707      8       1   0.0781  0.0276       0.0390        0.156
+  791      7       1   0.0670  0.0259       0.0314        0.143
+  814      5       1   0.0536  0.0239       0.0223        0.128
+  883      3       1   0.0357  0.0216       0.0109        0.117
+
+                sex=Female 
+ time n.risk n.event survival std.err lower 95% CI upper 95% CI
+    5     90       1   0.9889  0.0110       0.9675        1.000
+   60     89       1   0.9778  0.0155       0.9478        1.000
+   61     88       1   0.9667  0.0189       0.9303        1.000
+   62     87       1   0.9556  0.0217       0.9139        0.999
+   79     86       1   0.9444  0.0241       0.8983        0.993
+   81     85       1   0.9333  0.0263       0.8832        0.986
+   95     83       1   0.9221  0.0283       0.8683        0.979
+  107     81       1   0.9107  0.0301       0.8535        0.972
+  122     80       1   0.8993  0.0318       0.8390        0.964
+  145     79       2   0.8766  0.0349       0.8108        0.948
+  153     77       1   0.8652  0.0362       0.7970        0.939
+  166     76       1   0.8538  0.0375       0.7834        0.931
+  167     75       1   0.8424  0.0387       0.7699        0.922
+  182     71       1   0.8305  0.0399       0.7559        0.913
+  186     70       1   0.8187  0.0411       0.7420        0.903
+  194     68       1   0.8066  0.0422       0.7280        0.894
+  199     67       1   0.7946  0.0432       0.7142        0.884
+  201     66       2   0.7705  0.0452       0.6869        0.864
+  208     62       1   0.7581  0.0461       0.6729        0.854
+  226     59       1   0.7452  0.0471       0.6584        0.843
+  239     57       1   0.7322  0.0480       0.6438        0.833
+  245     54       1   0.7186  0.0490       0.6287        0.821
+  268     51       1   0.7045  0.0501       0.6129        0.810
+  285     47       1   0.6895  0.0512       0.5962        0.798
+  293     45       1   0.6742  0.0523       0.5791        0.785
+  305     43       1   0.6585  0.0534       0.5618        0.772
+  310     42       1   0.6428  0.0544       0.5447        0.759
+  340     39       1   0.6264  0.0554       0.5267        0.745
+  345     38       1   0.6099  0.0563       0.5089        0.731
+  348     37       1   0.5934  0.0572       0.4913        0.717
+  350     36       1   0.5769  0.0579       0.4739        0.702
+  351     35       1   0.5604  0.0586       0.4566        0.688
+  361     33       1   0.5434  0.0592       0.4390        0.673
+  363     32       1   0.5265  0.0597       0.4215        0.658
+  371     30       1   0.5089  0.0603       0.4035        0.642
+  426     26       1   0.4893  0.0610       0.3832        0.625
+  433     25       1   0.4698  0.0617       0.3632        0.608
+  444     24       1   0.4502  0.0621       0.3435        0.590
+  450     23       1   0.4306  0.0624       0.3241        0.572
+  473     22       1   0.4110  0.0626       0.3050        0.554
+  520     19       1   0.3894  0.0629       0.2837        0.534
+  524     18       1   0.3678  0.0630       0.2628        0.515
+  550     15       1   0.3433  0.0634       0.2390        0.493
+  641     11       1   0.3121  0.0649       0.2076        0.469
+  654     10       1   0.2808  0.0655       0.1778        0.443
+  687      9       1   0.2496  0.0652       0.1496        0.417
+  705      8       1   0.2184  0.0641       0.1229        0.388
+  728      7       1   0.1872  0.0621       0.0978        0.359
+  731      6       1   0.1560  0.0590       0.0743        0.328
+  735      5       1   0.1248  0.0549       0.0527        0.295
+  765      3       1   0.0832  0.0499       0.0257        0.270</code></pre>
+</div>
+</div>
+<p>The <code>summary(fit)</code> tells us how the survival probabilities change over time for each male and female. To visualize this we can plot the the survival curves (Kaplan-Meier) for males and females using <code>ggsurvplot()</code> from the <code>survminer</code> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survminer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: ggplot2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: ggpubr</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'survminer'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:survival':
+
+    myeloma</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsurvplot</span>(fit1, <span class="at">data =</span> lung, <span class="at">pval =</span> <span class="cn">TRUE</span>, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">title =</span> <span class="st">"Survival Comparison: Males vs Females"</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">xlab =</span> <span class="st">"Survival Time (Days)"</span>, <span class="at">ylab =</span> <span class="st">"Survival Probability"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Final_Project-Code_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can see that the female survival curve in the <code>lung</code> dataset have a higher survival probability as time progresses compared to the male. This suggests that females tend to live longer than males in the study. However, how do we know this difference is significant? We will perform our <strong>log-rank test</strong> using <code>survdiff()</code> function from the <code>{survival}</code> to compare the survival curves of females and males</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Log-Rank Test</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>logrank_test <span class="ot">&lt;-</span> <span class="fu">survdiff</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> sex, <span class="at">data =</span> lung)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>logrank_test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+survdiff(formula = Surv(time, status) ~ sex, data = lung)
+
+             N Observed Expected (O-E)^2/E (O-E)^2/V
+sex=Male   138      112     91.6      4.55      10.3
+sex=Female  90       53     73.4      5.68      10.3
+
+ Chisq= 10.3  on 1 degrees of freedom, p= 0.001 </code></pre>
+</div>
+</div>
+<p>We reject the null hypothesis because the p-value is less than 0.05 significance level (p = 0.001). There is sufficient enough evidence to support that there is a statistically significant difference in survival times between males and females in the <code>lung</code> dataset.</p>
+<p>Let’s try again with a different variable! This time the question is:</p>
+<p>So how do the levels of performance rated by physicians compare to survival rate?</p>
+<p>First we would have to factor Karnofsky performance score into different levels to compare it to the survival rates. Then perform our Cox Proportional model.</p>
+<p>So how do the levels of performance rated by physicians compare to survival rate?</p>
+<p>First we would have to factor Karnofsky performance score into different levels to compare it to the survival rates. Then perform our Cox Proportional model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Splitting the ph.Karno into different groups</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>lung<span class="sc">$</span>karno_group <span class="ot">&lt;-</span> <span class="fu">cut</span>(lung<span class="sc">$</span>ph.karno, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>))</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Cox Model with time-varying effect</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>cox_m2 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> lung<span class="sc">$</span>karno_group, <span class="at">data =</span> lung)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the proportional hazards assumption</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cox.zph</span>(cox_m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 chisq df     p
+lung$karno_group   6.3  2 0.043
+GLOBAL             6.3  2 0.043</code></pre>
+</div>
+</div>
+<p>We see that we violate the assumptions of proportional hazard assumptions because our p-value is less than the 0.05 significance level.</p>
+<p>So what happens if we violate the proportional hazards assumption?</p>
+<p>When we violate the proportion hazard assumption, it means the relationship between a covariate and the hazard rate is not constant over time. So the effect of that variable on survival changes as time progresses.</p>
+<p>The Cox Proportional Hazard model assumes that hazard ratios between groups are proportional and do not change over time. If this assumption is violated, the model may produce biased or misleading results.</p>
+<p>A common solution is to include time-varying co-variates like we learned in challenge 3 to help us model the effects changed over time.</p>
+<p>In the <code>lung</code> dataset, a time-varying co-variate would be weight loss (wt.loss) which we can use to model with the variable ph.karno (since this alone violate the assumptions).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cox Proportional Model</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>cox_m3 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> karno_group <span class="sc">+</span> wt.loss, <span class="at">data =</span> lung)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking assumptions </span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cox.zph</span>(cox_m3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            chisq df     p
+karno_group 5.380  2 0.068
+wt.loss     0.148  1 0.700
+GLOBAL      5.398  3 0.145</code></pre>
+</div>
+</div>
+<p>After adding the time-varying co-variate of weight loss in the last 6 months, we see that the karno_group no longer violates the assumptions of proportional hazard model. However, because karno_group alone violates the proportional hazard assumptions we cannot perform a log-rank test. We would have to use more complex test such as a stratified or weighted log-rank test.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
