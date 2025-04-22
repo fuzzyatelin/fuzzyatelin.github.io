@@ -136,7 +136,8 @@ Each module listed is linked to another page containing instructions and helpful
 ### **Week 14 (2025-04-22)**
 ***
 
-### [Module 20 - **TBA**]()
+### [Module 20 - **Intro to Survival Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-S25-Group1/module-S25-Group1.html)
+(Soumalya Ghorui, Kacy Lin, Benjamin Peters, Carly Rojas, Tiffany Zhu)
 
 ### [Module 21 - **TBA**]()
 

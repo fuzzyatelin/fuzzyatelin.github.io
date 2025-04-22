@@ -14,16 +14,14 @@ editor_options:
     wrap: 72
 ---
 
-```{r setup, include = FALSE}
+```{r setup, eval=F, include = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 options(repos = c(CRAN = "https://cloud.r-project.org"))
 # **Preliminaries** 
+install.packages("tidyverse")
 install.packages("survival")
 install.packages("survminer")
-install.packages("ggplot2")
 install.packages("cmprsk")
-install.packages("dplyr")
-install.packages("tidyr")
 install.packages("tidycmprsk")
 install.packages("patchwork")
 ```
