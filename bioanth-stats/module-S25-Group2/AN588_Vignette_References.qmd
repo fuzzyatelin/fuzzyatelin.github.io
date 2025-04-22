@@ -1,0 +1,47 @@
+---
+title: "References"
+format: html
+editor: visual
+---
+
+------------------------------------------------------------------------
+
+Anderson, T. (n.d.). *RPubs - Likelihood Ratio Test*. Api.rpubs.com; RStudio. https://api.rpubs.com/tomanderson_34/lrt
+
+*FAQ: Convergence of maximum likelihood estimators \| Stata*. (2025). Stata.com. https://www.stata.com/support/faqs/statistics/convergence-of-maximum-likelihood-estimators/
+
+*filled.contour: Level (Contour) Plots*. (2019). Rdocumentation.org; datacamp. https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/filled.contour
+
+FitzJohn, R. G. (2012). Diversitree: comparative phylogenetic analyses of diversification in R. *Methods in Ecology and Evolution*, *3*(6), 1084–1092. https://doi.org/10.1111/j.2041-210x.2012.00234.x
+
+FitzJohn, R. G. (2024, October 2). *Maximimum Likelihood Inference*. Rdrr.io. https://rdrr.io/cran/diversitree/man/find.mle.html
+
+Fitzjohn, R., & Goldberg, E. (2012). *Analysing diversification with diversitree*. https://www.zoology.ubc.ca/prog/diversitree/doc/diversitree-tutorial.pdf
+
+Gleeson, P. (2021, March 29). *Bayes’ Rule – Explained For Beginners*. FreeCodeCamp.org. https://www.freecodecamp.org/news/bayes-rule-explained/
+
+Harmon, L. (2019a). *Phylogenetic Comparative Methods: Introduction to birth-death models* . Github.io. https://lukejharmon.github.io/pcm/chapter10_birthdeath/#section-10.2-the-birth-death-model
+
+Harmon, L. (2019b, April 28). *10.2: The Birth-Death Model*. Biology LibreTexts. https://bio.libretexts.org/Bookshelves/Evolutionary_Developmental_Biology/Phylogenetic_Comparative_Methods\_(Harmon)/10%3A_Introduction_to_Birth-Death_Models/10.02%3A_The_Birth-Death_Model
+
+Harmon, L. (2019c, April 28). *11.2: Clade Age and Diversity*. Biology LibreTexts; LibreTexts Biology. https://bio.libretexts.org/Bookshelves/Evolutionary_Developmental_Biology/Phylogenetic_Comparative_Methods\_(Harmon)/11%3A_Fitting_Birth-Death_Models/11.02%3A_Clade_Age_and_Diversity
+
+*Markov Chains in NLP*. (2023, July 31). GeeksforGeeks; Sanchhaya Education Private Limited. https://www.geeksforgeeks.org/markov-chains-in-nlp/
+
+Navarro, D. (2023, April 12). *Notes from a data witch - The Metropolis-Hastings algorithm*. Blog.djnavarro.net. https://blog.djnavarro.net/posts/2023-04-12_metropolis-hastings/
+
+*nlm: Non-Linear Minimization*. (n.d.). Www.rdocumentation.org; datacamp. https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/nlm
+
+*Overfitting, Variance, Bias and Model Complexity in Machine Learning*. (n.d.). Pico; Pico Quantitative Trading LLC. https://www.pico.net/kb/overfitting-variance-bias-and-model-complexity-in-machine-learning/
+
+ritvikmath. (2021, January 21). *Markov Chain Monte Carlo (MCMC) : Data Science Concepts*. Www.youtube.com. https://www.youtube.com/watch?v=yApmR-c_hKU
+
+singh, A. (2024, December 31). *Maximum Likelihood Estimation: The Key to Model Optimization*. Medium. https://medium.com/\@abhaysingh71711/maximum-likelihood-estimation-the-key-to-model-optimization-6b5f95b191d1
+
+van Ravenzwaaij, D., Cassey, P., & Brown, S. D. (2016). A simple introduction to Markov Chain Monte–Carlo sampling. *Psychonomic Bulletin & Review*, *25*(1), 143–154. https://doi.org/10.3758/s13423-016-1015-8
+
+Wicklin, R. (2014, June 11). *How to find an initial guess for an optimization*. The DO Loop. https://blogs.sas.com/content/iml/2014/06/11/initial-guess-for-optimization.html
+
+Wikipedia Contributors. (2021, November 22). *Metropolis–Hastings algorithm*. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm
+
+------------------------------------------------------------------------

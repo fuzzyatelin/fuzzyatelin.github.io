@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sylvie Adams">
+<meta name="author" content="Carly McDermott">
+<meta name="author" content="Christian Mei">
+<meta name="author" content="Akiva Zeff">
+
+<title>Constant-rate birth-death modeling in diversitree</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="module-S25-Group2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="module-S25-Group2_files/libs/quarto-html/quarto.js"></script>
+<script src="module-S25-Group2_files/libs/quarto-html/popper.min.js"></script>
+<script src="module-S25-Group2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="module-S25-Group2_files/libs/quarto-html/anchor.min.js"></script>
+<link href="module-S25-Group2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="module-S25-Group2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="module-S25-Group2_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="module-S25-Group2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="module-S25-Group2_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sections</h2>
+   
+  <ul>
+  <li><a href="#introduction-to-birth-death-modeling-with-diversitree" id="toc-introduction-to-birth-death-modeling-with-diversitree" class="nav-link active" data-scroll-target="#introduction-to-birth-death-modeling-with-diversitree">Introduction to Birth-Death Modeling with diversitree</a>
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#objectives-for-this-module" id="toc-objectives-for-this-module" class="nav-link" data-scroll-target="#objectives-for-this-module">Objectives for this Module</a></li>
+  <li><a href="#constant-rate-birth-death-models" id="toc-constant-rate-birth-death-models" class="nav-link" data-scroll-target="#constant-rate-birth-death-models">Constant Rate Birth-Death Models</a></li>
+  <li><a href="#the-markov-chain-process" id="toc-the-markov-chain-process" class="nav-link" data-scroll-target="#the-markov-chain-process">The Markov Chain Process</a></li>
+  <li><a href="#why-birth-death-models-matter" id="toc-why-birth-death-models-matter" class="nav-link" data-scroll-target="#why-birth-death-models-matter">Why Birth-Death Models Matter</a></li>
+  </ul></li>
+  <li><a href="#diversitree" id="toc-diversitree" class="nav-link" data-scroll-target="#diversitree">diversitree</a></li>
+  <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling">Modeling</a>
+  <ul>
+  <li><a href="#making-a-model" id="toc-making-a-model" class="nav-link" data-scroll-target="#making-a-model">Making a model</a></li>
+  <li><a href="#plotting-our-model" id="toc-plotting-our-model" class="nav-link" data-scroll-target="#plotting-our-model">Plotting our model</a>
+  <ul class="collapse">
+  <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a></li>
+  <li><a href="#challenge-2" id="toc-challenge-2" class="nav-link" data-scroll-target="#challenge-2">Challenge 2</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#likelihood-functions" id="toc-likelihood-functions" class="nav-link" data-scroll-target="#likelihood-functions">Likelihood functions</a>
+  <ul>
+  <li><a href="#challenge-3" id="toc-challenge-3" class="nav-link" data-scroll-target="#challenge-3">Challenge 3</a></li>
+  <li><a href="#interpreting-likelihood-functions" id="toc-interpreting-likelihood-functions" class="nav-link" data-scroll-target="#interpreting-likelihood-functions">Interpreting likelihood functions</a>
+  <ul class="collapse">
+  <li><a href="#challenge-4" id="toc-challenge-4" class="nav-link" data-scroll-target="#challenge-4">Challenge 4</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#maximum-likelihood-models" id="toc-maximum-likelihood-models" class="nav-link" data-scroll-target="#maximum-likelihood-models">Maximum likelihood models</a>
+  <ul>
+  <li><a href="#retrieving-maximum-likelihood-estimates" id="toc-retrieving-maximum-likelihood-estimates" class="nav-link" data-scroll-target="#retrieving-maximum-likelihood-estimates">Retrieving maximum likelihood estimates</a>
+  <ul class="collapse">
+  <li><a href="#define-our-initial-values" id="toc-define-our-initial-values" class="nav-link" data-scroll-target="#define-our-initial-values">1. Define our initial values</a></li>
+  <li><a href="#fitting-our-maximum-likelihood-model" id="toc-fitting-our-maximum-likelihood-model" class="nav-link" data-scroll-target="#fitting-our-maximum-likelihood-model">2. Fitting our Maximum Likelihood model</a></li>
+  <li><a href="#extract-coefficients-from-the-fitted-model" id="toc-extract-coefficients-from-the-fitted-model" class="nav-link" data-scroll-target="#extract-coefficients-from-the-fitted-model">3. Extract coefficients from the fitted model</a></li>
+  </ul></li>
+  <li><a href="#does-this-model-fit-better-than-a-model-without-extinction" id="toc-does-this-model-fit-better-than-a-model-without-extinction" class="nav-link" data-scroll-target="#does-this-model-fit-better-than-a-model-without-extinction">Does this model fit better than a model without extinction?</a></li>
+  </ul></li>
+  <li><a href="#markov-chain-monte-carlo" id="toc-markov-chain-monte-carlo" class="nav-link" data-scroll-target="#markov-chain-monte-carlo">Markov chain Monte Carlo</a>
+  <ul>
+  <li><a href="#terminology" id="toc-terminology" class="nav-link" data-scroll-target="#terminology">Terminology</a>
+  <ul class="collapse">
+  <li><a href="#challenge-5" id="toc-challenge-5" class="nav-link" data-scroll-target="#challenge-5">Challenge 5</a></li>
+  </ul></li>
+  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together">Putting it all together</a>
+  <ul class="collapse">
+  <li><a href="#challenge-6" id="toc-challenge-6" class="nav-link" data-scroll-target="#challenge-6">Challenge 6</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#helpful-links-for-more-practice" id="toc-helpful-links-for-more-practice" class="nav-link" data-scroll-target="#helpful-links-for-more-practice">Helpful Links For More Practice</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Constant-rate birth-death modeling in diversitree</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+             <p>Sylvie Adams </p>
+             <p>Carly McDermott </p>
+             <p>Christian Mei </p>
+             <p>Akiva Zeff </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction-to-birth-death-modeling-with-diversitree" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-birth-death-modeling-with-diversitree">Introduction to Birth-Death Modeling with diversitree</h2>
+<hr>
+<section id="overview" class="level3">
+<h3 class="anchored" data-anchor-id="overview">Overview</h3>
+<p>Birth-death models are critical in evolutionary biology and function to help researchers understand species diversification patterns over time. These models describe how species originate (speciation) and disappear (extinction), providing valuable insights into phylogenetic tree structures when we might not have the resources to make direct observations. In this module, we provide an overview of the <strong>diversitree</strong> package and its utility in conducting comparative phylogenetic analyses using the birth-death model.</p>
+<hr>
+</section>
+<section id="objectives-for-this-module" class="level3">
+<h3 class="anchored" data-anchor-id="objectives-for-this-module">Objectives for this Module</h3>
+<ul>
+<li><p><strong>Understand Birth-Death Modeling:</strong> Learn the principles of constant rate birth-death models and their application in evolutionary biology</p></li>
+<li><p><strong>Simulate Phylogenetic Trees:</strong> Use the diversitree R package to create and visualize evolutionary trees based on speciation and extinction rates</p></li>
+<li><p><strong>Understand and Apply MLEs:</strong> Apply Maximum Likelihood Estimation (MLE) to determine speciation and extinction rates</p></li>
+<li><p><strong>Perform Bayesian Analysis with MCMC:</strong> Implement Markov Chain Monte Carlo (MCMC) methods to explore posterior distributions (where each value depends only on the previous one) for model parameters</p></li>
+</ul>
+<hr>
+</section>
+<section id="constant-rate-birth-death-models" class="level3">
+<h3 class="anchored" data-anchor-id="constant-rate-birth-death-models">Constant Rate Birth-Death Models</h3>
+<p>A birth-death model is a <strong>continuous-time Markov process</strong> used to track changes in the number of species (or lineages) through time. It consists of two main parameters:</p>
+<ul>
+<li><p><strong>Speciation Rate (</strong><span class="math inline">\(\lambda\)</span><strong>):</strong> The rate at which new species emerge</p></li>
+<li><p><strong>Extinction Rate (</strong><span class="math inline">\(\mu\)</span><strong>):</strong> The rate at which species go extinct</p></li>
+</ul>
+<p>These models assume that <strong>each event</strong> (speciation or extinction) <strong>follows a <a href="https://www.probabilitycourse.com/chapter11/11_1_2_basic_concepts_of_the_poisson_process.php">Poisson</a> process</strong>, meaning that the time to the next event follows an <strong>exponential distribution</strong> with a rate of <span class="math inline">\(λ + μ\)</span>. The probability that the next event is speciation is <span class="math inline">\(λ/(μ + λ)\)</span>, while the probability of extinction is <span class="math inline">\(μ/(μ + λ)\)</span>.</p>
+<p>Poisson processes model <strong>random events over time or space</strong>, especially <strong>count data</strong> … i.e.:</p>
+<ul>
+<li><p>Number of kids born in a town per year</p></li>
+<li><p>Number of car accidents at an intersection per year</p></li>
+<li><p>Number of emails you get per hour</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/poissondef.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="683"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Another Example - Rolling a Die!
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let’s say we have a biased 6-sided die:</p>
+<ul>
+<li>Faces 1–4 = speciation → <span class="math inline">\(\lambda = 2\)</span></li>
+<li>Faces 5–6 = extinction → <span class="math inline">\(\mu = 1\)</span></li>
+</ul>
+<p>How did we get here? This is purely a probability ratio — we’re saying: <strong>2/3</strong> of events are <strong>speciation</strong> and <strong>1/3</strong> are <strong>extinction</strong></p>
+<ul>
+<li><p>Total event rate: <span class="math inline">\(\lambda + \mu = 3\)</span></p></li>
+<li><p>Probability of speciation: <span class="math inline">\(P(\text{speciation}) = \frac{\lambda}{\lambda + \mu} = \frac{2}{3}\)</span></p></li>
+<li><p>Probability of extinction: <span class="math inline">\(P(\text{extinction}) = \frac{\mu}{\lambda + \mu} = \frac{1}{3}\)</span></p></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="the-markov-chain-process" class="level3">
+<h3 class="anchored" data-anchor-id="the-markov-chain-process">The Markov Chain Process</h3>
+<p>Birth-death models rely on the <strong>memoryless</strong> property of Markov Chains, where the probability of a future state depends only on the current state, not past events/how we got there. Think of the board game Chutes and Ladders. In this game, a player’s movement is determined solely by their current position and number on the die that they roll.&nbsp;</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://d2vlcm61l7u1fs.cloudfront.net/media/d78/d784cf12-5eaf-4855-bb38-97dcc84c952a/phpItn25I.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="420"></p>
+</figure>
+</div>
+<p>In this module we will focus on a specific subclass of Markov Chains:</p>
+<ul>
+<li><p><strong>Markov Chain:</strong> A sequence where each value depends only on the previous one.</p>
+<ul>
+<li><strong>Markov Chain Monte Carlo (MCMC):</strong> A method to sample from complex probability distributions by building a Markov chain whose long-term behavior matches the target distribution.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="why-birth-death-models-matter" class="level3">
+<h3 class="anchored" data-anchor-id="why-birth-death-models-matter">Why Birth-Death Models Matter</h3>
+<p><strong>Understanding the distribution of species and traits across them is central to evolutionary biology. Birth-death models help answer questions like:</strong></p>
+<ul>
+<li><p>Why do some clades have more species than others?</p></li>
+<li><p>How do extinction rates vary across different evolutionary lineages?</p></li>
+<li><p>What role do trait evolution and environmental factors play in diversification?</p></li>
+</ul>
+<p>Comparative phylogenetic methods, such as those implemented in <strong>diversitree</strong>, provide a statistical framework for testing hypotheses about species diversification and help us to understand and model diversification better when we are working with sources such as the fossil record, where chronological data on speciation or extinction may not be explicitly available. Many scientific papers also utilize <strong>diversitree:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/wolfimage.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<ul>
+<li>“Ecological causes of decelerating diversification in carnivoran mammals”</li>
+<li>“Origin and diversification of the California flora: re-examining classic hypotheses with molecular phylogenies”</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="diversitree" class="level2">
+<h2 class="anchored" data-anchor-id="diversitree">diversitree</h2>
+<p>diversitree is an R package useful for comparative phylogenetic analyses. In particular, it focuses on diversification and character evolution. It’s a powerful and very useful package, and we will only be scratching the surface of what it can do. We’d highly recommend looking further into diversitree–some of the sources in our references are excellent places to start!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading diversitree</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(diversitree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: ape</code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="modeling" class="level2">
+<h2 class="anchored" data-anchor-id="modeling">Modeling</h2>
+<section id="making-a-model" class="level3">
+<h3 class="anchored" data-anchor-id="making-a-model">Making a model</h3>
+<p>The two parameters for a simple constant-rate birth-death model are <span class="math inline">\(λ\)</span> and <span class="math inline">\(µ\)</span>. <span class="math inline">\(λ\)</span> represents the speciation rate in our simulated phylogeny, while <span class="math inline">\(µ\)</span> represents the extinction rate. We’ll start by making a tree using these parameters, as well as the maximum number of species (<code>max.taxa = ...</code> ) we’d like our model to diversify to.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Defining our parameters</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Making our tree</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>phylo <span class="ot">&lt;-</span> <span class="fu">tree.bd</span>(<span class="fu">c</span>(lambda, mu), <span class="at">max.taxa =</span> <span class="dv">100</span>) <span class="co"># our tree should terminate at 100 species</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We now have a tree modeled, but we don’t see anything! Let’s look a bit further into what exactly our model consists of:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(phylo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 6
+ $ edge       : int [1:198, 1:2] 101 102 103 104 105 106 107 108 109 110 ...
+ $ Nnode      : int 99
+ $ tip.label  : chr [1:100] "sp7" "sp10" "sp12" "sp15" ...
+ $ node.label : chr [1:99] "nd1" "nd2" "nd4" "nd6" ...
+ $ edge.length: num [1:198] 0.28 0.344 2.23 0.176 1.047 ...
+ $ orig       :'data.frame':    228 obs. of  8 variables:
+  ..$ idx    : int [1:228] 2 3 4 5 6 7 9 10 11 12 ...
+  ..$ len    : num [1:228] 0.28 2.423 0.344 3.186 2.23 ...
+  ..$ parent : num [1:228] 1 1 2 2 4 4 3 6 6 10 ...
+  ..$ extinct: logi [1:228] FALSE FALSE FALSE FALSE FALSE FALSE ...
+  ..$ split  : logi [1:228] TRUE TRUE TRUE TRUE TRUE TRUE ...
+  ..$ idx2   : num [1:228] 132 133 134 135 136 137 138 139 140 141 ...
+  ..$ parent2: num [1:228] 131 131 132 132 134 134 133 136 136 139 ...
+  ..$ name   : chr [1:228] NA NA NA NA ...
+  ..- attr(*, "t")= num 20.6
+ - attr(*, "class")= chr "phylo"
+ - attr(*, "order")= chr "cladewise"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(phylo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Phylogenetic tree: phylo 
+
+  Number of tips: 100 
+  Number of nodes: 99 
+  Branch lengths:
+    mean: 2.60411 
+    variance: 5.534924 
+    distribution summary:
+       Min.     1st Qu.      Median     3rd Qu.        Max. 
+ 0.01371267  0.76672055  1.97072791  3.87996747 13.53512476 
+  No root edge.
+  First ten tip labels: sp7 
+                        sp10
+                        sp12
+                        sp15
+                        sp19
+                        sp20
+                        sp22
+                        sp23
+                        sp25
+                        sp28
+  First ten node labels: nd1 
+                         nd2
+                         nd4
+                         nd6
+                         nd9
+                         nd11
+                         nd15
+                         nd31
+                         nd60
+                         nd92</code></pre>
+</div>
+</div>
+<p>As we can see, our model takes the form of a list. <code>summary()</code> gives us a bit more relevant information about our tree. The labels won’t be too important for our analysis today, but the branch length metrics can tell us something about how quickly our speciation is occurring (we’ll investigate this relationship a bit further in Challenge 2).</p>
+<p>Where’s the fun of a tree that you can’t see? It’s time to start…</p>
+<hr>
+</section>
+<section id="plotting-our-model" class="level3">
+<h3 class="anchored" data-anchor-id="plotting-our-model">Plotting our model</h3>
+<p>Plotting a tree is as simple as sticking it into the <code>plot()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(phylo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="module-S25-Group2_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can finally see our tree, but it’s a bit busy. Let’s quickly zoom in a bit and look at the labels on the right. To do so, we’ll make a much smaller tree.</p>
+<hr>
+<section id="challenge-1" class="level4">
+<h4 class="anchored" data-anchor-id="challenge-1">Challenge 1</h4>
+<p>Make and plot a new tree that only has ten species at the end instead of 100. If you’re going to set a seed, use a number other than 1 (we’ll see why in a moment).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>phylo_mini <span class="ot">&lt;-</span> <span class="fu">tree.bd</span>(<span class="fu">c</span>(lambda, mu), <span class="at">max.taxa =</span> <span class="dv">10</span>) <span class="co"># our tree will end up with 10 species instead of 100</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(phylo_mini, <span class="at">no.margin =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="module-S25-Group2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>We can see that the labels on the right are the ten species our model ends up with, but they aren’t actually numbered 1-10. Why might that be?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+A note on seeds
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You may have wondered why we specified not to use <code>set.seed(1)</code> in your tree. It turns out that seed 1 actually doesn’t have any extinction! What are the chances of that ? (we’re not actually asking you to calculate it)</p>
+</div>
+</div>
+</div>
+<hr>
+<p>The labels are all well and good for a small tree, but in the case of our original 100-species model, it’s way too messy to mean anything. Luckily, we can make it a bit simpler using some optional commands in the plot function (you may have noticed one of these in our solution above).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(phylo, <span class="at">no.margin =</span> <span class="cn">TRUE</span>, <span class="at">show.tip.label =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="module-S25-Group2_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># no.margin = TRUE allows our plot to take up more of the output window, while show.tip.label = FALSE gets rid of the labels for our simulated 100 final species</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+<section id="challenge-2" class="level4">
+<h4 class="anchored" data-anchor-id="challenge-2">Challenge 2</h4>
+<p>Make a function that takes <strong>lambda</strong>, <strong>mu</strong>, and <strong>max taxa</strong> as inputs and outputs a plot of a simulated phylogeny tree. Lambda and mu should have no default values, while max taxa should default to 100.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>phy_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(lambda, mu, <span class="at">max.taxa =</span> <span class="dv">100</span>) {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  phy <span class="ot">&lt;-</span> <span class="fu">tree.bd</span>(<span class="fu">c</span>(lambda, mu), <span class="at">max.taxa =</span> max.taxa)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(phy, <span class="at">no.margin =</span> <span class="cn">TRUE</span>, <span class="at">show.tip.label =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>Using your function, experiment with different scenarios.</p>
+<ul>
+<li><p>What changes in our model if speciation rate and extinction rate increase/decrease?</p></li>
+<li><p>In what situations is your function returning an error? Why might that be?</p>
+<ul>
+<li>Note that as we are simulating a new model each time we run the function, the same parameters will not always have the same result. If you’re getting an error, try running it a few times again before giving up!</li>
+</ul></li>
+<li><p>Modify your function to include a summary of the model created. How does changing the parameters affect the mean, variance, and distribution of branch length?</p></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution (updated)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>phy_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(lambda, mu, <span class="at">max.taxa =</span> <span class="dv">100</span>) {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  phy <span class="ot">&lt;-</span> <span class="fu">tree.bd</span>(<span class="fu">c</span>(lambda, mu), <span class="at">max.taxa =</span> max.taxa)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(phy, <span class="at">no.margin =</span> <span class="cn">TRUE</span>, <span class="at">show.tip.label =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(phy)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<p>Making a cool tree is all well and good, but if we actually want some substantive statistics it’s time to get into our analysis…</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="likelihood-functions" class="level2">
+<h2 class="anchored" data-anchor-id="likelihood-functions">Likelihood functions</h2>
+<p>First things first, we need to construct a likelihood function. The likelihood function of a birth-death model estimates the probability of observing a given phylogenetic tree under the assumed rates of speciation and extinction. It will form the backbone of both of our primary analysis methods.</p>
+<p>For each branching event occurring at time <span class="math inline">\(t_i\)</span> (the i-th branching event), we define:</p>
+<ul>
+<li><p><span class="math inline">\(p_o(t_i)\)</span>: Probability that a lineage goes extinct before time <span class="math inline">\(t_i\)</span></p></li>
+<li><p><span class="math inline">\(p_1(t_i)\)</span>: Probability that a lineage survives and splits by <span class="math inline">\(t_i\)</span></p></li>
+</ul>
+<p>These probabilities are derived from the functions of λ and µ, which allow for model-fitting to empirical phylogenetic data. In our case, these variables will factor into the beautiful and not at all confusing equation derived in Nee et al.&nbsp;(1994):</p>
+<p><span class="math display">\[
+lik=(N-1)!\lambda^{N-2}\left\{ \prod_{i=3}^{N}P(t_i,T) \right\}(1-u_{x_2})^2\prod_{i=3}^{N}(1-u_{x_i})
+\]</span><br>
+In addition to <span class="math inline">\(t_i\)</span>, we see several new variables. <span class="math inline">\(T\)</span> represents the present time, <span class="math inline">\(N\)</span> is the total number of lineages in the phylogeny, and <span class="math inline">\((1-u_{x_i})\)</span> is the probability of a single progeny after an amount of time <span class="math inline">\(x_i\)</span>.</p>
+<p>This equation is useful, but in our case it would likely be more helpful to see a different derivation of the likelihood, also found in Nee et al.&nbsp;(1994):</p>
+<p><span class="math display">\[
+lik=(N-1)!(\lambda-\mu)^{N-2}exp\left((\lambda-\mu)\sum_{n=2}^{N-1}x_{n+1}\right)(1-\frac{\mu}{\lambda})^N\prod_{n=2}^{N}\frac{1}{(exp((\lambda-\mu)x_n)-\frac{\mu}{\lambda})^2}
+\]</span></p>
+<p>Don’t worry, we’re not going to go through the whole thing! This equation is longer, but it also contains more familiar components that may be easier to understand conceptually.</p>
+<p><span class="math inline">\(λ\)</span> and <span class="math inline">\(µ\)</span> are recognizable–we used them earlier, and, as we’ll see, they’re the two parameters taken by the diversitree likelihood function. We also saw <span class="math inline">\(N\)</span> in the earlier equation–remember, it’s the total number of lineages in the phylogeny. Apart from those, there is only one other variable that we haven’t seen before: <span class="math inline">\(x_n\)</span>. It represents the length of time between the present and the birth of the <span class="math inline">\(n\)</span>th lineage. We’ll delve a bit further into how these variables come together, but first let’s actually make our likelihood function. The function to create it in diversitree is <code>make.bd()</code> .</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lik <span class="ot">&lt;-</span> <span class="fu">make.bd</span>(phylo) <span class="co"># notice that the function is based on our model created above. That model had a seed set for it, so we can expect consistent values for "lik" as well.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Our new function takes values of <span class="math inline">\(λ\)</span> and <span class="math inline">\(µ\)</span> as inputs and returns the log likelihood of the parameters. Let’s try it with the values we used for our initial tree:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lik</span>(<span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.03</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 76.44949</code></pre>
+</div>
+</div>
+<hr>
+<section id="challenge-3" class="level4">
+<h4 class="anchored" data-anchor-id="challenge-3">Challenge 3</h4>
+<p>We’re going to take a break from coding for a moment and check in again on our conceptual understanding. Given the likelihood equation we saw above, why does the function take <span class="math inline">\(λ\)</span> and <span class="math inline">\(µ\)</span> as inputs, but not <span class="math inline">\(N\)</span> and <span class="math inline">\(x_n\)</span>?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Remember that <span class="math inline">\(N\)</span> and <span class="math inline">\(x_n\)</span> are both defined in our tree that we’re basing the likelihood function on. Likelihood functions are based on actual “observed” data–in this case our tree–and tell use the probability of seeing that result <strong>under different parameter values</strong>. In the case of a constant-rate birth-death model, <span class="math inline">\(λ\)</span> and <span class="math inline">\(µ\)</span> are the only two parameters. <span class="math inline">\(N\)</span> and <span class="math inline">\(x_n\)</span> are outputted aspects of the simulated phylogeny, and thus can’t be changed in the likelihood function.</p>
+</div>
+</div>
+</div>
+<hr>
+<p>One more note: when typing the function out, you may have noticed that it takes another argument, called <code>condition.surv</code>. This argument, which is on by default, dictates whether the likelihood is conditional on two lineages surviving to the present. As we can see, turning it off changes the likelihood (we won’t get into the math behind that here).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lik</span>(<span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.03</span>), <span class="at">condition.surv =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 73.61655</code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="interpreting-likelihood-functions" class="level3">
+<h3 class="anchored" data-anchor-id="interpreting-likelihood-functions">Interpreting likelihood functions</h3>
+<p>We can run all sorts of different parameters in our likelihood function, but the meaning of the outputs isn’t necessarily immediately obvious. Let’s try a few different <span class="math inline">\(λ\)</span> and <span class="math inline">\(µ\)</span> combinations:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lik</span>(<span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.03</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 76.44949</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lik</span>(<span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.05</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 97.34963</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lik</span>(<span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.06</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 91.71596</code></pre>
+</div>
+</div>
+<section id="challenge-4" class="level4">
+<h4 class="anchored" data-anchor-id="challenge-4">Challenge 4</h4>
+<p>How do we interpret these likelihood values?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>While all of these likelihood values are positive, they can also be negative–this has to do with how log-likelihood is calculated here. When <code>lik()</code> runs, the log-likelihood of each branch is computed, and then these small probabilities are summed to give the total log-likelihood of the tree. That is, if you have a tree with <span class="math inline">\(n\)</span> branches, each contributing a log-likelihood value, the total log-likelihood is the sum of the log-likelihoods from all <span class="math inline">\(n\)</span> branches.</p>
+<p>When we compare these total values (the final output you see for each of the <code>lik()</code> functions here), we are looking for the most positive value among these results. In this case, <span class="math inline">\(λ\)</span> = 0.2 and <span class="math inline">\(µ\)</span> = 0.05 are the parameters for a model that has the largest log-likelihood for the <code>phylo</code> tree.</p>
+<p>You may wonder how we can be sure that a set of parameters are the best-fitting of all the possibilities. You can imagine that a guess and check method would take a while and not be a reasonable way to approach the problem. Luckily for us, the power of R will allow us to do this rather efficiently! Next, we will be looking at ways to estimate the parameters for a give tree with the maximum likelihood…</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="maximum-likelihood-models" class="level2">
+<h2 class="anchored" data-anchor-id="maximum-likelihood-models">Maximum likelihood models</h2>
+<section id="retrieving-maximum-likelihood-estimates" class="level3">
+<h3 class="anchored" data-anchor-id="retrieving-maximum-likelihood-estimates">Retrieving maximum likelihood estimates</h3>
+<p>Lets start by making a slight smaller version of <code>phylo</code>, <code>phylo_small</code>. The following analysis is still valid for larger models, but sometimes computers have a harder time running the following steps with bigger trees, so we’re going to start simple!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>phylo_small <span class="ot">&lt;-</span> <span class="fu">tree.bd</span>(<span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.1</span>), <span class="at">max.taxa =</span> <span class="dv">70</span>) <span class="co"># make a new tree with fewer taxa</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>lik_small <span class="ot">&lt;-</span> <span class="fu">make.bd</span>(phylo_small) <span class="co"># define our likelihood function for phylo_small</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(phylo_small, <span class="at">no.margin =</span> <span class="cn">TRUE</span>, <span class="at">show.tip.label =</span> <span class="cn">FALSE</span>) <span class="co"># plot our new tree (a bit more easy to work with now!)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="module-S25-Group2_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Given the tree <code>phylo_small</code>, we’re going to use Maximum Likelihood Estimation (MLE) to estimate the parameters (<span class="math inline">\(λ\)</span> and <span class="math inline">\(µ\)</span>) with values that maximize the probability of observing our <code>phylo_small</code> tree.</p>
+<p>Earlier, we showed how we could compare likelihood functions with different parameter values inputted in order to assess how well those given parameter values maximize the likelihood of observing the <code>phylo</code> data. We could make an algorithm that searches for the parameter values that maximize this likelihood score for <code>phylo_small</code>. This function would would iteratively adjust parameters in search of values that minimize the negative log-likelihood (which translates to maximizing the likelihood).</p>
+<p>This optimization process adjusts the parameters, beginning with the initial ones we provide, and then continuously updates the parameters in order to “improve” the likelihood. This process eventually converges on a final solution, which is the output we get in the form of a set of parameters. The process ceases (or “converges”) when adjustments to the parameters no longer change/improve the likelihood significantly.</p>
+<p>The following likelihood surface plot might be helpful in giving you a rough idea of what point the algorithm might converge on when searching for the optimized parameters for <code>phylo_small</code>. You can get an idea from this plot which values we might more or less expect when we finally perform our analysis. Plus, it’s fun to look at!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>lambda_vals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="fl">0.3</span>, <span class="at">length.out =</span> <span class="dv">50</span>) <span class="co"># define a range for lambda values</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>mu_vals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.2</span>, <span class="at">length.out =</span> <span class="dv">50</span>) <span class="co"># define a range for mu values</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>lik_matrix <span class="ot">&lt;-</span> <span class="fu">outer</span>(lambda_vals, mu_vals, <span class="fu">Vectorize</span>(<span class="cf">function</span>(lambda, mu) <span class="fu">lik_small</span>(<span class="fu">c</span>(lambda, mu)))) </span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># lambda and mu "vectorize" so they can take multiple inputs (in the range of lambda_vals and mu_vals, respectively)</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co">#lik_small will compute the likelihood for a mu/lambda pair (which will be indicated by relative color)</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">filled.contour</span>(lambda_vals, mu_vals, lik_matrix,</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">color.palette =</span> <span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"blue"</span>, <span class="st">"darkblue"</span>)),</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">xlab =</span> <span class="fu">expression</span>(lambda), <span class="at">ylab =</span> <span class="fu">expression</span>(mu),</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">main =</span> <span class="st">"Likelihood Surface for the Phylo-Small Model"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="module-S25-Group2_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filled.contour will give you a plot with color shading </span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># color.palette defines colors from low likelihood (white) to high liklihood (dark blue)</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># expression formats mu and lambda in mathematical notation (makes them look like the Greek symbols we know them as)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Luckily, diversitree has a built-in function, <code>find.mle</code>, which abstracts this iterative optimization process. This allows us to find the parameters that maximize the likelihood for a certain tree very quickly. Lets take a look at how to use <code>find.mle</code> and other functions to perform a Maximum Likelihood (ML) analysis.</p>
+<section id="define-our-initial-values" class="level4">
+<h4 class="anchored" data-anchor-id="define-our-initial-values">1. Define our initial values</h4>
+<p>Good initial values can help the optimization process run a bit better by helping the optimization algorithm converge faster and avoid getting stuck around local minima. If the initial values are far away from the true values, the optimization often fails or gives unreliable results. So how do you decide a good initial values? Usually, researchers won’t know the speciation and extinction rates (0.2 and 0.1 respectively) like we do. There is no “right” way to go about defining these initial values, and there are plenty of ways being developed to decide this a bit more systematically. Often, it is the case that ecologists, by virtue of study and lot of time spent observing species and doing various analyses, have a pretty good idea of plausible starting points. Our initial guesses for lambda and mu, from which the algorithm will continue from, will be 0.1 and 0.05, respectively. Since we have a pretty good idea of what these true values are already (given that we were the ones that defined them), we’ll start off with a guess a little far from the truth.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>initial_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.05</span>) <span class="co"># 0.1 = initial guess for lambda, 0.05 = initial guess for mu</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+<section id="fitting-our-maximum-likelihood-model" class="level4">
+<h4 class="anchored" data-anchor-id="fitting-our-maximum-likelihood-model">2. Fitting our Maximum Likelihood model</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>fit_small <span class="ot">&lt;-</span> <span class="fu">find.mle</span>(lik_small, initial_values, <span class="at">method =</span> <span class="st">"subplex"</span>, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">maxit =</span> <span class="dv">10000</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The default method for birth-death models is “nlm” (non-linear minimization), but other methods like “subplex” can be used for more complex trees (though sometimes this method is slower). If you find that the default isn’t working, you can try a different method (like subplex), as we did here. The landscape of an evolutionary tree is a little complex, so we have used subplex for our demonstration.</p>
+<p><code>control = list(maxit = 10000)</code> is a voluntary additional setting. 10,000 is the maximum number of iterations that this algorithm will be allowed to perform. If the optimization doesn’t converge within 10,000 iterations, then a warning will be issued and it will stop running. Increasing the number of iterations with <code>maxit</code> gives the optimizer more chances to find the best parameter values.</p>
+<hr>
+</section>
+<section id="extract-coefficients-from-the-fitted-model" class="level4">
+<h4 class="anchored" data-anchor-id="extract-coefficients-from-the-fitted-model">3. Extract coefficients from the fitted model</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(fit_small)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   lambda        mu 
+0.1845795 0.1083298 </code></pre>
+</div>
+</div>
+<p>Now we have our fitted <span class="math inline">\(λ\)</span> and <span class="math inline">\(µ\)</span>! Notice that these values are pretty close to <span class="math inline">\(λ\)</span> = 0.2 and <span class="math inline">\(µ\)</span> = 0.1 (which we know to be the true values).</p>
+<p>Let’s use <code>logLik</code> to extract the log-likelihood for the Maximum Likelihood (ML) point from our fitted model!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logLik</span>(fit_small)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'log Lik.' 18.47938 (df=2)</code></pre>
+</div>
+</div>
+<p>So, our log-likelihood for the model after Maximum Likelihood Estimation is 18.47938.</p>
+<p>By the way, this is the same as calculating the likelihood function for any parameter, as we did previously:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lik_small</span>(<span class="fu">coef</span>(fit_small))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 18.47938</code></pre>
+</div>
+</div>
+<p>So they’re the same (as we would expect)! <code>logLik</code> is just a special command we can use here that works with the MLE model results. But, by being associated with a specific model here, <code>logLik</code> doesn’t just give you the likelihood of parameters you manually input (as <code>lik()</code> or <code>lik_small()</code> do), it ALSO can be used to evaluate how well the MLE-fitted model (<code>fit_small</code>) works for modeling the <code>phylo_small</code> tree with these optimized parameters (when compared to the likelihoods of other models).</p>
+<p>Depending on your fitted model, you may be seeing a negative number and wondering why that is. It’s important to remember that the likelihood functions do not always (or even often) return positive values. 18.47938 is the highest (as in the least negative/most positive) likelihood value for this run of the algorithm, but you may find that your likelihood value is different.</p>
+<p><em>note: df = 2 refers to the degrees of freedom. In this context, it really indicates the number of free parameters being estimated for the fitted model. In the case of the birth-death model, the parameters being estimated are</em> <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\mu\)</span>. <em>Since there are 2 estimated parameters, df is equal to 2</em></p>
+<p>If you find the degrees of freedom redundant here, you can also just call:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>fit_small<span class="sc">$</span>lnLik</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 18.47938</code></pre>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="does-this-model-fit-better-than-a-model-without-extinction" class="level3">
+<h3 class="anchored" data-anchor-id="does-this-model-fit-better-than-a-model-without-extinction">Does this model fit better than a model without extinction?</h3>
+<p>The Yule model (“pure birth” model) assumes <span class="math inline">\(mu\)</span> = 0.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>lik.yule <span class="ot">&lt;-</span> <span class="fu">constrain</span>(lik_small, mu <span class="sc">~</span> <span class="dv">0</span>) <span class="co"># pure birth model (Yule) where the extinction rate = 0 (parameter is limited to 0 with the constrain() function)</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">argnames</span>(lik.yule) <span class="co"># output = "lambda" because lambda is the only parameter free to vary here; lambda should be the only output here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "lambda"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>fit_yule <span class="ot">&lt;-</span> <span class="fu">find.mle</span>(lik.yule, <span class="fu">coef</span>(fit_small)[<span class="dv">1</span>], <span class="st">"subplex"</span>, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">maxit =</span> <span class="dv">10000</span>))</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>fit_yule</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$par
+   lambda 
+0.1245209 
+
+$lnLik
+[1] 16.52117
+
+$counts
+[1] 30
+
+$convergence
+[1] 0
+
+$message
+[1] "success! tolerance satisfied"
+
+$hessian
+NULL
+
+$method
+[1] "subplex"
+
+$par.full
+   lambda        mu 
+0.1245209 0.0000000 
+
+$func.class
+[1] "constrained" "bd"          "dtlik"       "function"   
+
+attr(,"func")
+Constant rate birth-death likelihood function:
+  * Parameter vector takes 1 elements:
+     - lambda
+  * Function constrained (original took 2 elements):
+     - mu ~ 0
+  * Function takes arguments (with defaults)
+     - pars: Parameter vector
+     - ...: Additional arguments to underlying function
+     - pars.only [FALSE]: Return full parameter vector?
+  * Phylogeny with 70 tips and 69 nodes
+     - Taxa: sp62, sp63, sp66, sp69, sp82, sp85, sp89, sp90, sp93, ...
+  * Reference:
+     - Nee et al. (1994) doi:10.1098/rstb.1994.0068
+R definition:
+function (pars, ..., pars.only = FALSE)  
+attr(,"class")
+[1] "fit.mle.bd" "fit.mle"   </code></pre>
+</div>
+</div>
+<p>Now, we’ll use an ANOVA test to perform a likelihood ratio test:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit_small, fit_yule)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Df  lnLik     AIC  ChiSq Pr(&gt;|Chi|)  
+full     2 18.479 -32.959                    
+model 1  1 16.521 -31.042 3.9164    0.04782 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>A lower AIC (Akaike Information Criterion) indicates that the “full” model (fit_small) fits the data better than the Yule model (shown as Model 1 here; see significance codes for significance level). Briefly, in model selection AIC penalizes models that have a higher level of complexity (i.e.&nbsp;more parameters). Despite being more complex, the full model still fits the <code>phylo_small</code> tree better. Sometimes the tradeoff between complexity and fit will favor the simpler model (the Yule model). In fact, some of you might see that result.</p>
+<p>Also notice that the <code>lnLik</code> (the log likelihood) for <code>fit_small</code> is more positive than <code>fit_yule</code>. The AIC itself is based on the likelihood of the model so this should be expected. That is, the favorable model should have a higher likelihood value and a lower AIC.</p>
+<hr>
+</section>
+</section>
+<section id="markov-chain-monte-carlo" class="level2">
+<h2 class="anchored" data-anchor-id="markov-chain-monte-carlo">Markov chain Monte Carlo</h2>
+<p>While MLE can help us estimate singular values for <span class="math inline">\(λ\)</span> and <span class="math inline">\(µ\)</span>, it does not mean that it is accurate. MLE gives a single “best-fit” estimate but it does not account for uncertainty. This is especially important when assessing phylogenetic trees, since they can vary in size and can be incomplete. An alternative way is to find a range of values that <span class="math inline">\(λ\)</span> and <span class="math inline">\(µ\)</span> have a high probability of being. This probability distribution is termed a <strong>posterior distribution</strong> and we can arrive to this result by performing Bayesian analysis using the <strong>Markov chain Monte Carlo</strong> <strong>(MCMC)</strong> algorithm.</p>
+<hr>
+<section id="terminology" class="level3">
+<h3 class="anchored" data-anchor-id="terminology">Terminology</h3>
+<p>Let’s break down those terrifying sounding terms and get familiar with them!</p>
+<p>The reason we want to employ <strong>Bayesian</strong> analysis on this is because this algorithm will use previous assumptions and the data available to us (likelihood function derived from phylogenetic tree) to arrive at our desired <strong>posterior distribution</strong>.</p>
+<p>Previous assumptions are characterized as a <strong>prior distribution</strong> representing existing knowledge or assumptions about model parameters before observing the data. These distributions are probability distributions (e.g., uniform, exponential, normal) that mark the possible ranges for parameters which in our case are speciation (<span class="math inline">\(\lambda\)</span>) and extinction (<span class="math inline">\(\mu\)</span>) rates.</p>
+<p>These prior probability distributions affect our posterior distribution. For example, if we had an exponential prior distribution on our parameters, then even if our new data offers much higher values, the model will emphasize our parameters to lie on the lower end but can still permit higher values if the data supports it more. If we don’t have very informative prior information, we can assume the prior distribution to be uniform, letting our new data have more say in parameter inference.</p>
+<p>This can be seen in <strong>Bayes’ Theorem</strong>:</p>
+<p><img src="images/clipboard-566625555.png" class="img-fluid"></p>
+<p>Source: <a href="https://www.freecodecamp.org/news/bayes-rule-explained/">freeCodeCamp</a></p>
+<p>What about MCMC? For this, we can break it down into it’s two terms: <strong>Markov chain</strong>, and <strong>Monte Carlo</strong>.</p>
+<p>A <strong>Markov chain</strong> is a stochastic model (meaning it accounts for randomness) that experiences transitions from one state to the next based on the probabilities of the current state. The easiest way to visualize this is through an image!</p>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230503183646/Markov-Chains-in-NLP.webp" class="img-fluid"></p>
+<p>Source: <a href="https://www.geeksforgeeks.org/markov-chains-in-nlp/">geeksforgeeks</a></p>
+<p>What we have above is a simple weather model where we have 3 states: <em>rainy, cloudy, and sunny</em>. The way to read this is by paying attention to the direction of the arrows. For example, the arrow that self-points to the <em>sunny</em> state means that if today is <em>sunny</em>, the chances of being <em>sunny</em> again is of 0.8. The arrow that points from <em>sunny</em> to <em>cloudy</em> says that if today is <em>sunny</em>, then the probability of it being <em>cloudy</em> is of 0.1. Easy!</p>
+<p>Using this model, we can perform the chain part of Markov chain. This means that we can create a path or chain of events by “walking” from state to state at random. But remember! In a Markov chain, the probability of transitioning from a current state to a future state solely depends on the current state and not its history of states! Let’s do a challenge to see if you understood the concept.</p>
+<hr>
+<section id="challenge-5" class="level4">
+<h4 class="anchored" data-anchor-id="challenge-5">Challenge 5</h4>
+<p>Taking the weather model, we tracked the weather states of 7 days beginning on a <em>rainy</em> day:</p>
+<p><code>rainy -&gt; cloudy -&gt; rainy -&gt; sunny -&gt; sunny -&gt; rainy -&gt; rainy -&gt; ...</code></p>
+<p>What is the probability of it being a <em>cloudy</em> day on the 8th day?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><code>0.3</code></p>
+</div>
+</div>
+</div>
+<hr>
+<p>Let’s talk about the <strong>Monte Carlo</strong> part of the MCMC. In essence, a <strong>Monte Carlo Simulation</strong> is a model that is used to predict the probability of a range of outcomes when accounting a complex situation where many random variables could influence real life outcomes. It does this by repeated random sampling. Sounds familiar right? That’s cause it is very similar in concept to bootstrapping! What differs is that <strong>Monte Carlo</strong> simulates data from a model, while bootstrapping simply re-samples from a dataset.</p>
+<p><em>Fun fact! the model is named after the famous Monte Carlo Casino in Monaco as a reference to the randomness associated with gambling! Don’t gamble, learn stats instead!</em></p>
+<p>We can use this simple method to solve complex questions!</p>
+<hr>
+</section>
+</section>
+<section id="putting-it-all-together" class="level3">
+<h3 class="anchored" data-anchor-id="putting-it-all-together">Putting it all together</h3>
+<p>Now it’s time to merge all of these concepts to define MCMC. This algorithm is a Bayesian approach, meaning that previous assumptions are important to how the new data will be interpreted. The algorithm works by repeatedly proposing random parameter values and evaluating how well they fit the data (using likelihoods and priors, if provided). It then decides whether to accept or reject them using the <strong>Metropolis-Hastings algorithm.</strong> This decision process works by proposing a new sample based on the current sample and then accepting or rejecting it depending on the ratio of the likelihood of the proposed value to the likelihood of the current value. As we repeat this process, due to the acceptance rule, we will slowly accumulate samples that approximate the posterior distribution. This posterior distribution in our case means the range of values our speciation rate (<span class="math inline">\(λ\)</span>) and extinction rate (<span class="math inline">\(\mu\)</span>) parameters take.</p>
+<p>Enough textbook info and let’s see step by step how the algorithm works!</p>
+<p>Let’s set everything up:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>phy <span class="ot">&lt;-</span> <span class="fu">tree.bd</span>(<span class="fu">c</span>(.<span class="dv">1</span>,.<span class="dv">03</span>), <span class="at">max.taxa =</span> <span class="dv">100</span>) <span class="co"># simulate phylogenetic tree</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>lik <span class="ot">&lt;-</span> <span class="fu">make.bd</span>(phy) <span class="co"># create likelihood function based on simulated tree</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can make our initial guesses of <span class="math inline">\(λ\)</span> and <span class="math inline">\(μ\)</span> based on the results from MLE!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">find.mle</span>(lik, <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.03</span>), <span class="at">method =</span> <span class="st">"subplex"</span>)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(fit) <span class="co"># use coef() to see the estimated parameters</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    lambda         mu 
+0.08716469 0.01231621 </code></pre>
+</div>
+</div>
+<p>We can then get the likelihood value of this current value:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>current_par <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">coef</span>(fit)[[<span class="dv">1</span>]], <span class="fu">coef</span>(fit)[[<span class="dv">2</span>]]) <span class="co"># Use indexing to extract the values for lambda and mu</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>current_lik <span class="ot">&lt;-</span> <span class="fu">lik</span>(current_par)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>current_lik</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 14.80924</code></pre>
+</div>
+</div>
+<p>Our next proposed value can be a random value that is 0.1 steps away. We can denote this step variable as <code>w</code> . Please note that parameters in our case cannot be negative since you can’t have a negative rate of speciation and extinction.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>w <span class="ot">=</span> <span class="fl">0.1</span> <span class="co"># We assume that the maximum step size for each rate is 0.1</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>proposal_par <span class="ot">&lt;-</span> current_par <span class="sc">+</span> <span class="fu">runif</span>(<span class="dv">2</span>, <span class="sc">-</span>w, w) <span class="co"># Generates 2 random numbers between -w and w</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>proposal_par <span class="co"># Make sure that the parameters are not negative!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.02414114 0.05279102</code></pre>
+</div>
+</div>
+<p>From these proposal parameters we can derive the new likelihood by inserting it to our likelihood function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>proposal_lik <span class="ot">&lt;-</span> <span class="fu">lik</span>(proposal_par)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>proposal_lik</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -74.51499</code></pre>
+</div>
+</div>
+<p>As directed by the Metropolis-Hastings part of the algorithm, we now need to decide if to accept or reject this new set of parameters. As mentioned we can follow this formula:</p>
+<p><span class="math display">\[
+r=L(proposal)/L(current)​
+\]</span></p>
+<p>But since <code>lik</code> gives us the log of likelihood values, we can rework the formula to this:</p>
+<p><span class="math display">\[
+log r=logL(proposal)−logL(current)
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>log_r <span class="ot">&lt;-</span> proposal_lik <span class="sc">-</span> current_lik</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">exp</span>(log_r) <span class="co"># Since everything is in log, we use exp() to show us the actual value</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>r</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.61056e-39</code></pre>
+</div>
+</div>
+<p>The <code>r</code> value we received is extremely low, meaning that the proposed parameters performed worse than the current parameters. One could automatically discard them, but sometimes these worse values have a place in the final distribution of values. To decide on this, we can write this little conditional:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">runif</span>(<span class="dv">1</span>) <span class="sc">&lt;</span> r) { <span class="co"># we take a random value from a uniform probability distribution that goes from 0 to 1 and compare it to r</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>      current_par <span class="ot">&lt;-</span> proposal_par</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>      current_lik <span class="ot">&lt;-</span> proposal_lik</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="co"># If r &gt;1, any value from runif(1) will be smaller than r, hence it will always be accepted</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>What this code does is:</p>
+<ol type="1">
+<li>It takes a random value from 0-1 based on a uniform distribution, meaning that all values are equally probable of being chosen.</li>
+<li>If r &gt; 1, then it will always be accepted and the current parameters and likelihood values will be replaced by the proposed ones.</li>
+<li>If r &lt; 1, then we need to see if it is bigger than the value from <code>runif(1)</code>. This means that the proposed values will be accepted with a probability of r</li>
+</ol>
+<p>We can see that in this case, the proposed value was rejected:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>current_lik</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 14.80924</code></pre>
+</div>
+</div>
+<p>If we repeat this process many many times, essentially creating a “random walk” along the parameter space, we will eventually get closer to the area where the “real values” are (a.k.a the posterior distribution)!</p>
+<p>You must have noticed that when introducing the Bayesian nature of MCMC, we mentioned prior distributions and how these previous assumptions can change how the prior distribution presents itself. The prior directly shapes the posterior by increasing or decreasing the probability of visiting a particular parameter region.</p>
+<p>We can create a function that takes this into account. We want a function that can take in the value of both of the parameters. It then needs to get their probability based on a specific probabiliity distribution - which in our example will be a normal distribution - and multiply them to get a <strong>joint prior</strong>. We can do this if we assume that λ and μ are <strong>independent.</strong></p>
+<p><span class="math display">\[
+P(λ,μ)=P(λ)⋅P(μ)
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>prior_fn_normal <span class="ot">&lt;-</span> <span class="cf">function</span>(par) { <span class="co"># par = c(lambda, mu)</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  lambda <span class="ot">&lt;-</span> par[<span class="dv">1</span>]</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  mu <span class="ot">&lt;-</span> par[<span class="dv">2</span>]</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (lambda <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;&amp;</span> mu <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;&amp;</span> mu <span class="sc">&lt;</span> lambda) { <span class="co"># We assume that net diversification rate is positive so mu can't be higher than lambda</span></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">dnorm</span>(lambda, <span class="at">mean =</span> <span class="fl">0.1</span>, <span class="at">sd =</span> <span class="fl">0.03</span>) <span class="sc">*</span> <span class="fu">dnorm</span>(mu, <span class="at">mean =</span> <span class="fl">0.03</span>, <span class="at">sd =</span> <span class="fl">0.02</span>)) </span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Multiply these distributions to join them</span></span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The mean were chosen to be the initial parameters used to create the tree</span></span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># sd values were arbitrary decisions</span></span>
+<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="dv">0</span>)  <span class="co"># Do not allow impossible or illogical values</span></span>
+<span id="cb59-11"><a href="#cb59-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb59-12"><a href="#cb59-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb59-13"><a href="#cb59-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This then affects the current likelihood values by:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>current_lik <span class="ot">&lt;-</span> current_lik <span class="sc">+</span> <span class="fu">log</span>(<span class="fu">prior_fn_normal</span>(current_par)) <span class="co"># Posterior = Prior x Likelihood but everything is in log so we just add them</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Recall that in the Bayes Theorem formula we need to divide <em>Likelihood</em> by <em>Marginal likelihood</em> or <em>Evidence</em>. However, in the Metropolis-Hastings algorithm we are working with the acceptance ratio <code>r</code>. When making this calculation, the <em>Marginal likelihood</em> is present in both the current and proposed posterior value so the <em>Marginal</em> value is cancelled out.</p>
+<p>To put it all together, we come up with our custom MCMC R function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>custom_mcmc <span class="ot">&lt;-</span> <span class="cf">function</span>(likelihood_fn, start, <span class="at">nsteps =</span> <span class="dv">100000</span>, <span class="at">w =</span> <span class="fl">0.1</span>, <span class="at">prior_fn =</span> <span class="cn">NULL</span>) {</span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Initialize matrix to hold samples for lambda, mu, and log-likelihood</span></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  samples <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="cn">NA</span>, <span class="at">nrow =</span> nsteps, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(samples) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"lambda"</span>, <span class="st">"mu"</span>, <span class="st">"log_lik"</span>)</span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>  samples[<span class="dv">1</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="ot">&lt;-</span> start <span class="co"># Go to first row and extract values from lambda and mu column</span></span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Current state: lambda and mu</span></span>
+<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a>  current_par <span class="ot">&lt;-</span> start</span>
+<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a>  current_lik <span class="ot">&lt;-</span> <span class="fu">likelihood_fn</span>(current_par)</span>
+<span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb61-11"><a href="#cb61-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Include prior if specified</span></span>
+<span id="cb61-12"><a href="#cb61-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(prior_fn)) {</span>
+<span id="cb61-13"><a href="#cb61-13" aria-hidden="true" tabindex="-1"></a>    current_lik <span class="ot">&lt;-</span> current_lik <span class="sc">+</span> <span class="fu">log</span>(<span class="fu">prior_fn</span>(current_par))</span>
+<span id="cb61-14"><a href="#cb61-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb61-15"><a href="#cb61-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb61-16"><a href="#cb61-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Store initial log-likelihood in row 1 column 3</span></span>
+<span id="cb61-17"><a href="#cb61-17" aria-hidden="true" tabindex="-1"></a>  samples[<span class="dv">1</span>, <span class="dv">3</span>] <span class="ot">&lt;-</span> current_lik</span>
+<span id="cb61-18"><a href="#cb61-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb61-19"><a href="#cb61-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>nsteps) { <span class="co"># We start in position 2 because the first column has already been filled with our initial guesses</span></span>
+<span id="cb61-20"><a href="#cb61-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb61-21"><a href="#cb61-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Propose new values for lambda and mu</span></span>
+<span id="cb61-22"><a href="#cb61-22" aria-hidden="true" tabindex="-1"></a>    proposal_par <span class="ot">&lt;-</span> current_par <span class="sc">+</span> <span class="fu">runif</span>(<span class="dv">2</span>, <span class="sc">-</span>w, w) <span class="co"># Generates 2 random numbers between -w and w</span></span>
+<span id="cb61-23"><a href="#cb61-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb61-24"><a href="#cb61-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check that proposed values are positive and finite (otherwise they won't work in the likelihood function)</span></span>
+<span id="cb61-25"><a href="#cb61-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">any</span>(proposal_par <span class="sc">&lt;=</span> <span class="dv">0</span>) <span class="sc">||</span> <span class="fu">any</span>(<span class="sc">!</span><span class="fu">is.finite</span>(proposal_par))) { <span class="co"># || means OR</span></span>
+<span id="cb61-26"><a href="#cb61-26" aria-hidden="true" tabindex="-1"></a>      samples[i, ] <span class="ot">&lt;-</span> <span class="fu">c</span>(current_par, current_lik)  <span class="co"># Reject and stay at current state</span></span>
+<span id="cb61-27"><a href="#cb61-27" aria-hidden="true" tabindex="-1"></a>      <span class="cf">next</span></span>
+<span id="cb61-28"><a href="#cb61-28" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb61-29"><a href="#cb61-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb61-30"><a href="#cb61-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Evaluate likelihood at the proposed values</span></span>
+<span id="cb61-31"><a href="#cb61-31" aria-hidden="true" tabindex="-1"></a>    proposal_lik <span class="ot">&lt;-</span> <span class="fu">likelihood_fn</span>(proposal_par)</span>
+<span id="cb61-32"><a href="#cb61-32" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb61-33"><a href="#cb61-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Include prior if specified</span></span>
+<span id="cb61-34"><a href="#cb61-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(prior_fn)) {</span>
+<span id="cb61-35"><a href="#cb61-35" aria-hidden="true" tabindex="-1"></a>      proposal_lik <span class="ot">&lt;-</span> proposal_lik <span class="sc">+</span> <span class="fu">log</span>(<span class="fu">prior_fn</span>(proposal_par))</span>
+<span id="cb61-36"><a href="#cb61-36" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb61-37"><a href="#cb61-37" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb61-38"><a href="#cb61-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute acceptance ratio (on log scale)</span></span>
+<span id="cb61-39"><a href="#cb61-39" aria-hidden="true" tabindex="-1"></a>    log_r <span class="ot">&lt;-</span> proposal_lik <span class="sc">-</span> current_lik</span>
+<span id="cb61-40"><a href="#cb61-40" aria-hidden="true" tabindex="-1"></a>    r <span class="ot">&lt;-</span> <span class="fu">exp</span>(log_r)</span>
+<span id="cb61-41"><a href="#cb61-41" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb61-42"><a href="#cb61-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Accept or reject the proposal based on r&gt;1 or r&lt;1</span></span>
+<span id="cb61-43"><a href="#cb61-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">runif</span>(<span class="dv">1</span>) <span class="sc">&lt;</span> r) {</span>
+<span id="cb61-44"><a href="#cb61-44" aria-hidden="true" tabindex="-1"></a>      current_par <span class="ot">&lt;-</span> proposal_par</span>
+<span id="cb61-45"><a href="#cb61-45" aria-hidden="true" tabindex="-1"></a>      current_lik <span class="ot">&lt;-</span> proposal_lik</span>
+<span id="cb61-46"><a href="#cb61-46" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb61-47"><a href="#cb61-47" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb61-48"><a href="#cb61-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Store the current state (either new or previous) and log-posterior</span></span>
+<span id="cb61-49"><a href="#cb61-49" aria-hidden="true" tabindex="-1"></a>    samples[i, ] <span class="ot">&lt;-</span> <span class="fu">c</span>(current_par, current_lik)</span>
+<span id="cb61-50"><a href="#cb61-50" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb61-51"><a href="#cb61-51" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb61-52"><a href="#cb61-52" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return results as a data frame</span></span>
+<span id="cb61-53"><a href="#cb61-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">as.data.frame</span>(samples))</span>
+<span id="cb61-54"><a href="#cb61-54" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s use our data to see the posterior distribution we get!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>start_par <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">coef</span>(fit)[[<span class="dv">1</span>]], <span class="fu">coef</span>(fit)[[<span class="dv">2</span>]])</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>test_mcmc <span class="ot">&lt;-</span> <span class="fu">custom_mcmc</span>(lik, start_par, <span class="at">w =</span> <span class="fl">0.1</span>)</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(test_mcmc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      lambda         mu  log_lik
+1 0.08716469 0.01231621 14.80924
+2 0.08716469 0.01231621 14.80924
+3 0.08716469 0.01231621 14.80924
+4 0.11932425 0.03813902 12.72463
+5 0.11932425 0.03813902 12.72463
+6 0.11932425 0.03813902 12.72463</code></pre>
+</div>
+</div>
+<p>What we get is a table of our posterior distribution with our accepted <span class="math inline">\(λ\)</span> and <span class="math inline">\(μ\)</span> parameters and their likelihood values. We can plot this using:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create r column based on lambda and mu</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>test_mcmc<span class="sc">$</span>r <span class="ot">&lt;-</span> test_mcmc<span class="sc">$</span>lambda <span class="sc">-</span> test_mcmc<span class="sc">$</span>mu </span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>col <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#eaab00"</span>, <span class="st">"#004165"</span>, <span class="st">"#618e02"</span>)</span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="fu">profiles.plot</span>(test_mcmc[<span class="fu">c</span>(<span class="st">"lambda"</span>, <span class="st">"mu"</span>, <span class="st">"r"</span>)], <span class="at">col.line =</span> col, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">legend.pos =</span> <span class="st">"topright"</span>)</span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's see to how the parameters used to simulate the tree compare to our posterior distribution</span></span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.03</span>, <span class="fl">0.07</span>), <span class="at">col =</span> col, <span class="at">lty =</span> <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="module-S25-Group2_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can see that everything aligns pretty well!</p>
+<p>In the figure, bars at the bottom of each distribution and shaded areas correspond to the 95% credibility intervals.</p>
+<p><strong>How will this change if we give it an informative prior distribution?</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>test_mcmc_prior <span class="ot">&lt;-</span> <span class="fu">custom_mcmc</span>(lik, start_par, <span class="at">w =</span> <span class="fl">0.1</span>, <span class="at">prior_fn =</span> prior_fn_normal) <span class="co"># Add function without ()</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>test_mcmc_prior<span class="sc">$</span>r <span class="ot">&lt;-</span> test_mcmc_prior<span class="sc">$</span>lambda <span class="sc">-</span> test_mcmc_prior<span class="sc">$</span>mu </span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>col <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#eaab00"</span>, <span class="st">"#004165"</span>, <span class="st">"#618e02"</span>)</span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a><span class="fu">profiles.plot</span>(test_mcmc_prior[<span class="fu">c</span>(<span class="st">"lambda"</span>, <span class="st">"mu"</span>, <span class="st">"r"</span>)], <span class="at">col.line =</span> col, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">legend.pos =</span> <span class="st">"topright"</span>)</span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.03</span>, <span class="fl">0.07</span>), <span class="at">col =</span> col, <span class="at">lty =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="module-S25-Group2_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>However, in reality, we can skip all of this and use the <code>mcmc()</code> function from <code>diversitree</code> R to avoid writing our own MCMC algorithm from scratch:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>dt_mcmc <span class="ot">&lt;-</span> <span class="fu">mcmc</span>(lik, start_par, <span class="at">nsteps =</span> <span class="dv">10000</span>, <span class="at">w =</span> <span class="fl">0.1</span>, <span class="at">print.every =</span> <span class="dv">0</span>) <span class="co"># Assuming uninformative prior so we won't add prior</span></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dt_mcmc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  i     lambda           mu        p
+1 1 0.07425992 0.0143710217 13.30639
+2 2 0.08245644 0.0124426687 14.64493
+3 3 0.08900542 0.0193776250 14.75580
+4 4 0.08542999 0.0056211557 14.76108
+5 5 0.07794971 0.0002044944 14.64823
+6 6 0.08914650 0.0177816238 14.78650</code></pre>
+</div>
+</div>
+<p>And plot!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>dt_mcmc<span class="sc">$</span>r <span class="ot">&lt;-</span> dt_mcmc<span class="sc">$</span>lambda <span class="sc">-</span> dt_mcmc<span class="sc">$</span>mu</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>col <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#eaab00"</span>, <span class="st">"#004165"</span>, <span class="st">"#618e02"</span>)</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="fu">profiles.plot</span>(dt_mcmc[<span class="fu">c</span>(<span class="st">"lambda"</span>, <span class="st">"mu"</span>, <span class="st">"r"</span>)], <span class="at">col.line =</span> col, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">legend.pos =</span> <span class="st">"topright"</span>)</span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.03</span>, <span class="fl">0.07</span>), <span class="at">col =</span> col, <span class="at">lty =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="module-S25-Group2_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can see that both plots were we don’t include priors are basically identical!</p>
+<p>In true practice, we also need to consider the concept of <strong>Burn in<em>.</em></strong> This refers to throwing away some iterations at the beginning of the run since they might not represent the true posterior distribution. <code>mcmc()</code> doesn’t automatically do this nor does it have a parameter to do this, so we would need to do this manually and decide how much burn in we consider the model to have.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming we have a 20% burn in</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>burn_in <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>n_burn <span class="ot">&lt;-</span> <span class="fu">floor</span>(<span class="fu">nrow</span>(dt_mcmc) <span class="sc">*</span> burn_in) <span class="co"># Will calculate how many columns to burn</span></span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="co"># We use floor() to round down just in case the result is a float</span></span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>n_burn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>dt_mcmc_burn <span class="ot">&lt;-</span> dt_mcmc[<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span>n_burn),] <span class="co"># pick rows 1 through n_burn and remove them from our old sample</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dt_mcmc<span class="sc">$</span>lambda, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"Trace plot for λ"</span>) <span class="co"># Plot trace plot to see each value of lambda picked in each iteration</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">floor</span>(<span class="fl">0.2</span> <span class="sc">*</span> <span class="fu">nrow</span>(dt_mcmc)), <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lty =</span> <span class="dv">2</span>) <span class="co"># Mark vertical line to see which portions we decided to burn</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="module-S25-Group2_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can see that in the trace plot shows that, while there is a lot of noise, they are all in the 0.10 mean lambda value. This just means that our initial guesses from MLE weren’t too far from the actual region where the posterior distribution was. We can see how this changes if we do include more ‘outlandish’ initial guesses:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>big_guess <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.9</span>, <span class="fl">0.5</span>)</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>dt_mcmc <span class="ot">&lt;-</span> <span class="fu">mcmc</span>(lik, big_guess, <span class="at">nsteps =</span> <span class="dv">10000</span>, <span class="at">w =</span> <span class="fl">0.1</span>, <span class="at">print.every =</span> <span class="dv">0</span>)</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dt_mcmc<span class="sc">$</span>lambda, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"Trace plot for λ"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="module-S25-Group2_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You can see how in the beginning there is an enormous drop, showing not only that <code>mcmc()</code> can guide us to the correct value region and the importance of burn in, which in this case doesn’t need to be as drastic as 20%</p>
+<section id="challenge-6" class="level4">
+<h4 class="anchored" data-anchor-id="challenge-6">Challenge 6</h4>
+<p>Write a function that takes a pair of values and gets their probability based on an <strong>exponential</strong> distribution. Then plug this in into both the custom MCMC function and the one provided by <code>diversitree</code>. How does this information change the figures in the end?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>prior_fn_exp <span class="ot">&lt;-</span> <span class="cf">function</span>(par) {</span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>  lambda <span class="ot">&lt;-</span> par[<span class="dv">1</span>]</span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>  mu <span class="ot">&lt;-</span> par[<span class="dv">2</span>]</span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (lambda <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;&amp;</span> mu <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;&amp;</span> mu <span class="sc">&lt;</span> lambda) {</span>
+<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">dexp</span>(lambda, <span class="at">rate =</span> <span class="dv">10</span>) <span class="sc">*</span> <span class="fu">dexp</span>(mu, <span class="at">rate =</span> <span class="dv">10</span>)) <span class="co">#rate parameter controls how quickly the probability decays. 10 is actually very fast, showing that there is little variability around my mu and lambda values.</span></span>
+<span id="cb74-7"><a href="#cb74-7" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb74-8"><a href="#cb74-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="dv">0</span>)  <span class="co"># Do not allow impossible or illogical values</span></span>
+<span id="cb74-9"><a href="#cb74-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb74-10"><a href="#cb74-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>base_mcmc_norm <span class="ot">&lt;-</span> <span class="fu">mcmc</span>(lik, start_par, <span class="at">nsteps =</span> <span class="dv">10000</span>, <span class="at">w =</span> <span class="fl">0.1</span>, <span class="at">print.every =</span> <span class="dv">0</span>, <span class="at">prior =</span> prior_fn_exp) <span class="co"># Use prior argument to add your prior distribution</span></span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(base_mcmc_norm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  i     lambda           mu        p
+1 1 0.07425992 0.0021851957 60.83500
+2 2 0.05785424 0.0003870137 65.55745
+3 3 0.05638343 0.0009076239 65.23836
+4 4 0.06548103 0.0009222731 64.04413
+5 5 0.05649642 0.0010063094 65.15962
+6 6 0.05631990 0.0011832615 65.02860</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>base_mcmc_norm<span class="sc">$</span>r <span class="ot">&lt;-</span> base_mcmc_norm<span class="sc">$</span>lambda <span class="sc">-</span> base_mcmc_norm<span class="sc">$</span>mu</span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>col <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#eaab00"</span>, <span class="st">"#004165"</span>, <span class="st">"#618e02"</span>)</span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="fu">profiles.plot</span>(base_mcmc_norm[<span class="fu">c</span>(<span class="st">"lambda"</span>, <span class="st">"mu"</span>, <span class="st">"r"</span>)], <span class="at">col.line =</span> col, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">legend.pos =</span> <span class="st">"topright"</span>)</span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.03</span>, <span class="fl">0.07</span>), <span class="at">col =</span> col, <span class="at">lty =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="module-S25-Group2_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="helpful-links-for-more-practice" class="level2">
+<h2 class="anchored" data-anchor-id="helpful-links-for-more-practice">Helpful Links For More Practice</h2>
+<ul>
+<li><p><a href="https://www.zoology.ubc.ca/prog/diversitree/doc/diversitree-tutorial.pdf" class="uri">https://www.zoology.ubc.ca/prog/diversitree/doc/diversitree-tutorial.pdf</a></p></li>
+<li><p><a href="https://doi.org/10.1111/j.2041-210x.2012.00234.x" class="uri">https://doi.org/10.1111/j.2041-210x.2012.00234.x</a></p></li>
+<li><p><a href="https://rdrr.io/cran/diversitree/" class="uri">https://rdrr.io/cran/diversitree/</a></p></li>
+</ul>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

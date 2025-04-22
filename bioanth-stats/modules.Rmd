@@ -139,7 +139,8 @@ Each module listed is linked to another page containing instructions and helpful
 ### [Module 20 - **Intro to Survival Analysis**](http://fuzzyatelin.github.io/bioanth-stats/module-S25-Group1/module-S25-Group1.html)
 (Soumalya Ghorui, Kacy Lin, Benjamin Peters, Carly Rojas, Tiffany Zhu)
 
-### [Module 21 - **TBA**]()
+### [Module 21 - **Constant-Rate Birth-Death Modeling in {diversitree}**](http://fuzzyatelin.github.io/bioanth-stats/module-S25-Group2/module-S25-Group2.html)
+(Sulvia Adams, Carly McDermott, Christian Mei, Akiva Zeff)
 
 ### [Module 22 - **TBA**]()
 
