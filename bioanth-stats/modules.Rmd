@@ -142,7 +142,7 @@ Each module listed is linked to another page containing instructions and helpful
 ### [Module 21 - **Constant-Rate Birth-Death Modeling in {diversitree}**](http://fuzzyatelin.github.io/bioanth-stats/module-S25-Group2/module-S25-Group2.html)
 (Sylvia Adams, Carly McDermott, Christian Mei, Akiva Zeff)
 
-### [Module 22 - **T-SNE: A Machine Learning Algorithm for Dimensionality Reduction**](http://fuzzyatelin.github.io/bioanth-stats/module-S25-Group3/module-S25-Group3.html)
+### [Module 22 - **Dimensionality Reduction Techniques**](http://fuzzyatelin.github.io/bioanth-stats/module-S25-Group3/module-S25-Group3.html)
 (Brian Cen, Sherry Xie, Charles Yung, Jason Zeng)
 
 ***
