@@ -1,0 +1,277 @@
+---
+title: "TSNE_Final"
+author: "Charles Yung,Jason Zeng"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+---
+title: "T-SNE"
+output: html_document
+date: "2025-04-20"
+---
+
+# **What is T-SNE?**
+
+T-SNE is a popular machine learning algorithm for dimensionality reduction and is well suited for visualizing high-dimensional data in two or three dimensions. Specifically t-SNE helps uncover patterns in complex data sets by mapping data from a high-dimensional space (having many features) into a lower-dimensional space (usually 2D or 3D) while also preserving the structure of the data.
+
+### **Why is t-SNE used?**
+
+**Measuring similarity**
+
+Visualizing relationships within high-dimensional data sets is very difficult without analysis. T-SNE reduces high-dimensional data to 2D or 3D so data point patterns can be visualized within a plot.
+
+**Mapping to low dimensions**
+
+T-SNE shows a dimension reduction of complex data sets show a representation where similar points stay close together while dissimilar points are far apart within the analysis model. Relationships between data clusters can be visualized.
+
+### **What t-SNE does:**
+
+**Recovers well-separated clusters**
+
+TSNE often separates clusters well and shows how different samples relate. Even if data clusters are too closely distributed in high-dimensional spaces, tSNE can spread out these data points clearly in 2D.
+
+**Preserves local data points**
+
+Points that are close in high-dimensional space remain close in low dimensional space. If Two data points are similar they will remain close in the 2D plot. This is what makes t-SNE useful for discovering sub clusters or subtle groupings.
+
+**Prevents crowding of observational data points using a t-distribution**
+
+In more traditional techniques (such as PCA), many data points can possibly get squished into the center of the plot. T-SNE avoids data distribution crowding by using a t-distribution characterized by heavy tails. Using the t-distribution, there is a better visual separation of data points, and data points that are distantly related are not clustered together.
+
+### **What t-SNE doesn’t do:**
+
+**Computationally expensive**
+
+For large data sets (data containing tens to hundreds of thousands of observations, t-SNE can be slow or memory intensive). It is necessary to select a data set with a manageable number of observations before analysis.
+
+**Influential data parameters**
+
+The perplexity parameter strongly affects the outcome- it controls the size of the data “neighborhood” each point considers. If the neighborhood is too low or too high, visual data relationships can appear misleading.
+
+**No global structure preservation**
+
+T-SNE is focused on local similarities, so distances between data point clusters in the T-SNE plot may not reflect the relationship between this data within the original space.
+
+**Presence of data artifacts**
+
+There are instances where when t-SNE pulls out data distribution structure, it sometimes creates visual data structures that don’t really exist. Data artifacts are characterized by fake gaps between points or artificial clusters, which can lead to inaccurate observation of visual data point patterns.
+
+## **How T-SNE works**
+
+#### **Prepared data**
+
+Starts with a data set where each observation has many features and has high dimensionality. Examples can be but are not limited to gene expression data, survey responses, or physiological traits of organisms. For our example, we will be using types of cereal.
+
+#### **Computing pairwise similarities in High Dimensions**
+
+This step involves data localization by using perplexity parameters to orient other neighboring data points around each data point. For each point in the data set, t-SNE computes how similar it is to every other point by converting distances between points into probabilities. Nearby points are categorized with high probability and distant points are categorized with low probability.
+
+#### **Low-dimensional embedding**
+
+T-SNE then gives every data point a random position within a two-dimensional space to start with; the intent is to manipulate the data points so they reflect the intended presented relationships from the high-dimensional data set.
+
+#### **Computing pairwise similarities in Low Dimensions**
+
+T-SNE will now calculate new probabilities based on the two-dimensional distances between our data points using a t-distribution. The T-distribution is used because the data points furthest from the center of the plot have a higher probability of extreme measured outcomes. This distribution of points also fixes data-point crowding where data points collapse together in low dimensional space. These two characteristics improve t-SNE data visibility.
+
+#### **Minimizing difference between High/Low Dimensional distribution**
+
+T-SNE renders the two dimensional probabilities to reflect those of the high-dimensional data sets, measuring the differences between both distributions.
+
+#### **Final Embedding**
+
+T-SNE now moves the two-dimensional data points around to continually reduce divergence. The points on the plot will shift gradually until the layout reflects intended similarities.
+
+#### **2D Map**
+
+The final result of the T-SNE is a two-dimensional scatterplot where data points that are closely related to each other are also closely related in the plot. Data clusters should also appear, allowing the reader to visually determine relationships, data outliers, and groupings. However, it is important to understand that distances between faraway data clusters don’t necessarily have significant implications- only that the local data structure has been preserved.
+
+#### **t-SNE Compared to Other Analyses**
+
+Unlike PCA, which is more linear oriented and focused on maintaining global variance, t-SNE analysis capture more nuanced linear patterns. Furthermore, compared to a UMAP analysis t-SNE usually produces clearer separation between data point clusters but is more sensitive to perplexity parameters and may run slower. T-SNE is ideal for exploring groupings and relationships in complex datasets (like our cereal data set below), but we must remember that t-SNE doesn't preserve global distances between data.
+
+## **Walk through of how t-SNE works**
+
+#### **Preparing Data & Setting up Variables**
+
+The packages we are using are GGally, ggplot, ggrepel, cowplot, and plspm. To run our t-SNE analysis, we are going to use a data set from Rpubs comparing the nutrition facts of different supermarket cereals. The head ( ) function shows us the first few rows of the data to preview its structure.
+
+```{r}
+library(ggplot2) # classic graphing library ggplot2 will be used to graph 
+library(ggrepel) # Add smart text labels that avoid overlapping
+```
+
+```{r}
+library(plspm) #load plspm library which has the cereals dataset
+data("cereals")
+head(cereals) #display first few rows of cereals dataset
+```
+
+Next, let's define a list of numeric variables from the cereal data set. In this case, our numeric variables are nutritional facts for each cereal brand. also need to create a new data frame called "cereals_num" which contains our related columns. Finally, we will confirm the number of columns selected using the "ncol()" function, which should be 12.
+
+```{r}
+numeric_vars <- c("calories", "protein", "fat", "sodium", "fiber", "carbo", "sugars", "potass", "vitamins", "weight", "cups", "rating") # define names of numeric variables that can be used in the analysis
+
+cereals_num <- cereals[, numeric_vars] #subset the cereals dataset to include only numeric variables
+ncol(cereals_num) # check how many columns of numeric we have
+```
+
+#### **Classifying Different Cereal Types By Variable**
+
+Next, we are going to label and classify our different cereal types. With our cereals, we will create two groups: one representing sugary or kid-marketed cereals grouped as "fun_cereals", and one representing higher-fiber or bran cereals grouped as "shredded_wheat_cereals." We have categorized our cereals into these two groups as below. Next, we will determine the row positions of the cereals of interest so they can be identified later in the plot under "cereals_num_sub." We will also use classification to label each cereal as "fun," "shredded," or "normal." Finally, let's add a "label" column to annotate only selected cereals in the t-SNE plot while leaving unaccounted cereals blank.
+
+```{r}
+# define fun cereals
+fun_cereals <- c("Lucky_Charms", "Count_Chocula", "Froot_Loops", "Frosted_Flakes", "Cocoa_Puffs", "Cinnamon_Toast_Crunch","Golden_Crisp", "Golden_Grahams", "Grape_Nuts_Flakes", "Honey_Graham_Ohs","Honey_Nut_Cheerios", "Honey-comb", "Just_Right_Crunchy__Nuggets", "Apple_Cinnamon_Cheerios", "Apple_Jacks", "Cap'n'Crunch","Cinnamon_Toast_Crunch", "Clusters", "Cocoa_Puffs")
+
+#define shredded wheat / high-fiber cereals 
+shredded_wheat_cereals <- c("100%_Bran", "100%_Natural_Bran", "All-Bran", "All-Bran_with_Extra_Fiber", "Bran_Chex", "Bran_Flakes", "Cream_of_Wheat_(Quick)", "Crispy_Wheat_&_Raisins", "Fruit_&_Fibre_Dates,_Walnuts,_and_Oats", "Great_Grains_Pecan", "Muesli_Raisins,_Dates,_&_Almonds", "Muesli_Raisins,_Peaches,_&_Pecans", "Mueslix_Crispy_Blend", "Multi-Grain_Cheerios", "Nutri-Grain_Almond-Raisin", "Quaker_Oat_Squares", "Quaker_Oatmeal", "Raisin_Squares", "Shredded_Wheat", "Shredded_Wheat_'n'Bran", "Shredded_Wheat_spoon_size")
+
+
+cereals_num_sub <- match(c(fun_cereals, shredded_wheat_cereals), rownames(cereals_num))
+
+cereals_num$classification <- "normal" # Assign all cereals to 'normal' classification by default
+
+cereals_num$classification[match(fun_cereals, rownames(cereals_num))] <- "fun" # Assign 'fun' classification where names match
+
+cereals_num$classification[match(shredded_wheat_cereals, rownames(cereals_num))] <- "shredded" # Assign 'shredded' classification where names match
+
+
+# Add labels for selected cereals (fun + shredded), others remain blank
+cereals_num$label <- ""
+cereals_num$label[cereals_num_sub] <- rownames(cereals_num)[cereals_num_sub]
+```
+
+#### **Creating The Scatter plot Matrix**
+
+Next, we use the "ggpairs( )" function from the GGally package to create a scatterplot matrix of some of our nutritional variables (fat, calories, sodium, and sugars). This allows us to spot patterns and relationships between pairs of variables. Note that each point is based on the cereal's classification "fun," "shredded," or "normal" which helps us visually distinguish the distribution of cereals across each category.s
+
+```{r ggpairs-large, fig.width=16, fig.height=16, message=FALSE, warning=FALSE}
+library(GGally) #using ggally for pairwise plotting
+
+# Create a ggpairs plot to explore pairwise relationships
+# between key numeric cereal variables, colored by classification
+ggpairs(cereals_num, columns = c(  "calories", "protein", "fat", "sodium", "fiber", "carbo","sugars", "potass", "vitamins", "weight", "cups", "rating"),ggplot2::aes(colour = classification))
+
+```
+
+#### **Dimensional Reduction via Principal Component Analysis**
+
+Next, let's use the "prcomp( )" function to perform a prinicpal component analysis on the numeric variables to reduce the dataset to its most important dimensions based on variance. We also will create a new data frame using the first two principal components for plotting, adding label and classification columns to keep track of cereal names and categories. We will then use "ggplot( )" to visualize the PCA results as a scatterplot, showing each point representing a different cereal and colored by classification. We used "ggrepel( )" to ensure the labels for selected cereals wouldn't overlap to make the plot easier to read.
+
+```{r pca-plot1, fig.width=12, fig.height=10}
+# Perform PCA on the first 12 numeric variables (excluding labels and classification)
+prcomp_cereals_num <- prcomp(cereals_num[, 1:12])
+
+# Create a dataframe for plotting the first two principal components
+# Add classification and label info for coloring and annotation
+pca_cereals_num <- data.frame(
+  PC1 = prcomp_cereals_num$x[, 1],
+  PC2 = prcomp_cereals_num$x[, 2],
+  label = cereals_num$label,
+  classification = cereals_num$classification
+)
+
+# Plot PCA results with points colored by classification
+# and labeled using ggrepel to avoid overlapping text
+ggplot(pca_cereals_num, aes(x = PC1, y = PC2, label = label, col = classification)) +
+  geom_point() +
+  ggrepel::geom_text_repel(cex = 2.5, max.overlaps = Inf)
+
+```
+
+Next we need to identify a subset of cereals located within a specific region of the PCA plot filtering for points with PC1 between 0 and 75 and PC2 greater than 25. We also will create a new label column "label2" to selectively show text labels for only cereals we are interested in showing only "normal" cereals in this plot. We will use "ggplot( )" to plot the filtered PCA view highlighting cereals in the normal region only for effective visualization. Points remain color coded by classification and labels are placed without overlap using "ggrepel( )."
+
+```{r pca-plot2, fig.width=12, fig.height=10}
+# Identify cereals within a specific region of the PCA plot
+# Criteria: PC1 between 0 and 75, and PC2 greater than 25
+cereals_num_int <- which(
+  pca_cereals_num$PC1 > 0 &
+  pca_cereals_num$PC1 < 75 &
+  pca_cereals_num$PC2 > 25
+)
+
+# Create a second label column for selected cereals only
+pca_cereals_num$label2 <- ""
+
+# Assign labels to only those cereals that meet the above conditions
+pca_cereals_num$label2[cereals_num_int] <- rownames(cereals_num)[cereals_num_int]
+
+# Remove labels from cereals that were already labeled previously
+pca_cereals_num$label2[cereals_num_sub] <- ""
+
+# Plot the PCA with labels for only the newly selected cereals
+ggplot(pca_cereals_num, aes(x = PC1, y = PC2, label = label2, col = classification)) +
+  geom_point() +
+  ggrepel::geom_text_repel(cex = 2.5)
+```
+
+#### **Applying t-SNE analysis to Cereal Data**
+
+Now, we will apply t-SNE analysis using the "Rtsne" package, making sure we input the 12 numeric cereal features. We use "pca=FALSE" to skip the PCA pre-step and setting "perplexity = 10" controls the balance between local and global structure between individual data points. Setting "theta = 0.0" ensures accuracy of t-SNE without approximation. After running t-SNE, we will create a new data frame using two-dimensional embedding (TSNE1, TSNE2), also bringing in the cereal labels and classifications. Finally, we visualize the t-SNE results as a scatterplot using "ggplot()" with each point as a cereal colored by classification. We also used "geom_text_repel" to label cereals without overlapping text to make the chart easier to interpret.
+
+```{r tsne-plot1, fig.width=12, fig.height=10}
+
+# Load the Rtsne package for running t-SNE
+library(Rtsne)
+
+# Run t-SNE on the 12 numeric variables
+# - pca = FALSE: skip initial PCA (we're using raw numeric input)
+# - perplexity = 10: appropriate for small datasets like this (~77 rows)
+# - theta = 0.0: exact t-SNE (more accurate, slower computation)
+tsne_cereals_num <- Rtsne(cereals_num[, 1:12],
+  pca = FALSE, perplexity = 10,
+  theta = 0.0
+)
+
+# Create a new dataframe with t-SNE results and original labels/classifications
+tsne_cereals_num <- data.frame(
+  TSNE1 = tsne_cereals_num$Y[, 1],
+  TSNE2 = tsne_cereals_num$Y[, 2],
+  label = cereals_num$label,
+  classification = cereals_num$classification
+)
+
+# Plot t-SNE results with color-coded points by classification
+# Use ggrepel to label selected cereals without overlap
+ggplot(tsne_cereals_num, aes(
+  x = TSNE1, y = TSNE2,
+  label = label, col = classification
+)) +
+  geom_point() +
+  ggrepel::geom_text_repel(cex = 2.5)
+
+```
+
+#### **Computing Appropriate Parameters within t-SNE**
+
+Next, we need to identify cereals in our dataset that fall within a specific rectangular region of the t-SNE plot; we intend to highlight only a subset of cereals for clearer labeling and intepretation. We create a new column "label2" that initially has blank labels, and selectively assign labels only to the cereals in the region of interest and we remove labels for previously defined "fun" or "shredded" cereals to avoid our data cluttering. Our final plot uses the refined label set (label2) so that only selected cereals are labeled. Data points are still color-coded by classification, and using "geom_text_repel( )" ensures the labels don't overlap.
+
+```{r tsne-plot2, fig.width=12, fig.height=10}
+# Identify a subset of cereals based on their t-SNE coordinates
+# Criteria: within a rectangular region in t-SNE space
+cereals_num_int <- which(tsne_cereals_num$TSNE2 < -10 &
+  tsne_cereals_num$TSNE2 > -45 &
+  tsne_cereals_num$TSNE1 < 25 &
+  tsne_cereals_num$TSNE1 > 10)
+
+# Create a new label column for selectively highlighting cereals
+tsne_cereals_num$label2 <- ""
+
+# Assign labels only to the cereals within the selected t-SNE region
+tsne_cereals_num$label2[cereals_num_int] <- rownames(cereals_num)[cereals_num_int]
+
+# Remove labels from cereals already labeled earlier (e.g., fun or shredded)
+tsne_cereals_num$label2[cereals_num_sub] <- ""
+
+# Plot t-SNE results with color-coded classifications
+# Only show labels for cereals in the selected region (not already labeled)
+ggplot(tsne_cereals_num, aes(
+  x = TSNE1, y = TSNE2,
+  label = label2, col = classification
+)) +
+  geom_point() +
+  ggrepel::geom_text_repel(cex = 2.5)
+
+```

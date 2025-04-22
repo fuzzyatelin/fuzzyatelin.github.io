@@ -1,0 +1,139 @@
+---
+title: "T-SNE"
+output: html_document
+date: "2025-04-20"
+---
+
+Charles continue
+
+```{r}
+library(ggplot2) #classic graphing library ggplot2 will be used to graph our Tsne
+library(ggrepel) 
+library(cowplot)
+```
+
+```{r}
+library(plspm)
+data("cereals")
+head(cereals)
+```
+
+```{r}
+numeric_vars <- c(
+  "calories", "protein", "fat", "sodium", "fiber", "carbo",
+  "sugars", "potass", "vitamins", "weight", "cups", "rating"
+)
+
+cereals_num <- cereals[, numeric_vars]
+ncol(cereals_num)
+```
+
+```{r}
+fun_cereals <- c(
+  "Lucky_Charms", "Count_Chocula", "Froot_Loops", "Frosted_Flakes", "Cocoa_Puffs", "Cinnamon_Toast_Crunch","Golden_Crisp", "Golden_Grahams", "Grape_Nuts_Flakes", "Honey_Graham_Ohs","Honey_Nut_Cheerios", "Honey-comb", "Just_Right_Crunchy__Nuggets", "Apple_Cinnamon_Cheerios", "Apple_Jacks", "Cap'n'Crunch","Cinnamon_Toast_Crunch", "Clusters", "Cocoa_Puffs")
+
+
+shredded_wheat_cereals <- c(
+  "100%_Bran", "100%_Natural_Bran", "All-Bran", "All-Bran_with_Extra_Fiber",
+  "Bran_Chex", "Bran_Flakes", "Cream_of_Wheat_(Quick)",
+  "Crispy_Wheat_&_Raisins", "Fruit_&_Fibre_Dates,_Walnuts,_and_Oats",
+  "Great_Grains_Pecan", "Muesli_Raisins,_Dates,_&_Almonds",
+  "Muesli_Raisins,_Peaches,_&_Pecans", "Mueslix_Crispy_Blend",
+  "Multi-Grain_Cheerios", "Nutri-Grain_Almond-Raisin",
+  "Quaker_Oat_Squares", "Quaker_Oatmeal", "Raisin_Squares",
+  "Shredded_Wheat", "Shredded_Wheat_'n'Bran",
+  "Shredded_Wheat_spoon_size"
+)
+
+
+cereals_num_sub <- match(
+  c(fun_cereals, shredded_wheat_cereals),
+  rownames(cereals_num)
+)
+cereals_num$classification <- "normal"
+cereals_num$classification[match(fun_cereals, rownames(cereals_num))] <- "fun"
+cereals_num$classification[match(
+  shredded_wheat_cereals,
+  rownames(cereals_num)
+)] <- "shredded"
+
+cereals_num$label <- ""
+cereals_num$label[cereals_num_sub] <- rownames(cereals_num)[cereals_num_sub]
+```
+
+```{r}
+library(GGally)
+ggpairs(cereals_num,
+  columns = c("fat", "calories", "sodium", "sugars"),
+  ggplot2::aes(colour = classification)
+)
+
+```
+
+```{r}
+prcomp_cereals_num <- prcomp(cereals_num[, 1:12])
+pca_cereals_num <- data.frame(
+  PC1 = prcomp_cereals_num$x[, 1],
+  PC2 = prcomp_cereals_num$x[, 2],
+  label = cereals_num$label,
+  classification = cereals_num$classification
+)
+
+ggplot(pca_cereals_num, aes(x = PC1, y = PC2, label = label, col = classification)) +
+  geom_point() +
+  ggrepel::geom_text_repel(cex = 2.5)
+```
+
+```{r}
+cereals_num_int <- which(pca_cereals_num$PC1 > 0 &
+  pca_cereals_num$PC1 < 75 &
+  pca_cereals_num$PC2 > 25)
+
+pca_cereals_num$label2 <- ""
+pca_cereals_num$label2[cereals_num_int] <- rownames(cereals_num)[cereals_num_int]
+pca_cereals_num$label2[cereals_num_sub] <- ""
+
+ggplot(pca_cereals_num, aes(x = PC1, y = PC2, label = label2, col = classification)) +
+  geom_point() +
+  ggrepel::geom_text_repel(cex = 2.5)
+```
+
+```{r}
+library(Rtsne)
+tsne_cereals_num <- Rtsne(cereals_num[, 1:12],
+  pca = FALSE, perplexity = 10,
+  theta = 0.0
+)
+
+tsne_cereals_num <- data.frame(
+  TSNE1 = tsne_cereals_num$Y[, 1],
+  TSNE2 = tsne_cereals_num$Y[, 2],
+  label = cereals_num$label,
+  classification = cereals_num$classification
+)
+
+ggplot(tsne_cereals_num, aes(
+  x = TSNE1, y = TSNE2,
+  label = label, col = classification
+)) +
+  geom_point() +
+  ggrepel::geom_text_repel(cex = 2.5)
+```
+
+```{r}
+cereals_num_int <- which(tsne_cereals_num$TSNE2 < -10 &
+  tsne_cereals_num$TSNE2 > -45 &
+  tsne_cereals_num$TSNE1 < 25 &
+  tsne_cereals_num$TSNE1 > 10)
+
+tsne_cereals_num$label2 <- ""
+tsne_cereals_num$label2[cereals_num_int] <- rownames(cereals_num)[cereals_num_int]
+tsne_cereals_num$label2[cereals_num_sub] <- ""
+
+ggplot(tsne_cereals_num, aes(
+  x = TSNE1, y = TSNE2,
+  label = label2, col = classification
+)) +
+  geom_point() +
+  ggrepel::geom_text_repel(cex = 2.5)
+```
