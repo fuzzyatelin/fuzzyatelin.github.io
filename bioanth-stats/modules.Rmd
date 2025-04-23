@@ -150,7 +150,7 @@ Each module listed is linked to another page containing instructions and helpful
 ### **Week 15 (2025-04-29)**
 ***
 
-### [Module 23 - **Survey Data: Properly Prepping, Analyzing, and Modeling For Research**](http://fuzzyatelin.github.io/bioanth-stats/module-S25-Group2/module-S25-Group2.html)
+### [Module 23 - **Survey Data: Properly Prepping, Analyzing, and Modeling For Research**](http://fuzzyatelin.github.io/bioanth-stats/module-S25-Group4/module-S25-Group4.html)
 (Lindsay Warrell & Jonathan Zhang)
 
 ### [Module 24 - **TBA**]()
