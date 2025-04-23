@@ -153,11 +153,11 @@ Each module listed is linked to another page containing instructions and helpful
 ### [Module 23 - **Survey Data: Properly Prepping, Analyzing, and Modeling For Research**](http://fuzzyatelin.github.io/bioanth-stats/module-S25-Group4/module-S25-Group4.html)
 (Lindsay Warrell & Jonathan Zhang)
 
-### [Module 24 - **TBA**]()
-(Matteo Finnerty, Yinuo Mao, Jaclyn Meyer, Claire Zhang)
+### [Module 24 - **TBA**](http://fuzzyatelin.github.io/bioanth-stats/module-S25-Group5/module-S25-Group5.html)
+(Amita Ganesh, Brenda Kim, Sunny Kim)
 
 ### [Module 25 - **TBA**]()
-(Amita Ganesh, Brenda Kim, Sunny Kim)
+(Matteo Finnerty, Yinuo Mao, Jaclyn Meyer, Claire Zhang)
 
 ### [Module 26 - **TBA**]()
 (Gentry Miller & Alexandra Walsh)
