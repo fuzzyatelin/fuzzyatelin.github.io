@@ -1,0 +1,657 @@
+---
+title: "Cox Proportional Hazards Model"
+author: "Matteo Finnerty, Yinuo Mao, Jaclyn Meyer, Claire Zhang"
+output:
+  rmdformats::html_clean
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Preliminaries:
+Install these packages in *R*: {survival}, {survminer}, {ggplot2}, {dplyr}
+
+# Objectives:
+> Understand the Cox proportional hazards model, how to apply it, and how to visualize the results.
+
+![](/Users/yinuomao/Desktop/model.png)
+
+# Introduction
+**The Cox proportional hazards model** is a regression method used to analyze survival data and explore the relationship between the survival time (or time-to-event) of individuals and variables, which can be continuous or categorical. This statistical method examines how different variables (like age, treatment type, or disease severity) influence how long it takes for an event to occur - such as death or disease recurrence. The model's strength is its ability to handle multiple factors at once, showing us which ones truly impact survival. It calculates "hazard ratios" that tell us how much each factor increases or decreases risk. The Cox model is widely used in medical research, which helps researchers identify what accelarate or decelarate the time to key events, giving a clear picture of true risk factors. For example, a cancer study might use the Cox model to determine if a new treatment extends survival compared to standard care, while accounting for other important factors like patient age and disease stage.
+
+
+**What is survival analysis**:
+Survival analysis is a statistical method that studies the time until an event of interest occurs. However, this event can be any defined endpoint such as disease recurrence, equipment failure, time to recovery, which isn't limited to death. The key feature of survival analysis is its ability to handle "censored" data, cases where we don't observe the event during the study period. For example, if we're tracking patient survival for 5 years and someone is still alive when the study ends, their data is "right-censored," rather than discarding this valuable information, survival analysis can incorporates it.
+
+**Key methods in Cox model**:
+  
+  1. Event Indicator: Each observation is marked as either censored (0) or event occurred (1). For example, in a mortality study, living patients are marked as censored (0), while deceased patients are marked as event (1).
+  
+  2. Partial Likelihood Function: The Cox model uses this function to estimate parameters. It allows using censored observations without specifying the exact event time, only needs they survived at least until a certain point.
+  
+  3. Risk Set Construction: For any time point t, the "risk set" includes all individuals who still under observation at time t which haven't experienced the event yet. Censored data is removed from the risk set after their censoring time.
+  
+  4. Linear Predictor: The model uses a linear combination of predictor variables (β₁X₁ + β₂X₂ + ...) to model their effect on the hazard.
+  
+**Example**: in a Cox model, if a patient drops out (is censored) after 3 years in the study, that patient is treated as having survived at least 3 years. They remain in the risk set until year 3, then are removed. In this way, even though we don't know the patient's final outcome, we can still use the known information (survived at least 3 years) to improve model estimates.
+
+Unlike traditional statistical methods that require complete data, this approach in survival analysis allows researchers to use all available information, even if it is incomplete, thereby improving statistical efficiency and reducing bias.
+
+## The Cox proportional hazards model vs. others:
+
+**Cox proportional hazards model**: semi-parametric approach, better suited for multiple covariates. Quantifies hazard ratios, not survival probabilities, meaning you can only obtain relative risk.
+
+**Kaplan-Meier method**: non-parametric approach that creates survival probability curves over time, which provides visual comparison between groups. Only suitable for categorical variables.
+
+**Limitations of Cox model**:
+The model assumes hazard ratios remain constant over time, which may not hold in many real-world scenarios where the effect of a variable changes over the follow-up period. Also, it struggles with variables whose effects change substantially over time without clear modeling of time interactions.
+
+## The Cox proportional hazard function $h(t)$
+
+### $$h(t)=h_{0}(t)*exp(\beta_{1}x_{1} + \beta_{2}x_{2} + \cdots + \beta_{i}x_{i})$$
+
+where:
+
+  * $t$ = survival time, or time until a certain event occurs
+  
+  * $h(t)$ = the hazard function, determined by a set of covariates $(x_{1}, x_{2}, \cdots, x_{i})$, which are our “predictor variables”: the instantaneous rate at which events occur
+  
+  * coefficients $(\beta_{1}, \beta_{2}, \cdots, \beta_{i})$   measure the effect size of the covariates, similar to how they operate in other regression models
+  
+  * $h_{0}$ = the baseline hazard, which is the value of the hazard if all the covariates are equal to 0, or when $exp()$ = 1. It varies with time (what the “$t$” in $h_{0}(t)$ denotes).
+
+The $exp(\beta_{i})$ quantities are our “hazard ratios” (HR), which indicate event hazard levels and therefore projected survival time. A hazard ratio > 1 indicates that a covariate $(x_{i})$ is positively associated with event probability, and negatively associated with survival time.
+
+  * note that the HR is an estimate of the ratio of instantaneous risk between two groups
+
+## Assumptions:
+1. Censoring is non-informative.
+
+    * This essentially means that whether or not someone is censored has no impact on their risk of an event. For example, if a patient drops out of a study because their health is declining, it would be considered informative.
+    
+    
+2. Survival times are independent between people
+
+3. Hazards are proportional (the hazards ratio is constant over time)
+
+4. Hazard is a linear function of the numeric x variables
+
+5. Values/levels of X don’t change over time. 
+
+    * For instance, if we were looking at risk of death in groups receiving different treatments, the dosage would have to stay the same throughout time.
+
+
+6. Baseline hazard is unspecified (ie. the baseline hazard is unknown, we do not know the rate of event occurrence for the baseline group)
+
+
+## Using the coxph() function from the {survival} package
+The coxph() function can take several arguments, but we only really need 2, data and formula. The data is just the data set that we are analyzing, while the formula tells the function which variables to compare, much like a linear regression. However, what is unique to the coxph() function is the use of a Surv() object, which is how the function derives the hazard, which is the dependent variable in this type of analysis. The Surv() object takes two arguments itself: time and event. 
+
+The general way to use the coxph function is as follows: coxph(data = data, formula = Surv(time, event) ~ predictor variable)
+
+# Example 1: Univariate Analysis
+
+Let's run through an example of using the coxph() function. To do this, we are going to use the colon data set that is available in the {survival} package. This data set includes information about roughly 900 colon cancer patients, and whether or not they experienced an event (cancer recurrence or death) after a certain amount of time. For analysis purposes we will split the data set into two halves, one half which looks at the risk of death, and the other which looks at the risk of recurrence. 
+```{r}
+library(survival)
+colon_death <- subset(colon, etype == 2) #death dataset
+colon_recur <- subset(colon, etype == 1) #recurrence dataset
+```
+Now let's use the coxph() function to run a cox proportional hazards analysis to see how treatment (rx) affects the risk of death and recurrence in colon cancer patients.  
+```{r}
+colon_rx_death_cox <- coxph(data = colon_death, formula = Surv(time, status) ~ rx) #death
+colon_rx_recur_cox <- coxph(data = colon_recur, formula = Surv(time, status) ~ rx) #recurrence
+#Time and status are both variables from the colon dataset, where time represents the length of the observation period, and status indicates whether or not an event occurred (1 = event occurred, 0 = censored: no event occurred)
+```
+Let's first look at the results from the death dataset. 
+```{r}
+summary(colon_rx_death_cox)
+```
+At the top of the summary we see that the sample size is equal to 929, and among those patients, 452 experienced an event (in this case, death). 
+
+Now let's look at our coefficient. For context, the rx (treatment) variable has three levels: Obs (observation, essentially control), Lev (Levamisole, a drug sometimes coupled with other medication to treat cancer), Lev + 5FU (Levamisole + Fluorouracil. The latter is a chemotherapy drug). 
+
+The coef term can be thought of as our $\beta_{1}$ term, or the slope of our linear regression model. A negative coef represents a reduction in hazard (risk of event) relative to the reference group, and vice versa. Notice that the function does not give an intercept, or $\beta_{0}$ term, because the baseline hazard is unknown. That is, we do not know the instantaneous rate/risk of death occurrence among untreated people with colon cancer. 
+
+The exp(coef) term for the rxLev + 5FU group, which represents the hazards ratio, is 0.68955. Because HR is assumed to remain constant throughout time, the hazard of the reference group (Obs) divided by the hazard of the Lev + 5FU group is always equal to 0.68955. In other words, at any point in time, those in the Lev + 5FU group are 0.68955 times as likely to die as those in the control group. We can also think of this as a percentage: 1 - 0.68955 = 0.31045, so those in the Lev + 5FU group are 31.045% less likely to die from colon cancer at any point in time.
+
+We are also given a standard error for the $\beta_{1}$ term, as well as a z-statistic and associated p value, which tells us whether or not the difference in hazard between groups is significant.
+
+Below that, we see confidence intervals for the HR. There is also the exp(-coef) term, which can be interpreted in the opposite way as the hazards ratio. For example, the exp(-coef) for the rxLev group is 1.027, meaning that the reference group is 1.027 times, or 2.7% more likely to die from colon cancer. 
+
+The three tests at the bottom are testing the null hypothesis that all of the $\beta_{1}$ values are 0. Therefore, a signficant p value for those tests indicates that at least 1 of the groups has a significant $\beta_{1}$ value. 
+
+Concordance is effectively a measure of goodness-of-fit. It is calculated by comparing pairs of observations (in this case, patients) and seeing, based on the model, which patient would be more likely to experience the event, and then seeing if the observed outcome matches that prediction. The actual number represents the proportion of pairs that were concordant (ie. the proportion of pairs that the model accurately predicted). A completely random model would have a concordance of 0.50. 
+
+Now that we understand the output of the coxph() function, let's look at the results from the recurrence dataset. 
+```{r}
+summary (colon_rx_recur_cox)
+```
+We see that, among 929 patients, 468 experienced a colon cancer recurrence. We see the the Lev and the Lev + 5FU treatments caused a reduction in hazard, but the Lev was nonsignificant, while the Lev + 5FU was quite significant, resulting in about a 40% reduction in risk of cancer recurrence. 
+
+## Checking assumptions
+
+Most of the assumptions of cox proportional hazards must be controlled for experimentally. However, there are two that we must check for statistically in order to be confident in our use of a cox proportional hazards regression. 
+
+The first that we must check is that the hazards between groups are proportional throughout time (the hazards ratio is constant over time). In order to check this, we can conduct a Schoenfeld's test. This tests the null hypothesis that the hazard ratio between the reference group and each group is constant through time, so we want a p-value greater than 0.05. It uses the function cox.zph(). Here is an example using the colon cancer data. 
+```{r}
+cox.zph(colon_rx_death_cox) 
+#here we see nonsignificant p-values for the treatment variable (rx) and the overall model (GLOBAL).
+cox.zph(colon_rx_recur_cox)
+#again, we see nonsignificant p-values for the treatment variable (rx) and the overall model (GLOBAL).
+
+#note: the reason that the global p-value is the same as the rx p-value in both cases is because there is only 1 factor. 
+
+```
+
+We can see that our assumption is met: the hazard ratio between the reference group and each other group is constant throughout time. 
+
+The second assumption we must check is that the hazard is a linear function of the *quantitative* x variables. If you recall, this is an assumption of linear regression as well, and this makes sense because cox proportional hazards is essentially a linear regression. However, because the predictor variable in our example (treatment) is categorical, this assumption does not apply. 
+
+For qunatitative predicotrs, the way that we check this assumption is by checking for similar variance in residuals between groups, which is otherwise known as homoscedasticity. To do this we can create a residual plot by using the plot() function as follows:
+
+- plot(x = coxph$linear.predictors, y = residuals(object = coxph, method = "method of calculating residuals, usually 'martingale' for coxph"))
+*where coxph is an object holding a coxph() call with a quantitative predictor
+
+## Visualization for Example 1
+We can also visualize the results using a Cox Proportional Harzards Curve.
+```{r}
+# Load packages
+library(survminer)
+library(ggplot2)
+
+# Generate predicted survival curves from the Cox models
+# Create a new data frame with the different treatment levels
+# The rx factor has 3 levels: Obs (observation), Lev (Levamisole), Lev+5FU (Levamisole + 5-FU)
+newdata <- data.frame(rx = factor(c("Obs", "Lev", "Lev+5FU"), levels = levels(colon_death$rx)))
+
+# Generate survival curves
+cox_curves_death <- survfit(colon_rx_death_cox, newdata = newdata)
+cox_curves_recur <- survfit(colon_rx_recur_cox, newdata = newdata)
+
+# Plot the survival curves for death
+death_plot <- ggsurvplot(
+  cox_curves_death,
+  data = newdata,
+  conf.int = TRUE,
+  palette = c("#E7B800", "#2E9FDF", "#FC4E07"),
+  title = "Cox Proportional Hazards Model: Overall Survival by Treatment",
+  subtitle = "Colon Cancer Dataset",
+  xlab = "Time (days)",
+  ylab = "Survival Probability",
+  legend.labs = c("Observation", "Levamisole", "Levamisole + 5-FU"),
+  legend.title = "Treatment",
+  ggtheme = theme_minimal()
+)
+
+# Plot the survival curves for recurrence
+recur_plot <- ggsurvplot(
+  cox_curves_recur,
+  data = newdata,
+  conf.int = TRUE,
+  palette = c("#E7B800", "#2E9FDF", "#FC4E07"),
+  title = "Cox Proportional Hazards Model: Recurrence-Free Survival by Treatment",
+  subtitle = "Colon Cancer Dataset",
+  xlab = "Time (days)",
+  ylab = "Recurrence-Free Probability",
+  legend.labs = c("Observation", "Levamisole", "Levamisole + 5-FU"),
+  legend.title = "Treatment",
+  ggtheme = theme_minimal()
+)
+
+# Display plots
+print(death_plot)
+print(recur_plot)
+```
+
+How to interpret the curve:
+
+  *The y-axis shows probability of survival
+  *The x-axis shows time since start of study
+
+Lines that stay higher on the graph indicate better survival
+
+The steeper the downward slope, the faster patients are dying in that group
+
+The gap between lines shows the magnitude of treatment effect
+
+The shaded region shows confidence intervals.
+
+
+# CHALLENGE 1
+Let's try running a univariate Cox regression again, but with the "lung" dataset in the {survival} package, which is lung cancer data. Specifically, how does survival time vary with the age of the patient?
+
+  * Is the effect size of age statistically significant?
+  * Interpret the **(coef)** and **(exp(coef))** values
+  * Interpret the **concordance**, **likelihood ratio**, **Wald**, and **score** test values
+
+```{r}
+head(lung) # inspect the dataset
+```
+
+**Variables of interest for this challenge:**
+
+  * time: survival time in days
+  * status: censoring status; 1 = censored, 2 = dead
+  * age: age in years
+
+
+Conducting the Cox regression:
+```{r}
+cox_age <- coxph(data = lung, formula = Surv(time, status) ~ age)
+summary(cox_age)
+```
+
+
+Now, test whether the assumptions of the Cox proportional hazards model are met:
+  
+  * Check the **proportional hazards assumption**
+  * Check for a **linear relationship** between log hazard and covariates
+  * Check for **survival time independence** (i.e. whether any observations are influential on others)
+
+
+Testing the proportional hazards assumption with Schoenfeld residuals:
+
+  * Remember, the assumption is supported by a *non-significant* relationship between residuals and time
+```{r}
+test.ph <- cox.zph(cox_age)
+print(test.ph)
+# we can also plot this!
+plot(test.ph)
+# we're looking for a relatively flat line in the plot, which suggests proportionality
+```
+
+
+Because age is a continuous variable, checking for a linear relationship between the covariate and log hazard (using Martingale residuals):
+```{r}
+m.resid <- residuals(cox_age, type = "martingale") # getting residuals
+plot(lung$age, m.resid)
+# looking for random scatter with no clear pattern
+```
+
+Alternatively, this can be done through the **ggcoxdiagnostics()** function in the {survminer} package:
+```{r}
+ggcoxdiagnostics(cox_age, type = "martingale")
+# although the relationship seems slightly non-linear, it's fairly symmetric around 0
+```
+
+
+Checking for independence using **dfbeta values**:
+  
+  * Indicates change in each coefficient when any given observation is deleted
+```{r}
+influence <- residuals(cox_age, type = "dfbeta")
+# plotting
+plot(influence) 
+# we can see that no values are significantly far off from 0
+```
+
+Like with checking linearity, we can also use the ggcoxdiagnostics() function:
+```{r}
+ggcoxdiagnostics(cox_age, type = "dfbeta")
+```
+
+## Visualizing the data
+```{r}
+# Create the Cox proportional hazards model for age
+lung_age_cox <- coxph(data = lung, formula = Surv(time, status) ~ age)
+
+# Generate predicted survival curves from the Cox model
+cox_curves_lung <- survfit(lung_age_cox)
+
+# Plot the survival curve
+ggsurvplot(
+  cox_curves_lung,
+  data = lung,
+  conf.int = TRUE,
+  risk.table = FALSE,  # Changed to FALSE to remove the risk table
+  palette = "jco",
+  title = "Cox Regression Survival Curve for Lung Cancer Patients",
+  xlab = "Time (days)",
+  ylab = "Survival Probability",
+  legend.title = "Age Effect",
+  legend.labs = "Age HR"
+)
+```
+
+For other analysis you can also create age groups to analysis the differences between the groups
+```{r}
+# Using quotes around the labels to ensure they display correctly
+lung$age_group <- cut(lung$age, 
+                      breaks = c(30, 50, 65, 90), 
+                      labels = c("Young (≤50)", "Middle-aged (51-65)", "Elderly (>65)"))
+
+# Verify the labels are correct
+print(levels(lung$age_group))
+
+# Create a new model with age group
+lung_age_group_cox <- coxph(data = lung, formula = Surv(time, status) ~ age_group)
+
+# Generate survival curves by age group
+cox_curves_age_groups <- survfit(Surv(time, status) ~ age_group, data = lung)
+
+# Plot the age group survival curves without risk table
+ggsurvplot(
+  cox_curves_age_groups,
+  data = lung,
+  conf.int = TRUE,
+  risk.table = FALSE,
+  pval = TRUE,
+  pval.method = TRUE,
+  palette = "jco",
+  title = "Survival Curves by Age Group",
+  xlab = "Time (days)",
+  ylab = "Survival Probability",
+  legend.title = "Age Group"
+)
+```
+
+
+# Example 2: Multivariate analysis
+Multivariate analysis allows us to examine how multiple factors simultaneously influence survival. It allows us look at a patient's overall health picture instead of just checking a single vital sign. In survival analysis, researchers typically begin by examining individual risk factors in isolation, which may leads potentially misleading conclusions. In reality, risk factors rarely function independently of one another. Multivariate analysis addresses this limitation by evaluating how multiple variables interact simultaneously and identifying the key determinants of survival outcomes.
+
+The big advantage of multivariate analysis is that it lets us look at multiple factors at once. For example, in the lung cancer dataset, both ECOG performance status (how well patients can function daily) and weight loss affect survival patients. With multivariate analysis, we can see how much each factor matters independently, rather than getting results that might be mixing these effects together.
+
+Now let's perform a multivariate analysis for ECOG status and weight loss:
+```{r}
+# Creates a new dataset by filtering the original lung dataset
+## It keeps only the rows that have complete data (no missing values)
+lung_clean <- lung[complete.cases(lung[, c("time", "status", "ph.ecog", "wt.loss")]), ]
+
+# Builds a multivariate Cox model
+cox_model <- coxph(Surv(time, status == 2) ~ ph.ecog + wt.loss, data = lung_clean)
+  #Surv(time, status == 2) creates a survival object that defines our outcome,status code 2 indicates death
+  #~ ph.ecog + wt.loss specifies that we're analyzing how both ECOG performance status and weight loss simultaneously affect survival
+
+# Print model
+summary(cox_model)
+```
+
+**For ECOG Performance Status**:
+
+The statistics show that higher ECOG scores significantly increase mortality risk. Each one-unit increase in ECOG score (indicating worse performance status), the risk of death increases by 67.2% (exp(coef) = 1.67), when weight loss is controlled (constant). This effect is highly statistically significant (p < 0.0001).
+
+**For Weight Loss**:
+
+The negative coefficient (-0.007) and hazard ratio 0.993 (< 1) actually suggest that weight loss appears to slightly decrease risk, but this effect is not statistically significant (p = 0.263). We cannot conclude that weight loss is associated with mortality in this analysis.
+
+**Overall Model**:
+
+The model as a whole is statistically significant (likelihood ratio test p-value = 2e-04), but this is driven entirely by ECOG status. The concordance of 0.602 indicates moderate predictive ability - the model correctly ranks survival times for pairs of patients about 60% of the time.
+
+## Visualization for Example 2
+You can use Cox Proportional Hazard Curves to visual multivariate analysis as well.
+```{r}
+# Remove rows with missing values in key variables
+lung_clean <- lung[complete.cases(lung[, c("time", "status", "ph.ecog", "wt.loss")]), ]
+
+# Fit Cox proportional hazards model with ECOG and weight loss
+cox_model <- coxph(Surv(time, status == 2) ~ ph.ecog + wt.loss, data = lung_clean)
+
+# Print model summary
+summary(cox_model)
+
+# Create a combined visualization approach
+
+# For ECOG, let's use clinically meaningful values: 0, 1, 2
+# For weight loss, let's categorize into: low (10th percentile), medium (median), high (90th percentile)
+wt_low <- quantile(lung_clean$wt.loss, 0.1)
+wt_med <- median(lung_clean$wt.loss)
+wt_high <- quantile(lung_clean$wt.loss, 0.9)
+
+# Create combinations of ECOG and weight loss
+new_data <- expand.grid(
+  ph.ecog = c(0, 1, 2),
+  wt.loss = c(wt_low, wt_med, wt_high)
+)
+
+# Fit survival curves for the combinations
+fit_combined <- survfit(cox_model, newdata = new_data)
+
+# Create labels for the legend
+new_data$group <- paste("ECOG", new_data$ph.ecog, ", Wt Loss", round(new_data$wt.loss, 1))
+
+# Plot survival curves for combinations of ECOG and weight loss
+ggsurvplot(
+  fit_combined,
+  data = new_data,
+  conf.int = FALSE,  # Turn off confidence intervals for clarity
+  palette = "jco",
+  legend.labs = new_data$group,
+  legend.title = "Risk Groups",
+  title = "Cox Proportional Hazards Model: Combined Effect of ECOG and Weight Loss",
+  xlab = "Time (days)",
+  ylab = "Survival Probability",
+  ggtheme = theme_minimal()
+)
+```
+
+Now this is hard to read, so let's create groups to get a better visual aid.
+We are going to create 4 groups:
+
+  * those with good ECOG and low weight loss
+  * those with poor ECOG and low weight loss
+  * those with good ECOG and high weight loss
+  * those with poor ECOG and high weight loss
+
+```{r}
+# For ECOG: Group as Good (0-1) vs Poor (2-3)
+# For weight loss: Group as Low (≤0) vs High (>0)
+
+# Create simplified dataset for visualization
+lung_clean <- lung_clean %>%
+  mutate(
+    ecog_simple = factor(ifelse(ph.ecog <= 1, "Good (0-1)", "Poor (2-3)"),
+                         levels = c("Good (0-1)", "Poor (2-3)")),
+    wt_loss_simple = factor(ifelse(wt.loss <= 0, "Low (≤0)", "High (>0)"),
+                            levels = c("Low (≤0)", "High (>0)"))
+  )
+
+# Fit a new model with simplified categorical predictors
+cox_model_simple <- coxph(Surv(time, status == 2) ~ ecog_simple + wt_loss_simple, data = lung_clean)
+summary(cox_model_simple)
+
+# Create four combinations of ECOG and weight loss
+new_data <- expand.grid(
+  ecog_simple = c("Good (0-1)", "Poor (2-3)"),
+  wt_loss_simple = c("Low (≤0)", "High (>0)")
+)
+
+# Add descriptive labels
+new_data$group <- paste(new_data$ecog_simple, "ECOG,", new_data$wt_loss_simple, "weight loss")
+
+# Fit survival curves for the four combinations
+fit_simple <- survfit(cox_model_simple, newdata = new_data)
+
+# Create simplified color palette
+simple_colors <- c("forestgreen", "gold", "skyblue", "red")
+
+# Plot simplified survival curves
+ggsurvplot(
+  fit_simple,
+  data = new_data,
+  conf.int = TRUE,
+  palette = simple_colors,
+  legend.labs = new_data$group,
+  legend.title = "Risk Groups",
+  title = "Simplified Cox Model: ECOG and Weight Loss",
+  xlab = "Time (days)",
+  ylab = "Survival Probability",
+  ggtheme = theme_minimal(),
+  font.main = c(14, "bold"),
+  font.legend = c(10, "plain")
+)
+```
+
+## Choosing the Best Model
+
+Comparing models is essential to choosing the model that best predicts the data. There are a couple of ways to go about this, and it depends on if your models are *nested* or not. Nested models only differ by adding/removing a variable. 
+
+Nested models example: 
+
+- model 1: response ~ a 
+- model 2: response ~ a + b
+
+Non-nested models example:
+
+- model 1: response ~ a + b
+- model 2: response ~ x + y
+
+If your models are nested, the best way to compare them is by using a likelihood ratio test. This can be done in one line of code: anova(model1, model2, test = "LRT")
+
+Here is an example comparing two models using the colon cancer death dataset. 
+```{r}
+
+#we have our hazard ~ rx model from earlier. Now let's do a hazard ~ rx + surg, where surg tells us if the patient had surgery for their colon cancer (1 = yes, 0 = no)
+
+colon_rx_surgery_death_cox <- coxph(data = colon_death, formula = Surv(time, status) ~ rx + surg) 
+summary(colon_rx_surgery_death_cox)
+
+#exp(coef) = 1.248 --> 25% more likely to die if you needed surgery, p-value < 0.05
+
+anova(colon_rx_death_cox, colon_rx_surgery_death_cox, test = "LRT")
+```
+The Chi-squared value is 4.52 and the p value is significant. Therefore, our model is better when it includes whether or not the patient had surgery. 
+
+If our two models were non-nested, we could use AIC to see which is better. To do that we would use the AIC(model) function, and look for the model with the lower AIC value.
+
+
+# CHALLENGE 2
+Using the "lung" dataset again, run a multivariate analysis with the covariates **age**, **sex**, and **ph.ecog** (which denotes an ECOG score from 0-5 that indicates level of function, with 0 being fully active and 5 being dead).
+
+  * Interpret the results. Which covariates are statistically significant, and what effects do they have?
+  * Interpret the **concordance**, **likelihood ratio**, **Wald**, and **score** test values. How is this different from the model with just **age** in Challenge 1?
+
+```{r}
+cox_ase <- coxph(data = lung, formula = Surv(time, status) ~ age + sex + ph.ecog)
+summary(cox_ase)
+```
+
+Like the last challenge, we need to ensure our model fits the assumptions of the Cox PH model:
+
+  * Check the proportional hazards assumption
+  * Check for linearity in the relationship between log hazard and *continuous* covariates
+  * Check for survival time independence (i.e. whether any observations are influential on others)
+
+
+proportional hazards assumption:
+```{r}
+test.ph <- cox.zph(cox_ase)
+print(test.ph)
+# it looks like all our p-values are not significant, indicating the PH assumption is met!
+# we can also plot the results for each predictor:
+plot(test.ph)
+# again, looking for relatively random scatter
+```
+
+
+checking for linearity using Martingale residuals:
+```{r}
+ggcoxdiagnostics(cox_ase, type = "martingale")
+```
+
+there's something weird going on, but we can't isolate the continuous variables using ggcoxdiagnostics(), so we'll have to inspect each individually.
+
+```{r}
+cox_data <- model.frame(cox_ase) # making sure the length of the data matches
+m.resid <- residuals(cox_ase, type = "martingale") # getting the residuals
+# we have to plot each variable manually:
+plot(cox_data$age, m.resid)
+lines(lowess(cox_data$age, m.resid), col = "red", lwd = 2)
+plot(cox_data$ph.ecog, m.resid)
+lines(lowess(cox_data$ph.ecog, m.resid), col = "red", lwd = 2)
+```
+
+overall, the individual plots look relatively linear, so it's likely the upward curve at the right end of the general plot is caused by some particularly influential data points.
+
+
+checking for independence (this will also help check for particularly influential data points):
+```{r}
+ggcoxdiagnostics(cox_ase, type = "dfbeta")
+# we can see there are a couple points relatively far from 0, especially on the plot for sex - that may be explaining the curved tail on the Martingale plot.
+```
+
+
+## Visualize the analysis
+```{r}
+# Recode the status (1 = event, 0 = censored)
+lung$status <- ifelse(lung$status == 2, 1, 0)
+
+# Convert 'sex' to a factor with labels 'Male' and 'Female'
+lung$sex <- factor(lung$sex, levels = c(1, 2), labels = c("Male", "Female"))
+
+# Ensure 'ph.ecog' is numeric (performance status)
+lung$ph.ecog <- as.numeric(lung$ph.ecog)
+
+# Remove rows with missing values in the relevant columns
+lung_complete <- lung[complete.cases(lung[, c("time", "status", "age", "sex", "ph.ecog")]), ]
+
+# Check if we have complete rows after filtering
+cat("Number of complete rows:", nrow(lung_complete), "\n")
+
+# Fit the Cox proportional hazards model with age, sex, and ECOG as covariates
+cox_model <- coxph(Surv(time, status) ~ age + sex + ph.ecog, data = lung_complete)
+summary(cox_model)
+
+# ----- Survival Curves by Sex (adjusted for age and ECOG) -----
+# Create new data for predicting survival curves by sex
+sex_pred_data <- data.frame(
+  sex = c("Male", "Female"),
+  age = rep(mean(lung_complete$age), 2),
+  ph.ecog = rep(median(lung_complete$ph.ecog), 2)
+)
+
+# Generate survival curves for sex
+sex_surv <- survfit(cox_model, newdata = sex_pred_data)
+
+# Plot the survival curves for sex
+ggsurvplot(
+  sex_surv,
+  data = lung_complete,
+  conf.int = TRUE,
+  palette = c("#E7B800", "#2E9FDF"),
+  title = "Survival Curves by Sex (Adjusted for Age and ECOG)",
+  xlab = "Time (days)",
+  ylab = "Survival Probability",
+  legend.title = "Sex",
+  legend.labs = c("Male", "Female"),
+)
+
+# ----- Survival Curves by ECOG (adjusted for age and sex) -----
+# Define ECOG values for prediction (0 to 3)
+ecog_values <- 0:3
+
+# Create new data for predicting survival curves by ECOG
+ecog_pred_data <- data.frame(
+  sex = rep("Female", length(ecog_values)),
+  age = rep(mean(lung_complete$age), length(ecog_values)),
+  ph.ecog = ecog_values
+)
+
+# Generate survival curves for ECOG
+ecog_surv <- survfit(cox_model, newdata = ecog_pred_data)
+
+# Plot the survival curves for ECOG
+ggsurvplot(
+  ecog_surv,
+  data = lung_complete,
+  conf.int = TRUE,
+  palette = "jco",
+  title = "Survival Curves by ECOG (Adjusted for Age and Sex)",
+  xlab = "Time (days)",
+  ylab = "Survival Probability",
+  legend.title = "ECOG Score",
+  legend.labs = as.character(ecog_values),
+)
+```
+
+# References
+
+https://cran.r-project.org/web/packages/survival/survival.pdf
+
+https://www.jstor.org/stable/2985181?seq=1
+
+https://rpubs.com/floreuzan/survivalanalysislungdata
+
+https://www.sthda.com/english/wiki/wiki.php?title=cox-proportional-hazards-model

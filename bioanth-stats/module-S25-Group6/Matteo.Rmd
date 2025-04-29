@@ -1,0 +1,113 @@
+---
+title: "matteo"
+output: html_document
+date: "2025-04-15"
+---
+
+## Using the coxph() function
+The coxph() function can take several arguments, but we only really need 2, data and formula. The data is just the data set that we are analyzing, while the formula tells the function which variables to compare, much like a linear regression. However, what is unique to the coxph() function is the use of a Surv() object, which is how the function derives the hazard, which is the dependent variable in this type of analysis. The Surv() object takes two arguments itself: time and event. 
+
+The general way to use the coxph function is as follows: coxph(data = data, formula = Surv(time, event) ~ predictor variable)
+
+Let's run through an example of using the coxph() function. To do this, we are going to use the colon data set that is available in the {survival} package. This data set includes information about roughly 900 colon cancer patients, and whether or not they experienced an event (cancer recurrence or death) after a certain amount of time. For analysis purposes we will split the data set into two halves, one half which looks at the risk of death, and the other which looks at the risk of recurrence. 
+```{r}
+library(survival)
+colon_death <- subset(colon, etype == 2) #death dataset
+colon_recur <- subset(colon, etype == 1) #recurrence dataset
+```
+Now let's use the coxph() function to run a cox proportional hazards analysis to see how treatment (rx) affects the risk of death and recurrence in colon cancer patients.  
+```{r}
+colon_rx_death_cox <- coxph(data = colon_death, formula = Surv(time, status) ~ rx) #death
+colon_rx_recur_cox <- coxph(data = colon_recur, formula = Surv(time, status) ~ rx) #recurrence
+#Time and status are both variables from the colon dataset, where time represents the length of the observation period, and status indicates whether or not an event occurred (1 = event occurred, 0 = censored: no event occurred)
+```
+Let's first look at the results from the death dataset. 
+```{r}
+summary(colon_rx_death_cox)
+```
+At the top of the summary we see that the sample size is equal to 929, and among those patients, 452 experienced an event (in this case, death). 
+
+Now let's look at our coefficient. For context, the rx (treatment) variable has three levels: Obs (observation, essentially control), Lev (Levamisole, a drug used to treat parasitic infection in animals, sometimes coupled with other medication to treat cancer), Lev + 5FU (Levamisole + Fluorouracil. The latter is a chemotherapy drug, and potentially works better when coupled with Levamisole). The coef term can be thought of as our beta-1 term, or the slope of our linear regression model. A negative coef represents a reduction in hazard (risk of event) relative to the reference group (in this case, the Obs group which received no treatment), while a positive coef represents an increase in hazard. Notice that the function does not give an intercept, or beta-0 term term, and that is because we do not know the baseline hazard. That is, we do not know the instantaneous rate/risk of death occurrence among untreated people with colon cancer. 
+
+The next column over, exp(coef) represents the hazards ratio. This number indicates the ratio of the hazard of the reference group to the hazard of the experimental group in question. For example, the exp(coef) or hazards ratio for the rxLev + 5FU group is equal to 0.68955. This means that the hazard of the reference group (Obs) divided by the hazard of the Lev + 5FU group is always equal to 0.68955 (because the hazard ratio is assumed to remain constant throughout time). In other words, at any point in time, those in the Lev + 5FU group are 0.68955 times as likely to die as those in the control group. We can also think of this as a percentage. 1 - 0.68955 = 0.31045. Therefore, those in the Lev + 5FU group are 31.045% less likely to die from colon cancer at any point in time.
+
+We are also given a standard error for the beta-1 term, as well as a z-statistic and associated p value, which tells us whether or not the difference in hazard between groups is significant.
+
+Below we see the hazards ratio again, as well as a confidence interval for the hazards ratio. There is also the exp(-coef) term, which is just the inverse of the hazard ratio. It can be interpreted in the opposite way as the hazards ratio. For example, the exp(-coef) for the rxLev group is 1.027, meaning that the reference group (Obs, control group) is 1.027 times, or 2.7% more likely to die from colon cancer. 
+
+The three tests at the bottom are testing the overall model significance. They are testing the null hypothesis that all of the beta-1's are equal to 0. Therefore, a signficant p value for those tests indicates that at least 1 of the groups has a beta-1 that is signficantly different from 0. 
+
+Just above those three tests is the concordance. Concordance is effectively a measure of goodness-of-fit. It is calculated by comparing pairs of observations (in this case, patients) and seeing, based on the model, which patient would be more likely to experience the event, and then seeing if the observed outcome matches that prediction. The actual number represents the proportion of pairs that were concordant (ie. the proportion of pairs that the model accurately predicted). For reference, a completely random model would have a concordance of 0.50. 
+
+Now that we understand the output of the coxph() function, let's look at the results from the recurrence dataset. 
+```{r}
+summary (colon_rx_recur_cox)
+```
+We see that, among 929 patients, 468 experienced a colon cancer recurrence. We see the the Lev and the Lev + 5FU treatments caused a reduction in hazard, but the Lev was nonsignificant, while the Lev + 5FU was quite significant, resulting in about a 40% reduction in risk of cancer recurrence. 
+
+## The assumptions of cox proportional hazards
+
+1. Censoring is non-informative. This essentially means that whether or not someone is censored has no impact on their risk of an event. Censoring only means that a patient was alive at the end of their observation. However, say, for example, that a patient drops out of the study because they are not doing well. This would be a case of informative censoring; their censoring is indicative of increased hazard probability. If several patients did this, the data may look like many people are surviving to the end of their observation, but in reality they may be at increased risk of dying. 
+2. Survival times are independent between people
+3. Hazards between groups are proportional throughout time (the hazards ratio is constant over time)
+4. Hazard is a linear function of the *numeric* x variables. (for categorical predictor variables this assumption does not apply)
+5. Values/levels of X don’t change over time. For instance, if we were looking at risk of death in groups receiving different treatments, the dosage would have to stay the same throughout time.
+6. Baseline hazard is unspecified (ie. the baseline hazard is unknown, we do not know the rate of event occurrence for the baseline group) 
+
+## Checking the assumptions of cox proportional hazards
+
+Most of the assumptions of cox proportional hazards must be controlled for experimentally. However, there are two that we must check for statistically in order to be confident in our use of a cox proportional hazards regression. 
+
+The first that we must check is that the hazards between groups are proportional throughout time (the hazards ratio is constant over time). In order to check this, we can conduct a Schoenfeld's test. This tests the null hypothesis that the hazard ratio between the reference group and each group is constant through time, so we want a p-value greater than 0.05. It uses the function cox.zph(). Here is an example using the colon cancer data. 
+```{r}
+cox.zph(colon_rx_death_cox) 
+#here we see nonsignificant p-values for the treatment variable (rx) and the overall model (GLOBAL).
+cox.zph(colon_rx_recur_cox)
+#again, we see nonsignificant p-values for the treatment variable (rx) and the overall model (GLOBAL).
+
+#note: the reason that the global p-value is the same as the rx p-value in both cases is because there is only 1 factor. 
+
+```
+We can see that our assumption is met: the hazard ratio between the reference group and each other group is constant throughout time. 
+
+The second assumption we must check is that the hazard is a linear function of the *quantitative* x variables. If you recall, this is an assumption of linear regression as well, and this makes sense because cox proportional hazards is essentially a linear regression. However, because the predictor variable in our example (treatment) is categorical, this assumption does not apply. 
+
+For qunatitative predicotrs, the way that we check this assumption is by checking for similar variance in residuals between groups, which is otherwise known as homoscedasticity. To do this we can create a residual plot by using the plot() function as follows:
+
+- plot(x = coxph$linear.predictors, y = residuals(object = coxph, method = "method of calculating residuals, usually 'martingale' for coxph"))
+*where coxph is an object holding a coxph() call with a quantitative predictor
+
+
+## Choosing the best model
+
+Comparing models is essential to choosing the model that best predicts the data. There are a couple of ways to go about this, and it depends on if your models are *nested* or not. Nested models only differ by adding/removing a variable. 
+
+Nested models example: 
+
+- response ~ a 
+- response ~ a + b
+
+Non-nested models example:
+
+- response ~ a + b
+- response ~ x + y
+
+If your models are nested, the best way to compare them is by using a likelihood ratio test. This can be done in one line of code: anova(model1, model2, test = "LRT")
+
+Here is an example comparing two models using the colon cancer death dataset. 
+```{r}
+
+#we have our hazard ~ rx model from earlier. Now let's do a hazard ~ rx + surg, where surg tells us if the patient had surgery for their colon cancer (1 = yes, 0 = no)
+
+colon_rx_surgery_death_cox <- coxph(data = colon_death, formula = Surv(time, status) ~ rx + surg) 
+summary(colon_rx_surgery_death_cox)
+
+#exp(coef) = 1.248 --> 25% more likely to die if you needed surgery, p-value < 0.05
+
+anova(colon_rx_death_cox, colon_rx_surgery_death_cox, test = "LRT")
+```
+The Chi-squared value is 4.52 and the p value is significant. Therefore, our model is better when it includes whether or not the patient had surgery. 
+
+If our two models were non-nested, we could use AIC to see which is better. To do that we would use the AIC(model) function, and look for the model with the lower AIC value.
+
+

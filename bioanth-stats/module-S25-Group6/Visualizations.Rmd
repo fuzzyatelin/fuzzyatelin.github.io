@@ -1,0 +1,394 @@
+---
+title: "Visualizations"
+output: html_document
+date: "2025-04-15"
+---
+```{r}
+library(survival)
+```
+
+```{r}
+library(survival)
+library(survminer)
+library(dplyr)
+library(ggplot2)
+```
+
+#Eaxample 1
+```{r}
+# Generate predicted survival curves from the Cox models
+# Create a new data frame with the different treatment levels
+# The rx factor has 3 levels: Obs (observation), Lev (Levamisole), Lev+5FU (Levamisole + 5-FU)
+newdata <- data.frame(rx = factor(c("Obs", "Lev", "Lev+5FU"), levels = levels(colon_death$rx)))
+
+# Generate survival curves
+cox_curves_death <- survfit(new_colon_death_cox, newdata = newdata)
+cox_curves_recur <- survfit(new_colon_recur_cox, newdata = newdata)
+
+# Plot the survival curves for death
+death_plot <- ggsurvplot(
+  cox_curves_death,
+  data = newdata,
+  conf.int = TRUE,
+  palette = c("#E7B800", "#2E9FDF", "#FC4E07"),
+  title = "Cox Proportional Hazards Model: Overall Survival by Treatment",
+  subtitle = "Colon Cancer Dataset",
+  xlab = "Time (days)",
+  ylab = "Survival Probability",
+  legend.labs = c("Observation", "Levamisole", "Levamisole + 5-FU"),
+  legend.title = "Treatment",
+  ggtheme = theme_minimal()
+)
+
+# Plot the survival curves for recurrence
+recur_plot <- ggsurvplot(
+  cox_curves_recur,
+  data = newdata,
+  conf.int = TRUE,
+  palette = c("#E7B800", "#2E9FDF", "#FC4E07"),
+  title = "Cox Proportional Hazards Model: Recurrence-Free Survival by Treatment",
+  subtitle = "Colon Cancer Dataset",
+  xlab = "Time (days)",
+  ylab = "Recurrence-Free Probability",
+  legend.labs = c("Observation", "Levamisole", "Levamisole + 5-FU"),
+  legend.title = "Treatment",
+  ggtheme = theme_minimal()
+)
+
+# Display plots
+print(death_plot)
+print(recur_plot)
+```
+
+
+
+```{r}
+# Plot survival curves for death stratified by treatment 
+ggsurvplot(
+  cox_curves_death,
+  data = colon_death,
+  conf.int = TRUE,  # Show confidence intervals
+  pval = TRUE,      # Show p-value
+  risk.table = FALSE, # Remove the risk table
+  ggtheme = theme_minimal(), # Minimal theme
+  title = "Survival Curves Stratified by Treatment (Death)",
+  xlab = "Time",
+  ylab = "Survival Probability",
+  legend.title = "Treatment",
+  legend.labs = levels(colon_death$rx) # Labels for treatment groups
+)
+```
+
+
+```{r}
+# Plot survival curves for recurrence stratified by treatment without the risk table
+ggsurvplot(
+  colon_recur_surv_fit,
+  data = colon_recur,
+  conf.int = TRUE,  # Show confidence intervals
+  pval = TRUE,      # Show p-value
+  risk.table = FALSE, # Remove the risk table
+  ggtheme = theme_minimal(), # Minimal theme
+  title = "Survival Curves Stratified by Treatment (Recurrence)",
+  xlab = "Time",
+  ylab = "Survival Probability",
+  legend.title = "Treatment",
+  legend.labs = levels(colon_recur$rx) # Labels for treatment groups
+)
+```
+#Challenge 1
+```{r}
+lung
+data(cancer, package="survival")
+
+```
+```{r}
+lung_age_cox <- coxph(data = lung, formula = Surv(time, status) ~ age)
+summary(lung_age_cox)
+```
+```{r}
+# Load the lung dataset
+data(lung)
+
+# Examine the dataset structure
+str(lung)
+
+# Create the Cox proportional hazards model for age
+lung_age_cox <- coxph(data = lung, formula = Surv(time, status) ~ age)
+
+# Generate predicted survival curves from the Cox model
+cox_curves_lung <- survfit(lung_age_cox)
+
+# Plot the survival curve
+ggsurvplot(
+  cox_curves_lung,
+  data = lung,
+  conf.int = TRUE,
+  risk.table = FALSE,  # Changed to FALSE to remove the risk table
+  palette = "jco",
+  title = "Cox Regression Survival Curve for Lung Cancer Patients",
+  xlab = "Time (days)",
+  ylab = "Survival Probability",
+  legend.title = "Age Effect",
+  legend.labs = "Age HR"
+)
+```
+You can also look at each age group and compare
+```{r}
+# Using quotes around the labels to ensure they display correctly
+lung$age_group <- cut(lung$age, 
+                      breaks = c(30, 50, 65, 90), 
+                      labels = c("Young (≤50)", "Middle-aged (51-65)", "Elderly (>65)"))
+
+# Verify the labels are correct
+print(levels(lung$age_group))
+
+# Create a new model with age group
+lung_age_group_cox <- coxph(data = lung, formula = Surv(time, status) ~ age_group)
+
+# Generate survival curves by age group
+cox_curves_age_groups <- survfit(Surv(time, status) ~ age_group, data = lung)
+
+# Plot the age group survival curves without risk table
+ggsurvplot(
+  cox_curves_age_groups,
+  data = lung,
+  conf.int = TRUE,
+  risk.table = FALSE,
+  pval = TRUE,
+  pval.method = TRUE,
+  palette = "jco",
+  title = "Survival Curves by Age Group",
+  xlab = "Time (days)",
+  ylab = "Survival Probability",
+  legend.title = "Age Group"
+)
+```
+#Example 2
+```{r}
+# Load necessary libraries
+library(survival)
+library(ggplot2)
+library(survminer)
+
+# Load the lung cancer data
+data(lung)
+
+# Remove rows with missing values in key variables
+lung_clean <- lung[complete.cases(lung[, c("time", "status", "ph.ecog", "wt.loss")]), ]
+
+# Fit Cox proportional hazards model with ECOG and weight loss
+cox_model <- coxph(Surv(time, status == 2) ~ ph.ecog + wt.loss, data = lung_clean)
+
+# Print model summary
+summary(cox_model)
+
+# Create a combined visualization approach
+
+# For ECOG, let's use clinically meaningful values: 0, 1, 2
+# For weight loss, let's categorize into: low (10th percentile), medium (median), high (90th percentile)
+wt_low <- quantile(lung_clean$wt.loss, 0.1)
+wt_med <- median(lung_clean$wt.loss)
+wt_high <- quantile(lung_clean$wt.loss, 0.9)
+
+# Create combinations of ECOG and weight loss
+new_data <- expand.grid(
+  ph.ecog = c(0, 1, 2),
+  wt.loss = c(wt_low, wt_med, wt_high)
+)
+
+# Fit survival curves for the combinations
+fit_combined <- survfit(cox_model, newdata = new_data)
+
+# Create labels for the legend
+new_data$group <- paste("ECOG", new_data$ph.ecog, ", Wt Loss", round(new_data$wt.loss, 1))
+
+# Plot survival curves for combinations of ECOG and weight loss
+ggsurvplot(
+  fit_combined,
+  data = new_data,
+  conf.int = FALSE,  # Turn off confidence intervals for clarity
+  palette = "jco",
+  legend.labs = new_data$group,
+  legend.title = "Risk Groups",
+  title = "Cox Proportional Hazards Model: Combined Effect of ECOG and Weight Loss",
+  xlab = "Time (days)",
+  ylab = "Survival Probability",
+  ggtheme = theme_minimal()
+)
+```
+We can simplfy the graph by creating groups
+```{r}
+# Simplify by creating categorical variables
+# For ECOG: Group as Good (0-1) vs Poor (2-3)
+# For weight loss: Group as Low (≤0) vs High (>0)
+
+# Create simplified dataset for visualization
+lung_clean <- lung_clean %>%
+  mutate(
+    ecog_simple = factor(ifelse(ph.ecog <= 1, "Good (0-1)", "Poor (2-3)"),
+                         levels = c("Good (0-1)", "Poor (2-3)")),
+    wt_loss_simple = factor(ifelse(wt.loss <= 0, "Low (≤0)", "High (>0)"),
+                            levels = c("Low (≤0)", "High (>0)"))
+  )
+
+# Fit a new model with simplified categorical predictors
+cox_model_simple <- coxph(Surv(time, status == 2) ~ ecog_simple + wt_loss_simple, data = lung_clean)
+summary(cox_model_simple)
+
+# Create four combinations of ECOG and weight loss
+new_data <- expand.grid(
+  ecog_simple = c("Good (0-1)", "Poor (2-3)"),
+  wt_loss_simple = c("Low (≤0)", "High (>0)")
+)
+
+# Add descriptive labels
+new_data$group <- paste(new_data$ecog_simple, "ECOG,", new_data$wt_loss_simple, "weight loss")
+
+# Fit survival curves for the four combinations
+fit_simple <- survfit(cox_model_simple, newdata = new_data)
+
+# Create simplified color palette
+simple_colors <- c("forestgreen", "gold", "skyblue", "red")
+
+# Plot simplified survival curves
+ggsurvplot(
+  fit_simple,
+  data = new_data,
+  conf.int = TRUE,
+  palette = simple_colors,
+  legend.labs = new_data$group,
+  legend.title = "Risk Groups",
+  title = "Simplified Cox Model: ECOG and Weight Loss",
+  xlab = "Time (days)",
+  ylab = "Survival Probability",
+  ggtheme = theme_minimal(),
+  font.main = c(14, "bold"),
+  font.legend = c(10, "plain")
+)
+```
+#Challenge 2
+
+```{r}
+library(survival)
+data("lung", package = "survival")
+
+# Check that it's the right one
+str(lung)
+table(lung$sex)  # Should return something like 1 = Male, 2 = Female
+
+
+ggsurvplot(predicted_curves_ecog,
+           data = lung_complete,
+           conf.int = TRUE,
+           palette = "jco",
+           title = "Survival by ECOG (Adjusted)",
+           legend.title = "ECOG")
+
+```
+```{r}
+# Recode variables
+lung$status <- ifelse(lung$status == 2, 1, 0)
+lung$sex <- factor(lung$sex, levels = c(1, 2), labels = c("Male", "Female"))
+
+# Ensure ph.ecog is numeric
+lung$ph.ecog <- as.numeric(lung$ph.ecog)
+
+# Filter complete rows
+lung_complete <- lung[complete.cases(lung[, c("time", "status", "age", "sex", "ph.ecog")]), ]
+
+# Confirm we have data
+cat("✅ Number of complete rows:", nrow(lung_complete), "\n")
+```
+
+```{r}
+rm(list = ls())  # Clear all objects
+
+```
+
+```{r}
+# Load required libraries
+library(survival)
+library(survminer)
+library(ggplot2)
+
+# Load the lung dataset from survival package
+data("lung", package = "survival")
+
+# Recode the status (1 = event, 0 = censored)
+lung$status <- ifelse(lung$status == 2, 1, 0)
+
+# Convert 'sex' to a factor with labels 'Male' and 'Female'
+lung$sex <- factor(lung$sex, levels = c(1, 2), labels = c("Male", "Female"))
+
+# Ensure 'ph.ecog' is numeric (performance status)
+lung$ph.ecog <- as.numeric(lung$ph.ecog)
+
+# Remove rows with missing values in the relevant columns
+lung_complete <- lung[complete.cases(lung[, c("time", "status", "age", "sex", "ph.ecog")]), ]
+
+# Check if we have complete rows after filtering
+cat("Number of complete rows:", nrow(lung_complete), "\n")
+
+# Fit the Cox proportional hazards model with age, sex, and ECOG as covariates
+cox_model <- coxph(Surv(time, status) ~ age + sex + ph.ecog, data = lung_complete)
+summary(cox_model)
+
+# ----- Survival Curves by Sex (adjusted for age and ECOG) -----
+# Create new data for predicting survival curves by sex
+sex_pred_data <- data.frame(
+  sex = c("Male", "Female"),
+  age = rep(mean(lung_complete$age), 2),
+  ph.ecog = rep(median(lung_complete$ph.ecog), 2)
+)
+
+# Generate survival curves for sex
+sex_surv <- survfit(cox_model, newdata = sex_pred_data)
+
+# Plot the survival curves for sex
+ggsurvplot(
+  sex_surv,
+  data = lung_complete,
+  conf.int = TRUE,
+  palette = c("#E7B800", "#2E9FDF"),
+  title = "Survival Curves by Sex (Adjusted for Age and ECOG)",
+  xlab = "Time (days)",
+  ylab = "Survival Probability",
+  legend.title = "Sex",
+  legend.labs = c("Male", "Female"),
+  risk.table = TRUE
+)
+
+# ----- Survival Curves by ECOG (adjusted for age and sex) -----
+# Define ECOG values for prediction (0 to 3)
+ecog_values <- 0:3
+
+# Create new data for predicting survival curves by ECOG
+ecog_pred_data <- data.frame(
+  sex = rep("Female", length(ecog_values)),
+  age = rep(mean(lung_complete$age), length(ecog_values)),
+  ph.ecog = ecog_values
+)
+
+# Generate survival curves for ECOG
+ecog_surv <- survfit(cox_model, newdata = ecog_pred_data)
+
+# Plot the survival curves for ECOG
+ggsurvplot(
+  ecog_surv,
+  data = lung_complete,
+  conf.int = TRUE,
+  palette = "jco",
+  title = "Survival Curves by ECOG (Adjusted for Age and Sex)",
+  xlab = "Time (days)",
+  ylab = "Survival Probability",
+  legend.title = "ECOG Score",
+  legend.labs = as.character(ecog_values),
+  risk.table = TRUE
+)
+```
+
+```{r}
+lung
+data(cancer, package="survival")
+```
