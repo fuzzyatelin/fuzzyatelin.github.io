@@ -153,7 +153,7 @@ Each module listed is linked to another page containing instructions and helpful
 ### [Module 23 - **Survey Data: Properly Prepping, Analyzing, and Modeling For Research**](http://fuzzyatelin.github.io/bioanth-stats/module-S25-Group4/module-S25-Group4.html)
 (Lindsay Warrell & Jonathan Zhang)
 
-### [Module 24 - **TBA**](http://fuzzyatelin.github.io/bioanth-stats/module-S25-Group5/module-S25-Group5.html)
+### [Module 24 - **K-Nearest Neighbors**](http://fuzzyatelin.github.io/bioanth-stats/module-S25-Group5/module-S25-Group5.html)
 (Amita Ganesh, Brenda Kim, Sunny Kim)
 
 ### [Module 25 - **Cox Proportional Hazards Model**](http://fuzzyatelin.github.io/bioanth-stats/module-S25-Group6/module-S25-Group6.html)
