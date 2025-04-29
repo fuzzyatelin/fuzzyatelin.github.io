@@ -1,6 +1,6 @@
 ---
 title: 'AN/BI 588: Course Modules'
-date: "January 21, 2025"
+date: "April 29, 2025"
 output: 
   rmarkdown::html_document:
     theme: cosmo
@@ -156,10 +156,10 @@ Each module listed is linked to another page containing instructions and helpful
 ### [Module 24 - **TBA**](http://fuzzyatelin.github.io/bioanth-stats/module-S25-Group5/module-S25-Group5.html)
 (Amita Ganesh, Brenda Kim, Sunny Kim)
 
-### [Module 25 - **TBA**]()
+### [Module 25 - **Cox Proportional Hazards Model**](http://fuzzyatelin.github.io/bioanth-stats/module-S25-Group6/module-S25-Group6.html)
 (Matteo Finnerty, Yinuo Mao, Jaclyn Meyer, Claire Zhang)
 
-### [Module 26 - **TBA**]()
+### [Module 26 - **TBA**](http://fuzzyatelin.github.io/bioanth-stats/module-S25-Group7/module-S25-Group7.html)
 (Gentry Miller & Alexandra Walsh)
 
 ***

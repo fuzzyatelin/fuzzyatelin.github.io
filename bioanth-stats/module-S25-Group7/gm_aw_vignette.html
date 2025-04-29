@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Gentry Miller and Alexandra Walsh">
+
+<title>Linear and Quadratic Discriminant Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="gm_aw_vignette_files/libs/clipboard/clipboard.min.js"></script>
+<script src="gm_aw_vignette_files/libs/quarto-html/quarto.js"></script>
+<script src="gm_aw_vignette_files/libs/quarto-html/popper.min.js"></script>
+<script src="gm_aw_vignette_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="gm_aw_vignette_files/libs/quarto-html/anchor.min.js"></script>
+<link href="gm_aw_vignette_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="gm_aw_vignette_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="gm_aw_vignette_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="gm_aw_vignette_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="gm_aw_vignette_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="gm_aw_vignette_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="gm_aw_vignette_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="gm_aw_vignette_files/libs/plotly-binding-4.10.4/plotly.js"></script>
+
+<script src="gm_aw_vignette_files/libs/typedarray-0.1/typedarray.min.js"></script>
+
+<script src="gm_aw_vignette_files/libs/jquery-3.5.1/jquery.min.js"></script>
+
+<link href="gm_aw_vignette_files/libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="gm_aw_vignette_files/libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+<link href="gm_aw_vignette_files/libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+
+<script src="gm_aw_vignette_files/libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#preliminaries" id="toc-preliminaries" class="nav-link active" data-scroll-target="#preliminaries">Preliminaries</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#implementing-discriminant-analysis" id="toc-implementing-discriminant-analysis" class="nav-link" data-scroll-target="#implementing-discriminant-analysis">Implementing Discriminant Analysis</a></li>
+  <li><a href="#challenge-1---linear-discriminant-analysis-with-2-classes" id="toc-challenge-1---linear-discriminant-analysis-with-2-classes" class="nav-link" data-scroll-target="#challenge-1---linear-discriminant-analysis-with-2-classes">Challenge 1 - Linear Discriminant Analysis with 2 Classes</a></li>
+  <li><a href="#challenge-2---lda-with-more-than-2-categories" id="toc-challenge-2---lda-with-more-than-2-categories" class="nav-link" data-scroll-target="#challenge-2---lda-with-more-than-2-categories">Challenge 2 - LDA with More than 2 Categories</a></li>
+  <li><a href="#challenge-3---quadratic-discriminant-analysis" id="toc-challenge-3---quadratic-discriminant-analysis" class="nav-link" data-scroll-target="#challenge-3---quadratic-discriminant-analysis">Challenge 3 - Quadratic Discriminant Analysis</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Linear and Quadratic Discriminant Analysis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gentry Miller and Alexandra Walsh </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="preliminaries" class="level2">
+<h2 class="anchored" data-anchor-id="preliminaries">Preliminaries</h2>
+<section id="packages" class="level3">
+<h3 class="anchored" data-anchor-id="packages">Packages</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data handling</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(curl)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># discriminant analysis</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># data visualization</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geometry)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mulgar)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<section id="what-is-discriminant-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-discriminant-analysis">What is Discriminant Analysis?</h3>
+<p>Discriminant analysis is a type of statistical analysis used to predict the probability of belonging to a given class or category based on one or more predictor variables. We will be covering two different types of discriminant analysis: linear discriminant analysis (LDA) and quadratic discriminant analysis (QDA).</p>
+</section>
+</section>
+<section id="implementing-discriminant-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="implementing-discriminant-analysis">Implementing Discriminant Analysis</h2>
+<section id="linear-discriminant-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="linear-discriminant-analysis">Linear Discriminant Analysis</h3>
+<p>Linear discriminant analysis (LDA) is used to find a linear combination of features that separates different classes in a data set. LDA works by calculating the means and covariance matrices for each data class, assuming a common covariance matrix between all classes. When effectively utilized, LDA finds the linear combination of variables that provide the best possible separation between the groups.</p>
+<section id="properties-and-assumptions-of-lda" class="level4">
+<h4 class="anchored" data-anchor-id="properties-and-assumptions-of-lda">Properties and Assumptions of LDA</h4>
+<ul>
+<li><p>LDAs operate by projecting a feature space (a data set of n dimensions) onto a smaller space “g”, where <span class="math inline">\(g \le n-1\)</span> without losing class information.</p></li>
+<li><p>A covariance matrix that measures how each variable or feature relates to others within the same class.</p></li>
+<li><p>An LDA model comprises the statistical properties that are calculated for the data in each class - where there are multiple variables, these properties are calculated over the multivariate Gaussian (normal) distribution. The model assumes the following:</p>
+<ol type="1">
+<li><p>the input data set has a normal distribution</p></li>
+<li><p>the data set is linearly separable, meaning LDA can draw a decision boundary that separates the data points</p></li>
+<li><p>each class has the same covariance matrix</p></li>
+</ol>
+<ul>
+<li><strong>Note:</strong> These assumptions carry the limitation that LDA may not perform well in very high-dimensional feature spaces</li>
+</ul></li>
+</ul>
+</section>
+<section id="covariance-matrix" class="level4">
+<h4 class="anchored" data-anchor-id="covariance-matrix">Covariance Matrix</h4>
+<p>The covariance matrix represents the between-group sum of squares matrix as such:</p>
+<p><span class="math display">\[
+B = \sum_{k=1}^{g}n_k \, (\bar{X}_k - \bar{X})(\bar{X}_k - \bar{X})^\top
+\]</span></p>
+<p>This measures the differences between the class means, compared with the mean of the whole data set, <span class="math inline">\(\bar{X}\)</span> and the within-group sum of squares matrix,</p>
+<p><span class="math display">\[
+W = \sum_{k = 1}^g \sum_{i = 1}^{n_k} \, (X_{ki} - \bar{X}_k)(X_{ki} - \bar{X}_k)^\top
+\]</span></p>
+<p>which measures the variation of values around each class mean, <span class="math inline">\(X_{ki}\)</span>.</p>
+<p>The linear discriminant space is generated by computing the eigenvectors of <span class="math inline">\(W^{-1}B\)</span>, and this is the g dimensional space where the group means are most separated with respect to the pooled covariance. For each class, we compute:</p>
+<p><span class="math display">\[
+\delta_k(x) = (x-\mu_k)^\top W^{-1} \mu_k + \log{\pi}_k
+\]</span></p>
+<p>where <span class="math inline">\(\pi_k\)</span> is a prior probability for class <span class="math inline">\(k\)</span>. The LDA classifier rule is to assign a new observation to the class with the largest value of <span class="math inline">\(\delta_k(x)\)</span>.</p>
+<p>Let’s start by simulating some data. Linear Discriminant Analysis works best with normal, continuous variables with low colinearity. Considering this, let’s imagine a study where a geneticist wants to classify a monkey into one of three genotypes based on the number of transcriptions of certain genes:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, let's set a seed for reproducibility,</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">647</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># then set n as the number of observations to simulate.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">300</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Now we can simulate the transcription frequencies.</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's assume that the classification is set up as such:</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Genotype A: higher expression of gene X</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Genotype B: higher expression of gene Y</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Genotype C: higher expression of gene Z</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>geno <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">size =</span> n, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># now the gene expressions</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>gene_x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">5</span> <span class="sc">+</span> (<span class="dv">2</span> <span class="sc">*</span> (geno <span class="sc">==</span> <span class="dv">0</span>)), <span class="at">sd =</span> <span class="dv">1</span>) </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># produces a distribution that is higher in genotype A individuals</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>gene_y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">5</span> <span class="sc">+</span> (<span class="dv">2</span> <span class="sc">*</span> (geno <span class="sc">==</span> <span class="dv">1</span>)), <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># produces a distribution that is higher in genotype B individuals</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>gene_z <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">5</span> <span class="sc">+</span> (<span class="dv">2</span> <span class="sc">*</span> (geno <span class="sc">==</span> <span class="dv">2</span>)), <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># produces a distribution that is higher in genotype C individuals</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Now, let's store this simulated data</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>lda_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">gene_x =</span> gene_x,</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">gene_y =</span> gene_y,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">gene_z =</span> gene_z,</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">geno =</span> <span class="fu">factor</span>(geno, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>))</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co"># and lastly, check the first few rows to make sure everything is right</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lda_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">gene_x</th>
+<th style="text-align: right;">gene_y</th>
+<th style="text-align: right;">gene_z</th>
+<th style="text-align: left;">geno</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">6.200588</td>
+<td style="text-align: right;">4.518938</td>
+<td style="text-align: right;">2.835381</td>
+<td style="text-align: left;">A</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5.933105</td>
+<td style="text-align: right;">7.303336</td>
+<td style="text-align: right;">5.784455</td>
+<td style="text-align: left;">B</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">6.971770</td>
+<td style="text-align: right;">5.305419</td>
+<td style="text-align: right;">5.695243</td>
+<td style="text-align: left;">A</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6.231134</td>
+<td style="text-align: right;">6.795563</td>
+<td style="text-align: right;">4.026929</td>
+<td style="text-align: left;">B</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">6.881066</td>
+<td style="text-align: right;">5.391924</td>
+<td style="text-align: right;">6.790874</td>
+<td style="text-align: left;">A</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5.117153</td>
+<td style="text-align: right;">4.388053</td>
+<td style="text-align: right;">7.003496</td>
+<td style="text-align: left;">C</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="challenge-1---linear-discriminant-analysis-with-2-classes" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-1---linear-discriminant-analysis-with-2-classes">Challenge 1 - Linear Discriminant Analysis with 2 Classes</h2>
+<p>Linear discriminant analysis reduces the number of dimensions by creating a new axis while simultaneously considering two criteria:</p>
+<ol type="1">
+<li>On the new axis, we want to <strong>maximize</strong> the distance, <span class="math inline">\(d = \mu_1 - \mu_2\)</span>, between the means of each class</li>
+<li>On the new axis, we want to <strong>minimize</strong> the spread, <span class="math inline">\(s^2\)</span>, in each class</li>
+</ol>
+<p>When we have two classes , we can accomplish this by expressing the rate:</p>
+<p><span class="math display">\[
+\frac{(\mu_1 - \mu_2)^2}{s^2_1 + s^2_2} = \frac{d^2}{s^2_1 + s^2_2}
+\]</span></p>
+<p>For an example, lets start by calculating the values we need. The means are easy, but we have to make sure to distinguish between genotype <u><strong>and</strong></u> gene.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mu1 <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(lda_data[lda_data<span class="sc">$</span>geno <span class="sc">==</span> <span class="st">"A"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mu2 <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(lda_data[lda_data<span class="sc">$</span>geno <span class="sc">==</span> <span class="st">"B"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Things get a little tricky when it comes to spread. Because LDA assumes that the data all share a covariance matrix, <span class="math inline">\(W\)</span>, we can’t just use the spread of the raw data. The covariance matrix is computed internally by <code>lda()</code>, but it can be computed manually like this:</p>
+<p><span class="math display">\[
+W = \frac{S_1(n_1 - 1) + S_2(n_2 - 1)}{(n_1 + n_2) - 2}
+\]</span></p>
+<p>where</p>
+<ul>
+<li><p><span class="math inline">\(W\)</span> = the pooled covariance matrix</p></li>
+<li><p><span class="math inline">\(S_1\)</span> = covariance of class 1</p></li>
+<li><p><span class="math inline">\(S_2\)</span> = covariance of class 2</p></li>
+<li><p><span class="math inline">\(n_1\)</span> = size of class 1</p></li>
+<li><p><span class="math inline">\(n_2\)</span> = size of class 2</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>S1 <span class="ot">&lt;-</span> <span class="fu">cov</span>(lda_data[lda_data<span class="sc">$</span>geno <span class="sc">==</span> <span class="st">"A"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># covariance of class A in gene x and gene y</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>S2 <span class="ot">&lt;-</span> <span class="fu">cov</span>(lda_data[lda_data<span class="sc">$</span>geno <span class="sc">==</span> <span class="st">"B"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># covariance of class B in gene x and gene y</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>n1 <span class="ot">&lt;-</span> <span class="fu">sum</span>(lda_data<span class="sc">$</span>geno <span class="sc">==</span> <span class="st">"A"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># size of class A</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>n2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(lda_data<span class="sc">$</span>geno <span class="sc">==</span> <span class="st">"B"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># size of class B</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>cov_pooled <span class="ot">&lt;-</span> ((n1 <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">*</span>S1 <span class="sc">+</span> (n2 <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">*</span>S2) <span class="sc">/</span> (n1 <span class="sc">+</span> n2 <span class="sc">-</span> <span class="dv">2</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>cov_pooled</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            gene_x      gene_y
+gene_x  0.90394338 -0.04142668
+gene_y -0.04142668  0.99434430</code></pre>
+</div>
+</div>
+<p>Division doesn’t work well with matrices, so to calculate the eigenvalues that serve as coefficients for the linear boundary, we have to invert the covariance matrix <span class="math inline">\(W\)</span>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cov_inv <span class="ot">&lt;-</span> <span class="fu">solve</span>(cov_pooled)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>and use matrix multiplication, <code>%*%</code>, to multiply the inverse matrix, <span class="math inline">\(W^{-1}\)</span>, by the difference between the two means, a.k.a. the distance between the classes. This is effectively an expression of <span class="math display">\[
+\frac{d^2}{s^2_1 + s^2_2}
+\]</span></p>
+<p>using <span class="math inline">\(W^{-1}\)</span> instead of the sum of spreads to calculate the “weights” (w) represented by the eigenvalues and:</p>
+<p><span class="math display">\[
+\frac{d}{W} = d * W^{-1}
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> (mu1 <span class="sc">-</span> mu2)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(cov_inv <span class="sc">%*%</span> d)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.5</span> <span class="sc">*</span> <span class="fu">t</span>(mu1 <span class="sc">+</span> mu2) <span class="sc">%*%</span> cov_inv <span class="sc">%*%</span> d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s plot this boundary and see where the best place to split the classes is</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out geno C data</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>lda_data_xy <span class="ot">&lt;-</span> lda_data[lda_data<span class="sc">$</span>geno <span class="sc">!=</span> <span class="st">"C"</span>, ]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a grid to visualize the boundary</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>x_vals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(lda_data_xy<span class="sc">$</span>gene_x), <span class="fu">max</span>(lda_data_xy<span class="sc">$</span>gene_x),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>y_vals <span class="ot">&lt;-</span> (<span class="sc">-</span>w[<span class="dv">1</span>] <span class="sc">*</span> x_vals <span class="sc">-</span> b) <span class="sc">/</span> w[<span class="dv">2</span>]  <span class="co"># Solving for y</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>boundary <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">gene_x =</span> x_vals, <span class="at">gene_y =</span> <span class="fu">as.vector</span>(y_vals))</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                       </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lda_data_xy, <span class="fu">aes</span>(<span class="at">x =</span> gene_x, <span class="at">y =</span> gene_y, <span class="at">color =</span> geno)) <span class="sc">+</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()  <span class="sc">+</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> boundary, <span class="fu">aes</span>(<span class="at">x =</span> x_vals, <span class="at">y =</span> y_vals), </span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"LDA Boundary for gene_x vs gene_y"</span>) <span class="sc">+</span> </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>() <span class="sc">+</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="gm_aw_vignette_files/figure-html/Visualizing%20Linear%20Boundary-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now let’s project these onto a lower dimension. First, we should make sure our LDA vector is normalized, a.k.a made to be a unit vector</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>w_unit <span class="ot">&lt;-</span> w<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">sum</span>(w<span class="sc">^</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, center the data about the means</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(lda_data_xy[, <span class="fu">c</span>(<span class="st">"gene_x"</span>, <span class="st">"gene_y"</span>)])</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Center around the global mean</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>X_centered <span class="ot">&lt;-</span> <span class="fu">scale</span>(X, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>and finally, project the data onto the discriminant axis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Projection of each point onto the LDA axis</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>lda_proj <span class="ot">&lt;-</span> X_centered <span class="sc">%*%</span> w_unit</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>lda_data_xy<span class="sc">$</span>lda_proj <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(lda_proj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now let’s see this in context</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>proj_coords <span class="ot">&lt;-</span> X_centered <span class="sc">%*%</span> w_unit <span class="sc">%*%</span> <span class="fu">t</span>(w_unit)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>global_mean <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(X)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>proj_coords <span class="ot">&lt;-</span> <span class="fu">sweep</span>(proj_coords, <span class="dv">2</span>, global_mean, <span class="at">FUN =</span> <span class="st">"+"</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Build a dataframe for plotting</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>proj_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">gene_x_proj =</span> proj_coords[, <span class="dv">1</span>],</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">gene_y_proj =</span> proj_coords[, <span class="dv">2</span>],</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">geno =</span> lda_data_xy<span class="sc">$</span>geno</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the projected points to the plot</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> lda_data_xy, </span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> gene_x, <span class="at">y =</span> gene_y, <span class="at">color =</span> geno), </span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> proj_df, </span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> gene_x_proj, </span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> gene_y_proj, </span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> geno), </span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> <span class="dv">4</span>, </span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> lda_data_xy<span class="sc">$</span>gene_x, </span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> lda_data_xy<span class="sc">$</span>gene_y,</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>                   <span class="at">xend =</span> proj_df<span class="sc">$</span>gene_x_proj, </span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>                   <span class="at">yend =</span> proj_df<span class="sc">$</span>gene_y_proj,</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color =</span> lda_data_xy<span class="sc">$</span>geno),</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>               <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Projection of Points onto LDA Axis"</span>, </span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"gene_x"</span>, </span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"gene_y"</span>) <span class="sc">+</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>() <span class="sc">+</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="gm_aw_vignette_files/figure-html/Visualizing%20the%20Discriminant%20Axis-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>And finally, let’s see both the boundary and discriminant axis together</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> lda_data_xy, </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> gene_x, </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> gene_y, </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> geno), </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> proj_df, </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> gene_x_proj, </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> gene_y_proj, </span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> geno), </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> <span class="dv">4</span>, </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> lda_data_xy<span class="sc">$</span>gene_x, </span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> lda_data_xy<span class="sc">$</span>gene_y,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>                   <span class="at">xend =</span> proj_df<span class="sc">$</span>gene_x_proj, </span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>                   <span class="at">yend =</span> proj_df<span class="sc">$</span>gene_y_proj,</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color =</span> lda_data_xy<span class="sc">$</span>geno),</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>               <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> boundary, </span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> x_vals, </span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>                <span class="at">y =</span> y_vals), </span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>            <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"LDA Boundary and Axis"</span>, </span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"gene_x"</span>, </span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"gene_y"</span>) <span class="sc">+</span> </span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>() <span class="sc">+</span></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="gm_aw_vignette_files/figure-html/Visualizing%20Boundary%20and%20Discriminant%20Together-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>And we can see that the boundary line that divides the group is perpendicular to the LDA axis that shows the direction of separation.</p>
+</section>
+<section id="challenge-2---lda-with-more-than-2-categories" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-2---lda-with-more-than-2-categories">Challenge 2 - LDA with More than 2 Categories</h2>
+<p>So you might be wondering, if <span class="math inline">\(d\)</span> is the difference between the means of each category, how do we use this formula with more than 2 categories? We can’t just use the distance between any two.</p>
+<p>Well, we use a <strong>central point</strong> (C) that is equidistant from the mean of each class. So instead of maximizing the distance between classes, we try to maximize the distance of each class from C while still minimizing the scatter within each category.</p>
+<p>Instead of</p>
+<p><span class="math display">\[
+\frac{(d)^2}{s^2_1 + s^2_2}
+\]</span></p>
+<p>we use</p>
+<p><span class="math display">\[
+\frac{d_1^2 + d_2^2 + ... + d_n^2}{s_1^2 + s_2^2 + ... + s_n^2}
+\]</span></p>
+<p>where</p>
+<ul>
+<li><p><span class="math inline">\(n\)</span> = the number of classes</p></li>
+<li><p><span class="math inline">\(d_n^2\)</span> is the distance between a given class and the central point, C</p></li>
+<li><p><span class="math inline">\(s_n^2\)</span> is the spread of a given class</p></li>
+</ul>
+<p>Let’s use the function <code>lda()</code> from the <code>{MASS}</code> package to check out LDA with multiple classes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lda_model <span class="ot">&lt;-</span> <span class="fu">lda</span>(geno <span class="sc">~</span> gene_x <span class="sc">+</span> gene_y <span class="sc">+</span> gene_z, <span class="at">data =</span> lda_data)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Check model output</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lda_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+lda(geno ~ gene_x + gene_y + gene_z, data = lda_data)
+
+Prior probabilities of groups:
+        A         B         C 
+0.2933333 0.3500000 0.3566667 
+
+Group means:
+    gene_x   gene_y   gene_z
+A 7.095949 5.085835 4.974837
+B 5.027599 7.129011 5.118581
+C 5.083457 5.167254 7.087386
+
+Coefficients of linear discriminants:
+              LD1        LD2
+gene_x  0.1357291  0.7295128
+gene_y -0.7969376 -0.3420057
+gene_z  0.6540238 -0.5538144
+
+Proportion of trace:
+   LD1    LD2 
+0.5313 0.4687 </code></pre>
+</div>
+</div>
+<p>In the output we see:</p>
+<ul>
+<li><p>the prior probabilities, which represents the proportion of spread explained by each class discriminant</p></li>
+<li><p>the group means, which are the means of each gene’s spread in each genotype</p></li>
+<li><p>the coefficients of the linear discriminants, which represent the direction of separation and are the eigenvectors of <span class="math inline">\(W^{-1}B\)</span>. The higher the absolute value of each coefficient, the more discriminative power it has.</p></li>
+</ul>
+<p>These values inform the predictions made by projecting the data onto a lower dimension space. Luckily, <code>{MASS}</code> has the <code>predict()</code> function so we don’t have to do it by hand again.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>lda_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(lda_model, lda_data)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The LDA projection scores for each observation</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>lda_data<span class="sc">$</span>LD1 <span class="ot">&lt;-</span> lda_pred<span class="sc">$</span>x[,<span class="dv">1</span>]</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>lda_data<span class="sc">$</span>LD2 <span class="ot">&lt;-</span> lda_pred<span class="sc">$</span>x[,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, let’s visualize this</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a grid of points to evaluate the decision boundary</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">LD1 =</span> <span class="fu">seq</span>(<span class="fu">min</span>(lda_data<span class="sc">$</span>LD1) <span class="sc">-</span> <span class="dv">1</span>, </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">max</span>(lda_data<span class="sc">$</span>LD1) <span class="sc">+</span> <span class="dv">1</span>, </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">length.out =</span> <span class="dv">100</span>),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">LD2 =</span> <span class="fu">seq</span>(<span class="fu">min</span>(lda_data<span class="sc">$</span>LD2) <span class="sc">-</span> <span class="dv">1</span>, </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">max</span>(lda_data<span class="sc">$</span>LD2) <span class="sc">+</span> <span class="dv">1</span>, </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>                              <span class="at">length.out =</span> <span class="dv">100</span>))</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>grid<span class="sc">$</span>gene_x <span class="ot">&lt;-</span> (grid<span class="sc">$</span>LD1)  </span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Placeholder for gene_x, gene_y, gene_z transformation</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>grid<span class="sc">$</span>gene_y <span class="ot">&lt;-</span> (grid<span class="sc">$</span>LD2)  </span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Same for gene_y</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>grid<span class="sc">$</span>gene_z <span class="ot">&lt;-</span> <span class="dv">1</span> </span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="co"># If you want to include gene_z as a constant, modify as necessary.</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict the class for each point in the grid</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>grid<span class="sc">$</span>pred_geno <span class="ot">&lt;-</span> <span class="fu">predict</span>(lda_model, <span class="at">newdata =</span> grid)<span class="sc">$</span>class</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot with decision boundary</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lda_data, </span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> LD1, </span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> LD2, </span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> geno)) <span class="sc">+</span></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, </span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"2D LDA Projection with Decision Boundary"</span>,</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Linear Discriminant 1 (LD1)"</span>,</span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Linear Discriminant 2 (LD2)"</span>) <span class="sc">+</span></span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_contour</span>(<span class="at">data =</span> grid, </span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">x =</span> LD1, </span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> LD2, </span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>                   <span class="at">z =</span> <span class="fu">as.numeric</span>(pred_geno)), </span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>               <span class="at">bins =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>, </span>
+<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="gm_aw_vignette_files/figure-html/Visualizing%20Multi-Class%20LDA-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Here, the line is squiggly because it represents a planar version of the LDA boundary. It might be easier to see by restructuring the plot - one common method for this in LDA is through ellipses:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>ell <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">unique</span>(lda_data<span class="sc">$</span>geno)){</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> lda_data <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(geno <span class="sc">==</span> i)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  e <span class="ot">&lt;-</span> <span class="fu">gen_xvar_ellipse</span>(x[, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="at">n =</span> <span class="dv">300</span>, <span class="at">nstd =</span> <span class="dv">1</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  e<span class="sc">$</span>geno <span class="ot">&lt;-</span> i</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  ell <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(ell, e)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>lda1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(lda_data,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">x =</span> gene_x, </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> gene_y, </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color =</span> geno)) <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>() <span class="sc">+</span> </span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"(a)"</span>) <span class="sc">+</span> </span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>, </span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>lda2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(ell, </span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">x =</span> gene_x, </span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> gene_y, </span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color =</span> geno)) <span class="sc">+</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>() <span class="sc">+</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"(b)"</span>) <span class="sc">+</span> </span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>, </span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a><span class="fu">ggarrange</span>(lda1, lda2, <span class="at">ncol =</span> <span class="dv">2</span>, </span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>          <span class="at">common.legend =</span> <span class="cn">TRUE</span>, <span class="at">legend =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="gm_aw_vignette_files/figure-html/Plotting%20Ellipses-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a 3D scatter plot with LD1, LD2, and LD3</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span> <span class="fu">plot_ly</span>(<span class="at">data =</span> ell, </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">x =</span> <span class="sc">~</span>gene_x, </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">y =</span> <span class="sc">~</span>gene_y, </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">z =</span> <span class="sc">~</span>gene_z, </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> <span class="sc">~</span>geno, </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">type =</span> <span class="st">'scatter3d'</span>, </span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">mode =</span> <span class="st">'markers'</span>, </span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">marker =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">5</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>   <span class="fu">layout</span>(<span class="at">title =</span> <span class="st">"3D LDA Projection"</span>,</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">scene =</span> <span class="fu">list</span>(<span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Gene X'</span>),</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>                       <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Gene Y'</span>),</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>                       <span class="at">zaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Gene Z'</span>)))</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a> fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-862ce16ab0094b179464" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-862ce16ab0094b179464">{"x":{"visdat":{"5d147f0765dc":["function () ","plotlyVisDat"]},"cur_data":"5d147f0765dc","attrs":{"5d147f0765dc":{"x":{},"y":{},"z":{},"mode":"markers","marker":{"size":5},"color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"3D LDA Projection","scene":{"xaxis":{"title":"Gene X"},"yaxis":{"title":"Gene Y"},"zaxis":{"title":"Gene Z"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[8.0118900325095552,7.4152147947936893,6.4511613655041664,8.0323077596728787,7.5522693216601269,7.8503265826200082,7.4230962751829104,6.1205314347756081,6.4353284549820495,7.8772755200713256,6.2477215327797513,7.9670583358587468,6.8158317919428288,7.8769294059457771,6.6475084857499729,7.9108354441840127,7.1665410231230036,7.2946547745605317,6.4076963909400275,6.587433915751765,6.7939282099097786,7.7193844543828654,7.3364519063641875,7.1362770635299357,6.1918783957566177,6.9152110939935536,7.6508270335521775,6.7397020675114971,6.7526278554379076,7.9489745389479296,7.3139306299874018,6.1791250653127747,7.3584808242892921,6.7350839425156774,7.5157733191010712,6.415804077856551,8.0274818764280269,7.7245864314864008,6.2439111064165109,6.6402991381215335,6.5230783262569849,6.8714212158099111,7.1044093033137452,6.2233900723335172,6.7807095732222606,7.1273284040479084,6.9703815820990291,7.193992529072986,7.6998215308968758,7.2637845223076178,6.8400716201107734,7.5569085530717466,6.1256825235494778,7.7466650927896881,7.3645111031744586,6.5465353066423102,6.5067182807550266,6.1174656406632097,6.275652278730953,7.2745625172831945,7.9905976932806828,6.1435784282167702,7.2955234650092917,7.4272644209345637,7.7475123127985199,7.9148099176543241,6.1221204295086942,7.1994675835194792,6.7060062512691463,6.9980027591149332,7.0204577455697414,6.3525276140819091,6.5742885298596576,6.6587761352368142,7.7123107593279805,7.0121175284603297,6.4863166855756864,7.6085817870776271,6.1967937923305172,7.7403744675250374,7.164051844627215,7.8861722851886755,7.5129368274223181,6.4431117786579177,6.7743485838388855,7.3531128340409788,6.9553543533891142,7.1350865519675271,7.7600159790946321,6.6465515680586611,7.3925496775120294,6.4545191197828657,7.2693956010376599,6.8230410106407531,8.0278384951963808,7.0158257507653481,6.1175588811566906,7.2638661341956867,6.8578555366511074,6.2210682552317653,6.2928667286795861,7.7589131375582285,7.3833447453328649,6.9743265238536978,7.093500106564063,7.7555323997925623,7.2533803254893847,6.7839074794453342,7.5937789313787363,7.7182049340251639,6.4376391522492948,7.6514744323591177,7.5364978135023488,6.8517275573309222,7.7335763344512038,6.8518742908764674,7.5816727080655628,6.9836773894215183,6.1826643784723094,8.0521164641247172,7.3681569277986219,7.3507937313113452,6.7483566114669653,6.3940930520066175,7.7347720222767977,7.6328176772153533,6.4488152710055129,7.2283321911537852,7.5318139877423143,7.9209823647569149,7.4589164534409402,6.5870806340283261,6.9492291566746536,6.1734386661875389,6.7213657740497679,7.1432398598431321,7.9778855754109923,6.885788205186131,6.6441915917680756,7.0945292045754504,7.4377943671934998,6.4908479978864246,6.8222338339583928,7.4912656534264199,6.1245297629959339,6.2909596776034871,7.6611042235492572,6.1479232933722248,6.7180415652518359,7.867497792377419,6.6919173188005248,7.1268691024149664,6.8064908453492796,6.8553992351048345,6.8948776063581922,7.5578534970672369,6.9018000762491347,6.3888052302885097,7.8288712393333109,7.1223059629128747,6.7637645499975694,6.4988627027926595,6.8526195919474624,6.5188214737874137,6.9947377549474847,8.0536762355766811,8.062007251188728,7.0628416321328107,6.5223676630526271,7.8127351252421544,6.1472408277548354,6.943817242356582,6.745938478365435,6.592837169432066,7.6049530086041646,6.3995843543220881,6.6069624397267388,7.7341864825939703,7.71373401548618,6.3033731553042553,7.4328254841627341,7.1735817639161645,7.4366269168245225,7.8417321817938763,7.3615954033456124,8.03662102556566,7.7818219126949755,6.1186153172257196,7.0220120308547669,6.752611641934565,7.6968738592437784,6.1929813991998737,6.9977390702103914,8.0685679611404826,6.7080653341200271,6.1727154083706379,7.9024641201511958,6.3662221257877265,7.9161638537407626,7.2640495701843886,6.9020860014215097,7.7194907089173785,6.7327774964315887,7.915661189614946,7.0012105551239205,7.9107923504414739,6.6767920675447492,7.7965420682852811,7.3041453454330307,7.0759952337498131,7.4644784527975441,8.0197354541693233,6.8755498863244267,6.849960451610567,6.2336688803374951,6.12604741210151,7.0094083882225418,6.9938462685769336,7.6654517609879544,6.864287919458846,7.6254270190782112,6.1799442128492892,6.4317271448840252,7.7964659809595869,6.6617084372798905,7.0497004670363257,6.1402629963636617,7.0985344045832282,7.1360223393925333,7.6375521922375347,6.5294238658309229,6.4254495922451236,7.000788525995735,7.9315716616968661,8.0102308295556028,6.1695369117372305,6.7842346880551947,6.8518567904058383,7.3982096624643328,8.0292795638860959,6.7501873098841214,8.0692901230520633,6.5823148457920633,6.817054794604358,7.2515922992925228,6.138153564892523,6.9842588419255831,7.5394922953640426,7.2587988707384152,7.37693064503984,7.3124561714783374,7.6802378489581038,7.3015666759564333,6.9111626177279044,7.0878366206583259,6.1185198437113417,7.0300779555122404,7.3447333252591012,7.1183237536320592,6.9061734149626712,6.3246236674656338,7.6779556179958686,6.1711433486311886,6.7597494451239672,6.3894597152340014,6.4172587331984898,6.3555691825692566,6.1629247927772219,7.9661444875448399,6.7672001317612089,6.1484404940557287,6.7159314262124701,6.2057806897981855,7.7769854294688976,7.7363161231426867,7.3510459568805304,6.9302812366846105,6.6717277678704718,7.885643979662917,7.352552889501907,6.7686292373603241,6.7082734651932849,7.9988012147249226,6.3850311314918926,7.9676871468977,7.4831815644777286,7.7012712227450209,6.8478735413468312,6.7102470907707383,6.2310623760848802,6.9420899822418285,6.8172996535658354,6.3116017436561096,8.0075784565828805,7.5844734508692513,6.2923487963438101,6.2111565938072921,8.0213873316291497,7.3469862216480912,7.2837355324731785],"y":[4.6625311465912347,5.9509687987317017,4.8686440684731052,4.7949181533706646,4.2687008663900023,5.0539061944874879,4.1286478061544685,5.1962419186194486,4.4569857846767817,4.9843721262027429,4.679917833107238,4.8660840194058377,5.0927909776168399,5.1121661708855122,5.4722406446624321,5.5763375296818571,5.7120825079387947,5.5670582531051211,4.8149430185031941,4.8143690870787399,6.0560948199049953,5.6038396902926912,5.9269728226705647,4.3744450574470441,4.843932222103156,5.3963258208201639,5.6314007530526631,6.0411416979491213,5.0388715542397149,4.6691536683757464,6.0366428976587212,4.9508616583370904,4.3619544177233953,5.3711190588042408,4.8083291637181658,5.7556062847322327,5.1499218204576689,5.7987290997795373,5.0970636926171533,5.9385519089366614,4.5546513024214672,5.2532202939067716,4.1887497962364106,4.7162524559193884,6.020682104953174,4.1493720175528699,5.9088349812273142,4.3161055020462236,4.3602590462599391,5.609325913599629,4.2552662978754885,4.7394998650939009,5.123825493947133,5.2845809329215943,4.7394356231034855,5.8308448437826783,5.928210460789221,5.1285771266955047,5.6368708009848039,5.3570828000876256,5.2943332029243413,5.3853537126246582,4.0929536525136481,5.3887980127780226,5.0381516059758695,4.766146418231485,5.106364293678415,4.1412673972415348,4.1998803076214202,5.7886628028284601,5.2936440072417232,4.9570072799446825,4.3563044165722404,5.9526663877961941,4.2632479958131491,4.3756811143263681,5.8954275744802622,5.1224046955627971,5.0183215061049511,4.2938516790352113,5.9722553367864286,5.609461476672104,5.9573863681551806,5.8438255820541825,4.4340593599677636,5.5541201483764056,4.9208576364701493,4.6960974974678011,5.6603797882647138,4.2631856324817345,4.7592678368734855,5.8892313477256995,4.0943066347121535,5.0768018227739979,4.8010495087555141,4.9526030041668685,5.1918914121833657,4.3674311456180517,5.8277908327246282,5.4975660663290142,4.7141180945138377,5.445398617079162,5.9145152740161748,4.1172608223295448,4.7497671337564373,5.5410686109515739,4.2265354690823802,4.3140151505882027,4.8355241732604597,5.5255151363491688,5.665889448943453,4.5662619174553942,4.1914908405659403,5.9683477919771581,5.0639118446190219,4.7945131731922155,5.6489577018964896,5.9583846848637796,5.477997256004155,4.9306539176167004,6.0229474560275973,4.1073603794225422,4.4238038401543829,5.7829952542397596,5.5120723705877213,4.3412545674513492,5.6910485999573321,5.3894343353059089,4.7913339483407391,4.9422817055816797,5.5935511281040267,5.7890123413254111,5.8305064300191889,4.8937391967659849,5.474326932716818,6.0682968792065104,5.1367392569988324,5.1699327442404126,4.2345558591688324,6.0123162050595429,4.8231900565432593,4.6378186776653187,4.3886685679447739,4.1486669912070475,5.1066559194588024,4.6015475157095951,5.8289712461198393,4.9833308566814161,4.4619924540137106,4.454456013961634,4.2228629857370477,5.6651358491761199,4.9723454776843692,5.5632372416203326,5.9457839295943371,4.1753897901827335,4.4995590723193182,4.4496389601410922,5.066297334013826,5.4929230041900983,4.1770765289936476,4.3736945202673958,5.9216647863970522,5.9017305196102203,4.9174310289056109,5.1628242447828914,5.0317085070954413,4.2223748370591494,4.3206902636993361,4.8388837693470599,4.9589855959391205,5.0643318369513874,6.0236030696478906,5.9791545427121582,5.0895971332449959,4.7350418644737537,5.0441963904751184,5.7604278729965781,4.4381334971446389,5.4031387106305333,4.1445129463873425,5.5620254268798321,5.8665233176400111,4.5291406059074442,6.0264288050113883,5.2272315963915661,4.9397833217408582,5.1928269685798707,5.8109883019763249,4.8491134071010791,5.7830323068212719,5.3233533208739541,5.8544285485488636,5.0774862724507175,4.5298168901695135,4.9018485195952213,4.7089452551832229,5.7892134329267932,5.4695070216107187,5.176663455515536,5.6994872918184516,4.2708115946625584,4.3459191004587483,4.8555910711005916,6.049278347511895,4.5803781713256289,6.0021863445663515,4.3428855504597887,5.1669528063223291,4.1318089741036133,4.8007516893915962,4.8219702703191469,4.3263096102105791,4.1809021720758048,4.7511262465463231,5.2713029851470656,5.7525861995590866,5.3642313478276007,5.7672746670404305,4.920878719868333,5.7472522314921708,5.5089731426440789,5.703928831305829,4.8971476344918905,4.5754794247661845,4.5368621867900156,4.9743804546344972,4.9528310602789549,4.386667556621572,4.4421127217174821,4.9054149021860649,4.5675138286124026,4.2157686138766026,5.5382064980835048,4.8303757654737502,5.1399908327173662,5.8192141250066562,5.034258364253489,4.1318539681665278,5.2745192684596676,4.617115203052367,5.1165842243618416,4.6124903723697885,5.5652262395414693,6.02769295739082,5.3158159311022439,5.6437670951098653,5.9401677749089039,5.1354586905611921,5.6167214001110679,4.4093054062747115,4.8776243139369218,6.0301122250977839,4.8676489252425714,4.2435146456508912,5.1069363061200708,6.0873265201228541,4.1284145653803606,4.1055433712100839,4.7842532756260105,5.2572345063680457,5.8382663732612281,5.1158825677545314,6.0113610006361418,5.267983108316562,5.7795261654762147,5.7873126556102017,5.4582670396476329,4.9113894085871728,4.7251754629663614,5.2407231918016599,5.3266017856486778,5.4666760268353372,4.3592763001452655,5.7412862840690293,4.703798313835029,5.49539002529934,5.9941302572510562,4.9648087228774243,4.6111452467679745,6.0251530254154009,5.8483610198053944,4.66982303216363,5.3609051187490628,4.672354817569949,5.9012784875488391,5.8239768173271047,4.138745668950631,6.0239073113116728,5.0529469538059839,5.911767043111956,4.1807425787779007,5.5986154258150194,4.7929199788797954,4.8250000975192879,4.9890516195095573,5.4266379640520164,5.3364234961318076,4.8781124668859057,4.4842215178066214],"z":[5.0393565060293106,4.8070270360529843,5.5736758763212544,4.8659258050975334,4.5142070259694895,4.4260947711268406,4.7617484629915907,4.7811018690454539,5.0964681368447069,5.6729705525094776,4.9767301224929579,4.626724186024715,3.969754968008314,5.6847831765236929,4.1394353392081786,5.1253533501511415,5.8439345562169107,4.2090583626298681,4.2094089137577484,4.0682069753083763,4.9810530197533458,4.5941914852532406,5.5646642265443731,5.6014892136624503,5.0509579802256557,4.0429444976759692,4.5348185543718866,4.9810226157062303,3.9793100338074874,4.6877458312558611,5.2350627388503685,4.5494851664530875,5.5818840934291689,5.8669166333855269,4.1155156767821692,5.3424722626889762,5.3849957198999405,5.0656661151643156,5.3590497276108708,5.3637506395280683,4.2543328167623295,3.9938751019826233,4.4157959101755218,4.6912234948865663,5.3105479963120903,4.5029722058019406,4.4905107695841506,4.2439850254738953,4.5609099102583155,4.2282402155159229,4.3752078687479923,4.1565703806869543,4.9815787392514714,4.3735056496430929,5.8811417790780602,4.5562457774193641,5.0372823168470289,4.8434919880989149,4.6902986407009424,4.0812690562131149,4.8196206517211957,4.9375485406195914,4.8496174508134446,4.1653619343889474,5.8095854741712945,5.5318187647432948,4.7606930762976258,5.2029038264896226,4.8280031570259574,4.3323625089007676,4.0038866584108055,4.2298404126629148,4.4596036389306022,5.3549626832785604,4.9133942360509613,4.1741642545227995,4.8245572083303196,4.1888371081160631,5.22310370910815,5.0800698558361042,4.6464210157720114,5.2244071825066181,5.1396719005057996,5.2187819119123144,4.183690554956347,4.2268758496981613,3.9503078077362437,5.8620365408560504,4.7471197350010925,5.0428537420793358,5.8858776089055596,5.0227228760530274,4.7729243270436985,3.9668407925337634,4.8386746644686207,5.9454123472476734,4.8788607665638262,4.2108583673673801,5.6902432621292673,4.621225222228178,5.1982996782673432,4.4907847094232798,5.557005450686086,4.6727492616453512,3.9793407801857419,5.6638935243230746,5.3966417483545426,5.3546126996109074,5.8526506444080679,5.7177765828947935,5.4845046891298095,4.3033190725138271,4.6809380265392191,4.614132002217346,4.2891014184776095,3.9777789424015637,4.4770440846415269,5.5653047564911748,5.0674177885895819,5.2821857058305133,5.0788476372639924,4.7795211396697557,4.206352377666307,4.7006007578262103,5.7096898027615532,5.4071731855797633,5.476228131273313,5.9813727156587646,5.8610750429386451,5.6038172929388645,5.854232808065345,5.5399782916797395,5.7199992815422824,5.0377903745483961,5.8354956547355261,5.2592762976434919,4.6752612643831419,3.9723790646470438,4.7996667405535955,4.7144895828465518,4.0694057108220552,5.4555277097948123,4.2065460437473599,5.0222469361519027,4.9628167616844534,4.9662611256288534,4.9260284105039656,5.0161785285076714,5.5038864897210358,5.2246634636518348,4.9820095087098144,5.8742552981177996,3.965843307393575,4.1405911063092882,4.5592450323930604,4.8178072818220228,5.6569467676071632,4.789120983315879,4.3994474389814817,4.1078578429032042,4.7153847908299129,5.0358605578780908,4.5246051467227479,4.7633795213185408,3.9499899668786611,5.2549201425031908,4.93247784194656,5.3632787859566884,4.8149879052387021,5.6989223479043298,4.979905632160718,3.953462741099921,4.8442411994565626,4.9592531507142912,4.1795362339949769,4.257226350316083,4.0325098632002669,5.370891311548518,5.4701645120036853,4.3766761417443911,5.1058745808171633,5.9278302850041396,4.6381058890634765,5.4191696741346993,5.1065806775873668,5.2949184143336812,5.76222415057362,4.8093859602581661,4.3600218468399685,5.8083600594886935,4.8768628930132003,4.5340837765088811,4.4126085174575449,5.0080963394196987,5.5673237672687526,5.0454490143762616,5.5098109278867407,4.8095019315845242,4.8152567245616966,4.0177134418286027,5.8118098744087821,5.0223926745067837,4.3059111302084006,5.5801250466598296,4.809473631685651,5.3546550603495335,5.2206644198749839,4.8614517529591126,5.9960021133407402,4.5571113050434331,4.0868696766606085,4.7907929159317293,4.2550711826461338,4.5388794308427185,4.5646739863132497,4.7904531954503478,4.2945327190412446,4.02892905261261,5.5073268501750086,5.888403880499685,4.6618047370867393,4.9060302119599957,4.4942256145577657,4.3498935555623888,5.5726627774826101,5.7400556368608751,4.9490458443682144,5.9606886849824834,5.6152642897750669,5.5459143249033014,4.0840941149605374,5.2787391508171124,5.3246931960218449,5.0798843183729758,4.7534447621136202,4.5329161835803298,5.6621503105701425,5.9129798946283021,4.7002757147853806,4.9681205250689633,5.6719247282365419,5.1271613472623372,5.5336128304547287,4.1476566392142766,5.3685519229184839,4.7404113734729325,4.1943484010447465,5.0829564071972575,4.0072762377625821,5.8704682145809439,5.6428300513370795,5.8199209231565856,5.3026630628919307,5.8876550579134861,5.4089904121856716,4.8301668926147396,5.108978669475376,5.1185357874992157,4.6517791670473931,3.9722555552598431,4.2824529278040009,5.2456641993661064,4.5274095759601654,5.3174570785203752,4.2167228249864923,5.3045800954497597,5.0763828367168022,4.8637866926117379,4.6168310594985176,5.7544023516789018,4.6289114787794805,5.8625755122519312,4.6279487645089983,4.7231265623180683,5.4183595311872024,4.054915560321934,4.0928641183847096,5.2459584616897432,4.4688184872864687,4.0877145978436005,4.8237134326442055,4.4621253425045149,4.8679422510322112,4.2574776308440549,4.7388976018282447,4.7687746514029143,5.1682151637397045,4.8206556882966218,5.1779120435414931,5.3197390333418886,4.4956824413909855,4.5784088313049489,4.5410279227381203,5.3495646599441313,5.852910488684711,5.4114932982234079,4.5680424117961778,5.0768003177841141,5.9403100407001324,4.1281187540596154],"mode":"markers","marker":{"color":"rgba(102,194,165,1)","size":5,"line":{"color":"rgba(102,194,165,1)"}},"type":"scatter3d","name":"A","textfont":{"color":"rgba(102,194,165,1)"},"error_y":{"color":"rgba(102,194,165,1)"},"error_x":{"color":"rgba(102,194,165,1)"},"line":{"color":"rgba(102,194,165,1)"},"frame":null},{"x":[5.7211152869173425,5.0258819194315372,5.7891994942805924,4.9712872013126121,4.5518545546912055,5.622231274624836,4.4352890000735741,4.2881119559061842,5.0619578108229826,5.1930294859050132,4.2572344654293968,4.257576762498716,4.6785669002754249,4.1513735844745225,5.410025824819888,5.1725367791533881,4.8093567858075552,4.2151069198447839,4.4970658145140403,4.7622999062832347,5.7512513609122262,4.4584526284319406,5.555014416716368,5.0441589049350748,4.951316903550528,4.3247697163157843,4.8864810108515497,4.6614525479937052,4.206330209068101,5.7506956371699669,5.3092262590854702,5.1288418027099807,4.3182377421628377,4.4278826007105963,4.639354307714461,4.8191169666065274,5.6009216868203069,5.364100629751122,5.1307033419801034,4.7474581292856284,4.3408311471225591,4.1818203386499091,4.4265125705776303,4.3062355932106815,5.5666958720827582,4.2516550941001574,5.8904167093475994,5.6080269955742423,4.6673771205600811,4.8426237671646586,4.46211659902119,4.840732156834771,4.8860009572636978,4.3031517746520809,5.2606698159025083,5.8652938529508463,5.3677844501437226,5.1226245299652122,5.1247309351010086,5.2063250593881047,4.9766420219584084,5.3579595761756691,5.1104234473634058,4.2214518480124035,5.1120733068376438,5.5154274183425178,4.7231755816183689,5.1113377907909152,4.2083163118618225,4.9174858457977546,4.3325530559492114,5.774339866552344,5.3522427802977157,5.8723494962008038,5.6561736348514966,4.8046747185569538,4.3589710085219506,4.1796159186812369,4.2054280264544683,5.6611079359096808,5.8812973770159713,5.3110898347605957,4.151153503783509,4.41320184080275,4.7714142666837231,5.0309283636627811,5.7119931490731384,5.5224863618312208,4.4086370826262389,5.6858937419387621,4.6296547231797263,5.1159698412072556,5.243898850824932,4.3160546151486967,4.4116808046009721,4.2149827960301547,5.4350509029119705,4.2419738527382611,5.5582628533415965,5.9201938169084851,4.6191725618357466,5.1315112437314525,4.8514140659156801,5.6900927568877222,4.6571874822795287,4.1598771119315989,4.3531005946759498,5.6027530527789793,5.6941505039631393,4.8261079879657194,4.1673945824666578,5.8408425625656157,5.8525222708276656,5.9383952091707322,4.1784051647862874,5.1345877405798825,5.1930967153234686,5.9499261972653432,4.3027165529590414,4.6618673001746478,5.1923634667876666,4.7201858982946643,5.2900310214056994,5.9148188214746931,4.9027596961544191,5.2690958667444496,4.2275178858360896,4.7184695790570261,4.7380340805220342,4.6885690542269565,4.6203460478992939,5.4620530295203187,4.1627704925913509,4.8419594401295738,4.2055436700122852,5.3859310868662149,4.3354102703639956,5.2968714288126524,4.7859886114755792,4.9029887227332702,4.876420603971007,5.6234716785274719,5.7805261883365775,5.4844912534596411,5.3721836578986233,4.6709314920005198,4.9239915709979423,4.966778157290924,4.7544683069681994,5.898189871635771,5.636535343556937,4.7536537533466721,4.7418543314098223,4.3214015000674602,5.5222752922309022,4.2073751444126577,4.6386117639078339,4.5164438041015007,4.7290570206936664,5.6777493606425153,4.8430802484374587,4.6978019400970981,4.8209928932517814,4.2750505171058117,4.569603005285745,5.9130650339384703,4.892076148328468,5.2055780136217127,5.8299829930889455,5.7280677739919694,4.3023134883598981,4.5661150592353277,5.3626475294063756,5.2321349216759092,5.172080743794309,5.4714378304163391,4.1069810751573881,5.1014140874712277,5.375458434864882,4.5970512755112507,4.7014936752780843,5.1151673899327195,5.721258798334957,5.5798447520858288,5.2618038404593124,4.9820225997158349,4.2413873735267975,5.8550365627011383,5.7577927036520054,5.8660411103134704,4.3360880115154439,5.4062395358430413,4.2573624364915474,5.4198661812244584,5.7310209196608337,4.9088803177572276,4.9817009531658796,4.6984195669226043,4.5876719440916034,4.6939035490942533,4.8137315106578917,5.73103249785333,4.5013249379718134,5.3384544133371001,4.4081908604878883,5.3379197768233917,4.2874620366165086,4.7913902996488984,4.255092508584978,4.6169405216299255,5.1660933139250078,5.4451418263086078,5.4009699140018474,4.289630238885306,4.2470187572410136,5.3054485342515703,4.7542096034830994,5.6388752883499826,4.2697815903779395,5.6682910226460512,5.5221115491506918,4.9325921633276701,5.3823710873464847,5.7899576310501226,4.6367385944808603,4.3796340932358291,5.7057029248151609,4.551550809995117,4.5706848767441759,5.0939324159874309,4.9151174202661405,5.9146585260439188,5.1072815196854346,4.2685752788113049,4.8510809309247609,4.3464815394326077,5.5409957125568248,5.7461040268550505,5.2705021197807804,5.1763650477065877,4.1434949576102884,5.1789618910969617,5.2027127448741375,4.8802586211629331,4.6517835883831058,5.4844193373950221,4.4864061010933023,5.3041545694054504,4.2832661055581411,5.3807273274979597,4.4252199821823037,4.8170631204810963,4.2751080650037112,4.3012208431450292,4.9283021547234629,4.9980820435652431,4.4850159014793274,5.6563891107357183,5.5349401219039933,4.2195318901071888,4.6484405786536591,5.1562319754720463,5.6157077621647904,4.6422786861156515,4.6008772414160566,4.1643101442262136,5.2426671824871898,5.2154607074407089,5.9514057361293666,5.8304507910452656,4.2947798128527124,4.6395364329541398,5.5122744340175149,5.25573135667159,5.6717691548816207,4.5571833025359521,5.3448761374176224,4.6829290650801392,4.7285113540819488,5.6651805076329724,4.1734021363869802,4.3530555344235893,4.1282901166306436,5.8707747150200742,5.9140567450179384,4.2091909152894074,4.3471522007413865,5.8405253301777975,4.9509403811357444,5.2842113960756425,4.8524320747039305,4.2971901381372293,4.3467968364225689,5.4148180064694005,5.9065765054085473,5.832692925416068,5.2353647082274355,4.4276049793172474,4.8133022191475803,5.7893392180579761],"y":[7.1693859771640183,7.1323994595047884,7.058553710925759,6.8034028359028902,7.6546625146594733,7.7096880259723912,6.418438964657053,6.8252231943784567,7.9485940390552603,6.1906388600147562,7.3666019819218436,7.6630300537421618,7.9413704015062576,7.2070919141199328,6.8227408500478495,6.3048797769359668,6.2189154418851391,7.493422859198196,7.3305461269570804,6.2112162120339178,6.5369609091478331,7.8397570083618238,6.8434615070571292,6.1977141157819604,7.3820878254360887,7.2659686875080176,7.7300392947618759,7.5191528992370138,7.2067851960557245,6.8018430388325219,7.7192349375115912,8.0196163782461962,7.7198698103503345,7.2501834852079003,7.9900584095454343,6.444710017526555,6.4081860732915796,6.6799728811549279,7.6566353018237381,6.9335612790162475,7.2389908922563224,6.9448014448710573,7.6862863313736645,7.7299660381905397,6.6492877739619995,7.4483898875934393,7.0588402721971262,6.5723837402439562,6.7433505744401261,7.2829200869236477,7.1585785204642871,7.1938588135275792,7.8801283797051571,7.7423965339965841,6.8733556572962451,7.1399256432128357,8.0333987305862671,7.4141067314129296,7.9520395071126107,8.0965063933831125,6.6924566318610319,6.2270717576876411,6.5008057234118839,7.5030616812705286,6.6489223929921666,6.513705277022928,6.411154718563715,6.7464312244092701,6.8985920312875599,6.7300393320023604,6.5746550437778311,7.2674668796786852,7.9998296841924486,6.800113077824995,7.3184339315466209,8.0870963382519463,6.7125898716767498,7.2721625938257022,6.7620801013785519,7.5215499338763543,7.0625205685025314,7.7204935294076664,7.1219832160929988,6.5345595472141857,6.2218103911992078,6.2199426379620419,7.3204813467237848,6.5147401782814836,6.4708639893076905,6.8657408574310992,7.6349522590671812,7.6657119044457875,7.514192184580831,6.5145225774476465,6.4687778494904515,7.4879697135390018,6.2512701360231961,6.6246707041044894,7.7223389611612241,7.1417015186944646,6.4489000124716647,6.2644988898060179,6.7280601611435999,6.6528576181096701,7.1514203899765638,7.0426015075408666,6.8039612734234733,6.5737243516134312,6.8923469622388147,7.0109685087345639,7.1404887836299489,6.6412728252873032,7.5060690819233846,7.0630591659588831,7.313669633341795,6.5237847650705945,8.0843364994771818,7.1733624920266186,7.3864215506341147,6.9533228705322863,6.1767669620114418,7.4582977928318597,7.2371270623066764,7.0358260786329323,7.38093502502793,7.8963953867715517,7.6386651788554722,8.0449297615905593,7.6372573757374855,7.6325349211516755,8.0071521903165817,7.741745661278614,7.0589252774121087,7.3440423993137367,6.7024211149306918,6.4590155572058485,6.7225570953934826,6.386740249092524,8.0605961647154185,7.4873274542915542,6.5223916873618606,7.6487111916570392,6.6840522550907382,6.9212014629911334,6.2138035929106872,6.2513720250262423,7.6796208766779328,6.6317054124217965,7.3117601590216132,6.798508648118486,7.6164418127516589,8.0790441653022782,6.3167287844715156,7.1520929735748213,6.7170300899349851,7.584241656034588,7.9534062700850683,6.430268157125461,8.0734267600310812,6.5893967348146667,6.9327515314194885,8.0019939761301728,8.0557524138380749,7.3699920913158854,7.0166878306718079,6.8393238649247792,7.1340093230360013,7.1274452433581876,7.549924687415186,7.6587664919832061,6.8926694471325218,6.7857940691326801,7.9922154133244216,7.6147369931401565,6.507253222240875,6.9640223913433807,7.0331580085594281,7.9189238858108038,7.9197115990458675,7.6718103045693038,7.6291790540205024,7.9590447621758917,6.5155200725940592,7.8363570770202813,6.1978568744793119,6.179477786359497,7.2521357812417158,6.830330490946074,6.5090087059475463,7.5213160178785898,6.5207700333982794,7.0398191261016629,6.5902758101286461,7.9730767710051973,7.4549964312438775,6.8770669913340781,8.0490612134906119,7.5168525308363145,7.0503027560973388,7.5060214723260286,6.3535461270710591,7.6804216134457031,6.7596766028137596,6.1881683660377051,6.6656237679428285,7.0490502018381314,7.7350560259876318,7.0851272050279306,7.3689579924991708,7.7678957549618932,7.815938326384229,6.6229295323958945,6.2149924012830127,7.7261868086101977,6.8438405952220487,6.2582414882831614,7.602652321008657,7.659285147058041,7.2024462478561357,6.9854696299398711,7.9533446997678103,6.5723413899597078,7.7143478503194993,7.5759244491433853,6.57202534339085,6.5509902036672409,7.0995816209498326,7.8879617026326896,7.0874460148836862,7.3415900968654473,6.2940199587442809,7.135356663655358,6.6315192373356533,7.1312114496117927,6.5495553842931313,7.0589680262017804,7.1176164160123827,6.6334022990765913,7.8246869055206139,6.9826452557615397,6.8500607889390741,7.4292171331305132,6.1525858125688702,8.0689256567413121,6.3128643962418822,7.3781211562228002,6.526417539200458,7.0900845514067417,7.3062239013990977,7.7619906071834288,7.6970595920629226,6.6886305345167276,7.0760985275171002,6.6933663694723622,7.0817861916419789,7.8599054630835656,7.8502354051213423,7.6827983985047004,7.8368344011318269,7.6117532894784983,8.0369225250321836,7.395062310240089,7.8843159866194537,7.7569216905740515,7.0457508518736178,6.7875340951182723,6.3880811560033184,7.7268258858604622,7.0689008466542846,7.3514478566788615,6.6905796312356625,6.2514649351754628,7.2895930445934676,7.1265988877501965,6.7649529153944981,6.3001888071983725,7.6776812107928718,7.8491841609644712,7.7677404165617032,7.1570005949094133,7.5221784841773713,7.8144707084624443,7.3826258658371984,7.3854754020932667,6.8255614312339361,7.6081625715099133,7.3465608214897182,7.299915997720273,6.1589546546023657,6.8687082718670798,6.3872828904613783,7.6201485447201849,6.7315752643359721,7.7419916670960802,7.3192939692059094,7.1710276190264644,6.3422212113773018,6.3985726339504083,7.69805482152523,7.4869042727021506],"z":[4.4804516352129014,4.152703459126994,5.6784985949161584,6.0650489079797518,5.7139478390079868,4.58916871917382,4.948725894861548,5.6419028306993617,5.5693748627705446,5.5006355289044091,4.5967156922552252,5.2306082704245993,5.4545958822414891,5.4113265038891027,4.3261690884256492,5.7339392214721077,5.5229723795754682,5.3863509175089437,4.3231788103712425,5.4492942248353105,4.9769321722867632,5.3744475754068146,5.9012503951986064,5.5602945821271339,6.0199457118748949,5.7155225143227089,5.805760317714773,4.2674148183043714,5.5467423239964821,4.6403977696933341,4.3382629737533902,5.4291470923757235,4.784388546005955,4.3729264989397905,4.7382443042260993,5.8566066025694443,5.5158937960895447,4.3821543667077965,5.8693241510938172,4.2393736664486248,5.7424438544647449,5.4774913465845874,5.5581805411588796,4.8473322040894491,4.5384475666426409,4.6418503918164147,4.7848585323369477,5.7181192040063697,5.963831418373327,4.165282017634178,4.3469436316640593,4.1662467030687527,4.4154799451331357,5.1876492327401467,6.0509344022165408,4.7112719398339307,5.173200667427353,4.1678129478165404,4.4973331706294779,5.0975065326451769,4.3025189824600867,4.9897602919141084,4.4463686360153831,4.7490913103106838,4.3321771959077875,4.6211336486430241,5.7790786704399277,4.2752221969518684,4.7559916076193121,4.2871629277691383,5.5006525213464617,4.5555555600075444,5.3258363955185599,5.4135029310813056,5.7834195090522345,4.875608476596498,4.6379807517714768,5.4647864669678849,5.4019530950012378,5.6637630778576549,4.7602342591110585,4.3399490868590167,4.8013648695159894,4.7614980689707185,5.4953303702229022,4.8324681847755304,5.721566278187658,5.756477927944573,5.4954880440418226,5.7863523082945889,5.7828986075783746,4.2520774865131559,4.2169717259631065,5.0756558207974178,5.4981944355872034,5.392280564767912,5.0332008357669329,5.2647099183245825,4.5221973804770386,5.3802802608935654,4.6405249640445856,5.6832590013295281,4.3001110779752967,4.6758514293658502,4.2287551694328176,5.446341718591615,5.7264466187599625,5.7253092110029131,4.5161450457101573,6.0655810560574048,4.753052810127409,5.2173776912211913,5.3022183347350049,4.9624551389854172,5.440578384915395,4.4291535340550316,5.1989059466892868,5.0497525871528328,5.636510211763091,4.2667671001198659,5.0019934652566782,5.9337565197704629,6.0275354646632557,5.4023574003978414,6.0145395433940569,5.5869129993544391,4.9905240123481054,5.224080903261993,4.2833687346670164,5.8163090434153499,5.202612509972866,5.6553489748452908,5.4571032601256722,6.0161727686396871,5.2842150607029934,5.8102119257236895,4.663331946848734,5.7868793978499431,5.2478082386121585,4.1852789529538539,5.9325138879245953,5.5942101181081165,5.5479664998748257,5.9622385755078202,5.372099843777173,5.4531313195894988,5.8528896627014211,6.0073372257177091,4.1898748344278092,5.2829728069968711,5.6110000002239913,5.0872050627299421,4.7474840110715633,4.4864361148730909,5.8843967793126666,5.1930282544552187,5.3910384531013316,5.6136536246846518,4.970202648316751,4.7269900810343035,6.0656937817424934,5.3384506622822236,4.7286179658282848,5.6037472563966357,5.9593840655739987,5.2533753991434304,6.0722113915932185,4.1724386677845313,4.842257845012357,5.412914735641726,5.6905810143502764,5.9189601229093229,4.7113305554939791,4.2520563646558251,4.4503749017236478,5.9737587996631678,5.1222404609013985,4.4508304801664114,4.5825431239645491,4.3761043260989148,5.8248437462399067,4.5048594404070768,4.9333526344586334,4.7017321691898308,5.4711884242988837,4.9489590664784942,5.5987958707447261,4.8234128048307836,5.257286665989402,5.1924631057027666,4.9595288810515328,6.0086910417950081,5.1546699203701793,4.7401069792022046,4.5505662360865617,6.0715223794103075,4.6514263657402939,4.2500131353547976,4.2790096906088761,5.8987759447881327,4.6490925877384983,4.7523153693808329,5.8614232602073315,5.2368339351586259,4.6161158070866373,6.0365161011902639,5.1097340557132824,4.1895608780101563,4.6011318496807903,5.6530126756691406,4.3615519120634554,4.4663690940225171,5.2712580321037761,5.178310290563191,4.7139568336366517,5.5926948282010294,5.8650076373379978,5.5629034072447237,5.6574466361096105,5.8244451681948508,4.9204958120171964,4.3886366087186977,4.3725429774523246,5.3913594405745933,5.8619344025645477,5.5652696544858005,5.7840439118059859,5.4207363864114813,5.9587885293767018,4.1545796132724018,4.7057892521958937,4.8460137315779992,4.3432287222588872,5.6667809218528618,4.4229192005936717,4.4723272331479542,5.9269674399004071,4.7915942669617664,4.4045508789170631,4.1935211599639448,5.1862502968515765,5.991481693518633,5.1715432533938497,4.7312731896995786,5.5824199490835582,4.2913536117694786,5.6938168197116221,6.0456977088204376,5.6456203916974665,4.4079979953248456,4.5563160525517548,4.3317169086565119,5.6791617809776982,5.5750882482492203,6.0820238100698401,5.6891248931631404,4.6681927504184157,5.5093561742546564,5.4514458172583806,4.9362341297272483,5.102836001522145,4.1693653423000931,5.0955354405234186,4.4076583465768318,4.2727189012052609,5.2072261907149588,5.8108547471958145,4.3086699159837849,5.1899252443079176,5.5224711443879952,5.5596924300023414,5.3894397691446114,5.90992905375726,4.1846144474756226,4.5611781583404332,5.0348805281547611,5.7884994823624023,5.6011475250289378,5.7191367376708158,4.4201794189805428,5.1320699878147051,4.9440111456265665,5.0871545127653501,5.3965939823587847,5.1582228276459192,5.0596600154983955,4.4655804330741828,5.531573439476456,5.0426270131788771,4.2560834516379433,4.5891640342296807,4.6892353761327019,5.6795822843698351,4.4138629658973523,5.3339143847848058,4.6445185910636013,5.7619273300786968,5.0450874998802453,4.29094802716775,4.6680909538660247],"mode":"markers","marker":{"color":"rgba(252,141,98,1)","size":5,"line":{"color":"rgba(252,141,98,1)"}},"type":"scatter3d","name":"B","textfont":{"color":"rgba(252,141,98,1)"},"error_y":{"color":"rgba(252,141,98,1)"},"error_x":{"color":"rgba(252,141,98,1)"},"line":{"color":"rgba(252,141,98,1)"},"frame":null},{"x":[5.5385248961776732,5.8641613388844656,4.1404132334888635,4.5154219352259233,4.1422853799812991,4.7728503577104231,4.9214142821476052,4.8441688569663457,6.0400971445708134,4.2535897204487192,5.0944876920466351,6.2340556161132765,5.0065736492329123,5.1578098517947577,5.0298632585237977,4.00267120972212,6.1732123506518644,4.6142161204566969,6.0887773942772476,5.2810748411091142,6.1349751899425931,5.1335436771726393,3.9690947292181624,5.9459390589165348,5.1987274222986057,5.0446864852634326,4.0211134263997854,5.7735932375304602,4.1283140656010202,5.5072517567667019,5.0077382220736109,4.7716783625720494,5.342690948993071,5.8995131175793762,4.598832355162493,5.2423285094805978,4.1867734296242078,5.7682399400650546,5.7050825153616946,4.3933658632086789,4.5427851892950422,6.0827854809003066,5.2996362711323757,4.547698804018756,5.1221508486257843,4.7023437107054704,4.9995630363630985,4.2130730434408292,4.896072031935808,4.388665243866404,5.411599591916243,5.4869077064314062,5.679865671597577,5.2116809087677805,4.0053254219841907,5.9961534695497196,5.5182132555516326,4.3342243744700166,6.2545483703138727,4.2092812723039197,4.0990916228934076,4.956907758475408,5.2607221546195211,6.1960158476698668,5.8179931871089883,6.1876288391675862,5.4911701421856627,6.1341246977964676,3.9069174577987358,4.9555146126541265,5.7918917084751662,5.5760104936479404,4.0770641483961478,4.5201558348565163,6.0578075314170325,5.4974575524035281,4.113447307386827,5.1027349586203892,5.9576483496863721,4.2486510430647488,3.9171839892202613,5.3662856437979407,4.2589317095070793,5.4255631813443204,4.3870113872175542,4.1667313957714578,5.3181038422564813,4.0333332425079398,4.8439813396603597,5.8046574815137379,5.7532504643981266,4.5570227902978306,5.4364937022417985,5.2732220553469977,5.3648714563218762,4.4077024219073291,4.7686706746117711,4.4021539388746431,5.1708469872389573,5.9088580451293664,4.3047015894448775,5.4257491228349259,4.0389006292182481,5.8709687675366125,4.0763560646237513,6.1259250118666344,3.9061788943778248,4.7658031685772473,4.9736584728543809,4.2085363465782333,5.4814650937687315,6.0936177857095544,6.0955839500136406,6.2220364919967164,5.2391318785155701,4.2150855353957493,4.948872707509512,4.2028663741363914,5.0554967794752921,4.8768221169457826,5.9509495066625835,5.1926603836135792,6.1925925619502662,4.4438159080224438,4.6227175715543432,5.4159884252581758,4.9247846249819798,4.6665803397484478,5.6268561339298628,4.7286748780559469,5.1471669644299665,5.5957156035172755,6.2147978272400861,4.8071761090233869,4.776995099700315,4.9237359281035724,6.0437789662419528,4.1638956129628584,4.0613679230459727,6.1009716439176902,4.1535591444055449,5.2498276339073673,3.9325525598533719,6.1485028822733927,4.4244312917881361,4.6049967291779037,3.9205733922516783,5.1954477021867884,4.7628059542420056,5.6926348835111629,4.0534423392884324,4.1973022352248242,4.1125556006198529,4.6924852010982265,5.9679703860649678,5.402557102769757,5.3715654063149652,5.2064179842028118,5.4789563687672702,5.1342651802669002,4.2604364962620096,5.7167328376846731,4.3753604656685763,4.7464687256274933,5.8878310156522433,5.3297311694170268,6.1025615284469135,5.2102477232976083,4.1608965679811689,5.6065160530156364,3.9255477484013941,5.4862436105334131,5.0551850496688511,5.1898689755797518,5.7902431879834655,5.5643603165657041,4.3099508470553332,4.9438918432587107,4.8687434845269824,4.7802176902051423,4.1645625572099689,5.6304754798979806,5.5620744265614261,5.4726315321323407,5.555209312553882,4.1614135049090901,5.6936893640635251,4.1819600617267838,5.8574086797362446,5.3789432201075753,6.1007582570935286,5.5011470774322095,6.1599075795465446,5.3377767519624406,5.4583609262190613,4.1347541723394823,5.699784642990525,4.2902823053527612,5.9650522725457114,4.5728178781028737,5.7282149297985274,5.0078640341088887,5.701268779204371,6.0787492017156275,5.7910669969859017,6.0775449309146383,5.4868095410441127,6.2164959465848471,4.6980124707713475,5.0117731270210584,4.9487011441814772,4.5599552435160273,4.3279656226266949,6.2641230616012473,4.9610006015014285,5.9616309435638302,5.8557851808820738,5.369106433156321,5.6293816057532267,6.1448039093282141,4.3230277638142391,5.873941769577228,5.0901654188649488,4.9418900975020987,4.2629672691770839,4.4911478838079892,5.1020779117911186,6.1940879632506567,5.7806643231402779,4.5349886683487943,5.1023784727907158,6.0568502262699297,6.0585234390002753,5.3394796572022267,6.1166033249766016,4.4898775266580495,4.1859654970861966,4.296483794964967,5.3463457125017362,5.8583657055301073,4.4459905736788468,5.3162205000518883,4.6411641013643354,5.1264738732876989,4.7157123930157709,5.0447667262574907,3.9486234323174427,5.5597692943372543,5.0645846867454818,4.2284871951046812,5.9729617694329251,5.0464281235515482,4.8194585656108595,6.0659284524322645,5.2362028430929701,5.0859776095688547,5.6540538723729545,4.6484688888638308,4.653945750029675,5.3858291971916881,5.5685562599097453,5.9245838348418784,4.7166521471778893,3.9799388129683662,4.7363089178686026,4.0928049869270247,5.8440195805306185,5.5898854210916085,5.6024190003753942,5.8168513389369876,4.0173109837861949,4.8707736221294029,4.350406999062435,3.9284774715502024,4.5633204961875293,4.9673892939802515,5.5572803357340499,5.1335518187399289,5.9496821784640908,5.0260932795476796,3.99838240106418,4.3649899955072886,4.8067088906936402,4.0747172872240851,5.9509433964386513,4.9337263059271166,5.5902191258378684,5.3155588963191223,4.8034065580216287,4.8629707425938111,4.8470091245936127,4.357388212306029,4.3500930061348102,4.8227980282904568,5.5658112794706049,4.624370382224452,5.4841896078785402,5.8118549049158759,4.7371021591620384,4.8740174534710166],"y":[5.2803028310530404,5.7278786590201056,5.6442377898005809,5.4586229604807741,5.6463754354409863,4.8149785894887041,4.8206808448486607,5.0699622368181352,4.7175439354170798,5.079766838354824,5.496825894557106,5.0127238600216621,4.632156843907226,4.5653558827516605,4.2763444125890171,5.143873972485645,5.1828585063158092,5.6676803316812645,5.6460011755117874,5.1688451132335604,5.592266554113003,4.3909735421152654,4.9812682748360473,5.7398027514874554,4.651203327100057,4.3917154260467246,5.2285319243265489,4.9052053023510185,4.891084152726731,4.9556840479683881,5.3161857701902129,4.5079402601979623,4.6605609176950722,5.2646008035487153,4.3552566891247304,4.305789226172303,5.2331427389115577,4.5763420468554079,5.7623364334576612,5.6161070041434531,4.5335667962106285,5.2654524785994479,5.9563901655321381,5.5295931022483122,5.975783023852772,5.9499737669838462,5.236071562791869,5.447211810381452,5.3532316684699044,4.4943624930237611,4.3664914533613306,4.811559270902829,4.440299771083053,5.8723439745081247,4.8464646567351819,4.6786321148984689,5.4080722771759149,5.2353571929672835,5.0831857943807703,5.7043867707800304,5.2049576895640488,5.9687264454047231,5.7810842826715625,5.3508121989219877,4.5381070493643731,5.4186909982728118,5.9727107134689152,5.6029909084585139,4.9800002055431909,5.9909602039470524,4.9873891373904984,5.9534471717208381,4.6295051233673252,4.7864079303466402,4.7459496443509792,5.7118605187891154,5.0487078979602282,5.9352582598993209,5.8149732286664042,5.6556242558734722,5.013002827500169,4.507917445066095,5.7521918106351535,5.2620808854172783,4.4605679191379686,5.5145435576112396,5.3466851643661615,5.5160305937154588,5.642654630014265,5.0452362205181354,5.9384023111546131,4.5313371583124322,6.0078889964625208,4.3052773197463221,6.0179460647939447,5.7233235738414496,4.5844487315760194,4.4073952461968915,4.4024360562994511,4.7514340982866239,5.0397660861664217,6.0134059710909149,4.7069045717695817,5.5817536177573279,5.5690410377857864,5.331610683962146,5.1911693320708547,5.6799166982930958,4.3308013838624806,4.5008231940136261,4.6073164530312107,5.2193917947321449,4.7745581902158758,4.9814448133044635,5.918317974232199,5.5208813886150461,5.8014030475462981,5.6454030868342944,4.9702910061356125,5.7672169614261941,4.6747573728230707,4.3770808555819158,4.9206860123340643,5.4972156367586953,5.6824903193959235,5.1618618495512649,5.8159623574154553,5.9413410077077655,5.0735117035906585,5.8840142200205277,4.2955848862895234,5.0963063852016486,5.1638024585097559,4.3969817508960398,5.1256123446357442,4.2834493917072924,5.7389561032302705,4.5574293000583825,5.3937417568196748,4.8111519203437476,5.5146670377342071,5.9769693390006911,4.8498892035943921,5.1157282872688397,5.8526665146334169,5.2553502834460044,5.1343914364578627,5.1175926795900359,4.9974391593098337,5.2814847785031906,4.9544954661194103,5.3786877792630339,5.5623738411088164,5.9733065434821722,4.9737447773773136,5.5670196769757982,5.8614023149749492,5.5775198800190555,4.3886152149305628,4.9838726711533292,4.4789662016947487,5.2178505445011636,5.0046789076847569,4.4774906055978887,5.6937548861104981,5.800843149425928,5.6347008404370937,5.9353008600669179,4.9217986150947493,4.6798165413405943,4.9517061432456426,5.0953340433371199,5.7472411738663869,4.943822418264241,5.1161271608798318,4.3876132203752967,5.2325272554554232,5.8827369484975405,5.6426367963115807,4.367721942979788,4.8165354117582329,5.6802097100433393,6.0006578793136702,4.8595710503193787,5.8948589832693177,5.4662164326628586,4.7231789171640806,5.5562597107162048,5.7106518119692229,5.9793322911118985,5.2569914162565672,5.0083339572929795,5.097689589069673,5.1290992530826873,5.9729448331394757,4.6824445717921339,4.8437410539276051,4.4697818390710333,5.5179370285220957,5.0644372819345662,5.9020195792316805,4.4192119772636929,5.970028298484042,4.7534872899702485,4.6409001926124436,5.5215150934675012,5.3761063533019149,4.9675787397893894,4.3269795021460968,5.7324599431165622,4.4507544560700172,4.3347988809777558,4.4268813674919736,5.119305100401049,6.0412591348772304,5.7024655445812202,5.283706761968288,4.3505369393849431,5.9005445700222072,5.2268763099910416,4.7061625806000293,5.8829515717575234,6.0309156700965136,5.1638129725549957,4.8129025396542442,4.5448930160075465,5.566193464410806,5.5696063961321514,4.6792188970859856,5.8462697556534042,4.6672943231647137,5.7479912204216479,5.048383093896347,5.9008590512305137,5.0744466854109147,5.4548157481382109,5.648659602449972,5.1653612365901402,5.9028652150980507,5.8563978769930989,5.6314837305580374,4.88567419887484,5.4014181067169833,4.2916332622144049,4.303491353111025,4.2887932895103278,4.8160101346261381,5.7454889968832701,4.6922470308154338,4.7234220543696033,5.0201645269134936,4.2914261393224633,4.4350058372637333,5.6417651800163684,5.9764510138849172,4.782771405353289,4.6639099007170284,5.7857163193841954,4.6361192007476131,4.8143330107922031,5.7085109321973917,4.5957200213261284,5.8862576377391651,4.7820620722446892,5.353878189290711,4.8383679101867765,4.7228077435543758,4.4084559234861045,4.4238924148477228,4.520321585264039,5.4353980707036786,4.5110893928336075,5.682294507817633,4.8610947989645448,5.4018881606634963,5.2938195166840947,5.2347773331065044,5.6426076528724272,5.8147798373992519,5.5978054251886809,5.1054671973582302,5.7628772103928112,4.6639241011178623,5.1671471891240168,5.7552719163270636,4.6266320098848128,5.8534522364241424,4.9117047489028858,6.0087319829741794,4.2807807846032571,4.4099311875537941,4.430873824635059,5.486989730374833,4.3097813054386354,4.9756686576744276,5.8883116703501033,5.1833623953935213,5.8514207392501003,4.3252823034879553,5.5630229683234562],"z":[6.1803366187873401,7.499315482335021,7.281736272081389,7.9214216738194949,7.2788937830438014,6.2669063833418761,6.2259414858389253,8.0213479505412337,6.8088504414619688,6.5102765516069523,6.2408482893880564,6.9638912609811197,7.8073497970067596,6.355219406209506,6.9790176796442465,7.6095478996988044,7.3328766225043482,7.8309526804578038,6.7342424576654505,6.1418041361592763,6.7454320553499238,6.5786308100475477,6.8932663998655954,7.3820458320819569,7.7866975941346315,6.5755260258488351,7.6218798628162165,6.2960978649361499,7.6994349508276194,7.8573881929440255,8.0257760532852647,7.6830604660506685,7.7469267179916912,7.6765615488180083,6.8405026071964636,6.8766242513579989,7.8024943243289542,6.595486864505137,7.6031616102808108,7.7578888036862912,6.5576766641072144,6.4629135396923418,7.5455303916068281,6.456056769895115,7.5343874561232944,7.4351481912760926,6.1732465699871355,7.7421561497026099,8.0223426657602861,7.5084146861384031,7.2316548593845456,7.7950771254440046,7.012570041309468,6.5485545051774237,7.5032976229085051,6.7837061102683602,6.2097265538379105,7.8993863298972933,6.9869139852772202,7.3266559016639752,7.7258454049043044,7.531535508431106,6.4347397080908166,6.64533555473158,6.778798443603522,6.6666082805116593,7.4198896779653074,6.7618824170288647,7.1020318946513772,7.4737654490568426,6.2764288091625264,6.7651119367077195,7.0606386697842662,7.8707013101793093,6.777209464883085,7.7652541345496982,7.7386670406426497,7.6130081138552503,7.1883777285492956,7.5629571290968185,7.4022503242028765,6.4452719381235948,7.2363708524886832,7.9452027357768902,6.8072686099532671,6.8092641450207338,6.1712787589851947,7.2496481118888321,7.905570264352261,7.7139305997106096,6.9198044147356486,7.6609274685754807,7.35386195631781,7.0759605734450668,6.86305818675452,6.7712576892393788,7.766810609387683,7.2880075236365229,7.4836888194361135,7.4140084791728373,7.8769485924916856,6.8700697255381051,6.9819041099931489,6.4287801512355731,7.1674146370293386,7.418336859571447,7.3381032807620565,6.4580360820473404,6.713180166376306,7.1222545171032943,6.3713755787815858,7.4666378625207415,6.8491606097145228,6.9630815584342836,7.6255812594983494,7.6878450801656077,7.7849645661636551,6.9522529703181162,6.1650606406203998,6.4987412286591733,6.6761521800950021,6.6142370123488305,6.8812836985347676,7.8718456561014909,7.8215971185461282,7.9440539918973911,6.538201550283409,6.9600728721910725,6.194365372640446,6.7465176727657266,6.8653511263754492,7.8572171020110124,7.2355709408649123,6.6142573738437545,6.2182987779156207,6.9131234745381329,7.1785789445038573,7.3208138834289835,6.8599080334565761,7.1307769851493017,7.6183412575361169,7.5162444807948869,7.1954208882342536,7.3556560945608931,7.0901700508723087,7.9982734328449361,7.0207802159307908,7.999015795995863,8.0011989920028679,7.8222059890597393,6.7478612686535335,7.765774153334978,6.9911654348110526,7.0804288824179151,6.3994772822373278,6.2682564669918124,6.5347386702741268,6.2730456465392246,7.2279631911838162,6.1552439522928939,7.2789086579675537,6.2219763224564684,7.9047570449673525,7.6399241950616652,7.5104197796679983,6.4565250087736352,6.7437611673294926,6.6494959004994927,6.6194358487136578,7.6239421837679062,7.0333861316021977,6.1599580197492028,7.8383480263104923,7.9575728513191386,7.7441047756357246,7.0025964712264948,6.4847782494038322,6.6250692376590505,7.9083832839556427,6.682053361895453,7.6893130924656381,6.3928309786151614,6.9239983333251782,7.8290227915682742,6.6291968803039341,7.6740928790943954,7.6013102191390338,6.8376796548669443,6.539619507819487,7.4678667580464415,7.4594875364133157,7.8786373451523097,7.3263604335972525,6.1425100999059588,6.7571451182207305,7.5271480658812226,7.6914606134119161,6.9509576263875088,6.4529622612365092,6.2998476890295905,7.3681759027666107,6.5327727770837054,7.01350758016725,7.0251681133515156,6.5174359901290453,7.4149960944214568,6.1942345733994495,6.9534558947327687,6.8455525069027265,7.8511724319033238,6.4957500089112186,7.0098500175039433,7.1755669345304023,6.9502734858688076,7.2273235222767438,6.6271216523143615,6.2923859477850801,6.7712085374313702,7.4705520957604872,7.3908824162797222,7.7263201418908647,6.9442281441288767,6.9224864844068037,6.1761068423782177,6.5582561871816445,7.650157911766934,7.949381850358618,6.9417835277072228,7.4754141323988978,7.5486243011924978,7.8217395829018246,6.9536658870746999,7.4629937161500104,7.6260419403583342,7.3906215606807963,7.9129235678607808,7.4582928262439818,7.8830828794751104,6.5943431259417329,6.7954581064584625,7.7788811399033895,6.1776367747035632,7.9796803328733459,7.1610798551783734,7.195307655561491,7.190315030399888,7.2543771775011852,7.7086872100165751,6.2650298693370576,7.6724099626692626,7.5525168846119559,7.205016795520355,7.5857258301457442,6.6848689154777503,6.7320431632948123,6.2170569477130631,6.3930758352531267,6.6431203001014545,6.406330623880665,7.8401101641000057,6.3994956489408468,6.9272480379520092,7.604953768515534,7.3447789412643134,6.2761551048104849,7.6289267748820953,6.468942936328248,6.83394192720408,7.1633921765404001,7.0218625989082284,7.4512231474808353,6.4406170244012602,7.6477652294257359,7.2182567928989547,7.9584738024219304,8.0298833966704848,6.1776022485580775,6.3235195907911192,7.2125776190466064,7.939117804019018,7.6037140174736324,6.9068326480560724,7.8391113758463904,7.7036876817359481,7.3494155218053443,6.3258353660007982,6.5756118091711455,7.9124973771021869,7.2604468730181493,6.9730322081125289,6.579111513724472,7.3021407032924284,7.8244824294687918,6.8249802766895975,6.1939570359832885,6.8511865423047231,7.9205030308349951,6.7217571519702481,6.820801945098478,6.3278634539207523],"mode":"markers","marker":{"color":"rgba(141,160,203,1)","size":5,"line":{"color":"rgba(141,160,203,1)"}},"type":"scatter3d","name":"C","textfont":{"color":"rgba(141,160,203,1)"},"error_y":{"color":"rgba(141,160,203,1)"},"error_x":{"color":"rgba(141,160,203,1)"},"line":{"color":"rgba(141,160,203,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><video src="images/3d-plot-demo.mp4" class="img-fluid quarto-figure quarto-figure-center" controls=""><a href="images/3d-plot-demo.mp4">Video</a></video></p>
+</figure>
+</div>
+</section>
+<section id="challenge-3---quadratic-discriminant-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-3---quadratic-discriminant-analysis">Challenge 3 - Quadratic Discriminant Analysis</h2>
+<p>Quadratic discriminant analysis is similar to LDA, but assumes that that each class has its own unique covariance matrix. QDA can be thought of as an extension to LDA, as it is still classifying observations from a set of predictor variables. Since each class has its own, unique covariance matrix, QDA allows for complex, non-linear modeling.</p>
+<section id="loading-data" class="level3">
+<h3 class="anchored" data-anchor-id="loading-data">Loading Data</h3>
+<p>First things first, we’ll load in the data that we need and clean it up to get that out of the way.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># store data from Kamilar and Cooper in holder f </span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">curl</span>(<span class="st">"https://raw.githubusercontent.com/bygentry/AN588_Vignette/refs/heads/main/KamilarAndCooperData.csv"</span>)  </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># convert data in f to a data frame and store in data.frame d </span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(f, <span class="at">sep =</span> <span class="st">","</span>, <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="cleaning-data" class="level3">
+<h3 class="anchored" data-anchor-id="cleaning-data">Cleaning Data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using complete.cases() from the built-in stats package, </span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># we can remove rows with NA in specific columns  </span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>tidy.data <span class="ot">&lt;-</span> d[<span class="fu">complete.cases</span>(d[ , <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">8</span><span class="sc">:</span><span class="dv">10</span>)]), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="implementing-qda" class="level3">
+<h3 class="anchored" data-anchor-id="implementing-qda">Implementing QDA</h3>
+<p>First, we must set seed for reproducibility.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">482</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, we nee to split the data into training and test. We’ll use 70% for training and 30% for testing.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>train_index <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(tidy.data), <span class="fl">0.7</span> <span class="sc">*</span> <span class="fu">nrow</span>(tidy.data))  </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>train_data <span class="ot">&lt;-</span> tidy.data[train_index, ]  </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> tidy.data[<span class="sc">-</span>train_index, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we will fit the model for all for features.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>qda_model <span class="ot">&lt;-</span> <span class="fu">qda</span>(Species <span class="sc">~</span> ., <span class="at">data =</span> train_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To view the model:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(qda_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We first want to make prediction, based on the test set.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>qda_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(qda_model, test_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, display predicted classes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(qda_predclass)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Create a confusion matrix and a print confusion matrix.</p>
+<p>A confusion matrix evaluates the performance of classification models. It provides a detailed breakdown of possible prediction outcomes. A</p>
+<p>confusion matrix can be made as a table, to compare the positives and negatives of the outcomes.</p>
+<p>A print confusion matrix refers to the act of generating the confusion matrix table.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>conf_matrix <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">Predicted =</span> qda_pred<span class="sc">$</span>class,</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">Actual =</span> test_data<span class="sc">$</span>Species) </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(conf_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Finally, check for accuracy.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">diag</span>(conf_matrix)) <span class="sc">/</span> <span class="fu">sum</span>(conf_matrix)  </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Accuracy:"</span>, <span class="fu">round</span>(accuracy <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>), <span class="st">"%</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
