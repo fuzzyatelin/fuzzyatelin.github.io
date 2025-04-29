@@ -129,30 +129,36 @@ Therefore, try multiple K values and use cross-validation, this is the most comm
 #### Example codes
 
 ```{r}
-# Load necessary package
-# install.packages("class")  # run this once if not already installed
+# Install packages if needed
+# install.packages(“caret”)
+# Example in R using iris dataset
 library(class)
+library(caret)
 
-# Training data (2D points)
-X_train <- matrix(c(1, 2,
-                    2, 3,
-                    3, 1,
-                    6, 5,
-                    7, 7), 
-                  ncol = 2, byrow = TRUE)
+# Split the data
+set.seed(123)
+train_index <- createDataPartition(iris$Species, p = 0.7, list = FALSE)
+train_data <- iris[train_index, ]
+test_data <- iris[-train_index, ]
 
-# Labels for training data
-y_train <- factor(c("A", "A", "A", "B", "B"))
+# Scale features
+train_scaled <- scale(train_data[, 1:4])
+test_scaled <- scale(test_data[, 1:4], center = attr(train_scaled, "scaled:center"), 
+                                         scale = attr(train_scaled, "scaled:scale"))
 
-# New data point to classify
-X_test <- matrix(c(3, 2), ncol = 2)
+# Try different K values and record accuracy
+accuracies <- sapply(1:20, function(k) {
+  pred <- knn(train = train_scaled, test = test_scaled, cl = train_data$Species, k = k)
+  mean(pred == test_data$Species)
+})
 
-# Run KNN (k = 3)
-predicted_label <- knn(train = X_train, test = X_test, cl = y_train, k = 3)
+# Plot accuracy vs K
+plot(1:20, accuracies, type = "b", col = "blue", pch = 19,
+     xlab = "K", ylab = "Accuracy", main = "KNN Accuracy for Different K")
 
-# Output the prediction
-print(paste("Predicted label:", predicted_label))
 ```
+
+This plot illustrates how the accuracy of the K-Nearest Neighbors (KNN) algorithm varies with different values of K—the number of nearest neighbors considered during classification. As K increases, the model becomes more generalized, averaging the behavior of more neighboring points. Conversely, smaller K values make the model more sensitive to local patterns and noise in the data.
 
 ------------------------------------------------------------------------
 
