@@ -320,18 +320,31 @@ Attaching package: 'dplyr'</code></pre>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(class)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>fruit_data <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"fruit_data_with_colors.txt"</span>, <span class="at">sep=</span><span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">header=</span><span class="cn">TRUE</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>fruit_data<span class="sc">$</span>fruit_label <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(fruit_data<span class="sc">$</span>fruit_label)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>fruit_data<span class="sc">$</span>fruit_name <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(fruit_data<span class="sc">$</span>fruit_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(curl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using libcurl 8.11.1 with OpenSSL/3.3.2 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'curl'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:readr':
+
+    parse_date</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">curl</span>(<span class="st">"https://raw.githubusercontent.com/msbrendakim/AN588-KNN-FruitsClassification/master/fruit_data_with_colors.txt"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>fruit_data<span class="ot">&lt;-</span><span class="fu">read.delim</span>(f, <span class="at">sep=</span><span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">header=</span><span class="cn">TRUE</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>fruit_data<span class="sc">$</span>fruit_label <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(fruit_data<span class="sc">$</span>fruit_label)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>fruit_data<span class="sc">$</span>fruit_name <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(fruit_data<span class="sc">$</span>fruit_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We start by loading our fruit dataset, stored in fruit_data_with_colors.txt, a tab-separated file with measurements like mass and color score. Here, we convert fruit_label and fruit_name to factors, which tells R these are categories (e.g., apple, orange), not numbers. This is crucial for KNN, a classification algorithm that assigns categories based on nearby points.</p>
 </section>
 <section id="data-exploration" class="level4">
 <h4 class="anchored" data-anchor-id="data-exploration">Data Exploration</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fruit_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fruit_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> fruit_label    fruit_name fruit_subtype           mass           width      
  1:19        apple   :19   Length:59          Min.   : 76.0   Min.   :5.800  
@@ -348,16 +361,16 @@ Attaching package: 'dplyr'</code></pre>
  3rd Qu.: 8.200   3rd Qu.:0.8100  
  Max.   :10.500   Max.   :0.9300  </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(fruit_data<span class="sc">$</span>fruit_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(fruit_data<span class="sc">$</span>fruit_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
    apple    lemon mandarin   orange 
       19       16        5       19 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fruit_data, <span class="fu">aes</span>(<span class="at">x =</span> width, <span class="at">y =</span> height, <span class="at">color =</span> fruit_name)) <span class="sc">+</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Fruit Types by Size"</span>) <span class="sc">+</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fruit_data, <span class="fu">aes</span>(<span class="at">x =</span> width, <span class="at">y =</span> height, <span class="at">color =</span> fruit_name)) <span class="sc">+</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Fruit Types by Size"</span>) <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -373,17 +386,17 @@ Attaching package: 'dplyr'</code></pre>
 <section id="feature-normalization-and-splitting" class="level4">
 <h4 class="anchored" data-anchor-id="feature-normalization-and-splitting">Feature Normalization and Splitting</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>features <span class="ot">&lt;-</span> fruit_data[, <span class="fu">c</span>(<span class="st">"mass"</span>, <span class="st">"width"</span>, <span class="st">"height"</span>, <span class="st">"color_score"</span>)]</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>preproc <span class="ot">&lt;-</span> <span class="fu">preProcess</span>(features, <span class="at">method =</span> <span class="fu">c</span>(<span class="st">"center"</span>, <span class="st">"scale"</span>))</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>features_scaled <span class="ot">&lt;-</span> <span class="fu">predict</span>(preproc, features)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>train_idx <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(fruit_data<span class="sc">$</span>fruit_label, <span class="at">p =</span> <span class="fl">0.7</span>, <span class="at">list =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>train_x <span class="ot">&lt;-</span> features_scaled[train_idx, ]</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>test_x <span class="ot">&lt;-</span> features_scaled[<span class="sc">-</span>train_idx, ]</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>train_y <span class="ot">&lt;-</span> fruit_data<span class="sc">$</span>fruit_label[train_idx]</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>test_y <span class="ot">&lt;-</span> fruit_data<span class="sc">$</span>fruit_label[<span class="sc">-</span>train_idx]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>features <span class="ot">&lt;-</span> fruit_data[, <span class="fu">c</span>(<span class="st">"mass"</span>, <span class="st">"width"</span>, <span class="st">"height"</span>, <span class="st">"color_score"</span>)]</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>preproc <span class="ot">&lt;-</span> <span class="fu">preProcess</span>(features, <span class="at">method =</span> <span class="fu">c</span>(<span class="st">"center"</span>, <span class="st">"scale"</span>))</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>features_scaled <span class="ot">&lt;-</span> <span class="fu">predict</span>(preproc, features)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>train_idx <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(fruit_data<span class="sc">$</span>fruit_label, <span class="at">p =</span> <span class="fl">0.7</span>, <span class="at">list =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>train_x <span class="ot">&lt;-</span> features_scaled[train_idx, ]</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>test_x <span class="ot">&lt;-</span> features_scaled[<span class="sc">-</span>train_idx, ]</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>train_y <span class="ot">&lt;-</span> fruit_data<span class="sc">$</span>fruit_label[train_idx]</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>test_y <span class="ot">&lt;-</span> fruit_data<span class="sc">$</span>fruit_label[<span class="sc">-</span>train_idx]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Here, we’re prepping our data for KNN. We select our features—mass, width, height, and color score—into features. Since KNN calculates distances, we need to normalize these features because they’re on different scales (e.g., mass in grams vs.&nbsp;color score from 0 to 1). The preProcess function with method = c(“center”, “scale”) standardizes each feature to have a mean of 0 and a standard deviation of 1, and predict(preproc, features) applies this to get features_scaled.</p>
 <p>Then, we split the data into 70% training and 30% testing sets using createDataPartition. This tests how well our model generalizes to unseen data, mimicking real-world scenarios where new fruits arrive. The set.seed(123) ensures our split is reproducible, and the split keeps the fruit classes balanced. train_x and train_y are our training features and labels, while test_x and test_y are for testing. This lets us train our model and test it on unseen data to check its generalization.</p>
@@ -391,14 +404,14 @@ Attaching package: 'dplyr'</code></pre>
 <section id="model-evaluation-choosing-best-k" class="level4">
 <h4 class="anchored" data-anchor-id="model-evaluation-choosing-best-k">Model Evaluation: Choosing Best K</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>k_values <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">15</span>, <span class="dv">2</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>accuracy_list <span class="ot">&lt;-</span> <span class="fu">sapply</span>(k_values, <span class="cf">function</span>(k) {</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(train_x, test_x, train_y, k)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(pred <span class="sc">==</span> test_y)</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(k_values, accuracy_list, <span class="at">type =</span> <span class="st">"b"</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">pch =</span> <span class="dv">19</span>,</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"K"</span>, <span class="at">ylab =</span> <span class="st">"Accuracy"</span>, <span class="at">main =</span> <span class="st">"KNN Accuracy by K"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>k_values <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">15</span>, <span class="dv">2</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>accuracy_list <span class="ot">&lt;-</span> <span class="fu">sapply</span>(k_values, <span class="cf">function</span>(k) {</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(train_x, test_x, train_y, k)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(pred <span class="sc">==</span> test_y)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(k_values, accuracy_list, <span class="at">type =</span> <span class="st">"b"</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"K"</span>, <span class="at">ylab =</span> <span class="st">"Accuracy"</span>, <span class="at">main =</span> <span class="st">"KNN Accuracy by K"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -406,11 +419,11 @@ Attaching package: 'dplyr'</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>max_accuracy <span class="ot">&lt;-</span> <span class="fu">max</span>(accuracy_list)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>threshold <span class="ot">&lt;-</span> <span class="fl">0.02</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>good_k <span class="ot">&lt;-</span> k_values[accuracy_list <span class="sc">&gt;=</span> (max_accuracy <span class="sc">-</span> threshold)]</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>best_k <span class="ot">&lt;-</span> <span class="fu">max</span>(good_k)</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Best K (within 0.02 of max accuracy):"</span>, best_k, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>max_accuracy <span class="ot">&lt;-</span> <span class="fu">max</span>(accuracy_list)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>threshold <span class="ot">&lt;-</span> <span class="fl">0.02</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>good_k <span class="ot">&lt;-</span> k_values[accuracy_list <span class="sc">&gt;=</span> (max_accuracy <span class="sc">-</span> threshold)]</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>best_k <span class="ot">&lt;-</span> <span class="fu">max</span>(good_k)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Best K (within 0.02 of max accuracy):"</span>, best_k, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Best K (within 0.02 of max accuracy): 7 </code></pre>
 </div>
@@ -421,20 +434,20 @@ Attaching package: 'dplyr'</code></pre>
 <section id="final-model-and-confusion-matrix" class="level4">
 <h4 class="anchored" data-anchor-id="final-model-and-confusion-matrix">Final Model and Confusion Matrix</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>final_pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(train_x, test_x, train_y, best_k)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>cm <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(final_pred, test_y)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Precision, Recall, F1-score by class</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>metrics <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Class =</span> <span class="fu">levels</span>(test_y),</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Precision =</span> cm<span class="sc">$</span>byClass[, <span class="st">"Pos Pred Value"</span>],</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Recall =</span> cm<span class="sc">$</span>byClass[, <span class="st">"Sensitivity"</span>],</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">F1 =</span> <span class="dv">2</span> <span class="sc">*</span> ((cm<span class="sc">$</span>byClass[, <span class="st">"Pos Pred Value"</span>] <span class="sc">*</span> cm<span class="sc">$</span>byClass[, <span class="st">"Sensitivity"</span>]) <span class="sc">/</span></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>            (cm<span class="sc">$</span>byClass[, <span class="st">"Pos Pred Value"</span>] <span class="sc">+</span> cm<span class="sc">$</span>byClass[, <span class="st">"Sensitivity"</span>]))</span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>metrics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>final_pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(train_x, test_x, train_y, best_k)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>cm <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(final_pred, test_y)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Precision, Recall, F1-score by class</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>metrics <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Class =</span> <span class="fu">levels</span>(test_y),</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Precision =</span> cm<span class="sc">$</span>byClass[, <span class="st">"Pos Pred Value"</span>],</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Recall =</span> cm<span class="sc">$</span>byClass[, <span class="st">"Sensitivity"</span>],</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">F1 =</span> <span class="dv">2</span> <span class="sc">*</span> ((cm<span class="sc">$</span>byClass[, <span class="st">"Pos Pred Value"</span>] <span class="sc">*</span> cm<span class="sc">$</span>byClass[, <span class="st">"Sensitivity"</span>]) <span class="sc">/</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>            (cm<span class="sc">$</span>byClass[, <span class="st">"Pos Pred Value"</span>] <span class="sc">+</span> cm<span class="sc">$</span>byClass[, <span class="st">"Sensitivity"</span>]))</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>metrics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         Class Precision Recall F1
 Class: 1     1         1      1  1
@@ -442,22 +455,22 @@ Class: 2     2         1      1  1
 Class: 3     3         1      1  1
 Class: 4     4         1      1  1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># label map</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>label_map <span class="ot">&lt;-</span> <span class="fu">levels</span>(fruit_data<span class="sc">$</span>fruit_name)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(label_map) <span class="ot">&lt;-</span> <span class="fu">levels</span>(fruit_data<span class="sc">$</span>fruit_label)</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># confusion matrix transfer to heatmap</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>cm_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(cm<span class="sc">$</span>table)</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>cm_df<span class="sc">$</span>Reference <span class="ot">&lt;-</span> <span class="fu">factor</span>(cm_df<span class="sc">$</span>Reference, <span class="at">levels =</span> <span class="fu">names</span>(label_map), <span class="at">labels =</span> label_map)</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>cm_df<span class="sc">$</span>Prediction <span class="ot">&lt;-</span> <span class="fu">factor</span>(cm_df<span class="sc">$</span>Prediction, <span class="at">levels =</span> <span class="fu">names</span>(label_map), <span class="at">labels =</span> label_map)</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co"># heatmap visualization</span></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cm_df, <span class="fu">aes</span>(<span class="at">x =</span> Reference, <span class="at">y =</span> Prediction, <span class="at">fill =</span> Freq)) <span class="sc">+</span></span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> Freq), <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">6</span>) <span class="sc">+</span></span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"KNN Confusion Matrix (Fruit Names)"</span>, <span class="at">x =</span> <span class="st">"True Label"</span>, <span class="at">y =</span> <span class="st">"Predicted Label"</span>) <span class="sc">+</span></span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># label map</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>label_map <span class="ot">&lt;-</span> <span class="fu">levels</span>(fruit_data<span class="sc">$</span>fruit_name)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(label_map) <span class="ot">&lt;-</span> <span class="fu">levels</span>(fruit_data<span class="sc">$</span>fruit_label)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># confusion matrix transfer to heatmap</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>cm_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(cm<span class="sc">$</span>table)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>cm_df<span class="sc">$</span>Reference <span class="ot">&lt;-</span> <span class="fu">factor</span>(cm_df<span class="sc">$</span>Reference, <span class="at">levels =</span> <span class="fu">names</span>(label_map), <span class="at">labels =</span> label_map)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>cm_df<span class="sc">$</span>Prediction <span class="ot">&lt;-</span> <span class="fu">factor</span>(cm_df<span class="sc">$</span>Prediction, <span class="at">levels =</span> <span class="fu">names</span>(label_map), <span class="at">labels =</span> label_map)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="co"># heatmap visualization</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cm_df, <span class="fu">aes</span>(<span class="at">x =</span> Reference, <span class="at">y =</span> Prediction, <span class="at">fill =</span> Freq)) <span class="sc">+</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> Freq), <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"KNN Confusion Matrix (Fruit Names)"</span>, <span class="at">x =</span> <span class="st">"True Label"</span>, <span class="at">y =</span> <span class="st">"Predicted Label"</span>) <span class="sc">+</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -473,17 +486,17 @@ Class: 4     4         1      1  1</code></pre>
 <h4 class="anchored" data-anchor-id="model-comparison-knn-vs-logistic-regression">🔀 Model Comparison: KNN vs Logistic Regression</h4>
 <p>A model comparison table helps us evaluate which algorithm is best suited for our task.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nnet)  <span class="co"># for multinom()</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071) <span class="co"># confusionMatrix</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># using the same features in data</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>train_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(train_x)</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>train_df<span class="sc">$</span>label <span class="ot">&lt;-</span> train_y</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>test_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(test_x)</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>test_df<span class="sc">$</span>label <span class="ot">&lt;-</span> test_y</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Multinomial logistic regression</span></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>logit_model <span class="ot">&lt;-</span> <span class="fu">multinom</span>(label <span class="sc">~</span> ., <span class="at">data =</span> train_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nnet)  <span class="co"># for multinom()</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071) <span class="co"># confusionMatrix</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># using the same features in data</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>train_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(train_x)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>train_df<span class="sc">$</span>label <span class="ot">&lt;-</span> train_y</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>test_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(test_x)</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>test_df<span class="sc">$</span>label <span class="ot">&lt;-</span> test_y</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Multinomial logistic regression</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>logit_model <span class="ot">&lt;-</span> <span class="fu">multinom</span>(label <span class="sc">~</span> ., <span class="at">data =</span> train_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># weights:  24 (15 variable)
 initial  value 60.996952 
@@ -493,22 +506,22 @@ iter  30 value 12.435228
 final  value 12.434969 
 converged</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># prediction</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>logit_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(logit_model, <span class="at">newdata =</span> test_df)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>cm_logit <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(logit_pred, test_y)</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># comparison</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>cm_logit_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(cm_logit<span class="sc">$</span>table)</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>cm_logit_df<span class="sc">$</span>Reference <span class="ot">&lt;-</span> <span class="fu">factor</span>(cm_logit_df<span class="sc">$</span>Reference, <span class="at">levels =</span> <span class="fu">names</span>(label_map), <span class="at">labels =</span> label_map)</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>cm_logit_df<span class="sc">$</span>Prediction <span class="ot">&lt;-</span> <span class="fu">factor</span>(cm_logit_df<span class="sc">$</span>Prediction, <span class="at">levels =</span> <span class="fu">names</span>(label_map), <span class="at">labels =</span> label_map)</span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cm_logit_df, <span class="fu">aes</span>(<span class="at">x =</span> Reference, <span class="at">y =</span> Prediction, <span class="at">fill =</span> Freq)) <span class="sc">+</span></span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> Freq), <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">6</span>) <span class="sc">+</span></span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"tomato"</span>) <span class="sc">+</span></span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Logistic Regression Confusion Matrix (Fruit Names)"</span>, <span class="at">x =</span> <span class="st">"True Label"</span>, <span class="at">y =</span> <span class="st">"Predicted Label"</span>) <span class="sc">+</span></span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># prediction</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>logit_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(logit_model, <span class="at">newdata =</span> test_df)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>cm_logit <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(logit_pred, test_y)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co"># comparison</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>cm_logit_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(cm_logit<span class="sc">$</span>table)</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>cm_logit_df<span class="sc">$</span>Reference <span class="ot">&lt;-</span> <span class="fu">factor</span>(cm_logit_df<span class="sc">$</span>Reference, <span class="at">levels =</span> <span class="fu">names</span>(label_map), <span class="at">labels =</span> label_map)</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>cm_logit_df<span class="sc">$</span>Prediction <span class="ot">&lt;-</span> <span class="fu">factor</span>(cm_logit_df<span class="sc">$</span>Prediction, <span class="at">levels =</span> <span class="fu">names</span>(label_map), <span class="at">labels =</span> label_map)</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cm_logit_df, <span class="fu">aes</span>(<span class="at">x =</span> Reference, <span class="at">y =</span> Prediction, <span class="at">fill =</span> Freq)) <span class="sc">+</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> Freq), <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"tomato"</span>) <span class="sc">+</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Logistic Regression Confusion Matrix (Fruit Names)"</span>, <span class="at">x =</span> <span class="st">"True Label"</span>, <span class="at">y =</span> <span class="st">"Predicted Label"</span>) <span class="sc">+</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -521,13 +534,13 @@ converged</code></pre>
 <section id="model-comparison-table" class="level4">
 <h4 class="anchored" data-anchor-id="model-comparison-table">Model Comparison Table</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>comparison_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Model =</span> <span class="fu">c</span>(<span class="st">"KNN"</span>, <span class="st">"Logistic Regression"</span>),</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Accuracy =</span> <span class="fu">c</span>(cm<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>], cm_logit<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>]),</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Kappa =</span> <span class="fu">c</span>(cm<span class="sc">$</span>overall[<span class="st">"Kappa"</span>], cm_logit<span class="sc">$</span>overall[<span class="st">"Kappa"</span>])</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>comparison_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>comparison_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Model =</span> <span class="fu">c</span>(<span class="st">"KNN"</span>, <span class="st">"Logistic Regression"</span>),</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Accuracy =</span> <span class="fu">c</span>(cm<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>], cm_logit<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>]),</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Kappa =</span> <span class="fu">c</span>(cm<span class="sc">$</span>overall[<span class="st">"Kappa"</span>], cm_logit<span class="sc">$</span>overall[<span class="st">"Kappa"</span>])</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>comparison_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                Model Accuracy     Kappa
 1                 KNN      1.0 1.0000000
@@ -547,16 +560,16 @@ converged</code></pre>
 <section id="classifying-a-mystery-fruit" class="level4">
 <h4 class="anchored" data-anchor-id="classifying-a-mystery-fruit">🥭 Classifying a Mystery Fruit</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>new_fruit <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">mass =</span> <span class="dv">160</span>, <span class="at">width =</span> <span class="fl">7.2</span>, <span class="at">height =</span> <span class="fl">7.5</span>, <span class="at">color_score =</span> <span class="fl">0.76</span>)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>new_scaled <span class="ot">&lt;-</span> <span class="fu">predict</span>(preproc, new_fruit)</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>mystery_pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(train_x, new_scaled, train_y, <span class="at">k =</span> best_k, <span class="at">prob =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Prediction:"</span>, mystery_pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>new_fruit <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">mass =</span> <span class="dv">160</span>, <span class="at">width =</span> <span class="fl">7.2</span>, <span class="at">height =</span> <span class="fl">7.5</span>, <span class="at">color_score =</span> <span class="fl">0.76</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>new_scaled <span class="ot">&lt;-</span> <span class="fu">predict</span>(preproc, new_fruit)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>mystery_pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(train_x, new_scaled, train_y, <span class="at">k =</span> best_k, <span class="at">prob =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Prediction:"</span>, mystery_pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Prediction: 3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Confidence:"</span>, <span class="fu">attr</span>(mystery_pred, <span class="st">"prob"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Confidence:"</span>, <span class="fu">attr</span>(mystery_pred, <span class="st">"prob"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Confidence: 0.8571429</code></pre>
 </div>
@@ -570,9 +583,9 @@ converged</code></pre>
 <h2 class="anchored" data-anchor-id="knn-vs.-k-means">🆚 KNN vs.&nbsp;K-Means</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 25%">
+<col style="width: 36%">
+<col style="width: 36%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -665,8 +678,8 @@ converged</code></pre>
 <li><p>Try <strong>changing the distance metric</strong> (e.g., Manhattan, cosine) and evaluate impact.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 31%">
+<col style="width: 68%">
 </colgroup>
 <thead>
 <tr class="header">

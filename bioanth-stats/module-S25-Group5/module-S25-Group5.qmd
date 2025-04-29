@@ -174,8 +174,10 @@ library(dplyr)
 library(ggplot2)
 library(class)
 library(caret)
+library(curl)
 
-fruit_data <- read.delim("fruit_data_with_colors.txt", sep="\t", header=TRUE)
+f <- curl("https://raw.githubusercontent.com/msbrendakim/AN588-KNN-FruitsClassification/master/fruit_data_with_colors.txt")
+fruit_data<-read.delim(f, sep="\t", header=TRUE)
 
 fruit_data$fruit_label <- as.factor(fruit_data$fruit_label)
 fruit_data$fruit_name <- as.factor(fruit_data$fruit_name)
@@ -367,13 +369,19 @@ The prediction is 3, which maps to “mandarin” (based on label_map). The conf
 
 ## 🆚 KNN vs. K-Means
 
-| Feature | KNN | K-Means |
-|----|----|----|
-| Supervised? | Yes | No |
-| Used For | Classification / Regression | Clustering |
-| Distance Use | Classify based on neighbors | Assign to closest centroid |
-| Label Needed? | Yes | No |
-| Type | Lazy Learner (no training phase) | Iterative optimization algorithm |
++-----------------------+----------------------------------+----------------------------------+
+| Feature               | KNN                              | K-Means                          |
++=======================+==================================+==================================+
+| Supervised?           | Yes                              | No                               |
++-----------------------+----------------------------------+----------------------------------+
+| Used For              | Classification / Regression      | Clustering                       |
++-----------------------+----------------------------------+----------------------------------+
+| Distance Use          | Classify based on neighbors      | Assign to closest centroid       |
++-----------------------+----------------------------------+----------------------------------+
+| Label Needed?         | Yes                              | No                               |
++-----------------------+----------------------------------+----------------------------------+
+| Type                  | Lazy Learner (no training phase) | Iterative optimization algorithm |
++-----------------------+----------------------------------+----------------------------------+
 
 ------------------------------------------------------------------------
 
@@ -413,12 +421,17 @@ However, its limitations in terms of: - Computational cost (especially with larg
 
 -   Try **changing the distance metric** (e.g., Manhattan, cosine) and evaluate impact.
 
-    | Distance Type | When to use |
-    |----|----|
-    | Euclidean Distance | Continuous, real-valued features (e.g., height, weight, income) |
-    | Manhattan Distance | Grid-like spaces (e.g., city blocks) |
-    | Cosine Similarity | When you care about **direction** more than **distance** (e.g., text data) |
-    | Hamming Distance | Categorical data (e.g., bit strings) |
+    +-----------------------------------+----------------------------------------------------------------------------+
+    | Distance Type                     | When to use                                                                |
+    +===================================+============================================================================+
+    | Euclidean Distance                | Continuous, real-valued features (e.g., height, weight, income)            |
+    +-----------------------------------+----------------------------------------------------------------------------+
+    | Manhattan Distance                | Grid-like spaces (e.g., city blocks)                                       |
+    +-----------------------------------+----------------------------------------------------------------------------+
+    | Cosine Similarity                 | When you care about **direction** more than **distance** (e.g., text data) |
+    +-----------------------------------+----------------------------------------------------------------------------+
+    | Hamming Distance                  | Categorical data (e.g., bit strings)                                       |
+    +-----------------------------------+----------------------------------------------------------------------------+
 
 -   Apply **dimensionality reduction** techniques like PCA to see how performance and interpretability are affected.
 
