@@ -15,8 +15,6 @@ Install these packages in *R*: {survival}, {survminer}, {ggplot2}, {dplyr}
 # Objectives:
 > Understand the Cox proportional hazards model, how to apply it, and how to visualize the results.
 
-![](/Users/yinuomao/Desktop/model.png)
-
 # Introduction
 **The Cox proportional hazards model** is a regression method used to analyze survival data and explore the relationship between the survival time (or time-to-event) of individuals and variables, which can be continuous or categorical. This statistical method examines how different variables (like age, treatment type, or disease severity) influence how long it takes for an event to occur - such as death or disease recurrence. The model's strength is its ability to handle multiple factors at once, showing us which ones truly impact survival. It calculates "hazard ratios" that tell us how much each factor increases or decreases risk. The Cox model is widely used in medical research, which helps researchers identify what accelarate or decelarate the time to key events, giving a clear picture of true risk factors. For example, a cancer study might use the Cox model to determine if a new treatment extends survival compared to standard care, while accounting for other important factors like patient age and disease stage.
 
