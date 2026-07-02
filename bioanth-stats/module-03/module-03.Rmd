@@ -96,7 +96,7 @@ We now need to set up ***RStudio*** to interface with ***git***.
 
 We also need to enable the use of a *Personal Access Token* in order to interface with ***GitHub*** via ***RStudio***. A Personal Access Token is essentially a password established on ***GitHub*** that ***RStudio*** will send to identify itself as a permitted user.
 
-To set up your Personal Access Token, log in to your ***GitHub*** account and go to *Settings*. In the *Settings* menu, scroll down and click on *Developer Settings*. Once there, use the menu to click on *Personal Access Token*.
+To set up your Personal Access Token, log in to your ***GitHub*** account and go to *Settings*. In the *Settings* menu, scroll down and click on *Developer Settings*. Once there, use the menu to click on *Personal Access Tokens* > *Tokens (classic)*.
 
 Click on the button to *Generate new token*.
 
@@ -129,7 +129,7 @@ When prompted, paste your Personal Access Token into the console and press Enter
 
 Now that we have integrated them, there are a couple of different routes we can take to get ***RStudio***, ***git***, and ***GitHub*** to work together. 
 
-RStudio's version control features are tied to the use of **Projects** (which are a way of dividing work into multiple contexts, each with their own working directory). The steps required to use version control with a project vary depending on whether the project is new or existing as well as whether it is already under version control.
+***RStudio***'s version control features are tied to the use of **Projects** (which are a way of dividing work into multiple contexts, each with their own working directory). The steps required to use version control with a project vary depending on whether the project is new or existing as well as whether it is already under version control.
 
 ### Step 4, version 1 - Creating a new ***R*** project by cloning a remote repository on ***GitHub***
 
