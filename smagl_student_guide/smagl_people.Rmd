@@ -1,7 +1,7 @@
 ---
 title: "SMAGL People"
 author: "Christopher A Schmitt</br>Boston University"
-date: "August 15, 2024"
+date: "October 15, 2025"
 output: 
   rmdformats::readthedown:
     toc_depth: 5
@@ -83,24 +83,6 @@ She can be reached via phone (617-353-5521), email (srkell19@bu.edu) or in her o
 
 <br>
 
-<div class="wrap2">
-<img src="https://i1.rgstatic.net/ii/profile.image/11431281271762035-1723729917471_Q512/Amy-Scott-15.jpg"> 
-</div>
-
-```{css, echo=FALSE}
-.wrap2 {
-    float: left;
-    height: 100px;
-    width: 100px;
-    clip-path: inset(0px 0px 0px 0px round 25px);
-    margin: 0px 30px 10px 10px;
-}
-```
-
-**Dr. Amy M. Scott** is a **Postdoctoral Research Associate** with the [Gunung Palung Orangutan Conservation Project](https://savegporangutans.org) and [Knott Lab](https://www.cherylknott.com) who will also be conducting research in the SMAGL. She's currently working on extracting DNA from archived urine samples from wild Bornean orangutans (*Pongo pygmaeus wurmbii*). Dr. Scott’s current office space is in STO 250.
-
-<br>
-
 When PRAs are working with the lab, please keep in mind that they are professional scientists with extensive field and lab experience, who have already earned a Ph.D., and who already run research programs of their own in addition to the research they conduct in the SMAGL. We ask that you respect the authority of our PRAs as strongly as you respect that of Prof. Garrett or Prof. Schmitt. 
 
 
@@ -157,23 +139,30 @@ Current graduate students you may meet include:
 
 ### Masters Students
 
-<div class="wrap2">
+<div class="wrap1">
 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9NDPQhF-J41jlJOkyg1uoRSovlJZOzjlHD9M0_wF7E9Zg9Xx5t5V_Cv7b8HqdXPBANg2tG_RrEhmuF6MxMU7PD_7l1pqU67WgtBqRmUB5-w1EPHcyrsQ3TFFdQ_8K2fnDGwmOmJMtpKsOOjuTChvjmM27SUTj2QdVTVv2UTgyl4wfW7m_4AtWhkM2qOA/w195-h260/Carla%20Rojas.JPG">
 </div>
 
-**Carla Rojas** (MS program, Biology – EBE; she/her). Carla began in the Biology M.S. program in 2024, joining us from Universidad San Francisco de Quito in Ecuador, where she studied wild mantled howler monkeys (*Alouatta palliata aequatorialis*). She plans to work on diet in yellow-tailed woolly monkeys (*Lagothrix flavicauda*).
+**Carly Rojas** (MS program, Biology – EBE; she/her). Carla began in the Biology M.S. program in 2024, joining us from Universidad San Francisco de Quito in Ecuador, where she studied wild mantled howler monkeys (*Alouatta palliata aequatorialis*). She plans to work on diet in yellow-tailed woolly monkeys (*Lagothrix flavicauda*).
 
-<div class="wrap2">
-<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/schmittlabnopic_8.jpg">
+<div class="wrap1">
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2021%2F07%2F14%2F08%2F54%2Fmonkey-6465445_1280.jpg&f=1&nofb=1&ipt=8fca75130e547ab34b015a534f49d3daa4392065ef8f79db456f93d52236a58a">
 </div>
 
-**Yinuo Mao** (MS program, Biology – CMB; she/her). Yinuo began in the Biology M.S. program in 2024, joining us from UC Davis after some time in industry work. She will be conducting research into selection in wild savanna monkeys (*Chlorocebus* spp.) using our genomics pipeline. 
+**Yinuo Mao** (MS program, Biology – CMB; she/her). Yinuo began in the Biology M.S. program in 2024, joining us from UC Davis after some time in industry work. She will be conducting research into selection in the *ADIPOQ* gene in wild savanna monkeys (*Chlorocebus* spp.) using our genomics pipeline. 
 
-<div class="wrap2">
+<div class="wrap1">
 <img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/sofiaweaver_orig.jpeg">
 </div>
 
-**Sofia Weaver** (BA/MS program, Biology – EBE; she/her). Sofia joined the Schmitt Lab as an undergraduate, and joined the B.A./M.S. program in Biology in 2024. Sofia's research in the lab has been wide-ranging, but her M.S. thesis work will focus on high-elevation adaptation in lowland Peruvian woolly monkeys (*Lagothrix lagotricha tschudii*).
+**Sofia Weaver** (BA/MS program, Biology – EBE; she/her). Sofia joined the Schmitt Lab as an undergraduate, and joined the B.A./M.S. program in Biology in 2024. Sofia's research in the lab has been wide-ranging, but her M.S. thesis work will focus on shotgun-based microbiome in lowland Peruvian woolly monkeys (*Lagothrix lagotricha tschudii*) and yellow-tailed woolly monkeys.
+
+<div class="wrap1">
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Falchetron.com%2Fcdn%2Fyellow-tailed-woolly-monkey-23562f9f-a7ba-4683-a6c4-896b3795f1d-resize-750.jpeg&f=1&nofb=1&ipt=ff0d4ed5108a05621ea7ab9c7301f3cc04ba6b447288454c9ee6c22f592aeb27">
+</div>
+
+**Matteo Finnerty** (BA/MS program, Biology - EBE; he/him).
+Matteo joined the Schmitt Lab as an undergraduate, and joined the B.A./M.S. prgoram in Biology in 2025. Matteo's research will focus on testing environmental DNA (eDNA) techniques to indirectly detect endangered primates in Andean Perú.
 
 ## Undergraduate Students
 
@@ -181,7 +170,7 @@ There are also several undergraduate students currently working in the SMAGL. Th
 
 ### Garrett Lab Undergrads
 
-<div class="wrap2">
+<div class="wrap1">
 <img src="https://greatergood.org/hubfs/loris4-1.jpg">
 </div>
 
@@ -191,7 +180,7 @@ There are also several undergraduate students currently working in the SMAGL. Th
 
 ### Schmitt Lab Undergrads
 
-<div class="wrap3">
+<div class="wrap1">
 <img src="https://www.bu.edu/anthrop/files/2024/10/464620678_10111139243054430_467850716193938337_n-400x300.jpg">
 </div>
 ```{css, echo=FALSE}
@@ -208,7 +197,7 @@ There are also several undergraduate students currently working in the SMAGL. Th
 **Reese Hotten-Somers** (Anthropology, Specialization in Biological Anthropology; she/they)
 <br><br><br>
 
-<div class="wrap2">
+<div class="wrap1">
 <img src="https://observation.org/media/photo/12572422.jpg">
 </div>
 
@@ -216,7 +205,7 @@ There are also several undergraduate students currently working in the SMAGL. Th
 **Noam Aviv** (Biology, Specialization in Behavioral Biology; he/him)
 <br><br><br>
 
-<div class="wrap2">
+<div class="wrap1">
 <img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/screen-shot-2023-05-22-at-7-36-25-am_orig.png">
 </div>
 
@@ -224,7 +213,7 @@ There are also several undergraduate students currently working in the SMAGL. Th
 **Merilyn Amponsah-Asamoah** (Anthropology, Specialization in Anthropology, Health, and Medicine; she/her)
 <br><br>
 
-<div class="wrap2">
+<div class="wrap1">
 <img src="https://observation.org/media/photo/12572422.jpg">
 </div>
 
@@ -232,7 +221,7 @@ There are also several undergraduate students currently working in the SMAGL. Th
 **Shaotai (Max) Hu** (Data Science, Minor in Statistical Methods; he/him)
 <br><br><br>
 
-<div class="wrap2">
+<div class="wrap1">
 <img src="https://media.licdn.com/dms/image/v2/D4D03AQFc7WjMD5-Ssw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1725050916858?e=2147483647&v=beta&t=YjVN_RS2mk_bm8GAojCEWx32azIwy_m8IZgnZT4ZriU">
 </div>
 
@@ -240,7 +229,7 @@ There are also several undergraduate students currently working in the SMAGL. Th
 **Chloe Leaman** (Biology; she/her)
 <br><br><br>
 
-<div class="wrap2">
+<div class="wrap1">
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Cola_amarilla.jpg">
 </div>
 
@@ -248,7 +237,7 @@ There are also several undergraduate students currently working in the SMAGL. Th
 **Claire Zhang** (Anthropology, Specialization in Biological Anthropology; she/her)
 <br><br><br>
 
-<div class="wrap2">
+<div class="wrap1">
 <img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/schmittlabnopic_8.jpg">
 </div>
 
@@ -256,7 +245,7 @@ There are also several undergraduate students currently working in the SMAGL. Th
 **Bailey Christian** (*provisional*; Anthropology, Specialization in Anthropology, Health, and Medicine; they/them)
 <br><br>
 
-<div class="wrap2">
+<div class="wrap1">
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Cola_amarilla.jpg">
 </div>
 
@@ -264,7 +253,7 @@ There are also several undergraduate students currently working in the SMAGL. Th
 **Matteo Finnerty** (*provisional*; Biology; he/him)
 <br><br><br>
 
-<div class="wrap2">
+<div class="wrap1">
 <img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/schmittlabnopic_8.jpg">
 </div>
 

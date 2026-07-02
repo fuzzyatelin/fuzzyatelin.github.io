@@ -1,7 +1,7 @@
 ---
 title: "SMAGL Meetings"
 author: "Christopher A Schmitt</br>Boston University"
-date: "January 15, 2025"
+date: "February 5, 2026"
 output: 
   rmdformats::readthedown:
     toc_depth: 5
@@ -23,25 +23,25 @@ Schmitt Lab Meetings typically last an hour and occur every week during the acad
 
 You are strongly encouraged to attend all lab meetings in person, but if you’re feeling ill or are off campus, you may also attend via Zoom. There is a set zoom link for Schmitt Lab meetings at the top of this page.
 
-# Lab Meeting Schedule (Fall 2024)
+# Lab Meeting Schedule (Spring 2026)
 
-For the Spring 2025 Semester, SMAGL Schmitt Lab Meetings occur on **Mondays from 4:00pm to 5:00pm in STO 243** for the following dates (please block these times off on your calendar, with a reminder to ensure attendance): 
+For the Spring 2026 Semester, SMAGL Schmitt Lab Meetings occur on **Thursdays from 4:00pm to 5:00pm in the Gabel Museum (STO 253)** for the following dates (please block these times off on your calendar, with a reminder to ensure attendance): 
 
--	Monday, January 27, 2025 **Welcome Back/Introductions**
--	Monday, February 03, 2025 **SMAGL Code of Conduct Review**
--	Monday, February 10, 2025 **SMAGL Speaker: Jimmy Erkens**
--	Monday, February 18, 2025 (President's Day; Tuesday is Monday) **SMAGL Lab Tour & Orientation**
--	Monday, February 24, 2025 **Guest Speaker: Becca De Camp** (SMAGL Alum and Ph.D. Candidate, Rutgers University)
--	Tuesday, March 03, 2025 **AABA Practice Presentations**
--	Monday, March 10, 2025 *No Lab Meeting: Spring Recess/AABA*
--	Monday, March 17, 2025 **SMAGL Summer Field Planning**
--	Monday, March 24, 2025 **SMAGL Speaker: Carly Rojas**
--	Monday, March 31, 2025 **SMAGL Speaker: Reese Hotten-Somers**
--	Monday, April 07, 2025 **SMAGL Speaker: Noam Aviv**
--	Monday, April 14, 2025 **SMAGL Speaker: Sofia Weaver**
--	Monday, April 21, 2025 *No Lab Meeting: Patriot's Day*
--	Monday, April 28, 2025 **End-of-year celebration: Prof Schmitt's Home in JP**
-- Monday, May 05, 2025 **SMAGL Lab Inventory Day (Mel/Evelyn)**
+-	Thursday, January 29, 2026 **Welcome Back/Introductions**
+-	Thursday, February 05, 2026 **SMAGL Speaker: Warrenkevin Henderson**
+-	Thursday, February 12, 2026 **SMAGL Speaker: Dr. Evelyn Pain**
+-	Thursday, February 19, 2026 **SMAGL Sequencing Demonstration**
+-	Thursday, February 26, 2025 **TBD**
+-	Thursday, March 05, 2025 **AABA Practice Presentations**
+-	Thursday, March 13, 2025 *No Lab Meeting: Spring Recess*
+-	Thursday, March 19, 2025 *No Lab Meeting: AABA*
+-	Thursday, March 26, 2025 **Honors Presentation: Reese Hotten-Somers**
+-	Thursday, April 02, 2025 **SMAGL Speaker: Nicole Merullo**
+-	Thursday, April 09, 2025 **Honors Presentation: Chloe Leaman**
+-	Thursday, April 16, 2025 **UROP Presentation: Rhoda Ndukwe**
+-	Thursday, April 23, 2025 *No Lab Meeting: Gabel Unavailable*
+-	Thursday, April 30, 2025 **UROP Presentation: Jacob Bronstein**
+- Thursday, May 07, 2025 **SMAGL Lab Inventory Day (Mel/Evelyn)**
 
 For our last SMAGL Lab Meeting of the semester, we typically go out on the town! Past end-of-semester Lab Meetings have included Candle-Pin Bowling in Somerville, an Escape Room downtown (we killed it, of course), Karaoke in Chinatown, and potlucks at PI homes. During times of high COVID-19 transmissibility, we will celebrate remotely.
 
