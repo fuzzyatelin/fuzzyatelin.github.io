@@ -1,7 +1,7 @@
 ---
-title: 'SMAGL Student Guide<br>Spring 2025'
+title: 'SMAGL Student Guide<br>Fall 2026'
 author: "Christopher A Schmitt</br>Boston University"
-date: "January 15, 2025"
+date: "August 15, 2026"
 output: 
   rmdformats::readthedown:
     toc_depth: 5
@@ -22,7 +22,7 @@ output:
 
 Welcome to the **Sensory Morphology and Anthropological Genomics Lab** (**SMAGL**, pronounced “Smaegol”), in the **Boston University Departments of [Anthropology](https://www.bu.edu/anthrop/) and [Biology](https://www.bu.edu/biology/)**! 
 
-This web guide is designed to help you get the most out of working with us. The SMAGL is located on the second floor of the Stone Science Building on the Charles River Campus:
+This web guide is designed to help you get the most out of working with us. The SMAGL is located on the second floor of the Stone Science Building on the Charles River Campus of BU:
 
 >BU Sensory Morphology and Anthropological Genomics Lab<br>
 >Stone Science Building, 675 Commonwealth Ave, Room 251<br>
@@ -61,7 +61,7 @@ If you need them, you can contact and learn more about the SMAGL PIs in the foll
 
 ***
 
-The **Schmitt Lab** is run by Associate Professor [Christopher A. Schmitt](http://www.evopropinquitous.net). The goal of the Schmitt Lab research group is to better illuminate the links between genotype, phenotype, and environmental extremes using non-human primates as model systems. In our lab, we accomplish this through a number of model systems, primarily the two taxa:
+The **Schmitt Lab** is run by Associate Professor [Christopher A. Schmitt](http://www.evopropinquitous.net). The goal of the Schmitt Lab research group is to better understand adaptions to environmental extremes by investigating the links between genotype, phenotype, and environment using non-human primates as model systems. We accomplish this through a number of model systems, primarily these two taxa:
 
 **Savanna monkeys, the genus *Chlorocebus* **
 
@@ -78,13 +78,17 @@ The **Schmitt Lab** is run by Associate Professor [Christopher A. Schmitt](http:
 </center>
 <br>
 
-We study these model systems using tools from a number of different disciplines (biological anthropology, ecology, biology) and methodologies (behavioral ecology, molecular genetics, genomics and bioinformatics, and morphology). As a consequence, our lab has a diversity of backgrounds, personal and professional experiences, and strengths. 
+We study these model systems using tools from a number of different disciplines (evolutionary anthropology, ecology, biology) and methodologies (behavioral ecology, molecular genetics, genomics and bioinformatics, and morphology). As a consequence, the folks in our lab have a diversity of backgrounds, personal and professional experiences, and strengths. 
 
-You have been invited to work with us because you, too, have unique and exciting interests, skills, ideas, and potential to contribute to both our science and society. Being in our lab will require you to have not only an open mind, but also a willingness to learn how to engage with others who may not have your similar skillset or perspective. We'll work on all of this together.
+You have been invited to work with us because you, too, have unique and exciting interests, skills, ideas, and the potential to contribute to both our science and society. Being in our lab will require you to have not only an open mind, but also a willingness to learn how to engage with others who may not have your similar skill set or perspective. 
 
-To make the most of your time in the SMAGL Schmitt Lab, we recommend you bookmark this web page so that you can refer back to it easily, as it contains a lot of useful information on how to best succeed as an undergraduate or graduate student in the SMAGL Schmitt Lab.
+We'll work on all of this together.
 
-To learn more about the SMAGL - who we are, what we do, where we do it, and how - please follow the below links. At the bottom of the page, please note that there are links that will take you to content specific to *Graduate* and *Undergraduate* students in the SMAGL
+To make the most of your time with us, we recommend you **bookmark this web page** so that you can refer back to it easily and frequently, as it contains a lot of useful information on how to best succeed as an undergraduate or graduate student in the SMAGL Schmitt Lab.
+
+To learn more about the SMAGL - who we are, what we do, where we do it, and how - please follow the below links. At the bottom of the page (and in the menu to the left), please note that there are links that will take you to content specific to how to succeed as an [*Undergraduate*](https://fuzzyatelin.github.io/smagl_student_guide/smagl_ugrad.html) or [*Graduate*](https://fuzzyatelin.github.io/smagl_student_guide/smagl_grad.html) student in the SMAGL.
+
+Finally, in the SMAGL we pride ourselves on having a lab culture that is friendly, relaxed, collegial, and where folks from numerous backgrounds and experience levels work together to thrive both academically and personally. Such an environment does not happen on its own; it requires buy-in from all of us, and comes with expectations regarding appropriate behavior and ways of interacting that maintain our lab culture. At the beginning of each academic year, we will spend a day reading over the [**SMAGL Code of Conduct**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_conduct.html) to make sure we're all on the same page, and to renew our committment to the culture we're building together in the SMAGL.
 
 ***
 
