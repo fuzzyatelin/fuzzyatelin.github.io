@@ -1,7 +1,7 @@
 ---
 title: "SMAGL People"
 author: "Christopher A Schmitt</br>Boston University"
-date: "October 15, 2025"
+date: "August 15, 2026"
 output: 
   rmdformats::readthedown:
     toc_depth: 5
@@ -45,22 +45,22 @@ If you need them, you can contact and learn more about the SMAGL PIs in the foll
 ## SMAGL Lab Coordinator
 
 <div class="wrap">
-<img src="https://sites.bu.edu/zooarchlab/files/2017/10/IMG_2956-636x487.jpeg"> 
+<img src="https://www.bu.edu/anthrop/files/2022/12/gagnon-1-225x300.jpg"> 
 </div>
 
 ```{css, echo=FALSE}
 .wrap {
     float: left;
-    height: 400px;
-    width: 550px;
-    clip-path: inset(100px 240px 125px 200px round 50px);
-    margin: -100px -210px -100px -200px;
+    height: 200px;
+    width: 150px;
+    clip-path: inset(0px 0px 0px 0px round 25px);
+    margin: 0px 10px 10px 10px;
 }
 ```
 
-The SMAGL Laboratory Coordinator and Lab Safety Coordinator is **Samantha Kelley**. Sam is the Lab Coordinator for all the labs associated with the Department of Anthropology, and can help with any safety or equipment concerns in the lab, the ordering of necessary supplies and many other day-to-day lab tasks. 
+The SMAGL Laboratory Coordinator and Lab Safety Coordinator is **Dr. Christian Gagnon** (he/him). Christian is the Lab Coordinator for all the labs associated with the Department of Anthropology, and can help with any safety or equipment concerns in the lab, the ordering of necessary supplies and many other day-to-day lab tasks. He is also a SMAGL Schmitt Lab alumnus! Christian earned his Ph.D. in the lab with his dissertation on *The Evolutionary History and Adaptive Significance of UCP1-Mediated Thermogenesis in Primates*, and developed our vervet genomics pipeline.
 
-She can be reached via phone (617-353-5521), email (srkell19@bu.edu) or in her office (STO 241).
+He can most easily be reached on Slack, and also via phone (617-353-5521), email (cmgagnon@bu.edu) or in his office (STO 241).
 <br><br>
 
 ## Postdoctoral Research Associates
@@ -79,7 +79,7 @@ She can be reached via phone (617-353-5521), email (srkell19@bu.edu) or in her o
 }
 ```
 
-[**Dr. Evelyn L. Pain**](https://evelynpain.weebly.com) is currently a **Postdoctoral Associate Teaching Scholar** in the Department of Biology affiliated with the Schmitt Lab, and Reserach Coordinator for the conservation NGO [Yunkawasi Perú](https://yunkawasiperu.org/en/). Her focus is on our primate projects in Perú, inclusing with yellow-tailed woolly monkeys (*Lagothrix flavicauda*) and Andean night monkeys (*Aotus miconax*). Dr. Pain’s current office space is in BRB 511.
+[**Dr. Evelyn L. Pain**](https://evelynpain.weebly.com) (she/her) is currently a **Postdoctoral Associate Teaching Scholar** in the Department of Biology affiliated with the Schmitt Lab, and Reserach Coordinator for the conservation NGO [Yunkawasi Perú](https://yunkawasiperu.org/en/). Her focus is on our primate projects in Perú, inclusing with yellow-tailed woolly monkeys (*Lagothrix flavicauda*) and Andean night monkeys (*Aotus miconax*). Dr. Pain’s current office space is in BRB 511.
 
 <br>
 
@@ -105,13 +105,13 @@ Current graduate students you may meet include:
 <img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/746567289_orig.jpg"> 
 </div>
 
-**Jimmy Erkens** (Ph.D. program, Biological Anthropology; Schmitt Lab; he/they). Jimmy began in the Anthropology Ph.D. program in 2023. His research will focus on bioinformatics-based investigations of genetic drift and selection in relation to immune function in wild savanna monkeys (*Chlorocebus* spp.). His office is in the Biological Anthropology Graduate Student Space (STO 247). 
+**Jimmy Erkens** (Ph.D. program, Biological Anthropology; Schmitt Lab; he/they). Jimmy began in the Anthropology Ph.D. program in 2023. His research focuses on using historical DNA methods to get DNA from museum specimens in order to fill in gaps in the population genetics of wild savanna monkeys (*Chlorocebus* spp.) to better understand their evolutionary history and taxonomy. His office is in the Biological Anthropology Graduate Student Space (STO 247). 
 
 <div class="wrap1">
 <img src="https://mit-museum-cms-files--production.s3.us-east-2.amazonaws.com/Images/_280x280_crop_center%20center_none/Nicole-Merullo.jpg?v=1732774729"> 
 </div>
 
-**Nicole Merullo** (Ph.D. Program, Biological Anthropology; Hodges-Simeon and Schmitt Labs; she/her). Nicole began in the Anthropology Ph.D. program in 2023, in the Hodges-Simeon Lab. Her research will focus on the evolutionary biology of blood pressure phenotypes in humans, focsed on a population in Utila, Honduras. Her office is in the Biological Anthropology Graduate Student Space (STO 247).
+**Nicole Merullo** (Ph.D. Program, Biological Anthropology; Hodges-Simeon and Schmitt Labs; she/her). Nicole began in the Anthropology Ph.D. program in 2023, in the Hodges-Simeon Lab. Her research, in collaboration with [Dr. Terry Capellini](https://heb.fas.harvard.edu/people/terence-capellini) at Harvard, focuses on using evolutionary developmental biology and gene expression methods to better understand the unique evolution of the human kidney, as a way of better understanding contemporary blood pressure phenotypes in humans. Her office is in the Biological Anthropology Graduate Student Space (STO 247).
 
 <div class="wrap1">
 <img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/published/jessicamartin.jpg?1684755318"> 
