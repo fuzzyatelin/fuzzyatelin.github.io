@@ -58,9 +58,9 @@ If you need them, you can contact and learn more about the SMAGL PIs in the foll
 }
 ```
 
-The SMAGL Laboratory Coordinator and Lab Safety Coordinator is **Dr. Christian Gagnon** (he/him). Christian is the Lab Coordinator for all the labs associated with the Department of Anthropology, and can help with any safety or equipment concerns in the lab, the ordering of necessary supplies and many other day-to-day lab tasks. He is also a SMAGL Schmitt Lab alumnus! Christian earned his Ph.D. in the lab with his dissertation on *The Evolutionary History and Adaptive Significance of UCP1-Mediated Thermogenesis in Primates*, and developed our vervet genomics pipeline.
+The SMAGL Laboratory Coordinator and Lab Safety Coordinator is [**Dr. Christian Gagnon**](https://www.christianmgagnon.com) (he/him). Christian is the Lab Coordinator for all the labs associated with the Department of Anthropology, and can help with any safety or equipment concerns in the lab, the ordering of necessary supplies and many other day-to-day lab tasks. He is also a SMAGL Schmitt Lab alumnus! Christian earned his Ph.D. in Biological Anthropology with the SMAGL in 2023 with his dissertation on [*The Evolutionary History and Adaptive Significance of UCP1-Mediated Thermogenesis in Primates*](https://open.bu.edu/server/api/core/bitstreams/e050dc95-5aea-4534-91ad-47aae24ddb24/content), and developed our [vervet genomics pipeline](https://datadryad.org/dataset/doi:10.5061/dryad.k3j9kd59z).
 
-He can most easily be reached on Slack, and also via phone (617-353-5521), email (cmgagnon@bu.edu) or in his office (STO 241).
+Christian is most easily reached on the SMAGL Schmitt Lab Slack, via his office phone (617-353-5521), work email (cmgagnon@bu.edu) or in his office (STO 241; down the hall from the SMAGL lab space).
 <br><br>
 
 ## Postdoctoral Research Associates
@@ -81,10 +81,9 @@ He can most easily be reached on Slack, and also via phone (617-353-5521), email
 
 [**Dr. Evelyn L. Pain**](https://evelynpain.weebly.com) (she/her) is currently a **Postdoctoral Associate Teaching Scholar** in the Department of Biology affiliated with the Schmitt Lab, and Reserach Coordinator for the conservation NGO [Yunkawasi Perú](https://yunkawasiperu.org/en/). Her focus is on our primate projects in Perú, inclusing with yellow-tailed woolly monkeys (*Lagothrix flavicauda*) and Andean night monkeys (*Aotus miconax*). Dr. Pain’s current office space is in BRB 511.
 
-<br>
-
 When PRAs are working with the lab, please keep in mind that they are professional scientists with extensive field and lab experience, who have already earned a Ph.D., and who already run research programs of their own in addition to the research they conduct in the SMAGL. We ask that you respect the authority of our PRAs as strongly as you respect that of Prof. Garrett or Prof. Schmitt. 
 
+<br>
 
 ## Graduate Students
 
@@ -99,31 +98,41 @@ Current graduate students you may meet include:
 <img src="https://www.bu.edu/anthrop/files/2024/09/SoumalyaGhorui-ProfilePic.png"> 
 </div>
 
-**Soumalya Ghorui** (Ph.D. program, Biological Anthropology; Schmitt Lab; he/him). Soumalya began in the Anthropology Ph.D. program in 2024. His research will focus on foraging behavior and diet as adaptations to the energetic constraints of high elevation living in wild Himalayan langurs (*Semnopithecus schistaceus*) with the [Himalayan Langur Project](https://www.himalayanlangur.com). His office is in the Biological Anthropology Graduate Student Space (STO 247). 
+**Soumalya Ghorui** (Ph.D. Biological Anthropology; Schmitt Lab; he/him). Soumalya began in the Anthropology Ph.D. program in 2024. His research will focus on foraging behavior and diet as adaptations to the energetic constraints of high elevation living in wild Himalayan langurs (*Semnopithecus schistaceus*) with the [Himalayan Langur Project](https://www.himalayanlangur.com). His office is in the Biological Anthropology Graduate Student Space (STO 247). 
+
+<br>
 
 <div class="wrap1">
 <img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/746567289_orig.jpg"> 
 </div>
 
-**Jimmy Erkens** (Ph.D. program, Biological Anthropology; Schmitt Lab; he/they). Jimmy began in the Anthropology Ph.D. program in 2023. His research focuses on using historical DNA methods to get DNA from museum specimens in order to fill in gaps in the population genetics of wild savanna monkeys (*Chlorocebus* spp.) to better understand their evolutionary history and taxonomy. His office is in the Biological Anthropology Graduate Student Space (STO 247). 
+**Jimmy Erkens** (Ph.D. Biological Anthropology; Schmitt Lab; he/they). Jimmy began in the Anthropology Ph.D. program in 2023. His research focuses on using historical DNA methods to get DNA from museum specimens in order to fill in gaps in the population genetics of wild savanna monkeys (*Chlorocebus* spp.) to better understand their evolutionary history and taxonomy. His office is in the Biological Anthropology Graduate Student Space (STO 247). 
+
+<br>
 
 <div class="wrap1">
 <img src="https://mit-museum-cms-files--production.s3.us-east-2.amazonaws.com/Images/_280x280_crop_center%20center_none/Nicole-Merullo.jpg?v=1732774729"> 
 </div>
 
-**Nicole Merullo** (Ph.D. Program, Biological Anthropology; Hodges-Simeon and Schmitt Labs; she/her). Nicole began in the Anthropology Ph.D. program in 2023, in the Hodges-Simeon Lab. Her research, in collaboration with [Dr. Terry Capellini](https://heb.fas.harvard.edu/people/terence-capellini) at Harvard, focuses on using evolutionary developmental biology and gene expression methods to better understand the unique evolution of the human kidney, as a way of better understanding contemporary blood pressure phenotypes in humans. Her office is in the Biological Anthropology Graduate Student Space (STO 247).
+**Nicole Merullo** (Ph.D. Biological Anthropology; Hodges-Simeon and Schmitt Labs; she/her). Nicole began in the Anthropology Ph.D. program in 2023, in the Hodges-Simeon Lab. Her research, in collaboration with [Dr. Terry Capellini](https://heb.fas.harvard.edu/people/terence-capellini) at Harvard, focuses on using evolutionary developmental biology and gene expression methods to better understand the unique evolution of the human kidney, as a way of better understanding contemporary blood pressure phenotypes in humans. Her office is in the Biological Anthropology Graduate Student Space (STO 247).
+
+<br>
 
 <div class="wrap1">
 <img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/published/jessicamartin.jpg?1684755318"> 
 </div>
 
-**Jess Martin** (Ph.D. Program, Biological Anthropology; Schmitt Lab; she/her). Jess began in the Anthropology Ph.D. program in 2022. Her research focuses on dietary effects on the microbiome of wild vervet monkeys (*Chlroocebus pygerythrus pygerythrus*) across urban, farm, and Nature Reserve populations in South Africa. She will return from her fieldwork in August 2026. Her office is in the Biological Anthropology Graduate Student Space (STO 247).
+**Jess Martin** (Ph.D. Biological Anthropology; Schmitt Lab; she/her). Jess began in the Anthropology Ph.D. program in 2022. Her research focuses on dietary effects on the microbiome of wild vervet monkeys (*Chlroocebus pygerythrus pygerythrus*) across urban, farm, and Nature Reserve populations in South Africa. She will return from her fieldwork in August 2026. Her office is in the Biological Anthropology Graduate Student Space (STO 247).
+
+<br>
 
 <div class="wrap1">
 <img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/hendersonwb_orig.jpeg"> 
 </div>
 
-**Warrenkevin Henderson** (Ph.D. Program, Biological Anthropology; Garrett and Schmitt Labs; he/him). Warrenkevin began in the Anthropology Ph.D. program in 2021, in the Garrett Lab. His research focuses on convergence related to cold adaptation in nasal morphology and associated genomic regions in ursids, phocids, equuids, and hominids. His office is in the SMAGL Dry Lab (STO 251).
+**Warrenkevin Henderson** (Ph.D. Biological Anthropology; Garrett and Schmitt Labs; he/him). Warrenkevin began in the Anthropology Ph.D. program in 2021, in the Garrett Lab. His research focuses on convergence related to cold adaptation in nasal morphology and associated genomic regions in ursids, phocids, equuids, and hominids. His office is in the SMAGL Dry Lab (STO 251).
+
+<br>
 
 ### Masters Students
 
@@ -131,46 +140,57 @@ Current graduate students you may meet include:
 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9NDPQhF-J41jlJOkyg1uoRSovlJZOzjlHD9M0_wF7E9Zg9Xx5t5V_Cv7b8HqdXPBANg2tG_RrEhmuF6MxMU7PD_7l1pqU67WgtBqRmUB5-w1EPHcyrsQ3TFFdQ_8K2fnDGwmOmJMtpKsOOjuTChvjmM27SUTj2QdVTVv2UTgyl4wfW7m_4AtWhkM2qOA/w195-h260/Carla%20Rojas.JPG">
 </div>
 
-**Carly Rojas** (MS program, Biology – EBE; she/her). Carla began in the Biology M.S. program in 2024, joining us from Universidad San Francisco de Quito in Ecuador, where she studied wild mantled howler monkeys (*Alouatta palliata aequatorialis*). She plans to work on diet in yellow-tailed woolly monkeys (*Lagothrix flavicauda*).
+**Carly Rojas** (M.S. Biology – EBE, Schmitt Lab; she/her). Carla began in the Biology M.S. program in 2024, joining us from Universidad San Francisco de Quito in Ecuador, where she studied wild mantled howler monkeys (*Alouatta palliata aequatorialis*). She plans to work on diet in yellow-tailed woolly monkeys (*Lagothrix flavicauda*).
+
+<br>
 
 <div class="wrap1">
 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2021%2F07%2F14%2F08%2F54%2Fmonkey-6465445_1280.jpg&f=1&nofb=1&ipt=8fca75130e547ab34b015a534f49d3daa4392065ef8f79db456f93d52236a58a">
 </div>
 
-**Yinuo Mao** (MS program, Biology – CMB; she/her). Yinuo began in the Biology M.S. program in 2024, joining us from UC Davis after some time in industry work. She will be conducting research into selection in the *ADIPOQ* gene in wild savanna monkeys (*Chlorocebus* spp.) using our genomics pipeline. 
+**Yinuo Mao** (M.S. Biology – CMB, Schmitt Lab; she/her). Yinuo began in the Biology M.S. program in 2024, joining us from UC Davis after some time in industry work. She will be conducting research into selection in the *ADIPOQ* gene in wild savanna monkeys (*Chlorocebus* spp.) using our genomics pipeline. 
+
+<br>
 
 <div class="wrap1">
-<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/sofiaweaver_orig.jpeg">
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.squarespace-cdn.com%2Fcontent%2Fv1%2F577ee3d08419c26fee6a52c8%2Feb7dabea-e3bc-4b3c-8c27-e1bcc612358a%2F_DSC8841.jpg&f=1&nofb=1&ipt=0feef058a31372321a508caa5b79b838544633e4d715ac46c6e39e58d824c35a">
 </div>
 
-**Sofia Weaver** (BA/MS program, Biology – EBE; she/her). Sofia joined the Schmitt Lab as an undergraduate, and joined the B.A./M.S. program in Biology in 2024. Sofia's research in the lab has been wide-ranging, but her M.S. thesis work will focus on shotgun-based microbiome in lowland Peruvian woolly monkeys (*Lagothrix lagotricha tschudii*) and yellow-tailed woolly monkeys.
-
-<div class="wrap1">
-<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Falchetron.com%2Fcdn%2Fyellow-tailed-woolly-monkey-23562f9f-a7ba-4683-a6c4-896b3795f1d-resize-750.jpeg&f=1&nofb=1&ipt=ff0d4ed5108a05621ea7ab9c7301f3cc04ba6b447288454c9ee6c22f592aeb27">
-</div>
-
-**Matteo Finnerty** (BA/MS program, Biology - EBE; he/him).
+**Matteo Finnerty** (B.A./M.S. Biology - EBE, Schmitt Lab; he/him).
 Matteo joined the Schmitt Lab as an undergraduate, and joined the B.A./M.S. prgoram in Biology in 2025. Matteo's research will focus on testing environmental DNA (eDNA) techniques to indirectly detect endangered primates in Andean Perú.
+
+<br>
+
+<div class="wrap1">
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.QRaHAGh06VHw3DWoeABE5gAAAA%3Fpid%3DApi&f=1&ipt=569e18d478508927d01650b9121c5440d4c5f302726479c3526f53c0d5d45505&ipo=images">
+</div>
+
+**Juliana Corn** (M.S. Biology – EBE, Schmitt Lab; she/her). Juliana joined the Schmitt Lab in the M.S. program in Biology in 2026. Juliana's research in the lab will focus on the behavioral ecology of wild yellow-tailed woolly monkeys (*Lagothrix flavicauda*) at our research site at El Toro, Amazonas.
+
+<br>
+
+<div class="wrap1">
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdagilislab.github.io%2FDagilisLab%2Fimages%2Fpeople%2Fbonnie_photo.jpg&f=1&nofb=1&ipt=0689db3b61eba320dc89887fb312bce57064fde5d39df60830a7d9c94c181a55">
+</div>
+
+**Bonnie DiAngelis** (M.S. Biology – EBE, Schmitt Lab; she/her). Bonnie joined the Schmitt Lab in the M.S. program in Biology in 2026. Bonnie's research in the lab has yet to be determined!
+
+<br>
+
+<div class="wrap1">
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2021%2F07%2F14%2F08%2F54%2Fmonkey-6465445_1280.jpg&f=1&nofb=1&ipt=8fca75130e547ab34b015a534f49d3daa4392065ef8f79db456f93d52236a58a">
+</div>
+
+**Ji Young (Alex) Kim** (M.S. Biology – CMB, Schmitt Lab; she/her). Alex joined the Schmitt Lab in the M.S. program in Biology in 2026. Alex's research in the lab will focus on gene expression patterns associated with a major drought in wild South African vervet monkeys (*Chorocebus pygerythrus*).
+
+<br>
 
 ## Undergraduate Students
 
-There are also several undergraduate students currently working in the SMAGL. These include, for the **Spring 2025** semester:
-
-### Garrett Lab Undergrads
-
-<div class="wrap1">
-<img src="https://greatergood.org/hubfs/loris4-1.jpg">
-</div>
-
-<br>
-**Alex Pissios** (Anthropology, Specialization in Biological Anthropology)
-<br><br><br>
+There are also several undergraduate students currently working in the SMAGL. These include, for the **Fall 2026** semester:
 
 ### Schmitt Lab Undergrads
 
-<div class="wrap1">
-<img src="https://www.bu.edu/anthrop/files/2024/10/464620678_10111139243054430_467850716193938337_n-400x300.jpg">
-</div>
 ```{css, echo=FALSE}
 .wrap3 {
     float: left;
@@ -181,75 +201,73 @@ There are also several undergraduate students currently working in the SMAGL. Th
 }
 ```
 
+<div class="wrap1">
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2021%2F07%2F14%2F08%2F54%2Fmonkey-6465445_1280.jpg&f=1&nofb=1&ipt=8fca75130e547ab34b015a534f49d3daa4392065ef8f79db456f93d52236a58a">
+</div>
+
+**Claire Zhang** (Anthropology, Specialization in Biological Anthropology, Schmitt Lab; UROP; she/they)<br>
+Honors Thesis: *Examining the influence of anthropogenic food consumption on circulating leptin and reproductive onset in wild South African vervet monkeys (Chlorocebus pygerythrus pygerythrus)*
+
 <br>
-**Reese Hotten-Somers** (Anthropology, Specialization in Biological Anthropology; she/they)
+
+<div class="wrap1">
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2F5o6pf3SKgEE%2Fmaxresdefault.jpg%3Fsqp%3D-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgZShSMA8%3D%26rs%3DAOn4CLBiuJgizziISE9w_uk56N_E3SaCtg&f=1&nofb=1&ipt=bf6361868005debc3604d13db8021a41dd9cde8c364db28653a156d69c2fd234">
+</div>
+
+**Jacob Bronstein** (Biology, Specialization in Ecology and Conservation Biology, Schmitt Lab; UROP; he/him)<br>
+UROP Project: *DNA metabarcoding of Peruvian woolly monkey (Lagothrix lagotricha tschudii) fecal samples to detect arthropod consumption*
+
+<br>
+
+<div class="wrap1">
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.animal.photos%2Fmamm2%2Fwoolly_files%2Fwoolly9.jpg&f=1&nofb=1&ipt=949152a05e8e76d819bcdd34a76b19c5924f4944ab11624b7ed2a6cd20539e05">
+</div>
+
+**Rhoda Ndukwe** (Biology, Specialization in Neuroscience, Schmitt Lab; UROP; she/her)<br>
+UROP Project: *Re-evaluation of lowland woolly monkey (Lagothrix lagotricha subspp.) ranges in Perú using mitochondrial DNA markers* 
+
+<br>
+
+<div class="wrap1">
+<img src="https://www.marwell.org.uk/wp-content/uploads/2022/08/Coppery_titi_monkey_shutterstock_488145730.jpg">
+</div>
+
+**Tad Matlock** (Biology, Specialization in Ecology and Conservation Biology, Schmitt Lab; he/him)<br>
+Research Project (in collaboration with Dr. Gideon Erkenswick, Field Projects International): *Demographic analysis of mercury contamination in Amazonian primates at the Los Amigos Biological Station, Madre de Díos, Perú*
+
+<br>
+
+<div class="wrap1">
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fv2%2FD4D03AQHra8owMG_tXA%2Fprofile-displayphoto-shrink_200_200%2FB4DZZei7c6HIAc-%2F0%2F1745342937207%3Fe%3D2147483647%26v%3Dbeta%26t%3DrhdiAUZApQ4B8rfL88lRRFSoZaHBnu-ECsGWAOghlgg&f=1&nofb=1&ipt=0dbff0e158601ad1c0f04b8aab17e623fd1a4ebf4e088d11e2232d240eddc698">
+</div>
+
+**Temilade Olateru-Olagbegi** (Biology, Specialization in Neuroscience, Schmitt Lab; she/her)<br>
+Research Project: TBD
+
+<br>
+
+<div class="wrap1">
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsp-ao.shortpixel.ai%2Fclient%2Fto_webp%2Cq_glossy%2Cret_img%2Cw_986%2Ch_1000%2Fhttps%3A%2F%2Fneprimateconservancy.org%2Fwp-content%2Fuploads%2F2022%2F01%2FYellow-tailed-woolly-monkey-Nick-Athanas-flickr-ShareAlike-RESIZE2.jpg&f=1&nofb=1&ipt=7d6f88e97a41fc7e97b3b4194c8e15694ca591641d4d1b6e91069b989b0a0082">
+</div>
+
+**Montse Duran de Huerta Arcelus** (Biology, Specialization in Neuroscience, Schmitt Lab; she/her)<br>
+Research Project: TBD
+
+<br>
+
+<div class="wrap1">
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2021%2F07%2F14%2F08%2F54%2Fmonkey-6465445_1280.jpg&f=1&nofb=1&ipt=8fca75130e547ab34b015a534f49d3daa4392065ef8f79db456f93d52236a58a">
+</div>
+
+**Pravin Mohan** (Anthropology, Specialization in Biological Anthropology, Schmitt Lab; he/him)<br>
+Research Project: TBD
+
 <br><br><br>
 
-<div class="wrap1">
-<img src="https://observation.org/media/photo/12572422.jpg">
-</div>
-
-<br>
-**Noam Aviv** (Biology, Specialization in Behavioral Biology; he/him)
-<br><br><br>
-
-<div class="wrap1">
-<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/screen-shot-2023-05-22-at-7-36-25-am_orig.png">
-</div>
-
-<br>
-**Merilyn Amponsah-Asamoah** (Anthropology, Specialization in Anthropology, Health, and Medicine; she/her)
-<br><br>
-
-<div class="wrap1">
-<img src="https://observation.org/media/photo/12572422.jpg">
-</div>
-
-<br>
-**Shaotai (Max) Hu** (Data Science, Minor in Statistical Methods; he/him)
-<br><br><br>
-
-<div class="wrap1">
-<img src="https://media.licdn.com/dms/image/v2/D4D03AQFc7WjMD5-Ssw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1725050916858?e=2147483647&v=beta&t=YjVN_RS2mk_bm8GAojCEWx32azIwy_m8IZgnZT4ZriU">
-</div>
-
-<br>
-**Chloe Leaman** (Biology; she/her)
-<br><br><br>
-
-<div class="wrap1">
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Cola_amarilla.jpg">
-</div>
-
-<br>
-**Claire Zhang** (Anthropology, Specialization in Biological Anthropology; she/her)
-<br><br><br>
-
-<div class="wrap1">
-<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/schmittlabnopic_8.jpg">
-</div>
-
-<br>
-**Bailey Christian** (*provisional*; Anthropology, Specialization in Anthropology, Health, and Medicine; they/them)
-<br><br>
-
-<div class="wrap1">
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Cola_amarilla.jpg">
-</div>
-
-<br>
-**Matteo Finnerty** (*provisional*; Biology; he/him)
-<br><br><br>
-
-<div class="wrap1">
-<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/schmittlabnopic_8.jpg">
-</div>
-
-<br>
-**Cian Dowling** (*provisional*; Biology; he/him)
-<br><br><br>
 
 ## SMAGL Alumni
+
+The SMAGL has been in operation since 2017, and the Schmitt Lab since 2015. In that time, we've worked with a lot of amazing researchers who have helped to build our research program and push it in several new and exciting directions! SMAGL alumni include:
 
 ### Doctoral Students
 
@@ -257,21 +275,149 @@ There are also several undergraduate students currently working in the SMAGL. Th
 <img src="https://www.bu.edu/ciss/files/2022/10/Happy-Zoe-with-Poop-565x636.jpg"> 
 </div>
 
-**Zoe Albert Miller** (Ph.D. 2026, Biological Anthropology, Knott and Schmitt Labs; she/her).
-Dissertation: 
+**Zoe Albert Miller** (Ph.D. 2026, Biological Anthropology, Knott and Schmitt Labs; she/her).<br>
+Dissertation: *The Gut Microbiome as a Potential Modulator of Energetic Stress in Bornean Orangutans (Pongo pygmaeus)*
+
+<br>
 
 <div class="wrap1">
 <img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/melzarate-lab_orig.png">
 </div>
 
-**Mel Zarate** (Ph.D. 2026, Biological Anthropology; Schmitt Lab; she/her).
+**Mel Zarate** (Ph.D. 2026, Biological Anthropology; Schmitt Lab; she/her).<br>
 Dissertation: *Landscape Mitogenomics and High-Altitude Adaptation in the Peruvian Yellow-Tailed Woolly Monkey (Lagothrix flavicauda).* 
 
+<br>
 
+<div class="wrap1">
+<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/published/christiangagnon-aaba.png?1704233218"> 
+</div>
+
+**Christian Gagnon** (Ph.D. 2023, Biological Anthropology, Schmitt Lab; he/him).<br>
+Dissertation: *The Evolutionary History and Adaptive Significance of UCP1-Mediated Thermogenesis in Primates*
+
+<br>
 
 ### Masters Students
 
+<div class="wrap1">
+<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/sofiaweaver_orig.jpeg">
+</div>
+
+**Sofia Weaver** (B.A./M.S. 2026, Biology – EBE, Schmitt Lab; she/her).<br>
+Thesis: *Investigating the Role of the Gut Microbiome in High-Altitude Adaptation of Woolly Monkeys (Lagothrix spp.) in Andean Perú*
+
+<br>
+
+<div class="wrap1">
+<img src="https://www.bu.edu/anthrop/files/2021/03/Victoria-Zdanowicz-300x300.jpg">
+</div>
+
+**Victoria Zdanowicz** (M.S., Biology – EBE, 2024, Knott and Schmitt Labs; she/her).<br>
+Thesis: *Local ecology and dietary selectivity at indicators of differing orangutan habitat quality within Gunung Palung National Park, Borneo, Indonesia*
+
+<br>
+
+<div class="wrap1">
+<img src="https://www.bu.edu/biology/files/2022/04/Dippel2022-636x636.png">
+</div>
+
+**Maxwell Dippel** (M.S. 2023, Biology – EBE, Schmitt Lab; he/him).<br>
+Thesis: *Genetic Variation in Heat Shock Protein HSPA1L in Savanna Monkeys: Implications for Heat Resilience*
+
+<br>
+
+<div class="wrap1">
+<img src="https://inovineconferences.com/uploads/boardmembers/Ms__Sofia_Long_Environmental_Science_Climate_Change_Congress_2026.png">
+</div>
+
+**Sophia Long** (B.A./M.S. 2023, Biology, Schmitt Lab; she/her).<br>
+Thesis: Sophia chose a Coursework Masters in Biology, and so has no associated thesis.
+
+<br>
+
+<div class="wrap1">
+<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/editor/l-angley2020-636x636.jpg?1639002381">
+</div>
+
+**Laura Angley** (M.S. 2021, Biology, Schmitt Lab; she/her).<br>
+Thesis: *Post-Release Survival Rates and Welfare of Rehabilitated Vervet Monkeys in Malawi*
+
+<br>
+
+<div class="wrap1">
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2021%2F07%2F14%2F08%2F54%2Fmonkey-6465445_1280.jpg&f=1&nofb=1&ipt=8fca75130e547ab34b015a534f49d3daa4392065ef8f79db456f93d52236a58a">
+</div>
+
+**Erica Sun** (B.A./M.S. 2021, Biology, Schmitt Lab; she/her).<br>
+Thesis: *Selection in the PLIN2 (Perilipin-2) Gene Among Wild Savanna Monkeys (Chlorocebus spp.)*
+
+<br>
+
+<div class="wrap1">
+<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/melzarate-lab_orig.png">
+</div>
+
+**Mel Zarate** (M.S. 2020, Biology, Schmitt Lab; she/her).<br>
+Thesis: *Predicting Suitable Habitat for the Critically Endangered Yellow-Tailed Woolly Monkey (Lagothrix flavicauda) in Perú*
+
+<br>
+
 ### Undergraduate Students
+
+<div class="wrap1">
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fv2%2FD4E03AQGzvMlEV6TLnQ%2Fprofile-displayphoto-shrink_200_200%2FB4EZSanqnrGYAY-%2F0%2F1737760877466%3Fe%3D2147483647%26v%3Dbeta%26t%3D-iPyuz4wcfTQ7Cjr_VWb8CGgLwVorr19zsTO0DD4wH4&f=1&nofb=1&ipt=70ce554bc3f51e98a172c587ed689510bb482a0b55b22a21ab6482654af18a37">
+</div>
+
+**Reese Hotten-Somers** (Anthropology, Specialization in Biological Anthropology, Schmitt Lab; she/they)<br>
+Honors Thesis (2026): *The Comparative Gut Viromes of Wild Lowland (Lagothrix poeppigii) and Yellow-tailed Woolly Monkeys (Lagothrix
+flavicauda)*
+
+<br>
+
+<div class="wrap1">
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fv2%2FD5603AQGZ-ibHpT_sng%2Fprofile-displayphoto-scale_200_200%2FB56Zs.5bXPJ8AY-%2F0%2F1766286802033%3Fe%3D2147483647%26v%3Dbeta%26t%3DQARXVxS8SwfdWPE6DiNOlWkObBe6Vc485gRLHVaS-tg&f=1&nofb=1&ipt=49d4414c15a27166e951a144b0f42a54c550b3b5e6c4328cd5cedf2e70c0b052">
+</div>
+
+**Chloe Leaman** (Biology, Specialization in Cell Biology, Molecular Biology & Genetics, Schmitt Lab; she/her)<br>
+Honors Thesis (2026): *The Evolution and Diversity of Major Histocompatibility Complex II gene DRB in wild yellow-tailed woolly monkeys (Lagothrix flavicauda)*
+
+<br>
+
+<div class="wrap1">
+<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/sofiaweaver_orig.jpeg">
+</div>
+
+**Sofia Weaver** (Biology – EBE, Schmitt Lab; she/her).<br>
+Honors Thesis (2025): *Sequencing of SRY to study sex-biased dispersal in the Critically Endangered yellow-tailed woolly monkey (Lagothrix flavicauda).*
+
+<br>
+
+<div class="wrap1">
+<img src="https://observation.org/media/photo/12572422.jpg">
+</div>
+
+**Noam Aviv** (Biology, Specialization in Behavioral Biology; he/him)<br>
+Honors Thesis (2025): *Using Camera Traps to Assess Demography and Life History in wild Endangered Andean Night Monkeys (Aotus miconax)*
+
+<br>
+
+<div class="wrap1">
+<img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/screen-shot-2023-05-22-at-7-36-25-am_orig.png">
+</div>
+
+**Merilyn Amponsah-Asamoah** (Anthropology, Specialization in Anthropology, Health, and Medicine; she/her)<br>
+<br><br><br>
+
+<div class="wrap1">
+<img src="https://observation.org/media/photo/12572422.jpg">
+</div>
+
+**Shaotai (Max) Hu** (Data Science, Minor in Statistical Methods; he/him)<br>
+Research Project: Using AI to assess demography from camera trap data in wild Endangered Andean night monkeys (*Aotus miconax*)
+<br><br><br>
+
+
 
 
 
