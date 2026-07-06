@@ -1,7 +1,7 @@
 ---
 title: "SMAGL Facilities & Use of Space"
 author: "Christopher A Schmitt</br>Boston University"
-date: "August 15, 2024"
+date: "August 15, 2026"
 output: 
   rmdformats::readthedown:
     toc_depth: 5
@@ -11,20 +11,20 @@ output:
 
 ## Access to SMAGL
 
-The SMAGL has both a wet bench lab and a dry computational lab at our space in the Stone Science Building (STO), Room 251. See the section on [COVID-19 Protocols and Emergency Preparedness]() for the Sensory Morphology and Anthropological Genomics Lab for information on SMAGL facilities that are put into place during the COVID-19 pandemic lockdowns.
+The SMAGL has both a wet bench lab and a computational dry lab at our space in the Stone Science Building (STO), Room 251. See the section on [COVID-19 Protocols and Emergency Preparedness](https://fuzzyatelin.github.io/smagl_student_guide/smagl_covid.html) for policies on access to SMAGL facilities that are put into place during pandemic lockdowns.
 
-Access to the SMAGL is regulated by swipe card access. If you require access to the Dry or Wet Lab, please let Prof. Schmitt know. With his permission, Lab Coordinator Sam Kelley can give access on a semester-by-semester basis.
+Access to the SMAGL is regulated by swipe card access mediated through your BU Terrier Card. If you require access to the Dry or Wet Lab, please let Prof. Schmitt know. With his permission, Lab Coordinator Dr. Christian Gagnon can give access on a semester-by-semester basis.
 
-**All individuals who require access to the SMAGL lab space *must* [complete the required trainings](https://fuzzyatelin.github.io/smagl_student_guide/smagl_trainings.html) *before* entering!** 
+**All individuals who require access to the SMAGL wet bench space in STO 251 *must* [complete the required trainings](https://fuzzyatelin.github.io/smagl_student_guide/smagl_trainings.html) *before* entering!** 
 
 ## SMAGL Dry Lab
 
-The dry lab has four (4) workstations, and no special restrictions regarding food and drink, or proper apparel. Priority of access to these workstations generally goes to Ph.D. students conducting dissertation research first, then to other graduate students, then to undergraduate students. *Students not affiliated with the SMAGL should not be using these workstations without permission of a SMAGL PI*.
+The dry lab has four (4) workstations, and no special restrictions regarding food and drink or proper apparel. Priority of access to these workstations generally goes to SMAGL PRAs first, then to Ph.D. students conducting dissertation research, then to other graduate students, then to undergraduate students. *Students not affiliated with the SMAGL should not be using these workstations without permission of a SMAGL PI*.
 
-- **Workstation A** (nearest the wet lab entrance) is dedicated to Garrett Lab use for the analysis of 3D morphological scans. This is the only workstation with the hardware, memory, and software necessary for these kinds of analyses. Work that requires this equipment receives priority over all other uses. For day-to-day concerns, [**please contact Warrenkevin Henderson regarding use of Workstation A**]().
-- **Workstation B** (on the interior wall immediately next to A) is a flexible workstation with a monitor and large external drive that SMAGL students may plug their laptops in to for ease of work. There is a sign-up list for this station on the [Schmitt Lab Drive]().
-- **Workstation C** (on the interior wall across from Workstation B) is dedicated to Schmitt Lab use for bioinformatics or high-computational capacity research. This is the only workstation that currently has the hardware, memory, and software necessary for these kinds of analyses in the Dry Lab. Research/work that requires this equipment receives priority over all other uses. [**Please contact Mel Zarate regarding use of this workstation**]().
-- **Workstation D** (nearest the hallway entrance) is a flexible workstation with a monitor and large external drive that SMAGL students may plug their laptops in to for ease of work. There is a sign-up list for this station on the [Schmitt Lab Drive]().
+- **Workstation A** (nearest the wet lab entrance) is dedicated to Garrett Lab use for the analysis of 3D morphological scans. This is the only workstation with the hardware, memory, and software necessary for these kinds of analyses. Work that requires this equipment receives priority over all other uses. For day-to-day concerns, **please contact Warrenkevin Henderson regarding use of Workstation A**.
+- **Workstation B** (on the interior wall immediately next to A) is a flexible workstation with a monitor and large external drive that SMAGL students may plug their laptops in to for ease of work. There is a sign-up list for this station on the [Schmitt Lab Drive](https://fuzzyatelin.github.io/smagl_student_guide/smagl_online.html).
+- **Workstation C** (on the interior wall across from Workstation B) is dedicated to Schmitt Lab use for bioinformatics or high-computational capacity research. This is the only workstation that currently has the hardware, memory, and software necessary for these kinds of analyses in the Dry Lab. Research/work that requires this equipment receives priority over all other uses. **Please contact Jimmy Erkens regarding use of this workstation**.
+- **Workstation D** (nearest the hallway entrance) is a flexible workstation with a monitor and large external drive that SMAGL students may plug their laptops in to for ease of work. There is a sign-up list for this station on the [Schmitt Lab Drive](https://fuzzyatelin.github.io/smagl_student_guide/smagl_online.html).
 
 ***We ask that students only use the workstations if they require the use of SMAGL computers for SMAGL research!*** If a student is occupying a workstation with a computer but using their laptop, and another student requires the SMAGL computer, the student on the laptop must allow them to use the space.
 
@@ -45,24 +45,24 @@ The wet lab has eight (8) workstations. Six (6) of these workstations are dedica
 -	The **Freezer Workstation** is closest to the freezers (to the far left upon entering the Wet Lab). This station is dedicated to sorting through or weighing samples temporarily removed from freezer storage and should not be used as a regular workstation.
 -	The **DNA Extraction Workstation** is closest to the BioSafety Cabinet (to the far right upon entering the Wet Lab). This station is dedicated to the extraction of DNA from nonhuman primate feces and other tissues and should be used for no other purposes.
 -	The **Sequencing and Quantitation Workstations** are behind the Extraction Workstation (back side of the same island). This station is dedicated to DNA quantitation and size selection (half nearest the windows) and ONT MinION sequencing (half nearest the aisle) and should be used for no other purposes.
--	The **PCR Workstation** is opposite the Sequencing and Quantitation Workstations. This station is dedicated to the amplification of DNA using PCR and should be used for no other purposes.
--	The **RNA Workstation** is behind the PCR Workstation. This station is dedicated to RNA extraction and library preparation. RNA work is highly prone to contamination, so this station should never be used for other purposes.
+-	The **PCR 1 Workstation** is opposite the Sequencing and Quantitation Workstations. This station is dedicated to the amplification of DNA using PCR and should be used for no other purposes.
+-	The **PCR 2 Workstation** is behind the PCR 1 Workstation. This station is dedicated to the amplification of DNA using PCR and should be used for no other purposes.
 -	The **Gel Workstation** is between the sinks (with the curtain surrounding it, next to the autoclave). This station is dedicated to the running, visualization, and recording of gel electrophoresis and should be used for no other purposes.
 
-The other two (2) workstations (E and F; each on the backside of the Freezer Workstation), are dedicated for use by Schmitt Lab conducting bioinformatics research. If you want access to one of these workstations, please contact PI Schmitt.
+The other two (2) workstations (E and F; each on the backside of the Freezer Workstation), are flexible use dedicated for use by Schmitt Lab researchers conducting bioinformatics research. If you want access to one of these workstations, please contact Prof. Schmitt.
 
-Swipe card access is available for the STO 251 space and must be renewed each semester. If you require swipe card access to use STO 251 spaces and resources, please discuss with PI Schmitt and Lab Coordinator Sam Kelley.
+Swipe card access is available for the STO 251 space and must be renewed each semester. If you require swipe card access to use STO 251 spaces and resources, please discuss with Prof. Schmitt and Lab Coordinator Dr. Christian Gagnon.
 
 ### SMAGL Scheduling
 
-We'll be very busy in the SMAGL this semester! We have several projects ongoing, and few new ones, including:
+We'll be very busy in the SMAGL wet lab this semester! We have several projects ongoing, and few new ones, including:
 
-* DNA metabarcoding for *Lagothrix* (Schmitt/Pain/Dippel)
+* DNA metabarcoding for *Lagothrix* (Schmitt/Pain/Bronstein)
 * Microbiome in *Lagothrix* (Schmitt/Pain/Martin)
-* Mitogenomics in *Lagothrix* (Schmitt/Zarate)
-* RNA cleanup and RT-qPCR in *Chlorocebus* (Schmitt/Gagnon/Hotten-Somers)
+* Mitogenomics in *Lagothrix* (Schmitt/Ndukwe)
 * Urinary DNA in *Pongo* (Knott/Scott)
-* Microbiome prep for *Pongo* (Knott/Albert)
+* hDNA mitogenomics from *Chlorocebus* museum specimens (Schmitt/Erkens)
+* airDNA metabarcoding from Perú (Schmitt/Pain/Finnerty)
 
 As such, we'll need to coordinate to make sure that we aren't over-crowding the lab!
 
@@ -124,13 +124,13 @@ If, for some reason, the spill splashes in your eyes, use the eye wash!
 
 ### Restricted Equipment
 
-**Do not** use the following equipent without explicit clearance/training from Prof. Schmitt, a PRA (Dr. Pain or Dr. Scott), or senior Ph.D. studnet Mel Zarate:
+**Do not** use the following equipent without explicit clearance/training from Prof. Schmitt, a PRA (Dr. Pain or Dr. Scott), or senior Ph.D. students Jess Martin or Jimmy Erkens:
 
 * BioSafety Cabinet (BSC)
 * Autoclave (Gel Workstation)
 * Centrifuges
 * Hula Shaker (Extraction Station)
-* MinION sequencer (Sequencing Station)
+* MinION Mk1D sequencer (Sequencing Station)
 
 ### Biological Safety Cabinet (BSC)
 
@@ -159,31 +159,31 @@ To use the BSC, please use the following steps:
 
 Active SMAGL members are encouraged to use the **Biological Anthropology Collaboration Space**, or lounge, in Suite 247 of the Stone Science Building, which has a refrigerator, microwave, dishes and utensils, and several comfortable places to sit, work, eat, and relax. This space is also home to Biological Anthropology faculty offices (Profs. Garrett, Knott, Schmitt, and Hodges-Simeon) and the **Biological Anthropology Graduate Student Space**, which has assigned desk/work seating and also a communal area in which graduate students are encouraged to hold office hours. 
 
-The following Schmitt Lab graduate students have dedicated space in the Biological Anthropology Graduate Student Space for the Fall 2024 semester:
+The following Schmitt Lab graduate students have dedicated space in the Biological Anthropology Graduate Student Space for the Fall 2026 semester:
 
--	**Mel Zarate**: the rightmost workstation closest to the windows on the wall opposite the entrance into the Graduate Student Space.
--	**Jess Martin**: the workstation on the wall opposite the entrance into the Graduate Student Space, next to Mel's workstation.
--	**Jimmy Erkens**: the leftmost workstation on the wall opposite the entrance into the Graduate Student Space.
+-	**Soumalya Ghorui**
+-	**Jimmy Erkens**
+-	**Jess Martin**
 
-Please keep in mind that Schmitt Lab use of this space is provisional and will be re-assessed for each semester. Those currently with space here may not continue in this space given the needs of other students with priority of access. Those of you with current assigned seats must contact Samantha to get swipe card access specific to the Biological Anthropology Graduate Student Space.
+Please keep in mind that Schmitt Lab use of this space is provisional and will be re-assessed for each semester. Those currently with space here may not continue in this space given the needs of other students with priority of access. Those of you with current assigned seats must contact Lab Coordinator Dr. Christian Gagnon to get swipe card access specific to the Biological Anthropology Graduate Student Space.
 
 The four (4) workspaces along the windows of this room are available on a first-come-first-served basis and are not reserved for long-term personal use.
 
-Access to the Suite 247 area is open from 8am to 6pm M-F, and after-hours swipe card access is available upon request for those actively conducting research in the SMAGL (please discuss with PI Schmitt and/or Lab Coordinator Samantha Kelley).
+Access to the Suite 247 area is open from 8am to 6pm M-F, and after-hours swipe card access is available upon request for those actively conducting research in the SMAGL (please discuss with Prof. Schmitt and/or Lab Coordinator Dr. Christian Gagnon).
 
 Please use this space respectfully, be tidy and keep it clean, and be aware that many non-SMAGL faculty, staff, and students also use this area.
 
 # Restrooms
 
-The Center for Gender and Sexuality Activism lists several gender-neutral/all-gender bathrooms in our building. The closest to the SMAGL is on the first floor of the CAS building. Walk down the hall and around the corner to the Commonwealth Ave side of the building, and go down one flight of stairs, it’s to the immediate left of the stair exit on the first floor. There is also a men’s bathroom in the same hallway as the SMAGL on the lab-side of the doors to CAS, and a women’s bathroom on the CAS-side of the same doors.
+The BU LGBTQIA+ Student Resource Center lists several [gender-neutral/all-gender bathrooms](https://www.bu.edu/lgbtqia-student-center/community/on-campus-resources/) in our building. The closest to the SMAGL is on the first floor of the CAS building. Walk down the hall and around the corner to the Commonwealth Ave side of the building, and go down one flight of stairs, it’s to the immediate left of the stair exit on the first floor. There is also a men’s bathroom in the same hallway as the SMAGL on the lab-side of the doors to CAS, and a women’s bathroom on the CAS-side of the same doors.
 
 # Chemical Anthropology Lab
 
-Next door to the SMAGL in STO 249 is the **Chemical Anthropology Lab**. This lab is open for use by anyone in Anthropology and Archaeology given access, and is primarily intended for use with hazardous chemicals.
+Next door to the SMAGL in STO 249 is the **Chemical Anthropology Lab**. This lab is open for use by anyone in Anthropology given access, and is primarily intended for use with hazardous chemicals.
 
 SMAGL members use this space for the fume hoods and other equipment needed for mixing chemicals and buffers. For example, we use this lab to mix our recipe for home-made DNA preservation buffer, and to mix reagents necessary for some of our extraction kits.
 
-You can ask Sam Kelley for swipe access, if required.
+You can ask Lab Coordinator Dr. Christian Gagnon for swipe access, if required.
 
 
 

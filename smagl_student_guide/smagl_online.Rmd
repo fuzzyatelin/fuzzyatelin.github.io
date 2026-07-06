@@ -1,7 +1,7 @@
 ---
 title: "SMAGL Online Resources"
 author: "Christopher A Schmitt</br>Boston University"
-date: "August 15, 2024"
+date: "August 15, 2026"
 output: 
   rmdformats::readthedown:
     toc_depth: 5
@@ -17,7 +17,7 @@ The [Schmitt Lab BU SMAGL Drive]() folder is maintained separately from the Shar
 
 # Shared Computing Cluster
 
-Schmitt Lab members conducting bioinformatics/genomic research may need portable access to online storage and analytical power that personal laptops simply cannot provide. For this, we have access to BU’s **Shared Computing Cluster (SCC)**, which can be accessed either through the command line of your laptop or on the [**SCC On Demand**](https://www.bu.edu/tech/support/research/system-usage/connect-scc/scc-ondemand/) via a project called ***vervpop*** (although different projects may have different SCC projects; current SMAGL Schmitt Lab projects also include ***vervmb*** for our microbiome analyses). If you require access to the SCC, please contact me to set up an account. 
+Schmitt Lab members conducting bioinformatics/genomic research may need portable access to online storage and analytical power that personal laptops simply cannot provide. For this, we have access to BU’s **Shared Computing Cluster (SCC)**, which can be accessed either through the command line of your laptop or on the [**SCC On Demand**](https://www.bu.edu/tech/support/research/system-usage/connect-scc/scc-ondemand/) via one of any number of SMAGL-associated SCC *projects*, including ***vervpop***,***vervmb***,***anth333***, and ***pongogp***. Each project has differing storage, module capabilities, and computational capacities, so if you require access to the SCC please contact Prof. Schmitt to set up an account with the appropriate project. 
 
 # RCS Tutorials
 
