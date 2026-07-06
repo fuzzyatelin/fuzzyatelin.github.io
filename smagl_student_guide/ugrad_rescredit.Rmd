@@ -1,7 +1,7 @@
 ---
 title: "Undergraduate Research for Credit in the SMAGL"
 author: "Christopher A Schmitt</br>Boston University"
-date: "August 15, 2024"
+date: "August 15, 2026"
 output: 
   rmdformats::readthedown:
     toc_depth: 5

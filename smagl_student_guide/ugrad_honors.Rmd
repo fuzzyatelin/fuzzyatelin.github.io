@@ -1,13 +1,13 @@
 ---
 title: "Honors Research in the SMAGL"
 author: "Christopher A Schmitt</br>Boston University"
-date: "August 15, 2024"
+date: "August 16, 2026"
 output: 
   rmdformats::readthedown:
     toc_depth: 5
 ---
 
-Students can, and are encouraged to, conduct Honors research in the SMAGL in either Anthropology (Biological Anthropology or Anthropology, Health, and Medicine), or Biology (Ecology, Behavior, & Evolution). Prior to applying for Honors, each student must discuss their potential project with either Prof. Garrett or Prof. Schmitt.
+Students can, and are encouraged to, conduct Honors research in the SMAGL in either Anthropology (Biological Anthropology; Anthropology, Health, and Medicine), or Biology (Ecology & Conservation Biology; Neuroscience; Behavioral Biology; Cell and Molecular Biology & Genetics). Prior to applying for Honors, each student must discuss their potential project with either Prof. Garrett or Prof. Schmitt.
 
 # [Honors Research in Anthropology](https://www.bu.edu/anthrop/academics/undergraduate-program/honors-in-the-major/)
 
@@ -91,11 +91,20 @@ Special Guidelines for International Fieldwork:
 **Luke Buza** (Honors in Biology, 2024; Garrett Lab)<br>
 *Morphological Distinction of Visual Pathways in Cheetahs (Acinonyx jubatus), Pumas (Puma concolor) and Leopards (Panthera pardus)*
 
-**Sofia Weaver** (Honors in Biology, 2025; Schmitt Lab)<br>
-*TBA*.
+**Noam Aviv** (Honors in Biology, 2025; Schmitt Lab)<br>
+*Using Camera Traps to Assess Demography and Life History in wild Endangered Andean Night Monkeys (Aotus miconax)*
 
-**Reese Hotten-Somers** (Honors in Anthropology, 2026; Schmitt Lab)<br>
-*TBA*.
+**Sofia Weaver** (Honors in Biology, 2025; Schmitt Lab)<br>
+*Sequencing of SRY to study sex-biased dispersal in the Critically Endangered yellow-tailed woolly monkey (Lagothrix flavicauda)*
+
+**Reese Hotten-Somers** (Honors in Biological Anthropology, 2026; Schmitt Lab)<br>
+*The Comparative Gut Viromes of Wild Lowland (Lagothrix poeppigii) and Yellow-tailed Woolly Monkeys (Lagothrix flavicauda)*
+
+**Chloe Leaman** (Honors in Biology, 2026; Schmitt Lab)<br>
+*The Evolution and Diversity of Major Histocompatibility Complex II gene DRB in wild yellow-tailed woolly monkeys (Lagothrix flavicauda)*
+
+**Claire Zhang** (Honors in Biological Anthropology, 2027; Schmitt Lab)<br>
+*Examining the influence of anthropogenic food consumption on circulating leptin and reproductive onset in wild South African vervet monkeys (Chlorocebus pygerythrus pygerythrus)*
 
 
 #
