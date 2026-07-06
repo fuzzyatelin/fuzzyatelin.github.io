@@ -1,7 +1,7 @@
 ---
 title: "Undergraduate Funding in the SMAGL"
 author: "Christopher A Schmitt</br>Boston University"
-date: "August 15, 2024"
+date: "August 16, 2026"
 output: 
   rmdformats::readthedown:
     toc_depth: 5
@@ -19,7 +19,7 @@ Research is great, but it isn't cheap - expenses like reagents for the wet lab a
 
 UROP applications can be filed at the [BU UROP website](https://www.bu.edu/urop/), which also regularly posts updated information and due dates, and updated calls for student researchers (should you seek a UROP in another lab, or if you’re not yet affiliated with the SMAGL).
 
-**To apply for a UROP project in SMAGL, we require at least one semester of research on a volunteer basis in the lab, with a commitment of 10 hours per week. Attendance at lab meetings is mandatory but summer research negotiable during this period.**
+**To apply for a UROP project in SMAGL, we require you to have completed at least one semester of research on a volunteer basis in the lab, with a commitment of 10 hours per week. Attendance at lab meetings is mandatory but summer research negotiable during this period.**
 
 UROP provides help with applications upon request ([you can book a session on their Calendly page](https://calendly.com/bu-urop)), so that students submit the most fundable applications.
 
@@ -27,18 +27,48 @@ Students who receive UROP funding must also present a poster outlining their fun
 
 Some important limits to keep in mind with respect to UROP funding:
 
-* There is a limit to how many students a PI may sponsor for UROP funding. This limit is typically around 2 students per PI per semester, but in certain semesters may be fewer.
+* There is a limit to how many students a PI may sponsor for UROP funding. This limit is 2 students per PI per semester, but in certain semesters may be fewer.
 * There is a limit to how many times a student may receive UROP funding. Currently, the limit has been placed at TWO awards for an individual student.
-* This funding cannot fund students once they’ve graduated. If you would like to use UROP Summer funding to support fieldwork at a SMAGL field site, it must take place in a summer prior to your graduation date.
-* Students receiving academic credit for their research (e.g., [Honors Research]() or [Research for Credit]()) cannot simultaneously receive UROP funding.
+* This funding cannot fund students once they’ve graduated. If you would like to use UROP Summer funding to support fieldwork at a SMAGL field site, it must take place in a summer *prior to* your graduation date.
+* Students receiving academic credit for their research (e.g., [Honors Research](https://fuzzyatelin.github.io/smagl_student_guide/smagl_honors.html) or [Research for Credit](https://fuzzyatelin.github.io/smagl_student_guide/smagl_rescredit.html)) cannot simultaneously receive UROP funding
+* International students receiving UROP funding *must* do their research work in the United States to receive funding.
 
 UROP provides the following categories of Awards:
 
-## Research Awards
+## Stipend Awards
+
+Stipend awards are paid directly to the student as taxable income; the hourly rate will reflect the current state minimum wage. These include:
+
+* **Student Research Award (SRA)**: full amount provided by UROP. 
+Fall or Spring Semester may earn up to $750 for 5 hours per week.
+Summer semester may earn up to $7,000 for 40 hours per week for a 10-week program.
+* **Faculty Matching Grants (FMG)**: half provided by UROP, half by the faculty mentor. The SMAGL Schmitt Lab does not currently provide UROP-FMG.
 
 Your UROP Research Award application must be centered on a research project in the SMAGL under the supervision of either Prof. Garrett and Prof. Schmitt. Your application must be written in association with your supervisor! This means that they must review your application prior to submission. You may not submit without the direct approval by your SMAGL supervisor of your UROP application. If you are working on a group project with other UROP applicants, you must each make this clear in your respective applications and describe each individual’s unique role in the project. Identical applications are not accepted.
 
-Funding: UROP awards currently pay minimum wage salary for 10-20 hours per week up to a maximum of \$4,400 dollars in Summer semesters, and for 5-10 hours per week up to a maximum of \$1,350 for Fall/Spring semesters. Reduced amounts may also be requested based on time planned for research.
+Students may apply for different stipend amounts based on the approximate number of hours to be worked per week (note that, while the award is for the semester or summer, it is paid in weekly installments over a 10 week period):
+
+**Fall or Spring Semester**:
+
+* 5 hours = $750
+* 8 hours = $1,200 (with FMG only)
+* 10 hours = $1,500 (with FMG only)
+
+**Summer (beginning 2026)**:
+
+* 20 hours = $3,500
+* 30 hours = $5,250
+* 40 hours = $7,000 (note: if conducting fieldwork, the default commitment is 40 hours/week)
+
+
+**Important Notes on Stipend Working Hours Stipulations**
+
+* UROP stipend payments are paid as weekly salaried payments through Student Employment.
+* Students are not eligible to work more than 20 hours/week during the academic year and 40 hours/week during the summer across on-campus jobs.
+* Students cannot receive double payment for working the same job. For example, if you work 10 hours/week during the academic year for a UROP stipend, you cannot be paid with work-study or departmental funds for the same 10 hours. However, if you work 10 hours/week during the academic year for a UROP stipend and an additional 10 hours on another job or on the same research project, you may be eligible to receive payment from work-study funding or departmental for the additional hours worked under the hourly guidelines listed above.
+* All non-UROP funding sources used to support your research project need to be discussed with your mentor.
+* Any summer-funded UROP students working another job on campus must report this in their award acceptance paperwork.
+* If you have questions about receiving UROP funding while working another job on campus, please contact the office to discuss this further.
 
 [Deadlines for UROP](https://www.bu.edu/urop/get-involved/deadlines/): 
 
@@ -365,6 +395,33 @@ Graduate school funding for immigrants and children of immigrants in the United 
 ## [Ben Barres Fellowship](http://noglstp.org/)
 
 The National Organization of Gay and Lesbian Scientists and Technical Professionals (NOGLSTP) funds this award for trans, intersex, and non-binary graduate students and postdoctoral fellows in STEM fields. This may fund research, conference attendance and travel, or other professional uses.
+
+# SMAGL Undergraduates Funded by these Awards
+
+Just to illustrate that you *can* actually win these awards as a student in the SMAGL (and if you'd like to reach out to past winners to ask if you could potentially see their applications or hear about their experiences applying), the following are SMAGL undergraduates who have won the above awards <ins>current lab members are highlighted</ins>):
+
+## Internal Awards
+
+* **UROP (Fall/Spring)**: <ins>Jacob Bronstein</ins>, Tyler Crawford, Morgan Farrar (x 3), Gianna Grob, Stephanie Inga, Nicole Lukas (x 3), <ins>Rhoda Ndukwe</ins>, Stacy-Anne Parke (x 3), Marwa Sayed, Dillon Travis (x 2)
+* **UROP (Summer)**: Morgan Farrar, <ins>Matteo Finnerty</ins>, Reese Hotten-Somers (x 2), Nicole Lukas, Stacy-Anne Parke, Evan Razdan, Marwa Sayed, Sofia Weaver (x 2), <ins>Claire Zhang</ins>
+* **Honors Research Travel Award**: <ins>Claire Zhang</ins>
+* **Biology Undergraduate Travel Award**: Tennyson Cooper, Sofia Weaver
+* **Harold C. Case Scholarship**: Reese Hotten-Somers
+* **Dean Elsbeth Mellville Scholarship**: Becca DeCamp
+* **Department of Anthropology Undergraduate Research/Scholarship Award**: Becca DeCamp, Morgan Farrar, Reese Hotten-Somers, Stacy-Anne Parke
+* **Department of Biology Undergraduate Research Award**: Chloe Leaman
+
+## External Awards
+
+* **AABA IDEAS Scholarship**: Alex Ortiz Gimenez Zapiola, <ins>Rhoda Ndukwe</ins> (Runner-Up), Stacy-Anne Parke, Xaulanda Thorpe, Sofia Weaver
+* **ASP Research Grant**: <ins>Matteo Finnerty</ins>, Sofia Weaver
+* **Barry Goldwater Scholarship**: Sofia Weaver
+* **Field Projects International Scholarship**: Alex Ortiz Gimenez Zapiola, Sofia Weaver
+* **NSF REU**: <ins>Jacob Bronstein</ins>, Alex Ortiz Gimenez Zapiola, Will Pudlo, Dillon Travis
+* **SICB Broadening Participation Professional Development Award**: Sofia Weaver
+* **SMBE Undergraduate Award**: Reese Hotten-Somers
+
+
 
 #
 #
