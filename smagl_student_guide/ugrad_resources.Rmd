@@ -1,7 +1,7 @@
 ---
 title: "Other Resources for Undergraduates in the SMAGL"
 author: "Christopher A Schmitt</br>Boston University"
-date: "August 15, 2024"
+date: "August 15, 2026"
 output: 
   rmdformats::readthedown:
     toc_depth: 5
@@ -10,16 +10,37 @@ output:
 # Tutoring Services
 
 [Educational Resource Center (ERC)](www.bu.edu/erc)<br>
-100 Bay State Road, 6th Floor<br>
-617-353-5960<br>
-erc@bu.edu<br>
+Yawkey Center for Student Services<br>
+100 Bay State Road, 5th Floor<br>
+617-353-7077<br>
+erc[at]bu[dot]edu<br>
 
 # Academic Advising Services
 
-[Academic Advising](http://www.bu.edu/casadvising/)<br>
+[Academic Advising & Student Success](http://www.bu.edu/advising/)<br>
+Yawkey Center for Student Services<br>
 100 Bay State Road, Room 401<br>
 617-353-2400<br>
-casadv@bu.edu<br>
+casadv[at]bu[dot]edu<br>
+
+# [Disability & Access Services](https://www.bu.edu/disability/)
+
+25 Buick Street, Suite 300<br>
+Dawn Sousa-Hearn, Director<br>
+(617) 353-3658<br>
+access[at]bu[dot]edu<br>
+[New Application for an Accommodation](https://bu-accommodate.symplicity.com/public_accommodation/)<br>
+[New Semester Requests for Accommodation](https://www.bu.edu/disability/current-students/accessing-accommodations/)
+
+Disability & Access Services provides services and support to ensure that students are able to access and participate in the opportunities available at Boston University. Although a significant degree of independence is expected of students, Disability & Access Services is available to assist, should the need arise.
+
+In higher education, there are no IEP or 504 teams, and parents or guardians are only in the conversation if you want them to be, which can be a huge change from high school. Instead, DAS uses an individualized approach that bases all decisions on the documentation of a student’s disability. They look for a student’s current significant need and determine accommodations on a case-by-case basis. This means that not all students with one kind of disability get the same service. It also means that some accommodations you have received at other institutions might look different here.
+
+Due to the generally high volume of accommodation requests, DAS currently schedules appointments 1-2 weeks in advance so that they can meet with everyone. Once you meet with them, it may take up to two weeks for them to fully review your accommodation request(s).
+
+Please note that you MUST request a new Faculty Accommodation Letter (FAL) each semester for every class you need accommodations in. FALs are dated and, for example, a letter from Summer or earlier will not be accepted for Fall classes.
+
+DAS also provides an [Accommodation Testing Center](https://www.bu.edu/disability/academic-testing-center/). Students must provide three (3) business days notice to book a space at the Accommodation Testing Center. Follow the link above for booking information.
 
 # Writing Assistance
 
@@ -28,31 +49,54 @@ casadv@bu.edu<br>
 Writing assistance is offered through the ERC (see above). Students must make an appointment in advance on the ERC website or by phone. Appointments may be traditional (45 minutes), or drop-in (20 minutes).
 
 ##	[CAS Writing Center](http://www.bu.edu/writingprogram/the-writing-center/)
-
+Yawkey Center for Student Services<br>
 100 Bay State Road, 3rd Floor (satellite location at Mugar Library)<br>
 (617) 358-1500<br>
-writing@bu.edu<br>
+writing[at]bu[dot]edu<br>
+Online scheduling for consultation: https://cas.mywconline.com/
 
 The Writing Center offers both scheduled appointments (made on their website) and walk-in sessions. Sessions are 45-mintes long and are typically set up for weekly returns and draft revisions. Central purpose is to support the CAS Writing Program, but they also offer open tutoring proffered primarily by undergraduate peer writing consultants, but also graduate consultants. There are also designated and trained ESL specialists to help L2 students.
 The Writing Center also offers training on disciplinary and academic conventions.
 
-# [Sexual Misconduct and Harassment](https://www.bu.edu/eoo/sexual-misconduct-title-ix/title-ix-team/)
+# Conflict Management
+
+## [Sexual Misconduct and Harassment](https://www.bu.edu/eoo/sexual-misconduct-title-ix/title-ix-team/)
 
 University Title IX Coordinator<br>
-Jean Estevez, Executive Director of Equal Opportunity<br>
+Erin Sullivan, Interim Executive Director of Equal Opportunity<br>
 (617) 353-1796<br>
-titleix@bu.edu<br>
+titleix[at]bu[dot]edu<br>
 
-All faculty and TFs (including Postdoctoral Research Associates) are “responsible employees” of BU, and as such are mandatory reporters of sexual misconduct or harassment if they hear of such behaviors, and must report them to Kim Randall, the Title IX Coordinator, or a Deputy Title IX Coordinator (see below). See the links above for a comprehensive list of definitions outlining which behaviors qualify. Due to our role as mandatory reporters, we cannot guarantee confidentiality if a student tells us about harassment or sexual misconduct.
+All faculty and TFs (including Postdoctoral Research Associates) are “responsible employees” of BU, and as such are **mandatory reporters** of sexual misconduct or harassment if they hear of such behaviors, and must report them to Erin Sullivan, the University Title IX Coordinator, or a Deputy Title IX Coordinator (see below). See the links above for a comprehensive list of definitions outlining which behaviors qualify. Due to our role as mandatory reporters, we cannot guarantee confidentiality if a student tells us about harassment or sexual misconduct.
 
 Within CAS, mandatory reporting may also be made to the following CAS Deputy Title IX Coordinators:
 
 CAS Title IX Coordinator<br>
 Danielle Kane, Deputy Title IX & DEI Outreach<br>
 (617) 353-2401<br>
-dnkane@bu.edu<br>
+dnkane[at]bu[dot]edu<br>
 
-For confidential reporting of sexual misconduct or harassment, students have a number of resources available to them (listed in the links above), including the [Sexual Assault Response and Prevention Center (SARP)](https://www.bu.edu/shs/sarp/), (617) 353-SARP, sarp@bu.edu; [Student Health Services (SHS)](https://www.bu.edu/shs/), and the [University Chaplains](https://www.bu.edu/chapel/about/staff/chaplains/).
+For confidential reporting of sexual misconduct or harassment, students have a number of resources available to them, including the [Sexual Assault Response and Prevention Center (SARP)](https://www.bu.edu/shs/sarp/), (617) 353-SARP, sarp[at]bu[dot]edu; [Student Health Services (SHS)](https://www.bu.edu/shs/), and the [University Chaplains](https://www.bu.edu/chapel/about/chaplains-staff/).
+
+## [BU Office of the Ombuds](https://www.bu.edu/ombuds/)
+
+930 Commonwealth Ave, Suite 1100<br>
+(617) 358-5960<br>
+ombuds[at]bu[dot]edu<br>
+
+The Boston University Office of the Ombuds is a confidential, neutral, and independent resource providing informal assistance to faculty, staff, and students on the Charles River and Medical Campuses. That assistance may be as simple as locating the right resource at BU. More often, however, ombuds assist with highly sensitive, often complex issues, for which there is no ready-made or simple solution. 
+
+The Office is a purely voluntary resource. No one is required to use it, but having a neutral third party mediate a difficult discussion can be very helpful.
+
+## [Office of Student Conduct & Conflict Resolution](https://www.bu.edu/dos/osccr/)
+
+25 Buick Street, Suite 150<br>
+(617) 358-0700<br>
+studentconduct[at]bu[dot]edu<br>
+
+OSCCR (pronounced ‘Oscar’) adjudicates allegations of nonacademic misconduct as delineated in the [Code of Student Responsibilities](https://www.bu.edu/dos/policies/student-responsibilities/) (Code), a set of guiding principles and behavioral expectations. The expectations set forth in the Code emphasize integrity, self-discipline, and personal responsibility. The Code reflects the University’s commitment to fairness, protecting students’ rights, and to promoting a safe and supportive learning community built on mutual trust and respect.
+
+OSCCR also offers conflict coaching, facilitated discussions, restorative conferences, and peer mediation training to equip students with the information, skills, and confidence to constructively resolve conflicts on their own. Eligible students are guided through active listening, framing, and rephrasing exercises in programs ranging from ninety minutes to four hours. By introducing mediation concepts in a small-group format, students discover an appreciation for the power and benefits of collaborative problem solving.
 
 # [Enrollment and Retention Concerns](http://www.bu.edu/usc/)
 
@@ -60,7 +104,7 @@ University Enrollment and Services Center (USC)<br>
 881 Commonwealth Ave<br>
 Kris Gilchrist-Minasidis, Director<br>
 617-358-1818<br>
-usc@bu.edu<br>
+usc[at]bu[dot]edu<br>
 [Make an appointment!](https://www.bu.edu/usc/contact-us/)
 
 The general role of the USC is to untangle complex student concerns, take a big picture focus on how to handle the transition to college, and serve as a clearing house to handle leaves of absence and withdrawals from undergraduate students. They think of themselves as a retention office. They have drop-in hours 4 days a week, and take appointments from students. If you have any complex concerns that are wrapped up in multiple domains at BU (e.g., financial aid, study abroad, leave of absence, severe or long-term illness accommodations, familial illness or emergencies, etc), this office can help you to navigate them. They are also responsible for reaching out to students with lapsed records (e.g., missing tuition payments, scholarship losses).
@@ -69,17 +113,26 @@ The general role of the USC is to untangle complex student concerns, take a big 
 
 [The Newbury Center](https://www.bu.edu/newbury-center/) is dedicated to the success of first-generation college students at BU. This program is explicitly made to welcome and prepare first generation undergraduate and graduate students. If you are experiencing stress or issues related to being a first-generation student, contact the center, if not already involved.
 
-111 Cummington Mall Suite B27 (Basement Level)<br>
-Maria Erb, executive director<br>
-(617) 353-3400<br>
-newburycenter@bu.edu<br>
+775 Commonwealth Ave, Suite B04<br>
+Maria Dykema Erb, Executive Director<br>
+(617) 353-3424<br>
+newburycenter[at]bu[dot]edu<br>
 [Make an appointment!](https://www.bu.edu/newbury-center/about/meet-the-staff/)
+
+# [LGBTQIA+ Student Resource Center](https://www.bu.edu/lgbtqia-student-center/)
+
+808 Commonwealth Ave, Floor 2M<br>
+Katy Collins, Executive Director<br>
+(617) 353-3908<br>
+bupride[at]bu[dot]edu<br>
+
+The LGBTQIA+ Student Resource Center is an inclusive and safe environment for all members of the community. With a deep commitment to recognizing and addressing the unique challenges faced by queer and trans students, the center will offer accessible resources, sustain inclusive community groups, introduce intersectional programming, and empower individuals in their pursuit of authentic self-expression within the university setting.
 
 # Out in STEM (oSTEM) at BU
 
 [Out in Science, Technology, Engineering, and Mathematics (oSTEM), Inc.](https://ostem.org) is a national non-profit professional society focused on LGBTQ people in the STEM community. With more than 75 student chapters at colleges/universities and professional chapters in cities across the United States and abroad, oSTEM is the largest chapter-based organization focused on LGBTQ people in STEM.
 
-BU has two oSTEM chapters: one for undergraduate students ([UoSTEM@BU](https://outinstem.neocities.org)), and one for graduate students ([oSTEM@BU](https://sites.bu.edu/ostem/)). Prof. Schmitt has been the faculty advisor for both groups.
+BU has two oSTEM chapters: one for undergraduate students ([UoSTEM@BU](https://outinstem.neocities.org)), and one for graduate students ([oSTEM@BU](https://sites.bu.edu/ostem/)). Prof. Schmitt has in the past served as the faculty advisor for both groups.
 
 The undergraduate oSTEM chapter is run via the Student Activities Office, and can most easily be contacted through their website.
 
@@ -91,6 +144,44 @@ The undergraduate oSTEM chapter is run via the Student Activities Office, and ca
 
 [WISEguys](https://www.bu.edu/gwise/wiseguys/) is a group looking to engage men in allyship with and advocacy for women in STEM. Reaching gender parity in the professional world requires the participation of all genders, and intervention at the individual and organizational levels. WISEguys aims to recruit male graduate students in this cause through events and resources centered on education, conversation, and action in cooperation with GWISE. We also aim to involve more men in the GWISE community, as GWISE events and volunteer opportunities are open to all who support women in STEM.
 
+# [Howard Thurman Center for Common Ground](https://www.bu.edu/thurman/)
+
+808 Commonwealth Ave<br>
+Nick Bates, Director<br>
+(617) 353-4745<br>
+thurman[at]bu[dot]edu<br>
+
+The Thurman Center is meant to be Boston University’s cultural hub, and, unlike many colleges and universities that have separate Centers based on race, Boston University’s Howard Thurman Center does not. The Thurman Center is intentionally inclusive and emphasizes the importance of stepping outside your comfort zone to build relationships and share experiences with others. The Thurman Center is a place where cultural expression in all of its forms is embraced and encouraged.
+
+# [BU Food Pantry](https://www.bu.edu/studentwellbeing/bu-food-pantry/)
+
+Not all of us are always able to afford the high costs of living in Boston. The BU Food Pantry is here to support all students on campus who may be facing episodic food insecurity and to educate students about how they they can make nutritious and budget friendly choices. Rather than providing an open pantry, BU Food Pantry requests that food be ordered directly using [this form](https://www.bu.edu/studentwellbeing/bu-food-pantry/place-an-order/).
+
+Other food resources in the area are listed [here](https://www.bu.edu/studentwellbeing/bu-food-pantry/resources-to-support-student-food-needs/).
+
+The [BU Calendar](https://www.bu.edu/calendar/) lists all public events on campus, many of which have free food from BU Catering. The leftovers from these events are often available to take home.
+
+# [Student Health Services](https://www.bu.edu/shs/)
+
+881 Commonwealth Ave - West<br>
+(617) 353-3575<br>
+
+Most students can use SHS services and programs. Eligible students include:
+
+* Full-time undergraduate, graduate, and professional students — regardless of what health insurance plan you have!
+* Part-time students who are enrolled in the Student Health Insurance Plan (SHIP)
+* Part-time students with a different health insurance plan can attend mental health groups but are not eligible for medical services. They can [contact SHS in an emergency](https://www.bu.edu/shs/emergency-numbers/) and ask for help finding healthcare services in the community.
+
+Students in online-only programs are not eligible for services, but can access peer support and connect with a mental health clinician through the online platform [Togetherall](https://www.bu.edu/shs/mental-health/peer-support/togetherall/). [Self-help resources](https://www.bu.edu/shs/mental-health/resources-to-help-yourself/common-concerns/) are also available on common mental health concerns.
+
+# [Counseling & Psychiatric Services](https://www.bu.edu/shs/mental-health/)
+
+881 Commonwealth Ave - West<br>
+(617) 353-3569<br>
+
+We all need a little (or a lot!) sometimes to cope with what life brings us. If you are a student, there is no cost for mental health care at SHS, as those services are covered by tuition. [Make an appointment here](https://www.bu.edu/shs/about-us/how-care-works/make-an-appointment/).
+
+If you are having a mental health emergency, you can reach SHS in an emergency 24/7/365 by calling (617) 353-3569. You can also walk into their office on the Charles River Campus (881 Commonwealth Ave) during [business hours](https://www.bu.edu/shs/about-us/departments-hours/). You should not use Patient Connect to contact SHS in an emergency.
 
 
 #
