@@ -58,7 +58,7 @@ If you need them, you can contact and learn more about the SMAGL PIs in the foll
 }
 ```
 
-The SMAGL Laboratory Coordinator and Lab Safety Coordinator is [**Dr. Christian Gagnon**](https://www.christianmgagnon.com) (he/him). Christian is the Lab Coordinator for all the labs associated with the Department of Anthropology, and can help with any safety or equipment concerns in the lab, the ordering of necessary supplies and many other day-to-day lab tasks. He is also a SMAGL Schmitt Lab alumnus! Christian earned his Ph.D. in Biological Anthropology with the SMAGL in 2023 with his dissertation on [*The Evolutionary History and Adaptive Significance of UCP1-Mediated Thermogenesis in Primates*](https://open.bu.edu/server/api/core/bitstreams/e050dc95-5aea-4534-91ad-47aae24ddb24/content), and developed our [vervet genomics pipeline](https://datadryad.org/dataset/doi:10.5061/dryad.k3j9kd59z).
+The SMAGL Laboratory Coordinator and Lab Safety Coordinator is [**Dr. Christian Gagnon**](https://www.christianmgagnon.com) (he/him). Christian is the Lab Coordinator for all the labs associated with the Department of Anthropology, and can help with any safety or equipment concerns in the lab, the ordering of necessary supplies and many other day-to-day lab tasks. He is also a SMAGL Schmitt Lab alumnus! Christian earned his Ph.D. in Biological Anthropology with the SMAGL in 2024 with his dissertation on [*The Evolutionary History and Adaptive Significance of UCP1-Mediated Thermogenesis in Primates*](https://open.bu.edu/server/api/core/bitstreams/e050dc95-5aea-4534-91ad-47aae24ddb24/content), and developed our [vervet genomics pipeline](https://datadryad.org/dataset/doi:10.5061/dryad.k3j9kd59z).
 
 Christian is most easily reached on the SMAGL Schmitt Lab Slack, via his office phone (617-353-5521), work email (cmgagnon@bu.edu) or in his office (STO 241; down the hall from the SMAGL lab space).
 <br><br>
@@ -293,7 +293,7 @@ Dissertation: *Landscape Mitogenomics and High-Altitude Adaptation in the Peruvi
 <img src="http://www.evopropinquitous.net/uploads/1/2/5/0/12507343/published/christiangagnon-aaba.png?1704233218"> 
 </div>
 
-**Christian Gagnon** (Ph.D. 2023, Biological Anthropology, Schmitt Lab; he/him).<br>
+**Christian Gagnon** (Ph.D. 2024, Biological Anthropology, Schmitt Lab; he/him).<br>
 Dissertation: *The Evolutionary History and Adaptive Significance of UCP1-Mediated Thermogenesis in Primates*
 
 <br>
