@@ -1,0 +1,202 @@
+---
+title: "Graduate Program Information"
+author: "Christopher A Schmitt<br>Boston University"
+date: "August 15, 2026"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+Graduate students in the SMAGL Schmitt Lab will choose their courses in consultation with graduate requirements for their respective programs, with their larger thesis/dissertation committees, and on my own advice considering their desired research and career pathways. Although degree requirements are clear for each graduate program, there’s also a lot of freedom to choose and creative ways to get through coursework. I’ll provide some recommendations here, along with a general outline of each degree program.
+
+*All incoming graduate students* are strongly recommended to take [GRS BI 671](https://www.bu.edu/academics/grs/courses/cas-bi-671/) in the fall semester of their first year, in which students draft a [NSF GRFP](https://www.nsfgrfp.org) proposal.
+
+# M.S. Students (Biology - EBE)
+
+General guidelines for students earning their Masters of Science in Biology are available [here](https://www.bu.edu/biology/biology-graduate-program/ms/). Please always consult the [**Department of Biology Graduate Program Guide**](https://www.bu.edu/biology/2025-2026-graduate-program-guide/) before asking me questions regarding requirements; the guide is the final word and will be more complete than my own knowledge of many aspects of the program. 
+
+Generally, students accepted into the Schmitt Lab to conduct M.S. research are on the Research Thesis Track, in which students must complete 32 credits of 500-level and above coursework with a minimum grade point average of 3.0. At least 20 of these credits must come from formal course work (i.e., cannot include research-for-credit). Up to 12 credits can be Readings in Biology (BI [701](https://www.bu.edu/academics/grs/courses/cas-bi-701/)/[702](https://www.bu.edu/academics/grs/courses/cas-bi-702/)) or Master’s Research in Biology ([BI 595](https://www.bu.edu/academics/grs/courses/cas-bi-595/)). The full list of Biology courses can be found [here](http://www.bu.edu/academics/grs/courses/biology/). The M.S. in Ecology, Behavior, and Evolution coursework is highly variable. The M.S. program has generally been good at alerting students which courses are available each semester. Students, in consultation with advisors, develop a plan of coursework and research.
+
+In addition to the requirements listed above, the student must complete a program of research acceptable to their thesis committee that leads to the preparation of a thesis. This thesis must be approved by a ***committee of three faculty members*** that includes at least **two faculty members from the Biology Department** (that includes me). The final reader-approved thesis must be submitted to the [Electronics Thesis and Dissertations (ETD) Administrator](http://www.etdadmin.com/bu) for final approval by the graduate school before the date posted on the GRS submission calendar. More information about thesis formatting and submission can be found on the [GRS website](http://www.bu.edu/cas/current-students/ma-and-ms-students/graduation-information/). Theses from prior M.S. students in the SMAGL Schmitt Lab are available in the SMAGL Schmitt Lab Google Drive.
+
+Officially, the master’s degree requirements must be completed within three (3) years from the date of first registration. However, students may apply to the Graduate School for extensions past the three-year deadline. MS degrees are conferred in May, August, or January, as specified on the [GRS website](http://www.bu.edu/cas/current-students/ma-and-ms-students/graduation-information/).
+
+The Biology Department does not guarantee financial support for MS students, although limited partial scholarships are available, and there are often Teaching Fellow positions available for MS students that provide ~$6,000 per semester. If you're interested in these opportunities please indicate this in your application. More information on the [cost of attendance](http://www.bu.edu/cas/current-students/ma-and-ms-students/cost-of-attendance/) and [financial aid](http://www.bu.edu/cas/current-students/ma-and-ms-students/financial-aid/aid-for-masters-students/) is available on the GRS website.
+
+# Ph.D. Students (Anthropology - Biological Anthropology)
+
+Up-to-date details on the requirements for the Ph.D. program in Anthropology are available in the [Department of Anthropology Ph.D. Student Handbook](https://www.bu.edu/anthrop/student-resources/graduate-student-resources/graduate-student-handbook/). Students entering the program must successfully complete at least 16 graduate semester courses (64 credits) for the PhD. Course requirements are as follows (with recommended courses in **bold**):
+
+## Core Course Requirements
+
+*	**GRS AN 701** Anthropology Across Sub-Disciplines
+*	**GRS AN 705** Theory in Evolutionary Anthropology: The Biological and Historical Past
+*	**One** of the following: 
+    +	GRS AN 703 Anthropological Theory: History and Practice
+    +	GRS AN 704 Sociocultural Theory: Contemporary Currents
+    +	GRS AN 751 Seminar in Linguistic Anthropology
+  	+ **GRS AN 791** Contemporary Theory in Archaeology
+*	**One** course in relevant research methods (I recommend students in my lab take both): 
+    +	**GRS AN 595** Methods in Biological Anthropology
+    +	**GRS AN/BI 588** Project Design and Statistics in Biological Anthropology
+
+## Biological Anthropology Track Requirements
+
+Students are expected to take **at least one course or directed reading/research course** in each of the Biological Anthropology subfields: 
+
+*	Primatology (I recommend students in my lab take both living primate courses):
+    +	**GRS AN 735** The Ape Within
+    +	**GRS AN 736** Primate Behavioral Ecology
+    +	GRS AN 739 Primate Biomechanics
+*	Human Biology
+    +	GRS AN 555 Evolutionary Medicine
+    +	GRS AN 558 The Evolutionary Biology of Human Sex Differences
+    +	GRS AN 559 Evolutionary Endocrinology
+    +	GRS AN 562 The Origins of War
+    +	GRS AN 721 Cognition and Culture
+    +	**GRS AN 730** From Conception to Death: The Evolution of Human Life History
+    +	GRS AN 734 Human Behavioral Evolution
+*	Genetics/Genomics (**I recommend students in my lab take both**)
+    +	**GRS AN/BI 733** Human Population Genetics
+    +	**GRS AN 551** Human Evolutionary Genomics
+*	Paleoanthropology/Morphology
+    +	GRS AN 550 Human Osteology
+    +	GRS AN 552 Primate Evolution and Anatomy
+    +	GRS AN 731 Human Origins
+    +	GRS AN 739 Primate Biomechanics
+*	Directed Study
+    +	GRS AN 901/902 Directed Study in Anthropology
+    +	GRS AN 970 Dissertation Research
+*	Electives
+    +	GRS AN 510 Proposal Writing for Social Science Research
+    +	GRS AN 556 The Evolution of the Human Diet
+    +	GRS AN 597/598 Special Topics in Biological Anthropology
+
+## Professional Development Seminars
+
+The Department of Anthropology hosts several Professional Development Seminars during the academic year. Seminars are scheduled on Wednesday afternoons so as not to conflict with any graduate coursework in Anthropology. *Consider these seminars to be mandatory if you are a first- or second-year Ph.D. student in Anthropology*. Seminars typically focus on a particular topic crucial to graduate student success and issues often characterized as *hidden curricula* that are not typically explicitly taught in graduate school – including TF training, successfully publishing research, how to successfully navigate national meetings, how Title IX works at the university, applying for academic positions, and applying for positions outside of academia.
+
+These courses interact with other professional development resources available via [Professional Development & Postdoctoral Affairs (PDPA)](https://www.bu.edu/pdpa/for-doctoral-students/), which has doctoral student-specific activities and guidelines that you are encouraged to incorporate into our advising relationship and your journey towards the degree and your chosen career, including [Ph.D. Progression Badges](https://www.bu.edu/pdpa/for-doctoral-students/phd-progression/) that interact directly with our departmental seminar topics.
+
+You can learn more about [recommended Professional Development resources for SMAGL Schmitt Lab graduate students here](https://fuzzyatelin.github.io/smagl_student_guide/smagl_idp.html).
+
+## Recommended Electives in Biology
+
+Students in the Ph.D. program in Anthropology may fill out their electives with courses in other departments. The most common is Biology. The following is a list of potential courses that could be relevant for students in my lab. It is by no means comprehensive, and I cannot vouch for the availability or quality of all of these courses (but those courses in bold *have* been taken by SMAGL Ph.D. or M.S. students and have been recommended in the past). I recommend you talk to more senior Ph.D. students about which they may have taken before registering.
+
+*	**GRS BI 504 Advanced Evolutionary Analysis**
+*	**GRS BI 506 Phenotypic Plasticity**
+*	GRS BI 509 Metapopulation Ecology
+*	GRS BI 515 Population Genetics
+*	GRS BI 519 Theoretical Evolutionary Ecology
+*	GRS BI 552 Molecular Biology I
+*	**GRS BI 565 Functional Genomics**
+*	GRS BI 572 Advanced Genetics
+*	GRS BI 577 Quantitative Approaches in Molecular Biology
+*	GRS BI 579 Progress in Ecology, Behavior, Evolution, and Marine Biology 1
+*	GRS BI 580 Progress in Ecology, Behavior, Evolution, and Marine Biology 1
+*	**GRS BI 586 Ecological Genomics**
+*	**GRS BI 607 Animal Behavior**
+*	GRS BI 611 Microbiome: Our Intimate Relationship with Microorganisms
+*	GRS BI 613 Microbial Ecology
+*	**GRS BI 648 Biodiversity and Conservation Biology**
+*	**GRS BI 671 Survey of Ecology, Behavior, Evolution, and Marine Biology**
+
+## Language Requirement
+
+All students pursuing a Ph.D. degree in Anthropology are required to demonstrate graduate-level reading proficiency in one foreign language that is relevant to their proposed area of research before taking the comprehensive examination. If the only such language is English, any other major foreign language can meet the requirement. Students undertaking fieldwork are generally expected to master the local language of their field site; this may be the same as the scholarly language in some cases. Students in Biological Anthropology not conducting fieldwork may appeal to the Graduate Committee for exceptions (i.e., demonstrating mastery of a coding language), but these may or may not be granted.
+
+Language proficiency can be demonstrated either through a language examination or the equivalent of three years (six semesters) of undergraduate study of the language (more or less may be required, depending on the specific language).
+
+## Comprehensive Examination
+
+Each student must pass both a written and an oral Ph.D. Qualifying or Comprehensive Examination given by members of the advisory committee. The examination covers (1) general evolutionary anthropology and theory; (2) a subdisciplinary research topic or methodological specialization; and (3) at least one species or research specialization. The purpose of the examination is to determine whether a student will be recommended to continue working toward the Ph.D. For more detail on these exams, see the [Guide to the Comprehensive Exam in Biological Anthropology](https://fuzzyatelin.github.io/smagl_student_guide/grad_comps.html) for more details.
+
+## Prospectus
+
+Before the end of the second semester following the comprehensive exams, students present their dissertation proposals to the faculty in the form of a prospectus. The student’s advisory committee guides the development of the prospectus and participates in an oral defense, which is open to the entire department. Generally, biological anthropology students prepare their prospectus in the form of a NSF DDRIG proposal (see the [Graduate Funding](https://fuzzyatelin.github.io/smagl_student_guide/grad_funding.html) section for links to DDRIG preparation guidelines), and present it as a PowerPoint outlining their proposed research project and any relevant pilot data.
+
+Both the Comprehensive Exam and the Prospectus generally must be passed before you can apply for dissertation-based external funding (e.g., NSF DDRIG, Leakey Foundation Dissertation Grant, Wenner-Gren Foundation Fieldwork Grant).
+
+## Dissertation and Final Oral Examination (aka Defense)
+
+Candidates demonstrate their abilities for independent research in a dissertation representing original research or creative scholarship. Candidates must undergo a final oral examination in which they defend their dissertation as a valuable contribution to knowledge in their field and demonstrate a mastery of their field of specialization in relation to their dissertation. All portions of the dissertation and final oral examination must be completed as outlined in the [GRS General Requirements for the Doctor of Philosophy Degree](https://www.bu.edu/academics/grs/policies/degree-requirements/).
+
+In biological anthropology, we accept published papers as dissertation chapters (although published chapters must have copyright acknowledged and get permission from the journal for inclusion in the dissertation). Generally, a dissertation will be comprised of five (5) chapters – an introduction, three “data chapters” each of which presents a unique study linked by the dissertation subject (each may be an independent published paper), and a concluding/discussion chapter with potential future directions. Dissertation chapters do not need to be published prior to defense, but it doesn’t hurt.
+
+## After the Degree…
+
+Comprehensive information on the Ph.D. program in Anthropology (including average time to degree, demographics, and more) is available on the [BU Anthropology website](https://www.bu.edu/anthrop/) in our [Program Profile](https://www.bu.edu/grad/why-bu/phd-program-profiles/anthropology/), including a comprehensive list of [post-degree placements for Ph.D. students in Anthropology](https://www.bu.edu/anthrop/academics/graduate-program/ph-d-placements/), generally.
+
+Below is a list of current placements (as of Spring 2025) of postdoctoral and graduate alumni from the SMAGL Schmitt Lab:
+
+###	Postdoctoral Research Associates
+
+* **Dr. Maryjka Blaszczyk, M.B.Ch.B., Ph.D.** (2016)
+    +	Postdoctoral Scholar, Di Fiore Lab, University of Texas at Austin (2017-2019)
+    + Pathology Medical Resident, Rutgers University (2019 - 2024)
+    +	Molecular Genetic Pathology Fellow, Oregon Health & Science University (2024 – present)
+* **Dr. Alicia Rich, Ph.D.** (2018 – 2019)
+    +	Assistant Professor of Conservation and Zoo Biology, Otterbein University (2019-2023)
+    +	Assistant Professor of Biology, University of Nebraska at Omaha (2023 – present)
+
+###	Ph.D. in Biological Anthropology
+
+*	**Dr. Christian Gagnon, Ph.D.** (Ph.D. 2024)
+    +	Dissertation: *The Evolutionary History and Adaptive Significance of UCP1-Mediated Thermogenesis in Primates*
+    + Postdoctoral Research Fellow working with Genevieve Housman at the Max Planck Institute for Evolutionary Anthropology (Leipzig, Germany) (2024 -2025).
+    + Laboratory Manager, Department of Anthropology, Boston University (2025 - present)
+* **Zoe Albert Miller** (Ph.D. 2026)
+    + Dissertation: *The Gut Microbiome as a Potential Modulator of Energetic Stress in Bornean Orangutans (Pongo pygmaeus)*
+* **Melissa Zarate** (Ph.D. 2026)
+    + Dissertation: *Landscape Mitogenomics and High-Altitude Adaptation in the Peruvian Yellow-Tailed Woolly Monkey (Lagothrix flavicauda).* 
+
+###	M.S. in Biology
+
+*	**Melissa Zarate** (M.S. 2020)
+    +	M.S. Thesis: *Predicting suitable habitat for the Critically Endangered yellow-tailed woolly monkey (Lagothrix flavicauda) in Perú.*  (Winner, Denton Award for Outstanding Master’s Thesis in Biology)
+    +	Ph.D. student in Biological Anthropology at Boston University.
+*	**Laura Angley** (M.S. 2021)
+    +	M.S. Thesis: *Post-release survival rates and welfare of rehabilitated vervet monkeys in Malawi.*  (Winner, Denton Award for Outstanding Master’s Thesis in Biology)
+    +	Project Manager for Project ChimpCARE at the Lincoln Park Zoo.
+    +	Ph.D. student at Case Western Reserve University (2024 – present).
+*	**Erica Sun** (M.S. 2021)
+    +	M.S. Thesis: *Selection in the PLIN2 (Perilipin-2) Gene Among Wild Savanna Monkeys (Chlorocebus spp.)*
+    +	Bioinformatician Intern in the IT-Emerging Talent Rotation Program at Merck.
+*	**Max Dippel** (M.S. 2023)
+    +	M.S. Thesis: *Genetic Variation in Heat Shock Protein HSPA1L in Savanna Monkeys: Implications for Heat Resilience.* (Finalist, American Society of Primatologists Student Award)
+    +	Research Assistant at the Benaroya Research Institute working in John Ray’s lab discovering regulatory variation associated with autoimmune diseases (2023 - 2025).
+    + Ph.D. student at University of Washington (2025 - present).
+*	**Sophia Long** (M.S. 2023)
+    +	Non-thesis M.S.
+    +	Ph.D. student in Molecular Biology at Stony Brook University (2023 - present).
+*	**Victoria Zdanowicz** (M.S. 2024)
+    +	M.S. Thesis: *Local ecology and dietary selectivity at indicators of differing orangutan habitat quality within Gunung Palung National Park, Borneo, Indonesia*
+    +	Outreach Coordinator at the Stone Zoo (Zoo New England).
+* **Sofia Weaver** (M.S. 2026)
+    + M.S. Thesis: *Investigating the Role of the Gut Microbiome in High-Altitude Adaptation of Woolly Monkeys (Lagothrix spp.) in Andean Perú*
+    + Ph.D. student in Biology at Tufts University (2026 - present).
+
+
+
+
+
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+***
+
+# [**Back to the Guide**](https://fuzzyatelin.github.io/smagl_student_guide/overview.html)
+
+***
+# [**SMAGL *Graduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_grad.html)
+***
