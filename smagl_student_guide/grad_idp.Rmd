@@ -1,0 +1,110 @@
+---
+title: "Graduate Student Professional Development"
+author: "Christopher A Schmitt<br>Boston University"
+date: "August 16, 2026"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+Have you ever asked yourself “…how am I ever going to have time for career exploration, professional development AND still get my research done?” BU's policy is that an Individual Development Plan (IDP) can help you complete your research in a timely manner, while also making time for career exploration and professional development.
+
+# Professional Development Seminars (Anthropology)
+
+There are a lot of professional development resources at BU for graduate students. All SMAGL Schmitt Lab Ph.D. students are *required* to attend all [Professional Development Seminars](https://www.bu.edu/anthrop/community/department-calendar/) offered by the Department of Anthropology. M.S. students in Biology that are part of the Schmitt Lab are also encouraged to attend these seminars. 
+
+# BU Professional Development Collection
+
+![](https://www.bu.edu/anthrop/files/2022/09/PhD-Progression-Pathways-2048x462-1-650x147.png)
+
+Boston University is committed to providing a supportive and competitive training environment for research and scholarship. [Professional Development & Postdoctoral Affairs (PDPA)](https://www.bu.edu/pdpa/) offers programs, resources, and services that are tailored to meet the specific needs of doctoral students, postdoctoral scholars, and their faculty mentors.
+
+The PDPA [PhD Progression Platform](https://www.bu.edu/pdpa/for-doctoral-students/phd-progression/) is unique in that it offers official microcredentialling via 7 Core Capacities (Career Development, Disciple Specific Knowledge, Research Skills, Management & Leadership, Self Awareness, Communication Skills, and Teaching Skills). This platform can sync with your LinkedIn profile, which is easily transferable to other companies who use similar credentialling systems. For every 60-90 minute module, you can earn a badge encrypted with metadata to authenticate and reflect your career development and skills — that can all be verified by Boston University!
+
+It is a major resource for students, postdocs, faculty, and admins across all BU schools and campuses in STEAM disciplines.
+
+[Career & Professional Development](https://www.bu.edu/pdpa/for-doctoral-students/phdpd/) contains resources to help you prepare for future careers through self-assessment and creating [Individual Development Plans](https://www.bu.edu/best/job-search/using-myidp/), as well as guidance for exploring potential career pathways in both academic and non-academic job fields. You will also find information on PDPA workshops, events and experiential learning opportunities. The Resources section of our website has information about a variety of  PDPA and University-wide resources available to doctoral students, including how to connect with PDPA through bi-monthly PhD Office Hours and their Moderated Discussions. They also encourage you to check out their podcast, [Vitamin PhD](http://www.bu.edu/vitaminphd), a supplement to your doctoral training!
+
+PDPA supports doctoral students primarily through professional development programs, but as part of [Graduate Affairs](http://www.bu.edu/grad/) and the [Office of Research](https://www.bu.edu/research/), they are also available to direct doctoral students to [resources](http://www.bu.edu/grad/resources/) throughout the University relevant to other aspects of the graduate experience. Visit the following links to the Graduate Education and Office of Research websites for information on [Health & Wellness offerings](http://www.bu.edu/grad/community/health-and-wellness/), [Living in Boston](http://www.bu.edu/grad/living-in-boston/) and finding [Community at BU](http://www.bu.edu/grad/community/), or [finding support](http://www.bu.edu/researchsupport/) for your research.
+
+## Explore PhD Progression Pathways
+
+### Level 1 (Skill Exploration Pathways)
+
+* [Career Development](https://bu.badgr.com/public/pathway/5fe0f9b807418c0cbfafc9fb)
+* [Discipline-Specific Knowledge](https://bu.badgr.com/public/pathway/60649065928863303c9ce0fc)
+* [Research Skills](https://bu.badgr.com/public/pathway/60819af8b78d4c65fc95bb86)
+* [Management & Leadership](https://bu.badgr.com/public/pathway/6075d954b78d4c65fc8bc40c)
+* [Self-Awareness](https://bu.badgr.com/public/pathway/6047af76eae5100194e07477)
+* [Communications Skills](https://bu.badgr.com/public/pathway/6074a9365c23af17817ed1a4)
+* [Teaching Skills](https://bu.badgr.com/public/pathway/6091e7687d9fef1c1004ad96)
+
+### Level 2 (Skill Development Pathways)
+
+* [L2 Career Development](https://bu.badgr.com/public/pathway/61b4db30b1a5b47d25fff25e)
+* [L2 Communications Skills](https://bu.badgr.com/public/pathway/61b7472cb1a5b47d25003019/element/61b7472cb1a5b47d25003018)
+* [L2 Research Skills](https://bu.badgr.com/public/pathway/61bd08c2b1a5b47d25012d1d/element/61bd08c2b1a5b47d25012d1c)
+* [L2 Teaching Skills](https://bu.badgr.com/public/pathway/61b762ed1fbe9f7a69d7020d)
+
+### Other Suggested PDPA Badges
+
+* [Writing a CV](https://bu.badgr.com/public/badges/IDXC_SF7Sb6dvDZ689JdoQ) 
+* [Writing a Cover Letter](https://bu.badgr.com/public/badges/kI9myybASr6_vd9SOk9wdQ)
+* [Basics of Grant applications](https://bu.badgr.com/public/badges/FSyAkhCtR96tLEZcDHugDg)
+* [Conflict Management](https://bu.badgr.com/public/badges/5tbG_KjJTE23g5ew3H_ndA )
+* [Conflict Resolution](https://bu.badgr.com/public/badges/EX2FePUhQ32U48dgsxbY5g)
+ 
+
+# Extra Resources
+
+See the following extra categories below for content more specifically related to the field of anthropology, and for example documents from previous or current graduate students in the department.
+
+## [Touchstones Discussion-Leading Skills Program](https://touchstones.org/workshops-training/touchstones-fellows/)
+
+This free 8-week virtual program brings a cohort of experienced and novice Touchstones educators together for weekly, hands-on practice in discussion leadership. Using works exclusively by Black and African-American contributors from the Exploring American Perspectives volume, Fellows explore themes of belonging, inclusion, equity, voice, leadership, and community
+
+## [Curriculum Vitae Resources](http://www.bu.edu/anthrop/files/2020/01/CV-and-cover-letter-examples.pdf)
+
+## Teaching Resources
+
+[BU’s Center for Teaching & Learning](https://www.bu.edu/ctl/guides/?utm_campaign=dli_email_general&utm_source=headline_1&utm_medium=guides_resources)
+
+[American Association for Anthropological Genetics' Teaching Materials, Syllabi, and Genetics Resource List](https://aaag.wildapricot.org/Education)
+
+[Modern Language ‘s Association (MLA) Guide to Bringing Your Course Online](https://teachingresources.mla.hcommons.org/)
+
+[Vanderbilt University’s Center for Teaching](https://cft.vanderbilt.edu/) (n.b. menu items labeled “Guides” and “Resources”)
+
+[Indiana University Bloomington’s Center for Innovative Teaching and Learning](https://citl.indiana.edu/index.html) (n.b menu item labeled “Teaching Resources”)
+
+[Planning for Successful Discussions – PDF](http://www.bu.edu/anthrop/files/2020/01/60-Facilitating-Discussions-planning-successful-discussions_0.pdf)
+
+[Tips for Sparking Discussion – PDF](http://www.bu.edu/anthrop/files/2020/01/60-Facilitating-Discussions-Tips-for-Sparking-Discussion_0.pdf)
+
+[Hit the Ground Running, A Handbook for New Teaching Fellows – PDF](http://www.bu.edu/anthrop/files/2020/01/hit_the_ground_running_0.pdf)
+
+[Managing Hot Moments in the Classroom – PDF](http://www.bu.edu/anthrop/files/2020/01/Managing-hot-classroom-moments-Harvard.pdf)
+
+[Basic Guidelines for Teaching Fellows – PDF](http://www.bu.edu/anthrop/files/2020/01/Some-Basic-Guidelines-for-Teaching-Fellows-2019-2020.pdf)
+
+[Leading Discussions (Vanderbilt) – PDF](http://www.bu.edu/anthrop/files/2020/01/Vanderbilt-discussions.pdf)
+
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+***
+
+# [**Back to the Guide**](https://fuzzyatelin.github.io/smagl_student_guide/overview.html)
+
+***
+# [**SMAGL *Graduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_grad.html)
+***

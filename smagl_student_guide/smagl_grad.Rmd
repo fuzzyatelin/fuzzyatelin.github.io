@@ -1,0 +1,178 @@
+---
+title: "SMAGL *Graduate* Student Guide<br>Fall 2026"
+author: "Christopher A Schmitt<br>Boston University"
+date: "August 15, 2026"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+***
+<center>
+![](img/bu_smagl.png)
+</center>
+
+***
+<center>
+**SMAGL Lab Meetings** will be held on **Mondays, 4:00 - 5:00pm** in *STO 243*<br>**Lab Meeting Zoom Link** is [here](https://bostonu.zoom.us/j/365502724?pwd=Zm1SSjgxMlA1SmYrWDRnbnhIamFwdz09)<br>**SMAGL Schmitt Lab Slack** is [here](https://schmitt-smgal-bu.slack.com/)<br>
+</center>
+***
+
+# Getting Started as a *Graduate Student* in the Sensory Morphology and Anthropological Genomics Lab
+
+***
+
+Welcome to the SMAGL Schmitt Lab! 
+
+As a graduate student in the lab, your role is to participate in our lab’s research by learning to conduct scientific studies independently while collaborating ethically with others in the lab, and communicating your process and results effectively to others through scientific publications and presentations. I encourage all graduate students joining the SMAGL to remember that the ultimate goal of this process is not just to earn your M.S. or Ph.D. (although both are amazing accomplishments); rather, it is to prepare you to be the strongest candidate possible for the *career* of your choosing. You can read more about how I see your role (and mine) in this process through the [Graduate Student Compact](https://fuzzyatelin.github.io/smagl_student_guide/grad_compact.html). 
+
+At the beginning of your graduate studies in the Schmitt Lab, your primary job is to brainstorm the most exciting, challenging, and interesting scientific questions you can feasibly answer during your time as a graduate student. My job is to help you find a way to start answering these questions, while contributing to your professional development and ensuring that you make progress in your degree and towards your ultimate career goals (whether within our outside of academia). I also believe that science is no good until it’s *finished* and *communicated* to the world, so our lab emphasizes the need for clear scientific communication and *closing out all research endeavors with a presentation and publication*. For these reasons, it is essential that we follow robust scientific methods, even when doing what we may think of as pilot or preliminary research, and to always conduct both our science and ourselves in an ethical manner. 
+
+We all have different strengths (and weaknesses), and we can and should learn from each other. I expect us to be a community – helping out when others need it, providing and receiving feedback *constructively*, and supporting each other through the good and the bad. We will all help each other in the lab and in the field, we will review each other’s manuscripts and code, practice our talks, clean the lab space, and more. When you join the lab, you’re joining our community.
+
+
+**This portion of the guide is to help you think through what you want to get out of your experience in the SMAGL.** Many students think of this through the lens of research ideas and accomplishments – learning genomics methods, studying wild primates, scanning fossils – and that’s a big part of it, but there are other considerations to think through, as well…
+
+Some questions to ask yourself as you get started in the SMAGL:
+
+*	What skills do I want to develop in the SMAGL?
+
+*	What am I interested in learning in my time here?
+
+*	Do I want to do lab work?
+
+There are opportunities in the SMAGL/Schmitt Lab to conduct any number of what we call “wet bench” methods in molecular biology/anthropology: DNA/RNA extraction, PCR and RT-qPCR, gel electrophoresis, DNA/RNA quantification, and DNA/RNA sequencing. What project you might do in the lab as an graduate student depends on what resources are already available (i.e., present equipment, PI grants and funding), and what resources can be aquired within the timeline and funding efforts you're able to access in your graduate program. Many past M.S. and Ph.D. students have successfully acquired funding that has allowed them to expand the boundaries of what the SMAGL can accomplish, pushing our research program to include cell line work and RNAseq (Christian Gagnon, Ph.D. Anthropology, 2024), portable genomics and fieldwork in Perú (Mel Zarate, Ph.D. Anthropology, 2026), microbiome research (Zoe Albert, Ph.D. Anthropology, 2026; Jess Martin, current Ph.D. Anthropology candidate; Sofia Weaver, B.A./M.S. Biology, 2026), airDNA (Matteo Finnerty, current B.A./M.S. Biology candidate), and hDNA (Jimmy Erkens, current Ph.D. Anthropology candidate). If you want to do something the lab isn't already doing, but that is aligned with the lab's general research questions and goals, discuss it with Prof. Schmitt!  It may be possible (albeit *more* possible for a Ph.D. student than an M.S. student)!
+
+As a graduate student, the plan is to set you up for opportunities for field-based genetics/genomics lab work at one of our sites in South Africa (with the Faculty of Microbiology at North West University in Potchefstroom), Perú (with the Wildlife Conservation Lab at the Los Amigos Biological Station in Manú National Park or at the Universidad Peruana Cayetano Heredia in Lima), or India (genomics collaborators still in progress!). These opportunities are, of course, contingent on your being able to acquire sufficient funding. For these options, see below regarding field work.
+
+It's also possible that you will conduct lab work with a new collaborator at an external lab in order to learn a new technique to incorporate into your thesis/dissertation. Christian Gagnon (Ph.D. Anthropology, 2024), for example, collaborated with Dr. Courtney Babbitt's lab at UMASS Amherst to learn cell line techniques. Jimmy Erkens (current Ph.D. Candidate, Anthropology) learned hDNA methods in discussion with Dr. Raquel Fleskes at Dartmouth College and members of the Bergey Lab at Rutgers University. If you want to reach out to a new lab to learn a new method, discuss it with Prof. Schmitt!
+
+*	Do I want to do field work?
+
+The SMAGL/Schmitt Lab currently has [active field projects](https://fuzzyatelin.github.io/smagl_student_guide/smagl_fieldwork.html) studying wild primates in South Africa, Perú and India, each of which can support Ph.D.-level graduate student field research. Due to cost considerations, fieldwork in Perú is generally the most feasible for M.S. students. Outside year-long dissertation fieldwork, these experiences are usually available in the summer months (May – August). 
+
+M.S. students wishing to conduct fieldwork *must* discuss this option with Prof. Schmitt *immediately upon entering the program* due to funding constraints. Keep in mind that the only option for fieldwork available to M.S. students on a two-year timeline is during the summer after the first year in the program!
+
+Ph.D. students are *strongly encouraged* to conduct fieldwork, but should also keep in mind that it is *not* a requirement of the program. Several SMAGL Ph.D. students (Christian Gagnon, Ph.D. 2024; current Ph.D. candidates Warrenkevin Henderson and Jimmy Erkens) have conducted dissertation projects that did not involve studies of wild primates (although most of those students nonetheless conducted fieldwork with Prof. Schmitt so that they could get the experience).
+
+Current field sites where *graduate students* in the SMAGL conduct research include:
+
+* Studying vervet monkeys in South Africa: our fieldwork in South Africa focuses on trapping wild vervet monkeys (*Chlorocebus pygerythrus pygerythrus*) in order to collect biological samples that address a number of questions, including how they adapt to periodic droughts and to intense human impacts on diet and stress.
+
+Current field sites include a small university town (Potchefstroom, Northwest) where we follow and trap an urban vervet monkey troop; the Southford Stud Ranch (!Gariep Dam, Northern Cape) where we follow and trap a vervet troop living on agricultural fields; and Soetdoring Nature Reserve (Soutpan, Free State) where we follow and trap several vervet troops living under more or less ancestral/natural conditions. We also conduct genetics lab research in Potch at North West University in the Faculty of Microbiology, with our collaborator Prudent Mokgokong.
+
+*	Studying yellow-tailed woolly monkeys in Perú: our fieldwork in Perú focuses on the behavioral ecology, genetics, and conservation of Critically Endangered wild yellow-tailed woolly monkeys (*Lagothrix flavicauda*) at both the long-term fieldsite of El Toro (in . This research seeks to better understand how this species has adapted to high altitudes, how variation in altitude influences diet and behavior, and how this and human impacts influence conservation concerns for the species.
+
+The primary field site is called El Toro, a privately owned conservation concession outside the town of La Esperanza, in Distrito Yambrasbamba, Región Amazonas, run in collaboration with the Peruvian NGO [Neotropical Primate Conservation](https://neoprimate.org/npc-peru-en/). It is the site of the [longest-running (and only longitudinal) field study of wild yellow-tailed woolly monkeys](https://link.springer.com/article/10.1007/s10329-025-01223-2). Graduate students may also work with local guides to conduct survey work across Perú. 
+
+*	Studying Himalayan langurs in India: our fieldwork in India focuses on behavioral studies of wild Himalayan langurs (*Semnopithecus schistaceus*) in order to collect biological samples that address a number of questions, including how they adapt to the extreme stressors of high elevation winters, as well to intense human impacts on diet and stress. This research is conducted in collaboration with the [Himalayan Langur Project](https://himalayanlangur.com/).
+
+<br>
+
+*	Do I want to learn how to code?
+
+**Yes, you do!** As a graduate student, most of the career paths you'll be heading down require coding skills. The primary coding language for research conducted in our lab is [R](https://www.r-project.org), which we use for bioinformatics and statistical analyses. Graduate students in the SMAGL are strongly encouraged to take Prof. Schmitt's course on [Project Design and Statistics for Biological Anthropology](https://fuzzyatelin.github.io/bioanth-stats/overview.html) ([CAS AN/BI 588](https://www.bu.edu/academics/grs/courses/cas-an-588/)), which is taught every other year and in which you’ll learn how to run statistical analyses using R using methods standard to the SMAGL. Students conducting genomics research may also get experience with other coding languages, including [LINUX/UNIX](https://www.unix.org/about.html) and [python](https://www.python.org). These coding languages have broader utility beyond what we use them for in the SMAGL, and coding is a generally sought-after skill on the job market.
+
+*	Do I want to develop my own project, or contribute to a larger project in the lab?
+
+Ph.D. students *must* develop their own unique dissertation project in order to complete their degree. Although this project may dovetail with already-existing projects in the lab (and this may be encouraged, in part, to facilitate funding), it should be fundamentally unique.
+
+M.S. students may choose an independently-conducted research project that is part of a larger project already being conducted in the SMAGL. This can either be an ongoing project being conducted by Prof. Schmitt, or part of a current dissertation project. For example, M.S. Biology student Carly Rojas is conducting DNA metabarcoding research on yellow-tailed woolly monkeys that will contribute to a larger SMAGL project funded by the Leakey Foundation, and M.S. Biology student Yinuo Mao is researching a novel gene using the Vervet Genomics Pipeline developed as part of Christian Gagnon's dissertation project.
+
+M.S. students may also choose a completely independent project that dovetails with lab interests, but with the understanding that *you generally must acquire your own funding to do so*. For example, B.A./M.S. Biology student Matteo Finnerty acquired funding from UROP and the American Society of Primatologists to conduct his experimental work on airDNA to detect yellow-tailed woolly monkeys in observational gaps in Perú, and B.A./M.S. Biology student Sofia Weaver acquired funding from UROP and Primate Action Fund to conduct her work on microbiome variation associated with altitude in yellow-tailed and Peruvian woolly monkeys.
+
+Generally, Prof. Schmitt with have extensive discussions with you during your one-on-one weekly meetings to develop your project, but you are also strongly encouraged to talk to Dr. Gagnon, Dr. Pain, and other graduate students about your ideas to see if they might work and to gain novel perspectives and insights on them And always remember: some ideas work out, and some do not, and that’s ok!
+
+*	What do I want to do after my degree? Why am I even here?
+
+Let’s be very clear on this point: you *should* have plans for what you want to do after your degree so that you can use this time to prepare for that path. *Those plans do not have to be academic*. In fact, graduate students in the SMAGL are *strongly* encouraged to keep in mind both *academic* and *non-academic* career goals. The skills you learn conducting graduate research (project development and management, mentoring, literary research skills, teamwork, critical thinking, coding and analytical skills, and so much more) can be applied in a lot of other contexts and be very attractive to various employers. Conducting your own research project can also be very gratifying, even if the research itself doesn’t work out the way you planned (and *many* projects don’t, that's the nature of cutting-edge science!). Some students who conduct graduate research find they love it and want to continue conducting research – this can be done in a postdoctoral position, as a faculty member at another university, or in any number of research-based industries (that often pay a lot more than academic posts). 
+
+Some graduate students find out pretty quickly that they don’t like conducting their own research projects. If you're a Ph.D. student and discover this, you may want to discuss with Prof. Schmitt options for transitioning out of the Ph.D. program (spending 5-6 years doing something you don't enjoy at great personal expense is not recommended). If you're a M.S. student and discover this, we may be able to transition you to either providing support for another project already being run in the lab, or by transitioning to a different M.S. degree program (based on coursework or a paper without research).
+
+Follow the links below to learn about all of these opportunities and more!
+
+
+# General Links
+
+***
+
+## [SMAGL People](https://fuzzyatelin.github.io/smagl_student_guide/smagl_people.html)
+
+***
+
+## [SMAGL Meetings](https://fuzzyatelin.github.io/smagl_student_guide/smagl_meetings.html)
+
+
+***
+
+## [SMAGL Trainings](https://fuzzyatelin.github.io/smagl_student_guide/smagl_trainings.html)
+
+***
+
+## [SMAGL Facilities and Use of Space](https://fuzzyatelin.github.io/smagl_student_guide/smagl_facilities.html)
+
+***
+
+## [SMAGL Online Resources](https://fuzzyatelin.github.io/smagl_student_guide/smagl_online.html)
+
+***
+
+## [SMAGL Schmitt Lab Field Guide](https://fuzzyatelin.github.io/smagl_student_guide/smagl_fieldwork.html)
+
+***
+
+## [SMAGL Schmitt Lab Laboratory Guide](https://fuzzyatelin.github.io/smagl_student_guide/smagl_labwork.html)
+
+***
+
+## [Presenting Research from the SMAGL](https://fuzzyatelin.github.io/smagl_student_guide/smagl_presenting.html)
+
+***
+
+## [Letters of Recommendation from the SMAGL](https://fuzzyatelin.github.io/smagl_student_guide/smagl_letter.html)
+
+***
+
+## [Authorship and Collaboration in the SMAGL](https://fuzzyatelin.github.io/smagl_student_guide/smagl_authorship.html)
+
+***
+
+## [SMAGL Policy on Samples, Data, and Code](https://fuzzyatelin.github.io/smagl_student_guide/smagl_data.html)
+
+***
+
+## [SMAGL COVID-19 Protocols and Emergency Preparedness](https://fuzzyatelin.github.io/smagl_student_guide/smagl_covid.html)
+
+***
+
+# Graduate Student Links
+
+***
+
+## [Graduate Programs](https://fuzzyatelin.github.io/smagl_student_guide/grad_programs.html)
+
+***
+
+## [Graduate Funding](https://fuzzyatelin.github.io/smagl_student_guide/grad_funding.html)
+
+***
+
+## [Graduate Student Union](https://fuzzyatelin.github.io/smagl_student_guide/grad_union.html)
+
+***
+
+## [Graduate Student Professional Development](https://fuzzyatelin.github.io/smagl_student_guide/grad_idp.html)
+
+***
+
+## [Comprehensive Exam Guide](https://fuzzyatelin.github.io/smagl_student_guide/grad_comps.html)
+
+***
+
+## [Other Resources for Graduate Students in the SMAGL](https://fuzzyatelin.github.io/smagl_student_guide/grad_resources.html)
+
+***
+
+# [SMAGL Contract and Code of Conduct](https://fuzzyatelin.github.io/smagl_student_guide/smagl_conduct.html)
+
+***
