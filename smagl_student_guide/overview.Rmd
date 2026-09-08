@@ -14,7 +14,7 @@ output:
 
 ***
 <center>
-**SMAGL Lab Meetings** will be held on<br>**Mondays, 4:00 - 5:00pm** in *STO 243*<br>**Lab Meeting Zoom Link** is [here](https://bostonu.zoom.us/j/365502724?pwd=Zm1SSjgxMlA1SmYrWDRnbnhIamFwdz09)<br>**SMAGL Schmitt Lab Slack** is [here](https://schmitt-smgal-bu.slack.com/)<br>
+**SMAGL Lab Meetings** will be held on<br>**Thursdays, 9:30 - 11:00am** in *STO 243*<br>**Lab Meeting Zoom Link** is [here](https://bostonu.zoom.us/j/365502724?pwd=Zm1SSjgxMlA1SmYrWDRnbnhIamFwdz09)<br>**SMAGL Schmitt Lab Slack** is [here](https://schmitt-smgal-bu.slack.com/)<br>
 </center>
 ***
 
@@ -113,6 +113,10 @@ Finally, in the SMAGL we pride ourselves on having a lab culture that is friendl
 ***
 
 ## [SMAGL Schmitt Lab Field Work](https://fuzzyatelin.github.io/smagl_student_guide/smagl_fieldwork.html)
+
+***
+
+## [SMAGL Schmitt Lab Laboratory Guide](https://fuzzyatelin.github.io/smagl_student_guide/smagl_labwork.html)
 
 ***
 
