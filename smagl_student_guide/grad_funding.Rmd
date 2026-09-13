@@ -1,0 +1,141 @@
+---
+title: "Graduate Funding"
+author: "Christopher A Schmitt<br>Boston University"
+date: "August 15, 2026"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 5
+---
+
+Through the its contract with [BUGWU](https://bugwu.org), BU may provide a maximum of five years of funding for Ph.D. students, with the expectation that both the PI and the student are actively applying for external funding for research. 
+
+There are a few good reasons for graduate students applying for their own research funding: 1) Prof. Schmitt may not always have funding that can cover graduate student research, particularly if it deviates from his own research plans; 2) applying for funding is an important way of vetting your research ideas beyond just the thoughts and opinions of your committee at BU; and 3) acquiring your own funding is crucial to establishing your own research program and independence as a researcher. **An independent research career will be difficult without the ability to acquire your own funding.** Securing funding is a key part of life as a scientist, regardless of whether you go into academia, zoo work, biomedical work, government work, industry, or non-profits. As this is a critically important skill, I *strongly* encourage all students to apply for funding – even if you are brought in on a fully-funded project.
+Aid in grant proposal writing is available at Boston University. I strongly recommend taking the Graduate Grant Writing Seminar Course in Biology ([CAS BI 581; or CAS BI 671](https://www.bu.edu/academics/grs/courses/cas-bi-581/)) in the fall semester of your first year in the program, in which students write up and submit a NSF GRFP proposal. There is also a grant proposal writing course for the social sciences ([CAS AN 510](https://www.bu.edu/academics/grs/courses/cas-an-510/)); this is generally *not* recommended for SMAGL students. 
+
+*With any proposal coming out of the lab, I encourage you to work closely with me in developing, writing, editing, and submitting your proposals.*
+
+**As a M.S. student**, I expect you at minimum to apply for the National Science Foundation Graduate Research Fellowship Program (NSF GRFP). Master’s level graduate students in Biology may also be hired as Teaching Fellows in Biology to help defray costs (students interested in this option should let me know prior to arriving on campus).
+
+**As a Ph.D. student**, I expect you at minimum to apply for the National Science Foundation Graduate Research Fellowship Program (NSF GRFP) in your first year (given you have not previously conducted a Masters or applied). Upon advancing to candidacy, I expect you to apply for the BU Graduate Research Abroad Fellowship (if conducting fieldwork), to The Leakey Foundation, and, if applicable, Wenner-Gren Foundation graduate funds.
+
+**At all graduate levels**, smaller society and foundation grants should be pursued regularly to help fund conference attendance, research, and travel expenses.
+
+***A Note on Deadlines***: Deadlines are a necessary fact of life. When you miss a deadline for a proposal or a job application *you do not get a second chance* until the next funding call, which may be 6 months to a year later (at which point you may be ineligible)! We will practice making deadlines throughout your time here. We will set specific goals with deadlines and it’s your responsibility to meet these deadlines. If you cannot do so we can adjust as we go. *Simply missing deadlines with no communication is not acceptable.*
+
+# Internal Funding at BU
+
+Ph.D. students at BU are typically accepted under the [funding terms of the Graduate School of Arts & Sciences](https://www.bu.edu/cas/admissions/phd-mfa/fellowship-aid/aid-for-phd-students/). This system guarantees all PhD students in good standing five years of funding support, a 100% tuition scholarship, and a health insurance credit. Students receive [health insurance](https://www.bu.edu/shs/getting-started/student-health-insurance-plan/) (the SHIP basic plan) through Aetna Student Health.
+
+Since 2024 and until 8/31/2027, all funding for Ph.D. students in the College of Arts & Sciences at BU are mediated by the [Boston University Graduate Workers Collective Bargaining Agreement with BU](https://www.seiu509.org/contracts/bugwu/). This has included 12-month support starting at $45,000 per year with an annual increase of 3%. If you are a Ph.D. student in the SMAGL, **please read your contract** as well as any information available at the Graduate School regarding how BU interprets and implements this contract. 
+
+If you disagree with anything in the contract, your only redress is to contact or become actively involved with the BUGWU to discuss whether changes might be suggested for when a new contract is negotiated in 2027.
+
+In the Department of Anthropology, Ph.D. students have typically been funded for 4 semesters via Teaching Fellowships (during which time they will serve as a Teaching Fellow for one course in Anthropology – typically [CAS AN 102](https://www.bu.edu/academics/hub/courses/cas-an-102/), [CAS AN 233](https://www.bu.edu/academics/cas/courses/cas-an-233/), or [CAS AN 263](https://www.bu.edu/academics/cas/courses/cas-an-263/)), and for 6 semesters via Non-Service Fellowships (which have no teaching or other service requirements). Note that the year is divided into *three* effective semesters: Fall, Spring, and Summer. The first year of the Ph.D. program is typically Non-Service although you may spend a Service semester shadowing Teaching Fellows to learn the job), and Ph.D. students typically take their remaining Non-Service Fellowships during fieldwork or external internships. All other semesters are considered Service semesters during which time students must be employed in some activity on campus that is *not* directly related to their dissertation research. Employment activities may not exceed 20-hours a week. More details on funding can be found in consultation with the [Graduate School](https://www.bu.edu/cas/admissions/phd-mfa/fellowship-aid/aid-for-phd-students/), or in consultation with the Anthropology DGS (currently, [Dr. Ayşe Parla](https://www.bu.edu/anthrop/profile/ayse-parla/)).
+
+M.A./M.S. students at BU are not provided funding packages. I recommend that M.A./M.S. students consider part-time study as a way of reducing costs, and that they conduct any summer field or lab research on a for-credit basis (fieldwork, in particular, can be a cheap way to earn credits). Most M.S. students in Biology can also offset costs with Teaching Fellowships in the Department of Biology (which involve serving as Teaching Fellows running lab sections for undergraduate courses). 
+
+Beyond the standard BU Graduate Fellowship packages, Ph.D. students in Anthropology and M.S. students in Biology have many internal funding opportunities to help them along. These internal funding sources should be seen as helpful stop-gaps for pilot work and limited research or travel activities – they are not sufficient for an entire thesis or dissertation. 
+
+**NOTE**: With the advent of the BUGWU contract, many of these funding sources have changed in both availability and value. Check with the DGS of your department on the current state of these awards if you are interested in them!
+
+In the past, these have included:
+
+-	**Department of Anthropology Conference Funding** (application-based): Ph.D. students may apply for up to $200 per academic year to offset the expenses of attending a conference at which they can provide evidence of presenting. In other words, to get this funding you must be able to show that you have an accepted abstract that you will present. Prior to applying you must show that you’ve already applied for and been denied a GSO Travel Grant.
+-	**[Graduate Student Organization (GSO) Research & Travel Grants](https://www.bu.edu/gso/travelgrants/)** (application-based): The GSO may provide up to $1,000 towards research or conference travel funds to M.S. or Ph.D. students. All Ph.D. students in Anthropology must apply for this fund prior to asking the Department for conference funding. You may not get more than one of each.
+-	**[Graduate Research Abroad Fellowship (GRAF)](https://bu.infoready4.com/#competitionDetail/1961673)** (application-based): the Department of Anthropology is able to forward an unlimited number of ABD applicants for the short-term GRAF and up to three (3) ABD Ph.D. applicants for consideration of the long-term GRAF in any given semester (the deadline is typically early February). The award is given based on the decision of an internal university-wide committee, and students compete across all GRS departments.
+    -	**Short-Term GRAF**: supports travel and living costs during a period of study abroad up to, but not exceeding, 3 full months. For trips taken during the academic year when students will normally be supported by another fellowship, up to 4,000 USD in travel costs is provided. For trips during the summer (late May through August) a fellowship provides up to 6,000 USD.
+    -	**Long-Term GRAF**: enables a student to spend an extended period (4 or more months/at least a full semester) of foreign-based field or archival research. It provides up to $16,250 to cover living, travel, and research expenses.  A Long-term GRAF also provides Continuing Study Fees and the cost of participation in the basic BU student health plan for the time the student is abroad. If you intend to apply for a long-term GRAF, you must notify the DGS prior to applying.
+-	**[Graduate Research in the United States Fellowship (GRUF)](https://bu.infoready4.com/#competitionDetail/1961679)** (application-based): the Department of Anthropology is able to forward an unlimited number of ABD applicants for the short-term GRUF and up to three (3) ABD Ph.D. applicants for consideration of the long-term GRUF in any given semester (deadline is typically early February). The award is given based on the decision of an internal university-wide committee, and students compete across all GRS deparments.
+    -	**Short-Term GRUF**: supports travel and living costs during a period of study outside of Boston, but not exceeding, 3 full months. The award for a short-term GRUF is up to $6,000. Short-term GRUF can be used for shorter research trips.
+    -	**Long-Term GRUF**: enables a student to spend an extended period (4 or more months/at least a full semester) of United-States-based field or archival research outside of Boston. It provides up to $16,250 to cover living, travel, and research expenses.  A Long-term GRUF also provides Continuing Study Fees and the cost of participation in the basic BU student health plan for the time the student is under fellowship. If you intend to apply for a long-term GRUF, you must notify the DGS prior to applying.
+-	[**Bloom Dissertation Fellowship**](https://www.youtube.com/watch?v=M_i6qCzsM0A) (application-based): this fellowship provides summer funding at a rate of ~$3,200/month for up to four months for Ph.D. students doing a dissertation in the humanities or social sciences.
+-	[**Center for Innovation in Social Science**](https://www.bu.edu/ciss/opportunities/center-opportunities/) (application-based): the BU CISS keeps an archive of several funding opportunities available to faculty, postdocs, and graduate students in the social sciences. They also provide their own funding mechanisms, including Summer Mini-Grants of between 500 USD and 1,500 USD.
+
+# External Funding
+
+SMAGL students have been very successful at getting funding, and you should rely on your peers to see examples of successfully funded proposals. Where applicable, along with each funding source are listed SMAGL graduate students who have successfully been funded.
+
+- [**NSF Graduate Research Fellowship Program** ](https://www.nsf.gov/funding/initiatives/grfp): *All graduate students joining the lab are strongly encouraged to apply for the NSF GRFP (if you haven’t already done so)*. You must apply for this fellowship prior to completing a whole year of graduate education, so this should be your focus during your first semester in the M.S. or Ph.D. program (unless you are a part-time graduate student, in which case you may wait until your second year). Here is some excellent advice on how to craft the [Personal](https://mitcommlab.mit.edu/broad/commkit/nsf-personal-statement/) and [Research](https://mitcommlab.mit.edu/broad/commkit/nsf-research-proposal/) Statements.
+    -	Successfully funded: **Melissa Zarate** (Ph.D., Anthropology; BCS-BA)
+    -	Honorable Mention: **Benjamin Recchia** (M.S., Biology; BIO)
+
+Enrollment in [GRS BI 671](https://www.bu.edu/academics/grs/courses/cas-bi-671/) is strongly encouraged for all first-semester Schmitt Lab graduate students, as part of the course involves writing a NSF GRFP proposal.
+
+-	**NSF Doctoral Dissertation Research Improvement Grant (Biological Anthropology) *NO LONGER AVAILABLE* **: BA-DDRIG proposals were formerly accepted in all of the research areas encompassed by the now-closed Biological Anthropology Program at NSF, and used any of the diversity of research approaches to investigations within the discipline. It was expected that the research, whether hypothesis- or discovery-driven, would have a strong conceptual foundation and contribute to the advancement of theory and knowledge in biological anthropology beyond that of the highly-focused research topic. 
+    -	Funding levels: Up to $25,000 in direct costs.
+    -	Deadlines: January/July 31 
+    -	Successfully Funded: 
+        - Melissa Zarate (Ph.D. 2026, Anthropology; BCS-BA)
+        - Christian Gagnon (Ph.D. 2024, Anthropology; BCS-BA)
+-	**NSF Non-Academic Research Internships for Graduate Students (INTERN) Supplemental Funding *NO LONGER AVAILABLE* **: Students who have already been awarded NSF GRFP or NSF DDRIG funding are eligible to apply for an NSF INTERN supplement to cover expenses related to an external internship. This funding is intended to pay NSF-funded students to partake in external research/work within government/for-profit industry/non-profit institutions that is explicitly unrelated to their dissertation research. NSF GRFP students must apply under the Dean of Graduate Studies (who is the institutional PI for all GRFP fellows); NSF DDRIG students must apply under Prof. Schmitt.
+o	Funding levels: up to $55,000 per 6-month period, for up to two internships per grant (i.e., one NSF GRFP-funded student may fund up to two 6-month internships for up to $55,000 per internship for a total of 12 months).
+o	Deadlines: April 15, but may be submitted year-round
+o	Successfully Funded: Melissa Zarate (Ph.D., Anthropology; NSF GRFP) for one 6-month internship at Zoo New England’s Conservation Genomics Lab.
+•	The Leakey Foundation Dissertation Research Grant: The Leakey Foundation exclusively funds research related to human origins. Priority of funding is commonly given to exploratory phases of promising new research projects that meet the stated purpose of the Foundation. The majority of The Leakey Foundation’s Research Grants awarded to doctoral students are in the $3,000-$15,000 range with a funding limit of $20,000.
+o	Funding levels: Up to $20,000 in direct costs.
+o	Deadlines: January 10/July 15
+o	Successfully Funded: Christian Gagnon (Ph.D., Anthropology)
+•	Fulbright U.S. Student Program: One year of independent research, study, or English teaching abroad. Open to rising seniors, graduate students, and recent alumni. August deadline. Requires internal university evaluation.
+o	Melissa Zarate (Ph.D., Anthropology), Zoe Albert (Ph.D., Anthropology)
+•	American Society of Primatologists General Small Research Grant: ASP Research awards will be given to training initiatives, start-up funds, supplementary funding for students, and innovations in animal care and research technology. Research Award amounts range from $500 to $1500, and will be for a period of one year.
+o	Melissa Zarate (Ph.D., Anthropology)
+•	International Primatological Society Research Grant: The IPS Research Committee awards grants of up to $1500 to support primate-oriented research projects with a strong theoretical component. These projects can be conducted in the field or in captivity.
+o	Melissa Zarate (Ph.D., Anthropology)
+•	Point Foundation Scholarship: For ‘out’ members of the LGBTQ+ community with a strong academic record pursuing scholarly research with a proven track record of leadership and community involvement working for the betterment of the LGBTQ+ community. Demonstrated financial need is also considered.
+•	William S. Pollitzer Student Travel Award: For undergraduate and graduate students attending the AABA meetings. Students must write an essay in response to a prompt posted in early January and are selected by a review committee.
+o	Jessica Martin (Ph.D., Anthropology)
+o	Jimmy Erkens (Ph.D., Anthropology)
+•	Soros Fellowship for New Americans: Graduate school funding for immigrants and children of immigrants in the United States. Open to graduating seniors, recent alums, and graduate students early in their studies. Apply directly in November.
+•	Ben Barres Fellowship: The National Organization of Gay and Lesbian Scientists and Technical Professionals (NOGLSTP) funds this award for trans, intersex, and non-binary graduate students and postdoctoral fellows in STEM fields. This may fund research, conference attendance and travel, or other professional uses.
+•	Professional Development Grants (BU)
+•	Summer Institute in Statistical Genetics (SISG) Scholarship: This scholarship will fund students withing to attend the University of Washington (Seattle) SISG, which provides several workshops on how to conduct statistical analyses and coding related to genomic data analysis by experts in each field.
+o	Christian Gagnon (Ph.D., Anthropology)
+o	Melissa Zarate (M.S., Biology; Ph.D., Anthropology)
+o	Max Dippel (M.S., Biology)
+o	Jessica Martin (Ph.D., Anthropology)
+•	American Association of Biological Anthropologists IDEAS Workshop (AABA): The IDEAS Workshop is targeted to BIPOC students in biological anthropology, and provides a housing and travel stipend and numerous forms of support to students attending and presenting at the AABA annual conference.
+o	Stacy-Anne Parke (B.A., Anthropology with a Specialization in Biological Anthropology)
+o	Xaulanda Thorpe (B.A., Anthropology with a Specialization in Biological Anthropology)
+o	Sofia Weaver (B.A., Biology with a Specialization in Behavioral Biology)
+•	American Society of Primatologists Student Competition (ASP): This provides funding for students presenting at the ASP meeting, and enters them into the student competition.
+o	Max Dippel (M.S., Biology)
+•	Maderas Rainforest Conservancy Scholarship for Education and Training in Field Primatology: Provides funding to attend a field school at a site associated with the Maderas Rainforest Conservancy (La Suerte, Costa Rica; Ometepe, Nicaragua). This typically covers a popular Primate Behavioral Ecology course.
+•	Out to Innovate Scholarship (LGBTQ+)
+•	Mohammed Bin Zayed Species Conservation Fund (Conservation)
+•	Margot Marsh Biodiversity Foundation (Conservation)
+o	Melissa Zarate (Ph.D., Anthropology)
+•	Lewis & Clark Fund for Exploration and Fieldwork (Fieldwork)
+•	Primate Conservation Inc (Conservation)
+o	Melissa Zarate (Ph.D., Anthropology)
+•	Primate Action Fund (Conservation)
+o	Melissa Zarate (Ph.D., Anthropology)
+•	Fjallraven Field Grant (Explorer’s Club; Fieldwork).
+•	Sigma Xi Grants in Aid of Research (primarily lab-based research)
+
+Funding Past the Graduate Fellowship Horizon
+Many Ph.D. students in Anthropology take longer than the 5 years of guaranteed funding they receive as part of their Graduate Fellowships. Students in Anthropology at BU have generally been able to fund their 6th or even 7th year using a combination of the following funds (not that GRS and BU forbid internal funding beyond the 7th year):
+•	Center for Innovation in the Social Sciences Dissertation Completion Grant: two (2) Ph.D. students may be nominated in the Anthropology Department annually for this award in March, which offers a 12-month salary (including benefits, for 5th year students) equivalent to the Ph.D. stipend for students who can finish by August of the following year. The fellow is entitled to shared office space at CISS, located on the 5th floor of 704 Commonwealth Ave.
+•	Cora DuBois Charitable Trust Fellowships: This fellowship in intended to provide sufficient financial support to award recipients so as to allow them to devote their full time to writing their dissertation and not undertake employment.  Applications are submitted to the Trustees of the Cora DuBois Charitable Trust.  An announcement for the fellowships will be made each spring.
+  - Warrenkevin Henderson
+•	Gaius Charles Bolin Dissertation Fellowship: Williams College (Residential/Teaching).
+
+
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+***
+
+# [**Back to the Guide**](https://fuzzyatelin.github.io/smagl_student_guide/overview.html)
+
+***
+# [**SMAGL *Graduate* Student Resources**](https://fuzzyatelin.github.io/smagl_student_guide/smagl_grad.html)
+***

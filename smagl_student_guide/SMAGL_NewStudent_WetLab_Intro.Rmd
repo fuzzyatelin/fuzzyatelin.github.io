@@ -1,0 +1,153 @@
+---
+title: "SMAGL Wet Lab Introduction"
+author: "Sofia M. Weaver"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: default
+    toc: yes
+    toc_float:
+      collapsed: TRUE
+  pdf_document: default
+---
+
+```{r,echo=F}
+library(knitr)
+```
+
+# Welcome! 
+
+![Male *Lagothrix flavicauda* in Beirut, Amazonas, Perú. PC: Evelyn L. Pain](/Users/sofia/Desktop/wetlab_intro_images/male_woolly.png)
+
+#### You're probably reading this because you've recently joined the SMAGL (good choice). Before you get started, you should think about what your goals are.
+
+---
+
+#### Do you:
+#### **A)** want to get research experience by assisting someone with their project
+#### **B)** want your own independent project
+#### **C)** not sure but think monkeys are cool
+
+---
+#### One, a mixture, or all of these is an appropriate place to start! You should know that the lab's research focus surrounds two genera of nonhuman primates: the savanna monkey (*Chlorocebus spp.*) and Peruvian woolly monkeys (*Lagothrix flavicauda* and *Lagothrix lagotricha tschudii*).
+
+```{r monkey pics, fig.cap="", fig.align="center", fig.width=14, fig.height=3.5, echo=FALSE}
+library(jpeg)
+library(grid)
+library(gridExtra)
+
+# Load images
+img1 <- rasterGrob(as.raster(jpeg::readJPEG("~/Desktop/wetlab_intro_images/verv.jpg")), y = 0, just = "bottom")
+img2 <- rasterGrob(as.raster(jpeg::readJPEG("~/Desktop/wetlab_intro_images/flav_juvenile_female.jpg")), y = 0, just = "bottom")
+img3 <- rasterGrob(as.raster(jpeg::readJPEG("~/Desktop/wetlab_intro_images/IMG_9414.jpg")), y = 0, just = "bottom")
+
+# Create captions
+caption1 <- textGrob("Chlorocebus pygerythrus", gp = gpar(fontsize = 20, fontface = "italic"))
+caption2 <- textGrob("Lagothrix flavicauda", gp = gpar(fontsize = 20, fontface = "italic"))
+caption3 <- textGrob("Lagothrix lagotricha tschudii", gp = gpar(fontsize = 20, fontface = "italic"))
+
+# Arrange images with captions and spacing between them
+panel <- function(img, caption) {
+  arrangeGrob(img, caption, ncol = 1, heights = c(20, 2.2, 1))
+}
+
+grid.arrange(
+  panel(img1, caption1),
+  nullGrob(),
+  panel(img2, caption2),
+  nullGrob(),
+  panel(img3, caption3),
+  ncol = 5,
+  widths = c(1, 0.15, 1, 0.15, 1)
+)
+```
+
+#### To get a general feel of what the lab does and the different research opportunities there are, reference the [**SMAGL Student Guide**](https://fuzzyatelin.github.io/smagl_student_guide/overview.html) that Prof. Schmitt has so generously created for you. 
+
+
+# Getting started in the wet lab
+
+![Mel Zarate, Ph.D., SMAGL alumna & wet lab trailblazer](/Users/sofia/Desktop/wetlab_intro_images/MELLLLLinthelab-8213090 - Melissa Zarate.jpg)
+
+#### If you are interested in gaining wet lab experience, you need to:
+
+
+#### **1.** find a graduate student or postdoc to shadow and train you in basic skills in the lab. 
+
+##### This person will tell you when you are proficient in the skills necessary to do any kind of wet lab work unsupervised and on your own time. Until then, you will need to be with an experienced SMAGL member whenever you are working in the lab. 
+
+#### **2.** start getting familiar with R and RStudio if you are not already.
+##### Ideally, you would have already taken, or are currently taking, AN/BI588 (Project Design and Statistics in Biological Anthopology) with Prof. Schmitt. If you are not, you need to begin going through the modules on your own [**here**](https://fuzzyatelin.github.io/bioanth-stats/overview.html).
+
+
+## Basic theory
+
+#### Typical workflow in the SMAGL wet lab is 
+
+##### 1. Sample collection (typically of fecal matter and done noninvasively in the field)
+##### 2. DNA extraction
+##### 3. Amplification of targeted region in the genome via polymerase chain reaction (PCR)
+#####    (including the validation with gel electrophoresis)
+##### 4. Dual indexing (optional)
+##### 5. Library prep & sequencing
+
+
+To gain a better understanding of the basic theory behind these components, please read [**this paper**](https://pmc.ncbi.nlm.nih.gov/articles/PMC6425773/) and go through these [**Kahn Academy modules**](https://www.khanacademy.org/science/ap-biology/gene-expression-and-regulation/biotechnology/v/the-polymerase-chain-reaction-pcr) from PCR up to DNA sequencing. We use third generation sequencing using Oxford Nanopore Technology (ONT). Watch [**this video**](https://www.youtube.com/watch?v=FYEWrUVJ2as&t=74s) on how ONT sequencing works. 
+
+
+Once you have gone through these modules, read [**this document**](https://docs.google.com/document/d/17aixvE7lKxdITYb4pNiJVg05ljp8hXDkF9XkVoqlah0/edit?tab=t.0#heading=h.qhs8l5jtzif0), sepecific to our lab, to understand dual indexing and necessary preparation prior to library preparation and sequencing (everyone say thank you to Mel).
+
+
+
+## Keeping a lab notebook
+
+#### One of the most important things in research is keeping detailed and understandable records of everything that you do. Remember, good science is replicable and falsifiable! A lab notebook makes it so that collaborators and future SMAGL members can reference your previous work if necessary (e.g. replicating experimental protocols, accessing data, etc.). You should be documenting your time in the lab, at a minimum, in a RMarkdown or Quarto Document (if you do not know what this means, see "Getting started in the wet lab" bullet 2). 
+
+
+
+#### Your lab notebook entries should include: 
+##### - date
+##### - experiments ran and/or protocols used 
+##### - if you did it and you were in the wet lab, include it! 
+
+Here is an example in a Rmd file:
+
+![Example entries from S.M. Weaver's lab notebook](/Users/sofia/Desktop/wetlab_intro_images/lab_notebook_entry_example.png)
+
+and how it looks knitted:
+![](/Users/sofia/Desktop/wetlab_intro_images/lab_notebook_entry_example_knitted.png)
+
+#### Make sure you are making a lab notebook entry **EVERY TIME** you use the wet lab space!!
+
+
+## PCR protocol documentation
+
+#### In addition to keeping a lab notebook, if you are running a PCR, this needs to be documented within the lab google drive. When creating a new PCR protocol that the lab has not yet established, use [**this template**](https://docs.google.com/spreadsheets/d/1ICLiLE7X8pwF2cN59u5cpD-gl9iFcJmgL94v3IssolI/edit?gid=90984168#gid=90984168) to create your own template to fill out each time you run a PCR. Be sure to include labeled images of your gels for each run, as well as a master sheet of positive and negative results from your experiments.
+
+
+Here is an example:
+
+![Example 16S PCR protocol template](/Users/sofia/Desktop/wetlab_intro_images/PCR_template_example.png)
+
+## Library prep documentation
+
+#### Once you have samples to sequence, please reference the [Library Prep and Sequencing folder](https://drive.google.com/drive/u/1/folders/1R3w6D2Q-fiYEB9jSzbl71OBUz1aX1B6p) within the Protocols folder in the SMAGL drive. Within this folder, you will: 
+
+##### 1. Create a new folder with the same name as your sequencing run
+##### 2. Make a copy of a preexisting template for the apropriate sequencing kit you are using
+##### 3. Create a master sheet of all of the samples that are going to be sequenced using [the existing template](https://docs.google.com/spreadsheets/d/1q3mLLqc3KvylahyjoNiYVHkhq0V7p4GkK0YjSsuBW9E/edit?gid=1180759223#gid=1180759223)
+##### 4. Complete all necessary calculations and plate maps **PRIOR** to beginning library prep that can be found in the sheet template and Mel's dual index and pre library prep - prep document listed above
+
+
+#### Yay! Congratulations! You now have an idea of the typical workflow within the SMAGL wet lab and are ready to get started! Do **NOT** forget that admitting when you do not know something or asking for help is an important part of being successful in a wet lab. That being said, it is important that you pay attention, document everything, and are not afraid to make mistakes so that you can do good science and work independently without supervision! 
+
+#### Enjoy pipetting <3
+
+
+![Adult female and infant sunbathing in Beirut, Amazonas, Perú](/Users/sofia/Desktop/wetlab_intro_images/sunbath.JPG)
+
+
+
+
+
+
