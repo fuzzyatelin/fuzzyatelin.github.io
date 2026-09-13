@@ -124,7 +124,7 @@ Rather than keeping a paper notebook, in the SMAGL you should be documenting you
 
 - ***Anything** you do in the wet lab!* 
 
-Here is an example of a notebook entry from Sofia Weaver's *RMarkdown*, or `Rmd` file, lab notebook:
+Here is an example of a notebook entry from Sofia Weaver's *RMarkdown*, or `Rmd` file, lab notebook (note that Sofia is titling the entry with the formatted date "251125", or November 25, 2025):
 
 ![](img/lab_notebook_entry_example.png)
 <br><br>
@@ -163,8 +163,9 @@ Within this folder, you will:
 
 **3.** Create a master sheet of all of the samples to be sequenced using [the existing template](https://docs.google.com/spreadsheets/d/1q3mLLqc3KvylahyjoNiYVHkhq0V7p4GkK0YjSsuBW9E/edit?gid=1180759223#gid=1180759223)
 
-**4.** Complete all necessary calculations and plate maps **PRIOR** to beginning library prep that can be found in the sheet template and Mel's dual index and pre library prep - prep document listed above
+**4.** Complete all necessary calculations and plate maps **PRIOR** to beginning library prep! Calculations and plate maps can be found in the sheet template and Mel's 'dual index' and 'pre library prep - prep' documents, listed above.
 
+<br><br><br>
 
 **Yay! Congratulations!**
 
