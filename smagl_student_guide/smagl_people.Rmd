@@ -205,17 +205,17 @@ There are also several undergraduate students currently working in the SMAGL. Th
 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2021%2F07%2F14%2F08%2F54%2Fmonkey-6465445_1280.jpg&f=1&nofb=1&ipt=8fca75130e547ab34b015a534f49d3daa4392065ef8f79db456f93d52236a58a">
 </div>
 
-**Claire Zhang** (Anthropology, Specialization in Biological Anthropology, Schmitt Lab; UROP; she/they)<br>
+**Claire Zhang** (Anthropology, Specialization in Biological Anthropology, Schmitt Lab; UROP; any pronouns)<br>
 Honors Thesis: *Examining the influence of anthropogenic food consumption on circulating leptin and reproductive onset in wild South African vervet monkeys (Chlorocebus pygerythrus pygerythrus)*
 
 <br>
 
 <div class="wrap1">
-<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2F5o6pf3SKgEE%2Fmaxresdefault.jpg%3Fsqp%3D-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgZShSMA8%3D%26rs%3DAOn4CLBiuJgizziISE9w_uk56N_E3SaCtg&f=1&nofb=1&ipt=bf6361868005debc3604d13db8021a41dd9cde8c364db28653a156d69c2fd234">
+<img src="https://observation.org/media/photo/12572422.jpg">
 </div>
 
-**Jacob Bronstein** (Biology, Specialization in Ecology and Conservation Biology, Schmitt Lab; UROP; he/him)<br>
-UROP Project: *DNA metabarcoding of Peruvian woolly monkey (Lagothrix lagotricha tschudii) fecal samples to detect arthropod consumption*
+**Alex Ortiz Zapiola Gimenez** (Biology, Specialization in Ecology and Conservation Biology, Schmitt Lab; he/him)<br>
+Research Project (in collaboration with Dr. Eduardo Fernandez-Duque, Yale University): *Habitat Type and Feeding Behavior in Free-Ranging Azara’s Owl Monkeys (Aotus azarae) in the Argentine Chaco*
 
 <br>
 
@@ -238,11 +238,20 @@ Research Project (in collaboration with Dr. Gideon Erkenswick, Field Projects In
 <br>
 
 <div class="wrap1">
-<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fv2%2FD4D03AQHra8owMG_tXA%2Fprofile-displayphoto-shrink_200_200%2FB4DZZei7c6HIAc-%2F0%2F1745342937207%3Fe%3D2147483647%26v%3Dbeta%26t%3DrhdiAUZApQ4B8rfL88lRRFSoZaHBnu-ECsGWAOghlgg&f=1&nofb=1&ipt=0dbff0e158601ad1c0f04b8aab17e623fd1a4ebf4e088d11e2232d240eddc698">
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2021%2F07%2F14%2F08%2F54%2Fmonkey-6465445_1280.jpg&f=1&nofb=1&ipt=8fca75130e547ab34b015a534f49d3daa4392065ef8f79db456f93d52236a58a">
 </div>
 
-**Temilade Olateru-Olagbegi** (Biology, Specialization in Neuroscience, Schmitt Lab; she/her)<br>
+**Rose Mendez** (Anthropology, Specialization in Biological Anthropology, Schmitt Lab; she/her)<br>
 Research Project: TBD
+
+<br>
+
+<div class="wrap1">
+<img src="img/TemiladeOlateruOlagbegi.jpeg">
+</div>
+
+**Temilade Olateru-Olagbegi** (Biology, Schmitt Lab; she/her)<br>
+Research Project: *Validating the use of Oxford Nanopore sequencing for the creation of local libraries to aid plant identification in dietary metabarcoding* 
 
 <br>
 
@@ -414,6 +423,15 @@ Honors Thesis (2025): *Using Camera Traps to Assess Demography and Life History 
 
 **Shaotai (Max) Hu** (Data Science, Minor in Statistical Methods; he/him)<br>
 Research Project: Using AI to assess demography from camera trap data in wild Endangered Andean night monkeys (*Aotus miconax*)
+<br><br>
+
+<div class="wrap1">
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2F5o6pf3SKgEE%2Fmaxresdefault.jpg%3Fsqp%3D-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgZShSMA8%3D%26rs%3DAOn4CLBiuJgizziISE9w_uk56N_E3SaCtg&f=1&nofb=1&ipt=bf6361868005debc3604d13db8021a41dd9cde8c364db28653a156d69c2fd234">
+</div>
+
+**Jacob Bronstein** (Biology, Specialization in Ecology and Conservation Biology, Schmitt Lab; UROP; he/him)<br>
+UROP Project: *DNA metabarcoding of Peruvian woolly monkey (Lagothrix lagotricha tschudii) fecal samples to detect arthropod consumption*
+
 <br><br><br>
 
 
